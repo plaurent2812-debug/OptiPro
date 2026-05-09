@@ -30,7 +30,7 @@ export default function MethodeClient() {
             Vous n&apos;apprenez rien. C&apos;est moi qui m&apos;adapte.
           </p>
         </div>
-        <ul style={{ listStyle: 'none', padding: 0, margin: '0 auto 3rem', maxWidth: '620px', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
+        <ul role="list" style={{ listStyle: 'none', padding: 0, margin: '0 auto 3rem', maxWidth: '620px', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
           <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: 'var(--secondary)', lineHeight: 1.6 }}>
             <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
             <span><strong style={{ color: 'var(--primary)' }}>WhatsApp</strong> : vous l&apos;avez déjà sur votre téléphone</span>
@@ -52,7 +52,7 @@ export default function MethodeClient() {
 
       {/* COMMENT JE PEUX FAIRE MIEUX POUR MOINS CHER */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
-        <article style={{
+        <div style={{
           padding: '2.5rem',
           background: 'rgba(249, 115, 22, 0.05)',
           border: '1px solid rgba(249, 115, 22, 0.2)',
@@ -85,12 +85,12 @@ export default function MethodeClient() {
           }}>
             En savoir plus →
           </Link>
-        </article>
+        </div>
       </section>
 
       {/* ET SI JE NE SUIS PAS SATISFAIT ? */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
-        <article style={{
+        <div style={{
           padding: '2rem',
           background: 'var(--background)',
           border: '1px solid var(--border)',
@@ -112,7 +112,7 @@ export default function MethodeClient() {
           <p style={{ color: 'var(--secondary)', lineHeight: 1.65, margin: 0 }}>
             Vos données restent les vôtres, exportables à tout moment.
           </p>
-        </article>
+        </div>
       </section>
 
       {/* CTA FINAL */}

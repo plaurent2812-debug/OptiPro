@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import AccordionItem from './AccordionItem';
 
 const ETAPE_2_SEMAINES = [
@@ -19,7 +20,7 @@ const ETAPE_2_SEMAINES = [
   },
 ];
 
-const circleStyle: React.CSSProperties = {
+const circleStyle: CSSProperties = {
   width: '3rem',
   height: '3rem',
   borderRadius: '999px',
@@ -33,7 +34,7 @@ const circleStyle: React.CSSProperties = {
   flexShrink: 0,
 };
 
-const liStyle: React.CSSProperties = {
+const liStyle: CSSProperties = {
   display: 'grid',
   gridTemplateColumns: 'auto 1fr',
   gap: '1.5rem',

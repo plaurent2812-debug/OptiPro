@@ -47,6 +47,9 @@ export const PILOTE_FORFAITS: PiloteForfait[] = [
   },
 ];
 
+// Frais de mise en route (Mois 1 — facturé une seule fois). Coïncide actuellement
+// avec le prix mensuel de Pilote 30, mais les deux valeurs sont indépendantes et
+// peuvent diverger.
 export const MISE_EN_ROUTE_PRICE = 750;
 export const MISE_EN_ROUTE_FONDATEUR_PRICE = 375;
 
@@ -105,6 +108,8 @@ export const PILOTE_OPTIONS: PiloteOption[] = [
 ];
 
 export function computeFondateurPrice(forfaitPrice: number, period: PilotePeriod): number {
+  // Arrondi au multiple de 5€ le plus proche (Math.round, pas floor) :
+  // 562.5€ → 565€, 862.5€ → 865€. Décision commerciale pour des prix « ronds ».
   switch (period) {
     case 'M1':
       return MISE_EN_ROUTE_FONDATEUR_PRICE;

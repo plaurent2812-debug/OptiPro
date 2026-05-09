@@ -19,6 +19,7 @@ export default function PricingCard({
   return (
     <article style={{
       position: 'relative',
+      marginTop: isRecommended ? '0.85rem' : 0,
       padding: '2rem 1.75rem',
       background: 'var(--background)',
       border: isRecommended ? '2px solid var(--accent)' : '1px solid var(--border)',
@@ -26,7 +27,7 @@ export default function PricingCard({
       display: 'flex',
       flexDirection: 'column',
       gap: '1.25rem',
-      boxShadow: isRecommended ? '0 8px 32px rgba(249, 115, 22, 0.12)' : 'none',
+      boxShadow: isRecommended ? '0 8px 32px var(--accent-light)' : 'none',
     }}>
       {isRecommended && (
         <span style={{
@@ -35,7 +36,7 @@ export default function PricingCard({
           left: '50%',
           transform: 'translateX(-50%)',
           background: 'var(--accent)',
-          color: 'white',
+          color: 'var(--on-accent)',
           padding: '0.3rem 0.85rem',
           borderRadius: '999px',
           fontSize: '0.75rem',
@@ -73,7 +74,7 @@ export default function PricingCard({
         textAlign: 'center',
         padding: '0.85rem 1.25rem',
         background: isRecommended ? 'var(--accent)' : 'var(--primary)',
-        color: 'white',
+        color: isRecommended ? 'var(--on-accent)' : 'var(--on-primary)',
         borderRadius: '0.75rem',
         fontWeight: 600,
         textDecoration: 'none',

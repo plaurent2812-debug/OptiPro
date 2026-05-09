@@ -1,5 +1,7 @@
 // src/data/faq.ts
 
+import { PILOTE_FORFAITS, formatPrice } from './pricing';
+
 export interface FaqItem {
   question: string;
   answer: string;
@@ -24,7 +26,7 @@ export const FAQ_HOMEPAGE: FaqItem[] = [
   },
   {
     question: 'Combien ça coûte exactement pour mon activité ?',
-    answer: '750€/mois jusqu\'à 30 documents, 1 150€ jusqu\'à 60, 1 500€ jusqu\'à 100. Voir la page Tarifs pour le détail.',
+    answer: `${formatPrice(PILOTE_FORFAITS[0].price)}/mois jusqu'à ${PILOTE_FORFAITS[0].volumeDocs} documents, ${formatPrice(PILOTE_FORFAITS[1].price)} jusqu'à ${PILOTE_FORFAITS[1].volumeDocs}, ${formatPrice(PILOTE_FORFAITS[2].price)} jusqu'à ${PILOTE_FORFAITS[2].volumeDocs}. Voir la page Tarifs pour le détail.`,
   },
 ];
 
@@ -39,7 +41,7 @@ export const FAQ_TARIFS: FaqItem[] = [
   },
   {
     question: 'Et si mon volume baisse ?',
-    answer: 'Même logique inverse : bascule au palier inférieur si sous-utilisation prolongée.',
+    answer: 'Bascule au palier inférieur si sous-utilisation prolongée (>30% sous le seuil pendant 2 mois consécutifs).',
   },
   {
     question: 'TVA ?',

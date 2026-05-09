@@ -1,4 +1,5 @@
 import { PILOTE_FORFAITS } from '@/data/pricing';
+import { safeJsonLd } from '@/lib/json-ld';
 
 export default function OfferCatalogJsonLd() {
   const data = {
@@ -25,7 +26,7 @@ export default function OfferCatalogJsonLd() {
 
   return (
     <script type="application/ld+json">
-      {JSON.stringify(data)}
+      {safeJsonLd(data)}
     </script>
   );
 }

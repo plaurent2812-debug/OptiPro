@@ -7,6 +7,7 @@ import {
 } from '@/lib/blog';
 import styles from './article.module.css';
 import ArticleClient from './ArticleClient';
+import { safeJsonLd } from '@/lib/json-ld';
 
 const SITE_URL = 'https://www.opti-pro.fr';
 
@@ -130,9 +131,9 @@ export default async function ArticlePage(
 
   return (
     <main className={styles.main}>
-      <script type="application/ld+json">{JSON.stringify(articleJsonLd)}</script>
+      <script type="application/ld+json">{safeJsonLd(articleJsonLd)}</script>
       <script type="application/ld+json">
-        {JSON.stringify(breadcrumbJsonLd)}
+        {safeJsonLd(breadcrumbJsonLd)}
       </script>
 
       <ArticleClient article={article} relatedArticles={related} />

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import HomePageClient from './HomePageClient';
+import { safeJsonLd } from '@/lib/json-ld';
 
 export const metadata: Metadata = {
   title: { absolute: 'OptiPro — Conseil & développement sur mesure pour artisans et TPE | Vence' },
@@ -71,7 +72,7 @@ const homepageJsonLd = {
 export default function HomePage() {
   return (
     <>
-      <script type="application/ld+json">{JSON.stringify(homepageJsonLd)}</script>
+      <script type="application/ld+json">{safeJsonLd(homepageJsonLd)}</script>
       <HomePageClient />
     </>
   );

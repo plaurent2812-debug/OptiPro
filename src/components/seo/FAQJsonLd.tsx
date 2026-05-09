@@ -1,4 +1,5 @@
 import { buildFaqJsonLd, type FaqItem } from '@/data/faq';
+import { safeJsonLd } from '@/lib/json-ld';
 
 interface Props {
   faq: FaqItem[];
@@ -7,7 +8,7 @@ interface Props {
 export default function FAQJsonLd({ faq }: Props) {
   return (
     <script type="application/ld+json">
-      {JSON.stringify(buildFaqJsonLd(faq))}
+      {safeJsonLd(buildFaqJsonLd(faq))}
     </script>
   );
 }

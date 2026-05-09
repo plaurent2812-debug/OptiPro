@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import AProposPageClient from './AProposPageClient';
+import { safeJsonLd } from '@/lib/json-ld';
 
 export const metadata: Metadata = {
   title: 'À propos — Pierre Laurent',
@@ -73,8 +74,8 @@ const breadcrumbJsonLd = {
 export default function AProposPage() {
   return (
     <>
-      <script type="application/ld+json">{JSON.stringify(personJsonLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(breadcrumbJsonLd)}</script>
+      <script type="application/ld+json">{safeJsonLd(personJsonLd)}</script>
+      <script type="application/ld+json">{safeJsonLd(breadcrumbJsonLd)}</script>
       <AProposPageClient />
     </>
   );

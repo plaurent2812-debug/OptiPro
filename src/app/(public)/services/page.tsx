@@ -5,6 +5,7 @@ import AuditCta from '@/components/ui/AuditCta';
 import { services } from '@/data/services';
 import { offerCategories } from '@/data/offers';
 import OffersSection from './OffersSection';
+import { safeJsonLd } from '@/lib/json-ld';
 
 export const metadata: Metadata = {
   title: 'Services & tarifs — Création web, automatisation',
@@ -97,10 +98,10 @@ const faqJsonLd = {
 export default function ServicesPage() {
   return (
     <main style={{ paddingTop: '6rem' }}>
-      <script type="application/ld+json">{JSON.stringify(offerCatalogJsonLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(demarcheJsonLd)}</script>
-      <script type="application/ld+json">{JSON.stringify(faqJsonLd)}</script>
-      <script type="application/ld+json">{JSON.stringify({
+      <script type="application/ld+json">{safeJsonLd(offerCatalogJsonLd)}</script>
+      <script type="application/ld+json">{safeJsonLd(demarcheJsonLd)}</script>
+      <script type="application/ld+json">{safeJsonLd(faqJsonLd)}</script>
+      <script type="application/ld+json">{safeJsonLd({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [

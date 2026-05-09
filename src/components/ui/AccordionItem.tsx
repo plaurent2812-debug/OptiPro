@@ -51,7 +51,7 @@ export default function AccordionItem({ title, defaultOpen = false, children }: 
         id={contentId}
         hidden={!open}
         style={{
-          padding: open ? '0 1.25rem 1.25rem' : '0 1.25rem',
+          padding: '0 1.25rem 1.25rem',
           fontSize: '0.95rem',
           lineHeight: 1.65,
           color: 'var(--secondary)',

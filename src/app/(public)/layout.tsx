@@ -3,6 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import PageTransition from "@/components/layout/PageTransition";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { safeJsonLd } from "@/lib/json-ld";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.opti-pro.fr'),
@@ -121,7 +122,7 @@ export default function PublicLayout({
 }) {
   return (
     <ThemeProvider>
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <script type="application/ld+json">{safeJsonLd(jsonLd)}</script>
       <Header />
       <PageTransition>{children}</PageTransition>
       <Footer />

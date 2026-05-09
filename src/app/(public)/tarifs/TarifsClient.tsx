@@ -219,9 +219,9 @@ export default function TarifsClient() {
           <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '560px' }}>
             <thead>
               <tr>
-                <th style={{ padding: '0.85rem 1rem', textAlign: 'left', borderBottom: '2px solid var(--border)', fontSize: '0.85rem', color: 'var(--secondary)', fontWeight: 600 }}>Période</th>
+                <th scope="col" style={{ padding: '0.85rem 1rem', textAlign: 'left', borderBottom: '2px solid var(--border)', fontSize: '0.85rem', color: 'var(--secondary)', fontWeight: 600 }}>Période</th>
                 {PILOTE_FORFAITS.map((f) => (
-                  <th key={f.id} style={{ padding: '0.85rem 1rem', textAlign: 'right', borderBottom: '2px solid var(--border)', fontSize: '0.85rem', color: 'var(--secondary)', fontWeight: 600 }}>
+                  <th key={f.id} scope="col" style={{ padding: '0.85rem 1rem', textAlign: 'right', borderBottom: '2px solid var(--border)', fontSize: '0.85rem', color: 'var(--secondary)', fontWeight: 600 }}>
                     {f.name}
                   </th>
                 ))}
@@ -230,9 +230,9 @@ export default function TarifsClient() {
             <tbody>
               {FONDATEUR_PERIODS.map(({ period, label }) => (
                 <tr key={period}>
-                  <td style={{ padding: '0.85rem 1rem', borderBottom: '1px solid var(--border)', fontSize: '0.9rem', color: 'var(--primary)', fontWeight: 600 }}>
+                  <th scope="row" style={{ padding: '0.85rem 1rem', textAlign: 'left', borderBottom: '1px solid var(--border)', fontSize: '0.9rem', color: 'var(--primary)', fontWeight: 600 }}>
                     {label}
-                  </td>
+                  </th>
                   {PILOTE_FORFAITS.map((f) => (
                     <td key={f.id} style={{ padding: '0.85rem 1rem', textAlign: 'right', borderBottom: '1px solid var(--border)', fontSize: '0.95rem', color: 'var(--primary)', fontWeight: period === 'M7+' ? 700 : 500 }}>
                       {formatPrice(computeFondateurPrice(f.price, period))}
@@ -243,7 +243,7 @@ export default function TarifsClient() {
             </tbody>
           </table>
           <p style={{ textAlign: 'center', color: 'var(--secondary)', fontSize: '0.85rem', marginTop: '1rem', fontStyle: 'italic' }}>
-            M1 = mise en route à -50% (375€), puis -50% sur 2 mois, puis -25% sur 3 mois, puis tarif normal.
+            M1 = mise en route à -50% (375€). Puis -50% pendant 2 mois et -25% pendant 3 mois, arrondis au multiple de 5€. Tarif plein à partir du M7.
           </p>
         </div>
       </section>
@@ -270,7 +270,7 @@ export default function TarifsClient() {
       </section>
 
       {/* SECTION 12 — CTA FINAL */}
-      <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem', textAlign: 'center' }}>
+      <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1rem' }}>
           Pas sûr du forfait adapté ? Discutons-en.
         </h2>

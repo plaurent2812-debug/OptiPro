@@ -49,7 +49,7 @@ export default function LeServiceClient() {
       {/* HERO */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 4rem', textAlign: 'center' }}>
         <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.15, margin: '0 0 1.5rem' }}>
-          Tout votre admin opérationnel.<br/>Pris en charge.
+          Tout votre admin opérationnel. Pris en charge.
         </h1>
         <p style={{ fontSize: '1.15rem', color: 'var(--secondary)', lineHeight: 1.6, maxWidth: '680px', margin: '0 auto' }}>
           Vous bossez sur le chantier. Je gère votre bureau. Voilà ce qui est inclus dans le forfait Pilote, à partir de {formatPrice(PILOTE_FORFAITS[0].price)}/mois.
@@ -112,7 +112,7 @@ export default function LeServiceClient() {
       </section>
 
       {/* CTA FINAL */}
-      <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem', textAlign: 'center' }}>
+      <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1rem' }}>
           Prêt à déléguer votre admin ?
         </h2>

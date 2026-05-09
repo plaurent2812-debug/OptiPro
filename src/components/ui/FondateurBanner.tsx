@@ -6,18 +6,18 @@ interface Props {
   href?: string;
 }
 
-export default function FondateurBanner({ variant = 'inline', href = '/programme-fondateur' }: Props) {
+export default function FondateurBanner({ variant = 'inline', href = '/contact?cible=fondateur' }: Props) {
   if (variant === 'sticky') {
     return (
       <div style={{
-        background: 'linear-gradient(90deg, #f97316, #ef4444)',
+        background: 'linear-gradient(90deg, #c2410c, #b91c1c)',
         color: 'var(--on-accent)',
         padding: '0.75rem 1rem',
         textAlign: 'center',
         fontSize: '0.9rem',
         fontWeight: 600,
       }}>
-        ⚡ 3 places Fondateurs disponibles — tarif progressif sur 6 mois.{' '}
+        <span aria-hidden="true">⚡</span> 3 places Fondateurs disponibles — tarif progressif sur 6 mois.{' '}
         <Link href={href} style={{ color: 'var(--on-accent)', textDecoration: 'underline' }}>En savoir plus →</Link>
       </div>
     );

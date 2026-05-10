@@ -12,9 +12,8 @@ const cibleLabels: Record<string, string> = {
 };
 
 function subjectFor(cible: string | undefined, name: string, isFondateur: boolean): string {
-    const baseEmoji = cibleLabels[cible ?? 'default']?.split(' ')[0] ?? '✉️';
-    const baseLabel = cibleLabels[cible ?? 'default'] ?? 'Demande';
-    const subject = `${baseEmoji} ${baseLabel} — ${name}`;
+    const baseLabel = cibleLabels[cible ?? 'default'] ?? '✉️ Demande';
+    const subject = `${baseLabel} — ${name}`;
     return isFondateur ? `🌟 CANDIDATURE FONDATEUR — ${subject}` : subject;
 }
 

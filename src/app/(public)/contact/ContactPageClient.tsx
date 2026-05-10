@@ -283,8 +283,8 @@ function ContactForm() {
                 ></textarea>
             </div>
 
-            <div className="form-group">
-                <span className="form-label" style={{ display: 'block', marginBottom: '0.6rem' }}>Type de demande *</span>
+            <fieldset style={{ border: 'none', padding: 0, margin: '0 0 1.25rem' }}>
+                <legend className="form-label" style={{ display: 'block', marginBottom: '0.6rem', padding: 0 }}>Type de demande *</legend>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                     <label
                         htmlFor="typeDemande-standard"
@@ -349,7 +349,7 @@ function ContactForm() {
                         </span>
                     </label>
                 </div>
-            </div>
+            </fieldset>
 
             <Button
                 type="submit"

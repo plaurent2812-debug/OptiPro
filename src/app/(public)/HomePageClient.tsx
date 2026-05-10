@@ -1,76 +1,61 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import dynamic from 'next/dynamic';
+import { useRef } from 'react';
+import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import styles from './HomePage.module.css';
-import Button from '@/components/ui/Button';
-import AuditCta from '@/components/ui/AuditCta';
-import Image from 'next/image';
-
-// HeroAnimation est lourd (~274 lignes + GSAP interne avec animations width)
-// → dynamic import avec placeholder de même hauteur pour éviter CLS.
-const HeroAnimation = dynamic(() => import('@/components/visuals/HeroAnimation'), {
-  loading: () => <div style={{ width: '100%', aspectRatio: '4 / 3', maxWidth: '420px' }} />,
-});
-
-// Mockups sous le fold : split chunk (chargés en parallèle après HeroAnimation)
-const AuditMockup = dynamic(() => import('@/components/visuals/AuditMockup'), {
-  loading: () => <div style={{ minHeight: '200px' }} />,
-});
-const AnalyseMockup = dynamic(() => import('@/components/visuals/AnalyseMockup'), {
-  loading: () => <div style={{ minHeight: '200px' }} />,
-});
-const CreationMockup = dynamic(() => import('@/components/visuals/CreationMockup'), {
-  loading: () => <div style={{ minHeight: '200px' }} />,
-});
-const AutomationMockup = dynamic(() => import('@/components/visuals/AutomationMockup'), {
-  loading: () => <div style={{ minHeight: '200px' }} />,
-});
+import MockupTableauDeBord from '@/components/ui/MockupTableauDeBord';
+import ComparisonCards from '@/components/ui/ComparisonCards';
+import FondateurBanner from '@/components/ui/FondateurBanner';
+import AccordionItem from '@/components/ui/AccordionItem';
+import { FAQ_HOMEPAGE } from '@/data/faq';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+// Toggle quand le 1er Fondateur signera et autorisera la publication d'un témoignage.
+const SHOW_TESTIMONIALS = false;
+
+const PROBLEM_POINTS: { title: string; desc: string }[] = [
+  {
+    title: 'Devis envoyés 3 jours après la visite',
+    desc: "Le client a déjà appelé un autre artisan.",
+  },
+  {
+    title: "Factures impayées qui s'accumulent",
+    desc: 'Vous oubliez de relancer, vous perdez 2-5k€/mois sans le voir.',
+  },
+  {
+    title: 'Aucune visibilité sur votre trésorerie',
+    desc: 'Vous ne savez jamais vraiment ce qui rentre, ce qui sort, ce qui reste à encaisser.',
+  },
+];
+
+const SOLUTION_CARDS: { icon: string; title: string; desc: string }[] = [
+  {
+    icon: '📄',
+    title: 'Devis',
+    desc: 'Envoyés sous 1h après votre vocal WhatsApp. Signature en ligne.',
+  },
+  {
+    icon: '💰',
+    title: 'Facturation',
+    desc: 'Émission, envoi, relances auto. Conforme à la facturation électronique 2026-2027.',
+  },
+  {
+    icon: '📊',
+    title: 'Trésorerie',
+    desc: 'Tableau de bord temps réel. Plus jamais de surprise sur le compte.',
+  },
+  {
+    icon: '📋',
+    title: 'Comptable',
+    desc: 'Dossier mensuel propre, FEC à jour. Votre comptable vous remerciera.',
+  },
+];
+
 export default function HomePageClient() {
-  const mainRef = useRef<HTMLElement>(null);
-  const decoRef1 = useRef<HTMLDivElement>(null);
-  const decoRef2 = useRef<HTMLDivElement>(null);
-
-  // Parallax via GSAP ScrollTrigger (compositor-only) au lieu de setState +
-  // re-render React à chaque pixel. Économie majeure de Style & Layout.
-  useEffect(() => {
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) return;
-
-    const ctx = gsap.context(() => {
-      if (decoRef1.current) {
-        gsap.to(decoRef1.current, {
-          y: () => window.innerHeight * 0.15,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: decoRef1.current,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          },
-        });
-      }
-      if (decoRef2.current) {
-        gsap.to(decoRef2.current, {
-          y: () => -window.innerHeight * 0.1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: decoRef2.current,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true,
-          },
-        });
-      }
-    });
-    return () => ctx.revert();
-  }, []);
+  const rootRef = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
@@ -82,96 +67,55 @@ export default function HomePageClient() {
           motionReduced: '(prefers-reduced-motion: reduce)',
         },
         (context) => {
-          const conditions = context.conditions as {
-            motionOk: boolean;
-            motionReduced: boolean;
-          };
+          const conditions = context.conditions as
+            | { motionOk: boolean; motionReduced: boolean }
+            | undefined;
+          if (!conditions) return;
           const reduced = conditions.motionReduced;
 
-          // ========= HERO INTRO TIMELINE =========
-          // CRITICAL : NE PAS toucher heroSub (élément LCP) — il doit rester
-          // visible immédiatement pour que LCP soit < 2.5s sur mobile.
-          // On anime uniquement les éléments NON-LCP (badge, ctas, visual).
-          const heroBadge = mainRef.current?.querySelector(
-            `.${styles.heroBadge}`,
+          // ===== HERO INTRO =====
+          const heroEls = rootRef.current?.querySelectorAll<HTMLElement>(
+            '[data-hero-anim]',
           );
-          const heroCtas = mainRef.current?.querySelector(
-            `.${styles.heroCtas}`,
-          );
-          const heroVisual = mainRef.current?.querySelector(
-            `.${styles.heroVisual}`,
-          );
-
-          const heroEls = [heroBadge, heroCtas].filter(
-            (el): el is Element => el != null,
-          );
-
-          if (heroEls.length > 0 && !reduced) {
+          if (heroEls && heroEls.length > 0 && !reduced) {
             gsap.set(heroEls, {
               opacity: 0,
               y: 20,
               willChange: 'transform, opacity',
             });
-
-            const tl = gsap.timeline({
-              defaults: { ease: 'power3.out' },
-              onComplete: () => {
-                heroEls.forEach((el) => {
-                  if (el instanceof HTMLElement) el.style.willChange = 'auto';
-                });
-                if (heroVisual instanceof HTMLElement) {
-                  heroVisual.style.willChange = 'auto';
-                }
-              },
-            });
-
-            tl.to(heroEls, {
+            gsap.to(heroEls, {
               opacity: 1,
               y: 0,
-              duration: 0.5,
+              duration: 0.6,
               stagger: 0.08,
+              ease: 'power3.out',
+              onComplete: () => {
+                heroEls.forEach((el) => {
+                  el.style.willChange = 'auto';
+                });
+              },
             });
-
-            if (heroVisual) {
-              gsap.set(heroVisual, {
-                opacity: 0,
-                scale: reduced ? 1 : 0.95,
-                willChange: 'transform, opacity',
-              });
-              tl.to(
-                heroVisual,
-                {
-                  opacity: 1,
-                  scale: 1,
-                  duration: 0.8,
-                  ease: 'power3.out',
-                },
-                0.3,
-              );
-            }
           }
 
-          // ========= REVEAL ON SCROLL (sections + cards) =========
-          const revealTargets = mainRef.current?.querySelectorAll<HTMLElement>(
+          // ===== SCROLL REVEAL on cards/sections =====
+          const revealTargets = rootRef.current?.querySelectorAll<HTMLElement>(
             '[data-reveal]',
           );
-
           revealTargets?.forEach((target) => {
             gsap.set(target, {
               opacity: 0,
               y: reduced ? 0 : 30,
             });
-
             ScrollTrigger.create({
               trigger: target,
-              start: 'top 80%',
+              start: 'top 85%',
               once: true,
               onEnter: () => {
                 target.style.willChange = 'transform, opacity';
                 gsap.to(target, {
                   opacity: 1,
                   y: 0,
-                  duration: 0.7,
+                  duration: 0.6,
                   ease: 'power2.out',
                   onComplete: () => {
                     target.style.willChange = 'auto';
@@ -180,361 +124,588 @@ export default function HomePageClient() {
               },
             });
           });
-
-          // ========= PROJECT CARDS — staggered =========
-          const projectCards =
-            mainRef.current?.querySelectorAll<HTMLElement>(
-              '[data-reveal-project]',
-            );
-
-          if (projectCards && projectCards.length > 0) {
-            gsap.set(projectCards, {
-              opacity: 0,
-              y: reduced ? 0 : 30,
-            });
-
-            ScrollTrigger.create({
-              trigger: projectCards[0],
-              start: 'top 80%',
-              once: true,
-              onEnter: () => {
-                projectCards.forEach((c) => {
-                  c.style.willChange = 'transform, opacity';
-                });
-                gsap.to(projectCards, {
-                  opacity: 1,
-                  y: 0,
-                  duration: 0.7,
-                  ease: 'power2.out',
-                  stagger: 0.15,
-                  onComplete: () => {
-                    projectCards.forEach((c) => {
-                      c.style.willChange = 'auto';
-                    });
-                  },
-                });
-              },
-            });
-          }
         },
       );
 
       return () => mm.revert();
     },
-    { scope: mainRef },
+    { scope: rootRef },
   );
 
   return (
-    <main ref={mainRef}>
-      {/* ===== HERO ===== */}
-      <section className={styles.hero}>
-        <div className="container">
-          {/* Decorative elements */}
-          <div
-            ref={decoRef1}
-            style={{
-              position: 'absolute',
-              top: '15%',
-              right: '5%',
-              width: '300px',
-              height: '300px',
-              borderRadius: '50%',
-              background: 'rgba(249, 115, 22, 0.03)',
-              filter: 'blur(60px)',
-              pointerEvents: 'none',
-              willChange: 'transform',
-            }}
-          />
-          <div
-            ref={decoRef2}
-            style={{
-              position: 'absolute',
-              bottom: '10%',
-              left: '-5%',
-              width: '200px',
-              height: '200px',
-              borderRadius: '50%',
-              background: 'rgba(249, 115, 22, 0.04)',
-              filter: 'blur(40px)',
-              pointerEvents: 'none',
-              willChange: 'transform',
-            }}
-          />
-          <div className={styles.heroGrid}>
-            <div className={styles.heroText}>
-              <span className={styles.heroBadge}>
-                Conseil ops, sites web et automatisation — Vence, PACA
-              </span>
-              <h1 className={styles.heroTitle}>
-                Sites web, automatisation et outils sur mesure pour{' '}
-                <span className={styles.heroAccent}>
-                  artisans, TPE et PME ops sur la Côte d&apos;Azur
-                </span>
-              </h1>
-              <p className={styles.heroSub}>
-                10 ans en exploitation logistique : ERP déployé, 8 500 références gérées,
-                7 M€ de portefeuille piloté. Je connais le coût d&apos;une erreur sur le
-                terrain. OptiPro accompagne plombiers, restaurateurs, TPE et PME
-                logistique/transport/BTP : audit ops, automatisation des flux,
-                outils sur mesure. Basé à Vence (06140), interventions Vence, Nice,
-                Antibes, Cannes, Grasse — France entière à distance.
-              </p>
-              <div className={styles.heroCtas}>
-                <Button href="/contact" variant="primary">
-                  Premier appel — gratuit
-                </Button>
-                <Button href="/services" variant="outline">
-                  Voir les services
-                </Button>
-              </div>
-            </div>
+    <main ref={rootRef}>
+      {/* ===== Section 1 — HERO ===== */}
+      <section
+        style={{
+          maxWidth: '1100px',
+          margin: '0 auto',
+          padding: '5rem 1.5rem 4rem',
+          textAlign: 'center',
+        }}
+      >
+        <h1
+          data-hero-anim
+          style={{
+            fontSize: 'clamp(2.25rem, 6vw, 3.75rem)',
+            fontWeight: 800,
+            color: 'var(--primary)',
+            lineHeight: 1.1,
+            margin: '0 0 1.5rem',
+            letterSpacing: '-0.02em',
+          }}
+        >
+          Le bras droit administratif des artisans.
+        </h1>
 
-            {/* Hero animation */}
-            <div className={styles.heroVisual}>
-              <HeroAnimation />
-            </div>
-          </div>
+        {/* Sous-titre 3 lignes — punch */}
+        <div
+          data-hero-anim
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.4rem',
+            marginBottom: '2rem',
+          }}
+        >
+          <p
+            style={{
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
+              color: 'var(--secondary)',
+              fontWeight: 500,
+              margin: 0,
+            }}
+          >
+            Plus rapide qu&apos;un(e) assistant(e).
+          </p>
+          <p
+            style={{
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
+              color: 'var(--secondary)',
+              fontWeight: 500,
+              margin: 0,
+            }}
+          >
+            Moins cher qu&apos;un mi-temps.
+          </p>
+          <p
+            style={{
+              fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
+              color: 'var(--accent)',
+              fontWeight: 700,
+              margin: 0,
+            }}
+          >
+            Plus complet que les deux.
+          </p>
+        </div>
+
+        {/* Description */}
+        <p
+          data-hero-anim
+          style={{
+            fontSize: '1.1rem',
+            color: 'var(--secondary)',
+            lineHeight: 1.6,
+            maxWidth: '720px',
+            margin: '0 auto 1.5rem',
+          }}
+        >
+          Devis, factures, trésorerie, relances — tout est piloté pour vous, à
+          partir de{' '}
+          <strong style={{ color: 'var(--primary)' }}>750€/mois</strong>. Avec un
+          tableau de bord temps réel inclus.
+        </p>
+
+        {/* Rassurance comptable */}
+        <div
+          data-hero-anim
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.6rem',
+            padding: '0.75rem 1.25rem',
+            background: 'rgba(22, 163, 74, 0.08)',
+            border: '1px solid rgba(22, 163, 74, 0.25)',
+            borderRadius: '999px',
+            marginBottom: '2.5rem',
+            fontSize: '0.95rem',
+            color: 'var(--secondary)',
+          }}
+        >
+          <span aria-hidden="true" style={{ color: '#16a34a', fontWeight: 800 }}>
+            ✓
+          </span>
+          <span>
+            Votre comptable garde son rôle. Je m&apos;occupe du reste : tout
+            l&apos;admin opérationnel.
+          </span>
+        </div>
+
+        {/* CTA double */}
+        <div
+          data-hero-anim
+          style={{
+            display: 'flex',
+            gap: '1rem',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            marginBottom: '2rem',
+          }}
+        >
+          <Link
+            href="/contact"
+            style={{
+              display: 'inline-block',
+              padding: '1rem 2rem',
+              background: 'var(--primary)',
+              color: 'var(--on-primary)',
+              borderRadius: '0.75rem',
+              textDecoration: 'none',
+              fontWeight: 600,
+              fontSize: '1.05rem',
+            }}
+          >
+            Réserver mon appel découverte (gratuit)
+          </Link>
+          <Link
+            href="/tarifs"
+            style={{
+              display: 'inline-block',
+              padding: '1rem 2rem',
+              background: 'transparent',
+              color: 'var(--primary)',
+              border: '1px solid var(--border)',
+              borderRadius: '0.75rem',
+              textDecoration: 'none',
+              fontWeight: 600,
+              fontSize: '1.05rem',
+            }}
+          >
+            Voir les tarifs
+          </Link>
+        </div>
+
+        {/* Bandeau Fondateur */}
+        <div
+          data-hero-anim
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            padding: '0.5rem 1rem',
+            background: 'rgba(249, 115, 22, 0.1)',
+            border: '1px solid rgba(249, 115, 22, 0.3)',
+            borderRadius: '999px',
+            fontSize: '0.85rem',
+            color: 'var(--accent)',
+            fontWeight: 600,
+          }}
+        >
+          <span aria-hidden="true">⚡</span>
+          <span>
+            3 places Fondateur disponibles — tarif progressif sur 6 mois
+          </span>
         </div>
       </section>
 
-      <div className="section-divider" />
-
-      {/* ===== LE PROBLÈME ===== */}
-      <section data-reveal style={{ padding: '5rem 0' }}>
-        <div className="container">
-          <div className="problem-grid">
-            <div>
-              <h2
+      {/* ===== Section 2 — BLOC PROBLÈME ===== */}
+      <section
+        style={{
+          maxWidth: '1100px',
+          margin: '0 auto',
+          padding: '0 1.5rem 5rem',
+        }}
+      >
+        <h2
+          data-reveal
+          style={{
+            fontSize: '1.75rem',
+            fontWeight: 700,
+            color: 'var(--primary)',
+            textAlign: 'center',
+            margin: '0 0 3rem',
+          }}
+        >
+          Vous reconnaissez ces situations ?
+        </h2>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.5rem',
+          }}
+        >
+          {PROBLEM_POINTS.map((p) => (
+            <article
+              key={p.title}
+              data-reveal
+              style={{
+                padding: '1.75rem',
+                background: 'rgba(220, 38, 38, 0.04)',
+                border: '1px solid rgba(220, 38, 38, 0.15)',
+                borderRadius: '1rem',
+              }}
+            >
+              <div
+                aria-hidden="true"
+                style={{ fontSize: '1.5rem', marginBottom: '0.85rem' }}
+              >
+                🔴
+              </div>
+              <h3
                 style={{
-                  fontSize: '2rem',
-                  fontWeight: 800,
+                  fontSize: '1.05rem',
+                  fontWeight: 700,
                   color: 'var(--primary)',
-                  marginBottom: '1.5rem',
-                  lineHeight: 1.2,
+                  margin: '0 0 0.5rem',
+                  lineHeight: 1.35,
                 }}
               >
-                Pourquoi les TPE, artisans et PME perdent-ils autant de temps sur leurs opérations ?
-              </h2>
+                {p.title}
+              </h3>
               <p
                 style={{
+                  margin: 0,
                   color: 'var(--secondary)',
-                  fontSize: '1.05rem',
-                  lineHeight: 1.7,
+                  lineHeight: 1.55,
                 }}
               >
-                Outils mal adaptés, ERP qui ne se parle pas avec le terrain, sous-traitants
-                pilotés à l&apos;email. Quand un outil casse, personne n&apos;est là pour le régler.
+                {p.desc}
               </p>
-            </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {[
-                'Outils mal adaptés à votre activité',
-                'Tableurs à rallonge, process manuels',
-                'ERP/TMS désynchronisés du terrain',
-                'Sous-traitants pilotés à coups d\'emails',
-                'Reporting hebdo qui prend 3h chaque lundi',
-                "Des heures perdues sur l'admin",
-              ].map((item) => (
-                <div key={item} className="pain-point">
-                  <span style={{ color: 'var(--danger)', fontSize: '1.1rem', flexShrink: 0 }}>✕</span>
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
+            </article>
+          ))}
         </div>
       </section>
 
-      <div className="section-divider" />
-
-      {/* ===== SERVICE 1: AUDIT ===== */}
-      <section data-reveal className="service-showcase">
-        <div className="container">
-          <div className="service-showcase-grid">
-            <div className="service-showcase-text">
-              <span className="service-showcase-label">Étape 1 · Audit</span>
-              <h2 className="service-showcase-title">
-                Comment se déroule un projet avec OptiPro ?
-              </h2>
-              <p className="service-showcase-desc">
-                Je passe en revue vos outils, vos process quotidiens et
-                vos points de friction. Vous repartez avec un diagnostic
-                clair et des recommandations priorisées.
-              </p>
-              <ul className="service-showcase-features">
-                <li>Cartographie complète de vos outils</li>
-                <li>Identification des points de friction</li>
-                <li>Rapport détaillé avec plan d&apos;action</li>
-                <li>Le premier appel découverte est gratuit</li>
-              </ul>
-            </div>
-            <div className="service-showcase-visual">
-              <AuditMockup />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SERVICE 2: ANALYSE ===== */}
-      <section data-reveal className="service-showcase">
-        <div className="container">
-          <div className="service-showcase-grid reversed">
-            <div className="service-showcase-text">
-              <span className="service-showcase-label">Étape 2 · Analyse</span>
-              <h2 className="service-showcase-title">
-                Chaque minute perdue<br />a un coût
-              </h2>
-              <p className="service-showcase-desc">
-                À partir de l&apos;audit, je priorise les sujets qui vous
-                bloquent ou vous coûtent le plus. On définit ensemble un
-                plan d&apos;action concret, adapté à votre budget.
-              </p>
-              <ul className="service-showcase-features">
-                <li>Blocages priorisés par impact</li>
-                <li>Estimation des gains de temps</li>
-                <li>Solutions recommandées et chiffrées</li>
-              </ul>
-            </div>
-            <div className="service-showcase-visual">
-              <AnalyseMockup />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SERVICE 3: CRÉATION ===== */}
-      <section data-reveal className="service-showcase">
-        <div className="container">
-          <div className="service-showcase-grid">
-            <div className="service-showcase-text">
-              <span className="service-showcase-label">Étape 3 · Création</span>
-              <h2 className="service-showcase-title">
-                Des outils construits<br />pour votre métier
-              </h2>
-              <p className="service-showcase-desc">
-                Site vitrine, application web, tableau de bord, espace
-                client — chaque solution est conçue sur mesure. Pas de
-                template générique, pas de compromis.
-              </p>
-              <ul className="service-showcase-features">
-                <li>Design sur mesure, responsive</li>
-                <li>Maquettes validées avant développement</li>
-                <li>Formation et accompagnement inclus</li>
-              </ul>
-            </div>
-            <div className="service-showcase-visual">
-              <CreationMockup />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== SERVICE 4: AUTOMATISATION ===== */}
-      <section data-reveal className="service-showcase">
-        <div className="container">
-          <div className="service-showcase-grid reversed">
-            <div className="service-showcase-text">
-              <span className="service-showcase-label">Étape 4 · Automatisation</span>
-              <h2 className="service-showcase-title">
-                Vos outils se parlent.<br />Le répétitif disparaît.
-              </h2>
-              <p className="service-showcase-desc">
-                Je connecte vos outils entre eux et j&apos;automatise les
-                tâches répétitives. Devis, relances, synchronisations,
-                exports — tout tourne sans que vous y pensiez.
-              </p>
-              <ul className="service-showcase-features">
-                <li>Workflows automatisés sur mesure</li>
-                <li>Intégrations entre vos outils existants</li>
-                <li>Zéro intervention manuelle au quotidien</li>
-              </ul>
-            </div>
-            <div className="service-showcase-visual">
-              <AutomationMockup />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div className="section-divider" />
-
-
-      {/* ===== TRANSPARENCE / TÉMOIGNAGES ===== */}
-      <section data-reveal style={{ padding: '4rem 0 1rem' }}>
-        <div className="container">
-          <div style={{
-            maxWidth: '760px',
-            margin: '0 auto',
-            background: 'var(--background)',
-            border: '1px dashed var(--border)',
-            borderRadius: '16px',
-            padding: '2rem 2.5rem',
-          }}>
-            <p style={{ color: 'var(--accent)', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '0.75rem', fontWeight: 700 }}>
-              Honnêteté
-            </p>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '1rem', lineHeight: 1.3 }}>
-              Pas encore de témoignages clients OptiPro
-            </h2>
-            <p style={{ color: 'var(--secondary)', lineHeight: 1.7, fontSize: '0.97rem', marginBottom: '0.75rem' }}>
-              J&apos;ai lancé OptiPro à temps plein en avril 2026. Les premiers cas
-              clients sont en cours et seront documentés ici dès qu&apos;ils seront
-              livrés et validés par les clients concernés.
-            </p>
-            <p style={{ color: 'var(--secondary)', lineHeight: 1.7, fontSize: '0.97rem' }}>
-              En attendant, mon parcours opérationnel — 10 ans, déploiement complet
-              d&apos;un ERP, 7 M€ de portefeuille ADV, 8 500 références gérées,
-              coordination quotidienne de 15 à 20 sous-traitants — est ma seule
-              référence. Et c&apos;est exactement ce que je vous propose de mettre
-              à votre service.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== FONDATEUR ===== */}
-      <section data-reveal style={{ padding: '3rem 0 5rem' }}>
-        <div className="container">
-          <div className={styles.founderCard}>
-            <div className={styles.founderPhoto}>
-              <Image
-                src="/pierre-laurent.png"
-                alt="Pierre Laurent, fondateur d'OptiPro"
-                width={120}
-                height={120}
-              />
-            </div>
-            <div className={styles.founderText}>
-              <p className={styles.founderEyebrow}>Votre interlocuteur</p>
-              <h2 className={styles.founderTitle}>
-                Pierre Laurent — Fondateur OptiPro
-              </h2>
-              <p className={styles.founderBio}>
-                10 ans à piloter des flux tendus en exploitation logistique : déploiement complet d&apos;un ERP chez Eddifis, 8 500 références gérées chez DBS, 7 M€ de portefeuille ADV piloté chez Factory, dépôt événementiel chez GL Events Live. J&apos;ai quitté l&apos;exploitation pour fonder OptiPro et appliquer ces 10 ans de terrain à l&apos;IA opérationnelle. Je sais ce que coûte une erreur sur le terrain.
-              </p>
-              <p className={styles.founderNote}>
-                Vous parlerez toujours avec moi directement — du diagnostic à la livraison. Pas de sous-traitance, pas de commercial.
-              </p>
-              <a
-                href="https://www.linkedin.com/in/pierre-laurent-809410123"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.founderLink}
+      {/* ===== Section 3 — BLOC SOLUTION ===== */}
+      <section
+        style={{
+          maxWidth: '1100px',
+          margin: '0 auto',
+          padding: '0 1.5rem 5rem',
+        }}
+      >
+        <h2
+          data-reveal
+          style={{
+            fontSize: '1.75rem',
+            fontWeight: 700,
+            color: 'var(--primary)',
+            textAlign: 'center',
+            margin: '0 0 1rem',
+          }}
+        >
+          Voilà ce que je prends en charge pour vous
+        </h2>
+        <p
+          data-reveal
+          style={{
+            textAlign: 'center',
+            color: 'var(--secondary)',
+            maxWidth: '620px',
+            margin: '0 auto 3rem',
+            lineHeight: 1.6,
+          }}
+        >
+          Tout votre admin opérationnel, géré par un humain (moi) avec des
+          outils qui automatisent le répétitif.
+        </p>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.5rem',
+            marginBottom: '2rem',
+          }}
+        >
+          {SOLUTION_CARDS.map((s) => (
+            <article
+              key={s.title}
+              data-reveal
+              style={{
+                padding: '1.75rem',
+                background: 'var(--background)',
+                border: '1px solid var(--border)',
+                borderRadius: '1rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.75rem',
+              }}
+            >
+              <span
+                aria-hidden="true"
+                style={{ fontSize: '2rem', lineHeight: 1 }}
               >
-                Voir le profil LinkedIn →
-              </a>
+                {s.icon}
+              </span>
+              <h3
+                style={{
+                  fontSize: '1.15rem',
+                  fontWeight: 700,
+                  color: 'var(--primary)',
+                  margin: 0,
+                }}
+              >
+                {s.title}
+              </h3>
+              <p
+                style={{
+                  margin: 0,
+                  color: 'var(--secondary)',
+                  lineHeight: 1.55,
+                }}
+              >
+                {s.desc}
+              </p>
+            </article>
+          ))}
+        </div>
+        <p
+          data-reveal
+          style={{
+            textAlign: 'center',
+            color: 'var(--secondary)',
+            fontSize: '0.95rem',
+            fontStyle: 'italic',
+          }}
+        >
+          + Frais &amp; dépenses (OCR auto), Planning &amp; RDV, Coordination
+          prestataires.
+        </p>
+      </section>
+
+      {/* ===== Section 4 — BLOC TABLEAU DE BORD ===== */}
+      <section
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 1.5rem 5rem',
+        }}
+      >
+        <div
+          data-reveal
+          style={{
+            textAlign: 'center',
+            marginBottom: '3rem',
+            maxWidth: '780px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <h2
+            style={{
+              fontSize: '1.75rem',
+              fontWeight: 700,
+              color: 'var(--primary)',
+              margin: '0 0 1rem',
+            }}
+          >
+            Vous gardez la main grâce à votre tableau de bord en temps réel
+          </h2>
+          <ul
+            style={{
+              listStyle: 'none',
+              padding: 0,
+              margin: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.5rem',
+              textAlign: 'left',
+              maxWidth: '480px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          >
+            <li
+              style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '0.5rem',
+                color: 'var(--secondary)',
+              }}
+            >
+              <span
+                aria-hidden="true"
+                style={{ color: 'var(--accent)', fontWeight: 700 }}
+              >
+                ✓
+              </span>
+              <span>Tout est à jour en permanence</span>
+            </li>
+            <li
+              style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '0.5rem',
+                color: 'var(--secondary)',
+              }}
+            >
+              <span
+                aria-hidden="true"
+                style={{ color: 'var(--accent)', fontWeight: 700 }}
+              >
+                ✓
+              </span>
+              <span>Vous voyez ce que je fais, sans avoir à demander</span>
+            </li>
+            <li
+              style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '0.5rem',
+                color: 'var(--secondary)',
+              }}
+            >
+              <span
+                aria-hidden="true"
+                style={{ color: 'var(--accent)', fontWeight: 700 }}
+              >
+                ✓
+              </span>
+              <span>Notifs Telegram ou Push pour les événements importants</span>
+            </li>
+          </ul>
+        </div>
+        <div data-reveal>
+          <MockupTableauDeBord />
+        </div>
+      </section>
+
+      {/* ===== Section 5 — BLOC COMPARAISON ===== */}
+      <section
+        style={{
+          maxWidth: '1100px',
+          margin: '0 auto',
+          padding: '0 1.5rem 5rem',
+        }}
+      >
+        <div data-reveal style={{ textAlign: 'center', marginBottom: '3rem' }}>
+          <h2
+            style={{
+              fontSize: '1.75rem',
+              fontWeight: 700,
+              color: 'var(--primary)',
+              margin: '0 0 1rem',
+            }}
+          >
+            Pourquoi pas un(e) assistant(e) classique ?
+          </h2>
+          <p
+            style={{
+              color: 'var(--secondary)',
+              maxWidth: '620px',
+              margin: '0 auto',
+              lineHeight: 1.6,
+            }}
+          >
+            Comparé aux solutions traditionnelles, voilà ce que vous gagnez.
+          </p>
+        </div>
+        <div data-reveal>
+          <ComparisonCards />
+        </div>
+      </section>
+
+      {/* ===== Section 6 — BLOC TÉMOIGNAGE (caché tant que pas de Fondateur signé) ===== */}
+      {SHOW_TESTIMONIALS && (
+        <section
+          style={{
+            maxWidth: '1100px',
+            margin: '0 auto',
+            padding: '0 1.5rem 5rem',
+          }}
+        >
+          {/* Sera rempli au M3 du premier Fondateur */}
+        </section>
+      )}
+
+      {/* ===== Section 7 — BLOC FONDATEUR ===== */}
+      <section
+        style={{
+          maxWidth: '900px',
+          margin: '0 auto',
+          padding: '0 1.5rem 5rem',
+        }}
+      >
+        <div data-reveal>
+          <FondateurBanner variant="inline" />
+        </div>
+      </section>
+
+      {/* ===== Section 8 — FAQ ===== */}
+      <section
+        style={{
+          maxWidth: '780px',
+          margin: '0 auto',
+          padding: '0 1.5rem 5rem',
+        }}
+      >
+        <h2
+          data-reveal
+          style={{
+            fontSize: '1.75rem',
+            fontWeight: 700,
+            color: 'var(--primary)',
+            textAlign: 'center',
+            margin: '0 0 2.5rem',
+          }}
+        >
+          Questions fréquentes
+        </h2>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.85rem',
+          }}
+        >
+          {FAQ_HOMEPAGE.map((item) => (
+            <div key={item.question} data-reveal>
+              <AccordionItem title={item.question}>
+                <p style={{ margin: 0 }}>{item.answer}</p>
+              </AccordionItem>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* ===== CTA AUDIT ===== */}
-      <section>
-        <div className="container">
-          <AuditCta />
-        </div>
+      {/* ===== Section 9 — CTA FINAL ===== */}
+      <section
+        style={{
+          maxWidth: '780px',
+          margin: '0 auto',
+          padding: '0 1.5rem 5rem',
+          textAlign: 'center',
+        }}
+      >
+        <h2
+          data-reveal
+          style={{
+            fontSize: '1.5rem',
+            fontWeight: 700,
+            color: 'var(--primary)',
+            margin: '0 0 1rem',
+          }}
+        >
+          Prêt à libérer 8-10h/mois et à reprendre la main sur votre admin ?
+        </h2>
+        <Link
+          href="/contact"
+          data-reveal
+          style={{
+            display: 'inline-block',
+            padding: '1rem 2rem',
+            background: 'var(--primary)',
+            color: 'var(--on-primary)',
+            borderRadius: '0.75rem',
+            textDecoration: 'none',
+            fontWeight: 600,
+            fontSize: '1.05rem',
+          }}
+        >
+          Réserver mon appel découverte (gratuit, 30 min)
+        </Link>
       </section>
-
     </main>
   );
 }

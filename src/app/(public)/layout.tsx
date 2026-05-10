@@ -8,11 +8,11 @@ import { safeJsonLd } from "@/lib/json-ld";
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.opti-pro.fr'),
   title: {
-    default: 'OptiPro — Conseil & développement sur mesure',
+    default: 'OptiPro — Le bras droit administratif des artisans',
     template: '%s | OptiPro',
   },
   description:
-    'Audit, création de sites et web apps sur mesure, automatisation — OptiPro accompagne artisans, TPE et indépendants dans leur transformation numérique.',
+    'Assistant administratif externalisé pour artisans et petites TPE du bâtiment. Devis, factures, trésorerie, relances, comptable — tout est piloté pour vous, à partir de 750€/mois. Avec un tableau de bord temps réel inclus.',
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
@@ -37,7 +37,7 @@ const jsonLd = {
       '@id': 'https://www.opti-pro.fr/#organization',
       name: 'OptiPro',
       description:
-        'Conseil & développement sur mesure pour artisans, TPE et indépendants. Premier appel gratuit, création de sites web et applications, automatisation.',
+        'Assistant administratif externalisé pour artisans et TPE du bâtiment. Forfaits Pilote dès 750€/mois HT. Devis, factures, trésorerie, relances, préparation dossier comptable, tableau de bord temps réel inclus.',
       url: 'https://www.opti-pro.fr',
       email: 'p.laurent@opti-pro.fr',
       address: {
@@ -94,7 +94,7 @@ const jsonLd = {
         'https://www.linkedin.com/in/pierre-laurent-809410123',
       ],
       availableLanguage: 'fr',
-      priceRange: 'Sur devis',
+      priceRange: '750€-1500€/mois HT',
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',

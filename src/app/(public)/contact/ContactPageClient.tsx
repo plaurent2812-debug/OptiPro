@@ -1,92 +1,125 @@
 'use client';
 
-import { Suspense, useEffect, useState, type FormEvent } from 'react';
+import { Suspense, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Button from '@/components/ui/Button';
 
-type Cible = 'artisans' | 'tpe' | 'pme-ops' | 'projets' | 'abonnement' | 'default';
+type Cible = 'artisans' | 'tpe' | 'pme-ops' | 'projets' | 'abonnement' | 'fondateur' | 'default';
 
 interface CibleConfig {
     intro: string;
     projectLabel: string;
     projectPlaceholder: string;
-    showBudget: boolean;
-    showUrgence: boolean;
     ctaLabel: string;
     footnote: string;
 }
 
 const cibleConfigs: Record<Cible, CibleConfig> = {
     artisans: {
-        intro: 'Vous êtes artisan, commerçant ou indépendant. Dites-moi ce qui vous fait perdre du temps — on regarde ensemble.',
-        projectLabel: 'Ce qui vous prend le plus de temps en ce moment',
-        projectPlaceholder: 'Ex : je passe mes soirées à faire des devis, j\'ai des impayés depuis 3 mois, je n\'ai pas de site visible sur Google...',
-        showBudget: true,
-        showUrgence: true,
+        intro: 'Vous êtes artisan ou indépendant. Décrivez votre quotidien admin — devis, factures, relances, classement — on identifie où vous perdez du temps.',
+        projectLabel: 'Ce qui vous prend le plus de temps en admin',
+        projectPlaceholder: 'Ex : je passe mes soirées à faire des devis, j\'ai des impayés depuis 3 mois, je classe mes factures à la main...',
         ctaLabel: 'Envoyer ma demande — Pierre me recontacte sous 24h',
-        footnote: 'Premier échange de 30 min gratuit et sans engagement.',
+        footnote: 'Premier échange de 30 min gratuit. Pilote 30 jours pour valider le ROI avant tout engagement.',
     },
     tpe: {
-        intro: 'Vous dirigez une TPE ou une petite équipe. Parlons concrètement de ce que vous voulez structurer.',
-        projectLabel: 'Décrivez votre besoin',
-        projectPlaceholder: 'Ex : je veux un site pro qui génère des contacts, un outil pour automatiser mes devis, une application métier dédiée...',
-        showBudget: true,
-        showUrgence: true,
-        ctaLabel: 'Discuter de mon projet — Réponse sous 24h',
-        footnote: 'Premier échange de 30 min gratuit. Devis chiffré après cadrage.',
+        intro: 'Vous dirigez une TPE. Parlons de votre admin (devis, factures, relances, suivi) — ce que vous gagneriez à déléguer à un assistant dédié.',
+        projectLabel: 'Décrivez votre admin actuelle',
+        projectPlaceholder: 'Ex : 2 jours/semaine perdus en saisie, des relances oubliées, un classement chaotique...',
+        ctaLabel: 'Discuter de mon admin — Réponse sous 24h',
+        footnote: 'Premier échange de 30 min gratuit. Pilote 30 jours pour valider avant tout engagement.',
     },
     'pme-ops': {
-        intro: 'Vous dirigez ou pilotez l\'exploitation d\'une PME (logistique, transport, BTP, distribution, événementiel). Décrivez votre situation — flux, ERP, sous-traitants, reporting — on regarde où sont les gisements.',
-        projectLabel: 'Décrivez votre exploitation',
-        projectPlaceholder: 'Ex : reporting hebdo qui prend 3h, ERP qui ne se parle pas avec le terrain, 30 sous-traitants pilotés à coups d\'emails, KPIs éparpillés...',
-        showBudget: true,
-        showUrgence: true,
-        ctaLabel: 'Parler de mon exploitation — Pierre me recontacte sous 24h',
-        footnote: 'Premier appel de 30 min gratuit. Audit ops complet à 1 500€ HT (1 semaine, livrable écrit).',
+        intro: 'Vous pilotez une petite structure et votre admin commence à déborder. Décrivez votre situation — volumes, outils, irritants — on regarde où un assistant peut absorber.',
+        projectLabel: 'Décrivez votre admin',
+        projectPlaceholder: 'Ex : 80 factures/mois saisies à la main, des relances sans process, 30 sous-traitants à suivre...',
+        ctaLabel: 'Parler de mon admin — Pierre me recontacte sous 24h',
+        footnote: 'Premier appel de 30 min gratuit. Pilote 30 jours pour valider le ROI.',
     },
     projets: {
-        intro: 'Pour les projets complexes, un audit approfondi (590€ HT, déduit si mission signée) garantit un devis précis. Décrivez votre projet.',
+        intro: 'Vous avez un projet d\'assistant admin sur mesure ou un besoin spécifique. Décrivez ce que vous avez en tête — on cadre ensemble.',
         projectLabel: 'Présentez votre projet',
-        projectPlaceholder: 'Ex : je veux un site complet avec espace client et catalogue, une web app métier, une intégration complète avec ma compta...',
-        showBudget: true,
-        showUrgence: true,
+        projectPlaceholder: 'Ex : intégration spécifique avec ma compta, automatisation d\'un workflow particulier...',
         ctaLabel: 'Cadrer mon projet — Pierre me recontacte sous 24h',
-        footnote: 'Premier échange de 30 min offert pour évaluer la pertinence de l\'audit approfondi.',
+        footnote: 'Premier échange de 30 min offert pour cadrer le besoin.',
     },
     abonnement: {
-        intro: 'Vous êtes déjà client ou vous envisagez l\'abonnement Suivi & Évolution (220€/mois HT). Dites-moi comment je peux vous accompagner.',
+        intro: 'Vous êtes déjà client Pilote ou vous voulez en savoir plus sur le suivi mensuel. Dites-moi comment je peux vous accompagner.',
         projectLabel: 'Ce que vous souhaitez mettre en place ou faire évoluer',
-        projectPlaceholder: 'Ex : je veux un suivi régulier de mon site, des évolutions mensuelles, un support prioritaire...',
-        showBudget: false,
-        showUrgence: false,
-        ctaLabel: 'Demander un devis d\'abonnement',
-        footnote: 'Engagement 6 mois minimum. Résiliable ensuite au mois.',
+        projectPlaceholder: 'Ex : monter en palier, ajouter une intégration, changer le rythme du reporting...',
+        ctaLabel: 'Demander un échange',
+        footnote: 'Engagement mensuel après le Pilote 30 jours. Résiliation au mois après 3 mois.',
+    },
+    fondateur: {
+        intro: 'Vous candidatez au Programme Fondateur (5 places, -50% pendant 3 mois en échange de votre feedback). Parlez-moi de vous et de votre admin actuelle.',
+        projectLabel: 'Pourquoi le Programme Fondateur vous intéresse',
+        projectPlaceholder: 'Ex : je veux structurer mon admin et je suis prêt(e) à donner un retour détaillé sur le service, je cherche un assistant fiable...',
+        ctaLabel: 'Candidater au Programme Fondateur',
+        footnote: '5 places maximum. Pierre vous recontacte sous 24h pour un appel de qualification.',
     },
     default: {
-        intro: 'Décrivez votre besoin, Pierre vous recontacte sous 24h.',
-        projectLabel: 'Ce qui vous prend le plus de temps en ce moment',
+        intro: 'Vous voulez déléguer votre admin (devis, factures, relances, classement) à un assistant fiable. Décrivez votre besoin.',
+        projectLabel: 'Ce qui vous prend le plus de temps en admin',
         projectPlaceholder: 'Ex : je passe mes soirées à faire des devis, j\'ai des impayés depuis 3 mois...',
-        showBudget: true,
-        showUrgence: true,
         ctaLabel: 'Envoyer ma demande — Pierre me contacte sous 24h',
-        footnote: 'Premier échange de 30 min gratuit et sans engagement.',
+        footnote: 'Premier échange de 30 min gratuit. Pilote 30 jours pour valider avant engagement.',
     },
 };
 
 const cibleLabels: Record<Cible, string> = {
     artisans: '🔧 Artisan / Indépendant',
     tpe: '🏢 TPE / PME',
-    'pme-ops': '📦 PME logistique / transport / BTP',
+    'pme-ops': '📦 Petite structure',
     projets: '🚀 Projet sur mesure',
-    abonnement: '🔄 Abonnement Suivi & Évolution',
+    abonnement: '🔄 Suivi mensuel',
+    fondateur: '🌟 Programme Fondateur',
     default: 'Demande générale',
 };
+
+const metierOptions = [
+    { value: '', label: '— Sélectionnez —' },
+    { value: 'plombier', label: 'Plombier' },
+    { value: 'electricien', label: 'Électricien' },
+    { value: 'serrurier', label: 'Serrurier' },
+    { value: 'peintre', label: 'Peintre' },
+    { value: 'menuisier', label: 'Menuisier' },
+    { value: 'macon', label: 'Maçon' },
+    { value: 'autre-artisan', label: 'Autre artisan' },
+    { value: 'tpe-services', label: 'TPE services' },
+    { value: 'autre', label: 'Autre' },
+];
+
+const salariesOptions = [
+    { value: '', label: '— Sélectionnez —' },
+    { value: '0', label: '0 (solo)' },
+    { value: '1', label: '1' },
+    { value: '2-3', label: '2-3' },
+    { value: '4-5', label: '4-5' },
+    { value: '6-8', label: '6-8' },
+    { value: '9+', label: '9+' },
+];
+
+const volumeDocsOptions = [
+    { value: '', label: '— Sélectionnez —' },
+    { value: '≤30', label: 'Moins de 30 documents/mois' },
+    { value: '31-60', label: '31 à 60 documents/mois' },
+    { value: '61-100', label: '61 à 100 documents/mois' },
+    { value: '100+', label: 'Plus de 100 documents/mois' },
+];
 
 function ContactForm() {
     const searchParams = useSearchParams();
     const rawCible = searchParams.get('cible') as Cible | null;
     const cible: Cible = rawCible && cibleConfigs[rawCible] ? rawCible : 'default';
     const config = cibleConfigs[cible];
+
+    const rawMetier = searchParams.get('metier');
+    const metierFromUrl = metierOptions.find((o) => o.value === rawMetier)?.value ?? '';
+
+    // typeDemande pré-coché à 'fondateur' si l'URL contient ?cible=fondateur
+    const initialTypeDemande: 'standard' | 'fondateur' = cible === 'fondateur' ? 'fondateur' : 'standard';
+    const [typeDemande, setTypeDemande] = useState<'standard' | 'fondateur'>(initialTypeDemande);
+    const [metier, setMetier] = useState<string>(metierFromUrl);
 
     const [isLoading, setIsLoading] = useState(false);
     const [status, setStatus] = useState<string>('idle');
@@ -114,6 +147,8 @@ function ContactForm() {
 
             setStatus('success');
             (e.target as HTMLFormElement).reset();
+            setTypeDemande(initialTypeDemande);
+            setMetier(metierFromUrl);
         } catch (error: unknown) {
             console.error(error);
             const message = error instanceof Error ? error.message : 'error';
@@ -197,13 +232,44 @@ function ContactForm() {
             </div>
 
             <div className="form-group">
-                <label htmlFor="activity" className="form-label">Secteur d&apos;activité</label>
-                <input
+                <label htmlFor="metier" className="form-label">Métier *</label>
+                <select
+                    id="metier"
+                    name="metier"
                     className="form-input"
-                    id="activity"
-                    name="activity"
-                    placeholder="Ex : plomberie, e-commerce, restauration..."
-                />
+                    required
+                    value={metier}
+                    onChange={(e) => setMetier(e.target.value)}
+                >
+                    {metierOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <div className="form-group">
+                    <label htmlFor="salaries" className="form-label">Taille équipe *</label>
+                    <select id="salaries" name="salaries" className="form-input" required defaultValue="">
+                        {salariesOptions.map((opt) => (
+                            <option key={opt.value} value={opt.value}>
+                                {opt.label}
+                            </option>
+                        ))}
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="volumeDocs" className="form-label">Volume admin *</label>
+                    <select id="volumeDocs" name="volumeDocs" className="form-input" required defaultValue="">
+                        {volumeDocsOptions.map((opt) => (
+                            <option key={opt.value} value={opt.value}>
+                                {opt.label}
+                            </option>
+                        ))}
+                    </select>
+                </div>
             </div>
 
             <div className="form-group">
@@ -217,34 +283,73 @@ function ContactForm() {
                 ></textarea>
             </div>
 
-            {config.showBudget && (
-                <div className="form-group">
-                    <label htmlFor="budget" className="form-label">Enveloppe budgétaire envisagée</label>
-                    <select id="budget" name="budget" className="form-input">
-                        <option value="">— Sélectionnez —</option>
-                        <option value="< 500 €">Moins de 500 €</option>
-                        <option value="500 - 1 500 €">500 à 1 500 €</option>
-                        <option value="1 500 - 3 000 €">1 500 à 3 000 €</option>
-                        <option value="3 000 - 7 000 €">3 000 à 7 000 €</option>
-                        <option value="7 000 - 15 000 €">7 000 à 15 000 €</option>
-                        <option value="> 15 000 €">Plus de 15 000 €</option>
-                        <option value="À définir ensemble">Je ne sais pas encore</option>
-                    </select>
+            <fieldset style={{ border: 'none', padding: 0, margin: '0 0 1.25rem' }}>
+                <legend className="form-label" style={{ display: 'block', marginBottom: '0.6rem', padding: 0 }}>Type de demande *</legend>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+                    <label
+                        htmlFor="typeDemande-standard"
+                        style={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: '0.6rem',
+                            padding: '0.85rem 1rem',
+                            border: typeDemande === 'standard' ? '1.5px solid var(--accent)' : '1px solid var(--border)',
+                            borderRadius: '0.6rem',
+                            cursor: 'pointer',
+                            background: typeDemande === 'standard' ? 'var(--accent-light)' : 'transparent',
+                            transition: 'border-color 0.15s ease, background 0.15s ease',
+                        }}
+                    >
+                        <input
+                            type="radio"
+                            id="typeDemande-standard"
+                            name="typeDemande"
+                            value="standard"
+                            checked={typeDemande === 'standard'}
+                            onChange={() => setTypeDemande('standard')}
+                            style={{ marginTop: '0.2rem', flexShrink: 0 }}
+                        />
+                        <span style={{ fontSize: '0.95rem', lineHeight: 1.45 }}>
+                            <strong>Appel découverte standard</strong>
+                            <br />
+                            <span style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>
+                                30 min gratuit pour cadrer votre besoin et présenter le Pilote 30 jours.
+                            </span>
+                        </span>
+                    </label>
+                    <label
+                        htmlFor="typeDemande-fondateur"
+                        style={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: '0.6rem',
+                            padding: '0.85rem 1rem',
+                            border: typeDemande === 'fondateur' ? '1.5px solid var(--accent)' : '1px solid var(--border)',
+                            borderRadius: '0.6rem',
+                            cursor: 'pointer',
+                            background: typeDemande === 'fondateur' ? 'var(--accent-light)' : 'transparent',
+                            transition: 'border-color 0.15s ease, background 0.15s ease',
+                        }}
+                    >
+                        <input
+                            type="radio"
+                            id="typeDemande-fondateur"
+                            name="typeDemande"
+                            value="fondateur"
+                            checked={typeDemande === 'fondateur'}
+                            onChange={() => setTypeDemande('fondateur')}
+                            style={{ marginTop: '0.2rem', flexShrink: 0 }}
+                        />
+                        <span style={{ fontSize: '0.95rem', lineHeight: 1.45 }}>
+                            <strong>🌟 Candidater au Programme Fondateur</strong>
+                            <br />
+                            <span style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>
+                                5 places. -50% pendant 3 mois en échange d&apos;un retour détaillé sur le service.
+                            </span>
+                        </span>
+                    </label>
                 </div>
-            )}
-
-            {config.showUrgence && (
-                <div className="form-group">
-                    <label htmlFor="urgence" className="form-label">Quand souhaitez-vous démarrer ?</label>
-                    <select id="urgence" name="urgence" className="form-input">
-                        <option value="">— Sélectionnez —</option>
-                        <option value="Immédiat (moins d'1 mois)">Immédiat (moins d&apos;1 mois)</option>
-                        <option value="Dans 1 à 3 mois">Dans 1 à 3 mois</option>
-                        <option value="Dans 3 à 6 mois">Dans 3 à 6 mois</option>
-                        <option value="Pas pressé / je me renseigne">Pas pressé, je me renseigne</option>
-                    </select>
-                </div>
-            )}
+            </fieldset>
 
             <Button
                 type="submit"
@@ -278,22 +383,16 @@ function ContactForm() {
 }
 
 export default function ContactPageClient() {
-    const [titleReady, setTitleReady] = useState(false);
-
-    useEffect(() => {
-        setTitleReady(true);
-    }, []);
-
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: 'var(--header-height)' }}>
             <div className="container" style={{ padding: '4rem 1.5rem' }}>
-                <div style={{ textAlign: 'center', marginBottom: '2rem', opacity: titleReady ? 1 : 0, transition: 'opacity 0.4s ease' }}>
+                <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                     <div className="section-label">Me contacter</div>
                     <h1 style={{ fontSize: '2.75rem', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '1rem', color: 'var(--foreground)' }}>
-                        Parlons de votre projet
+                        Déléguer votre admin, à partir de 750€/mois
                     </h1>
-                    <p style={{ color: 'var(--secondary)', fontSize: '1.1rem', maxWidth: '520px', margin: '0 auto', lineHeight: 1.6 }}>
-                        Quelques informations pour préparer notre échange.
+                    <p style={{ color: 'var(--secondary)', fontSize: '1.1rem', maxWidth: '560px', margin: '0 auto', lineHeight: 1.6 }}>
+                        Quelques infos pour préparer l&apos;appel découverte. Je vous propose ensuite un Pilote 30 jours pour valider le ROI avant tout engagement.
                     </p>
                 </div>
 

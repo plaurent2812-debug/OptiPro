@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getAllArticles } from '@/lib/blog';
 import styles from './blog-list.module.css';
 import BlogListClient from './BlogListClient';
+import { safeJsonLd } from '@/lib/json-ld';
 
 export const metadata: Metadata = {
   title: 'Blog — Conseils pour artisans et TPE',
@@ -72,9 +73,9 @@ export default function BlogPage() {
 
   return (
     <main className={styles.main}>
-      <script type="application/ld+json">{JSON.stringify(blogJsonLd)}</script>
+      <script type="application/ld+json">{safeJsonLd(blogJsonLd)}</script>
       <script type="application/ld+json">
-        {JSON.stringify(breadcrumbJsonLd)}
+        {safeJsonLd(breadcrumbJsonLd)}
       </script>
 
       <BlogListClient articles={articles} />

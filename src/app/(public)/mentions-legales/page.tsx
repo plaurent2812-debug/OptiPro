@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { safeJsonLd } from '@/lib/json-ld';
 
 export const metadata: Metadata = {
   title: 'Mentions légales',
@@ -32,7 +33,7 @@ const linkStyle: React.CSSProperties = {
 export default function MentionsLegalesPage() {
   return (
     <main style={{ paddingTop: '6rem' }}>
-      <script type="application/ld+json">{JSON.stringify({
+      <script type="application/ld+json">{safeJsonLd({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [

@@ -28,8 +28,8 @@ export default function Header() {
     }, []);
 
     const navLinks = [
-        { href: '/services', label: 'Services' },
-        { href: '/blog', label: 'Blog' },
+        { href: '/le-service', label: 'Le service' },
+        { href: '/tarifs', label: 'Tarifs' },
         { href: '/a-propos', label: 'À propos' },
         { href: '/contact', label: 'Contact' },
     ];

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ContactPageClient from './ContactPageClient';
+import { safeJsonLd } from '@/lib/json-ld';
 
 export const metadata: Metadata = {
   title: 'Contact — Réserver un premier appel',
@@ -40,7 +41,7 @@ const contactJsonLd = {
 export default function ContactPage() {
   return (
     <>
-      <script type="application/ld+json">{JSON.stringify(contactJsonLd)}</script>
+      <script type="application/ld+json">{safeJsonLd(contactJsonLd)}</script>
       <ContactPageClient />
     </>
   );

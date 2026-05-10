@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Button from '@/components/ui/Button';
 import AuditCta from '@/components/ui/AuditCta';
+import { safeJsonLd } from '@/lib/json-ld';
 
 export interface LandingPageProps {
   // Hero
@@ -53,7 +54,7 @@ export default function LandingPage({
 }: LandingPageProps) {
   return (
     <main style={{ paddingTop: '5rem' }}>
-      <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      <script type="application/ld+json">{safeJsonLd(jsonLd)}</script>
 
       {/* ===== HERO ===== */}
       <section style={{ padding: '3rem 0 4rem', position: 'relative', overflow: 'hidden' }}>

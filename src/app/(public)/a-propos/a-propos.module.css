@@ -604,6 +604,24 @@
   transform: translateX(3px);
 }
 
+.ctaSubNote {
+  margin-top: 1.25rem;
+  text-align: center;
+}
+
+.ctaSubLink {
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.25s ease;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.ctaSubLink:hover {
+  color: var(--accent);
+}
+
 /* ============================================
    Animations CSS résiduelles
    ============================================ */

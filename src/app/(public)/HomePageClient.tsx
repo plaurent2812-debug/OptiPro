@@ -232,7 +232,7 @@ export default function HomePageClient() {
             color: 'var(--secondary)',
           }}
         >
-          <span aria-hidden="true" style={{ color: '#16a34a', fontWeight: 800 }}>
+          <span aria-hidden="true" style={{ color: 'var(--success)', fontWeight: 800 }}>
             ✓
           </span>
           <span>

@@ -50,6 +50,7 @@ const jsonLd = {
         highPrice: '1500',
         priceCurrency: 'EUR',
         offerCount: 3,
+        valueAddedTaxIncluded: false,
       },
     },
     {

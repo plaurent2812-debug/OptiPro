@@ -25,10 +25,33 @@ const nextConfig: NextConfig = {
         destination: '/confidentialite',
         permanent: true,
       },
-      // /realisations retiré de la nav et du sitemap — redirect vers /services
+      // /realisations retiré de la nav et du sitemap — redirect vers /
       {
         source: '/realisations',
-        destination: '/services',
+        destination: '/',
+        permanent: true,
+      },
+      // /services supprimé en Task 20 — redirect vers /le-service
+      {
+        source: '/services',
+        destination: '/le-service',
+        permanent: true,
+      },
+      // /creation-site-web-vence supprimé en Task 20 — redirect vers /
+      {
+        source: '/creation-site-web-vence',
+        destination: '/',
+        permanent: true,
+      },
+      // /dashboard supprimé en Task 20 — redirect vers /
+      {
+        source: '/dashboard',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/dashboard/:path*',
+        destination: '/',
         permanent: true,
       },
       // Force le redirect non-www → www en 308 permanent (consolidation PageRank)

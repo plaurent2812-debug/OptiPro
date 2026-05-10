@@ -4,6 +4,7 @@ import {
   PILOTE_FORFAITS,
   computeFondateurPrice,
   formatPrice,
+  MISE_EN_ROUTE_PRICE,
   type PilotePeriod,
 } from '@/data/pricing';
 
@@ -195,7 +196,7 @@ export default function FondateurClient() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.25rem' }}>
           {PILOTE_FORFAITS.map((f) => {
             // Tarif normal sur 6 mois : 750€ setup + 5 × forfait
-            const normalCost = 750 + 5 * f.price;
+            const normalCost = MISE_EN_ROUTE_PRICE + 5 * f.price;
             // Tarif Fondateur : M1 (375) + M2-M3 (2 × -50%) + M4-M6 (3 × -25%)
             const foundateurCost = computeFondateurPrice(f.price, 'M1')
               + 2 * computeFondateurPrice(f.price, 'M2-M3')

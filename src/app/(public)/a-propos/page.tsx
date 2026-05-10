@@ -3,16 +3,16 @@ import AProposPageClient from './AProposPageClient';
 import { safeJsonLd } from '@/lib/json-ld';
 
 export const metadata: Metadata = {
-  title: 'À propos — Pierre Laurent',
+  title: { absolute: 'À propos — Pierre Laurent, fondateur OptiPro' },
   description:
-    "Pierre Laurent, fondateur d'OptiPro — 10 ans en exploitation logistique : ERP déployé, 8 500 références gérées, 7 M€ ADV piloté. Aujourd'hui au service des artisans, TPE et PME logistique/transport/BTP.",
+    "Pierre Laurent, fondateur d'OptiPro. 10 ans d'expérience en exploitation et logistique. Aujourd'hui assistant administratif externalisé pour artisans et petites TPE du bâtiment, à partir de 750€/mois.",
   alternates: {
     canonical: '/a-propos',
   },
   openGraph: {
-    title: 'À propos — Pierre Laurent | OptiPro',
+    title: 'À propos — Pierre Laurent, fondateur OptiPro',
     description:
-      "10 ans en exploitation logistique. ERP déployé, 8 500 références gérées, 7 M€ ADV piloté. Aujourd'hui au service des artisans, TPE et PME ops.",
+      "10 ans en exploitation et logistique. Aujourd'hui assistant administratif externalisé pour artisans et TPE du bâtiment. Devis, factures, trésorerie, relances — dès 750€/mois.",
     url: '/a-propos',
     type: 'profile',
   },
@@ -23,9 +23,9 @@ const personJsonLd = {
   '@type': 'Person',
   '@id': 'https://www.opti-pro.fr/a-propos#pierre-laurent',
   name: 'Pierre Laurent',
-  jobTitle: "Fondateur d'OptiPro · Consultant exploitation & IA opérationnelle",
+  jobTitle: "Fondateur d'OptiPro · Assistant administratif externalisé pour artisans et TPE",
   description:
-    "Fondateur d'OptiPro. 10 ans en exploitation logistique : déploiement complet d'un ERP EBP chez Eddifis, 8 500 références gérées chez DBS Drive, 7 M€ ADV piloté chez Factory, dépôt événementiel chez GL Events Live. Aujourd'hui consultant indépendant en IA opérationnelle.",
+    "Fondateur d'OptiPro. 10 ans en exploitation logistique : déploiement complet d'un ERP EBP chez Eddifis, 8 500 références gérées chez DBS Drive, 7 M€ ADV piloté chez Factory, dépôt événementiel chez GL Events Live. Aujourd'hui assistant administratif externalisé pour artisans et petites TPE du bâtiment — devis, factures, trésorerie, relances, lien comptable.",
   url: 'https://www.opti-pro.fr/a-propos',
   telephone: '+33670259333',
   knowsLanguage: ['fr', 'en'],
@@ -46,19 +46,19 @@ const personJsonLd = {
     name: 'Afipe',
   },
   knowsAbout: [
+    'Administration des ventes (ADV)',
+    'Facturation et devis artisans',
+    'Suivi de trésorerie TPE',
+    'Relances clients et fournisseurs',
+    'Lien comptable et préparation bilan',
     'Exploitation logistique',
     'Pilotage des flux',
     'Déploiement ERP (EBP)',
     'Coordination de sous-traitants',
     'Reporting opérationnel et KPIs',
-    'Approvisionnement et gestion des stocks',
-    'Logistique événementielle',
-    'Automatisation des process métier',
-    'IA appliquée aux opérations',
+    'Gestion des stocks',
     'Création de filiale et structuration process',
-    'Pilotage ADV (Administration des Ventes)',
     'Coordination artisans BTP',
-    'Outils sur mesure pour TPE/PME',
   ],
 };
 

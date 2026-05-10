@@ -23,9 +23,9 @@ const timeline: TimelineItem[] = [
   {
     period: 'Avril 2026 → aujourd\'hui',
     company: 'OptiPro',
-    role: 'Fondateur — Conseil exploitation & IA opérationnelle',
+    role: 'Fondateur — Assistant administratif externalisé pour artisans et TPE',
     description:
-      "J'ai quitté l'exploitation pour mettre 10 ans de terrain au service des artisans, TPE et PME logistique/transport/BTP. Audit ops, automatisation des flux, déploiement d'outils sur mesure, IA appliquée aux opérations. Pas de sous-traitance, pas de commercial — un seul interlocuteur du diagnostic à la livraison.",
+      "J'ai quitté l'exploitation pour proposer ces mêmes services d'exploitation et d'admin opérationnelle aux artisans et TPE qui n'ont pas les moyens d'un salarié à 7 000€ chargés. Devis, factures, trésorerie, relances, lien avec le comptable — je suis le bras droit administratif de mes clients, dès 750€/mois. Je me limite à 8-10 clients pour rester réactif et qualitatif sur chacun.",
     current: true,
   },
   {
@@ -70,7 +70,7 @@ const valeurs = [
     icon: '\u{1F91D}',
     title: 'Un seul interlocuteur',
     description:
-      "Pas de commercial qui passe la main, pas de sous-traitance. C'est moi qui analyse, conçois et développe — du premier appel à la livraison finale.",
+      "Pas de commercial qui passe la main, pas de sous-traitance. C'est moi qui prends en charge votre admin — du premier appel à l'exécution au quotidien.",
   },
   {
     icon: '\u{1F527}',
@@ -358,9 +358,10 @@ export default function AProposPageClient() {
             <span className={styles.heroBadge}>Fondateur · OptiPro</span>
             <h1 className={styles.heroTitle}>Pierre Laurent</h1>
             <p className={styles.heroSubtitle}>
-              10 ans en exploitation logistique. ERP déployé, 8 500 références gérées,
-              7 M€ de portefeuille piloté. Aujourd&apos;hui, je mets cette expérience au
-              service des artisans, TPE et PME logistique/transport/BTP.
+              Pendant 10 ans, j&apos;ai été responsable d&apos;exploitation et de méthodes
+              en logistique. Aujourd&apos;hui, je propose ces mêmes services d&apos;admin
+              opérationnelle aux artisans et TPE qui n&apos;ont pas les moyens d&apos;un
+              salarié dédié.
             </p>
             <div className={styles.heroMeta}>
               <span className={styles.heroMetaItem}>
@@ -428,11 +429,13 @@ export default function AProposPageClient() {
               <p>
                 À un moment, j&apos;ai décidé de passer de l&apos;autre côté.
                 Plutôt qu&apos;optimiser pour des grandes structures qui ont
-                déjà trois consultants, mettre cette expertise — exploitation,
-                ERP, sous-traitance, KPIs — au service de ceux qui en ont
-                vraiment besoin : artisans, TPE, et PME logistique, transport,
-                BTP. Avec en plus l&apos;IA opérationnelle pour automatiser ce
-                qui peut l&apos;être. C&apos;est exactement ça, OptiPro.
+                déjà trois collaborateurs admin, mettre cette expertise —
+                exploitation, méthodes, pilotage — au service de ceux qui
+                en ont vraiment besoin : artisans et TPE du bâtiment qui
+                croulent sous la paperasse et perdent des heures chaque semaine
+                sur des tâches qui ne devraient pas leur incomber. C&apos;est
+                exactement ça, OptiPro — et je limite à 8-10 clients pour
+                rester le partenaire disponible que je prétends être.
               </p>
             </div>
           </div>
@@ -447,8 +450,8 @@ export default function AProposPageClient() {
             <h2 className={styles.sectionTitle}>10 ans à structurer, piloter, coordonner.</h2>
             <p className={styles.sectionLead}>
               De 400 commandes/jour à un portefeuille ADV de 7 M€, en passant par
-              le déploiement complet d&apos;un ERP — chaque étape a alimenté ce
-              qu&apos;OptiPro est aujourd&apos;hui.
+              le déploiement complet d&apos;un ERP — chaque étape m&apos;a appris
+              ce que coûte vraiment le désordre administratif, et comment y remédier.
             </p>
           </div>
 
@@ -512,18 +515,24 @@ export default function AProposPageClient() {
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>On commence par un appel.</h2>
             <p className={styles.ctaText}>
-              30 minutes au téléphone pour parler de votre situation. Si je peux
-              vous être utile, on enchaîne. Sinon, je vous oriente. Gratuit, sans
-              engagement, sans jargon.
+              30 minutes pour parler de votre situation admin. Si je peux vous
+              être utile, on enchaîne. Sinon, je vous oriente. Gratuit, sans
+              engagement, sans jargon. Je prends entre 8 et 10 clients — si
+              une place est libre, autant qu&apos;elle soit pour vous.
             </p>
             <div className={styles.ctaActions}>
               <Button href="/contact" variant="primary">
-                Réserver un premier appel
+                Réserver mon appel découverte gratuit
               </Button>
-              <Link href="/services" className={styles.ctaLink}>
-                Voir les services →
+              <Link href="/tarifs" className={styles.ctaLink}>
+                Voir les forfaits →
               </Link>
             </div>
+            <p className={styles.ctaSubNote}>
+              <Link href="/pourquoi-ce-prix" className={styles.ctaSubLink}>
+                Pourquoi ces tarifs ? Le récit complet →
+              </Link>
+            </p>
           </div>
         </div>
       </section>

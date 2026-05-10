@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useEffect, useState, type FormEvent } from 'react';
+import { Suspense, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Button from '@/components/ui/Button';
 
@@ -383,16 +383,10 @@ function ContactForm() {
 }
 
 export default function ContactPageClient() {
-    const [titleReady, setTitleReady] = useState(false);
-
-    useEffect(() => {
-        setTitleReady(true);
-    }, []);
-
     return (
         <div style={{ minHeight: '100vh', background: 'var(--background)', paddingTop: 'var(--header-height)' }}>
             <div className="container" style={{ padding: '4rem 1.5rem' }}>
-                <div style={{ textAlign: 'center', marginBottom: '2rem', opacity: titleReady ? 1 : 0, transition: 'opacity 0.4s ease' }}>
+                <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                     <div className="section-label">Me contacter</div>
                     <h1 style={{ fontSize: '2.75rem', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '1rem', color: 'var(--foreground)' }}>
                         Déléguer votre admin, à partir de 750€/mois

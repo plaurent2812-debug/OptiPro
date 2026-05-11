@@ -83,7 +83,7 @@ export default function ConfidentialitePage() {
           {/* 2. Données collectées */}
           <h2 style={sectionHeadingStyle}>2. Données collectées</h2>
           <p style={paragraphStyle}>
-            Ce site collecte des données personnelles uniquement via le formulaire de contact. Les champs du formulaire sont les suivants :
+            <strong>a) Via le formulaire de contact</strong> — les champs collectés sont :
           </p>
           <ul style={listStyle}>
             <li>Nom et prénom (obligatoire)</li>
@@ -94,7 +94,10 @@ export default function ConfidentialitePage() {
             <li>Message (obligatoire)</li>
           </ul>
           <p style={paragraphStyle}>
-            Aucune autre donnée n&apos;est collectée. Ce site ne dispose pas d&apos;espace membre, de newsletter, de formulaire d&apos;inscription ni d&apos;outil d&apos;analyse d&apos;audience.
+            <strong>b) Via la mesure d&apos;audience anonyme</strong> — Vercel Analytics collecte des données agrégées et anonymisées (pages visitées, pays, type d&apos;appareil) à l&apos;aide d&apos;un identifiant haché renouvelé quotidiennement, sans dépôt de cookie ni traçage entre sites. Ce dispositif est conforme à la position de la CNIL sur la mesure d&apos;audience exemptée de consentement.
+          </p>
+          <p style={paragraphStyle}>
+            <strong>c) Espace administrateur</strong> — le site comporte une zone d&apos;administration privée (<code>/admin</code>) réservée à Pierre Laurent. Aucun compte visiteur n&apos;est créé ni proposé sur le site public.
           </p>
 
           {/* 3. Finalité */}
@@ -105,25 +108,30 @@ export default function ConfidentialitePage() {
           <ul style={listStyle}>
             <li>Répondre aux demandes de renseignements ou de devis</li>
             <li>Établir un premier contact dans le cadre d&apos;une relation commerciale potentielle</li>
+            <li>Le cas échéant, créer un dossier client dans l&apos;outil de gestion interne (CRM et facturation)</li>
           </ul>
           <p style={paragraphStyle}>
-            Aucune donnée n&apos;est utilisée à des fins de prospection commerciale automatisée, de profilage ou de prise de décision automatisée.
+            Les données de mesure d&apos;audience anonyme servent uniquement à comprendre la fréquentation globale du site (statistiques agrégées). Aucune donnée n&apos;est utilisée à des fins de prospection commerciale automatisée, de profilage ou de prise de décision automatisée.
           </p>
 
           {/* 4. Base légale */}
           <h2 style={sectionHeadingStyle}>4. Base légale du traitement</h2>
           <p style={paragraphStyle}>
-            Le traitement repose sur l&apos;intérêt légitime du responsable du traitement (article 6.1.f du RGPD) : répondre aux demandes de contact initiées volontairement par l&apos;utilisateur.
+            Le traitement repose sur l&apos;intérêt légitime du responsable du traitement (article 6.1.f du RGPD) : répondre aux demandes de contact initiées volontairement par l&apos;utilisateur et mesurer la fréquentation du site de manière anonyme.
           </p>
 
-          {/* 5. Traitement via Resend */}
-          <h2 style={sectionHeadingStyle}>5. Traitement technique — Resend API</h2>
+          {/* 5. Sous-traitants */}
+          <h2 style={sectionHeadingStyle}>5. Sous-traitants et hébergement</h2>
           <p style={paragraphStyle}>
-            Les données du formulaire sont transmises via l&apos;<strong>API Resend</strong> (Resend Inc.) pour l&apos;acheminement de l&apos;e-mail de contact vers Pierre Laurent. Resend agit en tant que sous-traitant au sens du RGPD et applique des mesures de sécurité adaptées.
+            Les données peuvent être traitées par les sous-traitants suivants, agissant pour le compte du responsable de traitement et appliquant des mesures de sécurité conformes au RGPD :
           </p>
-          <p style={paragraphStyle}>
-            Les données ne sont pas stockées dans une base de données dédiée au-delà de la durée nécessaire à la délivrance de l&apos;e-mail. Elles ne sont pas revendues ni transmises à d&apos;autres tiers.
-          </p>
+          <ul style={listStyle}>
+            <li><strong>Vercel Inc.</strong> (États-Unis) — hébergement du site et mesure d&apos;audience anonyme (Vercel Analytics). Transferts encadrés par les clauses contractuelles types de la Commission européenne et le Data Privacy Framework.</li>
+            <li><strong>Supabase Inc.</strong> (Union européenne, région Francfort) — base de données et authentification de l&apos;espace administrateur. Dépose un cookie technique de session strictement nécessaire, uniquement sur les pages <code>/admin</code>.</li>
+            <li><strong>Resend Inc.</strong> (États-Unis) — acheminement des e-mails issus du formulaire de contact. Les données ne sont pas conservées au-delà de la délivrance.</li>
+            <li><strong>Pennylane SAS</strong> (France) — outil de gestion commerciale (devis, factures) utilisé en interne. N&apos;est sollicité qu&apos;en cas de relation commerciale établie.</li>
+            <li><strong>OVH SAS</strong> (France) — gestion technique du nom de domaine (DNS).</li>
+          </ul>
 
           {/* 6. Durée de conservation */}
           <h2 style={sectionHeadingStyle}>6. Durée de conservation</h2>
@@ -133,14 +141,24 @@ export default function ConfidentialitePage() {
           <p style={paragraphStyle}>
             En l&apos;absence de suite commerciale, les échanges de contact sont conservés pendant une durée maximale de <strong>3 ans</strong> à compter du dernier contact, conformément aux recommandations de la CNIL.
           </p>
+          <p style={paragraphStyle}>
+            Les données de mesure d&apos;audience sont conservées de manière agrégée et anonyme par Vercel Analytics et ne permettent pas l&apos;identification des visiteurs.
+          </p>
 
           {/* 7. Cookies */}
           <h2 style={sectionHeadingStyle}>7. Cookies et traceurs</h2>
           <p style={paragraphStyle}>
-            Ce site n&apos;utilise <strong>aucun cookie de traçage</strong>, de ciblage publicitaire ou d&apos;analyse d&apos;audience (pas de Google Analytics, pas de pixel de suivi, pas de réseaux sociaux intégrés).
+            Ce site n&apos;utilise <strong>aucun cookie de traçage publicitaire ni de profilage</strong> (pas de Google Analytics, pas de pixel Meta/Facebook, pas de LinkedIn Insight Tag, pas de boutons de partage sociaux intégrés).
           </p>
           <p style={paragraphStyle}>
-            Seuls des cookies techniques strictement nécessaires au fonctionnement du site (framework Next.js) peuvent être déposés. Ces cookies ne collectent aucune donnée personnelle identifiable et ne nécessitent pas de consentement au sens de la directive ePrivacy.
+            Seuls deux types de dispositifs sont mis en œuvre, tous exemptés de consentement :
+          </p>
+          <ul style={listStyle}>
+            <li><strong>Cookies techniques strictement nécessaires</strong> au fonctionnement du site (framework Next.js) et à la session de l&apos;espace administrateur (Supabase Auth, uniquement sur <code>/admin</code>).</li>
+            <li><strong>Mesure d&apos;audience anonyme sans cookie</strong> (Vercel Analytics), qui utilise un identifiant haché renouvelé chaque jour et ne permet pas le suivi inter-sites.</li>
+          </ul>
+          <p style={paragraphStyle}>
+            Conformément à la directive ePrivacy et à la doctrine de la CNIL, ces dispositifs ne nécessitent pas le recueil d&apos;un consentement préalable.
           </p>
 
           {/* 8. Droits */}
@@ -177,7 +195,7 @@ export default function ConfidentialitePage() {
 
           <hr style={{ margin: '2.5rem 0 1.5rem', border: 'none', borderTop: '1px solid var(--border)' }} />
           <p style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>
-            Dernière mise à jour : mars 2025
+            Dernière mise à jour : mai 2026
           </p>
 
         </div>

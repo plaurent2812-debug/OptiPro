@@ -19,11 +19,36 @@ export interface PiloteOption {
   price: string;
 }
 
+export interface VisibiliteOffer {
+  monthlyPrice: number; // HT mensuel ajouté au Pilote
+  setupPrice: number; // one-shot
+  setupInstallments: { count: number; amount: number }; // paiement étalé
+  engagementMonths: number;
+  offeredOnForfaitId: PiloteForfait['id'];
+  features: string[];
+}
+
+export const PILOTE_VISIBILITE: VisibiliteOffer = {
+  monthlyPrice: 75,
+  setupPrice: 990,
+  setupInstallments: { count: 3, amount: 330 },
+  engagementMonths: 12,
+  offeredOnForfaitId: 'pilote-100',
+  features: [
+    'Site vitrine professionnel (2 à 3 pages)',
+    'Formulaire de contact intégré',
+    'Hébergement Vercel + nom de domaine inclus',
+    'Mises à jour de contenu (textes, photos)',
+    'Maintenance technique + sécurité',
+    'Vous restez propriétaire du contenu',
+  ],
+};
+
 export const PILOTE_FORFAITS: PiloteForfait[] = [
   {
     id: 'pilote-30',
     name: 'Pilote 30',
-    price: 750,
+    price: 690,
     volumeDocs: 30,
     volumeFrais: 50,
     cible: 'Artisan solo ou avec 1 salarié',

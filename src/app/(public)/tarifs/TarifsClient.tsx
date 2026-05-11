@@ -6,6 +6,7 @@ import AccordionItem from '@/components/ui/AccordionItem';
 import {
   PILOTE_FORFAITS,
   PILOTE_OPTIONS,
+  PILOTE_VISIBILITE,
   MISE_EN_ROUTE_PRICE,
   computeFondateurPrice,
   formatPrice,
@@ -143,6 +144,76 @@ export default function TarifsClient() {
         </div>
       </section>
 
+      {/* SECTION 6 BIS — OPTION VISIBILITÉ (SITE VITRINE) */}
+      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
+        <article style={{
+          padding: '2.5rem',
+          background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.05) 0%, rgba(249, 115, 22, 0.02) 100%)',
+          border: '1px solid rgba(249, 115, 22, 0.25)',
+          borderRadius: '1.25rem',
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
+            <div>
+              <span style={{
+                display: 'inline-block',
+                padding: '0.25rem 0.75rem',
+                background: 'var(--accent)',
+                color: 'var(--on-accent)',
+                borderRadius: '999px',
+                fontSize: '0.7rem',
+                fontWeight: 700,
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+                marginBottom: '0.75rem',
+              }}>Nouveau</span>
+              <h2 style={{ fontSize: '1.6rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 0.4rem' }}>
+                Option Visibilité — votre site vitrine inclus
+              </h2>
+              <p style={{ margin: 0, color: 'var(--secondary)', fontSize: '0.95rem', lineHeight: 1.55 }}>
+                Un site pro intégré à votre Pilote, sans gestion technique de votre côté.
+              </p>
+            </div>
+            <div style={{ textAlign: 'right' }}>
+              <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--primary)', whiteSpace: 'nowrap', lineHeight: 1 }}>
+                +{PILOTE_VISIBILITE.monthlyPrice}€<span style={{ fontSize: '0.85rem', fontWeight: 500, color: 'var(--secondary)' }}>/mois</span>
+              </div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--secondary)', marginTop: '0.35rem' }}>
+                + {formatPrice(PILOTE_VISIBILITE.setupPrice)} de mise en place
+              </div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--accent)', marginTop: '0.2rem', fontWeight: 600 }}>
+                ou {PILOTE_VISIBILITE.setupInstallments.count}× {PILOTE_VISIBILITE.setupInstallments.amount}€
+              </div>
+            </div>
+          </div>
+
+          <ul style={{ listStyle: 'none', padding: 0, margin: '1.25rem 0 1.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '0.6rem' }}>
+            {PILOTE_VISIBILITE.features.map((feature) => (
+              <li key={feature} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.6rem', fontSize: '0.9rem', color: 'var(--secondary)', lineHeight: 1.5 }}>
+                <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div style={{
+            padding: '1rem 1.25rem',
+            background: 'rgba(249, 115, 22, 0.1)',
+            border: '1px dashed rgba(249, 115, 22, 0.4)',
+            borderRadius: '0.65rem',
+            marginBottom: '1rem',
+            fontSize: '0.9rem',
+            color: 'var(--primary)',
+          }}>
+            <strong>Offert sur Pilote 100</strong> — la mise en place ({formatPrice(PILOTE_VISIBILITE.setupPrice)}) est incluse. Vous payez uniquement le supplément mensuel de +{PILOTE_VISIBILITE.monthlyPrice}€.
+          </div>
+
+          <p style={{ fontSize: '0.85rem', color: 'var(--secondary)', margin: 0, fontStyle: 'italic' }}>
+            Engagement {PILOTE_VISIBILITE.engagementMonths} mois sur l&apos;option Visibilité (durée d&apos;amortissement de la mise en place).
+            Besoin d&apos;un site plus complexe (e-commerce, multi-pages, application métier) ? Voir le bloc projet spécifique ci-dessous.
+          </p>
+        </article>
+      </section>
+
       {/* SECTION 7 — ENGAGEMENT & RÉSILIATION */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <article style={{
@@ -270,7 +341,7 @@ export default function TarifsClient() {
       </section>
 
       {/* SECTION 12 — CTA FINAL */}
-      <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem', textAlign: 'center' }}>
+      <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 3rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1rem' }}>
           Pas sûr du forfait adapté ? Discutons-en.
         </h2>
@@ -289,6 +360,36 @@ export default function TarifsClient() {
         }}>
           Réserver mon appel découverte (gratuit)
         </Link>
+      </section>
+
+      {/* SECTION 13 — PROJET SPÉCIFIQUE */}
+      <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
+        <article style={{
+          padding: '1.75rem 2rem',
+          background: 'var(--background)',
+          border: '1px solid var(--border)',
+          borderRadius: '1rem',
+          textAlign: 'center',
+        }}>
+          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 0.5rem' }}>
+            Besoin d&apos;un projet spécifique&nbsp;?
+          </h3>
+          <p style={{ color: 'var(--secondary)', fontSize: '0.95rem', lineHeight: 1.6, margin: '0 0 1.25rem' }}>
+            Refonte complète, application métier sur mesure, automatisation avancée, intégration spécifique&nbsp;: chaque projet hors Pilote est étudié au cas par cas.
+          </p>
+          <Link href="/contact?cible=projets" style={{
+            display: 'inline-block',
+            padding: '0.75rem 1.5rem',
+            border: '1px solid var(--primary)',
+            color: 'var(--primary)',
+            borderRadius: '0.65rem',
+            textDecoration: 'none',
+            fontWeight: 600,
+            fontSize: '0.95rem',
+          }}>
+            Décrire mon projet →
+          </Link>
+        </article>
       </section>
     </main>
   );

@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import PourquoiClient from './PourquoiClient';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Pourquoi ce prix — Le calcul honnête | OptiPro' },
-  description: 'Pourquoi je peux faire ça à 750€/mois. La question que tout le monde me pose, et la réponse complète. Sans bullshit.',
+  title: { absolute: 'Pourquoi 80€/h — Le calcul honnête | OptiPro' },
+  description: "Pourquoi 80€/h et pas 150€ ? 10 ans en pilotage d'exploitation et logistique, indépendant qui démarre. Sans bullshit.",
   alternates: { canonical: '/pourquoi-ce-prix' },
   openGraph: {
-    title: 'Pourquoi 750€/mois — La transparence sur le pricing OptiPro',
-    description: '10 ans d\'exploitation, un outil interne qui automatise 70%, 8-10 clients fidèles. Voilà comment je peux proposer un assistant admin à ce tarif.',
+    title: 'Pourquoi 80€/h — La transparence sur le pricing OptiPro',
+    description: "10 ans en pilotage d'exploitation, tarif d'entrée d'un indépendant qui démarre. Le calcul complet sans bullshit.",
   },
 };
 

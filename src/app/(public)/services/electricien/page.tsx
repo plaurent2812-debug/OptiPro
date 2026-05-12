@@ -4,11 +4,11 @@ import LandingPage from '@/components/seo/LandingPage';
 export const metadata: Metadata = {
   title: 'Assistant administratif pour électriciens — OptiPro PACA',
   description:
-    'Service d\'assistant admin externalisé pour électriciens. Devis multi-chantiers (rénovation, neuf, Consuel), factures, relances, comptable. À partir de 750€/mois. Vence (06), interventions PACA et France.',
+    'Service d\'assistant admin externalisé pour électriciens. Devis multi-chantiers (rénovation, neuf, Consuel), factures, relances, comptable. À partir de 600€/mois ou 80€/h. Vence (06), interventions PACA et France.',
   alternates: { canonical: '/services/electricien' },
   openGraph: {
     title: 'Assistant admin pour électriciens — OptiPro',
-    description: 'Vous gérez les chantiers, je gère votre admin. Devis détaillés sur chantiers complexes, suivi Consuel, dossier comptable. Pilote dès 750€/mois.',
+    description: 'Vous gérez les chantiers, je gère votre admin. Mission ou pack mensuel — dès 600€/mois.',
     url: 'https://www.opti-pro.fr/services/electricien',
     type: 'website',
   },
@@ -30,7 +30,7 @@ const jsonLd = {
       '@id': 'https://www.opti-pro.fr/services/electricien#service',
       name: 'Assistant administratif externalisé pour électriciens',
       serviceType: 'AdministrativeService',
-      description: 'Service d\'assistant administratif externalisé pour électriciens indépendants et TPE. Gestion des devis multi-chantiers, factures, relances, trésorerie, suivi Consuel, dossier comptable mensuel. Tableau de bord temps réel inclus.',
+      description: 'Service d\'assistant administratif externalisé pour électriciens indépendants et TPE. Gestion des devis multi-chantiers, factures, relances, trésorerie, suivi Consuel, dossier comptable mensuel.',
       provider: { '@id': 'https://www.opti-pro.fr/#organization' },
       areaServed: [
         { '@type': 'City', name: 'Vence' },
@@ -46,10 +46,10 @@ const jsonLd = {
       audience: { '@type': 'Audience', name: 'Électriciens, électriciens du bâtiment, installateurs RGE' },
       offers: {
         '@type': 'AggregateOffer',
-        lowPrice: '750',
-        highPrice: '1500',
+        lowPrice: '600',
+        highPrice: '1950',
         priceCurrency: 'EUR',
-        offerCount: 3,
+        offerCount: 4,
         valueAddedTaxIncluded: false,
       },
     },
@@ -77,7 +77,7 @@ const jsonLd = {
           name: "Combien ça coûte pour un électricien indépendant ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Le forfait Pilote 30 à 750€/mois HT couvre l'activité d'un électricien solo (jusqu'à 30 documents/mois). Avec 2-3 salariés et plus de volume, Pilote 60 à 1 150€/mois. TPE 4-8 personnes, Pilote 100 à 1 500€/mois. TVA non applicable.",
+            text: "Deux formules. Mission à l'heure (80€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack 10h à 720€/mois, Pack 20h à 1 400€/mois (le plus courant), Pack 30h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
           },
         },
         {
@@ -85,7 +85,7 @@ const jsonLd = {
           name: "Travaillez-vous avec des électriciens ailleurs qu'en PACA ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Oui. Le service est 100% à distance — vocaux WhatsApp, visios, tableau de bord en ligne. La PACA est ma zone prioritaire, mais j'accepte les électriciens partout en France.",
+            text: "Oui. Le service est 100% à distance — vocaux WhatsApp, visios. La PACA est ma zone prioritaire, mais j'accepte les électriciens partout en France.",
           },
         },
       ],
@@ -98,7 +98,7 @@ export default function ElectricienPage() {
     <LandingPage
       badge="Pour électriciens et installateurs"
       h1="L'assistant administratif des électriciens"
-      intro="Vous tirez des câbles, vous validez des Consuel, vous coordonnez des chantiers. Vous n'avez pas le temps de structurer des devis détaillés à 23h ni de courir derrière les paiements. Voilà ce que je prends en charge pour vous, à partir de 750€/mois."
+      intro="Vous tirez des câbles, vous validez des Consuel, vous coordonnez des chantiers. Vous n'avez pas le temps de structurer des devis détaillés à 23h ni de courir derrière les paiements. Voilà ce que je prends en charge pour vous, à partir de 600€/mois ou 80€/h."
       painSection={{
         title: "Quels sont les vrais blocages d'un électricien indépendant aujourd'hui ?",
         points: [
@@ -110,41 +110,36 @@ export default function ElectricienPage() {
         ],
       }}
       featuredOffer={{
-        name: 'Pilote 30',
-        price: '750 € HT/mois',
-        delay: 'Mise en route en 4 semaines',
-        description: "Pour un électricien solo (jusqu'à 30 devis+factures/mois). Devis structurés, avenants gérés, suivi Consuel, relances automatiques, dossier comptable mensuel.",
+        name: 'Pack 20h',
+        price: '1 400 € HT/mois',
+        delay: 'Démarrage en moins de 2 semaines',
+        description: "Pour un suivi régulier de votre admin — devis, ADV, fournisseurs, suivi de projet, facturation. 20 heures dédiées par mois, sans engagement long.",
         features: [
-          'Devis détaillés multi-chantiers (lots, postes, fournitures, MO)',
-          'Avenants gérés à la volée depuis vos vocaux',
-          'Suivi calendaire Consuel (envoi, relance, notif client)',
-          'Facturation et relances automatiques (J+15/J+30/J+45)',
-          'OCR des tickets et fournitures classés par chantier',
-          'Tableau de bord temps réel : CA, marge par chantier, trésorerie',
-          'Hotline WhatsApp dédiée 9h-17h jours ouvrés',
-          'Dossier comptable mensuel propre',
+          'Devis structurés, envoyés sans délai après votre brief',
+          'Facturation, suivi des paiements, conforme PDP 2026-2027',
+          'Frais & dépenses saisis et classés par chantier',
+          'Trésorerie suivie, reporting mensuel commenté',
+          'Préparation du dossier mensuel pour votre comptable',
+          'WhatsApp dédié, réponse sous 4h en jour ouvré',
+          'Visio bilan mensuelle (30 min)',
+          'Préavis 15 jours fin de mois — vous gardez la main',
         ],
       }}
       process={[
         {
           step: '1',
           title: 'Appel découverte (30 min, gratuit)',
-          description: "On parle de votre activité : volume mensuel, type de chantiers (résidentiel, tertiaire, industriel), certifications RGE, outils actuels. Je vous dis si on est faits pour bosser ensemble. Devis envoyé sous 24h.",
+          description: "On parle de votre activité : volumes, type d'interventions, outils actuels. Je vous dis si on est faits pour bosser ensemble. Si oui, mission ponctuelle ou pack adapté proposé sous 24h.",
         },
         {
           step: '2',
-          title: 'Mise en route Mois 1 (750€ HT)',
-          description: "Audit de votre existant, récupération de vos historiques chantiers, paramétrage Pennylane et WhatsApp dédié. Mise en place du tableau de bord avec marge par chantier. Premiers devis et factures faits ensemble.",
+          title: 'Le démarrage',
+          description: "Audit rapide de votre existant. Accès aux outils que vous utilisez déjà (Pennylane, Sage, Excel…). Premier RDV de cadrage 30 min. Pas de mise en route facturée à part — c'est inclus dans les premières heures.",
         },
         {
           step: '3',
-          title: 'Le quotidien (M2 et au-delà)',
-          description: "Vous m'envoyez le métré ou les photos. Je structure les devis détaillés, fais les avenants, suis les Consuel, relance les impayés. Vous, vous tirez les câbles.",
-        },
-        {
-          step: '4',
-          title: 'Le rythme régulier',
-          description: "Visio bilan toutes les 2 semaines : marge par chantier, devis en cours, Consuel en attente, factures à relancer. Hotline WhatsApp 9h-17h. Reporting mensuel + dossier au comptable.",
+          title: 'Le quotidien',
+          description: "Vous m'envoyez vocaux/photos WhatsApp. Je crée les devis, envoie les factures, relance les impayés, classe les frais. Visio bilan mensuelle. Préavis 15 jours sur les packs.",
         },
       ]}
       faq={[
@@ -158,7 +153,7 @@ export default function ElectricienPage() {
         },
         {
           question: "Combien ça coûte pour un électricien indépendant ?",
-          answer: "Pilote 30 à 750€/mois HT pour un solo. Pilote 60 à 1 150€/mois avec 2-3 salariés. Pilote 100 à 1 500€/mois pour 4-8 personnes. TVA non applicable. Tout inclus : devis, factures, relances, suivi Consuel, dossier comptable.",
+          answer: "Deux formules. Mission à l'heure (80€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack 10h à 720€/mois, Pack 20h à 1 400€/mois (le plus courant), Pack 30h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
         },
         {
           question: "Travaillez-vous avec des électriciens ailleurs qu'en PACA ?",
@@ -194,11 +189,11 @@ export default function ElectricienPage() {
         miniCases: [
           {
             situation: "Un électricien d'Antibes, 8 ans d'activité, 1 salarié. Spécialité rénovation lourde. Il oublie systématiquement de faire les avenants, perd 1 500-2 500€ par chantier.",
-            result: "Pilote 60 à 1 150€/mois. Tous les avenants sont systématiquement faits depuis ses vocaux. Sur 6 mois : +12 000€ de CA additionnel récupéré.",
+            result: "Pack 20h à 1 400€/mois. Tous les avenants sont systématiquement faits depuis ses vocaux. Sur 6 mois : +12 000€ de CA additionnel récupéré.",
           },
           {
             situation: "Un électricien-installateur RGE de Cagnes-sur-Mer, 3 salariés. Activité mixte (résidentiel + petit tertiaire). Suivi Consuel chaotique, plaintes clients régulières.",
-            result: "Pilote 60 + suivi Consuel structuré. Délai moyen Consuel passé de 6 semaines à 3 semaines (relance systématique). Plaintes clients sur ce sujet : zéro.",
+            result: "Pack 20h avec suivi Consuel structuré. Délai moyen Consuel passé de 6 semaines à 3 semaines (relance systématique). Plaintes clients sur ce sujet : zéro.",
           },
         ],
         insight: "La spécificité d'un électricien : la marge réelle se joue sur le tracking des fournitures par chantier. Sans système qui classe automatiquement les tickets de caisse et les factures fournisseurs par projet, vous ne savez jamais quel chantier vous a vraiment rapporté.",

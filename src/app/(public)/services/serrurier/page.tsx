@@ -4,11 +4,11 @@ import LandingPage from '@/components/seo/LandingPage';
 export const metadata: Metadata = {
   title: 'Assistant administratif pour serruriers — OptiPro PACA',
   description:
-    'Service d\'assistant admin externalisé pour serruriers et métalliers. Devis urgents 24/7 traités sous 1h, factures, relances, comptable. À partir de 750€/mois. Vence (06), interventions PACA et France.',
+    'Service d\'assistant admin externalisé pour serruriers et métalliers. Devis urgents 24/7 traités sous 1h, factures, relances, comptable. À partir de 600€/mois ou 80€/h. Vence (06), interventions PACA et France.',
   alternates: { canonical: '/services/serrurier' },
   openGraph: {
     title: 'Assistant admin pour serruriers — OptiPro',
-    description: 'Vous gérez les urgences, je gère votre admin. Devis sous 1h, relances, dossier comptable mensuel. Pilote dès 750€/mois.',
+    description: 'Vous gérez les urgences, je gère votre admin. Mission ou pack mensuel — dès 600€/mois.',
     url: 'https://www.opti-pro.fr/services/serrurier',
     type: 'website',
   },
@@ -30,7 +30,7 @@ const jsonLd = {
       '@id': 'https://www.opti-pro.fr/services/serrurier#service',
       name: 'Assistant administratif externalisé pour serruriers et métalliers',
       serviceType: 'AdministrativeService',
-      description: 'Service d\'assistant administratif externalisé pour serruriers indépendants et TPE de métallerie. Gestion des devis urgents, factures, relances, trésorerie, planning, dossier comptable mensuel. Tableau de bord temps réel inclus.',
+      description: 'Service d\'assistant administratif externalisé pour serruriers indépendants et TPE de métallerie. Gestion des devis urgents, factures, relances, trésorerie, planning, dossier comptable mensuel.',
       provider: { '@id': 'https://www.opti-pro.fr/#organization' },
       areaServed: [
         { '@type': 'City', name: 'Vence' },
@@ -46,10 +46,10 @@ const jsonLd = {
       audience: { '@type': 'Audience', name: 'Serruriers, métalliers, dépanneurs urgents 24/7' },
       offers: {
         '@type': 'AggregateOffer',
-        lowPrice: '750',
-        highPrice: '1500',
+        lowPrice: '600',
+        highPrice: '1950',
         priceCurrency: 'EUR',
-        offerCount: 3,
+        offerCount: 4,
         valueAddedTaxIncluded: false,
       },
     },
@@ -69,7 +69,7 @@ const jsonLd = {
           name: "Et le suivi des factures impayées ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Les relances partent automatiquement à J+15, J+30, J+45 sur les factures impayées. Sans intervention de votre part. Sur les serruriers que je connais, ça récupère en moyenne 2 à 4k€/mois de factures qui passent à la trappe.",
+            text: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part. Sur les serruriers que je connais, ça récupère en moyenne 2 à 4k€/mois de factures qui passent à la trappe.",
           },
         },
         {
@@ -77,7 +77,7 @@ const jsonLd = {
           name: "Combien ça coûte pour un serrurier indépendant ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Le forfait Pilote 30 à 750€/mois HT couvre l'activité d'un serrurier solo (jusqu'à 30 documents/mois — devis et factures cumulés). Si vous avez 1 à 3 salariés et générez plus de volume, le Pilote 60 à 1 150€/mois. Tout est inclus : devis, factures, relances, trésorerie, dossier comptable. TVA non applicable (art. 293 B).",
+            text: "Deux formules. Mission à l'heure (80€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack 10h à 720€/mois, Pack 20h à 1 400€/mois (le plus courant), Pack 30h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
           },
         },
         {
@@ -85,7 +85,7 @@ const jsonLd = {
           name: "Travaillez-vous avec des serruriers ailleurs qu'en PACA ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Oui. Le service est 100% à distance — vocaux WhatsApp, visios, tableau de bord en ligne. La PACA est ma zone prioritaire (Vence, Nice, Antibes, Cannes), mais j'accepte les serruriers partout en France.",
+            text: "Oui. Le service est 100% à distance — vocaux WhatsApp, visios. La PACA est ma zone prioritaire (Vence, Nice, Antibes, Cannes), mais j'accepte les serruriers partout en France.",
           },
         },
       ],
@@ -98,7 +98,7 @@ export default function SerrurierPage() {
     <LandingPage
       badge="Pour serruriers et métalliers"
       h1="L'assistant administratif des serruriers"
-      intro="Vous gérez les urgences à 3h du matin. Vous n'avez pas le temps de faire des devis sous 24h, de relancer les impayés, de tenir un dossier comptable propre. Voilà précisément ce que je prends en charge pour vous, à partir de 750€/mois."
+      intro="Vous gérez les urgences à 3h du matin. Vous n'avez pas le temps de faire des devis sous 24h, de relancer les impayés, de tenir un dossier comptable propre. Voilà précisément ce que je prends en charge pour vous, à partir de 600€/mois ou 80€/h."
       painSection={{
         title: "Quels sont les vrais blocages d'un serrurier indépendant aujourd'hui ?",
         points: [
@@ -110,41 +110,36 @@ export default function SerrurierPage() {
         ],
       }}
       featuredOffer={{
-        name: 'Pilote 30',
-        price: '750 € HT/mois',
-        delay: 'Mise en route en 4 semaines',
-        description: "Pour un serrurier solo (jusqu'à 30 devis+factures/mois). Tout votre admin opérationnel pris en charge. Vous m'envoyez un vocal WhatsApp depuis l'intervention, je m'occupe du reste.",
+        name: 'Pack 20h',
+        price: '1 400 € HT/mois',
+        delay: 'Démarrage en moins de 2 semaines',
+        description: "Pour un suivi régulier de votre admin — devis, ADV, fournisseurs, suivi de projet, facturation. 20 heures dédiées par mois, sans engagement long.",
         features: [
-          'Devis envoyés sous 1h après votre vocal — même la nuit',
-          'Facturation, relances automatiques (J+15/J+30/J+45)',
-          'OCR des tickets et frais classés par chantier',
-          'Tableau de bord temps réel : CA, factures, trésorerie',
-          'Notifications Telegram ou Push pour les événements importants',
-          'Dossier comptable mensuel propre transmis à votre comptable',
-          'Hotline WhatsApp dédiée 9h-17h jours ouvrés',
-          'Visio bilan toutes les 2 semaines',
+          'Devis structurés, envoyés sans délai après votre brief',
+          'Facturation, suivi des paiements, conforme PDP 2026-2027',
+          'Frais & dépenses saisis et classés par chantier',
+          'Trésorerie suivie, reporting mensuel commenté',
+          'Préparation du dossier mensuel pour votre comptable',
+          'WhatsApp dédié, réponse sous 4h en jour ouvré',
+          'Visio bilan mensuelle (30 min)',
+          'Préavis 15 jours fin de mois — vous gardez la main',
         ],
       }}
       process={[
         {
           step: '1',
           title: 'Appel découverte (30 min, gratuit)',
-          description: "On parle de votre activité : volume mensuel, type d'interventions (urgences, B2B, particuliers), outils actuels. Je vous dis si on est faits pour bosser ensemble. Si oui, devis envoyé sous 24h.",
+          description: "On parle de votre activité : volumes, type d'interventions, outils actuels. Je vous dis si on est faits pour bosser ensemble. Si oui, mission ponctuelle ou pack adapté proposé sous 24h.",
         },
         {
           step: '2',
-          title: 'Mise en route Mois 1 (750€ HT)',
-          description: "Audit de votre existant, récupération de vos historiques (clients, projets, factures), paramétrage Pennylane et WhatsApp dédié, formation 30 min. Premiers devis et factures faits ensemble pour valider le ton.",
+          title: 'Le démarrage',
+          description: "Audit rapide de votre existant. Accès aux outils que vous utilisez déjà (Pennylane, Sage, Excel…). Premier RDV de cadrage 30 min. Pas de mise en route facturée à part — c'est inclus dans les premières heures.",
         },
         {
           step: '3',
-          title: 'Le quotidien (M2 et au-delà)',
-          description: "Vous m'envoyez vocaux et photos depuis l'intervention. Je crée les devis, envoie les factures, relance les impayés, classe les frais, mets le planning à jour. Vous bossez. Je gère.",
-        },
-        {
-          step: '4',
-          title: 'Le rythme régulier',
-          description: "Visio bilan toutes les 2 semaines (30 min) : trésorerie, devis en cours, factures à relancer. Hotline WhatsApp 9h-17h jours ouvrés pour vos questions. Reporting mensuel + dossier transmis au comptable.",
+          title: 'Le quotidien',
+          description: "Vous m'envoyez vocaux/photos WhatsApp. Je crée les devis, envoie les factures, relance les impayés, classe les frais. Visio bilan mensuelle. Préavis 15 jours sur les packs.",
         },
       ]}
       faq={[
@@ -154,15 +149,15 @@ export default function SerrurierPage() {
         },
         {
           question: "Et le suivi des factures impayées ?",
-          answer: "Les relances partent automatiquement à J+15, J+30, J+45 sur les factures impayées. Sans intervention de votre part. Sur les serruriers que je connais, ça récupère en moyenne 2 à 4k€/mois de factures qui passent à la trappe.",
+          answer: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part. Sur les serruriers que je connais, ça récupère en moyenne 2 à 4k€/mois de factures qui passent à la trappe.",
         },
         {
           question: "Combien ça coûte pour un serrurier indépendant ?",
-          answer: "Le forfait Pilote 30 à 750€/mois HT couvre l'activité d'un serrurier solo (jusqu'à 30 documents/mois). Si vous avez 1 à 3 salariés, le Pilote 60 à 1 150€/mois. Tout est inclus : devis, factures, relances, trésorerie, dossier comptable. TVA non applicable.",
+          answer: "Deux formules. Mission à l'heure (80€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack 10h à 720€/mois, Pack 20h à 1 400€/mois (le plus courant), Pack 30h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
         },
         {
           question: "Travaillez-vous avec des serruriers ailleurs qu'en PACA ?",
-          answer: "Oui. Le service est 100% à distance — vocaux WhatsApp, visios, tableau de bord en ligne. La PACA est ma zone prioritaire, mais j'accepte les serruriers partout en France.",
+          answer: "Oui. Le service est 100% à distance — vocaux WhatsApp, visios. La PACA est ma zone prioritaire, mais j'accepte les serruriers partout en France.",
         },
       ]}
       localMentions={['Vence', 'Nice', 'Antibes', 'Cannes', 'Grasse', "toute la PACA et la France à distance"]}
@@ -194,11 +189,11 @@ export default function SerrurierPage() {
         miniCases: [
           {
             situation: "Un serrurier de Cagnes-sur-Mer, 6 ans d'activité, 4-5 interventions par jour dont 2 urgences. Il fait ses devis le dimanche soir sur Word. Délai moyen : 3 jours après l'intervention. 1 client sur 4 part chez un concurrent entre-temps.",
-            result: "Pilote 30 à 750€/mois. Devis envoyés sous 1h après vocal WhatsApp. Taux de signature passé de 75% à 92%. Gain estimé : ~1 500€/mois de CA additionnel + 5h/semaine récupérées.",
+            result: "Pack 10h à 720€/mois. Devis envoyés sous 1h après vocal WhatsApp. Taux de signature passé de 75% à 92%. Gain estimé : ~1 500 € de CA additionnel par mois + 5h/semaine récupérées.",
           },
           {
             situation: "Un serrurier-métallier d'Antibes avec 2 salariés. Sa femme fait l'admin le soir, ils sont en désaccord permanent sur l'organisation. Factures impayées qui s'accumulent (3-4k€ en cours).",
-            result: "Pilote 60 à 1 150€/mois. Les relances automatiques rattrapent 2 800€ d'impayés en 2 mois. Sa femme reprend une activité pro ailleurs. Le couple respire.",
+            result: "Pack 20h à 1 400€/mois. Les relances rattrapent 2 800€ d'impayés en 2 mois. Sa femme reprend une activité pro ailleurs. Le couple respire.",
           },
         ],
         insight: "La spécificité d'un serrurier sur la Côte d'Azur : pic d'activité l'été (cambriolages secondaires, locataires saisonniers, professionnels touristiques), creux en hiver. Avoir un système qui tourne tout seul pendant les pics et qui ne pèse rien pendant les creux change tout.",

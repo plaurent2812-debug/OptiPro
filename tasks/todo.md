@@ -1,5 +1,15 @@
 # TODO — OptiPro
 
+## Terminé — Refonte hero homepage inspirée pierrelegoux.fr (2026-05-12)
+- [x] Analyse pierrelegoux.fr (palette, typo, structure, animations CSS pures)
+- [x] Démo HTML 6 variantes hero (`public/demo-hero.html`)
+- [x] Choix Pierre : V6 (bras droit XXL 2 lignes) + Option B (« bras » et « droit » en orange) + Fond 6A (grille animée + lueur balayante)
+- [x] Variables sémantiques globals.css (`--ink`, `--ink-muted`, `--brand-soft`, `--surface-soft`, `--line`, `--ease-signature`)
+- [x] CSS Module `src/app/(public)/home.module.css`
+- [x] Refonte hero `HomePageClient.tsx` (animation mot-par-mot, CTA pill noir, lien secondaire texte)
+- [x] tsc --noEmit OK, dev server 200 OK
+- [ ] Phase 2 plus tard : refondre les autres sections (problème/solution/comparaison/FAQ) avec les mêmes tokens
+
 ## Terminé — Refonte site vitrine (2026-03-28)
 - [x] Repositionnement OptiBoard → OptiPro (conseil & dev sur mesure)
 - [x] Nouveau hero avec "La Méthode OptiPro" (4 étapes)

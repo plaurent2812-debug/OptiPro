@@ -44,6 +44,16 @@
   --radius-md: 0.875rem;
   --radius-lg: 1.25rem;
   --radius-xl: 1.75rem;
+
+  /* Sémantique éditoriale (refonte mai 2026 — inspirée pierrelegoux.fr) */
+  --ink: #0a0a0a;
+  --ink-muted: #525252;
+  --ink-subtle: #737373;
+  --brand: var(--accent);
+  --brand-soft: #fff4e9;
+  --line: #e5e5e5;
+  --surface-soft: #fafaf7;
+  --ease-signature: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ============================================

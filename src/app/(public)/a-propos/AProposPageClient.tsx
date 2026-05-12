@@ -25,7 +25,7 @@ const timeline: TimelineItem[] = [
     company: 'OptiPro',
     role: 'Fondateur — Assistant administratif externalisé pour artisans et TPE',
     description:
-      "J'ai quitté l'exploitation pour proposer ces mêmes services d'exploitation et d'admin opérationnelle aux artisans et TPE qui n'ont pas les moyens d'un salarié à 7 000€ chargés. Devis, factures, trésorerie, relances, lien avec le comptable — je suis le bras droit administratif de mes clients, dès 750€/mois. Je me limite à 8-10 clients pour rester réactif et qualitatif sur chacun.",
+      "J'ai quitté l'exploitation salariée pour proposer mon expérience aux artisans, indépendants et TPE qui n'ont pas les moyens d'embaucher un cadre. À partir de 600€/mois, je prends en charge ce qui vous freine — devis, ADV, fournisseurs, suivi de projet, facturation — sur une mission ponctuelle ou en accompagnement régulier. Je me limite à 8-10 clients pour rester réactif et qualitatif sur chacun.",
     current: true,
   },
   {
@@ -83,6 +83,12 @@ const valeurs = [
     title: 'Objectifs chiffrés d\'avance',
     description:
       "Pas de promesse floue. On part des heures que vous perdez chaque semaine, on cible un nombre d'heures à récupérer, et on mesure ensemble à 90 jours.",
+  },
+  {
+    icon: '\u{1F39B}\u{FE0F}',
+    title: 'Pilote, pas manager',
+    description:
+      "Aujourd'hui je me recentre sur le pilotage et l'organisation — coordination, structuration, optimisation. Le management quotidien des équipes reste entre vos mains, je ne m'y substitue pas.",
   },
 ];
 

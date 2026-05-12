@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import AutomatedVsHuman from '@/components/ui/AutomatedVsHuman';
 
 export default function PourquoiClient() {
   return (
@@ -7,7 +6,7 @@ export default function PourquoiClient() {
       {/* SECTION 1 — HERO */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 4rem', textAlign: 'center' }}>
         <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.15, margin: '0 0 1.5rem' }}>
-          Pourquoi je peux faire ça à 750€/mois.
+          Pourquoi 80€/h. Le calcul honnête.
         </h1>
         <p style={{ fontSize: '1.15rem', color: 'var(--secondary)', lineHeight: 1.6, maxWidth: '680px', margin: '0 auto' }}>
           La question que tout le monde me pose, et la réponse complète. Sans bullshit.
@@ -30,47 +29,29 @@ export default function PourquoiClient() {
         </p>
       </section>
 
-      {/* SECTION 3 — POURQUOI 750€ ET PAS 2 500€ */}
+      {/* SECTION 3 — POURQUOI 80€ ET PAS 150€ */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 4rem' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1.25rem' }}>
-          Pourquoi 750€ et pas 2 500€
+          Pourquoi 80€ et pas 150€
         </h2>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>
-          Une assistante mi-temps salariée vous coûte ~2 300€/mois charges comprises, pour ~80h de travail. Soit ~29€/h.
-        </p>
-        <p style={{ color: 'var(--secondary)', lineHeight: 1.7, marginBottom: '0.5rem' }}>
-          Sur ces 80h, combien sont vraiment productives ? Combien sont passées à :
+          Le marché du conseil opérationnel se découpe ainsi :
         </p>
         <ul style={{ color: 'var(--secondary)', lineHeight: 1.7, paddingLeft: '1.25rem', marginBottom: '1rem' }}>
-          <li>Saisir manuellement des tickets de caisse</li>
-          <li>Recopier des devis depuis un vocal</li>
-          <li>Vérifier des numérotations</li>
-          <li>Relancer un client par email</li>
-          <li>Préparer un export Excel pour le comptable</li>
+          <li>Consultant en cabinet : <strong>150-300€/h</strong></li>
+          <li>Cadre indépendant senior reconnu : <strong>100-150€/h</strong></li>
+          <li>Moi (responsable d&apos;exploitation indépendant en démarrage) : <strong>80€/h</strong></li>
+          <li>Assistant·e administratif·ve indépendant·e : <strong>45-60€/h</strong></li>
         </ul>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>
-          Ces tâches, je les ai automatisées. Mon outil interne fait ce travail répétitif tout seul, ou en 1/10e du temps.
+          80€/h, c&apos;est mon tarif d&apos;entrée. Il reflète mon expérience (10 ans en pilotage d&apos;exploitation) sans gonfler artificiellement par mon ancienneté en tant qu&apos;indépendant.
         </p>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.7, margin: 0 }}>
-          <strong style={{ color: 'var(--primary)' }}>Résultat :</strong> je gère 8 à 10 clients en parallèle au lieu d&apos;un seul. C&apos;est ce qui me permet de proposer 750€ par client tout en restant rentable.
+          Quand mes témoignages s&apos;accumulent et que ma réputation grandit, ce tarif évoluera. C&apos;est le bon moment pour me prendre — j&apos;ai l&apos;expérience d&apos;un cadre senior au tarif d&apos;un indépendant qui démarre.
         </p>
       </section>
 
-      {/* SECTION 4 — AUTOMATISÉ vs HUMAIN */}
-      <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem 4rem' }}>
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 0.75rem' }}>
-          La séparation des rôles
-        </h2>
-        <p style={{ textAlign: 'center', color: 'var(--secondary)', maxWidth: '620px', margin: '0 auto 2.5rem', lineHeight: 1.6 }}>
-          Concrètement, voilà ce que fait l&apos;outil et ce que je fais moi.
-        </p>
-        <AutomatedVsHuman />
-        <p style={{ textAlign: 'center', color: 'var(--secondary)', fontSize: '0.95rem', maxWidth: '620px', margin: '2.5rem auto 0', lineHeight: 1.65, fontStyle: 'italic' }}>
-          Les 30% restants, c&apos;est ce qui fait la différence entre un service automatique sans âme et un vrai partenaire qui pense pour vous.
-        </p>
-      </section>
-
-      {/* SECTION 5 — POURQUOI C'EST DURABLE */}
+      {/* SECTION 4 — POURQUOI C'EST DURABLE */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 4rem' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1.25rem' }}>
           Pourquoi c&apos;est durable
@@ -82,20 +63,20 @@ export default function PourquoiClient() {
           Pas moi.
         </p>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>
-          Le tarif 750€/mois est le tarif de croisière. Il tient parce que :
+          Le tarif 80€/h tient parce que :
         </p>
         <ul style={{ color: 'var(--secondary)', lineHeight: 1.7, paddingLeft: '1.25rem', marginBottom: '1rem' }}>
-          <li>Mon infrastructure cloud est légère (pas de bureau, pas de serveurs propres)</li>
-          <li>Plus j&apos;ai de clients, plus mon outil s&apos;améliore (les automatismes profitent à tous)</li>
-          <li>Je n&apos;ai pas d&apos;équipe à payer, pas de loyer commercial</li>
+          <li>Je n&apos;ai pas de bureau, pas d&apos;équipe à payer, pas de loyer commercial</li>
           <li>Je suis en franchise TVA donc 0€ de TVA à reverser</li>
+          <li>Je travaille à distance — pas de déplacement à facturer</li>
+          <li>Je me limite à 8-10 clients pour rester réactif et qualitatif</li>
         </ul>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.7, margin: 0 }}>
           <strong style={{ color: 'var(--primary)' }}>Mon objectif :</strong> 8-10 clients fidèles à long terme. Pas 50 clients qui partent après 6 mois.
         </p>
       </section>
 
-      {/* SECTION 6 — POURQUOI UN COMPTABLE NE PEUT PAS FAIRE ÇA */}
+      {/* SECTION 5 — POURQUOI UN COMPTABLE NE PEUT PAS FAIRE ÇA */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 4rem' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1.25rem' }}>
           Pourquoi un comptable ne peut pas faire ça
@@ -116,7 +97,7 @@ export default function PourquoiClient() {
         </p>
       </section>
 
-      {/* SECTION 7 — POURQUOI JE LIMITE À 8-10 CLIENTS */}
+      {/* SECTION 6 — POURQUOI JE LIMITE À 8-10 CLIENTS */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 4rem' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1.25rem' }}>
           Pourquoi je limite à 8-10 clients
@@ -132,7 +113,7 @@ export default function PourquoiClient() {
         </p>
       </section>
 
-      {/* SECTION 8 — CTA FINAL DOUBLE */}
+      {/* SECTION 7 — CTA FINAL DOUBLE */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1.25rem' }}>
           Convaincu ? Bloquons un créneau.

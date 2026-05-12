@@ -1,6 +1,6 @@
 // src/data/comparison.ts
 
-import { PILOTE_FORFAITS, formatPrice } from './pricing';
+import { MISSION_PACKS, formatPrice } from './pricing';
 
 export interface ComparisonCard {
   vs: string;
@@ -8,20 +8,23 @@ export interface ComparisonCard {
   moi: string;
 }
 
+// On compare au Pack 20h (le palier recommandé)
+const refPack = MISSION_PACKS[1]; // pack-20
+
 export const COMPARISON_CARDS: ComparisonCard[] = [
   {
     vs: 'Un(e) assistant(e) indépendant(e)',
-    eux: '1 050€ à 1 500€/mois pour 30h. Pas d\'outil intégré, reporting Excel mensuel.',
-    moi: `${formatPrice(PILOTE_FORFAITS[0].price)} tout inclus, outil + tableau de bord temps réel, hotline 9h-17h.`,
+    eux: "45-60€/h pour 20-30h/mois (900€ à 1 800€). Profil junior, focus exécution, sans expérience opérationnelle senior.",
+    moi: `${formatPrice(refPack.monthlyPrice)} pour 20h/mois (${refPack.hourlyEquivalent}€/h équivalent). 10 ans en pilotage d'exploitation et logistique, je vais 2-3 fois plus vite sur ce qui compte vraiment.`,
   },
   {
     vs: 'Un mi-temps salarié(e)',
-    eux: '~2 300€ chargés/mois. Engagement 18-24 mois. Charges patronales, congés, gestion RH.',
-    moi: `${formatPrice(PILOTE_FORFAITS[0].price)} tout inclus. Cycles 3 mois sans engagement long. Pas de charges sociales.`,
+    eux: "~2 300€/mois chargés, engagement 18-24 mois, charges patronales, congés payés, gestion RH. Vous portez le risque.",
+    moi: `${formatPrice(refPack.monthlyPrice)} en pack mensuel reconductible. Préavis 15 jours, zéro charge sociale, zéro paperasse RH. Vous testez sans risque.`,
   },
   {
     vs: 'Un cabinet comptable',
-    eux: 'Limité à la compta. Pas de relances, pas de devis, pas de pilotage temps réel.',
-    moi: 'Je gère tout l\'admin opérationnel. Votre comptable garde son rôle.',
+    eux: "Périmètre limité à la comptabilité réglementée. Pas de devis client, pas de relances, pas de pilotage des fournisseurs, pas de coordination chantier.",
+    moi: "Je gère tout l'admin opérationnel quotidien. Votre comptable garde sa mission réglementaire — je lui livre un dossier propre chaque mois.",
   },
 ];

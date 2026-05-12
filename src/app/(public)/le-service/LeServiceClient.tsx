@@ -1,45 +1,42 @@
 // src/app/(public)/le-service/LeServiceClient.tsx
 import Link from 'next/link';
-import MockupTableauDeBord from '@/components/ui/MockupTableauDeBord';
 import ComparisonCards from '@/components/ui/ComparisonCards';
-import FondateurBanner from '@/components/ui/FondateurBanner';
-import { PILOTE_FORFAITS, formatPrice } from '@/data/pricing';
 
 const LIVRABLES = [
   {
     icon: '📄',
     title: 'Devis',
-    description: 'Vous m\'envoyez un vocal WhatsApp depuis le chantier. Je crée le devis, je l\'envoie au client, je le relance s\'il ne signe pas. Conforme légalement, signature en ligne.',
+    description: "Structurés, rapides, conformes. Envoyés sans délai après votre brief. Signature en ligne et relance si pas signé.",
   },
   {
     icon: '💰',
     title: 'Facturation',
-    description: 'Émission, envoi, relances automatiques (J+15, J+30, J+45), encaissement. Connecté à Pennylane (ou autre). Conforme à la facturation électronique 2026-2027.',
+    description: "Émission, envoi, suivi des paiements. Connecté à Pennylane (ou vos outils existants). Conforme à la facturation électronique 2026-2027.",
   },
   {
     icon: '🧾',
     title: 'Frais & dépenses',
-    description: 'Vous prenez en photo un ticket fournisseur, je le saisis et le classe automatiquement par chantier ou catégorie. OCR + IA pour aller vite.',
+    description: "Saisie et classement de vos tickets fournisseurs par chantier ou catégorie. Vous transmettez la photo, je traite.",
   },
   {
     icon: '📊',
-    title: 'Trésorerie & pilotage',
-    description: 'Tableau de bord temps réel avec votre CA, vos factures à relancer, votre trésorerie. Plus un reporting mensuel commenté avec les chiffres qui comptent.',
+    title: 'Trésorerie',
+    description: "Suivi de vos encaissements et décaissements. Reporting mensuel commenté avec les chiffres qui comptent. Vous savez où vous en êtes.",
   },
   {
     icon: '📅',
     title: 'Planning & RDV',
-    description: 'Calendrier de vos chantiers et rendez-vous tenu à jour. Notifs Telegram ou Push à votre choix pour les événements importants (signature, paiement, RDV).',
+    description: "Calendrier de vos chantiers et rendez-vous tenu à jour. Vous m'envoyez par WhatsApp, je tiens la cohérence.",
   },
   {
     icon: '📋',
     title: 'Préparation comptable',
-    description: 'Chaque mois, je prépare un dossier propre pour votre comptable : export FEC, factures classées, justificatifs vérifiés. Il fait son métier plus vite, vous économisez sur ses honoraires.',
+    description: "Chaque mois, je prépare un dossier propre pour votre comptable : export FEC, factures classées, justificatifs vérifiés. Il fait son métier plus vite, vous économisez sur ses honoraires.",
   },
   {
     icon: '🤝',
     title: 'Coordination prestataires',
-    description: 'Option : je deviens votre point de contact unique avec votre comptable, banquier, assureur. Vous gagnez le temps des allers-retours administratifs.',
+    description: "Option : je deviens votre point de contact unique avec votre comptable, banquier, assureur. Vous gagnez le temps des allers-retours administratifs.",
   },
 ];
 
@@ -52,7 +49,7 @@ export default function LeServiceClient() {
           Tout votre admin opérationnel. Pris en charge.
         </h1>
         <p style={{ fontSize: '1.15rem', color: 'var(--secondary)', lineHeight: 1.6, maxWidth: '680px', margin: '0 auto' }}>
-          Vous bossez sur le chantier. Je gère votre bureau. Voilà ce qui est inclus dans le forfait Pilote, à partir de {formatPrice(PILOTE_FORFAITS[0].price)}/mois.
+          Vous bossez sur le terrain. Je gère votre bureau. Mission ponctuelle ou pack mensuel — à partir de 600€/mois.
         </p>
       </section>
 
@@ -80,19 +77,6 @@ export default function LeServiceClient() {
         </div>
       </section>
 
-      {/* TABLEAU DE BORD */}
-      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1rem' }}>
-            Vous gardez la main grâce à votre tableau de bord
-          </h2>
-          <p style={{ color: 'var(--secondary)', fontSize: '1.05rem', maxWidth: '620px', margin: '0 auto', lineHeight: 1.6 }}>
-            Votre activité est visible en temps réel. Vous voyez ce que je fais sans avoir à demander.
-          </p>
-        </div>
-        <MockupTableauDeBord />
-      </section>
-
       {/* COMPARAISON */}
       <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
@@ -104,11 +88,6 @@ export default function LeServiceClient() {
           </p>
         </div>
         <ComparisonCards />
-      </section>
-
-      {/* PROGRAMME FONDATEUR */}
-      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
-        <FondateurBanner variant="inline" />
       </section>
 
       {/* CTA FINAL */}

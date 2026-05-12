@@ -17,7 +17,7 @@ export const FAQ_HOMEPAGE: FaqItem[] = [
       "Je travaille à l'heure (mission ponctuelle) ou en pack mensuel reconductible tacitement. Pour les packs, le préavis de résiliation est de 15 jours fin de mois. Vous gardez la main.",
   },
   {
-    question: 'Comment je vous transmets les infos depuis le chantier ?',
+    question: 'Comment je vous transmets les infos au quotidien ?',
     answer:
       "Vocal, photo ou message WhatsApp. Je réponds sous 4h en jour ouvré. Vous n'avez aucun logiciel à apprendre.",
   },
@@ -53,11 +53,6 @@ export const FAQ_TARIFS: FaqItem[] = [
     question: 'TVA ?',
     answer:
       "Tarifs HT. Franchise en base de TVA (art. 293 B du CGI) — pas de TVA à payer en plus pour vous.",
-  },
-  {
-    question: 'Stripe : qui paie les frais ?',
-    answer:
-      "Si vous choisissez l'option Stripe (paiement en ligne pour vos clients), les frais sont refacturés en transparence (1,4% + 0,25€ par transaction réussie). Vous voyez chaque détail.",
   },
 ];
 

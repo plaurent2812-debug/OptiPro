@@ -24,7 +24,7 @@ export const COMPARISON_CARDS: ComparisonCard[] = [
   },
   {
     vs: 'Un cabinet comptable',
-    eux: "Périmètre limité à la comptabilité réglementée. Pas de devis client, pas de relances, pas de pilotage des fournisseurs, pas de coordination chantier.",
+    eux: "Périmètre limité à la comptabilité réglementée. Pas de devis client, pas de relances, pas de pilotage des fournisseurs, pas de coordination opérationnelle.",
     moi: "Je gère tout l'admin opérationnel quotidien. Votre comptable garde sa mission réglementaire — je lui livre un dossier propre chaque mois.",
   },
 ];

@@ -130,13 +130,6 @@ export const MISE_EN_ROUTE_FONDATEUR_PRICE = 375;
 
 export const PILOTE_OPTIONS: PiloteOption[] = [
   {
-    id: 'stripe',
-    name: 'Stripe — paiement en ligne',
-    description:
-      'Vos clients payent en 1 clic par carte. Frais Stripe refacturés en transparence (1,4% + 0,25€/transaction).',
-    price: '+30€/mois',
-  },
-  {
     id: 'coordination-leger',
     name: 'Coordination prestataires — léger',
     description: "Moins de 30 min/semaine d'échanges avec un prestataire externe.",

@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ComparisonCards from '@/components/ui/ComparisonCards';
 import AccordionItem from '@/components/ui/AccordionItem';
 import { FAQ_HOMEPAGE } from '@/data/faq';
+import styles from './home.module.css';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -16,16 +17,16 @@ const SHOW_TESTIMONIALS = false;
 
 const PROBLEM_POINTS: { title: string; desc: string }[] = [
   {
-    title: 'Devis envoyés 3 jours après la visite',
-    desc: "Le client a déjà appelé un autre artisan.",
+    title: 'Devis qui partent en retard',
+    desc: "Vos prospects signent ailleurs pendant que vous repoussez la paperasse au soir.",
   },
   {
-    title: "Factures impayées qui s'accumulent",
-    desc: 'Vous oubliez de relancer, vous perdez 2-5k€/mois sans le voir.',
+    title: 'Factures impayées qui dorment',
+    desc: 'Sans relance régulière, ce sont des milliers d’euros qui restent bloqués chaque mois.',
   },
   {
-    title: 'Aucune visibilité sur votre trésorerie',
-    desc: 'Vous ne savez jamais vraiment ce qui rentre, ce qui sort, ce qui reste à encaisser.',
+    title: 'L’admin qui mange vos soirées',
+    desc: 'Vous facturez 35h mais vous en travaillez 60 — la moitié sans valeur ajoutée.',
   },
 ];
 
@@ -132,106 +133,55 @@ export default function HomePageClient() {
 
   return (
     <main ref={rootRef}>
-      {/* ===== Section 1 — HERO ===== */}
-      <section
-        style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          padding: '5rem 1.5rem 4rem',
-          textAlign: 'center',
-        }}
-      >
-        <h1
-          data-hero-anim
-          style={{
-            fontSize: 'clamp(2.25rem, 6vw, 3.75rem)',
-            fontWeight: 800,
-            color: 'var(--primary)',
-            lineHeight: 1.1,
-            margin: '0 0 1.5rem',
-            letterSpacing: '-0.02em',
-          }}
-        >
-          Le bras droit des artisans, indépendants et TPE.
+      {/* ===== Section 1 — HERO (refonte mai 2026, inspiration pierrelegoux.fr) ===== */}
+      <section className={styles.hero}>
+        <div className={styles.heroBg} aria-hidden="true">
+          <div className={styles.bgGrid} />
+        </div>
+
+        <h1 className={styles.headline}>
+          <span className={styles.line}>
+            <span className={styles.word} style={{ animationDelay: '0s' }}>Le</span>{' '}
+            <span className={`${styles.word} ${styles.brandWord}`} style={{ animationDelay: '0.08s' }}>bras</span>{' '}
+            <span className={`${styles.word} ${styles.brandWord}`} style={{ animationDelay: '0.16s' }}>droit</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.24s' }}>des</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.32s' }}>artisans,</span>
+          </span>
+          <span className={styles.line}>
+            <span className={styles.word} style={{ animationDelay: '0.45s' }}>indépendants</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.53s' }}>et</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.61s' }}>TPE.</span>
+          </span>
         </h1>
 
-        <p
-          data-hero-anim
-          style={{
-            fontSize: 'clamp(1.05rem, 2.2vw, 1.25rem)',
-            color: 'var(--secondary)',
-            lineHeight: 1.6,
-            maxWidth: '780px',
-            margin: '0 auto 2rem',
-          }}
-        >
-          Pas un assistant. Pas un consultant. Quelqu&apos;un qui prend en charge ce qui vous freine —
-          devis, ADV, fournisseurs, suivi de projet, facturation — sur une mission ponctuelle ou en
-          accompagnement régulier.
+        <p className={styles.sub}>
+          Vous restez sur le terrain. Je m&apos;occupe du reste — devis, factures, fournisseurs,
+          suivi. Mission ponctuelle ou accompagnement régulier, à partir de 600&nbsp;€/mois.
         </p>
 
-        <p
-          data-hero-anim
-          style={{
-            fontSize: '1.1rem',
-            color: 'var(--primary)',
-            fontWeight: 600,
-            margin: '0 0 2.5rem',
-          }}
-        >
-          Je gère, vous restez sur le terrain.{' '}
-          <span style={{ color: 'var(--accent)' }}>À partir de 600€/mois.</span>
-        </p>
-
-        <div
-          data-hero-anim
-          style={{
-            display: 'flex',
-            gap: '1rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-          }}
-        >
-          <Link
-            href="/contact"
-            style={{
-              display: 'inline-block',
-              padding: '1rem 2rem',
-              background: 'var(--primary)',
-              color: 'var(--on-primary)',
-              borderRadius: '0.75rem',
-              textDecoration: 'none',
-              fontWeight: 600,
-              fontSize: '1.05rem',
-            }}
-          >
-            Réserver mon appel découverte (gratuit)
+        <div className={styles.ctas}>
+          <Link href="/contact" className={styles.btnPrimary}>
+            Réserver un appel gratuit <span className={styles.arrow}>→</span>
           </Link>
-          <Link
-            href="/tarifs"
-            style={{
-              display: 'inline-block',
-              padding: '1rem 2rem',
-              background: 'transparent',
-              color: 'var(--primary)',
-              border: '1px solid var(--border)',
-              borderRadius: '0.75rem',
-              textDecoration: 'none',
-              fontWeight: 600,
-              fontSize: '1.05rem',
-            }}
-          >
+          <Link href="/tarifs" className={styles.btnSecondary}>
             Voir les tarifs
           </Link>
         </div>
+
+        <a href="#hero-next" className={styles.scrollHint} aria-label="Faire défiler vers la suite">
+          <span>Découvrir</span>
+          <span className={styles.scrollHintArrow} aria-hidden="true" />
+        </a>
       </section>
 
       {/* ===== Section 2 — BLOC PROBLÈME ===== */}
       <section
+        id="hero-next"
         style={{
           maxWidth: '1100px',
           margin: '0 auto',
           padding: '0 1.5rem 5rem',
+          scrollMarginTop: 'var(--header-height)',
         }}
       >
         <h2
@@ -387,7 +337,7 @@ export default function HomePageClient() {
           }}
         >
           + Frais &amp; dépenses (OCR auto), Planning &amp; RDV, Coordination
-          prestataires.
+          fournisseurs.
         </p>
       </section>
 
@@ -510,7 +460,7 @@ export default function HomePageClient() {
             fontSize: '1.05rem',
           }}
         >
-          Réserver mon appel découverte (gratuit, 30 min)
+          Réserver mon appel découverte gratuit
         </Link>
       </section>
     </main>

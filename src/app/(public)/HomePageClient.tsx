@@ -5,9 +5,7 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import MockupTableauDeBord from '@/components/ui/MockupTableauDeBord';
 import ComparisonCards from '@/components/ui/ComparisonCards';
-import FondateurBanner from '@/components/ui/FondateurBanner';
 import AccordionItem from '@/components/ui/AccordionItem';
 import { FAQ_HOMEPAGE } from '@/data/faq';
 
@@ -35,22 +33,22 @@ const SOLUTION_CARDS: { icon: string; title: string; desc: string }[] = [
   {
     icon: '📄',
     title: 'Devis',
-    desc: 'Envoyés sous 1h après votre vocal WhatsApp. Signature en ligne.',
+    desc: "Structurés, rapides, conformes. Envoyés sans délai après votre brief.",
   },
   {
     icon: '💰',
     title: 'Facturation',
-    desc: 'Émission, envoi, relances auto. Conforme à la facturation électronique 2026-2027.',
+    desc: "Émission, envoi, suivi des paiements. Conforme à la facturation électronique 2026-2027.",
   },
   {
     icon: '📊',
     title: 'Trésorerie',
-    desc: 'Tableau de bord temps réel. Plus jamais de surprise sur le compte.',
+    desc: "Suivi de vos encaissements et décaissements. Vous savez où vous en êtes.",
   },
   {
     icon: '📋',
-    title: 'Comptable',
-    desc: 'Dossier mensuel propre, FEC à jour. Votre comptable vous remerciera.',
+    title: 'Préparation comptable',
+    desc: "Dossier mensuel propre, FEC à jour, factures classées. Votre comptable gagne du temps.",
   },
 ];
 
@@ -154,94 +152,37 @@ export default function HomePageClient() {
             letterSpacing: '-0.02em',
           }}
         >
-          Le bras droit administratif des artisans.
+          Le bras droit des artisans, indépendants et TPE.
         </h1>
 
-        {/* Sous-titre 3 lignes — punch */}
-        <div
+        <p
           data-hero-anim
           style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.4rem',
-            marginBottom: '2rem',
+            fontSize: 'clamp(1.05rem, 2.2vw, 1.25rem)',
+            color: 'var(--secondary)',
+            lineHeight: 1.6,
+            maxWidth: '780px',
+            margin: '0 auto 2rem',
           }}
         >
-          <p
-            style={{
-              fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
-              color: 'var(--secondary)',
-              fontWeight: 500,
-              margin: 0,
-            }}
-          >
-            Plus rapide qu&apos;un(e) assistant(e).
-          </p>
-          <p
-            style={{
-              fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
-              color: 'var(--secondary)',
-              fontWeight: 500,
-              margin: 0,
-            }}
-          >
-            Moins cher qu&apos;un mi-temps.
-          </p>
-          <p
-            style={{
-              fontSize: 'clamp(1.1rem, 2.5vw, 1.4rem)',
-              color: 'var(--accent)',
-              fontWeight: 700,
-              margin: 0,
-            }}
-          >
-            Plus complet que les deux.
-          </p>
-        </div>
+          Pas un assistant. Pas un consultant. Quelqu&apos;un qui prend en charge ce qui vous freine —
+          devis, ADV, fournisseurs, suivi de projet, facturation — sur une mission ponctuelle ou en
+          accompagnement régulier.
+        </p>
 
-        {/* Description */}
         <p
           data-hero-anim
           style={{
             fontSize: '1.1rem',
-            color: 'var(--secondary)',
-            lineHeight: 1.6,
-            maxWidth: '720px',
-            margin: '0 auto 1.5rem',
+            color: 'var(--primary)',
+            fontWeight: 600,
+            margin: '0 0 2.5rem',
           }}
         >
-          Devis, factures, trésorerie, relances — tout est piloté pour vous, à
-          partir de{' '}
-          <strong style={{ color: 'var(--primary)' }}>750€/mois</strong>. Avec un
-          tableau de bord temps réel inclus.
+          Je gère, vous restez sur le terrain.{' '}
+          <span style={{ color: 'var(--accent)' }}>À partir de 600€/mois.</span>
         </p>
 
-        {/* Rassurance comptable */}
-        <div
-          data-hero-anim
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.6rem',
-            padding: '0.75rem 1.25rem',
-            background: 'rgba(22, 163, 74, 0.08)',
-            border: '1px solid rgba(22, 163, 74, 0.25)',
-            borderRadius: '999px',
-            marginBottom: '2.5rem',
-            fontSize: '0.95rem',
-            color: 'var(--secondary)',
-          }}
-        >
-          <span aria-hidden="true" style={{ color: 'var(--success)', fontWeight: 800 }}>
-            ✓
-          </span>
-          <span>
-            Votre comptable garde son rôle. Je m&apos;occupe du reste : tout
-            l&apos;admin opérationnel.
-          </span>
-        </div>
-
-        {/* CTA double */}
         <div
           data-hero-anim
           style={{
@@ -249,7 +190,6 @@ export default function HomePageClient() {
             gap: '1rem',
             justifyContent: 'center',
             flexWrap: 'wrap',
-            marginBottom: '2rem',
           }}
         >
           <Link
@@ -283,28 +223,6 @@ export default function HomePageClient() {
           >
             Voir les tarifs
           </Link>
-        </div>
-
-        {/* Bandeau Fondateur */}
-        <div
-          data-hero-anim
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            padding: '0.5rem 1rem',
-            background: 'rgba(249, 115, 22, 0.1)',
-            border: '1px solid rgba(249, 115, 22, 0.3)',
-            borderRadius: '999px',
-            fontSize: '0.85rem',
-            color: 'var(--accent)',
-            fontWeight: 600,
-          }}
-        >
-          <span aria-hidden="true">⚡</span>
-          <span>
-            3 places Fondateur disponibles — tarif progressif sur 6 mois
-          </span>
         </div>
       </section>
 
@@ -407,8 +325,7 @@ export default function HomePageClient() {
             lineHeight: 1.6,
           }}
         >
-          Tout votre admin opérationnel, géré par un humain (moi) avec des
-          outils qui automatisent le répétitif.
+          Tout votre admin opérationnel, pris en charge — sur mesure, à l&apos;heure ou en pack mensuel.
         </p>
         <div
           style={{
@@ -474,104 +391,7 @@ export default function HomePageClient() {
         </p>
       </section>
 
-      {/* ===== Section 4 — BLOC TABLEAU DE BORD ===== */}
-      <section
-        style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '0 1.5rem 5rem',
-        }}
-      >
-        <div
-          data-reveal
-          style={{
-            textAlign: 'center',
-            marginBottom: '3rem',
-            maxWidth: '780px',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
-        >
-          <h2
-            style={{
-              fontSize: '1.75rem',
-              fontWeight: 700,
-              color: 'var(--primary)',
-              margin: '0 0 1rem',
-            }}
-          >
-            Vous gardez la main grâce à votre tableau de bord en temps réel
-          </h2>
-          <ul
-            style={{
-              listStyle: 'none',
-              padding: 0,
-              margin: 0,
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.5rem',
-              textAlign: 'left',
-              maxWidth: '480px',
-              marginLeft: 'auto',
-              marginRight: 'auto',
-            }}
-          >
-            <li
-              style={{
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '0.5rem',
-                color: 'var(--secondary)',
-              }}
-            >
-              <span
-                aria-hidden="true"
-                style={{ color: 'var(--accent)', fontWeight: 700 }}
-              >
-                ✓
-              </span>
-              <span>Tout est à jour en permanence</span>
-            </li>
-            <li
-              style={{
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '0.5rem',
-                color: 'var(--secondary)',
-              }}
-            >
-              <span
-                aria-hidden="true"
-                style={{ color: 'var(--accent)', fontWeight: 700 }}
-              >
-                ✓
-              </span>
-              <span>Vous voyez ce que je fais, sans avoir à demander</span>
-            </li>
-            <li
-              style={{
-                display: 'flex',
-                alignItems: 'flex-start',
-                gap: '0.5rem',
-                color: 'var(--secondary)',
-              }}
-            >
-              <span
-                aria-hidden="true"
-                style={{ color: 'var(--accent)', fontWeight: 700 }}
-              >
-                ✓
-              </span>
-              <span>Notifs Telegram ou Push pour les événements importants</span>
-            </li>
-          </ul>
-        </div>
-        <div data-reveal>
-          <MockupTableauDeBord />
-        </div>
-      </section>
-
-      {/* ===== Section 5 — BLOC COMPARAISON ===== */}
+      {/* ===== Section 4 — BLOC COMPARAISON ===== */}
       <section
         style={{
           maxWidth: '1100px',
@@ -606,7 +426,7 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* ===== Section 6 — BLOC TÉMOIGNAGE (caché tant que pas de Fondateur signé) ===== */}
+      {/* ===== Section 5 — BLOC TÉMOIGNAGE (caché tant que pas de Fondateur signé) ===== */}
       {SHOW_TESTIMONIALS && (
         <section
           style={{
@@ -619,20 +439,7 @@ export default function HomePageClient() {
         </section>
       )}
 
-      {/* ===== Section 7 — BLOC FONDATEUR ===== */}
-      <section
-        style={{
-          maxWidth: '900px',
-          margin: '0 auto',
-          padding: '0 1.5rem 5rem',
-        }}
-      >
-        <div data-reveal>
-          <FondateurBanner variant="inline" />
-        </div>
-      </section>
-
-      {/* ===== Section 8 — FAQ ===== */}
+      {/* ===== Section 6 — FAQ ===== */}
       <section
         style={{
           maxWidth: '780px',
@@ -669,7 +476,7 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* ===== Section 9 — CTA FINAL ===== */}
+      {/* ===== Section 7 — CTA FINAL ===== */}
       <section
         style={{
           maxWidth: '780px',
@@ -687,7 +494,7 @@ export default function HomePageClient() {
             margin: '0 0 1rem',
           }}
         >
-          Prêt à libérer 8-10h/mois et à reprendre la main sur votre admin ?
+          Prêt à libérer 5 à 10h par semaine ?
         </h2>
         <Link
           href="/contact"

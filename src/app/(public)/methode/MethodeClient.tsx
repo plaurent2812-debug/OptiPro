@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import TimelineMethode from '@/components/ui/TimelineMethode';
-import MockupTableauDeBord from '@/components/ui/MockupTableauDeBord';
 
 export default function MethodeClient() {
   return (
@@ -15,7 +14,7 @@ export default function MethodeClient() {
         </p>
       </section>
 
-      {/* TIMELINE 4 ÉTAPES */}
+      {/* TIMELINE 3 ÉTAPES */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <TimelineMethode />
       </section>
@@ -27,7 +26,7 @@ export default function MethodeClient() {
             Vos outils, rien de nouveau à apprendre
           </h2>
           <p style={{ color: 'var(--secondary)', fontSize: '1.05rem', maxWidth: '620px', margin: '0 auto', lineHeight: 1.6 }}>
-            Vous n&apos;apprenez rien. C&apos;est moi qui m&apos;adapte.
+            Vous n&apos;apprenez rien. C&apos;est moi qui m&apos;adapte à vos outils.
           </p>
         </div>
         <ul role="list" style={{ listStyle: 'none', padding: 0, margin: '0 auto 3rem', maxWidth: '620px', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
@@ -37,17 +36,16 @@ export default function MethodeClient() {
           </li>
           <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: 'var(--secondary)', lineHeight: 1.6 }}>
             <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
-            <span><strong style={{ color: 'var(--primary)' }}>Tableau de bord</strong> : un lien à mettre en favori, c&apos;est tout</span>
+            <span><strong style={{ color: 'var(--primary)' }}>Vos outils existants</strong> (Pennylane, Sage, Excel) : je m&apos;y connecte, vous n&apos;y touchez rien</span>
           </li>
           <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: 'var(--secondary)', lineHeight: 1.6 }}>
             <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
-            <span><strong style={{ color: 'var(--primary)' }}>Notif Telegram ou Push</strong> : à votre choix</span>
+            <span><strong style={{ color: 'var(--primary)' }}>Reporting mensuel</strong> : envoyé par email, lisible en 5 minutes</span>
           </li>
         </ul>
-        <p style={{ textAlign: 'center', color: 'var(--secondary)', fontSize: '0.95rem', maxWidth: '620px', margin: '0 auto 3rem', lineHeight: 1.6, fontStyle: 'italic' }}>
+        <p style={{ textAlign: 'center', color: 'var(--secondary)', fontSize: '0.95rem', maxWidth: '620px', margin: '0 auto', lineHeight: 1.6, fontStyle: 'italic' }}>
           Pas de logiciel à installer. Pas de tutoriel à regarder. Pas de tableau Excel à maintenir.
         </p>
-        <MockupTableauDeBord />
       </section>
 
       {/* COMMENT JE PEUX FAIRE MIEUX POUR MOINS CHER */}
@@ -65,17 +63,13 @@ export default function MethodeClient() {
             <strong style={{ color: 'var(--primary)' }}>Voilà comment je peux faire mieux pour moins cher.</strong>
           </p>
           <p style={{ color: 'var(--secondary)', lineHeight: 1.65, marginBottom: '1rem' }}>
-            J&apos;ai construit un outil interne qui automatise 70% du travail répétitif :
+            10 ans d&apos;expérience en pilotage d&apos;exploitation et de logistique me permettent d&apos;aller vite sur ce qui freine les TPE : l&apos;organisation, les processus, le pilotage.
           </p>
-          <ul style={{ color: 'var(--secondary)', lineHeight: 1.65, paddingLeft: '1.25rem', marginBottom: '1.5rem' }}>
-            <li>Reconnaissance auto des tickets de caisse</li>
-            <li>Devis générés à partir d&apos;un vocal</li>
-            <li>Synchronisation directe avec Pennylane</li>
-            <li>Relances factures envoyées toutes seules</li>
-            <li>Dossier comptable préparé automatiquement</li>
-          </ul>
+          <p style={{ color: 'var(--secondary)', lineHeight: 1.65, marginBottom: '1rem' }}>
+            Là où un assistant junior passe 1h, je passe 15 minutes. Là où une agence facture un audit à 3 000€, j&apos;écoute et je fais.
+          </p>
           <p style={{ color: 'var(--secondary)', lineHeight: 1.65, marginBottom: '1.5rem' }}>
-            Les 30% restants, c&apos;est moi. Avec mon expérience de 10 ans en logistique et exploitation. C&apos;est cette part-là qui fait la vraie différence : un humain qui pense, qui anticipe, qui prend des décisions à votre place quand il faut.
+            Pas de magie. Pas d&apos;outil miracle. Juste 10 ans à voir tomber les mêmes problèmes et à trouver les bonnes solutions.
           </p>
           <Link href="/pourquoi-ce-prix" style={{
             display: 'inline-block',
@@ -100,14 +94,11 @@ export default function MethodeClient() {
             Et si je ne suis pas satisfait ?
           </h2>
           <p style={{ color: 'var(--secondary)', lineHeight: 1.65, margin: '0 0 1rem' }}>
-            <strong style={{ color: 'var(--primary)' }}>Le M1 est un mois test.</strong>
-          </p>
-          <p style={{ color: 'var(--secondary)', lineHeight: 1.65, margin: '0 0 1rem' }}>
-            À l&apos;issue, deux options :
+            <strong style={{ color: 'var(--primary)' }}>Aucun engagement long.</strong>
           </p>
           <ul style={{ color: 'var(--secondary)', lineHeight: 1.65, paddingLeft: '1.25rem', margin: '0 0 1rem' }}>
-            <li><strong>Vous arrêtez.</strong> Pas de frais, pas de discussion. Je vous renvoie tous vos historiques propres.</li>
-            <li><strong>Vous continuez.</strong> Cycle de 3 mois renouvelable. Résiliable à chaque date anniversaire avec 1 mois de préavis.</li>
+            <li><strong>Mission à l&apos;heure</strong> : pas d&apos;engagement. Vous payez ce qui a été fait, et vous arrêtez quand vous voulez.</li>
+            <li><strong>Pack mensuel</strong> : reconductible tacitement, préavis 15 jours fin de mois. Vous gardez la main.</li>
           </ul>
           <p style={{ color: 'var(--secondary)', lineHeight: 1.65, margin: 0 }}>
             Vos données restent les vôtres, exportables à tout moment.

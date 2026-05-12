@@ -4,9 +4,7 @@ import AccordionItem from '@/components/ui/AccordionItem';
 import {
   MISSION_PACKS,
   MISSION_HOURLY_RATE,
-  PILOTE_OPTIONS,
   formatPrice,
-  type PiloteOption,
 } from '@/data/pricing';
 import { FAQ_TARIFS } from '@/data/faq';
 
@@ -19,9 +17,6 @@ const INCLUS_DANS_TOUS = [
   'Vos données restent votre propriété — export à tout moment',
 ];
 
-// Options : on retire "paie-prep" qui n'a pas de sens hors Pilote
-const MISSION_OPTIONS: PiloteOption[] = PILOTE_OPTIONS.filter((o) => o.id !== 'paie-prep');
-
 const COMPARATEUR_ROWS = [
   { label: 'Mi-temps salarié(e) interne', price: '~2 300€/mois', detail: 'chargés, + équipement, + formation, + gestion RH' },
   { label: 'Assistant·e indépendant·e (20h/mois)', price: '900-1 200€/mois', detail: 'profil junior, sans expérience opérationnelle senior' },
@@ -31,9 +26,9 @@ const COMPARATEUR_ROWS = [
 
 export default function TarifsClient() {
   return (
-    <main style={{ paddingTop: 0, paddingBottom: '4rem' }}>
+    <main style={{ paddingTop: '5rem', paddingBottom: '4rem' }}>
       {/* SECTION 1 — HERO TARIFS */}
-      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem 3rem', textAlign: 'center' }}>
+      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 3rem', textAlign: 'center' }}>
         <h1 style={{ fontSize: 'clamp(2rem, 5vw, 2.75rem)', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.15, margin: '0 0 1rem' }}>
           Un tarif clair. À l&apos;heure ou en pack. Sans engagement long.
         </h1>
@@ -147,33 +142,7 @@ export default function TarifsClient() {
         </ul>
       </section>
 
-      {/* SECTION 5 — OPTIONS */}
-      <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
-        <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 2.5rem' }}>
-          Options
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.25rem' }}>
-          {MISSION_OPTIONS.map((option) => (
-            <article key={option.id} style={{
-              padding: '1.5rem',
-              border: '1px solid var(--border)',
-              borderRadius: '0.85rem',
-              background: 'var(--background)',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.6rem',
-            }}>
-              <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: '0.85rem', flexWrap: 'wrap' }}>
-                <h3 style={{ fontSize: '1rem', fontWeight: 700, margin: 0, color: 'var(--primary)' }}>{option.name}</h3>
-                <span style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--accent)', whiteSpace: 'nowrap' }}>{option.price}</span>
-              </header>
-              <p style={{ margin: 0, color: 'var(--secondary)', fontSize: '0.9rem', lineHeight: 1.55 }}>{option.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* SECTION 6 — ENGAGEMENT & RÉSILIATION */}
+      {/* SECTION 5 — ENGAGEMENT & RÉSILIATION */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <article style={{
           padding: '2rem',
@@ -199,7 +168,7 @@ export default function TarifsClient() {
         </article>
       </section>
 
-      {/* SECTION 7 — COMPARATEUR "ÇA COÛTE COMBIEN AILLEURS ?" */}
+      {/* SECTION 6 — COMPARATEUR "ÇA COÛTE COMBIEN AILLEURS ?" */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 2.5rem' }}>
           Ça coûte combien ailleurs ?
@@ -232,7 +201,7 @@ export default function TarifsClient() {
         </div>
       </section>
 
-      {/* SECTION 8 — FAQ */}
+      {/* SECTION 7 — FAQ */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 2.5rem' }}>
           Questions fréquentes
@@ -246,14 +215,14 @@ export default function TarifsClient() {
         </div>
       </section>
 
-      {/* SECTION 9 — MENTION TVA */}
+      {/* SECTION 8 — MENTION TVA */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 4rem', textAlign: 'center' }}>
         <p style={{ color: 'var(--secondary)', fontSize: '0.85rem', fontStyle: 'italic', margin: 0 }}>
           Tarifs HT — TVA non applicable, art. 293 B du CGI.
         </p>
       </section>
 
-      {/* SECTION 10 — CTA FINAL */}
+      {/* SECTION 9 — CTA FINAL */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 3rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1rem' }}>
           Pas sûr du pack adapté ? Discutons-en.

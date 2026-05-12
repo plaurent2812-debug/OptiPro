@@ -28,6 +28,56 @@ export interface VisibiliteOffer {
   features: string[];
 }
 
+// === MISSION (offre transitoire mai-juillet 2026) ===
+
+export interface MissionPack {
+  id: 'pack-10' | 'pack-20' | 'pack-30';
+  name: string;
+  hours: number;
+  monthlyPrice: number; // HT/mois
+  hourlyEquivalent: number; // arrondi à l'euro
+  discount: number; // % vs tarif horaire
+  cible: string;
+  recommended?: boolean;
+}
+
+/**
+ * Tarif horaire des missions ponctuelles ou packs.
+ * Référence : responsable d'exploitation indépendant confirmé débutant.
+ */
+export const MISSION_HOURLY_RATE = 80;
+
+export const MISSION_PACKS: MissionPack[] = [
+  {
+    id: 'pack-10',
+    name: 'Pack 10h',
+    hours: 10,
+    monthlyPrice: 720,
+    hourlyEquivalent: 72,
+    discount: 10,
+    cible: 'Pour les besoins légers et récurrents (suivi ADV léger, relances).',
+  },
+  {
+    id: 'pack-20',
+    name: 'Pack 20h',
+    hours: 20,
+    monthlyPrice: 1400,
+    hourlyEquivalent: 70,
+    discount: 12,
+    cible: 'Pour un suivi ADV régulier ou un accompagnement multi-tâches.',
+    recommended: true,
+  },
+  {
+    id: 'pack-30',
+    name: 'Pack 30h',
+    hours: 30,
+    monthlyPrice: 1950,
+    hourlyEquivalent: 65,
+    discount: 19,
+    cible: 'Pour un accompagnement complet de votre admin opérationnelle.',
+  },
+];
+
 export const PILOTE_VISIBILITE: VisibiliteOffer = {
   monthlyPrice: 75,
   setupPrice: 990,

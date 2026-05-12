@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: '%s | OptiPro',
   },
   description:
-    'Assistant administratif externalisé pour artisans et petites TPE du bâtiment. Devis, factures, trésorerie, relances, comptable — tout est piloté pour vous, à partir de 750€/mois. Avec un tableau de bord temps réel inclus.',
+    "Externalisation de l'admin opérationnel pour artisans, indépendants et TPE. Devis, ADV, fournisseurs, suivi de projet, facturation — sur une mission ponctuelle ou en pack mensuel, à partir de 600€/mois.",
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
@@ -37,7 +37,7 @@ const jsonLd = {
       '@id': 'https://www.opti-pro.fr/#organization',
       name: 'OptiPro',
       description:
-        'Assistant administratif externalisé pour artisans et TPE du bâtiment. Forfaits Pilote dès 750€/mois HT. Devis, factures, trésorerie, relances, préparation dossier comptable, tableau de bord temps réel inclus.',
+        "Externalisation de l'admin opérationnel pour artisans, indépendants et TPE. Mission ponctuelle (80€/h) ou pack mensuel reconductible (de 600€/mois à 1 950€/mois). Devis, ADV, fournisseurs, suivi de projet, facturation, préparation comptable.",
       url: 'https://www.opti-pro.fr',
       email: 'p.laurent@opti-pro.fr',
       address: {
@@ -94,7 +94,7 @@ const jsonLd = {
         'https://www.linkedin.com/in/pierre-laurent-809410123',
       ],
       availableLanguage: 'fr',
-      priceRange: '750€-1500€/mois HT',
+      priceRange: '600€-1950€/mois HT',
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',

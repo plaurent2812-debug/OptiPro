@@ -26,9 +26,9 @@ const COMPARATEUR_ROWS = [
 
 export default function TarifsClient() {
   return (
-    <main style={{ paddingTop: 0, paddingBottom: '4rem' }}>
+    <main style={{ paddingTop: '5rem', paddingBottom: '4rem' }}>
       {/* SECTION 1 — HERO TARIFS */}
-      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '4rem 1.5rem 3rem', textAlign: 'center' }}>
+      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 3rem', textAlign: 'center' }}>
         <h1 style={{ fontSize: 'clamp(2rem, 5vw, 2.75rem)', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.15, margin: '0 0 1rem' }}>
           Un tarif clair. À l&apos;heure ou en pack. Sans engagement long.
         </h1>

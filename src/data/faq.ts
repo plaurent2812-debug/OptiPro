@@ -1,7 +1,5 @@
 // src/data/faq.ts
 
-import { PILOTE_FORFAITS, formatPrice } from './pricing';
-
 export interface FaqItem {
   question: string;
   answer: string;
@@ -10,46 +8,56 @@ export interface FaqItem {
 export const FAQ_HOMEPAGE: FaqItem[] = [
   {
     question: 'Vous remplacez mon comptable ?',
-    answer: 'Non. Je gère l\'admin opérationnel, votre comptable continue son métier. Je lui livre un dossier propre chaque mois pour qu\'il fasse mieux son boulot.',
+    answer:
+      "Non. Je gère l'admin opérationnel (devis, facturation, suivi, fournisseurs, relances), votre comptable garde sa mission de certification, liasse fiscale et conseil fiscal. Je lui livre un dossier propre chaque mois — il gagne du temps, vous économisez.",
   },
   {
-    question: 'Et si je ne suis pas satisfait ?',
-    answer: 'Le 1er mois est un test. À l\'issue, vous décidez. Pas d\'engagement caché, pas de clause cachée. Si on continue, c\'est par cycles de 3 mois renouvelables.',
+    question: "Pas d'engagement long ?",
+    answer:
+      "Je travaille à l'heure (mission ponctuelle) ou en pack mensuel reconductible tacitement. Pour les packs, le préavis de résiliation est de 15 jours fin de mois. Vous gardez la main.",
   },
   {
     question: 'Comment je vous transmets les infos depuis le chantier ?',
-    answer: 'Vocal ou photo WhatsApp. Vous parlez 30 secondes, je fais le reste. Vous n\'apprenez aucun logiciel.',
+    answer:
+      "Vocal, photo ou message WhatsApp. Je réponds sous 4h en jour ouvré. Vous n'avez aucun logiciel à apprendre.",
   },
   {
-    question: 'C\'est conforme RGPD et facturation électronique 2026-2027 ?',
-    answer: 'Oui. Je suis prêt pour la réforme PDP (Plateformes de Dématérialisation Partenaires) et toutes vos données sont hébergées en Europe.',
+    question: 'C’est conforme RGPD et facturation électronique 2026-2027 ?',
+    answer:
+      "Oui. Toutes vos données sont hébergées en Europe. La facturation électronique (réforme PDP) est intégrée dans la préparation des factures que je gère via vos outils existants (Pennylane, Sage, etc.).",
   },
   {
-    question: 'Combien ça coûte exactement pour mon activité ?',
-    answer: `${formatPrice(PILOTE_FORFAITS[0].price)}/mois jusqu'à ${PILOTE_FORFAITS[0].volumeDocs} documents, ${formatPrice(PILOTE_FORFAITS[1].price)} jusqu'à ${PILOTE_FORFAITS[1].volumeDocs}, ${formatPrice(PILOTE_FORFAITS[2].price)} jusqu'à ${PILOTE_FORFAITS[2].volumeDocs}. Voir la page Tarifs pour le détail.`,
+    question: 'Comment je calcule combien d’heures il me faut ?',
+    answer:
+      "Estimation rapide : 1 devis ≈ 30-45 min, 1 facture ≈ 15-20 min, 1 relance ≈ 10 min. Pour ~10 devis et 15 factures par mois avec un peu de suivi, le Pack 10h (720€) suffit. Pour un accompagnement plus complet (incluant trésorerie + coordination fournisseurs), c'est plutôt le Pack 20h (1 400€). On en discute en appel découverte.",
   },
 ];
 
 export const FAQ_TARIFS: FaqItem[] = [
   {
-    question: 'C\'est quoi un "document" exactement ?',
-    answer: 'Un devis OU une facture. 30 documents/mois = par exemple 15 devis + 15 factures.',
+    question: 'Comment fonctionne la facturation des heures ?',
+    answer:
+      "En pack mensuel : forfait fixe quel que soit le nombre exact d'heures consommées (dans la limite du pack). En mission ponctuelle : tarif horaire 80€/h HT, facturation au temps réellement passé (arrondi au quart d'heure supérieur).",
   },
   {
-    question: 'Et si je dépasse mon forfait un mois ?',
-    answer: 'Si dépassement ponctuel (1 mois isolé) : aucun surcoût. Si dépassement régulier (>30% pendant 2 mois consécutifs) : on bascule au palier supérieur le mois suivant.',
+    question: 'Et si je dépasse mon pack un mois ?',
+    answer:
+      "Si dépassement ponctuel (1 mois isolé) : facturation des heures supplémentaires à 80€/h HT. Si dépassement récurrent (>20% pendant 2 mois consécutifs) : on bascule au pack supérieur le mois suivant. Pas de surfacturation cachée.",
   },
   {
-    question: 'Et si mon volume baisse ?',
-    answer: 'Bascule au palier inférieur si sous-utilisation prolongée (>30% sous le seuil pendant 2 mois consécutifs).',
+    question: 'Et si je sous-consomme un mois ?',
+    answer:
+      "Les heures du pack mensuel ne se reportent pas. Si vous sous-consommez 2 mois consécutifs, on bascule au pack inférieur. Mon objectif n'est pas de vous facturer du vide.",
   },
   {
     question: 'TVA ?',
-    answer: 'Tarifs HT. Je suis en franchise en base de TVA (auto-entrepreneur, art. 293 B du CGI), donc pas de TVA à payer en plus pour vous.',
+    answer:
+      "Tarifs HT. Franchise en base de TVA (art. 293 B du CGI) — pas de TVA à payer en plus pour vous.",
   },
   {
-    question: 'Frais Stripe : qui les paie ?',
-    answer: 'Refacturés en transparence (1,4% + 0,25€ par transaction réussie). Vous voyez le détail sur votre tableau de bord.',
+    question: 'Stripe : qui paie les frais ?',
+    answer:
+      "Si vous choisissez l'option Stripe (paiement en ligne pour vos clients), les frais sont refacturés en transparence (1,4% + 0,25€ par transaction réussie). Vous voyez chaque détail.",
   },
 ];
 

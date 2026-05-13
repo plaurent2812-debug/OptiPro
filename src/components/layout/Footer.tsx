@@ -86,8 +86,15 @@ export default function Footer() {
                         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', color: 'var(--secondary)', fontSize: '0.95rem' }}>
                             <li>Pierre Laurent — Fondateur</li>
                             <li style={{ color: 'var(--muted)', fontSize: '0.9rem' }}>OptiPro · Vence (06140) · Alpes-Maritimes</li>
-                            <li style={{ color: 'var(--muted)', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                                Interventions Vence, Nice, Antibes, Cannes, Grasse, Mougins, Cagnes-sur-Mer · France entière à distance
+                            <li style={{ color: 'var(--muted)', fontSize: '0.85rem', lineHeight: 1.7 }}>
+                                Interventions à{' '}
+                                <Link href="/services/nice" className="footer-link" style={{ color: 'var(--muted)' }}>Nice</Link>,{' '}
+                                <Link href="/services/cannes" className="footer-link" style={{ color: 'var(--muted)' }}>Cannes</Link>,{' '}
+                                <Link href="/services/antibes" className="footer-link" style={{ color: 'var(--muted)' }}>Antibes</Link>,{' '}
+                                <Link href="/services/grasse" className="footer-link" style={{ color: 'var(--muted)' }}>Grasse</Link>,{' '}
+                                <Link href="/services/mougins" className="footer-link" style={{ color: 'var(--muted)' }}>Mougins</Link>,{' '}
+                                <Link href="/services/cagnes-sur-mer" className="footer-link" style={{ color: 'var(--muted)' }}>Cagnes-sur-Mer</Link>{' '}
+                                · France entière à distance
                             </li>
                             <li>
                                 <a

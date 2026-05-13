@@ -128,6 +128,118 @@ export default function TarifsClient() {
         </div>
       </section>
 
+      {/* SECTION 3 BIS — ROI : CE QUE VOUS GAGNEZ EN DÉLÉGUANT */}
+      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
+        <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 1rem' }}>
+          Ce que vous gagnez vraiment
+        </h2>
+        <p style={{ textAlign: 'center', color: 'var(--secondary)', maxWidth: '640px', margin: '0 auto 3rem', lineHeight: 1.6 }}>
+          Le tarif n&apos;est qu&apos;une partie de l&apos;équation. Voilà ce qu&apos;un pack OptiPro vous rapporte concrètement chaque mois.
+        </p>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
+          {/* CARD 1 — TEMPS */}
+          <article style={{
+            padding: '1.75rem',
+            background: 'var(--background)',
+            border: '1px solid var(--border)',
+            borderRadius: '1rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.75rem',
+          }}>
+            <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--accent)', lineHeight: 1 }}>
+              +5 à 10h
+            </div>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', margin: 0 }}>
+              récupérées par semaine
+            </h3>
+            <p style={{ margin: 0, color: 'var(--secondary)', fontSize: '0.95rem', lineHeight: 1.55 }}>
+              Plus de soirées à faire des devis. Plus de relances oubliées. Vous récupérez vos week-ends et votre énergie.
+            </p>
+          </article>
+
+          {/* CARD 2 — MARGE */}
+          <article style={{
+            padding: '1.75rem',
+            background: 'var(--background)',
+            border: '1px solid var(--border)',
+            borderRadius: '1rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.75rem',
+          }}>
+            <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--accent)', lineHeight: 1 }}>
+              +2 à 5k€
+            </div>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', margin: 0 }}>
+              d&apos;impayés récupérés/mois
+            </h3>
+            <p style={{ margin: 0, color: 'var(--secondary)', fontSize: '0.95rem', lineHeight: 1.55 }}>
+              Les relances systématiques (J+15, J+30, J+45) récupèrent ce qui passait à la trappe entre deux interventions.
+            </p>
+          </article>
+
+          {/* CARD 3 — CA ADDITIONNEL */}
+          <article style={{
+            padding: '1.75rem',
+            background: 'var(--background)',
+            border: '1px solid var(--border)',
+            borderRadius: '1rem',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.75rem',
+          }}>
+            <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--accent)', lineHeight: 1 }}>
+              +15 à 25%
+            </div>
+            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', margin: 0 }}>
+              de taux de signature
+            </h3>
+            <p style={{ margin: 0, color: 'var(--secondary)', fontSize: '0.95rem', lineHeight: 1.55 }}>
+              Devis envoyés sous 1h après votre vocal WhatsApp. Le client n&apos;a pas le temps d&apos;aller voir ailleurs.
+            </p>
+          </article>
+        </div>
+
+        {/* CALCUL CONCRET */}
+        <div style={{
+          padding: '2rem',
+          background: 'rgba(249, 115, 22, 0.05)',
+          border: '1px solid rgba(249, 115, 22, 0.2)',
+          borderRadius: '1rem',
+          marginTop: '1rem',
+        }}>
+          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1rem' }}>
+            Le calcul honnête sur un Pack Croissance (20h/mois — 1 200€)
+          </h3>
+          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', color: 'var(--secondary)', lineHeight: 1.55 }}>
+              <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>→</span>
+              <span><strong style={{ color: 'var(--primary)' }}>5h/semaine récupérées</strong> = 20h/mois où vous facturez votre métier au lieu de faire de l&apos;admin</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', color: 'var(--secondary)', lineHeight: 1.55 }}>
+              <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>→</span>
+              <span><strong style={{ color: 'var(--primary)' }}>20h × votre taux horaire (50-80€)</strong> = 1 000 à 1 600€ de capacité de production en plus</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', color: 'var(--secondary)', lineHeight: 1.55 }}>
+              <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>→</span>
+              <span><strong style={{ color: 'var(--primary)' }}>+ 2 à 5k€ d&apos;impayés récupérés</strong> = trésorerie qui rentre au lieu de stagner</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', color: 'var(--secondary)', lineHeight: 1.55 }}>
+              <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>→</span>
+              <span><strong style={{ color: 'var(--primary)' }}>+ devis signés plus vite</strong> = 1-3 chantiers/mois supplémentaires</span>
+            </li>
+          </ul>
+          <p style={{ marginTop: '1.25rem', marginBottom: 0, color: 'var(--primary)', fontWeight: 600, fontSize: '0.95rem' }}>
+            ROI mensuel typique : <strong>3 000 à 6 000€</strong> de gain net après déduction du pack (1 200€).
+          </p>
+          <p style={{ marginTop: '0.5rem', marginBottom: 0, color: 'var(--secondary)', fontSize: '0.85rem', fontStyle: 'italic' }}>
+            Estimations basées sur les profils types des artisans et TPE accompagnés. Le ROI exact dépend de votre volume d&apos;activité et de vos taux horaires.
+          </p>
+        </div>
+      </section>
+
       {/* SECTION 4 — INCLUS DANS TOUS LES PACKS */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 2.5rem' }}>

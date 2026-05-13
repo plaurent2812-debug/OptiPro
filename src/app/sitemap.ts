@@ -23,6 +23,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/services/serrurier`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/services/electricien`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/services/restaurateur`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.65 },
+    // Pages ville PACA (priorité SEO local élevée)
+    { url: `${baseUrl}/services/nice`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${baseUrl}/services/cannes`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/services/antibes`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/services/grasse`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${baseUrl}/services/mougins`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${baseUrl}/services/cagnes-sur-mer`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.75 },
     { url: `${baseUrl}/cgv`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'yearly', priority: 0.4 },
     { url: `${baseUrl}/mentions-legales`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${baseUrl}/confidentialite`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'yearly', priority: 0.3 },

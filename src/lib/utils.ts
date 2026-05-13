@@ -33,6 +33,22 @@ export function addMonths(date: Date, months: number): Date {
   return result
 }
 
+/**
+ * Calcule la prochaine date de facturation à partir d'une date d'ancrage
+ * et de la périodicité d'un abonnement. Retourne une chaîne ISO (YYYY-MM-DD).
+ */
+export function nextBillingDateFrom(anchor: string | Date, periodicite: 'mensuel' | 'trimestriel' | 'annuel'): string {
+  const date = typeof anchor === 'string' ? new Date(anchor) : new Date(anchor)
+  if (periodicite === 'mensuel') {
+    date.setMonth(date.getMonth() + 1)
+  } else if (periodicite === 'trimestriel') {
+    date.setMonth(date.getMonth() + 3)
+  } else {
+    date.setFullYear(date.getFullYear() + 1)
+  }
+  return date.toISOString().slice(0, 10)
+}
+
 export function generateDevisNumero(existingCount: number): string {
   const year = new Date().getFullYear()
   const seq = String(existingCount + 1).padStart(3, '0')

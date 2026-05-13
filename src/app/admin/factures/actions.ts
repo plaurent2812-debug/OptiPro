@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createPennylaneInvoice, PennylaneInvoicePayload } from '@/lib/pennylane'
+import { nextBillingDateFrom } from '@/lib/utils'
 
 interface FactureLigne {
   description: string
@@ -149,7 +150,12 @@ export async function convertirDevisEnFactureAction(devisId: string): Promise<{ 
 }
 
 /**
- * Génère une facture mensuelle pour un abonnement actif.
+ * Génère une facture mensuelle pour un abonnement actif et avance
+ * la `prochaine_facturation` de la périodicité (mensuel/trimestriel/annuel).
+ *
+ * L'ancre pour le calcul de la prochaine date est la `prochaine_facturation`
+ * actuelle (et non `today`) : si la facturation a pris du retard, le rattrapage
+ * reste aligné sur le cycle initial.
  */
 export async function genererFactureAbonnementAction(abonnementId: string): Promise<{ error?: string; factureId?: string }> {
   const supabase = await createClient()
@@ -159,19 +165,21 @@ export async function genererFactureAbonnementAction(abonnementId: string): Prom
 
   const { data: abo, error: aboErr } = await supabase
     .from('abonnements')
-    .select('id, client_id, nom, montant_mensuel_ht, periodicite')
+    .select('id, client_id, nom, montant_mensuel_ht, periodicite, prochaine_facturation, statut')
     .eq('id', abonnementId)
     .single()
 
   if (aboErr || !abo || !abo.client_id) return { error: 'Abonnement introuvable.' }
+  if (abo.statut !== 'actif') return { error: 'L\'abonnement n\'est pas actif.' }
 
   const today = new Date().toISOString().slice(0, 10)
   const echeance = new Date()
   echeance.setDate(echeance.getDate() + 30)
 
-  const periodLabel = abo.periodicite === 'annuel' ? 'annuel' : abo.periodicite === 'trimestriel' ? 'trimestriel' : 'mensuel'
+  const periodicite = (abo.periodicite ?? 'mensuel') as 'mensuel' | 'trimestriel' | 'annuel'
+  const periodLabel = periodicite === 'annuel' ? 'annuel' : periodicite === 'trimestriel' ? 'trimestriel' : 'mensuel'
 
-  return createFactureAction({
+  const result = await createFactureAction({
     client_id: abo.client_id,
     abonnement_id: abo.id,
     date_emission: today,
@@ -184,6 +192,23 @@ export async function genererFactureAbonnementAction(abonnementId: string): Prom
       },
     ],
   })
+
+  if (result.error) return result
+
+  // Avance la prochaine_facturation : ancre sur la valeur actuelle si présente,
+  // sinon sur aujourd'hui (cas premier lancement).
+  const anchor = abo.prochaine_facturation || today
+  const nextDate = nextBillingDateFrom(anchor, periodicite)
+
+  await supabase
+    .from('abonnements')
+    .update({ prochaine_facturation: nextDate })
+    .eq('id', abo.id)
+
+  revalidatePath('/admin/abonnements')
+  revalidatePath(`/admin/abonnements/${abo.id}`)
+
+  return result
 }
 
 /**

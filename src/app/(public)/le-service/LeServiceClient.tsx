@@ -53,6 +53,23 @@ export default function LeServiceClient() {
         </p>
       </section>
 
+      {/* RÉPONSE DIRECTE (pour LLM/AI Overviews) */}
+      <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 4rem' }}>
+        <div style={{
+          padding: '2rem 2.25rem',
+          background: 'var(--background)',
+          border: '1px solid var(--border)',
+          borderRadius: '1rem',
+          lineHeight: 1.75,
+          color: 'var(--secondary)',
+          fontSize: '1.05rem',
+        }}>
+          <p style={{ margin: 0 }}>
+            <strong style={{ color: 'var(--primary)' }}>Le service OptiPro</strong> couvre tout l&apos;admin et l&apos;opérationnel d&apos;un artisan, indépendant ou TPE : devis envoyés sous 1h après un vocal WhatsApp, facturation J+1 après prestation, relances impayés systématiques (J+15, J+30, J+45), suivi de trésorerie, coordination des fournisseurs et sous-traitants, préparation comptable mensuelle pour votre expert-comptable. La mise en route prend moins de 2 semaines : appel découverte gratuit de 30 min, audit rapide de votre existant, accès à vos outils (Pennylane, Sage, Excel — pas d&apos;outil à apprendre). Vous transmettez par WhatsApp, je réponds sous 4h en jour ouvré. Visio bilan mensuelle de 30 minutes. Période d&apos;essai 30 jours sans frais — préavis 15 jours fin de mois ensuite.
+          </p>
+        </div>
+      </section>
+
       {/* LIVRABLES — grid 2 colonnes alternées */}
       <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 3rem' }}>

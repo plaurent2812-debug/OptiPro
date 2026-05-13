@@ -1123,6 +1123,147 @@ Garde ça court : 120 mots max.</code></pre>
 <p>— Pierre</p>
 `,
   },
+
+  // ────────────────────────────────────────────────────────────────
+  // Article 9 — Déléguer ses devis quand on est plombier
+  // ────────────────────────────────────────────────────────────────
+  {
+    slug: 'comment-deleguer-devis-plombier',
+    titre: 'Comment déléguer ses devis quand on est plombier (et arrêter de bosser le dimanche soir)',
+    description:
+      "Vous êtes plombier indépendant et vos devis traînent ? Voici comment les déléguer concrètement, à qui, à quel prix, et ce que ça change sur votre CA et vos soirées.",
+    datePublication: '2026-05-13',
+    tempsLecture: 9,
+    categorie: 'Délégation',
+    motsCles: [
+      'déléguer devis plombier',
+      'externaliser devis artisan',
+      'assistant administratif plombier',
+      'plombier indépendant admin',
+      'gagner temps plombier',
+      'devis 24h plombier',
+    ],
+    image: '/og-image.jpg',
+    contenu: `
+<p>Vous sortez d'une intervention à 18h30. Vous rentrez chez vous. Vous mangez. Et là, vous vous installez devant l'ordinateur pour faire le devis du chauffe-eau que vous avez vu chez Madame Dupont ce matin.</p>
+
+<p>Il est 21h.</p>
+
+<p>Madame Dupont, elle, est en train de comparer les trois plombiers qui sont passés cette semaine. Celui qui lui envoie un devis ce soir gagne. Les deux autres, dont vous, perdent.</p>
+
+<p>Sauf que vous, vous n'envoyez pas votre devis ce soir. Vous le finissez vendredi. Quand vous l'envoyez le samedi matin, Madame Dupont a déjà signé chez un concurrent qui, lui, a répondu en 2h.</p>
+
+<p>Cette histoire, je l'ai entendue 30 fois en 2 ans. Tous les plombiers indépendants que je rencontre la vivent. Tous savent que c'est un problème. Aucun n'arrive à le résoudre seul.</p>
+
+<h2>Pourquoi les devis traînent — et ce que ça vous coûte vraiment</h2>
+
+<p>Un plombier indépendant en PACA fait en moyenne entre 15 et 30 devis par mois selon sa zone et son volume d'activité. Chaque devis sérieux (pas un dépannage à 80€, un vrai chantier à 800€-3 000€) prend 30 à 45 minutes à structurer correctement : fournitures, main d'œuvre, déplacement, TVA, mentions légales, signature électronique. Ça fait <strong>10 à 20h/mois d'admin pure</strong>.</p>
+
+<p>Et ces 10 à 20h se font où ? Pas pendant la journée — vous êtes sur les chantiers. Donc le soir, le week-end, parfois pendant les pauses déjeuner. Au final, vous bossez 60h/semaine pour en facturer 35.</p>
+
+<p>Le coût réel de ce retard, vous le mesurez sur trois lignes :</p>
+
+<ul>
+  <li><strong>Perte de signature.</strong> Les études CAPEB montrent qu'un devis envoyé sous 24h se signe à 80%, sous 48h à 65%, au-delà de 3 jours à 35%. Si vous envoyez vos devis en moyenne en 3-4 jours, vous perdez <strong>30 à 45% de vos opportunités</strong> sans le savoir.</li>
+  <li><strong>Avenants oubliés.</strong> Vous commencez le chantier, le client demande "pendant qu'on y est, vous pouvez aussi changer le mitigeur de la salle de bain ?". Vous dites oui, vous le faites, mais vous n'envoyez jamais l'avenant. Sur un chantier moyen, ça représente 200 à 500€ qui passent à la trappe — et chez certains plombiers, c'est <strong>15-30% du CA réel non facturé</strong>.</li>
+  <li><strong>Burn-out.</strong> Pas chiffrable directement, mais c'est ce qui finit par tout faire exploser. 60h/semaine sur la durée, votre couple, votre santé, votre humeur paient.</li>
+</ul>
+
+<h2>Les 4 façons de déléguer ses devis (et leurs vraies limites)</h2>
+
+<p>Quand un plombier comprend qu'il faut déléguer, il regarde généralement 4 options. Voilà ce que chacune donne en vrai.</p>
+
+<h3>Option 1 : Embaucher un mi-temps administratif</h3>
+
+<p>Le réflexe classique. Vous prenez un mi-temps à 1 200-1 500€ net/mois (1 700-2 100€ brut), soit 2 200-2 800€ chargé pour vous avec charges patronales. Plus l'équipement (PC, imprimante, logiciel), la formation, le risque de turnover, la gestion RH (paie, congés, arrêts maladie).</p>
+
+<p><strong>Avantages :</strong> présence physique, intégration possible dans l'équipe, polyvalence (peut faire autre chose que les devis).</p>
+
+<p><strong>Limites :</strong> coût élevé pour un plombier seul qui fait 8 000-12 000€ de CA/mois. Engagement long (CDI 18-24 mois minimum sur le marché actuel pour trouver et garder quelqu'un de bien). Si l'activité ralentit 3 mois (chantier qui tarde), vous payez quand même. Et surtout : un profil junior à ce salaire ne sait pas anticiper les pièges d'un devis BTP — il fait de la saisie, pas du pilotage.</p>
+
+<h3>Option 2 : Embaucher votre conjoint·e</h3>
+
+<p>Très fréquent en plomberie. Le ou la conjoint·e prend la fonction admin en plus de son boulot principal, ou même à temps plein. Sur le papier, c'est gratuit.</p>
+
+<p><strong>Avantages :</strong> confiance totale, alignement business, flexibilité.</p>
+
+<p><strong>Limites :</strong> ce n'est pas son métier. Le ou la conjoint·e apprend sur le tas, fait au mieux mais souvent sans la structure d'un pro. Les devis sortent, mais ils sortent <em>aussi tard</em> qu'avant (parce que le ou la conjoint·e a ses propres journées chargées). Pire : ça génère des conflits dans le couple ("tu m'as pas dit que le client de mardi attendait le devis !") qui finissent par dégrader la relation. Et zéro vacances en commun possible.</p>
+
+<h3>Option 3 : Une plateforme d'assistants en ligne (genre Side, Brigad, etc.)</h3>
+
+<p>Les plateformes proposent des assistants administratifs à l'heure, accessibles en ligne. Tarif 30-50€/h, sans engagement.</p>
+
+<p><strong>Avantages :</strong> flexibilité maximale, paiement à la demande.</p>
+
+<p><strong>Limites :</strong> turnover énorme. Vous n'avez jamais le même assistant deux missions de suite. Donc à chaque mission : ré-expliquer votre fonctionnement, vos clients récurrents, vos fournisseurs habituels, votre grille de prix. Le gain de temps est largement compensé par le temps de briefing à chaque fois. Et la qualité varie énormément selon qui répond ce jour-là.</p>
+
+<h3>Option 4 : Un assistant administratif indépendant dédié</h3>
+
+<p>Un freelance qui devient votre interlocuteur unique sur la durée. Tarif 60-90€/h selon le profil et l'expérience.</p>
+
+<p><strong>Avantages :</strong> apprend votre fonctionnement une fois pour toutes, vous connaît, anticipe. Aucune charge sociale, aucun engagement long. Préavis court (15-30 jours typiquement). Coût total maîtrisé.</p>
+
+<p><strong>Limites :</strong> il faut trouver le bon. Tous les "assistants indépendants" ne se valent pas. Un profil junior à 45€/h fera de l'exécution propre mais pas d'anticipation. Un profil senior à 75-90€/h apportera de la structuration en plus de l'exécution. La différence se voit en 2 mois.</p>
+
+<h2>À quoi ressemble une délégation qui marche (concrètement)</h2>
+
+<p>Je vais prendre l'exemple d'un plombier-chauffagiste de Cagnes-sur-Mer que j'accompagne depuis 4 mois. 38 ans, 10 ans d'activité, 2 salariés, environ 14 000€ de CA/mois. Sa femme faisait l'admin le soir, ça créait des tensions.</p>
+
+<p><strong>Avant.</strong> 18 devis/mois en moyenne. Délai d'envoi moyen : 4-5 jours. Taux de signature : 60%. Impayés en cours : 4 200€. Préparation comptable mensuelle : 6h de sa femme.</p>
+
+<p><strong>Mise en place de la délégation.</strong> Pack Croissance 20h/mois à 1 200€. Une seule règle : il m'envoie un vocal WhatsApp depuis le chantier ("appartement rue Marceau, remplacement chauffe-eau 200L, environ 1 200€, RDV avec Mme Martin mardi"). Je crée le devis structuré, je l'envoie au client avec signature en ligne dans les 60 minutes qui suivent le vocal. Pareil pour les avenants, les factures, les relances.</p>
+
+<p><strong>Après 3 mois.</strong> 22 devis/mois (capacité augmentée car les devis ne traînent plus). Délai d'envoi moyen : 50 minutes après le vocal. Taux de signature : 85%. Impayés en cours : 600€ (relances systématiques). Préparation comptable : sa femme a arrêté, je livre un dossier propre à son expert-comptable chaque mois.</p>
+
+<p><strong>Chiffrage du gain.</strong> +25% de taux de signature sur +20% de volume de devis = environ 4 chantiers supplémentaires par mois, soit +4 800€ de CA. + 3 600€ d'impayés rattrapés sur les 3 premiers mois. Coût total du pack : 3 600€. <strong>ROI net sur 3 mois : +4 800€ × 3 - 3 600€ = +10 800€</strong>, sans compter la paix retrouvée dans le couple et les week-ends récupérés.</p>
+
+<h2>Combien ça coûte vraiment de déléguer ses devis ?</h2>
+
+<p>Si vous faites 15 à 25 devis/mois (volume typique d'un plombier indépendant en PACA), le Pack Essentiel 10h à 650€/mois suffit largement. Comptez 30-45 min par devis = 7-12h/mois pour 15-25 devis. Vous avez encore 2-3h dispo pour les factures, les relances et le classement des frais.</p>
+
+<p>Si vous avez 1-2 salariés ou des chantiers complexes (rénovation lourde, multi-corps de métier), le Pack Croissance 20h à 1 200€/mois est la cible. Vous y mettez devis + factures + relances + suivi fournisseurs + dossier comptable.</p>
+
+<p>Si vous êtes une TPE en croissance (3-8 salariés) qui veut un vrai responsable opérations externalisé avec dashboards et process documentés, c'est le Pack Pilotage 35h à 1 950€/mois.</p>
+
+<p>Dans tous les cas, ce que vous payez en pack est largement compensé par le CA additionnel capté et les impayés rattrapés. Le seuil de rentabilité se situe en général entre le 2ème et le 3ème mois — après, c'est du gain net.</p>
+
+<h2>Comment choisir le bon prestataire</h2>
+
+<p>Trois critères qui font la différence sur la durée.</p>
+
+<p><strong>1. Expérience opérationnelle réelle.</strong> Demandez le parcours. Quelqu'un qui sort d'une formation de 6 mois en bureautique ne vaut pas quelqu'un qui a 5-10 ans de pilotage d'exploitation en entreprise. La capacité à anticiper qu'un fournisseur va vous bloquer un chantier la semaine prochaine, ça ne s'apprend pas en livre.</p>
+
+<p><strong>2. Engagement à 8-10 clients maximum.</strong> Si votre prestataire en a 30, vous serez le 30ème dans sa pile à priorités. Vos vocaux attendront. Vos relances tomberont en retard. Demandez explicitement combien il a de clients actuellement et combien il vise.</p>
+
+<p><strong>3. Période d'essai sans frais.</strong> Personne ne peut savoir en appel découverte si la collaboration va marcher. Une période d'essai de 30 jours sans préavis ni frais (chacun peut arrêter) protège tout le monde et signale un prestataire confiant dans la qualité de son travail.</p>
+
+<h2>Et si ça ne marche pas ?</h2>
+
+<p>C'est la peur principale quand on délègue pour la première fois. "Je vais m'engager et je vais le regretter."</p>
+
+<p>Trois garde-fous à exiger dans n'importe quel contrat :</p>
+
+<ul>
+  <li>Période d'essai 30 jours sans frais (la collaboration s'arrête, seules les heures réellement effectuées sont facturées).</li>
+  <li>Préavis court ensuite (15 jours fin de mois, pas 3 mois).</li>
+  <li>Vos données vous appartiennent et sont exportables à tout moment. Tous vos accès restent à vous, révocables en 1 clic.</li>
+</ul>
+
+<p>Avec ces 3 garde-fous, le risque est minimal. Le coût d'opportunité de ne <em>pas</em> déléguer est largement supérieur.</p>
+
+<div class="callout">
+  <p><strong>Vous voulez voir si OptiPro peut être votre bras droit ?</strong></p>
+  <p>30 minutes au téléphone, gratuit, sans engagement. Vous me racontez votre activité, vos volumes, ce qui vous fait perdre le plus de temps. Je vous dis si on est faits pour bosser ensemble et combien ça vous coûterait. Pas de blabla commercial.</p>
+  <a href="/contact?cible=artisans&metier=plombier" class="callout-link">Réserver un premier appel →</a>
+</div>
+
+<p style="margin-top:2rem">Vous bossez sur les chantiers. Vous facturez votre métier, pas votre paperasse. Le tarif d'un pack OptiPro représente moins d'une journée de votre travail facturable — mais il vous rend 20h par mois de capacité de production.</p>
+
+<p>Le calcul, à mon sens, est vite fait.</p>
+
+<p>— Pierre</p>
+`,
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {

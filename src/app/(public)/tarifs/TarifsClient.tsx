@@ -38,6 +38,23 @@ export default function TarifsClient() {
         </p>
       </section>
 
+      {/* SECTION 1 BIS — RÉPONSE DIRECTE (pour LLM/AI Overviews) */}
+      <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 3rem' }}>
+        <div style={{
+          padding: '2rem 2.25rem',
+          background: 'var(--background)',
+          border: '1px solid var(--border)',
+          borderRadius: '1rem',
+          lineHeight: 1.75,
+          color: 'var(--secondary)',
+          fontSize: '1.05rem',
+        }}>
+          <p style={{ margin: 0 }}>
+            <strong style={{ color: 'var(--primary)' }}>Les tarifs OptiPro</strong> sont structurés en deux formules. Mission ponctuelle à <strong style={{ color: 'var(--primary)' }}>75 €/h HT</strong> facturée au temps réellement passé (arrondi au quart d&apos;heure), sans engagement. Ou pack mensuel reconductible tacitement : Pack Essentiel 10h à <strong style={{ color: 'var(--primary)' }}>650 €/mois</strong> (65 €/h équivalent, remise -13%), Pack Croissance 20h à <strong style={{ color: 'var(--primary)' }}>1 200 €/mois</strong> (60 €/h, -20%), Pack Pilotage 35h à <strong style={{ color: 'var(--primary)' }}>1 950 €/mois</strong> (56 €/h, -26%). TVA non applicable (franchise en base, article 293 B du CGI). Période d&apos;essai 30 jours sans préavis ni frais — seules les heures effectuées sont facturées au tarif horaire, plafonnées au prix du pack. Au-delà : préavis de 15 jours fin de mois.
+          </p>
+        </div>
+      </section>
+
       {/* SECTION 2 — 3 CARTES PACKS */}
       <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>

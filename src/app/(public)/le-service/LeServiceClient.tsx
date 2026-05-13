@@ -49,7 +49,7 @@ export default function LeServiceClient() {
           Tout votre admin opérationnel. Pris en charge.
         </h1>
         <p style={{ fontSize: '1.15rem', color: 'var(--secondary)', lineHeight: 1.6, maxWidth: '680px', margin: '0 auto' }}>
-          Vous bossez sur le terrain. Je gère votre bureau. Mission ponctuelle ou pack mensuel — à partir de 600€/mois.
+          Vous bossez sur le terrain. Je gère votre bureau. Mission ponctuelle ou pack mensuel — à partir de 650€/mois.
         </p>
       </section>
 

@@ -5,14 +5,14 @@ import { safeJsonLd } from '@/lib/json-ld';
 export const metadata: Metadata = {
   title: { absolute: 'À propos — Pierre Laurent, fondateur OptiPro' },
   description:
-    "Pierre Laurent, fondateur d'OptiPro. 10 ans d'expérience en pilotage d'exploitation et de logistique. Aujourd'hui externalisation de l'admin opérationnel pour artisans, indépendants et TPE — mission ponctuelle ou pack mensuel, à partir de 600€/mois.",
+    "Pierre Laurent, fondateur d'OptiPro. 10 ans d'expérience en pilotage d'exploitation et de logistique. Aujourd'hui externalisation de l'admin opérationnel pour artisans, indépendants et TPE — mission ponctuelle ou pack mensuel, à partir de 650€/mois.",
   alternates: {
     canonical: '/a-propos',
   },
   openGraph: {
     title: 'À propos — Pierre Laurent, fondateur OptiPro',
     description:
-      "10 ans en pilotage d'exploitation et de logistique. Aujourd'hui externalisation de l'admin opérationnel pour artisans, indépendants et TPE — mission ponctuelle ou pack mensuel, dès 600€/mois.",
+      "10 ans en pilotage d'exploitation et de logistique. Aujourd'hui externalisation de l'admin opérationnel pour artisans, indépendants et TPE — mission ponctuelle ou pack mensuel, dès 650€/mois.",
     url: '/a-propos',
     type: 'profile',
   },

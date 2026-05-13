@@ -6,7 +6,7 @@ export default function PourquoiClient() {
       {/* SECTION 1 — HERO */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 4rem', textAlign: 'center' }}>
         <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.15, margin: '0 0 1.5rem' }}>
-          Pourquoi 80€/h. Le calcul honnête.
+          Pourquoi 75€/h. Le calcul honnête.
         </h1>
         <p style={{ fontSize: '1.15rem', color: 'var(--secondary)', lineHeight: 1.6, maxWidth: '680px', margin: '0 auto' }}>
           La question que tout le monde me pose, et la réponse complète. Sans bullshit.
@@ -32,7 +32,7 @@ export default function PourquoiClient() {
       {/* SECTION 3 — POURQUOI 80€ ET PAS 150€ */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 4rem' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1.25rem' }}>
-          Pourquoi 80€ et pas 150€
+          Pourquoi 75€ et pas 150€
         </h2>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>
           Le marché du conseil opérationnel se découpe ainsi :
@@ -40,11 +40,11 @@ export default function PourquoiClient() {
         <ul style={{ color: 'var(--secondary)', lineHeight: 1.7, paddingLeft: '1.25rem', marginBottom: '1rem' }}>
           <li>Consultant en cabinet : <strong>150-300€/h</strong></li>
           <li>Cadre indépendant senior reconnu : <strong>100-150€/h</strong></li>
-          <li>Moi (responsable d&apos;exploitation indépendant en démarrage) : <strong>80€/h</strong></li>
+          <li>Moi (responsable d&apos;exploitation indépendant en démarrage) : <strong>75€/h</strong></li>
           <li>Assistant·e administratif·ve indépendant·e : <strong>45-60€/h</strong></li>
         </ul>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>
-          80€/h, c&apos;est mon tarif d&apos;entrée. Il reflète mon expérience (10 ans en pilotage d&apos;exploitation) sans gonfler artificiellement par mon ancienneté en tant qu&apos;indépendant.
+          75€/h, c&apos;est mon tarif d&apos;entrée. Il reflète mon expérience (10 ans en pilotage d&apos;exploitation) sans gonfler artificiellement par mon ancienneté en tant qu&apos;indépendant.
         </p>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.7, margin: 0 }}>
           Quand mes témoignages s&apos;accumulent et que ma réputation grandit, ce tarif évoluera. C&apos;est le bon moment pour me prendre — j&apos;ai l&apos;expérience d&apos;un cadre senior au tarif d&apos;un indépendant qui démarre.
@@ -63,7 +63,7 @@ export default function PourquoiClient() {
           Pas moi.
         </p>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>
-          Le tarif 80€/h tient parce que :
+          Le tarif 75€/h tient parce que :
         </p>
         <ul style={{ color: 'var(--secondary)', lineHeight: 1.7, paddingLeft: '1.25rem', marginBottom: '1rem' }}>
           <li>Je n&apos;ai pas de bureau, pas d&apos;équipe à payer, pas de loyer commercial</li>

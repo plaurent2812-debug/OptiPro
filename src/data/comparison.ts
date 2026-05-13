@@ -8,8 +8,8 @@ export interface ComparisonCard {
   moi: string;
 }
 
-// On compare au Pack 20h (le palier recommandé)
-const refPack = MISSION_PACKS[1]; // pack-20
+// On compare au Pack Croissance — 20h (le palier recommandé)
+const refPack = MISSION_PACKS[1]; // pack-20 (Pack Croissance)
 
 export const COMPARISON_CARDS: ComparisonCard[] = [
   {

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: '%s | OptiPro',
   },
   description:
-    "Externalisation de l'admin opérationnel pour artisans, indépendants et TPE. Devis, ADV, fournisseurs, suivi de projet, facturation — sur une mission ponctuelle ou en pack mensuel, à partir de 600€/mois.",
+    "Externalisation de l'admin opérationnel pour artisans, indépendants et TPE. Devis, ADV, fournisseurs, suivi de projet, facturation — sur une mission ponctuelle ou en pack mensuel, à partir de 650€/mois.",
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
@@ -37,7 +37,7 @@ const jsonLd = {
       '@id': 'https://www.opti-pro.fr/#organization',
       name: 'OptiPro',
       description:
-        "Externalisation de l'admin opérationnel pour artisans, indépendants et TPE. Mission ponctuelle (80€/h) ou pack mensuel reconductible (de 600€/mois à 1 950€/mois). Devis, ADV, fournisseurs, suivi de projet, facturation, préparation comptable.",
+        "Externalisation de l'admin opérationnel pour artisans, indépendants et TPE. Mission ponctuelle (75€/h) ou pack mensuel reconductible (de 650€/mois à 1 950€/mois). Devis, ADV, fournisseurs, suivi de projet, facturation, préparation comptable.",
       url: 'https://www.opti-pro.fr',
       email: 'p.laurent@opti-pro.fr',
       address: {
@@ -94,7 +94,7 @@ const jsonLd = {
         'https://www.linkedin.com/in/pierre-laurent-809410123',
       ],
       availableLanguage: 'fr',
-      priceRange: '600€-1950€/mois HT',
+      priceRange: '650€-1950€/mois HT',
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',

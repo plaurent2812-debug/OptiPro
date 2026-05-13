@@ -22,14 +22,14 @@ export const FAQ_HOMEPAGE: FaqItem[] = [
       "Vocal, photo ou message WhatsApp. Je réponds sous 4h en jour ouvré. Vous n'avez aucun logiciel à apprendre.",
   },
   {
-    question: 'C’est conforme RGPD et facturation électronique 2026-2027 ?',
+    question: 'Et si ça ne fonctionne pas entre nous ?',
     answer:
-      "Oui. Toutes vos données sont hébergées en Europe. La facturation électronique (réforme PDP) est intégrée dans la préparation des factures que je gère via vos outils existants (Pennylane, Sage, etc.).",
+      "Vous ou moi pouvons arrêter dans les 30 premiers jours, sans préavis ni frais. Seules les heures réellement effectuées sont facturées (75€/h HT), dans la limite du prix du pack initial. Au-delà des 30 jours, préavis de 15 jours fin de mois. Dans tous les cas, vous repartez avec tous vos fichiers, accès et données. Rien ne reste chez moi.",
   },
   {
     question: 'Comment je calcule combien d’heures il me faut ?',
     answer:
-      "Estimation rapide : 1 devis ≈ 30-45 min, 1 facture ≈ 15-20 min, 1 relance ≈ 10 min. Pour ~10 devis et 15 factures par mois avec un peu de suivi, le Pack 10h (720€) suffit. Pour un accompagnement plus complet (incluant trésorerie + coordination fournisseurs), c'est plutôt le Pack 20h (1 400€). On en discute en appel découverte.",
+      "Estimation rapide : 1 devis ≈ 30-45 min, 1 facture ≈ 15-20 min, 1 relance ≈ 10 min. Pour ~10 devis et 15 factures par mois avec un peu de suivi, le Pack Essentiel 10h (650€) suffit. Pour un accompagnement plus complet (incluant trésorerie + coordination fournisseurs), c'est plutôt le Pack Croissance 20h (1 200€). On en discute en appel découverte.",
   },
 ];
 
@@ -37,12 +37,12 @@ export const FAQ_TARIFS: FaqItem[] = [
   {
     question: 'Comment fonctionne la facturation des heures ?',
     answer:
-      "En pack mensuel : forfait fixe quel que soit le nombre exact d'heures consommées (dans la limite du pack). En mission ponctuelle : tarif horaire 80€/h HT, facturation au temps réellement passé (arrondi au quart d'heure supérieur).",
+      "En pack mensuel : forfait fixe quel que soit le nombre exact d'heures consommées (dans la limite du pack). En mission ponctuelle : tarif horaire 75€/h HT, facturation au temps réellement passé (arrondi au quart d'heure supérieur).",
   },
   {
     question: 'Et si je dépasse mon pack un mois ?',
     answer:
-      "Si dépassement ponctuel (1 mois isolé) : facturation des heures supplémentaires à 80€/h HT. Si dépassement récurrent (>20% pendant 2 mois consécutifs) : on bascule au pack supérieur le mois suivant. Pas de surfacturation cachée.",
+      "Si dépassement ponctuel (1 mois isolé) : facturation des heures supplémentaires à 75€/h HT. Si dépassement récurrent (>20% pendant 2 mois consécutifs) : on bascule au pack supérieur le mois suivant. Pas de surfacturation cachée.",
   },
   {
     question: 'Et si je sous-consomme un mois ?',

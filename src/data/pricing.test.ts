@@ -52,24 +52,24 @@ describe('pricing', () => {
 });
 
 describe('mission pricing', () => {
-  test('MISSION_HOURLY_RATE is 80', () => {
-    expect(MISSION_HOURLY_RATE).toBe(80);
+  test('MISSION_HOURLY_RATE is 75', () => {
+    expect(MISSION_HOURLY_RATE).toBe(75);
   });
 
   test('MISSION_PACKS has 3 entries with correct prices and hours', () => {
     expect(MISSION_PACKS).toHaveLength(3);
-    expect(MISSION_PACKS[0]).toMatchObject({ id: 'pack-10', hours: 10, monthlyPrice: 720, hourlyEquivalent: 72 });
-    expect(MISSION_PACKS[1]).toMatchObject({ id: 'pack-20', hours: 20, monthlyPrice: 1400, hourlyEquivalent: 70, recommended: true });
-    expect(MISSION_PACKS[2]).toMatchObject({ id: 'pack-30', hours: 30, monthlyPrice: 1950, hourlyEquivalent: 65 });
+    expect(MISSION_PACKS[0]).toMatchObject({ id: 'pack-10', name: 'Pack Essentiel', hours: 10, monthlyPrice: 650, hourlyEquivalent: 65 });
+    expect(MISSION_PACKS[1]).toMatchObject({ id: 'pack-20', name: 'Pack Croissance', hours: 20, monthlyPrice: 1200, hourlyEquivalent: 60, recommended: true });
+    expect(MISSION_PACKS[2]).toMatchObject({ id: 'pack-30', name: 'Pack Pilotage', hours: 35, monthlyPrice: 1950, hourlyEquivalent: 56 });
   });
 
   test('MISSION_PACKS discounts compute correctly vs hourly rate', () => {
-    expect(Math.round((1 - MISSION_PACKS[0].monthlyPrice / (MISSION_PACKS[0].hours * MISSION_HOURLY_RATE)) * 100)).toBe(10);
-    expect(MISSION_PACKS[1].discount).toBe(12);
-    expect(MISSION_PACKS[2].discount).toBe(19);
+    expect(MISSION_PACKS[0].discount).toBe(13);
+    expect(MISSION_PACKS[1].discount).toBe(20);
+    expect(MISSION_PACKS[2].discount).toBe(26);
   });
 
-  test('Only Pack 20h is marked as recommended', () => {
+  test('Only Pack Croissance is marked as recommended', () => {
     const recommended = MISSION_PACKS.filter((p) => p.recommended);
     expect(recommended).toHaveLength(1);
     expect(recommended[0].id).toBe('pack-20');

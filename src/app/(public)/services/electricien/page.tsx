@@ -4,11 +4,11 @@ import LandingPage from '@/components/seo/LandingPage';
 export const metadata: Metadata = {
   title: 'Assistant administratif pour électriciens — OptiPro PACA',
   description:
-    'Service d\'assistant admin externalisé pour électriciens. Devis multi-chantiers (rénovation, neuf, Consuel), factures, relances, comptable. À partir de 600€/mois ou 80€/h. Vence (06), interventions PACA et France.',
+    'Service d\'assistant admin externalisé pour électriciens. Devis multi-chantiers (rénovation, neuf, Consuel), factures, relances, comptable. À partir de 650€/mois ou 75€/h. Vence (06), interventions PACA et France.',
   alternates: { canonical: '/services/electricien' },
   openGraph: {
     title: 'Assistant admin pour électriciens — OptiPro',
-    description: 'Vous gérez les chantiers, je gère votre admin. Mission ou pack mensuel — dès 600€/mois.',
+    description: 'Vous gérez les chantiers, je gère votre admin. Mission ou pack mensuel — dès 650€/mois.',
     url: 'https://www.opti-pro.fr/services/electricien',
     type: 'website',
   },
@@ -77,7 +77,7 @@ const jsonLd = {
           name: "Combien ça coûte pour un électricien indépendant ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Deux formules. Mission à l'heure (80€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack 10h à 720€/mois, Pack 20h à 1 400€/mois (le plus courant), Pack 30h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
+            text: "Deux formules. Mission à l'heure (75€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
           },
         },
         {
@@ -98,7 +98,7 @@ export default function ElectricienPage() {
     <LandingPage
       badge="Pour électriciens et installateurs"
       h1="L'assistant administratif des électriciens"
-      intro="Vous tirez des câbles, vous validez des Consuel, vous coordonnez des chantiers. Vous n'avez pas le temps de structurer des devis détaillés à 23h ni de courir derrière les paiements. Voilà ce que je prends en charge pour vous, à partir de 600€/mois ou 80€/h."
+      intro="Vous tirez des câbles, vous validez des Consuel, vous coordonnez des chantiers. Vous n'avez pas le temps de structurer des devis détaillés à 23h ni de courir derrière les paiements. Voilà ce que je prends en charge pour vous, à partir de 650€/mois ou 75€/h."
       painSection={{
         title: "Quels sont les vrais blocages d'un électricien indépendant aujourd'hui ?",
         points: [
@@ -110,8 +110,8 @@ export default function ElectricienPage() {
         ],
       }}
       featuredOffer={{
-        name: 'Pack 20h',
-        price: '1 400 € HT/mois',
+        name: 'Pack Croissance — 20h',
+        price: '1 200 € HT/mois',
         delay: 'Démarrage en moins de 2 semaines',
         description: "Pour un suivi régulier de votre admin — devis, ADV, fournisseurs, suivi de projet, facturation. 20 heures dédiées par mois, sans engagement long.",
         features: [
@@ -153,7 +153,7 @@ export default function ElectricienPage() {
         },
         {
           question: "Combien ça coûte pour un électricien indépendant ?",
-          answer: "Deux formules. Mission à l'heure (80€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack 10h à 720€/mois, Pack 20h à 1 400€/mois (le plus courant), Pack 30h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
+          answer: "Deux formules. Mission à l'heure (75€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
         },
         {
           question: "Travaillez-vous avec des électriciens ailleurs qu'en PACA ?",
@@ -189,11 +189,11 @@ export default function ElectricienPage() {
         miniCases: [
           {
             situation: "Un électricien d'Antibes, 8 ans d'activité, 1 salarié. Spécialité rénovation lourde. Il oublie systématiquement de faire les avenants, perd 1 500-2 500€ par chantier.",
-            result: "Pack 20h à 1 400€/mois. Tous les avenants sont systématiquement faits depuis ses vocaux. Sur 6 mois : +12 000€ de CA additionnel récupéré.",
+            result: "Pack Croissance (20h) à 1 200€/mois. Tous les avenants sont systématiquement faits depuis ses vocaux. Sur 6 mois : +12 000€ de CA additionnel récupéré.",
           },
           {
             situation: "Un électricien-installateur RGE de Cagnes-sur-Mer, 3 salariés. Activité mixte (résidentiel + petit tertiaire). Suivi Consuel chaotique, plaintes clients régulières.",
-            result: "Pack 20h avec suivi Consuel structuré. Délai moyen Consuel passé de 6 semaines à 3 semaines (relance systématique). Plaintes clients sur ce sujet : zéro.",
+            result: "Pack Croissance (20h) avec suivi Consuel structuré. Délai moyen Consuel passé de 6 semaines à 3 semaines (relance systématique). Plaintes clients sur ce sujet : zéro.",
           },
         ],
         insight: "La spécificité d'un électricien : la marge réelle se joue sur le tracking des fournitures par chantier. Sans système qui classe automatiquement les tickets de caisse et les factures fournisseurs par projet, vous ne savez jamais quel chantier vous a vraiment rapporté.",

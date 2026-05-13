@@ -18,13 +18,15 @@ function subjectFor(cible: string | undefined, name: string): string {
 function getPackEstime(heuresEstimees: string | undefined): string {
     switch (heuresEstimees) {
         case '1-5':
-            return "Mission à l'heure (80€/h)";
+            return "Mission à l'heure (75€/h)";
         case '5-10':
-            return 'Pack 10h (720€/mois)';
+            return 'Pack Essentiel — 10h (650€/mois)';
         case '10-20':
-            return 'Pack 20h (1 400€/mois)';
+            return 'Pack Croissance — 20h (1 200€/mois)';
+        case '20-35':
         case '20-30':
-            return 'Pack 30h (1 950€/mois)';
+            return 'Pack Pilotage — 35h (1 950€/mois)';
+        case '35+':
         case '30+':
             return 'Sur devis';
         case 'unknown':

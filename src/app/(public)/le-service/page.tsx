@@ -5,11 +5,11 @@ import LeServiceClient from './LeServiceClient';
 
 export const metadata: Metadata = {
   title: { absolute: 'Le service — OptiPro assistant admin pour artisans' },
-  description: 'Tout votre admin opérationnel pris en charge. Devis, ADV, facturation, suivi. Mission ponctuelle ou pack mensuel, à partir de 600€/mois.',
+  description: 'Tout votre admin opérationnel pris en charge. Devis, ADV, facturation, suivi. Mission ponctuelle ou pack mensuel, à partir de 650€/mois.',
   alternates: { canonical: '/le-service' },
   openGraph: {
     title: 'Le service OptiPro — Assistant administratif externalisé',
-    description: 'Tout votre admin opérationnel pris en charge. Mission ponctuelle ou accompagnement régulier — à partir de 600€/mois.',
+    description: 'Tout votre admin opérationnel pris en charge. Mission ponctuelle ou accompagnement régulier — à partir de 650€/mois.',
   },
 };
 
@@ -24,7 +24,7 @@ const serviceJsonLd = {
   url: 'https://www.opti-pro.fr/le-service',
   offers: {
     '@type': 'AggregateOffer',
-    lowPrice: '600',
+    lowPrice: '650',
     highPrice: '1950',
     priceCurrency: 'EUR',
     offerCount: 3,

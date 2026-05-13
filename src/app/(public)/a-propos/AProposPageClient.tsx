@@ -25,7 +25,7 @@ const timeline: TimelineItem[] = [
     company: 'OptiPro',
     role: 'Fondateur — Assistant administratif externalisé pour artisans et TPE',
     description:
-      "J'ai quitté l'exploitation salariée pour proposer mon expérience aux artisans, indépendants et TPE qui n'ont pas les moyens d'embaucher un cadre. À partir de 600€/mois, je prends en charge ce qui vous freine — devis, ADV, fournisseurs, suivi de projet, facturation — sur une mission ponctuelle ou en accompagnement régulier. Je me limite à 8-10 clients pour rester réactif et qualitatif sur chacun.",
+      "J'ai quitté l'exploitation salariée pour proposer mon expérience aux artisans, indépendants et TPE qui n'ont pas les moyens d'embaucher un cadre. À partir de 650€/mois, je prends en charge ce qui vous freine — devis, ADV, fournisseurs, suivi de projet, facturation — sur une mission ponctuelle ou en accompagnement régulier. Je me limite à 8-10 clients pour rester réactif et qualitatif sur chacun.",
     current: true,
   },
   {

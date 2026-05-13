@@ -13,6 +13,7 @@ const INCLUS_DANS_TOUS = [
   'Visio bilan mensuelle (30 min)',
   "Utilisation de VOS outils (Pennylane, Sage, Excel, etc.) — pas d'imposition",
   'Reporting mensuel détaillé des heures consommées par tâche',
+  "Période d'essai 30 jours — chacun peut arrêter sans préavis, seules les heures effectuées sont facturées",
   'Conformité RGPD + facturation électronique 2026-2027',
   'Vos données restent votre propriété — export à tout moment',
 ];
@@ -21,7 +22,7 @@ const COMPARATEUR_ROWS = [
   { label: 'Mi-temps salarié(e) interne', price: '~2 300€/mois', detail: 'chargés, + équipement, + formation, + gestion RH' },
   { label: 'Assistant·e indépendant·e (20h/mois)', price: '900-1 200€/mois', detail: 'profil junior, sans expérience opérationnelle senior' },
   { label: 'Cabinet comptable + admin externe', price: '800-1 200€/mois cumulés', detail: 'coordination à votre charge' },
-  { label: 'OptiPro Pack 20h', price: '1 400€/mois', detail: "10 ans en pilotage exploitation, préavis 15 jours, zéro charge", highlight: true },
+  { label: 'OptiPro Pack Croissance (20h)', price: '1 200€/mois', detail: "10 ans en pilotage exploitation, préavis 15 jours, zéro charge", highlight: true },
 ];
 
 export default function TarifsClient() {
@@ -98,7 +99,7 @@ export default function TarifsClient() {
           ))}
         </div>
         <p style={{ textAlign: 'center', color: 'var(--secondary)', marginTop: '2rem', fontSize: '0.95rem' }}>
-          Au-delà de 30h/mois → devis sur mesure.
+          Au-delà de 35h/mois → devis sur mesure.
         </p>
       </section>
 

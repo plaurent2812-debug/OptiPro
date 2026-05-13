@@ -84,10 +84,10 @@ const metierOptions = [
 const heuresEstimeesOptions = [
     { value: '', label: '— Sélectionnez —' },
     { value: '1-5', label: '1-5h ponctuel' },
-    { value: '5-10', label: '5-10h' },
-    { value: '10-20', label: '10-20h' },
-    { value: '20-30', label: '20-30h' },
-    { value: '30+', label: 'Plus de 30h' },
+    { value: '5-10', label: '5-10h (Pack Essentiel)' },
+    { value: '10-20', label: '10-20h (Pack Croissance)' },
+    { value: '20-35', label: '20-35h (Pack Pilotage)' },
+    { value: '35+', label: 'Plus de 35h' },
     { value: 'unknown', label: 'Je ne sais pas encore' },
 ];
 
@@ -307,7 +307,7 @@ export default function ContactPageClient() {
                 <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                     <div className="section-label">Me contacter</div>
                     <h1 style={{ fontSize: '2.75rem', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '1rem', color: 'var(--foreground)' }}>
-                        Déléguer votre admin, à partir de 600€/mois
+                        Déléguer votre admin, à partir de 650€/mois
                     </h1>
                     <p style={{ color: 'var(--secondary)', fontSize: '1.1rem', maxWidth: '560px', margin: '0 auto', lineHeight: 1.6 }}>
                         Quelques infos pour préparer l&apos;appel découverte. Je vous propose ensuite une mission ponctuelle ou un pack mensuel adapté.

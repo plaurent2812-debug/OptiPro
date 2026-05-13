@@ -14,7 +14,7 @@ export default function CgvPage() {
         Conditions Générales de Vente
       </h1>
       <p style={{ color: 'var(--secondary)', fontSize: '0.9rem', marginBottom: '2.5rem' }}>
-        Dernière mise à jour : 12 mai 2026
+        Dernière mise à jour : 13 mai 2026
       </p>
 
       <section>
@@ -46,11 +46,11 @@ export default function CgvPage() {
           Tarifs Hors Taxes — TVA non applicable, article 293 B du Code Général des Impôts (franchise en base de TVA).
         </p>
         <ul>
-          <li>Mission à l&apos;heure — 80€/h HT, facturation au temps réellement passé (arrondi au quart d&apos;heure supérieur).</li>
-          <li>Pack 10h — 720€/mois HT (72€/h équivalent, -10%).</li>
-          <li>Pack 20h — 1 400€/mois HT (70€/h équivalent, -12%).</li>
-          <li>Pack 30h — 1 950€/mois HT (65€/h équivalent, -19%).</li>
-          <li>Au-delà de 30h/mois — devis sur mesure.</li>
+          <li>Mission à l&apos;heure — 75€/h HT, facturation au temps réellement passé (arrondi au quart d&apos;heure supérieur).</li>
+          <li>Pack Essentiel — 10h — 650€/mois HT (65€/h équivalent, -13%).</li>
+          <li>Pack Croissance — 20h — 1 200€/mois HT (60€/h équivalent, -20%).</li>
+          <li>Pack Pilotage — 35h — 1 950€/mois HT (56€/h équivalent, -26%).</li>
+          <li>Au-delà de 35h/mois — devis sur mesure.</li>
         </ul>
         <p>Les options additionnelles sont détaillées sur la page Tarifs.</p>
       </section>
@@ -62,6 +62,18 @@ export default function CgvPage() {
         </p>
         <p>
           Les <strong>packs mensuels</strong> sont reconductibles tacitement chaque mois. La résiliation est possible à tout moment avec un préavis de <strong>15 jours fin de mois</strong>, par email à <a href="mailto:p.laurent@opti-pro.fr">p.laurent@opti-pro.fr</a>.
+        </p>
+        <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', margin: '1.25rem 0 0.5rem' }}>
+          Période d&apos;essai de 30 jours
+        </h3>
+        <p>
+          Pour tout pack mensuel, une <strong>période d&apos;essai de 30 jours calendaires</strong> court à compter de la date de signature du devis. Pendant cette période, chacune des parties (le client ou le prestataire) peut résilier le contrat à tout moment, <strong>sans préavis ni indemnité</strong>, par simple notification écrite (email accepté).
+        </p>
+        <p>
+          En cas de résiliation pendant la période d&apos;essai, <strong>seules les heures de travail effectivement réalisées</strong> par le prestataire jusqu&apos;à la date de réception de la notification sont dues par le client, au tarif horaire en vigueur de <strong>75€ HT/heure</strong>, dans la limite du prix du pack initialement souscrit.
+        </p>
+        <p>
+          Au-delà de la période d&apos;essai, la résiliation est soumise au préavis de 15 jours fin de mois prévu ci-dessus.
         </p>
       </section>
 

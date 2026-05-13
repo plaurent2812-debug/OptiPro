@@ -4,6 +4,7 @@ import Link from 'next/link'
 import styles from '../../clients/clients.module.css'
 import { FACTURE_STATUT_LABELS, formatDate, formatMontant } from '@/lib/utils'
 import { FactureHeaderActions, PushPennylaneButton } from './FactureActions'
+import RelanceCard from './RelanceCard'
 import { Link2, ExternalLink } from 'lucide-react'
 import { pennylaneFactureUrl } from '@/lib/pennylane'
 import PennylaneSourceBadge from '@/components/admin/ui/PennylaneSourceBadge'
@@ -66,6 +67,15 @@ export default async function FactureDetailPage(props: { params: Promise<{ id: s
         pennylaneId={facture.pennylane_invoice_id}
         pennylaneUrl={pennylaneFactureUrl(facture.pennylane_invoice_id)}
         entityType="facture"
+      />
+
+      <RelanceCard
+        factureId={facture.id}
+        statut={facture.statut}
+        dateEcheance={facture.date_echeance}
+        niveauRelance={facture.niveau_relance ?? 0}
+        derniereRelanceAt={facture.derniere_relance_at}
+        clientEmail={facture.clients?.email ?? null}
       />
 
       <div className={styles.formGrid}>

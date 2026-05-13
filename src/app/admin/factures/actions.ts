@@ -9,7 +9,13 @@ import {
   getPennylaneInvoice,
   mapPennylaneInvoiceStatus,
 } from '@/lib/pennylane'
-import { nextBillingDateFrom } from '@/lib/utils'
+import { nextBillingDateFrom, formatDate, formatMontant } from '@/lib/utils'
+import { sendMail } from '@/lib/mailer'
+import {
+  buildRelanceEmail,
+  computeNextRelanceLevel,
+  type NiveauRelance,
+} from '@/lib/relance-templates'
 
 interface FactureLigne {
   description: string
@@ -425,4 +431,105 @@ export async function createFactureAndRedirectAction(payload: {
   }
   revalidatePath('/admin/factures')
   redirect(`/admin/factures/${result.factureId}`)
+}
+
+/**
+ * Envoi MANUEL d'une relance d'impayé depuis la fiche facture.
+ *
+ * Bypass le seuil temporel : permet à Pierre de forcer un envoi quand le cron
+ * automatique ne suffit pas. Calcule le niveau cible selon le retard, ou utilise
+ * le niveau forcé si fourni.
+ */
+export async function sendRelanceManuelleAction(
+  factureId: string,
+  forcedLevel?: NiveauRelance,
+): Promise<{ error?: string; success?: boolean; message?: string }> {
+  const supabase = await createClient()
+
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) return { error: 'Session expirée.' }
+
+  const { data: facture, error: fetchErr } = await supabase
+    .from('factures')
+    .select(`
+      id, numero, montant_ht, date_echeance, statut, niveau_relance,
+      clients ( prenom, nom, entreprise, email )
+    `)
+    .eq('id', factureId)
+    .single()
+
+  if (fetchErr || !facture) return { error: 'Facture introuvable.' }
+
+  if (!facture.date_echeance) return { error: 'Pas d\'échéance définie sur cette facture.' }
+  if (facture.statut === 'payee' || facture.statut === 'annulee') {
+    return { error: 'Cette facture n\'a pas besoin d\'être relancée.' }
+  }
+
+  const clientRaw = facture.clients as unknown
+  const client = (Array.isArray(clientRaw) ? clientRaw[0] : clientRaw) as
+    | { prenom: string | null; nom: string | null; entreprise: string | null; email: string | null }
+    | null
+
+  if (!client?.email) return { error: 'Le client n\'a pas d\'email — impossible d\'envoyer une relance.' }
+
+  const today = new Date()
+  const echeance = new Date(facture.date_echeance)
+  const joursRetard = Math.floor((today.getTime() - echeance.getTime()) / (1000 * 60 * 60 * 24))
+
+  if (joursRetard < 0) {
+    return { error: `L'échéance n'est pas encore dépassée (${-joursRetard} jours restants).` }
+  }
+
+  const niveauActuel = facture.niveau_relance ?? 0
+  // Si forcedLevel fourni, on l'utilise ; sinon on calcule
+  let niveauCible: NiveauRelance | null = forcedLevel ?? null
+  if (!niveauCible) {
+    niveauCible = computeNextRelanceLevel(joursRetard, niveauActuel)
+    if (!niveauCible) {
+      return {
+        error: `Aucune relance à envoyer (niveau actuel ${niveauActuel}, retard ${joursRetard}j).`,
+      }
+    }
+  }
+
+  const clientLabel = client.entreprise
+    ? `${client.prenom ?? ''} ${client.nom ?? ''}`.trim() || client.entreprise
+    : `${client.prenom ?? ''} ${client.nom ?? ''}`.trim() || 'cher client'
+
+  const { subject, html } = buildRelanceEmail(niveauCible, {
+    clientLabel,
+    numero: facture.numero,
+    montant: formatMontant(Number(facture.montant_ht) || 0),
+    dateEcheance: formatDate(facture.date_echeance),
+    joursRetard,
+  })
+
+  const mailResult = await sendMail({
+    to: client.email,
+    subject,
+    html,
+  })
+
+  if (!mailResult.ok) {
+    return { error: mailResult.error ?? 'Erreur d\'envoi.' }
+  }
+
+  await supabase
+    .from('factures')
+    .update({
+      niveau_relance: niveauCible,
+      derniere_relance_at: new Date().toISOString(),
+    })
+    .eq('id', factureId)
+
+  revalidatePath(`/admin/factures/${factureId}`)
+  revalidatePath('/admin/factures')
+
+  const levelLabel = niveauCible === 1 ? 'doux (J+7)' : niveauCible === 2 ? 'ferme (J+15)' : 'mise en demeure (J+30)'
+  return {
+    success: true,
+    message: mailResult.simulated
+      ? `Relance ${levelLabel} simulée (DEV).`
+      : `Relance ${levelLabel} envoyée à ${client.email}.`,
+  }
 }

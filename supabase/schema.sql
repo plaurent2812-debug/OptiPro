@@ -92,8 +92,16 @@ CREATE TABLE factures (
   montant_ht      NUMERIC(10,2) DEFAULT 0,
   notes           TEXT,
   date_paiement   DATE,
-  pennylane_invoice_id TEXT
+  pennylane_invoice_id TEXT,
+  -- Relances impayés (cron /api/cron/relances-impayes)
+  derniere_relance_at TIMESTAMPTZ,
+  niveau_relance      INT DEFAULT 0
+                      CHECK (niveau_relance >= 0 AND niveau_relance <= 3)
 );
+
+CREATE INDEX idx_factures_statut_echeance
+  ON factures (statut, date_echeance)
+  WHERE statut IN ('envoyee', 'en_retard');
 
 -- ── Table factures_lignes ──────────────────────────────────
 CREATE TABLE factures_lignes (

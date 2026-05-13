@@ -158,7 +158,7 @@ export default function HomePageClient() {
 
         <p className={styles.sub}>
           Vous restez sur le terrain. Je m&apos;occupe du reste — devis, factures, fournisseurs,
-          suivi. Mission ponctuelle ou accompagnement régulier, à partir de 600&nbsp;€/mois.
+          suivi. Mission ponctuelle ou accompagnement régulier, à partir de 650&nbsp;€/mois.
         </p>
 
         <div className={styles.ctas}>

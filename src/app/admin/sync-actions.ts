@@ -1,6 +1,7 @@
 'use server'
 
 import { createClient } from '@/lib/supabase/server'
+import { createAdminClient } from '@/lib/supabase/admin'
 import { revalidatePath } from 'next/cache'
 import {
   getPennylaneQuote,
@@ -9,6 +10,8 @@ import {
   mapPennylaneInvoiceStatus,
   listPennylaneInvoices,
 } from '@/lib/pennylane'
+import type { SupabaseClient } from '@supabase/supabase-js'
+import { type SyncResult, formatSyncMessage } from './sync-helpers'
 
 /**
  * Cherche dans une facture Pennylane les champs identifiant le client.
@@ -89,19 +92,22 @@ function extractDate(invoice: Record<string, unknown>, ...keys: string[]): strin
   return null;
 }
 
-export async function syncAllFromPennylaneAction() {
-  const supabase = await createClient()
-
-  const { data: { user }, error: authError } = await supabase.auth.getUser()
-  if (authError || !user) {
-    return { error: 'Session expirée. Veuillez vous reconnecter.' }
-  }
-
-  const results = {
+/**
+ * Logique pure de synchronisation OptiPro ← Pennylane.
+ *
+ * Cette fonction prend un client Supabase déjà construit (avec ou sans session)
+ * et exécute la sync complète. Elle est utilisée par :
+ * - syncAllFromPennylaneAction (bouton manuel, session utilisateur)
+ * - /api/cron/sync-pennylane (cron Vercel horaire, service_role)
+ *
+ * Aucun revalidatePath ici — c'est la responsabilité de l'appelant.
+ */
+export async function performPennylaneSync(supabase: SupabaseClient): Promise<SyncResult> {
+  const results: SyncResult = {
     devis: 0,
     factures: 0,
     facturesNouvelles: 0,
-    errors: [] as string[],
+    errors: [],
   }
 
   // 1. Sync tous les devis ayant un pennylane_quote_id (statut)
@@ -284,30 +290,39 @@ export async function syncAllFromPennylaneAction() {
     }
   }
 
+  return results
+}
+
+/**
+ * Server Action — bouton manuel "Synchroniser Pennylane" du dashboard.
+ * Vérifie la session utilisateur, exécute la sync, revalide les pages admin.
+ */
+export async function syncAllFromPennylaneAction() {
+  const supabase = await createClient()
+
+  const { data: { user }, error: authError } = await supabase.auth.getUser()
+  if (authError || !user) {
+    return { error: 'Session expirée. Veuillez vous reconnecter.' }
+  }
+
+  const results = await performPennylaneSync(supabase)
+
   revalidatePath('/admin')
   revalidatePath('/admin/devis')
   revalidatePath('/admin/factures')
 
-  const parts: string[] = []
-  if (results.devis > 0) parts.push(`${results.devis} devis`)
-  if (results.facturesNouvelles > 0) parts.push(`${results.facturesNouvelles} nouvelle(s) facture(s) importée(s)`)
-  if (results.factures > 0) parts.push(`${results.factures} facture(s) mise(s) à jour`)
-
-  if (parts.length === 0 && results.errors.length === 0) {
-    return { success: true, message: 'Tout est déjà à jour.' }
-  }
-
-  const message = parts.length > 0
-    ? `Mis à jour : ${parts.join(', ')}.`
-    : ''
-
+  const message = formatSyncMessage(results)
   if (results.errors.length > 0) {
-    return {
-      success: true,
-      message: `${message} ${results.errors.length} erreur(s).`,
-      errors: results.errors,
-    }
+    return { success: true, message, errors: results.errors }
   }
-
   return { success: true, message }
+}
+
+/**
+ * Version cron de la sync — utilise le service_role Supabase, pas de session.
+ * Appelée par /api/cron/sync-pennylane toutes les heures.
+ */
+export async function performPennylaneSyncForCron(): Promise<SyncResult> {
+  const supabase = createAdminClient()
+  return performPennylaneSync(supabase)
 }

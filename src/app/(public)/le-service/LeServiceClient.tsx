@@ -65,7 +65,8 @@ export default function LeServiceClient() {
           fontSize: '1.05rem',
         }}>
           <p style={{ margin: 0 }}>
-            <strong style={{ color: 'var(--primary)' }}>Le service OptiPro</strong> couvre tout l&apos;admin et l&apos;opérationnel d&apos;un artisan, indépendant ou TPE : devis envoyés sous 1h après un vocal WhatsApp, facturation J+1 après prestation, relances impayés systématiques (J+15, J+30, J+45), suivi de trésorerie, coordination des fournisseurs et sous-traitants, préparation comptable mensuelle pour votre expert-comptable. La mise en route prend moins de 2 semaines : appel découverte gratuit de 30 min, audit rapide de votre existant, accès à vos outils (Pennylane, Sage, Excel — pas d&apos;outil à apprendre). Vous transmettez par WhatsApp, je réponds sous 4h en jour ouvré. Visio bilan mensuelle de 30 minutes. Période d&apos;essai 30 jours sans frais — préavis 15 jours fin de mois ensuite.
+            <strong style={{ color: 'var(--primary)' }}>Le service OptiPro</strong>
+            {' '}couvre tout l&apos;admin et l&apos;opérationnel : devis sous 1h, facturation, relances, fournisseurs, préparation comptable. Vous transmettez par WhatsApp, je réponds sous 4h. Démarrage en moins de 2 semaines — période d&apos;essai 30 jours sans frais.
           </p>
         </div>
       </section>

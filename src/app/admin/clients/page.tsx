@@ -2,16 +2,45 @@ import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import styles from './clients.module.css'
 import { CLIENT_STATUT_LABELS, formatDate } from '@/lib/utils'
+import ListFilters from '@/components/admin/ui/ListFilters'
+import Pagination from '@/components/admin/ui/Pagination'
 
 export const dynamic = 'force-dynamic'
 
-export default async function ClientsPage() {
+const PAGE_SIZE = 20
+
+type SearchParams = Promise<{ q?: string; statut?: string; page?: string }>
+
+export default async function ClientsPage({ searchParams }: { searchParams: SearchParams }) {
   const supabase = await createClient()
-  
-  const { data: clients, error } = await supabase
+  const params = await searchParams
+  const q = (params.q ?? '').trim()
+  const statut = (params.statut ?? '').trim()
+  const page = Math.max(1, parseInt(params.page ?? '1', 10) || 1)
+
+  let query = supabase
     .from('clients')
-    .select('*')
+    .select('*', { count: 'exact' })
     .order('created_at', { ascending: false })
+
+  if (q) {
+    // Recherche sur nom, prenom, entreprise, email
+    const escaped = q.replace(/[%_]/g, '\\$&')
+    query = query.or(
+      `nom.ilike.%${escaped}%,prenom.ilike.%${escaped}%,entreprise.ilike.%${escaped}%,email.ilike.%${escaped}%`
+    )
+  }
+
+  if (statut) {
+    query = query.eq('statut', statut)
+  }
+
+  const from = (page - 1) * PAGE_SIZE
+  const to = from + PAGE_SIZE - 1
+  const { data: clients, error, count } = await query.range(from, to)
+
+  const hasActiveFilters = q !== '' || statut !== ''
+  const total = count ?? 0
 
   return (
     <div className={styles.pageContainer}>
@@ -25,6 +54,11 @@ export default async function ClientsPage() {
         </Link>
       </div>
 
+      <ListFilters
+        searchPlaceholder="Rechercher un client (nom, entreprise, email)…"
+        statusOptions={Object.entries(CLIENT_STATUT_LABELS).map(([value, label]) => ({ value, label }))}
+      />
+
       {error ? (
         <div className={styles.errorBanner}>
           <p>Une erreur est survenue lors du chargement des clients.</p>
@@ -35,8 +69,12 @@ export default async function ClientsPage() {
           {clients?.length === 0 ? (
             <div className={styles.emptyState}>
               <div className={styles.emptyIcon}>👤</div>
-              <h3>Aucun client</h3>
-              <p>Commencez par ajouter votre premier prospect ou client.</p>
+              <h3>{hasActiveFilters ? 'Aucun client ne correspond à vos filtres' : 'Aucun client'}</h3>
+              <p>
+                {hasActiveFilters
+                  ? 'Essayez d\'élargir votre recherche ou réinitialisez les filtres.'
+                  : 'Commencez par ajouter votre premier prospect ou client.'}
+              </p>
             </div>
           ) : (
             <div className={styles.tableContainer}>
@@ -84,6 +122,14 @@ export default async function ClientsPage() {
           )}
         </div>
       )}
+
+      <Pagination
+        page={page}
+        total={total}
+        pageSize={PAGE_SIZE}
+        basePath="/admin/clients"
+        searchParams={{ q: q || undefined, statut: statut || undefined }}
+      />
     </div>
   )
 }

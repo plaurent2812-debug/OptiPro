@@ -76,23 +76,6 @@ export default function MouginsPage() {
           description: 'Prise de RDV, confirmations, relances. Une clientèle exigeante n\'oublie rien — vous non plus.',
         },
       ]}
-      useCases={[
-        {
-          profile: 'Architecte d\'intérieur indépendante à Mougins',
-          situation: '8 ans d\'activité, clientèle 90% internationale. Devis complexes (mood boards, fournitures, planches techniques) qui prenaient 6-8h chacun. Délai moyen de 4-5 jours.',
-          result: 'Pack Croissance 20h à 1 200€/mois. OptiPro structure les devis et gère les fournisseurs. Délai réduit à 24h. Taux de signature +20%.',
-        },
-        {
-          profile: 'Paysagiste à Mougins-le-Haut',
-          situation: '15 ans d\'activité, 3 salariés. Entretien de parcs et création paysagère pour villas haut de gamme. Facturation chaotique, 5-7k€ d\'impayés en cours.',
-          result: 'Pack Croissance 20h. Facturation centralisée, relances pro. 4 200€ rattrapés en 2 mois. Le dirigeant retrouve du temps pour la conception.',
-        },
-        {
-          profile: 'Consultant indépendant à Mougins (Sophia voisin)',
-          situation: 'B2B services digitaux. 60 factures/mois pour PME locales. Gestion comptable lourde, pas de visibilité sur les impayés.',
-          result: 'Pack Essentiel 10h à 650€/mois. Facturation et suivi automatisés. Dashboard trésorerie mis en place. Reprend 5h/semaine.',
-        },
-      ]}
       faq={[
         {
           question: 'Vous travaillez avec des artisans dans tout Mougins ?',

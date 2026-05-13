@@ -32,8 +32,8 @@ export default function CannesPage() {
           description: 'Avant le Festival, le MIPIM ou les saisons touristiques, votre flux de devis explose. OptiPro absorbe ce pic sans que vous ayez à embaucher ou refuser des chantiers.',
         },
         {
-          title: 'Connaissance du SAPAL et tissu local',
-          description: 'Pierre a accompagné SAPAL Signalisation à Cannes (plateforme B2B 2 500 produits, automatisations Telegram, sync Pennylane). Il connaît le tissu pro cannois.',
+          title: 'Expérience B2B opérationnelle',
+          description: '10 ans en pilotage d\'exploitation et de logistique, dont des projets B2B avec plateformes catalogue, automatisations et synchronisations Pennylane. Méthodologie éprouvée.',
         },
         {
           title: 'Service 100% à distance',
@@ -76,23 +76,6 @@ export default function CannesPage() {
           description: 'Prises de RDV clients, confirmations, relances post-RDV. Vous n\'oubliez plus un client qui voulait un devis "rapide".',
         },
       ]}
-      useCases={[
-        {
-          profile: 'Agenceur indépendant à Cannes-Centre',
-          situation: 'Spécialisé dans la rénovation de villas locatives. 6 mois de pic d\'activité (mars-août), 6 mois calmes. Faisait tout lui-même : devis, factures, fournisseurs.',
-          result: 'Pack Croissance 20h pendant la saison (mars-août), Pack Essentiel hors saison. Système flexible, +18 000€ de CA capté sur la saison grâce aux devis envoyés rapidement.',
-        },
-        {
-          profile: 'Plombier-chauffagiste à La Bocca',
-          situation: '12 ans d\'activité, 1 salarié, locations meublées de plus en plus nombreuses. Urgences 24/7 qui généraient des factures parties en retard.',
-          result: 'Pack Croissance 20h à 1 200€/mois. Facturation J+1 systématique, relances automatiques. 3 200€ d\'impayés rattrapés en 2 mois. La femme du dirigeant arrête l\'admin.',
-        },
-        {
-          profile: 'TPE événementielle à Cannes-Ouest',
-          situation: '5 salariés, 60% du CA réalisé sur 6 événements/an. Suivi fournisseurs catastrophique, marges floues, comptable mécontent.',
-          result: 'Pack Pilotage 35h à 1 950€/mois. Dashboards par événement, process documentés. Marges connues à J+5 après chaque événement. Dirigeant retrouve 15h/semaine.',
-        },
-      ]}
       faq={[
         {
           question: 'Vous travaillez avec des artisans dans tout Cannes ?',
@@ -112,7 +95,7 @@ export default function CannesPage() {
         },
         {
           question: 'Vous avez des références à Cannes ?',
-          answer: 'Pierre a accompagné SAPAL Signalisation (Cannes) sur une plateforme B2B avec catalogue de 2 500 références, automatisations Telegram et synchronisation Pennylane via API. Pour les autres références, on en parle en appel découverte (NDA si nécessaire).',
+          answer: 'OptiPro a démarré en mai 2026 — les premiers retours clients seront publiés à partir d\'août 2026 sur la page /temoignages. En appel découverte, on peut détailler mon parcours opérationnel (10 ans en pilotage d\'exploitation B2B) et sa pertinence pour votre activité.',
         },
       ]}
     />

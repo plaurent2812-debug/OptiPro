@@ -2,16 +2,13 @@ import type { Metadata } from 'next';
 import LandingPage from '@/components/seo/LandingPage';
 
 export const metadata: Metadata = {
-  title: 'Site web et outils digitaux pour restaurateur',
+  title: 'Assistant administratif pour restaurateurs — OptiPro PACA',
   description:
-    'Site web restaurant, gestion des réservations, fiche Google Business optimisée. Solutions sur mesure pour restaurateurs indépendants. Basé à Vence (06).',
-  alternates: {
-    canonical: '/services/restaurateur',
-  },
+    'Service d\'assistant admin externalisé pour restaurateurs et patrons de café. Devis traiteur, factures, suivi fournisseurs, trésorerie, dossier comptable. À partir de 650€/mois ou 75€/h.',
+  alternates: { canonical: '/services/restaurateur' },
   openGraph: {
-    title: 'Site web et outils digitaux pour restaurateurs — OptiPro',
-    description:
-      "Site web, menu numérique, gestion des avis Google : tout pour qu'un restaurateur indépendant gagne du temps et des couverts.",
+    title: 'Assistant admin pour restaurateurs — OptiPro',
+    description: 'Vous gérez la cuisine et la salle, je gère votre admin. Mission ou pack mensuel — dès 650€/mois.',
     url: 'https://www.opti-pro.fr/services/restaurateur',
     type: 'website',
   },
@@ -24,17 +21,16 @@ const jsonLd = {
       '@type': 'BreadcrumbList',
       itemListElement: [
         { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.opti-pro.fr' },
-        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.opti-pro.fr/services' },
+        { '@type': 'ListItem', position: 2, name: 'Le service', item: 'https://www.opti-pro.fr/le-service' },
         { '@type': 'ListItem', position: 3, name: 'Restaurateur', item: 'https://www.opti-pro.fr/services/restaurateur' },
       ],
     },
     {
       '@type': 'Service',
       '@id': 'https://www.opti-pro.fr/services/restaurateur#service',
-      name: 'Site web et outils digitaux pour restaurateur',
-      serviceType: 'Solutions digitales pour restauration',
-      description:
-        "Site web restaurant, gestion réservations propriétaires (sans commission TheFork), fiche Google Business optimisée, gestion des avis. Solutions sur mesure pour restaurateurs indépendants.",
+      name: 'Assistant administratif externalisé pour restaurateurs',
+      serviceType: 'AdministrativeService',
+      description: 'Service d\'assistant administratif externalisé pour restaurateurs, patrons de café et professionnels de la restauration. Gestion des devis traiteur/privatisation, factures, suivi fournisseurs, trésorerie, dossier comptable mensuel.',
       provider: { '@id': 'https://www.opti-pro.fr/#organization' },
       areaServed: [
         { '@type': 'City', name: 'Vence' },
@@ -42,67 +38,55 @@ const jsonLd = {
         { '@type': 'City', name: 'Antibes' },
         { '@type': 'City', name: 'Cannes' },
         { '@type': 'City', name: 'Grasse' },
-        { '@type': 'City', name: 'Mougins' },
         { '@type': 'City', name: 'Cagnes-sur-Mer' },
+        { '@type': 'City', name: 'Mougins' },
         { '@type': 'AdministrativeArea', name: 'Alpes-Maritimes' },
         { '@type': 'AdministrativeArea', name: "Provence-Alpes-Côte d'Azur" },
         { '@type': 'Country', name: 'France' },
       ],
-      audience: { '@type': 'Audience', name: 'Restaurateurs, gérants de bistrot, traiteurs' },
-      offers: [
-        {
-          '@type': 'Offer',
-          name: 'Pack Visibilité restaurant',
-          price: '690',
-          priceCurrency: 'EUR',
-          priceSpecification: { '@type': 'PriceSpecification', price: '690', priceCurrency: 'EUR', valueAddedTaxIncluded: false },
-          availability: 'https://schema.org/InStock',
-          deliveryLeadTime: { '@type': 'QuantitativeValue', value: '5', unitCode: 'DAY' },
-        },
-        {
-          '@type': 'Offer',
-          name: 'Site web restaurant complet',
-          price: '2900',
-          priceCurrency: 'EUR',
-          priceSpecification: { '@type': 'PriceSpecification', price: '2900', priceCurrency: 'EUR', valueAddedTaxIncluded: false },
-          availability: 'https://schema.org/InStock',
-          deliveryLeadTime: { '@type': 'QuantitativeValue', value: '14', unitCode: 'DAY' },
-        },
-      ],
+      audience: { '@type': 'Audience', name: 'Restaurateurs, patrons de café, traiteurs' },
+      offers: {
+        '@type': 'AggregateOffer',
+        lowPrice: '650',
+        highPrice: '1950',
+        priceCurrency: 'EUR',
+        offerCount: 4,
+        valueAddedTaxIncluded: false,
+      },
     },
     {
       '@type': 'FAQPage',
       mainEntity: [
         {
           '@type': 'Question',
-          name: "Pourquoi un restaurant a-t-il besoin d'un site web propre en 2026 ?",
+          name: "Comment gérer mes devis traiteur ou privatisation quand je suis en service ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Avant de réserver une table, 9 personnes sur 10 vérifient le menu, les horaires, les photos et les avis sur Google. Un restaurant sans site ou avec une page Facebook obsolète perd ces clients au profit de ceux qui ont fait l'effort. Un site simple et rapide à charger sur mobile permet aussi d'intégrer un module de réservation et d'afficher le menu sans dépendre de TheFork ou Uber Eats.",
+            text: "Vous m'envoyez un vocal WhatsApp entre deux services (« mariage 80 couverts samedi 12 juin, formule à 65€ avec apéritif, RDV dégustation jeudi »). Je crée le devis détaillé et l'envoie au client dans l'heure, signature en ligne. Vous restez focus sur le service.",
           },
         },
         {
           '@type': 'Question',
-          name: 'Combien coûte un site web pour un restaurant ?',
+          name: "Et le suivi des fournisseurs et de la trésorerie ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Pour un site complet (présentation, menu, photos, réservation, avis Google intégrés), comptez à partir de 2 900€ HT. Pour démarrer rapidement avec une présence pro, le Pack Visibilité à 690€ HT couvre site 1 page + fiche Google Business optimisée. Tous les prix sont affichés publiquement.',
+            text: "Je classe les factures fournisseurs (food, beverage, équipement) au fur et à mesure. Je tiens votre trésorerie hebdo, avec alertes sur les échéances et reporting mensuel commenté. Plus de mauvaise surprise en fin de mois.",
           },
         },
         {
           '@type': 'Question',
-          name: 'Comment gérer les avis Google pour mon restaurant ?',
+          name: "Combien ça coûte pour un restaurateur indépendant ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Je vous forme à répondre aux avis (positifs et négatifs) de manière professionnelle, à demander des avis aux clients satisfaits via un lien direct, et à signaler les avis abusifs. C'est inclus dans tous les packs incluant la fiche Google Business. La gestion active des avis impacte directement votre visibilité dans le Local Pack Google Maps.",
+            text: "Deux formules. Mission à l'heure (75€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
           },
         },
         {
           '@type': 'Question',
-          name: "Pouvez-vous m'aider à réduire ma dépendance à TheFork / Uber Eats ?",
+          name: "Travaillez-vous avec des restaurateurs ailleurs qu'en PACA ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: 'Oui. La stratégie consiste à capter les recherches Google directement avec votre propre site et fiche Google Business optimisée, puis à proposer la réservation/commande via un canal sans commission. ROI typiquement observé dans le secteur : 3 à 6 mois selon votre zone et la concurrence locale.',
+            text: "Oui. Service 100% à distance — vocaux WhatsApp, visios. La PACA est ma zone prioritaire (Vence, Nice, Antibes, Cannes, Grasse, Mougins, Cagnes-sur-Mer), mais j'accepte les restaurateurs partout en France.",
           },
         },
       ],
@@ -113,114 +97,87 @@ const jsonLd = {
 export default function RestaurateurPage() {
   return (
     <LandingPage
-      badge="Pour restaurateurs indépendants"
-      h1="Site web et outils digitaux pour restaurateurs"
-      intro="Vous êtes excellent en cuisine et en salle, pas devant un écran. OptiPro construit pour les restaurateurs indépendants des outils simples : site web rapide, menu en ligne, gestion des avis Google, automatisation des réservations. Pour reprendre la main sur votre image et réduire la dépendance aux plateformes."
+      badge="Pour restaurateurs et patrons de café"
+      h1="L'assistant administratif des restaurateurs"
+      intro="Vous excellez en cuisine et en salle, pas dans Excel. Vous n'avez pas le temps de faire des devis traiteur sous 24h, de suivre vos fournisseurs, de tenir un dossier comptable propre. Voilà ce que je prends en charge pour vous, à partir de 650€/mois ou 75€/h."
       painSection={{
-        title: 'Pourquoi votre restaurant perd-il des couverts chaque semaine ?',
+        title: "Quels sont les vrais blocages d'un restaurateur indépendant aujourd'hui ?",
         points: [
-          "Votre site est lent, illisible sur mobile, ou inexistant",
-          "Le menu sur Google est obsolète depuis 6 mois",
-          "Les avis Google récents sont sans réponse",
-          "Vous payez 12-15% de commission à chaque réservation TheFork",
-          "Pas le temps de poster sur Instagram entre le service midi et le service du soir",
+          "Une demande de devis traiteur ou privatisation arrive : vous répondez 3 jours plus tard, le client a déjà signé ailleurs.",
+          "Vos factures fournisseurs s'accumulent. Vous payez en retard, perdez les escomptes, voire des conditions commerciales.",
+          "Aucune visibilité sur la trésorerie réelle au-delà de 7 jours. Vous pilotez à l'instinct, pas aux chiffres.",
+          "Votre conjoint(e) fait l'admin le soir après le service. Erreurs de saisie, fatigue, tension permanente.",
+          "Justificatifs en vrac, comptable qui râle en fin d'année, marge réelle inconnue par poste.",
         ],
       }}
       featuredOffer={{
-        name: 'Site professionnel restaurateur',
-        price: 'à partir de 2 900 € HT',
-        delay: '2-3 semaines',
-        description: "Un site rapide sur mobile, mis à jour facilement, qui montre vos plats, votre équipe et capte des réservations directement.",
+        name: 'Pack Croissance — 20h',
+        price: '1 200 € HT/mois',
+        delay: 'Démarrage en moins de 2 semaines',
+        description: "Pour un suivi régulier de votre admin — devis traiteur/privatisation, factures clients, suivi fournisseurs, trésorerie. 20 heures dédiées par mois, sans engagement long.",
         features: [
-          'Site 3-5 pages : accueil, menu, équipe, contact, réservation',
-          'Photos optimisées pour Google et le mobile',
-          'Module de réservation intégré (sans commission)',
-          'Fiche Google Business optimisée + intégration des avis',
-          'Formation : mise à jour du menu, réponse aux avis, demande d\'avis',
+          'Devis traiteur/privatisation structurés, envoyés sans délai',
+          'Facturation, suivi des paiements, conforme PDP 2026-2027',
+          'Factures fournisseurs classées par catégorie (food, beverage, équipement)',
+          'Trésorerie suivie, reporting mensuel commenté',
+          'Préparation du dossier mensuel pour votre comptable',
+          'WhatsApp dédié, réponse sous 4h en jour ouvré',
+          'Visio bilan mensuelle (30 min)',
+          'Préavis 15 jours fin de mois — vous gardez la main',
         ],
       }}
       process={[
         {
           step: '1',
-          title: 'Échange découverte (30 min, gratuit)',
-          description: "On parle du restaurant : positionnement, clientèle, services (midi, soir, traiteur, livraison), problèmes prioritaires. Je vous propose une orientation claire selon votre contexte.",
+          title: 'Appel découverte (30 min, gratuit)',
+          description: "On parle de votre activité : type d'établissement, volume de couverts, événementiel ou pas, outils actuels. Je vous dis si on est faits pour bosser ensemble. Si oui, mission ponctuelle ou pack adapté proposé sous 24h.",
         },
         {
           step: '2',
-          title: 'Audit digital gratuit',
-          description: "Je vérifie votre site actuel, votre fiche Google Business, vos avis et votre stratégie réseaux sociaux. Vous recevez un état des lieux écrit avec actions priorisées en 48h.",
+          title: 'Le démarrage',
+          description: "Audit rapide de votre existant. Accès aux outils que vous utilisez déjà (Pennylane, Sage, Excel…). Premier RDV de cadrage 30 min. Pas de mise en route facturée à part — c'est inclus dans les premières heures.",
         },
         {
           step: '3',
-          title: 'Conception et développement',
-          description: "Maquette validée avant développement. Site optimisé pour le mobile (la majorité des consultations restaurant). Module de réservation connecté à votre boîte mail ou à votre logiciel de caisse.",
-        },
-        {
-          step: '4',
-          title: 'Mise en ligne et formation',
-          description: "Mise en production, optimisation SEO local, configuration de votre Google Business. Formation sur la mise à jour du menu, la réponse aux avis, et la collecte d'avis client. Support 30 jours inclus.",
+          title: 'Le quotidien',
+          description: "Vous m'envoyez vocaux/photos WhatsApp entre deux services. Je crée les devis, envoie les factures, suis les fournisseurs et la trésorerie, classe les frais. Visio bilan mensuelle. Préavis 15 jours sur les packs.",
         },
       ]}
       faq={[
         {
-          question: "Pourquoi un restaurant a-t-il besoin d'un site web propre en 2026 ?",
-          answer: "Avant de réserver, 9 personnes sur 10 vérifient le menu, les horaires, les photos et les avis sur Google. Un restaurant sans site ou avec une page Facebook obsolète perd ces clients. Un site simple permet d'intégrer la réservation et d'afficher le menu sans dépendre de TheFork ou Uber Eats.",
+          question: "Comment gérer mes devis traiteur quand je suis en service ?",
+          answer: "Vous m'envoyez un vocal WhatsApp entre deux services. Je crée le devis détaillé et l'envoie au client dans l'heure, signature en ligne. Vous restez focus sur la cuisine et la salle.",
         },
         {
-          question: 'Combien coûte un site web pour un restaurant ?',
-          answer: "Pour un site complet (présentation, menu, photos, réservation, avis intégrés), comptez à partir de 2 900€ HT. Pour démarrer rapidement, le Pack Visibilité à 690€ HT couvre site 1 page + fiche Google Business. Tous les prix sont affichés.",
+          question: "Et le suivi des fournisseurs et de la trésorerie ?",
+          answer: "Je classe les factures fournisseurs (food, beverage, équipement) au fur et à mesure. Je tiens votre trésorerie hebdo, avec alertes sur les échéances et reporting mensuel commenté.",
         },
         {
-          question: 'Comment gérer les avis Google pour mon restaurant ?',
-          answer: "Je vous forme à répondre aux avis, demander des avis aux clients satisfaits via un lien direct, et signaler les avis abusifs. C'est inclus dans tous les packs avec fiche Google Business. La gestion active des avis impacte directement votre visibilité dans le Local Pack Google Maps.",
+          question: "Combien ça coûte pour un restaurateur indépendant ?",
+          answer: "Deux formules. Mission à l'heure (75€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
         },
         {
-          question: "Pouvez-vous m'aider à réduire ma dépendance à TheFork / Uber Eats ?",
-          answer: "Oui. La stratégie consiste à capter les recherches Google directement avec votre propre site et fiche Google Business optimisée, puis à proposer la réservation via un canal sans commission. ROI typiquement observé : 3 à 6 mois.",
+          question: "Travaillez-vous avec des restaurateurs ailleurs qu'en PACA ?",
+          answer: "Oui. Service 100% à distance — vocaux WhatsApp, visios. PACA prioritaire (Vence, Nice, Antibes, Cannes, Grasse, Mougins, Cagnes-sur-Mer), mais j'accepte les restaurateurs partout en France.",
         },
       ]}
-      localMentions={['Vence', 'Nice', 'Antibes', 'Cannes', 'Grasse', "toute la PACA et la France à distance"]}
+      localMentions={['Vence', 'Nice', 'Antibes', 'Cannes', 'Grasse', 'Mougins', "toute la PACA et la France à distance"]}
       industryContext={{
-        title: "Restauration sur la Côte d'Azur en 2026 — pourquoi votre site est plus rentable que TheFork",
-        intro:
-          "La restauration française a une particularité : elle vit avec une commission TheFork moyenne de 7 % sur chaque couvert réservé via la plateforme. Sur un ticket moyen de 35 €/personne, c'est 2,45 € par client qui s'envole. Un restaurant qui fait 80 couverts/jour via TheFork laisse plus de 71 000 € par an en commissions. Votre propre site web bien optimisé peut récupérer une partie de ce flux à 0 % de commission.",
+        title: "La réalité du restaurateur indépendant en 2026 — pourquoi déléguer l'admin n'est plus un luxe",
+        intro: "Pendant 10 ans, j'ai piloté des opérations dans la logistique et l'événementiel (dont GL Events Live). J'ai vu de l'intérieur ce qui distingue les exploitants qui pilotent leur activité sereinement de ceux qui s'épuisent. La restauration partage ces mêmes leviers : devis rapide, trésorerie pilotée, fournisseurs maîtrisés.",
         keyFacts: [
           {
-            stat: '9 sur 10',
-            label: 'consultent le menu, les photos et les avis Google avant de réserver',
-            source: 'Google Consumer Survey 2023',
+            stat: '8-12h',
+            label: "consacrées chaque semaine à l'administratif chez un restaurateur indépendant",
+            source: 'UMIH',
           },
           {
-            stat: '7 %',
-            label: 'commission TheFork standard sur chaque couvert réservé',
-            source: 'TheFork conditions générales',
-          },
-          {
-            stat: '34 %',
-            label: "des restaurants en France n'ont pas mis à jour leur menu en ligne depuis 6 mois",
-            source: 'Étude UMIH 2024',
-          },
-          {
-            stat: '2,45 €',
-            label: 'perdus par couvert sur un ticket moyen de 35 € via TheFork',
+            stat: '60-90 jours',
+            label: "délai moyen de paiement client B2B sur les événements et privatisations",
+            source: 'INSEE 2024',
           },
         ],
-        miniCases: [
-          {
-            situation:
-              "Un restaurant de spécialités niçoises à Nice Vieux-Nice, 60 couverts/jour dont 70 % via TheFork. Site daté en flash, menu obsolète, photos floues. Visibilité Google Maps faible.",
-            result:
-              "Site complet avec module de réservation propriétaire (sans commission), photos pro du chef, menu structuré en JSON-LD. Après 4 mois, 35 % des réservations passent par le site direct. Économie estimée : 2 100 €/mois en commissions.",
-          },
-          {
-            situation:
-              "Un bistrot familial à Tourrettes-sur-Loup, 30 couverts/service, déjà bien noté sur Google (4,7/5). Mais aucun site web et fiche Google Business à moitié remplie (pas de menu, photos vieilles de 2018).",
-            result:
-              "Pack Visibilité + photos pro + menu PDF cliquable. Pas de site complexe — la fiche Google Business renforcée a suffi à augmenter les appels de réservation de 40 %.",
-          },
-        ],
-        insight:
-          "Sur la Côte d'Azur, la saison touristique change la donne : 70 % des recherches « restaurant + ville » se font sur mobile pendant les vacances scolaires françaises et l'été. Un site rapide, géolocalisé et avec menu visible en 2 secondes capte ce trafic — TheFork ne reste qu'un complément, pas le canal principal.",
+        insight: "La spécificité du restaurateur indépendant : forte saisonnalité (été pour la PACA touristique, fêtes pour les privatisations), pression cash quotidienne, et fournisseurs nombreux (food, beverage, fluides, équipement). Un système admin qui tient la cadence pendant les pics et qui ne pèse rien en creux change tout.",
       }}
       jsonLd={jsonLd}
     />

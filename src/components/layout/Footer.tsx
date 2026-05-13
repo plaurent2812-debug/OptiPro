@@ -64,7 +64,6 @@ export default function Footer() {
                         <h4 style={{ color: 'var(--muted)', marginBottom: '1.25rem', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Ressources</h4>
                         <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                             {[
-                                { href: '/programme-fondateur', label: 'Programme Fondateur' },
                                 { href: '/blog', label: 'Blog' },
                                 { href: '/temoignages', label: 'Témoignages' },
                             ].map(({ href, label }) => (

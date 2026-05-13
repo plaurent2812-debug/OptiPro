@@ -76,23 +76,6 @@ export default function CagnesSurMerPage() {
           description: 'Organisation de votre journée par zone pour limiter les trajets. Vous concentrez Nice le matin, Cagnes l\'après-midi, Antibes le mercredi — pas l\'inverse.',
         },
       ]}
-      useCases={[
-        {
-          profile: 'Plombier-chauffagiste à Cagnes-Centre',
-          situation: '10 ans d\'activité, 2 salariés. Activité mixte (résidentiel + commerces + locations saisonnières au Cros). Sa femme faisait l\'admin le soir. Impayés récurrents sur les saisonniers.',
-          result: 'Pack Croissance 20h à 1 200€/mois. Relances systématiques pour les locataires partis. 3 200€ rattrapés en 2 mois. Sa femme reprend une activité pro ailleurs.',
-        },
-        {
-          profile: 'Électricien à La Villette / Hippodrome',
-          situation: 'Spécialité résidentiel + événementiel hippodrome. Pics saisonniers, devis multi-chantiers complexes. Suivi des avenants oublié, 15-30% des avenants non facturés.',
-          result: 'Pack Croissance 20h. Avenants systématiquement facturés. +9 000€ de CA récupéré sur 6 mois grâce aux avenants qui passaient à la trappe.',
-        },
-        {
-          profile: 'Restauratrice indépendante au Cros-de-Cagnes',
-          situation: 'Petit restaurant 30 couverts, ouvert avril-octobre. Saisonnalité forte, gestion des fournisseurs lourde (poissonnier, primeur, vins, bières).',
-          result: 'Pack Essentiel 10h hors saison, Pack Croissance 20h en saison. Coordination fournisseurs centralisée, factures suivies. Marge connue chaque semaine au lieu de chaque trimestre.',
-        },
-      ]}
       faq={[
         {
           question: 'Vous travaillez avec des artisans dans tout Cagnes ?',

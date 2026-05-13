@@ -25,9 +25,6 @@ export interface CityPageProps {
   // Services adaptés au contexte local (4-6 items)
   services: Array<{ icon: string; title: string; description: string }>;
 
-  // Cas d'usage métiers présents dans la ville (2-3 scénarios)
-  useCases: Array<{ profile: string; situation: string; result: string }>;
-
   // FAQ locale (5 questions spécifiques à la ville)
   faq: Array<{ question: string; answer: string }>;
 
@@ -45,7 +42,6 @@ export default function CityServicePage({
   economicContext,
   whyHere,
   services,
-  useCases,
   faq,
   geo,
 }: CityPageProps) {
@@ -214,33 +210,6 @@ export default function CityServicePage({
               </h3>
               <p style={{ margin: 0, color: 'var(--secondary)', lineHeight: 1.55 }}>
                 {s.description}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* CAS D'USAGE LOCAUX */}
-      <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
-        <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 3rem' }}>
-          Profils que j&apos;accompagne {cityNameInClause}
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '1.5rem' }}>
-          {useCases.map((uc) => (
-            <article key={uc.profile} style={{
-              padding: '1.75rem',
-              background: 'rgba(249, 115, 22, 0.04)',
-              border: '1px solid rgba(249, 115, 22, 0.15)',
-              borderRadius: '1rem',
-            }}>
-              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 0.75rem' }}>
-                {uc.profile}
-              </h3>
-              <p style={{ margin: '0 0 0.85rem', color: 'var(--secondary)', lineHeight: 1.55, fontSize: '0.95rem' }}>
-                <strong>Situation :</strong> {uc.situation}
-              </p>
-              <p style={{ margin: 0, color: 'var(--secondary)', lineHeight: 1.55, fontSize: '0.95rem' }}>
-                <strong>Résultat :</strong> {uc.result}
               </p>
             </article>
           ))}

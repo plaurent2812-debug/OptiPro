@@ -62,7 +62,7 @@ Recommandation prioritaire
 
 Automatiser la génération de devis → gain estimé : 8h/semaine
 
-optipro.fr
+www.opti-pro.fr
 
 Étape 2 · Analyse
 

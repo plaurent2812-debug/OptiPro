@@ -33,7 +33,6 @@ export interface LandingPageProps {
     title: string;
     intro: string;
     keyFacts: Array<{ stat: string; label: string; source?: string }>;
-    miniCases?: Array<{ situation: string; result: string }>;
     insight?: string;
   };
   // Schema additionnel (BreadcrumbList + Service custom)
@@ -210,10 +209,10 @@ export default function LandingPage({
                 ))}
               </ul>
               <Link
-                href="/services"
+                href="/tarifs"
                 style={{ color: 'var(--accent)', fontSize: '0.9rem', fontWeight: 600, textDecoration: 'none' }}
               >
-                Voir toutes les offres →
+                Voir tous les tarifs →
               </Link>
             </div>
           </div>
@@ -282,36 +281,6 @@ export default function LandingPage({
                   </div>
                 ))}
               </div>
-
-              {/* Mini cas concrets */}
-              {industryContext.miniCases && industryContext.miniCases.length > 0 && (
-                <>
-                  <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1.25rem' }}>
-                    Situations rencontrées sur le terrain
-                  </h3>
-                  <div style={{ display: 'grid', gap: '1rem', marginBottom: '2rem' }}>
-                    {industryContext.miniCases.map((c, i) => (
-                      <div
-                        key={i}
-                        style={{
-                          background: 'var(--surface)',
-                          border: '1px solid var(--border)',
-                          borderLeft: '3px solid var(--accent)',
-                          borderRadius: '8px',
-                          padding: '1.1rem 1.25rem',
-                        }}
-                      >
-                        <p style={{ color: 'var(--secondary)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '0.5rem' }}>
-                          <strong style={{ color: 'var(--primary)' }}>Situation :</strong> {c.situation}
-                        </p>
-                        <p style={{ color: 'var(--secondary)', fontSize: '0.95rem', lineHeight: 1.6, margin: 0 }}>
-                          <strong style={{ color: 'var(--accent)' }}>→ Résultat :</strong> {c.result}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </>
-              )}
 
               {/* Insight final */}
               {industryContext.insight && (

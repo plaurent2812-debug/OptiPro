@@ -197,10 +197,10 @@ export default function PourquoiClient() {
           <li><strong style={{ color: 'var(--primary)' }}>Heures comptable réduites.</strong> Un dossier mensuel propre (factures classées, frais OCR, FEC à jour) divise par 2 ou 3 le temps de votre expert-comptable. Sur des honoraires comptables typiques de 2 000-4 000€/an, l&apos;économie est de 500-1 500€/an.</li>
         </ul>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.7, marginBottom: '1rem' }}>
-          ROI mensuel typique sur un Pack Croissance : <strong style={{ color: 'var(--primary)' }}>2 500 à 5 000€ de gain net</strong> après déduction des 1 200€ du pack. Sur un Pack Pilotage (35h, 1 950€), le ROI grimpe à 4 000-8 000€ pour les TPE en croissance.
+          ROI mensuel typique modélisé sur un Pack Croissance : <strong style={{ color: 'var(--primary)' }}>3 000 à 6 000€ de gain net</strong> après déduction des 1 200€ du pack. Sur un Pack Pilotage (35h, 1 950€), le ROI modélisé grimpe à 4 000-8 000€ pour les TPE en croissance.
         </p>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.7, margin: 0, fontStyle: 'italic' }}>
-          Ces chiffres sont des moyennes observées sur les profils types accompagnés. Vos résultats dépendront de votre volume d&apos;activité, de votre taux horaire facturable et de votre taux d&apos;impayé actuel — on en parle en appel découverte.
+          Ces fourchettes sont des estimations issues de la méthodologie OptiPro appliquée à des profils types — à valider en appel découverte sur vos chiffres réels. Vos résultats dépendront de votre volume d&apos;activité, de votre taux horaire facturable et de votre taux d&apos;impayé actuel.
         </p>
       </section>
 

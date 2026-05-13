@@ -358,7 +358,7 @@ export default function RoiCalculator() {
         </div>
 
         <p style={{ margin: '1.25rem 0 0', fontSize: '0.8rem', color: 'var(--muted)', fontStyle: 'italic', textAlign: 'center', lineHeight: 1.5 }}>
-          Estimation basée sur les moyennes observées sur les profils types accompagnés.<br />
+          Estimation issue d&apos;un modèle (70% des heures admin libérées converties en facturable, passage à 1% d&apos;impayés, +15% sur 50% du CA via devis sous 1h). Hypothèses prudentes mais non garanties.<br />
           Tarif horaire de référence : {MISSION_HOURLY_RATE}€/h HT. Le ROI exact dépend de votre situation réelle — on en parle en appel découverte.
         </p>
       </div>

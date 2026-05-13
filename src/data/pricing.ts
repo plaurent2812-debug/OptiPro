@@ -126,7 +126,6 @@ export const PILOTE_FORFAITS: PiloteForfait[] = [
 // avec le prix mensuel de Pilote 30, mais les deux valeurs sont indépendantes et
 // peuvent diverger.
 export const MISE_EN_ROUTE_PRICE = 750;
-export const MISE_EN_ROUTE_FONDATEUR_PRICE = 375;
 
 export const PILOTE_OPTIONS: PiloteOption[] = [
   {
@@ -174,21 +173,6 @@ export const PILOTE_OPTIONS: PiloteOption[] = [
     price: 'Sur devis',
   },
 ];
-
-export function computeFondateurPrice(forfaitPrice: number, period: PilotePeriod): number {
-  // Arrondi au multiple de 5€ le plus proche (Math.round, pas floor) :
-  // 562.5€ → 565€, 862.5€ → 865€. Décision commerciale pour des prix « ronds ».
-  switch (period) {
-    case 'M1':
-      return MISE_EN_ROUTE_FONDATEUR_PRICE;
-    case 'M2-M3':
-      return Math.round((forfaitPrice * 0.5) / 5) * 5;
-    case 'M4-M6':
-      return Math.round((forfaitPrice * 0.75) / 5) * 5;
-    case 'M7+':
-      return forfaitPrice;
-  }
-}
 
 export function formatPrice(price: number): string {
   return price >= 1000

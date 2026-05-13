@@ -76,23 +76,6 @@ export default function NicePage() {
           description: 'Gestion de votre agenda commercial : prises de RDV clients, confirmations, relances. Vous n\'oubliez plus un rendez-vous.',
         },
       ]}
-      useCases={[
-        {
-          profile: 'Artisan plombier à Nice-Nord',
-          situation: '8 ans d\'activité, 2-3 chantiers par jour entre Cimiez et Saint-Roch. Faisait ses devis le dimanche soir, délai moyen 2-3 jours. Un client sur quatre partait chez un concurrent entre-temps.',
-          result: 'Pack Essentiel 10h à 650€/mois. Devis envoyés sous 1h après vocal WhatsApp. Taux de signature passé de 75% à 92%. Gain : ~1 500€/mois de CA additionnel + 5h/semaine récupérées.',
-        },
-        {
-          profile: 'Consultant indépendant à Nice-Centre',
-          situation: 'Activité B2B en transformation digitale. 80 factures/mois saisies à la main, 30% des paiements en retard. Pas le temps de relancer entre deux missions.',
-          result: 'Pack Croissance 20h à 1 200€/mois. Facturation automatisée + relances systématiques. Trésorerie redevenue saine en 2 mois. Sa femme arrête l\'admin et reprend son métier.',
-        },
-        {
-          profile: 'TPE de 4 salariés à Nice-Ouest',
-          situation: 'Dirigeant débordé entre développement commercial et gestion d\'équipe. Suivi des fournisseurs éclaté dans 4 fichiers Excel. Préparation comptable chaotique.',
-          result: 'Pack Pilotage 35h à 1 950€/mois. Process documenté, dashboards en place, comptable ravi. Le dirigeant retrouve 12-15h/semaine pour développer son chiffre.',
-        },
-      ]}
       faq={[
         {
           question: 'Vous travaillez avec des artisans dans toute la métropole de Nice ?',

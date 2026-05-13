@@ -171,29 +171,9 @@ export default function ElectricienPage() {
             source: 'CAPEB',
           },
           {
-            stat: '15-30%',
-            label: "des avenants ne sont pas facturés (oubliés ou jamais envoyés au client)",
-            source: 'Estimation propre, échantillon PACA 2026',
-          },
-          {
             stat: '60-90 jours',
             label: "délai moyen de paiement client en B2B électricité",
             source: 'INSEE 2024',
-          },
-          {
-            stat: '20%',
-            label: "de marge perdue en moyenne quand les fournitures ne sont pas tracées par chantier",
-            source: 'Estimation OptiPro',
-          },
-        ],
-        miniCases: [
-          {
-            situation: "Un électricien d'Antibes, 8 ans d'activité, 1 salarié. Spécialité rénovation lourde. Il oublie systématiquement de faire les avenants, perd 1 500-2 500€ par chantier.",
-            result: "Pack Croissance (20h) à 1 200€/mois. Tous les avenants sont systématiquement faits depuis ses vocaux. Sur 6 mois : +12 000€ de CA additionnel récupéré.",
-          },
-          {
-            situation: "Un électricien-installateur RGE de Cagnes-sur-Mer, 3 salariés. Activité mixte (résidentiel + petit tertiaire). Suivi Consuel chaotique, plaintes clients régulières.",
-            result: "Pack Croissance (20h) avec suivi Consuel structuré. Délai moyen Consuel passé de 6 semaines à 3 semaines (relance systématique). Plaintes clients sur ce sujet : zéro.",
           },
         ],
         insight: "La spécificité d'un électricien : la marge réelle se joue sur le tracking des fournitures par chantier. Sans système qui classe automatiquement les tickets de caisse et les factures fournisseurs par projet, vous ne savez jamais quel chantier vous a vraiment rapporté.",

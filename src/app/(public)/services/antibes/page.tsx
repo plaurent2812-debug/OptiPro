@@ -76,23 +76,6 @@ export default function AntibesPage() {
           description: 'Planification des visites de chantier, RDV clients, points fournisseurs. Confirmations automatiques. Vous n\'oubliez plus un RDV important.',
         },
       ]}
-      useCases={[
-        {
-          profile: 'Maçon-rénovateur au Cap d\'Antibes',
-          situation: '15 ans d\'activité, 4 salariés. Chantiers de rénovation 80-300k€ pour propriétaires de villas. Faisait ses devis en soirée — délai moyen 4-5 jours. Perdait 20% des dossiers à cause du délai.',
-          result: 'Pack Croissance 20h à 1 200€/mois. Devis structurés envoyés sous 24h. Taux de signature +15%. +35 000€ de CA capté sur 6 mois.',
-        },
-        {
-          profile: 'Plombier-chauffagiste à Juan-les-Pins',
-          situation: 'Activité mixte (résidentiel + locations meublées). Sa femme faisait l\'admin le soir. 4-5k€ d\'impayés en cours, factures locataires partis difficiles à relancer.',
-          result: 'Pack Croissance 20h. Relances systématiques, 3 800€ rattrapés en 3 mois. Sa femme reprend une activité pro ailleurs. Couple soulagé.',
-        },
-        {
-          profile: 'Concept store / artisan d\'art à Antibes-Centre',
-          situation: 'Indépendante depuis 5 ans. Boutique + ventes en ligne + créations sur commande. Trop d\'éléments à gérer, perdait du temps sur la TVA et le suivi des commandes spéciales.',
-          result: 'Pack Essentiel 10h à 650€/mois. Facturation centralisée, suivi commandes, préparation comptable. Reprend 6h/semaine pour la création.',
-        },
-      ]}
       faq={[
         {
           question: 'Vous travaillez avec des artisans dans tout Antibes ?',

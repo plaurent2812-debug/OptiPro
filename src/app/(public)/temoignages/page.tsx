@@ -88,10 +88,10 @@ export default function TemoignagesPage() {
               textAlign: 'center',
             }}>
               <p style={{ fontSize: '1.15rem', color: 'var(--primary)', lineHeight: 1.5, margin: '0 0 1.25rem', fontWeight: 600 }}>
-                Les premiers Fondateurs sont en cours de signature.
+                Les premiers clients sont en cours d&apos;onboarding.
               </p>
               <p style={{ color: 'var(--secondary)', lineHeight: 1.65, margin: '0 0 1.25rem' }}>
-                OptiPro a démarré en mai 2026. Les premiers témoignages écrits seront publiés à partir du M3 du premier Fondateur (vers août 2026), avec leurs vrais résultats chiffrés. Les avis vidéo suivront à partir du M6.
+                OptiPro a démarré en mai 2026. Les premiers témoignages écrits seront publiés à partir du M3 (vers août 2026), avec de vrais résultats chiffrés. Les avis vidéo suivront à partir du M6.
               </p>
               <p style={{ color: 'var(--secondary)', lineHeight: 1.65, margin: 0, fontStyle: 'italic' }}>
                 Plutôt qu&apos;inventer des témoignages ou recopier des avis génériques, je préfère cette page transparente. Elle se remplira avec de vrais retours clients vérifiés.
@@ -206,7 +206,7 @@ export default function TemoignagesPage() {
         <p style={{ color: 'var(--secondary)', lineHeight: 1.6, margin: '0 auto 2rem', maxWidth: '560px' }}>
           {hasTestimonials
             ? '30 minutes au téléphone, gratuit, sans engagement. On regarde si OptiPro est fait pour vous.'
-            : 'Le programme Fondateur est ouvert aux 3 premiers Fondateurs avec un tarif réduit en M2-M6. 30 minutes au téléphone pour en parler.'}
+            : '30 minutes au téléphone, gratuit, sans engagement. On regarde si OptiPro est fait pour votre activité.'}
         </p>
         <Link href="/contact" style={{
           display: 'inline-block',

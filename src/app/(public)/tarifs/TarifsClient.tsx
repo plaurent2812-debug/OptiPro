@@ -253,7 +253,7 @@ export default function TarifsClient() {
             ROI mensuel typique : <strong>3 000 à 6 000€</strong> de gain net après déduction du pack (1 200€).
           </p>
           <p style={{ marginTop: '0.5rem', marginBottom: 0, color: 'var(--secondary)', fontSize: '0.85rem', fontStyle: 'italic' }}>
-            Estimations basées sur les profils types des artisans et TPE accompagnés. Le ROI exact dépend de votre volume d&apos;activité et de vos taux horaires.
+            Estimations issues de la méthodologie OptiPro appliquée à des profils types d&apos;artisans et TPE — à valider en appel découverte sur vos chiffres réels. Le ROI exact dépend de votre volume d&apos;activité et de vos taux horaires.
           </p>
         </div>
       </section>

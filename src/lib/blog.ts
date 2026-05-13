@@ -580,71 +580,6 @@ export const articles: Article[] = [
   },
 
   // ────────────────────────────────────────────────────────────────
-  // Article 5 — Manifeste 2026 : repositionnement ops/exploitation
-  // ────────────────────────────────────────────────────────────────
-  {
-    slug: 'pourquoi-optipro-elargit-pme-logistique-transport-btp',
-    titre: "Pourquoi OptiPro élargit aux PME logistique, transport et BTP en 2026",
-    description:
-      "OptiPro reste accessible aux artisans et TPE — et ouvre un second axe : l'exploitation des PME logistique, transport et BTP. Pourquoi maintenant, et ce que ça change.",
-    datePublication: '2026-05-05',
-    tempsLecture: 4,
-    categorie: 'Manifeste',
-    motsCles: [
-      'OptiPro repositionnement',
-      'consultant exploitation logistique',
-      'IA opérationnelle PME',
-      'automatisation transport',
-      'consultant ops PME',
-    ],
-    contenu: `
-<p class="lead">OptiPro reste un atelier centré sur les TPE, les artisans et les indépendants. Mais à partir de 2026, j'ouvre un second axe : l'<strong>exploitation des PME logistique, transport et BTP</strong>. Pas par opportunisme — par cohérence avec ce que j'ai fait pendant 10 ans.</p>
-
-<h2>D'où ça vient</h2>
-
-<p>Avant OptiPro, j'ai été responsable logistique et exploitation pendant une décennie. Toute la Nutrition (400 commandes/jour), DBS Drive (8 500 références gérées), Eddifis (création complète d'une filiale, ERP EBP déployé personnellement, 80 k€/mois de CA), Factory pendant 5 ans (portefeuille ADV de 7 M€, projets entre 20 k€ et 1 M€, 15 à 20 sous-traitants supervisés au quotidien), puis GL Events Live de septembre 2025 à avril 2026 (dépôt événementiel, équipe de 6, sous-traitants événementiel sur délais ultra-courts). En avril 2026 j'ai quitté l'exploitation pour me consacrer à OptiPro à temps plein.</p>
-
-<p>Quand j'ai lancé OptiPro en 2025, j'ai démarré sur ce que je connaissais aussi très bien : les artisans et les TPE. Parce que j'ai passé une partie de ces 10 ans à coordonner des plombiers, électriciens, chauffagistes, peintres. Et parce que c'est la cible la plus accessible quand on lance une activité de conseil.</p>
-
-<p>Mais en discutant avec d'anciens collègues, dirigeants et sous-traitants croisés pendant ces 10 ans — je me suis rendu compte d'un truc évident : <strong>j'ai un capital opérationnel rare dans le monde du conseil IA</strong>. La plupart des consultants IA n'ont jamais déployé un ERP, jamais coordonné 20 sous-traitants, jamais construit un fichier de KPIs hebdo qui ne casse pas. Moi si.</p>
-
-<h2>Ce qui change concrètement</h2>
-
-<p>OptiPro garde sa cible historique : <strong>artisans, TPE, indépendants</strong>. Pack Visibilité à 890€, Site vitrine pro à partir de 2 400€. Une offre serrée et claire, sans 15 produits qui se ressemblent.</p>
-
-<p>Ce qui s'ajoute : une <strong>nouvelle catégorie "PME ops & exploitation"</strong>, pensée pour les dirigeants et responsables d'exploitation de PME logistique, transport et BTP :</p>
-
-<ul>
-  <li><strong>Audit ops</strong> — à partir de 1 500 € HT, 1 semaine. Diagnostic complet : flux, ERP/TMS/WMS, sous-traitants, reporting. Restitution écrite avec plan d'action chiffré.</li>
-  <li><strong>Automatisation reporting hebdo</strong> — à partir de 3 500 € HT, 2-3 semaines. Vos KPIs (taux de service, marge transport, retards, sous-traitance) consolidés automatiquement chaque lundi matin.</li>
-  <li><strong>Refonte process sous-traitants</strong> — sur devis, 4-8 semaines. Cadrage opérationnel et outillage pour piloter 10 à 50 sous-traitants : OS, suivi terrain, facturation.</li>
-</ul>
-
-<p>Pour les sites complexes (catalogue, espace client, intégrations API, web app métier), une troisième catégorie <strong>"Projets sur mesure"</strong> propose un site complet à partir de 6 500 € HT et la web app sur devis selon le cahier des charges.</p>
-
-<h2>Ce qui ne change pas</h2>
-
-<p>Le ton terrain. Les ratés assumés. Pas de hype. J'analyse, je conçois, je construis. Si on bosse ensemble, vous m'avez en direct du diagnostic à la livraison.</p>
-
-<p>Le blog OptiPro continue avec deux types d'articles : ceux pour les artisans/TPE (devis, fiche Google, relances) et ceux pour les responsables d'exploitation PME (reporting hebdo, sous-traitants, KPI ops). Vous filtrez par catégorie sur la page <a href="/blog">/blog</a>.</p>
-
-<h2>Pour qui c'est fait — et pour qui c'est pas</h2>
-
-<p><strong>C'est fait pour vous si</strong> vous dirigez ou pilotez l'exploitation d'une PME (transport, logistique, BTP, distribution, événementiel). Vos process tiennent par habitude. Votre ERP ne se parle pas avec le terrain. Vous passez 3h chaque lundi à monter un reporting que personne ne lit vraiment. Vous avez 10 à 50 sous-traitants pilotés à coups d'emails et d'Excel.</p>
-
-<p><strong>C'est pas fait pour vous si</strong> vous cherchez un consultant IA "transformation digitale" qui vend du LLM custom à 50 k€. OptiPro reste un atelier solo, pas un cabinet. Mes interventions sont chiffrées d'avance, les livrables sont clairs, et le ROI cible est défini noir sur blanc avant signature. Pas de salaire-mission qui s'éternise.</p>
-
-<div class="callout">
-  <p><strong>Vous êtes responsable d'exploitation, directeur logistique ou dirigeant PME ?</strong></p>
-  <p>Le premier appel découverte est toujours gratuit (30 min, sans engagement). On parle de votre exploitation, pas de la mienne.</p>
-  <a href="/contact?cible=pme-ops" class="callout-link">Parler de mon exploitation →</a>
-</div>
-
-<p style="margin-top:2rem">— Pierre</p>
-`,
-  },
-
-  // ────────────────────────────────────────────────────────────────
   // Article 6 — Reporting hebdo : 3h → 4 minutes (méthode)
   // ────────────────────────────────────────────────────────────────
   {
@@ -794,7 +729,7 @@ Livre :
 <div class="callout">
   <p><strong>Vous gérez l'exploitation d'une PME transport, logistique ou BTP ?</strong></p>
   <p>30 minutes au téléphone, gratuit, sans engagement. Vous me décrivez votre stack et vos process, je vous donne 3 leviers concrets sur lesquels vous pourriez gagner du temps — reporting, sous-traitants, ou autres. Si on peut bosser ensemble derrière, on cadre. Sinon, vous repartez avec les pistes.</p>
-  <a href="/contact?cible=pme-ops" class="callout-link">Parler de mon exploitation →</a>
+  <a href="/contact" class="callout-link">Parler de mon exploitation →</a>
 </div>
 
 <p style="margin-top:2rem">Le tableau Excel hebdo n'est pas un sujet glamour. Mais c'est probablement le levier IA qui a le meilleur ratio temps-investi / temps-récupéré dans une PME logistique. Un dirigeant qui récupère 2 à 3 heures de temps qualifié par semaine, c'est un dirigeant qui peut enfin regarder ce qui compte vraiment : le développement commercial, la relation client, la stratégie. Pas la maintenance d'un fichier Excel.</p>

@@ -76,23 +76,6 @@ export default function GrassePage() {
           description: 'Gestion des RDV, coordination sous-traitants, planning chantier. Particulièrement utile en arrière-pays grassois où les trajets sont longs.',
         },
       ]}
-      useCases={[
-        {
-          profile: 'Maçon-rénovateur à Grasse',
-          situation: '12 ans d\'activité, 2 salariés. Chantiers répartis entre Grasse, Mougins, Peymeinade et Pégomas. 30% du temps en trajets, soirées consacrées à l\'admin.',
-          result: 'Pack Croissance 20h à 1 200€/mois. Récupère 8h/semaine de soirée. Taux de signature +10% grâce aux devis rapides. ROI immédiat dès le 2ème mois.',
-        },
-        {
-          profile: 'Sous-traitant industriel parfumerie',
-          situation: 'TPE 3 salariés, fournisseur d\'un grand groupe local. Cadencier mensuel, facturation complexe avec multi-bons de commande. Comptable se plaignait du dossier.',
-          result: 'Pack Pilotage 35h à 1 950€/mois. Process ADV documenté, dashboards par client. Comptable enchanté, dirigeant retrouve 10h/semaine.',
-        },
-        {
-          profile: 'Indépendante services à la personne à Grasse',
-          situation: 'Auto-entrepreneur en croissance (CESU et particuliers). 40 factures/mois, suivi des heures complexe, déclarations URSSAF chronophages.',
-          result: 'Pack Essentiel 10h à 650€/mois. Facturation centralisée, suivi heures, préparation déclarations. Reprend 5-6h/semaine pour son métier.',
-        },
-      ]}
       faq={[
         {
           question: 'Vous travaillez avec des artisans dans tout le Pays de Grasse ?',

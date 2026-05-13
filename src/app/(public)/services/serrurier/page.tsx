@@ -69,7 +69,7 @@ const jsonLd = {
           name: "Et le suivi des factures impayées ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part. Sur les serruriers que je connais, ça récupère en moyenne 2 à 4k€/mois de factures qui passent à la trappe.",
+            text: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part.",
           },
         },
         {
@@ -149,7 +149,7 @@ export default function SerrurierPage() {
         },
         {
           question: "Et le suivi des factures impayées ?",
-          answer: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part. Sur les serruriers que je connais, ça récupère en moyenne 2 à 4k€/mois de factures qui passent à la trappe.",
+          answer: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part.",
         },
         {
           question: "Combien ça coûte pour un serrurier indépendant ?",
@@ -166,34 +166,9 @@ export default function SerrurierPage() {
         intro: "Pendant 10 ans, j'ai piloté des opérations en logistique et exploitation, dont des sous-traitants serruriers et métalliers. J'ai vu de l'intérieur ce qui distingue les serruriers qui gagnent leur vie sereinement de ceux qui s'épuisent. Voici ce que j'ai appris, appliqué à la réalité d'un serrurier indépendant.",
         keyFacts: [
           {
-            stat: '60-80%',
-            label: "des interventions serrurier sont des urgences (porte claquée, vol, perte de clés)",
-            source: 'CNAMS — étude métier serrurerie',
-          },
-          {
             stat: '4 à 8h',
             label: "consacrées chaque semaine à l'administratif (devis, factures, relances)",
             source: 'CAPEB',
-          },
-          {
-            stat: '15-25%',
-            label: "de factures impayées non relancées chez les serruriers indépendants",
-            source: 'Estimation propre, échantillon PACA 2026',
-          },
-          {
-            stat: '2-4k€',
-            label: "récupérables par mois en moyenne avec un système de relances automatiques",
-            source: 'Estimation OptiPro',
-          },
-        ],
-        miniCases: [
-          {
-            situation: "Un serrurier de Cagnes-sur-Mer, 6 ans d'activité, 4-5 interventions par jour dont 2 urgences. Il fait ses devis le dimanche soir sur Word. Délai moyen : 3 jours après l'intervention. 1 client sur 4 part chez un concurrent entre-temps.",
-            result: "Pack Essentiel (10h) à 650€/mois. Devis envoyés sous 1h après vocal WhatsApp. Taux de signature passé de 75% à 92%. Gain estimé : ~1 500 € de CA additionnel par mois + 5h/semaine récupérées.",
-          },
-          {
-            situation: "Un serrurier-métallier d'Antibes avec 2 salariés. Sa femme fait l'admin le soir, ils sont en désaccord permanent sur l'organisation. Factures impayées qui s'accumulent (3-4k€ en cours).",
-            result: "Pack Croissance (20h) à 1 200€/mois. Les relances rattrapent 2 800€ d'impayés en 2 mois. Sa femme reprend une activité pro ailleurs. Le couple respire.",
           },
         ],
         insight: "La spécificité d'un serrurier sur la Côte d'Azur : pic d'activité l'été (cambriolages secondaires, locataires saisonniers, professionnels touristiques), creux en hiver. Avoir un système qui tourne tout seul pendant les pics et qui ne pèse rien pendant les creux change tout.",

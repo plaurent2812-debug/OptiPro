@@ -69,7 +69,7 @@ const jsonLd = {
           name: "Et le suivi des factures impayées entre deux dépannages ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part. Sur les plombiers que je connais, ça récupère en moyenne 2 à 5k€/mois de factures qui passent à la trappe entre deux fuites.",
+            text: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part.",
           },
         },
         {
@@ -149,7 +149,7 @@ export default function PlombierPage() {
         },
         {
           question: "Et le suivi des factures impayées entre deux dépannages ?",
-          answer: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part. Sur les plombiers que je connais, ça récupère en moyenne 2 à 5k€/mois de factures qui passent à la trappe.",
+          answer: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part.",
         },
         {
           question: "Combien ça coûte pour un plombier indépendant ?",
@@ -171,11 +171,6 @@ export default function PlombierPage() {
             source: 'CAPEB',
           },
           {
-            stat: '2 à 5k€/mois',
-            label: "récupérables avec un système de relances automatiques sur les factures impayées",
-            source: 'Estimation OptiPro',
-          },
-          {
             stat: '60-90 jours',
             label: "délai moyen de paiement client en B2B plomberie/chauffage",
             source: 'INSEE 2024',
@@ -184,16 +179,6 @@ export default function PlombierPage() {
             stat: '42€/h',
             label: "taux horaire moyen facturable d'un plombier indépendant en France",
             source: 'INSEE 2024',
-          },
-        ],
-        miniCases: [
-          {
-            situation: "Un plombier de Cagnes-sur-Mer, 8 ans d'activité, 2-3 chantiers par jour. Il fait ses devis le dimanche soir sur Excel. Délai moyen : 2-3 jours après l'intervention. 1 client sur 4 part chez un concurrent entre-temps.",
-            result: "Pack Essentiel (10h) à 650€/mois. Devis envoyés sous 1h après vocal WhatsApp. Taux de signature passé de 75% à 90%. Gain estimé : ~1 200€/mois de CA additionnel + 5h/semaine récupérées.",
-          },
-          {
-            situation: "Un plombier-chauffagiste d'Antibes avec 2 salariés. Sa femme fait l'admin le soir, factures impayées qui s'accumulent (4-5k€ en cours). Spécialité PAC et installations chauffage.",
-            result: "Pack Croissance (20h) à 1 200€/mois. Les relances rattrapent 3 200€ d'impayés en 2 mois. Sa femme arrête l'admin et reprend du temps libre. Le couple respire.",
           },
         ],
         insight: "La spécificité du plombier sur la Côte d'Azur : pic d'activité avant l'été (rénovations, climatisations) et pendant l'hiver (chauffage), creux entre. Avoir un système qui tourne tout seul pendant les pics et qui ne pèse rien pendant les creux change tout.",

@@ -65,13 +65,13 @@ export default function MentionsLegalesPage() {
           {/* 1. Éditeur */}
           <h2 style={sectionHeadingStyle}>1. Éditeur du site</h2>
           <p style={paragraphStyle}>
-            Le site <strong>optipro.fr</strong> est édité par :
+            Le site <strong>opti-pro.fr</strong> est édité par :
           </p>
           <p style={paragraphStyle}>
             <strong>Pierre Laurent</strong><br />
             Entrepreneur individuel<br />
             Dénomination commerciale : <strong>OptiPro</strong><br />
-            Activité : Conseil &amp; développement d&apos;outils numériques sur mesure<br />
+            Activité : Assistance administrative et opérationnelle externalisée pour artisans, indépendants et TPE<br />
             Siège : Bâtiment Le Matisse, 541 Avenue Colonel Meyère, 06140 Vence<br />
             SIREN : 934 301 987<br />
             SIRET : 934 301 987 00020<br />
@@ -79,7 +79,7 @@ export default function MentionsLegalesPage() {
             TVA : Non assujetti (franchise en base de TVA, article 293 B du CGI)<br />
             Directeur de la publication : Pierre Laurent<br />
             Email : <a href="mailto:p.laurent@opti-pro.fr" style={linkStyle}>p.laurent@opti-pro.fr</a><br />
-            Site web : <a href="https://optipro.fr" style={linkStyle}>optipro.fr</a>
+            Site web : <a href="https://www.opti-pro.fr" style={linkStyle}>www.opti-pro.fr</a>
           </p>
 
           {/* 2. Hébergement */}

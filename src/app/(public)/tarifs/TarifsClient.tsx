@@ -1,6 +1,7 @@
 // src/app/(public)/tarifs/TarifsClient.tsx
 import Link from 'next/link';
 import AccordionItem from '@/components/ui/AccordionItem';
+import RoiCalculator from '@/components/ui/RoiCalculator';
 import {
   MISSION_PACKS,
   MISSION_HOURLY_RATE,
@@ -255,6 +256,17 @@ export default function TarifsClient() {
             Estimations basées sur les profils types des artisans et TPE accompagnés. Le ROI exact dépend de votre volume d&apos;activité et de vos taux horaires.
           </p>
         </div>
+      </section>
+
+      {/* SECTION 3 TER — CALCULATEUR ROI INTERACTIF */}
+      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
+        <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 1rem' }}>
+          Calculez votre ROI personnalisé
+        </h2>
+        <p style={{ textAlign: 'center', color: 'var(--secondary)', maxWidth: '640px', margin: '0 auto 2.5rem', lineHeight: 1.6 }}>
+          Entrez vos chiffres réels, obtenez une estimation chiffrée du gain mensuel sur votre activité.
+        </p>
+        <RoiCalculator />
       </section>
 
       {/* SECTION 4 — INCLUS DANS TOUS LES PACKS */}

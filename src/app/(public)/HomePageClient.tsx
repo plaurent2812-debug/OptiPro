@@ -198,7 +198,7 @@ export default function HomePageClient() {
           }}
         >
           <p style={{ margin: 0 }}>
-            <strong style={{ color: 'var(--primary)' }}>OptiPro</strong> est un service d&apos;assistance administrative et opérationnelle externalisée pour artisans, indépendants et TPE en région PACA. Pierre Laurent, fondateur et opérateur unique, prend en charge devis, facturation, relances impayés, coordination fournisseurs et préparation comptable mensuelle — vous restez sur votre métier, il pilote le reste. Deux formules : mission ponctuelle à <strong style={{ color: 'var(--primary)' }}>75 €/h HT</strong>, ou pack mensuel reconductible : Pack Essentiel 10h à 650 €, Pack Croissance 20h à 1 200 €, Pack Pilotage 35h à 1 950 €. Période d&apos;essai 30 jours sans préavis ni frais. Pierre apporte 10 ans d&apos;expérience en exploitation logistique (Factory, BTP second œuvre, GL Events), basé à Vence (06), intervient sur toute la PACA et la France à distance.
+            <strong style={{ color: 'var(--primary)' }}>OptiPro</strong> est le bras droit administratif et opérationnel des artisans, indépendants et TPE en PACA. Mission ponctuelle à <strong style={{ color: 'var(--primary)' }}>75 €/h</strong> ou pack mensuel dès <strong style={{ color: 'var(--primary)' }}>650 €/mois</strong> — période d&apos;essai 30 jours sans frais.
           </p>
         </div>
       </section>

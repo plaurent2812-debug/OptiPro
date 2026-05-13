@@ -42,7 +42,6 @@ const jsonLd = {
       email: 'p.laurent@opti-pro.fr',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: 'Vence (sur rendez-vous)',
         addressLocality: 'Vence',
         postalCode: '06140',
         addressRegion: "Provence-Alpes-Côte d'Azur",
@@ -94,7 +93,7 @@ const jsonLd = {
         'https://www.linkedin.com/in/pierre-laurent-809410123',
       ],
       availableLanguage: 'fr',
-      priceRange: '650€-1950€/mois HT',
+      priceRange: '€€-€€€',
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',

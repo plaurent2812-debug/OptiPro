@@ -46,7 +46,7 @@ const jsonLd = {
       audience: { '@type': 'Audience', name: 'Électriciens, électriciens du bâtiment, installateurs RGE' },
       offers: {
         '@type': 'AggregateOffer',
-        lowPrice: '600',
+        lowPrice: '650',
         highPrice: '1950',
         priceCurrency: 'EUR',
         offerCount: 4,

@@ -1,7 +1,9 @@
 // src/app/(public)/tarifs/page.tsx
 import type { Metadata } from 'next';
 import FAQJsonLd from '@/components/seo/FAQJsonLd';
+import OfferCatalogJsonLd from '@/components/seo/OfferCatalogJsonLd';
 import { FAQ_TARIFS } from '@/data/faq';
+import { safeJsonLd } from '@/lib/json-ld';
 import TarifsClient from './TarifsClient';
 
 export const metadata: Metadata = {
@@ -14,10 +16,21 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.opti-pro.fr' },
+    { '@type': 'ListItem', position: 2, name: 'Tarifs', item: 'https://www.opti-pro.fr/tarifs' },
+  ],
+};
+
 export default function TarifsPage() {
   return (
     <>
+      <script type="application/ld+json">{safeJsonLd(breadcrumbJsonLd)}</script>
       <FAQJsonLd faq={FAQ_TARIFS} />
+      <OfferCatalogJsonLd />
       <TarifsClient />
     </>
   );

@@ -31,9 +31,19 @@ const serviceJsonLd = {
   },
 };
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.opti-pro.fr' },
+    { '@type': 'ListItem', position: 2, name: 'Le service', item: 'https://www.opti-pro.fr/le-service' },
+  ],
+};
+
 export default function LeServicePage() {
   return (
     <>
+      <script type="application/ld+json">{safeJsonLd(breadcrumbJsonLd)}</script>
       <script type="application/ld+json">{safeJsonLd(serviceJsonLd)}</script>
       <LeServiceClient />
     </>

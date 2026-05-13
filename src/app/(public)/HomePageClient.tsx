@@ -150,7 +150,9 @@ export default function HomePageClient() {
           <span className={styles.line}>
             <span className={styles.word} style={{ animationDelay: '0.45s' }}>indépendants</span>{' '}
             <span className={styles.word} style={{ animationDelay: '0.53s' }}>et</span>{' '}
-            <span className={styles.word} style={{ animationDelay: '0.61s' }}>TPE.</span>
+            <span className={styles.word} style={{ animationDelay: '0.61s' }}>TPE</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.69s' }}>en</span>{' '}
+            <span className={`${styles.word} ${styles.brandWord}`} style={{ animationDelay: '0.77s' }}>PACA.</span>
           </span>
         </h1>
 

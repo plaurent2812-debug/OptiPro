@@ -46,7 +46,7 @@ const jsonLd = {
       audience: { '@type': 'Audience', name: 'Serruriers, métalliers, dépanneurs urgents 24/7' },
       offers: {
         '@type': 'AggregateOffer',
-        lowPrice: '600',
+        lowPrice: '650',
         highPrice: '1950',
         priceCurrency: 'EUR',
         offerCount: 4,

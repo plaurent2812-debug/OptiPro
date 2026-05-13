@@ -161,7 +161,7 @@ export default function EditDevisPage(props: { params: Promise<{ id: string }> }
                     
                     <div className={styles.formGroup}>
                       <label className={styles.label}>Description</label>
-                      <input type="text" name={`lignes[${index}][description]`} required value={ligne.description} onChange={e => updateLigne(ligne.id, 'description', e.target.value)} className={styles.input} placeholder="Ex: Audit UX/UI" />
+                      <input type="text" name={`lignes[${index}][description]`} required value={ligne.description} onChange={e => updateLigne(ligne.id, 'description', e.target.value)} className={styles.input} placeholder="Ex : Mise en place facturation" />
                     </div>
                     
                     <div className={styles.formGroup}>

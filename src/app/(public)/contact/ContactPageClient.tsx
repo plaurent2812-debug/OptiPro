@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, type FormEvent } from 'react';
+import { Suspense, useEffect, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Button from '@/components/ui/Button';
 
@@ -383,7 +383,9 @@ export default function ContactPageClient() {
                     </p>
                 </div>
 
-                <ContactForm />
+                <Suspense fallback={null}>
+                    <ContactForm />
+                </Suspense>
 
                 <div style={{ marginTop: '3rem', textAlign: 'center', color: 'var(--muted)' }}>
                     <p style={{ fontSize: '0.875rem' }}>

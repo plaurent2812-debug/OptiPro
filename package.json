@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@radix-ui/react-alert-dialog": "^1.1.15",
     "@react-pdf/renderer": "^4.3.2",
     "@supabase/ssr": "^0.10.0",
     "@supabase/supabase-js": "^2.100.1",
@@ -21,7 +22,8 @@
     "next": "^16.2.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "resend": "^6.9.4"
+    "resend": "^6.9.4",
+    "sonner": "^2.0.7"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.9.1",

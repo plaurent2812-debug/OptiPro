@@ -1,4 +1,5 @@
 import AdminSidebar from '@/components/admin/AdminSidebar'
+import AdminToaster from '@/components/admin/ui/Toaster'
 import styles from './admin.module.css'
 import { headers } from 'next/headers'
 
@@ -12,7 +13,12 @@ export default async function AdminLayout({
 
   // Ne pas afficher le layout admin (sidebar + fond gris) sur la page de login
   if (pathname === '/admin/login') {
-    return <>{children}</>
+    return (
+      <>
+        {children}
+        <AdminToaster />
+      </>
+    )
   }
 
   return (
@@ -23,6 +29,7 @@ export default async function AdminLayout({
           {children}
         </div>
       </main>
+      <AdminToaster />
     </div>
   )
 }

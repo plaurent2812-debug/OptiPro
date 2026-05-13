@@ -52,7 +52,7 @@ export default async function ClientDetailPage(props: { params: Promise<{ id: st
           <Link href={`/admin/factures/new?client_id=${client.id}`} className={styles.secondaryBtn}>
             + Nouvelle facture
           </Link>
-          <DeleteClientButton clientId={client.id} />
+          <DeleteClientButton clientId={client.id} clientName={[client.prenom, client.nom].filter(Boolean).join(' ') || client.entreprise || undefined} />
         </div>
       </div>
 

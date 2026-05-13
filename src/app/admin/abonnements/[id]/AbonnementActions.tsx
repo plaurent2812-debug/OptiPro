@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useTransition } from 'react'
+import { useTransition } from 'react'
 import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 import {
   suspendreAbonnementAction,
   reactiverAbonnementAction,
@@ -9,6 +10,7 @@ import {
   deleteAbonnementAction,
 } from '../actions'
 import { genererFactureAbonnementAction } from '../../factures/actions'
+import ConfirmDialog from '@/components/admin/ui/ConfirmDialog'
 import styles from '../../clients/clients.module.css'
 
 interface Props {
@@ -19,102 +21,138 @@ interface Props {
 export default function AbonnementActions({ abonnementId, statut }: Props) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
-  const [message, setMessage] = useState<{ type: 'error' | 'success'; text: string } | null>(null)
 
-  const run = async (label: string, fn: () => Promise<{ error?: string; success?: boolean; message?: string; factureId?: string } | void>) => {
-    setMessage(null)
+  const handleFacturer = async () => {
+    const r = await genererFactureAbonnementAction(abonnementId)
+    if (r?.error) {
+      toast.error(r.error)
+    } else if (r?.factureId) {
+      toast.success('Facture générée — redirection…')
+      router.push(`/admin/factures/${r.factureId}`)
+    }
+  }
+
+  const handleSuspendre = async () => {
+    const r = await suspendreAbonnementAction(abonnementId)
+    if (r?.error) toast.error(r.error)
+    else toast.success('Abonnement suspendu')
+  }
+
+  const handleTerminer = async () => {
+    const r = await terminerAbonnementAction(abonnementId)
+    if (r?.error) toast.error(r.error)
+    else toast.success('Abonnement terminé')
+  }
+
+  const handleSupprimer = async () => {
+    const r = await deleteAbonnementAction(abonnementId)
+    if (r?.error) toast.error(r.error)
+    else toast.success('Abonnement supprimé')
+  }
+
+  const handleReactiver = () => {
     startTransition(async () => {
-      const r = await fn()
-      if (r && 'error' in r && r.error) {
-        setMessage({ type: 'error', text: r.error })
-      } else {
-        setMessage({ type: 'success', text: (r && 'message' in r && r.message) || `${label} OK` })
-      }
+      const r = await reactiverAbonnementAction(abonnementId)
+      if (r?.error) toast.error(r.error)
+      else toast.success('Abonnement réactivé')
     })
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem' }}>
-      <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
-        {statut === 'actif' && (
-          <>
-            <button
-              type="button"
-              className={styles.primaryBtn}
-              style={{ background: '#059669' }}
-              disabled={isPending}
-              onClick={() => {
-                if (!confirm('Générer une facture brouillon pour cet abonnement ?')) return
-                run('Facture générée', async () => {
-                  const r = await genererFactureAbonnementAction(abonnementId)
-                  if (r?.factureId) router.push(`/admin/factures/${r.factureId}`)
-                  return r
-                })
-              }}
-            >
-              {isPending ? '⏳…' : '💸 Facturer maintenant'}
-            </button>
+    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+      {statut === 'actif' && (
+        <>
+          <ConfirmDialog
+            trigger={
+              <button
+                type="button"
+                className={styles.primaryBtn}
+                style={{ background: '#059669' }}
+                disabled={isPending}
+              >
+                💸 Facturer maintenant
+              </button>
+            }
+            title="Générer une facture pour cet abonnement ?"
+            description={<p>Une <strong>facture brouillon</strong> sera créée pour la période en cours. Vous pourrez la modifier avant validation.</p>}
+            confirmLabel="Générer la facture"
+            variant="primary"
+            onConfirm={handleFacturer}
+          />
+
+          <ConfirmDialog
+            trigger={
+              <button
+                type="button"
+                className={styles.secondaryBtn}
+                style={{ borderColor: '#F59E0B', color: '#F59E0B' }}
+                disabled={isPending}
+              >
+                ⏸ Suspendre
+              </button>
+            }
+            title="Suspendre cet abonnement ?"
+            description={<p>Aucune facture ne sera générée tant que l&apos;abonnement est suspendu. Vous pourrez le réactiver à tout moment.</p>}
+            confirmLabel="Suspendre"
+            variant="primary"
+            onConfirm={handleSuspendre}
+          />
+
+          <ConfirmDialog
+            trigger={
+              <button
+                type="button"
+                className={styles.secondaryBtn}
+                style={{ borderColor: '#DC2626', color: '#DC2626' }}
+                disabled={isPending}
+              >
+                ✕ Terminer
+              </button>
+            }
+            title="Terminer cet abonnement ?"
+            description={
+              <>
+                <p>L&apos;abonnement sortira de la liste des actifs.</p>
+                <p>Vous pourrez le <strong>supprimer définitivement</strong> ensuite si besoin.</p>
+              </>
+            }
+            confirmLabel="Terminer l'abonnement"
+            variant="danger"
+            onConfirm={handleTerminer}
+          />
+        </>
+      )}
+
+      {statut === 'suspendu' && (
+        <button
+          type="button"
+          className={styles.primaryBtn}
+          style={{ background: '#059669' }}
+          disabled={isPending}
+          onClick={handleReactiver}
+        >
+          {isPending ? '⏳…' : '▶ Réactiver'}
+        </button>
+      )}
+
+      {statut === 'termine' && (
+        <ConfirmDialog
+          trigger={
             <button
               type="button"
               className={styles.secondaryBtn}
-              style={{ borderColor: '#F59E0B', color: '#F59E0B' }}
+              style={{ color: '#DC2626' }}
               disabled={isPending}
-              onClick={() => {
-                if (!confirm('Suspendre cet abonnement ? Aucune facture ne sera générée tant qu\'il est suspendu.')) return
-                run('Abonnement suspendu', () => suspendreAbonnementAction(abonnementId))
-              }}
             >
-              ⏸ Suspendre
+              🗑 Supprimer
             </button>
-            <button
-              type="button"
-              className={styles.secondaryBtn}
-              style={{ borderColor: '#DC2626', color: '#DC2626' }}
-              disabled={isPending}
-              onClick={() => {
-                if (!confirm('Terminer définitivement cet abonnement ? Cette action est réversible mais l\'abonnement sortira des actifs.')) return
-                run('Abonnement terminé', () => terminerAbonnementAction(abonnementId))
-              }}
-            >
-              ✕ Terminer
-            </button>
-          </>
-        )}
-        {statut === 'suspendu' && (
-          <button
-            type="button"
-            className={styles.primaryBtn}
-            style={{ background: '#059669' }}
-            disabled={isPending}
-            onClick={() => run('Abonnement réactivé', () => reactiverAbonnementAction(abonnementId))}
-          >
-            ▶ Réactiver
-          </button>
-        )}
-        {statut === 'termine' && (
-          <button
-            type="button"
-            className={styles.secondaryBtn}
-            style={{ color: '#DC2626' }}
-            disabled={isPending}
-            onClick={() => {
-              if (!confirm('Supprimer définitivement cet abonnement et toutes ses traces ? Action irréversible.')) return
-              run('Supprimé', () => deleteAbonnementAction(abonnementId))
-            }}
-          >
-            🗑 Supprimer
-          </button>
-        )}
-      </div>
-      {message && (
-        <span style={{
-          fontSize: '0.85rem',
-          color: message.type === 'error' ? '#DC2626' : '#059669',
-          maxWidth: '350px',
-          textAlign: 'right',
-        }}>
-          {message.text}
-        </span>
+          }
+          title="Supprimer définitivement cet abonnement ?"
+          description={<p>Cette action est <strong>irréversible</strong>. Toutes les traces de l&apos;abonnement seront effacées (les factures déjà émises restent conservées).</p>}
+          confirmLabel="Supprimer définitivement"
+          variant="danger"
+          onConfirm={handleSupprimer}
+        />
       )}
     </div>
   )

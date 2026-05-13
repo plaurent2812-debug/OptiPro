@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import styles from '../../clients/clients.module.css'
 import { FACTURE_STATUT_LABELS, formatDate, formatMontant } from '@/lib/utils'
-import { pushFactureToPennylaneAction, markFactureAsPaidAction, validateFactureAction } from '../actions'
+import { FactureHeaderActions, PushPennylaneButton } from './FactureActions'
 
 export const dynamic = 'force-dynamic'
 
@@ -51,26 +51,11 @@ export default async function FactureDetailPage(props: { params: Promise<{ id: s
         </div>
         
         <div style={{ display: 'flex', gap: '1rem' }}>
-          {facture.statut === 'brouillon' && (
-            <form action={async () => {
-              'use server';
-              await validateFactureAction(facture.id);
-            }}>
-              <button type="submit" className={styles.primaryBtn} style={{ backgroundColor: '#2563EB' }}>
-                Valider &amp; Envoyer
-              </button>
-            </form>
-          )}
-          {(facture.statut === 'envoyee' || facture.statut === 'en_retard') && (
-            <form action={async () => {
-              'use server';
-              await markFactureAsPaidAction(facture.id);
-            }}>
-              <button type="submit" className={styles.primaryBtn} style={{ backgroundColor: '#059669' }}>
-                ✓ Marquer comme payée
-              </button>
-            </form>
-          )}
+          <FactureHeaderActions
+            factureId={facture.id}
+            statut={facture.statut}
+            className={styles.primaryBtn}
+          />
         </div>
       </div>
 
@@ -117,19 +102,12 @@ export default async function FactureDetailPage(props: { params: Promise<{ id: s
             Cette facture est gérée par Pennylane pour garantir la conformité anti-fraude et la norme Factur-X 2026.
           </p>
           <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
-            {facture.statut === 'brouillon' ? (
-               <form action={async () => {
-                 'use server';
-                 await pushFactureToPennylaneAction(facture.id);
-               }}>
-                 <button className={styles.primaryBtn} style={{ background: '#2563EB' }}>
-                   Synchroniser avec Pennylane (Draft)
-                 </button>
-               </form>
+            {facture.statut === 'brouillon' && !facture.pennylane_invoice_id ? (
+              <PushPennylaneButton factureId={facture.id} className={styles.primaryBtn} />
             ) : (
-               <a href="#" className={styles.primaryBtn} style={{ background: '#111827' }} target="_blank">
-                 Ouvrir dans Pennylane
-               </a>
+              <a href="#" className={styles.primaryBtn} style={{ background: '#111827' }} target="_blank">
+                Ouvrir dans Pennylane
+              </a>
             )}
           </div>
         </div>

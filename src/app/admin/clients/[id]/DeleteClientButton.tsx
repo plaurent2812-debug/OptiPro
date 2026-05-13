@@ -1,35 +1,42 @@
 'use client'
 
-import { useState, useTransition } from 'react'
+import { toast } from 'sonner'
 import { deleteClientAction } from '../actions'
+import ConfirmDialog from '@/components/admin/ui/ConfirmDialog'
 import styles from '../clients.module.css'
 
-export default function DeleteClientButton({ clientId }: { clientId: string }) {
-  const [isPending, startTransition] = useTransition()
-  const [error, setError] = useState<string | null>(null)
-
-  const handleDelete = () => {
-    if (!confirm('Supprimer définitivement ce client ? Action irréversible.')) return
-    setError(null)
-    startTransition(async () => {
-      const r = await deleteClientAction(clientId)
-      if (r?.error) setError(r.error)
-    })
+export default function DeleteClientButton({ clientId, clientName }: { clientId: string; clientName?: string }) {
+  const handleDelete = async () => {
+    const r = await deleteClientAction(clientId)
+    if (r?.error) {
+      toast.error(r.error)
+    } else {
+      toast.success('Client supprimé')
+    }
   }
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.4rem' }}>
-      <button
-        type="button"
-        onClick={handleDelete}
-        disabled={isPending}
-        className={styles.secondaryBtn}
-        style={{ color: '#DC2626', borderColor: '#FCA5A5' }}
-        title="Supprimer ce client (impossible si des devis/factures sont liés)"
-      >
-        {isPending ? '⏳…' : '🗑 Supprimer'}
-      </button>
-      {error && <span style={{ fontSize: '0.8rem', color: '#DC2626', maxWidth: '300px', textAlign: 'right' }}>{error}</span>}
-    </div>
+    <ConfirmDialog
+      trigger={
+        <button
+          type="button"
+          className={styles.secondaryBtn}
+          style={{ color: '#DC2626', borderColor: '#FCA5A5' }}
+          title="Supprimer ce client (impossible si des devis/factures sont liés)"
+        >
+          🗑 Supprimer
+        </button>
+      }
+      title={clientName ? `Supprimer le client "${clientName}" ?` : 'Supprimer ce client ?'}
+      description={
+        <>
+          <p>Cette action est <strong>irréversible</strong>.</p>
+          <p>Si le client a des devis ou factures liés, la suppression sera refusée — vous devrez les supprimer ou les archiver d&apos;abord.</p>
+        </>
+      }
+      confirmLabel="Supprimer définitivement"
+      variant="danger"
+      onConfirm={handleDelete}
+    />
   )
 }

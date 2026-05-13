@@ -247,3 +247,13 @@
     animation: none !important;
   }
 }
+
+/* ----- Performance : désactiver animation hero sur mobile ----- */
+/* Évite le CLS de 40px sur le H1 (LCP candidate) sur petits écrans */
+@media (max-width: 767px) {
+  .word {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

@@ -15,6 +15,14 @@ export const metadata: Metadata = {
     description:
       "Mission ponctuelle ou accompagnement régulier — 75€/h ou en pack mensuel. À partir de 650€/mois.",
     locale: 'fr_FR',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'OptiPro — Le bras droit administratif des artisans, indépendants et TPE en PACA',
+      },
+    ],
   },
 };
 

@@ -4,7 +4,9 @@ import Link from 'next/link'
 import styles from '../../clients/clients.module.css'
 import { FACTURE_STATUT_LABELS, formatDate, formatMontant } from '@/lib/utils'
 import { FactureHeaderActions, PushPennylaneButton } from './FactureActions'
-import { Link2 } from 'lucide-react'
+import { Link2, ExternalLink } from 'lucide-react'
+import { pennylaneFactureUrl } from '@/lib/pennylane'
+import PennylaneSourceBadge from '@/components/admin/ui/PennylaneSourceBadge'
 
 export const dynamic = 'force-dynamic'
 
@@ -60,6 +62,12 @@ export default async function FactureDetailPage(props: { params: Promise<{ id: s
         </div>
       </div>
 
+      <PennylaneSourceBadge
+        pennylaneId={facture.pennylane_invoice_id}
+        pennylaneUrl={pennylaneFactureUrl(facture.pennylane_invoice_id)}
+        entityType="facture"
+      />
+
       <div className={styles.formGrid}>
         
         <div className={styles.card} style={{ gap: '1.5rem', display: 'flex', flexDirection: 'column', padding: '2rem' }}>
@@ -106,8 +114,20 @@ export default async function FactureDetailPage(props: { params: Promise<{ id: s
             {facture.statut === 'brouillon' && !facture.pennylane_invoice_id ? (
               <PushPennylaneButton factureId={facture.id} className={styles.primaryBtn} />
             ) : (
-              <a href="#" className={styles.primaryBtn} style={{ background: '#111827' }} target="_blank">
-                Ouvrir dans Pennylane
+              <a
+                href={pennylaneFactureUrl(facture.pennylane_invoice_id)}
+                className={styles.primaryBtn}
+                style={{
+                  background: '#111827',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                }}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ExternalLink size={16} strokeWidth={2} />
+                <span>Ouvrir dans Pennylane</span>
               </a>
             )}
           </div>

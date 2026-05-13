@@ -250,6 +250,36 @@ export function mapPennylaneInvoiceStatus(pennylaneStatus: string): string | nul
   return PENNYLANE_INVOICE_STATUS_MAP[pennylaneStatus] || null;
 }
 
+/**
+ * Construit l'URL UI Pennylane vers la fiche d'une entité (devis ou facture).
+ *
+ * - Si `NEXT_PUBLIC_PENNYLANE_COMPANY_SLUG` est défini (env var côté Vercel),
+ *   on construit l'URL canonique `https://app.pennylane.com/companies/<slug>/<path>/<id>`.
+ * - Sinon, on tombe sur l'URL `https://app.pennylane.com` (Pennylane affichera
+ *   le sélecteur d'entreprise — moins direct mais sans plantage).
+ *
+ * NEXT_PUBLIC_ car les URLs sont construites côté Server Component (rendu HTML)
+ * et il est sans risque de l'exposer (l'auth Pennylane reste server-only).
+ */
+function buildPennylaneUiUrl(path: string, id: string | null | undefined): string {
+  if (!id) return 'https://app.pennylane.com'
+  const slug = process.env.NEXT_PUBLIC_PENNYLANE_COMPANY_SLUG
+  if (slug) {
+    return `https://app.pennylane.com/companies/${slug}/${path}/${id}`
+  }
+  return 'https://app.pennylane.com'
+}
+
+/** URL UI de la fiche devis Pennylane (vide → racine app). */
+export function pennylaneDevisUrl(pennylaneQuoteId: string | null | undefined): string {
+  return buildPennylaneUiUrl('quotes', pennylaneQuoteId)
+}
+
+/** URL UI de la fiche facture Pennylane (vide → racine app). */
+export function pennylaneFactureUrl(pennylaneInvoiceId: string | null | undefined): string {
+  return buildPennylaneUiUrl('customer_invoices', pennylaneInvoiceId)
+}
+
 export async function getPennylaneCustomer(customerId: string) {
   const token = process.env.PENNYLANE_API_TOKEN;
   if (!token) throw new Error("Clé API Pennylane manquante.");

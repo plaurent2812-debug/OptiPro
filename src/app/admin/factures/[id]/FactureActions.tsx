@@ -35,8 +35,13 @@ export function FactureHeaderActions({ factureId, statut, className }: Props) {
   const handleMarkPaid = () => {
     startTransition(async () => {
       const result = await markFactureAsPaidAction(factureId)
-      if (result?.error) toast.error(result.error)
-      else toast.success('Facture marquée comme payée')
+      if (result?.error) {
+        toast.error(result.error)
+      } else if (result?.warning) {
+        toast.warning(result.warning, { duration: 8000 })
+      } else {
+        toast.success('Facture marquée comme payée')
+      }
     })
   }
 

@@ -4,6 +4,7 @@ import styles from '../clients/clients.module.css'
 import { ABONNEMENT_STATUT_LABELS, PERIODICITE_LABELS, formatMontant, formatDate } from '@/lib/utils'
 import ListFilters from '@/components/admin/ui/ListFilters'
 import Pagination from '@/components/admin/ui/Pagination'
+import { AlertTriangle } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -133,12 +134,15 @@ export default async function AbonnementsPage({ searchParams }: { searchParams: 
                         {sub.statut === 'actif' ? (
                           <span
                             style={{
+                              display: 'inline-flex',
+                              alignItems: 'center',
+                              gap: '0.35rem',
                               color: isLate ? '#DC2626' : '#111827',
                               fontWeight: isLate ? 600 : 400,
                             }}
                           >
-                            {formatDate(sub.prochaine_facturation)}
-                            {isLate && ' ⚠️'}
+                            <span>{formatDate(sub.prochaine_facturation)}</span>
+                            {isLate && <AlertTriangle size={14} strokeWidth={2.2} />}
                           </span>
                         ) : (
                           <span style={{ color: '#9CA3AF' }}>—</span>

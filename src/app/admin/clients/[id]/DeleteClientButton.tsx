@@ -1,6 +1,7 @@
 'use client'
 
 import { toast } from 'sonner'
+import { Trash2 } from 'lucide-react'
 import { deleteClientAction } from '../actions'
 import ConfirmDialog from '@/components/admin/ui/ConfirmDialog'
 import styles from '../clients.module.css'
@@ -21,10 +22,17 @@ export default function DeleteClientButton({ clientId, clientName }: { clientId:
         <button
           type="button"
           className={styles.secondaryBtn}
-          style={{ color: '#DC2626', borderColor: '#FCA5A5' }}
+          style={{
+            color: '#DC2626',
+            borderColor: '#FCA5A5',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.45rem',
+          }}
           title="Supprimer ce client (impossible si des devis/factures sont liés)"
         >
-          🗑 Supprimer
+          <Trash2 size={16} strokeWidth={2} />
+          <span>Supprimer</span>
         </button>
       }
       title={clientName ? `Supprimer le client "${clientName}" ?` : 'Supprimer ce client ?'}

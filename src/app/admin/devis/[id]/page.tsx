@@ -4,6 +4,7 @@ import Link from 'next/link'
 import styles from '../../clients/clients.module.css'
 import { DEVIS_STATUT_LABELS, formatDate, formatMontant } from '@/lib/utils'
 import DevisActions from './DevisActions'
+import { Check, AlertTriangle, CheckCircle2, Settings } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -127,8 +128,20 @@ export default async function DevisDetailPage(props: { params: Promise<{ id: str
                       <span style={{ fontWeight: 600 }}>{f.numero}</span>
                       <span style={{ color: '#6B7280', fontSize: '0.9rem' }}>
                         {formatDate(f.date_emission)} · {formatMontant(f.montant_ht)} ·
-                        <span style={{ marginLeft: '0.4rem', color: f.statut === 'payee' ? '#16A34A' : f.statut === 'en_retard' ? '#DC2626' : '#4B5563' }}>
-                          {f.statut === 'payee' ? '✓ Payée' : f.statut === 'en_retard' ? '⚠ En retard' : f.statut}
+                        <span style={{ marginLeft: '0.4rem', display: 'inline-flex', alignItems: 'center', gap: '0.25rem', color: f.statut === 'payee' ? '#16A34A' : f.statut === 'en_retard' ? '#DC2626' : '#4B5563' }}>
+                          {f.statut === 'payee' ? (
+                            <>
+                              <Check size={14} strokeWidth={2.2} />
+                              <span>Payée</span>
+                            </>
+                          ) : f.statut === 'en_retard' ? (
+                            <>
+                              <AlertTriangle size={14} strokeWidth={2.2} />
+                              <span>En retard</span>
+                            </>
+                          ) : (
+                            f.statut
+                          )}
                         </span>
                       </span>
                     </Link>
@@ -143,21 +156,21 @@ export default async function DevisDetailPage(props: { params: Promise<{ id: str
         <div className={styles.card} style={{ gap: '1.5rem', display: 'flex', flexDirection: 'column', padding: '2rem', height: '100%', justifyContent: 'center', alignItems: 'center', textAlign: 'center', background: '#F9FAFB' }}>
           {devis.pennylane_quote_id ? (
             <>
-              <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>✅</div>
+              <CheckCircle2 size={48} strokeWidth={1.6} color="#16A34A" style={{ marginBottom: '0.5rem' }} />
               <h3 style={{ fontSize: '1.25rem', color: '#111827', margin: 0 }}>Synchronisé avec Pennylane</h3>
               <p style={{ color: '#6B7280', fontSize: '0.9rem', maxWidth: '400px', margin: 0 }}>
-                Ce devis est lié à Pennylane (ID: {devis.pennylane_quote_id}). Utilisez le bouton &quot;↻ Sync Pennylane&quot; pour mettre à jour le statut.
+                Ce devis est lié à Pennylane (ID&nbsp;: {devis.pennylane_quote_id}). Utilisez le bouton « Sync Pennylane » pour mettre à jour le statut.
               </p>
               <div style={{ marginTop: '0.5rem', padding: '0.5rem 1rem', background: '#D1FAE5', borderRadius: '8px', color: '#065F46', fontSize: '0.85rem', fontWeight: 600 }}>
-                Statut OptiPro : {DEVIS_STATUT_LABELS[devis.statut] || devis.statut}
+                Statut OptiPro&nbsp;: {DEVIS_STATUT_LABELS[devis.statut] || devis.statut}
               </div>
             </>
           ) : (
             <>
-              <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>⚙️</div>
+              <Settings size={48} strokeWidth={1.6} color="#9CA3AF" style={{ marginBottom: '0.5rem' }} />
               <h3 style={{ fontSize: '1.25rem', color: '#111827', margin: 0 }}>Non synchronisé</h3>
               <p style={{ color: '#6B7280', fontSize: '0.9rem', maxWidth: '400px', margin: 0 }}>
-                Ce devis n&apos;a pas encore été envoyé vers Pennylane. Cliquez sur &quot;🚀 Envoyer vers Pennylane&quot; pour le créer dans votre logiciel de facturation.
+                Ce devis n&apos;a pas encore été envoyé vers Pennylane. Cliquez sur « Envoyer vers Pennylane » pour le créer dans votre logiciel de facturation.
               </p>
             </>
           )}

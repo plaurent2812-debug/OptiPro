@@ -4,6 +4,7 @@ import Link from 'next/link'
 import styles from '../../clients/clients.module.css'
 import { FACTURE_STATUT_LABELS, formatDate, formatMontant } from '@/lib/utils'
 import { FactureHeaderActions, PushPennylaneButton } from './FactureActions'
+import { Link2 } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -96,7 +97,7 @@ export default async function FactureDetailPage(props: { params: Promise<{ id: s
 
         {/* Aperçu iFrame du PDF (Remplacé par API Pennylane) */}
         <div className={styles.card} style={{ padding: '2rem', background: '#F9FAFB', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🔗</div>
+          <Link2 size={48} strokeWidth={1.6} color="#f97316" style={{ marginBottom: '1rem' }} />
           <h3 style={{ fontSize: '1.25rem', color: '#111827', margin: 0 }}>Facture Électronique (Factur-X)</h3>
           <p style={{ color: '#6B7280', fontSize: '0.95rem', maxWidth: '400px' }}>
             Cette facture est gérée par Pennylane pour garantir la conformité anti-fraude et la norme Factur-X 2026.

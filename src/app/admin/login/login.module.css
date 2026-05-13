@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #F0F2FF;
+  background: #fff7ed;
   padding: 1.5rem;
   position: relative;
   overflow: hidden;
@@ -14,7 +14,7 @@
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.14) 0%, transparent 70%);
   top: -200px;
   right: -100px;
   pointer-events: none;
@@ -25,7 +25,7 @@
   width: 400px;
   height: 400px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.10) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.10) 0%, transparent 70%);
   bottom: -100px;
   left: -100px;
   pointer-events: none;
@@ -37,7 +37,7 @@
   padding: 2.5rem;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 20px 50px -12px rgba(79,70,229,0.15);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 20px 50px -12px rgba(249,115,22,0.18);
   position: relative;
   z-index: 1;
 }
@@ -48,7 +48,7 @@
   gap: 0.75rem;
   margin-bottom: 2rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #EEF0FF;
+  border-bottom: 1px solid #FED7AA;
 }
 
 .logoIcon {
@@ -58,7 +58,7 @@
 .logoTitle {
   font-size: 1.25rem;
   font-weight: 700;
-  color: #1E1B4B;
+  color: #111827;
   margin: 0;
   line-height: 1.2;
 }
@@ -120,9 +120,9 @@
 }
 
 .input:focus {
-  border-color: #4F46E5;
+  border-color: #f97316;
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
 }
 
 .input::placeholder {
@@ -144,7 +144,7 @@
 
 .submitBtn {
   padding: 0.85rem;
-  background: linear-gradient(135deg, #4F46E5, #6366F1);
+  background: linear-gradient(135deg, #f97316, #ea580c);
   color: #fff;
   border: none;
   border-radius: 10px;
@@ -156,14 +156,14 @@
   align-items: center;
   justify-content: center;
   min-height: 48px;
-  box-shadow: 0 4px 14px rgba(79,70,229,0.35);
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.35);
   font-family: inherit;
 }
 
 .submitBtn:hover:not(:disabled) {
   opacity: 0.92;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(79,70,229,0.4);
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
 }
 
 .submitBtn:active:not(:disabled) {
@@ -199,7 +199,7 @@
 }
 
 .backLink {
-  color: #4F46E5;
+  color: #c2410c;
   text-decoration: none;
   font-weight: 500;
   font-size: 0.85rem;

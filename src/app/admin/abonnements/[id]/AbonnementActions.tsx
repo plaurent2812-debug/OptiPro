@@ -3,6 +3,7 @@
 import { useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
+import { Receipt, Pause, X as XIcon, Play, Trash2 } from 'lucide-react'
 import {
   suspendreAbonnementAction,
   reactiverAbonnementAction,
@@ -58,6 +59,8 @@ export default function AbonnementActions({ abonnementId, statut }: Props) {
     })
   }
 
+  const btnStyle = { display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }
+
   return (
     <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
       {statut === 'actif' && (
@@ -67,10 +70,11 @@ export default function AbonnementActions({ abonnementId, statut }: Props) {
               <button
                 type="button"
                 className={styles.primaryBtn}
-                style={{ background: '#059669' }}
+                style={{ ...btnStyle, background: '#059669' }}
                 disabled={isPending}
               >
-                💸 Facturer maintenant
+                <Receipt size={16} strokeWidth={2} />
+                <span>Facturer maintenant</span>
               </button>
             }
             title="Générer une facture pour cet abonnement ?"
@@ -85,10 +89,11 @@ export default function AbonnementActions({ abonnementId, statut }: Props) {
               <button
                 type="button"
                 className={styles.secondaryBtn}
-                style={{ borderColor: '#F59E0B', color: '#F59E0B' }}
+                style={{ ...btnStyle, borderColor: '#F59E0B', color: '#B45309' }}
                 disabled={isPending}
               >
-                ⏸ Suspendre
+                <Pause size={16} strokeWidth={2} />
+                <span>Suspendre</span>
               </button>
             }
             title="Suspendre cet abonnement ?"
@@ -103,10 +108,11 @@ export default function AbonnementActions({ abonnementId, statut }: Props) {
               <button
                 type="button"
                 className={styles.secondaryBtn}
-                style={{ borderColor: '#DC2626', color: '#DC2626' }}
+                style={{ ...btnStyle, borderColor: '#DC2626', color: '#DC2626' }}
                 disabled={isPending}
               >
-                ✕ Terminer
+                <XIcon size={16} strokeWidth={2.2} />
+                <span>Terminer</span>
               </button>
             }
             title="Terminer cet abonnement ?"
@@ -127,11 +133,12 @@ export default function AbonnementActions({ abonnementId, statut }: Props) {
         <button
           type="button"
           className={styles.primaryBtn}
-          style={{ background: '#059669' }}
+          style={{ ...btnStyle, background: '#059669' }}
           disabled={isPending}
           onClick={handleReactiver}
         >
-          {isPending ? '⏳…' : '▶ Réactiver'}
+          <Play size={16} strokeWidth={2} />
+          <span>{isPending ? 'En cours…' : 'Réactiver'}</span>
         </button>
       )}
 
@@ -141,10 +148,11 @@ export default function AbonnementActions({ abonnementId, statut }: Props) {
             <button
               type="button"
               className={styles.secondaryBtn}
-              style={{ color: '#DC2626' }}
+              style={{ ...btnStyle, color: '#DC2626', borderColor: '#FCA5A5' }}
               disabled={isPending}
             >
-              🗑 Supprimer
+              <Trash2 size={16} strokeWidth={2} />
+              <span>Supprimer</span>
             </button>
           }
           title="Supprimer définitivement cet abonnement ?"

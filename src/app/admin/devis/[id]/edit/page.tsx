@@ -8,6 +8,7 @@ import { createClient } from '@/lib/supabase/client'
 import { formatMontant } from '@/lib/utils'
 import { useFormStatus } from 'react-dom'
 import { useRouter } from 'next/navigation'
+import { Trash2 } from 'lucide-react'
 
 type ClientOption = { id: string; prenom: string | null; nom: string; entreprise: string | null }
 
@@ -185,13 +186,25 @@ export default function EditDevisPage(props: { params: Promise<{ id: string }> }
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '40px' }}>
-                      <button 
-                        type="button" 
-                        onClick={() => removeLigne(ligne.id)} 
+                      <button
+                        type="button"
+                        onClick={() => removeLigne(ligne.id)}
                         disabled={lignes.length === 1}
-                        style={{ color: lignes.length === 1 ? '#D1D5DB' : '#DC2626', background: 'none', border: 'none', cursor: lignes.length === 1 ? 'not-allowed' : 'pointer', fontSize: '1.2rem'}}
+                        title={lignes.length === 1 ? 'Au moins une ligne requise' : 'Supprimer la ligne'}
+                        aria-label="Supprimer la ligne"
+                        style={{
+                          color: lignes.length === 1 ? '#D1D5DB' : '#DC2626',
+                          background: 'none',
+                          border: 'none',
+                          cursor: lignes.length === 1 ? 'not-allowed' : 'pointer',
+                          padding: '0.4rem',
+                          borderRadius: '6px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
                       >
-                        🗑
+                        <Trash2 size={18} strokeWidth={2} />
                       </button>
                     </div>
                   </div>

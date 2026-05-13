@@ -2,6 +2,7 @@
 
 import { useTransition } from 'react'
 import { toast } from 'sonner'
+import { RefreshCw } from 'lucide-react'
 import { syncAllFromPennylaneAction } from './sync-actions'
 import styles from './clients/clients.module.css'
 
@@ -24,9 +25,19 @@ export default function PennylaneSyncButton() {
       className={styles.secondaryBtn}
       onClick={handleSync}
       disabled={isPending}
-      style={{ whiteSpace: 'nowrap' }}
+      style={{
+        whiteSpace: 'nowrap',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.45rem',
+      }}
     >
-      {isPending ? '⏳ Synchronisation…' : '↻ Synchroniser Pennylane'}
+      <RefreshCw
+        size={16}
+        strokeWidth={2}
+        style={isPending ? { animation: 'spin 1s linear infinite' } : undefined}
+      />
+      <span>{isPending ? 'Synchronisation…' : 'Synchroniser Pennylane'}</span>
     </button>
   )
 }

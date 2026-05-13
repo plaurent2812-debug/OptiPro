@@ -35,9 +35,12 @@ export default function AdminLoginPage() {
         {/* Logo */}
         <div className={styles.logoArea}>
           <div className={styles.logoIcon}>
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-              <rect width="32" height="32" rx="10" fill="#4F46E5"/>
-              <path d="M8 22L14 10L20 22L26 14" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+              <rect width="32" height="32" rx="10" fill="#f97316"/>
+              <path
+                d="M16 9.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Zm0 3.2a3.3 3.3 0 1 1 0 6.6 3.3 3.3 0 0 1 0-6.6Z"
+                fill="white"
+              />
             </svg>
           </div>
           <div>

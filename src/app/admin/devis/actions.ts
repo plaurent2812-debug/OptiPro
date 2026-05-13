@@ -430,14 +430,14 @@ export async function syncDevisFromPennylaneAction(devisId: string) {
       } catch (clientErr: any) {
         console.error('Erreur sync client:', clientErr.message)
         // On ne bloque pas la sync du devis si le client échoue
-        updates.push(`⚠️ Client non synchronisé: ${clientErr.message}`)
+        updates.push(`Attention — client non synchronisé : ${clientErr.message}`)
       }
     } else {
-      updates.push('⚠️ Pas de customer_id trouvé dans le devis Pennylane')
+      updates.push('Attention — pas de customer_id trouvé dans le devis Pennylane')
     }
 
     if (updates.length === 0) {
-      return { success: true, message: 'Déjà à jour ✓' }
+      return { success: true, message: 'Déjà à jour' }
     }
 
     revalidatePath(`/admin/devis/${devisId}`)

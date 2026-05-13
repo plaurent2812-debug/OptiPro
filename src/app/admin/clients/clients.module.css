@@ -29,7 +29,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #4F46E5;
+  background-color: #f97316;
   color: white;
   padding: 0.6rem 1.2rem;
   border-radius: 8px;
@@ -37,13 +37,22 @@
   font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.2s;
-  box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 2px 5px rgba(249, 115, 22, 0.2);
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
 }
 
-.primaryBtn:hover {
-  background-color: #4338CA;
+.primaryBtn:hover:not(:disabled) {
+  background-color: #ea580c;
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 4px 10px rgba(249, 115, 22, 0.3);
+}
+
+.primaryBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .icon {
@@ -115,7 +124,7 @@
 }
 
 .contactInfo a {
-  color: #4F46E5;
+  color: #c2410c;
   text-decoration: none;
 }
 
@@ -326,8 +335,8 @@
 
 .input:focus, .textarea:focus, .select:focus {
   outline: none;
-  border-color: #4F46E5;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.12);
 }
 
 .textarea {
@@ -363,7 +372,7 @@
 }
 
 .submitBtn {
-  background: #4F46E5;
+  background: #f97316;
   color: white;
   border: none;
   padding: 0.6rem 1.5rem;
@@ -375,10 +384,11 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-family: inherit;
 }
 
-.submitBtn:hover {
-  background: #4338CA;
+.submitBtn:hover:not(:disabled) {
+  background: #ea580c;
 }
 
 .submitBtn:disabled {

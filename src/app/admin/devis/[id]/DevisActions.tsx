@@ -3,6 +3,7 @@
 import { useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
+import { Receipt, Check, Send, RefreshCw, Archive, Loader2 } from 'lucide-react'
 import {
   archiveDevisAction,
   syncDevisFromPennylaneAction,
@@ -69,6 +70,8 @@ export default function DevisActions({ devisId, statut, hasPennylaneId }: DevisA
   const canConvert = statut === 'accepte'
   const canArchive = statut !== 'archive'
 
+  const btnStyle = { display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }
+
   return (
     <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', justifyContent: 'flex-end' }}>
       {canConvert && (
@@ -76,11 +79,12 @@ export default function DevisActions({ devisId, statut, hasPennylaneId }: DevisA
           trigger={
             <button
               className={styles.primaryBtn}
-              style={{ background: '#059669' }}
+              style={{ ...btnStyle, background: '#059669' }}
               disabled={isPending}
               title="Créer une facture à partir de ce devis"
             >
-              💸 Convertir en facture
+              <Receipt size={16} strokeWidth={2} />
+              <span>Convertir en facture</span>
             </button>
           }
           title="Convertir le devis en facture ?"
@@ -100,11 +104,12 @@ export default function DevisActions({ devisId, statut, hasPennylaneId }: DevisA
           trigger={
             <button
               className={styles.secondaryBtn}
-              style={{ borderColor: '#059669', color: '#059669' }}
+              style={{ ...btnStyle, borderColor: '#059669', color: '#059669' }}
               disabled={isPending}
               title="Marquer comme accepté (vente fermée hors Pennylane)"
             >
-              ✓ Marquer accepté
+              <Check size={16} strokeWidth={2.2} />
+              <span>Marquer accepté</span>
             </button>
           }
           title="Marquer ce devis comme accepté ?"
@@ -125,31 +130,43 @@ export default function DevisActions({ devisId, statut, hasPennylaneId }: DevisA
           onClick={handlePush}
           disabled={isPending}
           title="Envoyer ce devis vers Pennylane"
+          style={btnStyle}
         >
-          {isPending ? '⏳ Envoi…' : '🚀 Envoyer vers Pennylane'}
+          {isPending ? (
+            <Loader2 size={16} strokeWidth={2} style={{ animation: 'spin 1s linear infinite' }} />
+          ) : (
+            <Send size={16} strokeWidth={2} />
+          )}
+          <span>{isPending ? 'Envoi…' : 'Envoyer vers Pennylane'}</span>
         </button>
       )}
 
       {canSync && (
         <button
           className={styles.secondaryBtn}
-          style={{ borderColor: '#4F46E5', color: '#4F46E5' }}
+          style={{ ...btnStyle, borderColor: '#f97316', color: '#c2410c' }}
           onClick={handleSync}
           disabled={isPending}
           title="Synchroniser le statut depuis Pennylane"
         >
-          {isPending ? '⏳ Sync…' : '↻ Sync Pennylane'}
+          <RefreshCw
+            size={16}
+            strokeWidth={2}
+            style={isPending ? { animation: 'spin 1s linear infinite' } : undefined}
+          />
+          <span>{isPending ? 'Sync…' : 'Sync Pennylane'}</span>
         </button>
       )}
 
       {canArchive && (
         <button
           className={styles.secondaryBtn}
-          style={{ color: '#6B7280' }}
+          style={{ ...btnStyle, color: '#6B7280' }}
           onClick={handleArchive}
           disabled={isPending}
         >
-          {isPending ? '⏳…' : '📦 Archiver'}
+          <Archive size={16} strokeWidth={2} />
+          <span>{isPending ? 'En cours…' : 'Archiver'}</span>
         </button>
       )}
     </div>

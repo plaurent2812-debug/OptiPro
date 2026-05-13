@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, useState, type FormEvent } from 'react';
+import { useEffect, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Button from '@/components/ui/Button';
 
@@ -99,14 +99,24 @@ const typeBesoinOptions = [
 
 function ContactForm() {
     const searchParams = useSearchParams();
-    const rawCible = searchParams.get('cible') as Cible | null;
-    const cible: Cible = rawCible && cibleConfigs[rawCible] ? rawCible : 'default';
+
+    const [cible, setCible] = useState<Cible>('default');
+    const [metier, setMetier] = useState<string>('');
+
+    useEffect(() => {
+        const rawCible = searchParams.get('cible') as Cible | null;
+        if (rawCible && cibleConfigs[rawCible]) {
+            setCible(rawCible);
+        }
+
+        const rawMetier = searchParams.get('metier');
+        const matchedMetier = metierOptions.find((o) => o.value === rawMetier)?.value;
+        if (matchedMetier) {
+            setMetier(matchedMetier);
+        }
+    }, [searchParams]);
+
     const config = cibleConfigs[cible];
-
-    const rawMetier = searchParams.get('metier');
-    const metierFromUrl = metierOptions.find((o) => o.value === rawMetier)?.value ?? '';
-
-    const [metier, setMetier] = useState<string>(metierFromUrl);
 
     const [isLoading, setIsLoading] = useState(false);
     const [status, setStatus] = useState<string>('idle');
@@ -134,7 +144,9 @@ function ContactForm() {
 
             setStatus('success');
             (e.target as HTMLFormElement).reset();
-            setMetier(metierFromUrl);
+            const rawMetier = searchParams.get('metier');
+            const matchedMetier = metierOptions.find((o) => o.value === rawMetier)?.value ?? '';
+            setMetier(matchedMetier);
         } catch (error: unknown) {
             console.error(error);
             const message = error instanceof Error ? error.message : 'error';
@@ -371,33 +383,7 @@ export default function ContactPageClient() {
                     </p>
                 </div>
 
-                <Suspense
-                    fallback={
-                        <div style={{
-                            maxWidth: '620px',
-                            margin: '0 auto',
-                            background: 'var(--surface)',
-                            padding: '2.25rem',
-                            borderRadius: '1.25rem',
-                            border: '1px solid var(--border)',
-                        }}>
-                            {/* Skeleton */}
-                            <div style={{ height: '1rem', background: 'var(--border)', borderRadius: '0.25rem', marginBottom: '1.5rem', width: '70%' }} />
-                            {[1, 2, 3, 4].map((i) => (
-                                <div key={i} style={{ marginBottom: '1.25rem' }}>
-                                    <div style={{ height: '0.75rem', background: 'var(--border)', borderRadius: '0.25rem', marginBottom: '0.5rem', width: '30%' }} />
-                                    <div style={{ height: '2.5rem', background: 'var(--background)', border: '1px solid var(--border)', borderRadius: '0.5rem' }} />
-                                </div>
-                            ))}
-                            <div style={{ height: '3rem', background: 'var(--accent)', opacity: 0.3, borderRadius: '0.5rem', marginTop: '1rem' }} />
-                            <p style={{ textAlign: 'center', color: 'var(--muted)', fontSize: '0.85rem', marginTop: '1rem' }}>
-                                Chargement du formulaire...
-                            </p>
-                        </div>
-                    }
-                >
-                    <ContactForm />
-                </Suspense>
+                <ContactForm />
 
                 <div style={{ marginTop: '3rem', textAlign: 'center', color: 'var(--muted)' }}>
                     <p style={{ fontSize: '0.875rem' }}>

@@ -1,129 +1,142 @@
 # OptiPro — llms.txt
 
-## About
+## En une phrase
 
-OptiPro is a French solo consultancy run by Pierre Laurent, based in Vence (06140), Provence-Alpes-Côte d'Azur.
-Pierre helps artisans, freelancers, small businesses (TPE), and operations-heavy SMEs (logistics, transport, BTP) stop losing time to outdated tools and broken processes.
-He audits operations, deploys custom ops tools (web apps, ERPs, automated reporting), and applies AI to operational workflows.
+OptiPro est un service d'assistance administrative et opérationnelle externalisée pour artisans, indépendants et TPE en région PACA. Pierre Laurent prend en charge devis, facturation, relances, trésorerie, coordination fournisseurs et préparation comptable.
 
-Pierre has 10 years of hands-on experience in logistics and operations management — first as e-commerce operations manager at Toute la Nutrition (400 orders/day), then as agency manager at DBS Drive (8,500 SKUs, daily contact with plumbers and HVAC contractors), then created an entire subsidiary from scratch at Eddifis (warehouse + EBP ERP deployment + KPIs + 80 k€/month revenue), then as Logistics & Operations Manager at Factory for 5 years (7 M€/year ADV portfolio, projects from 20 k€ to 1 M€, daily supervision of 15-20 subcontractor artisans), and most recently as Operations Manager at GL Events Live (event logistics warehouse, 6-person team). In April 2026, Pierre left operations to focus full-time on OptiPro.
+## Positionnement
 
-He understands the day-to-day reality of both small business owners (artisans, TPE) and operations-heavy SMEs (logistics, transport, BTP): job-site constraints, ERP-to-field disconnects, subcontractor coordination, KPI fragmentation, and administrative overhead.
+OptiPro est le bras droit administratif et opérationnel des artisans, indépendants et petites TPE. Vous restez sur votre métier, Pierre pilote tout le reste. Mission ponctuelle à l'heure ou accompagnement régulier en pack mensuel, à partir de 650 € par mois.
 
-He launched OptiPro in 2025. One person. No sales rep. No subcontracting. Pierre analyzes, designs, and builds everything himself.
+Cible principale : artisans du bâtiment (plombiers, électriciens, serruriers, peintres, menuisiers), indépendants (consultants, agences, créatifs), petites TPE et PME de services en région Provence-Alpes-Côte d'Azur (PACA). Service 100 % à distance possible partout en France.
 
-OptiPro is registered as an Entrepreneur Individuel (EI).
-SIREN: 934 301 987 — APE code: 70.22Z (business and management consultancy)
-VAT: not applicable (franchise en base de TVA, article 293 B du CGI)
-Website: https://www.opti-pro.fr
+## Tarifs
 
+Tous les tarifs sont hors taxes (HT). OptiPro n'est pas soumis à la TVA (franchise en base, article 293 B du CGI).
 
-## Services and Pricing
+- **Mission à l'heure** : 75 € HT/heure, facturation au temps réellement passé (arrondi au quart d'heure supérieur). Aucun engagement.
+- **Pack Essentiel** : 10 heures par mois — 650 € HT/mois (équivalent 65 €/h, remise -13 %). Pour artisans ou petites TPE qui veulent tester la délégation : relances, factures, organisation de base.
+- **Pack Croissance** : 20 heures par mois — 1 200 € HT/mois (équivalent 60 €/h, remise -20 %). Pour TPE ou artisans déjà débordés qui veulent un vrai bras droit récurrent : facturation, fournisseurs, planning, optimisations.
+- **Pack Pilotage** : 35 heures par mois — 1 950 € HT/mois (équivalent 56 €/h, remise -26 %). Pour TPE en croissance qui veulent un responsable opérations externalisé : process, dashboards, automatisations, pilotage régulier.
+- **Au-delà de 35 heures par mois** : devis sur mesure.
 
-All prices are excluding VAT (HT). OptiPro is not subject to VAT (franchise en base de TVA).
+### Conditions
 
-Each engagement starts with a free 30-minute discovery call. No commitment.
+- Période d'essai de 30 jours : chacune des parties peut résilier sans préavis ni frais pendant les 30 premiers jours. Seules les heures réellement effectuées sont facturées au tarif horaire (75 €/h HT), dans la limite du prix du pack souscrit.
+- Au-delà des 30 jours : préavis de 15 jours fin de mois.
+- Reconductible tacitement chaque mois.
+- Vos données restent votre propriété, exportables à tout moment.
+- Conformité RGPD et facturation électronique 2026-2027.
 
-### For artisans, freelancers and TPE
+## Ce qui est pris en charge
 
-- **Visibility Pack** — 890 € — Google Business setup, 1-page website, local SEO, 1h training — delivered in 3–5 days
-- **Professional website (3-5 pages)** — from 2,400 € — Custom design, local SEO, smart contact form, 2h training, 30-day support — 1 week. Optional: Telegram notification on each contact form submission (+500 €).
+Tous les packs incluent :
 
-### For operations-heavy SMEs (logistics, transport, BTP)
+- Devis et factures envoyés en temps réel
+- Relances impayés et suivi de trésorerie
+- Planning et coordination des intervenants (sous-traitants, fournisseurs, prestataires)
+- Commandes, achats et suivi fournisseurs
+- Préparation comptable mensuelle pour votre expert-comptable
+- WhatsApp dédié (réponse sous 4 h en jour ouvré)
+- Visio bilan mensuelle de 30 minutes
+- Utilisation de vos outils existants (Pennylane, Sage, Excel, etc.) — aucun outil à apprendre
+- Reporting mensuel détaillé des heures consommées par tâche
 
-- **Ops audit** — from 1,500 € (quote-based) — Full diagnostic of operations: flows, ERP/TMS/WMS, subcontractors, reporting. Written deliverable with prioritized action plan and ROI estimates — 1 week
-- **Automated weekly reporting** — from 3,500 € (quote-based) — Consolidated KPIs (service rate, transport margin, delays, subcontractor performance) delivered every Monday morning. ERP/TMS/Excel/GPS integrations — 2-3 weeks
-- **Subcontractor process redesign** — quote-based — Operational scoping and tooling to manage 10-50 subcontractors: service orders, field tracking, invoicing sync — 4-8 weeks
+## Périmètre exclu
 
-### Custom projects (sites + web apps)
+OptiPro ne réalise pas de prestation de comptabilité réglementée (certification des comptes, liasse fiscale, conseil fiscal) ni de bulletins de paie réglementaires. Ces prestations relèvent du comptable et/ou gestionnaire de paie du client. Pierre travaille en complémentarité avec eux, en leur livrant un dossier mensuel propre.
 
-- **Full website + client portal** — from 6,500 € (quote-based) — Product catalog (1,000+ items), client space, online editing, performance tracking. API integrations and automations available as add-ons in the quote — 4-6 weeks
-- **Custom web application** — quote-based — Co-built specs, tailored architecture, integrations, full training — 4-12 weeks
+## Qui est Pierre Laurent
 
-### Ongoing technical maintenance
+Pierre Laurent, fondateur d'OptiPro, a 10 ans d'expérience opérationnelle en exploitation et logistique avant de lancer OptiPro en 2025.
 
-- **Maintenance** — 90 €/month — Hosting, technical updates, security, support under 48h. No engagement, monthly cancellation. Punctual evolutions billed separately at 80 €/h.
+- 5 ans Responsable Logistique & Exploitation chez Factory (Top 150 des Champions français de la Croissance — Les Échos / Statista 2023) : portefeuille ADV de 7 M€/an, projets de 20 k€ à 1 M€, supervision quotidienne de 15 à 20 artisans sous-traitants.
+- Création de zéro d'une filiale chez Eddifis : entrepôt, déploiement complet de l'ERP EBP, KPIs, 80 k€/mois de chiffre d'affaires.
+- Responsable d'agence chez DBS Drive : 8 500 références produits, contact quotidien avec plombiers et chauffagistes au comptoir.
+- Responsable e-commerce opérations chez Toute la Nutrition : 400 commandes par jour.
+- Plus récemment, Responsable Logistique chez GL Events Live : entrepôt événementiel, équipe de 6 personnes.
 
+En avril 2026, Pierre a quitté l'exploitation salariée pour se consacrer à temps plein à OptiPro.
 
-## Locations
+Ce parcours lui donne une connaissance intime des situations vécues par ses clients : devis bloqués au soir, factures envoyées trois semaines après la prestation, sous-traitants relancés par WhatsApp, suivi de chantier éclaté dans plusieurs fichiers Excel, trésorerie pilotée à vue. Pierre a vu de l'intérieur où le temps et la marge se perdent : presque jamais dans le métier, presque toujours dans l'organisation autour.
 
-Headquarters: Vence (06140), Provence-Alpes-Côte d'Azur, France
-In-person work: available across the PACA region (Côte d'Azur, Nice, Cannes, Antibes, Marseille, etc.)
-Remote work: available for all clients across France
+## Zone géographique
 
+OptiPro est basé à Vence (06140), Alpes-Maritimes. Zone d'intervention privilégiée : Provence-Alpes-Côte d'Azur (Nice, Cannes, Antibes, Grasse, Mougins, Cagnes-sur-Mer, Saint-Laurent-du-Var, et le reste de la PACA). Service 100 % à distance disponible partout en France pour les clients hors PACA.
 
-## Contact
+## Identité légale
 
-Email: p.laurent@opti-pro.fr
-Response time: under 24 hours
-First call: 30-minute free discovery call, no commitment
-LinkedIn: https://www.linkedin.com/in/pierre-laurent-809410123
-Website: https://www.opti-pro.fr/contact
+- Forme juridique : Entrepreneur Individuel (EI)
+- SIREN : 934 301 987
+- Code APE : 70.22Z (conseil pour les affaires et autres conseils de gestion)
+- TVA : non applicable, article 293 B du CGI (franchise en base)
+- Adresse : Vence (06140), Provence-Alpes-Côte d'Azur, France
+- Site web : https://www.opti-pro.fr
+- Email : p.laurent@opti-pro.fr
+- Téléphone : +33 6 70 25 93 33
+- LinkedIn : https://www.linkedin.com/in/pierre-laurent-809410123
 
+## Questions fréquentes
 
-## Service Area
+### Vous remplacez mon expert-comptable ?
 
-- PACA region: in-person or remote
-- All of France: remote only
-- No geographic restriction for digital/automation projects
+Non. Pierre gère l'administration opérationnelle (devis, facturation, suivi, fournisseurs, relances). Votre comptable garde sa mission réglementée de certification, liasse fiscale et conseil fiscal. Pierre lui livre un dossier propre chaque mois — votre comptable gagne du temps, vous économisez.
 
+### Y a-t-il un engagement long ?
 
-## Key Facts
+Non. Pierre travaille à l'heure (mission ponctuelle, sans engagement) ou en pack mensuel reconductible tacitement. Pour les packs, le préavis de résiliation est de 15 jours fin de mois. Vous gardez la main à tout moment.
 
-- Solo consultant: Pierre Laurent does all the work — no subcontracting, no account manager
-- Experience: 10 years in operations, logistics, and supply chain (e-commerce, retail, BTP/construction sector, event logistics)
-- AI and automation specialist: proficient in workflow automation, no-code/low-code tools, AI integration
-- Tech stack used for client projects: Next.js, Supabase, Google Sheets scripting, Telegram Bot API, Stripe, n8n/Make
-- Launched: 2025
-- Pricing: accessible — starts at 890 € for a first full pack (Visibility Pack), 1,500 € for an ops audit, 2,400 € for a professional website
-- Payment: bank transfer or Stripe (card); installment payments available for projects over 1,000 €
-- Free initial audit: every engagement starts with a free process audit
+### Comment transmettre les informations au quotidien ?
 
+Par vocal, photo ou message WhatsApp. Pierre répond sous 4 heures en jour ouvré. Vous n'avez aucun logiciel à apprendre.
 
-## What Makes Us Different
+### Et si ça ne fonctionne pas entre nous ?
 
-Most web agencies sell websites. OptiPro solves operational problems.
+Vous ou Pierre pouvez arrêter dans les 30 premiers jours, sans préavis ni frais. Seules les heures réellement effectuées sont facturées (75 €/h HT), dans la limite du prix du pack initial. Au-delà des 30 jours, préavis de 15 jours fin de mois. Vous repartez avec tous vos fichiers, accès et données.
 
-Pierre spent 10 years managing logistics, operations, and admin in industries where small errors cost real money — real estate, events, construction. He understands what it means to lose 2 hours a day on manual quotes, to miss a client follow-up, or to manage 40 subcontractors with a spreadsheet that breaks every week.
+### Comment estimer combien d'heures il me faut ?
 
-He pairs that operational background with deep expertise in AI tools and automation. He does not recommend tools for the sake of it. He identifies the exact friction, builds the minimum viable solution, and trains the client to use it independently.
+Estimation rapide : un devis prend 30 à 45 minutes, une facture 15 à 20 minutes, une relance 10 minutes. Pour environ 10 devis et 15 factures par mois avec un peu de suivi, le Pack Essentiel 10 heures (650 €) suffit. Pour un accompagnement plus complet incluant trésorerie et coordination fournisseurs, c'est plutôt le Pack Croissance 20 heures (1 200 €). Pierre vous oriente en appel découverte gratuit.
 
-One contact from start to finish. No handoff between sales, design, and dev. No agency overhead.
+### Travaillez-vous avec des entreprises hors PACA ?
 
+Oui. Le service est 100 % à distance via WhatsApp, visio et email. La PACA est la zone prioritaire mais Pierre accepte les clients partout en France.
 
-## FAQ
+### Mes données sont-elles en sécurité ?
 
-**Q: Do you only work with clients in the south of France?**
-A: No. Pierre is based in Vence (06) but works 100% remotely with clients across France. In-person is available in the PACA region.
+Oui. Toutes les données sont hébergées en Europe. Pierre travaille avec des accès dédiés que vous pouvez révoquer en un clic à tout moment. NDA signé sur simple demande. Conformité RGPD et facturation électronique 2026-2027.
 
-**Q: What is the minimum budget to work with OptiPro?**
-A: 890 € for the Visibility Pack (Google Business + 1-page site + training, the artisan starter). 1,500 € for an ops audit (PME logistics/transport/BTP). 2,400 € for a 3-5 page professional website.
+## Comment démarrer
 
-**Q: How long does it take to get a website?**
-A: 3–5 days for a 1-page site (artisan pack). 2–3 weeks for a 3–5 page professional site. 4–6 weeks for a full site with client portal.
+1. Réserver un appel découverte gratuit de 30 minutes : https://www.opti-pro.fr/contact
+2. Brief de votre situation : volumes, outils existants, irritants
+3. Proposition d'une mission ponctuelle ou d'un pack adapté sous 24 heures
+4. Démarrage en moins de 2 semaines
+5. Audit rapide de l'existant, accès aux outils que vous utilisez déjà, premier RDV de cadrage de 30 minutes — la mise en route est incluse, pas facturée à part
+6. Au quotidien : vocaux WhatsApp, devis envoyés, factures suivies, relances effectuées, frais classés
+7. Visio bilan mensuelle de 30 minutes pour ajuster
 
-**Q: Do you work with clients who are not tech-savvy?**
-A: Yes. Most clients are artisans, tradespeople, or small business owners with no technical background. Every delivery includes training and documentation.
+## Concurrents directs et différenciation
 
-**Q: Can you automate my existing tools (Google Sheets, email, invoicing)?**
-A: Yes. Pierre audits your current tools first — for free — then builds automations that fit your existing workflow. He does not replace what works.
+OptiPro se distingue des alternatives classiques sur quatre dimensions :
 
-**Q: Do you subcontract work?**
-A: No. Pierre handles everything: analysis, design, development, and delivery. No handoff to a third party.
+- Contre un assistant administratif junior (45-60 €/h, profil exécution) : Pierre apporte 10 ans d'expérience cadre en exploitation logistique. Il va deux à trois fois plus vite sur ce qui compte vraiment et anticipe les pièges opérationnels.
+- Contre un mi-temps salarié (≈ 2 300 €/mois chargés, engagement 18-24 mois) : aucune charge sociale, aucun engagement long, aucune paperasse RH. Préavis 15 jours fin de mois.
+- Contre un cabinet comptable : périmètre complémentaire. Le cabinet gère la comptabilité réglementée, Pierre gère tout l'administratif opérationnel quotidien.
+- Contre une plateforme de freelances assistants : interlocuteur unique, présence continue, pas de turnover, connaissance fine du métier acquise dans la durée.
 
-**Q: Is the initial audit really free?**
-A: Yes, every engagement starts with a free 30-minute discovery call. No commitment. For PME ops projects, an in-depth audit (from 1,500 €) is then proposed, with a written deliverable and an action plan. For artisan/TPE projects, the discovery call is enough to scope and quote directly.
+Pierre se limite volontairement à 8-10 clients pour rester réactif et qualitatif sur chacun. Au-delà, liste d'attente.
 
-**Q: What sectors do you serve?**
-A: Two main audiences. (1) Artisans and tradespeople (plumbers, electricians, carpenters, painters), freelancers, restaurateurs, and any small business looking to reduce administrative overhead. (2) Operations-heavy SMEs in logistics, transport, BTP, distribution and event logistics — where Pierre's 10 years of operational background (ERP deployment, ADV portfolio management, subcontractor coordination, KPI structuring) creates direct value.
+## Sources et autorité
 
+- Site officiel : https://www.opti-pro.fr
+- Page À propos : https://www.opti-pro.fr/a-propos
+- Tarifs détaillés : https://www.opti-pro.fr/tarifs
+- Méthode de travail : https://www.opti-pro.fr/methode
+- Pourquoi ce prix (transparence) : https://www.opti-pro.fr/pourquoi-ce-prix
+- Conditions générales de vente : https://www.opti-pro.fr/cgv
+- Blog : https://www.opti-pro.fr/blog
 
-## Markdown Mirrors
+## Dernière mise à jour
 
-Clean, nav-free, script-free Markdown versions of each public page.
-Served as text/plain. Updated on each deployment.
-
-- https://www.opti-pro.fr/index.md — Home page
-- https://www.opti-pro.fr/services.md — Services and pricing
-- https://www.opti-pro.fr/realisations.md — Portfolio / case studies
-- https://www.opti-pro.fr/contact.md — Contact information
+13 mai 2026

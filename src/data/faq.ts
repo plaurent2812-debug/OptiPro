@@ -7,47 +7,52 @@ export interface FaqItem {
 
 export const FAQ_HOMEPAGE: FaqItem[] = [
   {
-    question: 'Vous remplacez mon comptable ?',
+    question: 'Combien coûte un site vitrine ?',
     answer:
-      "Non. Je gère l'admin opérationnel (devis, facturation, suivi, fournisseurs, relances), votre comptable garde sa mission de certification, liasse fiscale et conseil fiscal. Je lui livre un dossier propre chaque mois — il gagne du temps, vous économisez.",
+      "990€ pour un site vitrine complet : 3 à 4 pages, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. La version Pro à 1 390€ ajoute un formulaire de contact fonctionnel, votre fiche Google My Business et le SEO local.",
   },
   {
-    question: "Pas d'engagement long ?",
+    question: "Qu'est-ce qu'un outil métier sur mesure ?",
     answer:
-      "Je travaille à l'heure (mission ponctuelle) ou en pack mensuel reconductible tacitement. Pour les packs, le préavis de résiliation est de 15 jours fin de mois. Vous gardez la main.",
+      "Une application web construite autour de vos process : suivi de chantiers, catalogue produits, portail client, gestion de commandes… Tout ce que vous gérez aujourd'hui sur papier ou sur Excel peut devenir un outil simple, accessible depuis n'importe quel appareil. Chiffrage sur devis après un premier appel gratuit.",
   },
   {
-    question: 'Comment je vous transmets les infos au quotidien ?',
+    question: "Qui s'occupe du site après la mise en ligne ?",
     answer:
-      "Vocal, photo ou message WhatsApp. Je réponds sous 4h en jour ouvré. Vous n'avez aucun logiciel à apprendre.",
+      "Moi, si vous le souhaitez. La maintenance Essentiel (79€/mois, 1h/mois) couvre les mises à jour de contenu. La maintenance Pro (129€/mois, 2h/mois) ajoute les petites évolutions et un traitement prioritaire. Sans maintenance, vous restez propriétaire de votre site et libre de le faire évoluer ailleurs.",
   },
   {
-    question: 'Et si ça ne fonctionne pas entre nous ?',
+    question: "En quoi êtes-vous différent d'une agence web ?",
     answer:
-      "Vous ou moi pouvons arrêter dans les 30 premiers jours, sans préavis ni frais. Seules les heures réellement effectuées sont facturées (75€/h HT), dans la limite du prix du pack initial. Au-delà des 30 jours, préavis de 15 jours fin de mois. Dans tous les cas, vous repartez avec tous vos fichiers, accès et données. Rien ne reste chez moi.",
+      "J'ai passé 10 ans en opérations et logistique avant de devenir développeur. Je comprends vos contraintes de terrain — devis, planning, fournisseurs, stocks — avant d'écrire une ligne de code. Un seul interlocuteur, un périmètre et des livrables définis au devis, pas de réunions à rallonge.",
   },
   {
-    question: 'Comment je calcule combien d’heures il me faut ?',
+    question: 'Comment se passe un projet ?',
     answer:
-      "Estimation rapide : 1 devis ≈ 30-45 min, 1 facture ≈ 15-20 min, 1 relance ≈ 10 min. Pour ~10 devis et 15 factures par mois avec un peu de suivi, le Pack Essentiel 10h (650€) suffit. Pour un accompagnement plus complet (incluant trésorerie + coordination fournisseurs), c'est plutôt le Pack Croissance 20h (1 200€). On en discute en appel découverte.",
+      "On commence par un premier appel gratuit pour comprendre votre besoin. Je vous envoie ensuite un devis avec un périmètre et des livrables définis. Vous validez, je construis, vous suivez l'avancement — et vous ne payez que ce qui a été convenu.",
   },
 ];
 
 export const FAQ_TARIFS: FaqItem[] = [
   {
-    question: 'Comment fonctionne la facturation des heures ?',
+    question: "Que comprend le prix d'un site vitrine ?",
     answer:
-      "En pack mensuel : forfait fixe quel que soit le nombre exact d'heures consommées (dans la limite du pack). En mission ponctuelle : tarif horaire 75€/h HT, facturation au temps réellement passé (arrondi au quart d'heure supérieur).",
+      "990€ tout compris : 3 à 4 pages sur mesure, hébergement pendant 1 an, nom de domaine et adresse email professionnelle. Pas de coûts cachés.",
   },
   {
-    question: 'Et si je dépasse mon pack un mois ?',
+    question: 'Quelle différence entre Site vitrine et Site vitrine Pro ?',
     answer:
-      "Si dépassement ponctuel (1 mois isolé) : facturation des heures supplémentaires à 75€/h HT. Si dépassement récurrent (>20% pendant 2 mois consécutifs) : on bascule au pack supérieur le mois suivant. Pas de surfacturation cachée.",
+      "Le pack Pro (1 390€) ajoute un formulaire de contact fonctionnel, la création ou l'optimisation de votre fiche Google My Business et le SEO local — pour être visible quand un client cherche votre métier dans votre ville.",
   },
   {
-    question: 'Et si je sous-consomme un mois ?',
+    question: 'Comment est chiffré un outil métier sur mesure ?',
     answer:
-      "Les heures du pack mensuel ne se reportent pas. Si vous sous-consommez 2 mois consécutifs, on bascule au pack inférieur. Mon objectif n'est pas de vous facturer du vide.",
+      "Sur devis, après un premier appel gratuit. Le devis détaille le périmètre exact et les livrables — vous savez ce que vous payez avant de vous engager.",
+  },
+  {
+    question: 'À quoi sert la maintenance mensuelle ?',
+    answer:
+      "À garder votre site à jour sans y penser. Essentiel (79€/mois) : 1h/mois pour les mises à jour de contenu — textes, photos, horaires. Pro (129€/mois) : 2h/mois pour le contenu et les petites évolutions, avec un traitement prioritaire.",
   },
   {
     question: 'TVA ?',

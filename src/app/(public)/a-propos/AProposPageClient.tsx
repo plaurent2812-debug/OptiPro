@@ -21,15 +21,15 @@ type TimelineItem = {
 
 const timeline: TimelineItem[] = [
   {
-    period: 'Avril 2026 → aujourd\'hui',
+    period: 'Juin 2026 → aujourd\'hui',
     company: 'OptiPro',
-    role: 'Fondateur — Assistant administratif externalisé pour artisans et TPE',
+    role: 'Fondateur — Développeur web sur mesure pour artisans et TPE',
     description:
-      "J'ai quitté l'exploitation salariée pour proposer mon expérience aux artisans, indépendants et TPE qui n'ont pas les moyens d'embaucher un cadre. À partir de 650€/mois, je prends en charge ce qui vous freine — devis, ADV, fournisseurs, suivi de projet, facturation — sur une mission ponctuelle ou en accompagnement régulier. Je me limite à 8-10 clients pour rester réactif et qualitatif sur chacun.",
+      "J'ai quitté l'exploitation salariée pour construire des outils web pour artisans et TPE. Sites vitrines, web apps, outils métier sur mesure — des projets à périmètre défini, livrés en temps et en heure. Première réalisation : SAPAL Signalisation, plateforme B2B avec catalogue 2 500+ références, portail client et intégrations API.",
     current: true,
   },
   {
-    period: 'Sept. 2025 → Avril 2026',
+    period: 'Sept. 2025 → Juin 2026',
     company: 'GL Events Live',
     role: 'Responsable Exploitation logistique événementielle',
     description:
@@ -40,55 +40,55 @@ const timeline: TimelineItem[] = [
     company: 'Factory',
     role: 'Responsable Logistique & Exploitation',
     description:
-      "Pilotage d'un portefeuille ADV de 7 M€/an, projets d'aménagement de bureaux de 20 k€ à 1 M€, supervision quotidienne de 15 à 20 artisans et techniciens sous-traitants. C'est là que j'ai vu de près ce qui freine vraiment les PME et les indépendants : pas le travail terrain, mais tout ce qui gravite autour.",
+      "Pilotage d'un portefeuille ADV de 7 M€/an, projets d'aménagement de 20 k€ à 1 M€, supervision de 15 à 20 artisans sous-traitants. C'est là que j'ai vu de près ce qui freine vraiment les indépendants : pas le travail terrain, mais les outils qui ne sont pas là.",
   },
   {
     period: 'Janv. 2019 → Nov. 2019',
     company: 'Groupe EDDIFIS',
     role: 'Responsable Logistique — création de filiale',
     description:
-      "Création complète d'une filiale depuis zéro : montage de l'entrepôt, déploiement personnel de l'ERP EBP, structuration des process d'approvisionnement, des stocks, des KPIs et de la facturation. 80 k€/mois de CA en quelques mois. Tout construire depuis la page blanche — exactement la posture qu'OptiPro propose aux TPE/PME aujourd'hui.",
+      "Création complète d'une filiale depuis zéro : montage de l'entrepôt, déploiement personnel de l'ERP EBP, structuration des process, des stocks, des KPIs et de la facturation. 80 k€/mois de CA en quelques mois. Tout construire depuis la page blanche — la même posture qu'OptiPro propose aux artisans et TPE.",
   },
   {
     period: 'Déc. 2017 → Janv. 2019',
     company: 'DBS Drive',
     role: "Responsable d'agence — robinetterie & chauffage",
     description:
-      "Gestion d'une agence avec 8 500 références, en relation directe et quotidienne avec des artisans plombiers et chauffagistes. J'ai parlé leur langue tous les jours pendant plus d'un an. Ça ne s'oublie pas.",
+      "Gestion d'une agence avec 8 500 références, en contact quotidien avec des artisans plombiers et chauffagistes. J'ai parlé leur langue pendant plus d'un an. Ça ne s'oublie pas quand on construit des outils pour eux.",
   },
   {
     period: '2015 → 2017',
     company: 'Toute la Nutrition',
     role: "Gestionnaire d'opérations e-commerce",
     description:
-      "Premier contact avec les flux opérationnels intenses : 400 commandes traitées par jour, gestion des stocks, des retours, du SAV. C'est là que j'ai compris l'importance d'outils qui scalent avec le volume.",
+      "400 commandes traitées par jour, gestion des stocks, des retours, du SAV. Premier contact avec les flux opérationnels intenses — et la conviction que les bons outils changent tout.",
   },
 ];
 
 const valeurs = [
   {
-    icon: '\u{1F91D}',
-    title: 'Un seul interlocuteur',
+    icon: "🏭",
+    title: "Profil hybride ops + dev",
     description:
-      "Pas de commercial qui passe la main, pas de sous-traitance. C'est moi qui prends en charge votre admin — du premier appel à l'exécution au quotidien.",
+      "Avant d’être développeur, j’ai piloté des flux, coordonné des prestataires et structuré des process. Je comprends vos problèmes métier — pas seulement la technique.",
   },
   {
-    icon: '\u{1F527}',
-    title: 'Terrain avant tout',
+    icon: "🎯",
+    title: "Un seul interlocuteur",
     description:
-      'J’ai passé dix ans à côtoyer des artisans et des chefs de TPE. Je propose des outils qui s’intègrent dans votre journée réelle, pas dans une présentation PowerPoint.',
+      "Du premier appel à la mise en ligne : pas de commercial, pas de chef de projet, pas de sous-traitance. C’est moi qui construis votre site ou votre outil.",
   },
   {
-    icon: '\u{1F4CA}',
-    title: 'Objectifs chiffrés d\'avance',
+    icon: "📋",
+    title: "Périmètre défini au devis",
     description:
-      "Pas de promesse floue. On part des heures que vous perdez chaque semaine, on cible un nombre d'heures à récupérer, et on mesure ensemble à 90 jours.",
+      "Vous savez ce que vous payez avant de démarrer. Pas de dérive, pas de surprise à la livraison. Le devis détaille chaque livrable.",
   },
   {
-    icon: '\u{1F39B}\u{FE0F}',
-    title: 'Pilote, pas manager',
+    icon: "⚡",
+    title: "Reconversion via IA (Claude Code, Cursor)",
     description:
-      "Aujourd'hui je me recentre sur le pilotage et l'organisation — coordination, structuration, optimisation. Le management quotidien des équipes reste entre vos mains, je ne m'y substitue pas.",
+      "J’ai appris le développement en construisant des projets réels — avec les meilleurs outils disponibles. Pas une école, pas un bootcamp — le terrain d’abord.",
   },
 ];
 
@@ -361,13 +361,13 @@ export default function AProposPageClient() {
         <div className={styles.heroBgGlow} aria-hidden="true" />
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroContent}>
-            <span className={styles.heroBadge}>Fondateur · OptiPro</span>
+            <span className={styles.heroBadge}>Fondateur · OptiPro · Dev web sur mesure</span>
             <h1 className={styles.heroTitle}>Pierre Laurent</h1>
             <p className={styles.heroSubtitle}>
-              Pendant 10 ans, j&apos;ai été responsable d&apos;exploitation et de méthodes
-              en logistique. Aujourd&apos;hui, je propose ces mêmes services d&apos;admin
-              opérationnelle aux artisans et TPE qui n&apos;ont pas les moyens d&apos;un
-              salarié dédié.
+              Pendant 10 ans, j&apos;ai été responsable d&apos;exploitation en logistique.
+              En 2026, j&apos;ai appris le développement via Claude Code et Cursor — et je
+              construis maintenant des sites et outils web sur mesure pour artisans et TPE
+              qui veulent digitaliser leur activité.
             </p>
             <div className={styles.heroMeta}>
               <span className={styles.heroMetaItem}>
@@ -412,36 +412,21 @@ export default function AProposPageClient() {
             </h2>
             <div className={styles.philosophieText}>
               <p>
-                Chez Toute la Nutrition, j&apos;ai débuté en gérant 400 commandes
-                par jour. Chez DBS Drive ensuite, je discutais tous les jours avec
-                des plombiers et chauffagistes au comptoir, en gérant 8 500 références
-                en stock. Puis chez Eddifis, j&apos;ai créé une filiale entière depuis
-                zéro : entrepôt, ERP EBP déployé personnellement, KPI, 80 k€/mois de
-                CA. Toujours la même scène : des opérations qui tiennent par habitude,
-                des outils qui ne se parlent pas, et personne qui prend le temps de
-                régler ça vraiment.
+                J&apos;ai passé dix ans à côtoyer des artisans — chez DBS Drive au comptoir avec des plombiers
+                et chauffagistes, chez Factory à superviser 15 à 20 sous-traitants sur des chantiers
+                d&apos;aménagement, chez Eddifis à déployer un ERP de zéro. À chaque fois, le même constat :
+                des outils qui ne sont pas là, ou qui ne correspondent pas au terrain.
               </p>
               <p>
-                Chez Factory pendant 5 ans, j&apos;ai piloté un portefeuille ADV
-                de 7 M€, des projets d&apos;aménagement entre 20 k€ et 1 M€, et
-                supervisé 15 à 20 intervenants sous-traitants en permanence.
-                C&apos;est là que j&apos;ai vu de près ce qui freine vraiment les
-                indépendants et les PME : pas le travail terrain, mais tout ce
-                qui gravite autour. Plus récemment chez GL Events Live, j&apos;ai
-                piloté un dépôt événementiel et coordonné sous-traitants et
-                équipes de 6 personnes sur des événements à délais ultra-courts —
-                avant de quitter l&apos;exploitation pour fonder OptiPro.
+                En 2026, j&apos;ai décidé de construire ces outils moi-même. Pas en suivant une formation
+                classique — en apprenant via Claude Code et Cursor, en construisant des projets réels.
+                La première réalisation concrète : SAPAL Signalisation, une plateforme B2B avec
+                catalogue 2 500+ références, portail client et intégrations API.
               </p>
               <p>
-                À un moment, j&apos;ai décidé de passer de l&apos;autre côté.
-                Plutôt qu&apos;optimiser pour des grandes structures qui ont
-                déjà trois collaborateurs admin, mettre cette expertise —
-                exploitation, méthodes, pilotage — au service de ceux qui
-                en ont vraiment besoin : artisans et TPE du bâtiment qui
-                croulent sous la paperasse et perdent des heures chaque semaine
-                sur des tâches qui ne devraient pas leur incomber. C&apos;est
-                exactement ça, OptiPro — et je limite à 8-10 clients pour
-                rester le partenaire disponible que je prétends être.
+                Mon avantage : je comprends le métier avant de comprendre la technique. Quand un artisan
+                me parle de suivi de chantiers ou de bon de commande fournisseur, je sais exactement
+                de quoi il s&apos;agit — parce que je l&apos;ai vécu.
               </p>
             </div>
           </div>
@@ -453,11 +438,11 @@ export default function AProposPageClient() {
         <div className="container">
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>Mon parcours</span>
-            <h2 className={styles.sectionTitle}>10 ans à structurer, piloter, coordonner.</h2>
+            <h2 className={styles.sectionTitle}>10 ans d&apos;opérations. Maintenant développeur.</h2>
             <p className={styles.sectionLead}>
               De 400 commandes/jour à un portefeuille ADV de 7 M€, en passant par
-              le déploiement complet d&apos;un ERP — chaque étape m&apos;a appris
-              ce que coûte vraiment le désordre administratif, et comment y remédier.
+              la création d&apos;une filiale de zéro — chaque étape m&apos;a appris
+              ce que coûte un outil absent ou mal conçu.
             </p>
           </div>
 
@@ -499,7 +484,7 @@ export default function AProposPageClient() {
         <div className="container">
           <div className={styles.sectionHeader}>
             <span className={styles.sectionLabel}>Comment je travaille</span>
-            <h2 className={styles.sectionTitle}>Trois principes, jamais négociés.</h2>
+            <h2 className={styles.sectionTitle}>Ce qui me différencie.</h2>
           </div>
 
           <div className={styles.valeursGrid}>
@@ -521,24 +506,17 @@ export default function AProposPageClient() {
           <div className={styles.ctaInner}>
             <h2 className={styles.ctaTitle}>On commence par un appel.</h2>
             <p className={styles.ctaText}>
-              30 minutes pour parler de votre situation admin. Si je peux vous
-              être utile, on enchaîne. Sinon, je vous oriente. Gratuit, sans
-              engagement, sans jargon. Je prends entre 8 et 10 clients — si
-              une place est libre, autant qu&apos;elle soit pour vous.
+              30 minutes pour parler de votre projet. Si c&apos;est réalisable, je vous envoie
+              un devis avec un périmètre et des livrables définis. Sinon, je vous dis pourquoi.
             </p>
             <div className={styles.ctaActions}>
               <Button href="/contact" variant="primary">
                 Réserver mon appel découverte gratuit
               </Button>
               <Link href="/tarifs" className={styles.ctaLink}>
-                Voir les forfaits →
+                Voir les tarifs →
               </Link>
             </div>
-            <p className={styles.ctaSubNote}>
-              <Link href="/pourquoi-ce-prix" className={styles.ctaSubLink}>
-                Pourquoi ces tarifs ? Le récit complet →
-              </Link>
-            </p>
           </div>
         </div>
       </section>

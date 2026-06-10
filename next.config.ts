@@ -54,6 +54,17 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: true,
       },
+      // /methode et /pourquoi-ce-prix dépubliés — redirect vers /le-service
+      {
+        source: '/methode',
+        destination: '/le-service',
+        permanent: true,
+      },
+      {
+        source: '/pourquoi-ce-prix',
+        destination: '/tarifs',
+        permanent: true,
+      },
       // Force le redirect non-www → www en 308 permanent (consolidation PageRank)
       {
         source: '/:path*',

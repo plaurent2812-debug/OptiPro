@@ -4,30 +4,30 @@ import { safeJsonLd } from '@/lib/json-ld';
 import LeServiceClient from './LeServiceClient';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Le service — OptiPro assistant admin pour artisans' },
-  description: 'Tout votre admin opérationnel pris en charge. Devis, ADV, facturation, suivi. Mission ponctuelle ou pack mensuel, à partir de 650€/mois.',
+  title: { absolute: 'Le service — Création de sites vitrines et web apps · OptiPro' },
+  description: "Sites vitrines (990€ et 1 390€), web apps et outils métier sur mesure pour artisans et TPE. Profil hybride ops + dev. Premier appel gratuit.",
   alternates: { canonical: '/le-service' },
   openGraph: {
-    title: 'Le service OptiPro — Assistant administratif externalisé',
-    description: 'Tout votre admin opérationnel pris en charge. Mission ponctuelle ou accompagnement régulier — à partir de 650€/mois.',
+    title: 'Le service OptiPro — Dev web sur mesure pour artisans et TPE',
+    description: "Sites vitrines dès 990€, web apps sur mesure. Profil hybride 10 ans d'opérations + dev. Premier appel gratuit.",
   },
 };
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  serviceType: 'AdministrativeService',
-  name: 'OptiPro Mission — Tout votre admin opérationnel pris en charge',
-  description: 'Service d\'externalisation administrative pour artisans, indépendants et TPE. Devis, ADV, facturation, fournisseurs, suivi de projet. Mission ponctuelle ou pack mensuel.',
+  serviceType: 'WebDevelopment',
+  name: 'OptiPro — Création de sites vitrines, web apps et outils métier sur mesure',
+  description: 'Création de sites vitrines (990€ et 1 390€), développement de web apps et outils métier pour artisans et TPE. Profil hybride opérations + dev. Premier appel gratuit.',
   provider: { '@id': 'https://www.opti-pro.fr/#organization' },
   areaServed: 'FR',
   url: 'https://www.opti-pro.fr/le-service',
   offers: {
     '@type': 'AggregateOffer',
-    lowPrice: '650',
-    highPrice: '1950',
+    lowPrice: '990',
+    highPrice: '1390',
     priceCurrency: 'EUR',
-    offerCount: 3,
+    offerCount: 2,
   },
 };
 

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ComparisonCards from '@/components/ui/ComparisonCards';
 import AccordionItem from '@/components/ui/AccordionItem';
 import { FAQ_HOMEPAGE } from '@/data/faq';
 import styles from './home.module.css';
@@ -17,39 +16,43 @@ const SHOW_TESTIMONIALS = false;
 
 const PROBLEM_POINTS: { title: string; desc: string }[] = [
   {
-    title: 'Devis qui partent en retard',
-    desc: "Vos prospects signent ailleurs pendant que vous repoussez la paperasse au soir.",
+    title: 'Pas de site professionnel',
+    desc: "Vos concurrents sont trouvables sur Google. Vous perdez des clients avant même qu'ils vous appellent.",
   },
   {
-    title: 'Factures impayées qui dorment',
-    desc: 'Sans relance régulière, ce sont des milliers d’euros qui restent bloqués chaque mois.',
+    title: 'Site obsolète, jamais mis à jour',
+    desc: "Horaires incorrects, photos floues, formulaire cassé — chaque visiteur repart chez la concurrence.",
   },
   {
-    title: 'L’admin qui mange vos soirées',
-    desc: 'Vous facturez 35h mais vous en travaillez 60 — la moitié sans valeur ajoutée.',
+    title: 'Process métier sur papier ou Excel',
+    desc: "Suivi de chantiers, catalogue produits, bons de commande — tout ce qui se gère à la main peut devenir un outil simple et fiable.",
   },
 ];
 
-const SOLUTION_CARDS: { icon: string; title: string; desc: string }[] = [
+const OFFER_CARDS: {
+  title: string;
+  desc: string;
+  badge?: string;
+  highlight?: boolean;
+}[] = [
   {
-    icon: '📄',
-    title: 'Devis',
-    desc: "Structurés, rapides, conformes. Envoyés sans délai après votre brief.",
+    title: 'Site vitrine — 990 €',
+    desc: '3 à 4 pages, hébergement 1 an, domaine, email pro.',
+    badge: 'Livré en 3 semaines',
   },
   {
-    icon: '💰',
-    title: 'Facturation',
-    desc: "Émission, envoi, suivi des paiements. Conforme à la facturation électronique 2026-2027.",
+    title: 'Site vitrine Pro — 1 390 €',
+    desc: '+ formulaire fonctionnel, Google My Business, SEO local.',
+    badge: 'Recommandé',
+    highlight: true,
   },
   {
-    icon: '📊',
-    title: 'Trésorerie',
-    desc: "Suivi de vos encaissements et décaissements. Vous savez où vous en êtes.",
+    title: 'Web app / outil métier — Sur devis',
+    desc: 'Plateforme sur mesure — catalogue, portail client, gestion de chantiers.',
   },
   {
-    icon: '📋',
-    title: 'Préparation comptable',
-    desc: "Dossier mensuel propre, FEC à jour, factures classées. Votre comptable gagne du temps.",
+    title: 'Maintenance — dès 79 €/mois',
+    desc: '1 à 2h/mois : mises à jour de contenu, petites évolutions.',
   },
 ];
 
@@ -133,7 +136,7 @@ export default function HomePageClient() {
 
   return (
     <main ref={rootRef}>
-      {/* ===== Section 1 — HERO (refonte mai 2026, inspiration pierrelegoux.fr) ===== */}
+      {/* ===== Section 1 — HERO ===== */}
       <section className={styles.hero}>
         <div className={styles.heroBg} aria-hidden="true">
           <div className={styles.bgGrid} />
@@ -141,24 +144,25 @@ export default function HomePageClient() {
 
         <h1 className={styles.headline}>
           <span className={styles.line}>
-            <span className={styles.word} style={{ animationDelay: '0s' }}>Le</span>{' '}
-            <span className={`${styles.word} ${styles.brandWord}`} style={{ animationDelay: '0.08s' }}>bras</span>{' '}
-            <span className={`${styles.word} ${styles.brandWord}`} style={{ animationDelay: '0.16s' }}>droit</span>{' '}
-            <span className={styles.word} style={{ animationDelay: '0.24s' }}>des</span>{' '}
-            <span className={styles.word} style={{ animationDelay: '0.32s' }}>artisans,</span>
+            <span className={styles.word} style={{ animationDelay: '0s' }}>Je</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.08s' }}>construis</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.16s' }}>les</span>{' '}
+            <span className={`${styles.word} ${styles.brandWord}`} style={{ animationDelay: '0.24s' }}>outils</span>{' '}
+            <span className={`${styles.word} ${styles.brandWord}`} style={{ animationDelay: '0.32s' }}>web</span>
           </span>
           <span className={styles.line}>
-            <span className={styles.word} style={{ animationDelay: '0.45s' }}>indépendants</span>{' '}
-            <span className={styles.word} style={{ animationDelay: '0.53s' }}>et</span>{' '}
-            <span className={styles.word} style={{ animationDelay: '0.61s' }}>TPE</span>{' '}
-            <span className={styles.word} style={{ animationDelay: '0.69s' }}>en</span>{' '}
-            <span className={`${styles.word} ${styles.brandWord}`} style={{ animationDelay: '0.77s' }}>PACA.</span>
+            <span className={styles.word} style={{ animationDelay: '0.45s' }}>que</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.53s' }}>vos</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.61s' }}>concurrents</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.69s' }}>n&apos;ont</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.77s' }}>pas</span>{' '}
+            <span className={styles.word} style={{ animationDelay: '0.85s' }}>encore.</span>
           </span>
         </h1>
 
         <p className={styles.sub}>
-          Vous restez sur le terrain. Je m&apos;occupe du reste — devis, factures, fournisseurs,
-          suivi. Mission ponctuelle ou accompagnement régulier, à partir de 650&nbsp;€/mois.
+          Sites vitrines, web apps et outils métier sur mesure pour artisans et TPE en PACA.
+          Premier appel gratuit — périmètre et livrables définis au devis.
         </p>
 
         <div className={styles.ctas}>
@@ -169,11 +173,6 @@ export default function HomePageClient() {
             Voir les tarifs
           </Link>
         </div>
-
-        <a href="#hero-next" className={styles.scrollHint} aria-label="Faire défiler vers la suite">
-          <span>Découvrir</span>
-          <span className={styles.scrollHintArrow} aria-hidden="true" />
-        </a>
       </section>
 
       {/* ===== Section 1 bis — RÉPONSE DIRECTE (pour LLM/AI Overviews) ===== */}
@@ -198,7 +197,7 @@ export default function HomePageClient() {
           }}
         >
           <p style={{ margin: 0 }}>
-            <strong style={{ color: 'var(--primary)' }}>OptiPro</strong> est le bras droit administratif et opérationnel des artisans, indépendants et TPE en PACA. Mission ponctuelle à <strong style={{ color: 'var(--primary)' }}>75 €/h</strong> ou pack mensuel dès <strong style={{ color: 'var(--primary)' }}>650 €/mois</strong> — période d&apos;essai 30 jours sans frais.
+            <strong style={{ color: 'var(--primary)' }}>OptiPro</strong> est le dev opérationnel des artisans, indépendants et TPE en PACA. Sites vitrines à partir de <strong style={{ color: 'var(--primary)' }}>990&nbsp;€</strong>, web apps et outils métier sur mesure. Premier appel gratuit — périmètre et livrables définis au devis, pas d&apos;engagement horaire.
           </p>
         </div>
       </section>
@@ -274,7 +273,7 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* ===== Section 3 — BLOC SOLUTION ===== */}
+      {/* ===== Section 3 — MES PRESTATIONS ===== */}
       <section
         style={{
           maxWidth: '1100px',
@@ -289,60 +288,65 @@ export default function HomePageClient() {
             fontWeight: 700,
             color: 'var(--primary)',
             textAlign: 'center',
-            margin: '0 0 1rem',
+            margin: '0 0 3rem',
           }}
         >
-          Voilà ce que je prends en charge pour vous
+          Mes prestations
         </h2>
-        <p
-          data-reveal
-          style={{
-            textAlign: 'center',
-            color: 'var(--secondary)',
-            maxWidth: '620px',
-            margin: '0 auto 3rem',
-            lineHeight: 1.6,
-          }}
-        >
-          Tout votre admin opérationnel, pris en charge — sur mesure, à l&apos;heure ou en pack mensuel.
-        </p>
         <div
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '1.5rem',
-            marginBottom: '2rem',
           }}
         >
-          {SOLUTION_CARDS.map((s) => (
+          {OFFER_CARDS.map((card) => (
             <article
-              key={s.title}
+              key={card.title}
               data-reveal
               style={{
                 padding: '1.75rem',
                 background: 'var(--background)',
-                border: '1px solid var(--border)',
+                border: card.highlight
+                  ? '2px solid var(--accent)'
+                  : '1px solid var(--border)',
                 borderRadius: '1rem',
+                boxShadow: card.highlight
+                  ? '0 8px 32px rgba(249, 115, 22, 0.15)'
+                  : undefined,
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '0.75rem',
               }}
             >
-              <span
-                aria-hidden="true"
-                style={{ fontSize: '2rem', lineHeight: 1 }}
-              >
-                {s.icon}
-              </span>
+              {card.badge && (
+                <span
+                  style={{
+                    display: 'inline-block',
+                    alignSelf: 'flex-start',
+                    padding: '0.25rem 0.75rem',
+                    background: card.highlight
+                      ? 'var(--accent)'
+                      : 'var(--border)',
+                    color: card.highlight ? '#fff' : 'var(--primary)',
+                    borderRadius: '999px',
+                    fontSize: '0.8rem',
+                    fontWeight: 600,
+                  }}
+                >
+                  {card.badge}
+                </span>
+              )}
               <h3
                 style={{
-                  fontSize: '1.15rem',
+                  fontSize: '1.1rem',
                   fontWeight: 700,
                   color: 'var(--primary)',
                   margin: 0,
+                  lineHeight: 1.35,
                 }}
               >
-                {s.title}
+                {card.title}
               </h3>
               <p
                 style={{
@@ -351,57 +355,10 @@ export default function HomePageClient() {
                   lineHeight: 1.55,
                 }}
               >
-                {s.desc}
+                {card.desc}
               </p>
             </article>
           ))}
-        </div>
-        <p
-          data-reveal
-          style={{
-            textAlign: 'center',
-            color: 'var(--secondary)',
-            fontSize: '0.95rem',
-            fontStyle: 'italic',
-          }}
-        >
-          + Frais &amp; dépenses (OCR auto), Planning &amp; RDV, Coordination
-          fournisseurs.
-        </p>
-      </section>
-
-      {/* ===== Section 4 — BLOC COMPARAISON ===== */}
-      <section
-        style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          padding: '0 1.5rem 5rem',
-        }}
-      >
-        <div data-reveal style={{ textAlign: 'center', marginBottom: '3rem' }}>
-          <h2
-            style={{
-              fontSize: '1.75rem',
-              fontWeight: 700,
-              color: 'var(--primary)',
-              margin: '0 0 1rem',
-            }}
-          >
-            Pourquoi pas un(e) assistant(e) classique ?
-          </h2>
-          <p
-            style={{
-              color: 'var(--secondary)',
-              maxWidth: '620px',
-              margin: '0 auto',
-              lineHeight: 1.6,
-            }}
-          >
-            Comparé aux solutions traditionnelles, voilà ce que vous gagnez.
-          </p>
-        </div>
-        <div data-reveal>
-          <ComparisonCards />
         </div>
       </section>
 
@@ -473,7 +430,7 @@ export default function HomePageClient() {
             margin: '0 0 1rem',
           }}
         >
-          Prêt à libérer 5 à 10h par semaine ?
+          Discutons de votre projet.
         </h2>
         <Link
           href="/contact"

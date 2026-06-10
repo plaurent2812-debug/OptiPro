@@ -32,7 +32,7 @@ export default function Footer() {
                             <Logo size="2.5rem" />
                         </div>
                         <p style={{ color: 'var(--muted)', fontSize: '0.9rem', lineHeight: 1.7, maxWidth: '260px' }}>
-                            Le bras droit administratif des artisans et petites TPE du bâtiment.
+                            Sites vitrines, web apps et outils métier sur mesure pour artisans et TPE.
                         </p>
                     </div>
 
@@ -42,8 +42,6 @@ export default function Footer() {
                             {[
                                 { href: '/le-service', label: 'Le service' },
                                 { href: '/tarifs', label: 'Tarifs' },
-                                { href: '/methode', label: 'Méthode' },
-                                { href: '/pourquoi-ce-prix', label: 'Pourquoi ce prix' },
                                 { href: '/a-propos', label: 'À propos' },
                                 { href: '/contact', label: 'Contact' },
                             ].map(({ href, label }) => (
@@ -130,7 +128,7 @@ export default function Footer() {
 
                 <div style={{ borderTop: '1px solid var(--border)', paddingTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
                     <p style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>
-                        &copy; {new Date().getFullYear()} OptiPro. Le bras droit administratif des artisans.
+                        &copy; {new Date().getFullYear()} OptiPro. Développeur web sur mesure pour artisans et TPE.
                     </p>
                     <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
                         <Link

@@ -1,5 +1,20 @@
 # TODO — OptiPro
 
+## En cours — Refonte positionnement « dev opérationnel » (2026-06-10)
+Repositionnement : bras droit admin → dev opérationnel (sites vitrines, web apps, outils métier).
+Offres : Vitrine 990€ / Vitrine Pro 1 390€ / Web app sur devis / Maintenance 79€ & 129€/mois.
+
+- [ ] src/data/pricing.ts : ajouter WEB_OFFERS + MAINTENANCE_PLANS (sans toucher aux anciennes constantes)
+- [ ] src/data/faq.ts : réécrire FAQ_HOMEPAGE + FAQ_TARIFS (nouveau positionnement)
+- [ ] Accueil : page.tsx (metadata + JSON-LD) + HomePageClient.tsx (tagline, 3 douleurs, 4 offres, retrait comparaison/admin)
+- [ ] /tarifs : OfferCatalogJsonLd.tsx + page.tsx + TarifsClient.tsx (grille 5 offres, retrait ROI/comparateur/packs horaires)
+- [ ] /le-service : réécriture complète (3 blocs + réf SAPAL + angle hybride ops+dev)
+- [ ] /a-propos : parcours reconversion dev via IA, profil hybride, retrait assistanat admin, JSON-LD Person
+- [ ] Dépublier /methode + /pourquoi-ce-prix : suppression routes, redirects 301, sitemap, footer, lien /temoignages
+- [ ] Footer : tagline + liens nav + copyright
+- [ ] Vérif : grep résiduels (bras droit, 650, 75€/h) hors pages SEO locales, rm -rf .next, tsc, build
+- [ ] Commit + push direct sur main
+
 ## Terminé — Refonte hero homepage inspirée pierrelegoux.fr (2026-05-12)
 - [x] Analyse pierrelegoux.fr (palette, typo, structure, animations CSS pures)
 - [x] Démo HTML 6 variantes hero (`public/demo-hero.html`)

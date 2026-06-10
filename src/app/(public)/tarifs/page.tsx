@@ -1,18 +1,17 @@
 // src/app/(public)/tarifs/page.tsx
 import type { Metadata } from 'next';
 import FAQJsonLd from '@/components/seo/FAQJsonLd';
-import OfferCatalogJsonLd from '@/components/seo/OfferCatalogJsonLd';
 import { FAQ_TARIFS } from '@/data/faq';
 import { safeJsonLd } from '@/lib/json-ld';
 import TarifsClient from './TarifsClient';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Tarifs — Missions OptiPro' },
-  description: "À l'heure ou en pack mensuel : 75€/h, Pack Essentiel 10h 650€/mois, Pack Croissance 20h 1 200€/mois, Pack Pilotage 35h 1 950€/mois. Sans engagement long, préavis 15 jours.",
+  title: { absolute: 'Tarifs — Sites vitrines et outils web sur mesure · OptiPro' },
+  description: "Site vitrine 990€, Site vitrine Pro 1 390€, web app sur devis. Maintenance dès 79€/mois. Périmètre et livrables définis au devis. Premier appel gratuit.",
   alternates: { canonical: '/tarifs' },
   openGraph: {
-    title: 'Tarifs OptiPro — Missions à l\'heure ou en pack',
-    description: '75€/h ou packs mensuels Essentiel / Croissance / Pilotage. Sans engagement long, préavis 15 jours.',
+    title: 'Tarifs OptiPro — Sites vitrines et web apps pour artisans et TPE',
+    description: 'Site vitrine 990€ ou 1 390€, web app sur devis, maintenance dès 79€/mois. Premier appel gratuit.',
   },
 };
 
@@ -30,7 +29,6 @@ export default function TarifsPage() {
     <>
       <script type="application/ld+json">{safeJsonLd(breadcrumbJsonLd)}</script>
       <FAQJsonLd faq={FAQ_TARIFS} />
-      <OfferCatalogJsonLd />
       <TarifsClient />
     </>
   );

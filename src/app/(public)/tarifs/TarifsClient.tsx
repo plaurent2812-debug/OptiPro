@@ -1,41 +1,91 @@
 // src/app/(public)/tarifs/TarifsClient.tsx
 import Link from 'next/link';
 import AccordionItem from '@/components/ui/AccordionItem';
-import RoiCalculator from '@/components/ui/RoiCalculator';
-import {
-  MISSION_PACKS,
-  MISSION_HOURLY_RATE,
-  formatPrice,
-} from '@/data/pricing';
 import { FAQ_TARIFS } from '@/data/faq';
 
-const INCLUS_DANS_TOUS = [
-  'WhatsApp dédié (réponse sous 4h en jour ouvré)',
-  'Visio bilan mensuelle (30 min)',
-  "Utilisation de VOS outils (Pennylane, Sage, Excel, etc.) — pas d'imposition",
-  'Reporting mensuel détaillé des heures consommées par tâche',
-  "Période d'essai 30 jours — chacun peut arrêter sans préavis, seules les heures effectuées sont facturées",
-  'Conformité RGPD + facturation électronique 2026-2027',
-  'Vos données restent votre propriété — export à tout moment',
+const OFFRES_WEB = [
+  {
+    id: 'vitrine',
+    name: 'Site vitrine',
+    price: '990€',
+    soustitre: 'Pour être trouvé sur Google avec un site professionnel.',
+    recommended: false,
+    features: [
+      '3 à 4 pages sur mesure',
+      'Hébergement 1 an inclus',
+      'Nom de domaine inclus',
+      'Adresse email professionnelle',
+    ],
+  },
+  {
+    id: 'vitrine-pro',
+    name: 'Site vitrine Pro',
+    price: '1 390€',
+    soustitre: 'Pour convertir les visiteurs en clients.',
+    recommended: true,
+    features: [
+      'Tout le pack Site vitrine',
+      'Formulaire de contact fonctionnel',
+      'Fiche Google My Business',
+      'SEO local',
+    ],
+  },
+  {
+    id: 'webapp',
+    name: 'Web app / outil métier',
+    price: 'Sur devis',
+    soustitre: 'Pour remplacer le papier et les fichiers Excel par une plateforme sur mesure.',
+    recommended: false,
+    features: [
+      'Plateforme web sur mesure',
+      'Conçue autour de vos process métier',
+      'Périmètre et livrables définis au devis',
+    ],
+  },
 ];
 
-const COMPARATEUR_ROWS = [
-  { label: 'Mi-temps salarié(e) interne', price: '~2 300€/mois', detail: 'chargés, + équipement, + formation, + gestion RH' },
-  { label: 'Assistant·e indépendant·e (20h/mois)', price: '900-1 200€/mois', detail: 'profil junior, sans expérience opérationnelle senior' },
-  { label: 'Cabinet comptable + admin externe', price: '800-1 200€/mois cumulés', detail: 'coordination à votre charge' },
-  { label: 'OptiPro Pack Croissance (20h)', price: '1 200€/mois', detail: "10 ans en pilotage exploitation, préavis 15 jours, zéro charge", highlight: true },
+const MAINTENANCE_PACKS = [
+  {
+    id: 'essentiel',
+    name: 'Maintenance Essentiel',
+    price: '79€/mois',
+    recommended: false,
+    features: [
+      '1h par mois',
+      'Mises à jour de contenu (textes, photos, horaires)',
+    ],
+  },
+  {
+    id: 'pro',
+    name: 'Maintenance Pro',
+    price: '129€/mois',
+    recommended: true,
+    features: [
+      '2h par mois',
+      'Mises à jour de contenu + petites évolutions',
+      'Traitement prioritaire',
+    ],
+  },
+];
+
+const INCLUS_DANS_CHAQUE_PROJET = [
+  'Un seul interlocuteur du premier appel à la mise en ligne',
+  'Périmètre et livrables définis au devis — pas de surprise',
+  'Vous restez propriétaire de votre site et de votre code',
+  'Premier appel découverte gratuit (30 min)',
+  'TVA non applicable — franchise en base art. 293 B du CGI',
 ];
 
 export default function TarifsClient() {
   return (
     <main style={{ paddingTop: '5rem', paddingBottom: '4rem' }}>
-      {/* SECTION 1 — HERO TARIFS */}
+      {/* SECTION 1 — HERO */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 3rem', textAlign: 'center' }}>
         <h1 style={{ fontSize: 'clamp(2rem, 5vw, 2.75rem)', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.15, margin: '0 0 1rem' }}>
-          Un tarif clair. À l&apos;heure ou en pack. Sans engagement long.
+          Des tarifs clairs. Des livrables définis.
         </h1>
         <p style={{ fontSize: '1.1rem', color: 'var(--secondary)', lineHeight: 1.6, maxWidth: '680px', margin: '0 auto' }}>
-          Mission ponctuelle ou accompagnement régulier — vous payez ce que vous consommez.
+          Site vitrine, web app ou maintenance — vous savez ce que vous payez avant de démarrer.
         </p>
       </section>
 
@@ -51,15 +101,15 @@ export default function TarifsClient() {
           fontSize: '1.05rem',
         }}>
           <p style={{ margin: 0 }}>
-            <strong style={{ color: 'var(--primary)' }}>Les tarifs OptiPro</strong> sont structurés en deux formules. Mission ponctuelle à <strong style={{ color: 'var(--primary)' }}>75 €/h HT</strong> facturée au temps réellement passé (arrondi au quart d&apos;heure), sans engagement. Ou pack mensuel reconductible tacitement : Pack Essentiel 10h à <strong style={{ color: 'var(--primary)' }}>650 €/mois</strong> (65 €/h équivalent, remise -13%), Pack Croissance 20h à <strong style={{ color: 'var(--primary)' }}>1 200 €/mois</strong> (60 €/h, -20%), Pack Pilotage 35h à <strong style={{ color: 'var(--primary)' }}>1 950 €/mois</strong> (56 €/h, -26%). TVA non applicable (franchise en base, article 293 B du CGI). Période d&apos;essai 30 jours sans préavis ni frais — seules les heures effectuées sont facturées au tarif horaire, plafonnées au prix du pack. Au-delà : préavis de 15 jours fin de mois.
+            <strong style={{ color: 'var(--primary)' }}>Les tarifs OptiPro</strong> pour la création de sites et outils web sont : Site vitrine <strong style={{ color: 'var(--primary)' }}>990€ HT</strong> (3–4 pages, hébergement 1 an, domaine, email pro) ; Site vitrine Pro <strong style={{ color: 'var(--primary)' }}>1 390€ HT</strong> (+ formulaire fonctionnel, Google My Business, SEO local) ; Web app / outil métier sur devis après premier appel gratuit. Maintenance Essentiel <strong style={{ color: 'var(--primary)' }}>79€/mois HT</strong> (1h/mois, mises à jour contenu) ; Maintenance Pro <strong style={{ color: 'var(--primary)' }}>129€/mois HT</strong> (2h/mois, contenu + petites évolutions, priorité). TVA non applicable, franchise en base art. 293 B du CGI.
           </p>
         </div>
       </section>
 
-      {/* SECTION 2 — 3 CARTES PACKS */}
+      {/* SECTION 2 — OFFRES WEB (3 cartes) */}
       <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
-          {MISSION_PACKS.map((pack) => (
+          {OFFRES_WEB.map((pack) => (
             <article key={pack.id} style={{
               padding: '2rem 1.75rem',
               background: 'var(--background)',
@@ -81,28 +131,18 @@ export default function TarifsClient() {
                 }}>Recommandé</span>
               )}
               <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 0.5rem' }}>{pack.name}</h3>
-              <p style={{ color: 'var(--secondary)', fontSize: '0.9rem', lineHeight: 1.5, margin: '0 0 1rem' }}>{pack.cible}</p>
+              <p style={{ color: 'var(--secondary)', fontSize: '0.9rem', lineHeight: 1.5, margin: '0 0 1rem' }}>{pack.soustitre}</p>
               <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--primary)', margin: '0 0 0.25rem', lineHeight: 1 }}>
-                {formatPrice(pack.monthlyPrice)}
+                {pack.price}
               </div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--secondary)', marginBottom: '1.5rem' }}>HT par mois</div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--secondary)', marginBottom: '1.5rem' }}>HT</div>
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.55rem', flex: 1 }}>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--secondary)' }}>
-                  <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
-                  <span>{pack.hours} heures dédiées par mois</span>
-                </li>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--secondary)' }}>
-                  <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
-                  <span>{pack.hourlyEquivalent}€/h équivalent (-{pack.discount}% vs tarif horaire)</span>
-                </li>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--secondary)' }}>
-                  <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
-                  <span>Heures non reportées d&apos;un mois sur l&apos;autre</span>
-                </li>
-                <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--secondary)' }}>
-                  <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
-                  <span>Reconductible tacitement — préavis 15 jours</span>
-                </li>
+                {pack.features.map((feature) => (
+                  <li key={feature} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--secondary)' }}>
+                    <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
               </ul>
               <Link href="/contact" style={{
                 display: 'block', textAlign: 'center', padding: '0.85rem 1.25rem',
@@ -111,171 +151,77 @@ export default function TarifsClient() {
                 borderRadius: '0.75rem', textDecoration: 'none', fontWeight: 600,
                 fontSize: '0.95rem',
               }}>
-                Réserver mon appel
+                {pack.id === 'webapp' ? 'Demander un devis' : 'Démarrer mon projet'}
               </Link>
             </article>
           ))}
         </div>
-        <p style={{ textAlign: 'center', color: 'var(--secondary)', marginTop: '2rem', fontSize: '0.95rem' }}>
-          Au-delà de 35h/mois → devis sur mesure.
-        </p>
       </section>
 
-      {/* SECTION 3 — MISSION À L'HEURE */}
-      <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
-        <div style={{
-          padding: '2rem',
-          background: 'rgba(14, 165, 233, 0.05)',
-          border: '1px solid rgba(14, 165, 233, 0.2)',
-          borderRadius: '1rem',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          gap: '2rem',
-          flexWrap: 'wrap',
-        }}>
-          <div>
-            <h2 style={{ margin: 0, fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)' }}>Mission à l&apos;heure</h2>
-            <p style={{ margin: '0.5rem 0 0', color: 'var(--secondary)', lineHeight: 1.5 }}>
-              Pour les missions ponctuelles, sans engagement.
-            </p>
-          </div>
-          <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--primary)', whiteSpace: 'nowrap' }}>
-            {MISSION_HOURLY_RATE}€/h HT
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 3 BIS — ROI : CE QUE VOUS GAGNEZ EN DÉLÉGUANT */}
+      {/* SECTION 3 — MAINTENANCE MENSUELLE */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 1rem' }}>
-          Ce que vous gagnez vraiment
+          Maintenance mensuelle
         </h2>
-        <p style={{ textAlign: 'center', color: 'var(--secondary)', maxWidth: '640px', margin: '0 auto 3rem', lineHeight: 1.6 }}>
-          Le tarif n&apos;est qu&apos;une partie de l&apos;équation. Voilà ce qu&apos;un pack OptiPro vous rapporte concrètement chaque mois.
+        <p style={{ textAlign: 'center', color: 'var(--secondary)', maxWidth: '580px', margin: '0 auto 3rem', lineHeight: 1.6 }}>
+          Pour garder votre site à jour sans y penser.
         </p>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-          {/* CARD 1 — TEMPS */}
-          <article style={{
-            padding: '1.75rem',
-            background: 'var(--background)',
-            border: '1px solid var(--border)',
-            borderRadius: '1rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.75rem',
-          }}>
-            <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--accent)', lineHeight: 1 }}>
-              +5 à 10h
-            </div>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', margin: 0 }}>
-              récupérées par semaine
-            </h3>
-            <p style={{ margin: 0, color: 'var(--secondary)', fontSize: '0.95rem', lineHeight: 1.55 }}>
-              Plus de soirées à faire des devis. Plus de relances oubliées. Vous récupérez vos week-ends et votre énergie.
-            </p>
-          </article>
-
-          {/* CARD 2 — MARGE */}
-          <article style={{
-            padding: '1.75rem',
-            background: 'var(--background)',
-            border: '1px solid var(--border)',
-            borderRadius: '1rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.75rem',
-          }}>
-            <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--accent)', lineHeight: 1 }}>
-              +2 à 5k€
-            </div>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', margin: 0 }}>
-              d&apos;impayés récupérés/mois
-            </h3>
-            <p style={{ margin: 0, color: 'var(--secondary)', fontSize: '0.95rem', lineHeight: 1.55 }}>
-              Les relances systématiques (J+15, J+30, J+45) récupèrent ce qui passait à la trappe entre deux interventions.
-            </p>
-          </article>
-
-          {/* CARD 3 — CA ADDITIONNEL */}
-          <article style={{
-            padding: '1.75rem',
-            background: 'var(--background)',
-            border: '1px solid var(--border)',
-            borderRadius: '1rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.75rem',
-          }}>
-            <div style={{ fontSize: '2rem', fontWeight: 800, color: 'var(--accent)', lineHeight: 1 }}>
-              +15 à 25%
-            </div>
-            <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--primary)', margin: 0 }}>
-              de taux de signature
-            </h3>
-            <p style={{ margin: 0, color: 'var(--secondary)', fontSize: '0.95rem', lineHeight: 1.55 }}>
-              Devis envoyés sous 1h après votre vocal WhatsApp. Le client n&apos;a pas le temps d&apos;aller voir ailleurs.
-            </p>
-          </article>
-        </div>
-
-        {/* CALCUL CONCRET */}
-        <div style={{
-          padding: '2rem',
-          background: 'rgba(249, 115, 22, 0.05)',
-          border: '1px solid rgba(249, 115, 22, 0.2)',
-          borderRadius: '1rem',
-          marginTop: '1rem',
-        }}>
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1rem' }}>
-            Le calcul honnête sur un Pack Croissance (20h/mois — 1 200€)
-          </h3>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', color: 'var(--secondary)', lineHeight: 1.55 }}>
-              <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>→</span>
-              <span><strong style={{ color: 'var(--primary)' }}>5h/semaine récupérées</strong> = 20h/mois où vous facturez votre métier au lieu de faire de l&apos;admin</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', color: 'var(--secondary)', lineHeight: 1.55 }}>
-              <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>→</span>
-              <span><strong style={{ color: 'var(--primary)' }}>20h × votre taux horaire (50-80€)</strong> = 1 000 à 1 600€ de capacité de production en plus</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', color: 'var(--secondary)', lineHeight: 1.55 }}>
-              <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>→</span>
-              <span><strong style={{ color: 'var(--primary)' }}>+ 2 à 5k€ d&apos;impayés récupérés</strong> = trésorerie qui rentre au lieu de stagner</span>
-            </li>
-            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', color: 'var(--secondary)', lineHeight: 1.55 }}>
-              <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>→</span>
-              <span><strong style={{ color: 'var(--primary)' }}>+ devis signés plus vite</strong> = 1-3 chantiers/mois supplémentaires</span>
-            </li>
-          </ul>
-          <p style={{ marginTop: '1.25rem', marginBottom: 0, color: 'var(--primary)', fontWeight: 600, fontSize: '0.95rem' }}>
-            ROI mensuel typique : <strong>3 000 à 6 000€</strong> de gain net après déduction du pack (1 200€).
-          </p>
-          <p style={{ marginTop: '0.5rem', marginBottom: 0, color: 'var(--secondary)', fontSize: '0.85rem', fontStyle: 'italic' }}>
-            Estimations issues de la méthodologie OptiPro appliquée à des profils types d&apos;artisans et TPE — à valider en appel découverte sur vos chiffres réels. Le ROI exact dépend de votre volume d&apos;activité et de vos taux horaires.
-          </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+          {MAINTENANCE_PACKS.map((pack) => (
+            <article key={pack.id} style={{
+              padding: '2rem 1.75rem',
+              background: 'var(--background)',
+              border: pack.recommended ? '2px solid var(--accent)' : '1px solid var(--border)',
+              borderRadius: '1.25rem',
+              marginTop: pack.recommended ? '0.85rem' : 0,
+              position: 'relative',
+              boxShadow: pack.recommended ? '0 8px 32px rgba(249, 115, 22, 0.15)' : 'none',
+              display: 'flex',
+              flexDirection: 'column',
+            }}>
+              {pack.recommended && (
+                <span style={{
+                  position: 'absolute', top: '-0.85rem', left: '50%', transform: 'translateX(-50%)',
+                  background: 'var(--accent)', color: 'var(--on-accent)',
+                  padding: '0.3rem 0.85rem', borderRadius: '999px',
+                  fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase',
+                  letterSpacing: '0.04em',
+                }}>Recommandé</span>
+              )}
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1rem' }}>{pack.name}</h3>
+              <div style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--primary)', margin: '0 0 0.25rem', lineHeight: 1 }}>
+                {pack.price}
+              </div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--secondary)', marginBottom: '1.5rem' }}>HT</div>
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 1.5rem', display: 'flex', flexDirection: 'column', gap: '0.55rem', flex: 1 }}>
+                {pack.features.map((feature) => (
+                  <li key={feature} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.9rem', color: 'var(--secondary)' }}>
+                    <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/contact" style={{
+                display: 'block', textAlign: 'center', padding: '0.85rem 1.25rem',
+                background: pack.recommended ? 'var(--accent)' : 'var(--primary)',
+                color: pack.recommended ? 'var(--on-accent)' : 'var(--on-primary)',
+                borderRadius: '0.75rem', textDecoration: 'none', fontWeight: 600,
+                fontSize: '0.95rem',
+              }}>
+                Choisir cette formule
+              </Link>
+            </article>
+          ))}
         </div>
       </section>
 
-      {/* SECTION 3 TER — CALCULATEUR ROI INTERACTIF */}
-      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
-        <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 1rem' }}>
-          Calculez votre ROI personnalisé
-        </h2>
-        <p style={{ textAlign: 'center', color: 'var(--secondary)', maxWidth: '640px', margin: '0 auto 2.5rem', lineHeight: 1.6 }}>
-          Entrez vos chiffres réels, obtenez une estimation chiffrée du gain mensuel sur votre activité.
-        </p>
-        <RoiCalculator />
-      </section>
-
-      {/* SECTION 4 — INCLUS DANS TOUS LES PACKS */}
+      {/* SECTION 4 — CE QUI EST INCLUS */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 2.5rem' }}>
-          Inclus dans tous les packs
+          Inclus dans chaque projet
         </h2>
         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '0.85rem' }}>
-          {INCLUS_DANS_TOUS.map((item) => (
+          {INCLUS_DANS_CHAQUE_PROJET.map((item) => (
             <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.65rem', fontSize: '0.95rem', color: 'var(--secondary)', lineHeight: 1.5 }}>
               <span aria-hidden="true" style={{ color: 'var(--accent)', fontWeight: 700 }}>✓</span>
               <span>{item}</span>
@@ -284,66 +230,7 @@ export default function TarifsClient() {
         </ul>
       </section>
 
-      {/* SECTION 5 — ENGAGEMENT & RÉSILIATION */}
-      <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
-        <article style={{
-          padding: '2rem',
-          background: 'var(--background)',
-          border: '1px solid var(--border)',
-          borderRadius: '1rem',
-        }}>
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1rem' }}>
-            Engagement &amp; résiliation
-          </h2>
-          <p style={{ color: 'var(--secondary)', lineHeight: 1.65, marginBottom: '0.85rem' }}>
-            <strong style={{ color: 'var(--primary)' }}>Mission à l&apos;heure</strong> : aucun engagement. Devis à la mission, payé à l&apos;exécution.
-          </p>
-          <p style={{ color: 'var(--secondary)', lineHeight: 1.65, marginBottom: '0.85rem' }}>
-            <strong style={{ color: 'var(--primary)' }}>Pack mensuel</strong> : 1 mois reconductible tacitement.
-          </p>
-          <p style={{ color: 'var(--secondary)', lineHeight: 1.65, marginBottom: '0.85rem' }}>
-            <strong style={{ color: 'var(--primary)' }}>Résiliation</strong> : par email à p.laurent@opti-pro.fr, préavis 15 jours fin de mois.
-          </p>
-          <p style={{ color: 'var(--secondary)', lineHeight: 1.65, margin: 0 }}>
-            <strong style={{ color: 'var(--primary)' }}>Vos données</strong> restent les vôtres, exportables à tout moment.
-          </p>
-        </article>
-      </section>
-
-      {/* SECTION 6 — COMPARATEUR "ÇA COÛTE COMBIEN AILLEURS ?" */}
-      <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
-        <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 2.5rem' }}>
-          Ça coûte combien ailleurs ?
-        </h2>
-        <p style={{ textAlign: 'center', color: 'var(--secondary)', maxWidth: '620px', margin: '0 auto 3rem', lineHeight: 1.6 }}>
-          Pour un suivi régulier (~20h/mois).
-        </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          {COMPARATEUR_ROWS.map((row) => (
-            <div key={row.label} style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'flex-start',
-              gap: '1.5rem',
-              padding: '1.25rem 1.5rem',
-              background: row.highlight ? 'rgba(249, 115, 22, 0.08)' : 'transparent',
-              border: row.highlight ? '1px solid rgba(249, 115, 22, 0.3)' : '1px solid var(--border)',
-              borderRadius: '0.85rem',
-              flexWrap: 'wrap',
-            }}>
-              <div style={{ flex: '1 1 280px', minWidth: 0 }}>
-                <div style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '0.25rem' }}>{row.label}</div>
-                <div style={{ fontSize: '0.85rem', color: 'var(--secondary)' }}>{row.detail}</div>
-              </div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 700, color: row.highlight ? 'var(--accent)' : 'var(--primary)', whiteSpace: 'nowrap' }}>
-                {row.price}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* SECTION 7 — FAQ */}
+      {/* SECTION 5 — FAQ */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 2.5rem' }}>
           Questions fréquentes
@@ -357,20 +244,20 @@ export default function TarifsClient() {
         </div>
       </section>
 
-      {/* SECTION 8 — MENTION TVA */}
+      {/* SECTION 6 — MENTION TVA */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 4rem', textAlign: 'center' }}>
         <p style={{ color: 'var(--secondary)', fontSize: '0.85rem', fontStyle: 'italic', margin: 0 }}>
           Tarifs HT — TVA non applicable, art. 293 B du CGI.
         </p>
       </section>
 
-      {/* SECTION 9 — CTA FINAL */}
+      {/* SECTION 7 — CTA FINAL */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 3rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: 'var(--primary)', margin: '0 0 1rem' }}>
-          Pas sûr du pack adapté ? Discutons-en.
+          Pas sûr de ce dont vous avez besoin ?
         </h2>
         <p style={{ color: 'var(--secondary)', marginBottom: '2rem', lineHeight: 1.6 }}>
-          30 minutes en visio, gratuit. Je vous guide vers le bon palier selon votre besoin.
+          30 minutes en visio, gratuit. On parle de votre projet, je vous propose la bonne formule.
         </p>
         <Link href="/contact" style={{
           display: 'inline-block',

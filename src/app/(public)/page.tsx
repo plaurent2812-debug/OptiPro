@@ -5,22 +5,22 @@ import { FAQ_HOMEPAGE } from '@/data/faq';
 import HomePageClient from './HomePageClient';
 
 export const metadata: Metadata = {
-  title: { absolute: 'OptiPro — Le bras droit administratif des artisans' },
+  title: { absolute: 'OptiPro — Sites & outils web sur mesure pour artisans et TPE' },
   description:
-    "Le bras droit administratif des artisans, indépendants et TPE. Devis, ADV, facturation, suivi — sur une mission ponctuelle ou en accompagnement régulier. À partir de 650€/mois.",
+    "Sites vitrines dès 990€, web apps et outils métier sur mesure pour artisans et TPE. Dix ans d'opérations, le développement en plus. Premier appel gratuit.",
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
-    title: 'OptiPro — Le bras droit des artisans, indépendants et TPE',
+    title: 'OptiPro — Sites & outils web sur mesure pour artisans et TPE',
     description:
-      "Mission ponctuelle ou accompagnement régulier — 75€/h ou en pack mensuel. À partir de 650€/mois.",
+      "Sites vitrines dès 990€, web apps et outils métier sur mesure. Maintenance dès 79€/mois. Premier appel gratuit.",
     locale: 'fr_FR',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'OptiPro — Le bras droit administratif des artisans, indépendants et TPE en PACA',
+        alt: 'OptiPro — Sites vitrines, web apps et outils métier sur mesure pour artisans et TPE',
       },
     ],
   },
@@ -29,19 +29,19 @@ export const metadata: Metadata = {
 const homepageServiceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  serviceType: 'AdministrativeService',
-  name: 'OptiPro Mission — Le bras droit des artisans, indépendants et TPE',
+  serviceType: 'WebDevelopment',
+  name: 'OptiPro — Sites vitrines, web apps et outils métier sur mesure',
   description:
-    "Mission ponctuelle ou accompagnement régulier : 75€/h ou en pack mensuel (Essentiel 10h / Croissance 20h / Pilotage 35h). Devis, ADV, fournisseurs, suivi de projet, facturation. Sans engagement long.",
+    "Création de sites vitrines (990€ et 1 390€), web apps et outils métier sur mesure pour artisans et TPE. Maintenance mensuelle dès 79€/mois. Périmètre et livrables définis au devis.",
   provider: { '@id': 'https://www.opti-pro.fr/#organization' },
   areaServed: 'FR',
   url: 'https://www.opti-pro.fr',
   offers: {
     '@type': 'AggregateOffer',
-    lowPrice: '650',
-    highPrice: '1950',
+    lowPrice: '990',
+    highPrice: '1390',
     priceCurrency: 'EUR',
-    offerCount: 3,
+    offerCount: 2,
   },
 };
 

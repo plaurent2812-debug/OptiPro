@@ -179,3 +179,91 @@ export function formatPrice(price: number): string {
     ? `${Math.floor(price / 1000)} ${(price % 1000).toString().padStart(3, '0')}€`
     : `${price}€`;
 }
+
+// === OFFRES WEB (repositionnement juin 2026 — dev opérationnel) ===
+
+export interface WebOffer {
+  id: 'site-vitrine' | 'site-vitrine-pro' | 'web-app';
+  name: string;
+  price: number | null; // null = sur devis
+  priceLabel: string;
+  cible: string;
+  features: string[];
+  recommended?: boolean;
+}
+
+export const WEB_OFFERS: WebOffer[] = [
+  {
+    id: 'site-vitrine',
+    name: 'Site vitrine',
+    price: 990,
+    priceLabel: '990€',
+    cible: "Pour être trouvé sur Google et présenter votre activité avec un site professionnel.",
+    features: [
+      '3 à 4 pages sur mesure',
+      'Hébergement 1 an inclus',
+      'Nom de domaine inclus',
+      'Adresse email professionnelle',
+    ],
+  },
+  {
+    id: 'site-vitrine-pro',
+    name: 'Site vitrine Pro',
+    price: 1390,
+    priceLabel: '1 390€',
+    cible: "Pour transformer les visiteurs en clients : formulaire, Google My Business et visibilité locale.",
+    features: [
+      'Tout le pack Site vitrine',
+      'Formulaire de contact fonctionnel',
+      'Fiche Google My Business',
+      'SEO local',
+    ],
+    recommended: true,
+  },
+  {
+    id: 'web-app',
+    name: 'Web app / outil métier',
+    price: null,
+    priceLabel: 'Sur devis',
+    cible: "Pour remplacer le papier et les fichiers Excel par une plateforme sur mesure, adaptée à vos process.",
+    features: [
+      'Plateforme web sur mesure',
+      'Conçue autour de vos process métier',
+      'Périmètre et livrables définis au devis',
+    ],
+  },
+];
+
+export interface MaintenancePlan {
+  id: 'maintenance-essentiel' | 'maintenance-pro';
+  name: string;
+  monthlyPrice: number; // HT/mois
+  hoursPerMonth: number;
+  features: string[];
+  recommended?: boolean;
+}
+
+export const MAINTENANCE_PLANS: MaintenancePlan[] = [
+  {
+    id: 'maintenance-essentiel',
+    name: 'Maintenance Essentiel',
+    monthlyPrice: 79,
+    hoursPerMonth: 1,
+    features: [
+      '1h par mois',
+      'Mises à jour de contenu (textes, photos, horaires)',
+    ],
+  },
+  {
+    id: 'maintenance-pro',
+    name: 'Maintenance Pro',
+    monthlyPrice: 129,
+    hoursPerMonth: 2,
+    features: [
+      '2h par mois',
+      'Mises à jour de contenu + petites évolutions',
+      'Traitement prioritaire',
+    ],
+    recommended: true,
+  },
+];

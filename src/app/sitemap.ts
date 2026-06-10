@@ -13,8 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: baseUrl, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'weekly', priority: 1.0 },
     { url: `${baseUrl}/le-service`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/tarifs`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.95 },
-    { url: `${baseUrl}/methode`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.85 },
-    { url: `${baseUrl}/pourquoi-ce-prix`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/contact`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/a-propos`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/temoignages`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.7 },

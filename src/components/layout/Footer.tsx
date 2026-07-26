@@ -93,6 +93,13 @@ export default function Footer() {
                                 <Link href="/services/cagnes-sur-mer" className="footer-link" style={{ color: 'var(--muted)' }}>Cagnes-sur-Mer</Link>{' '}
                                 · France entière à distance
                             </li>
+                            <li style={{ color: 'var(--muted)', fontSize: '0.85rem', lineHeight: 1.7 }}>
+                                Sites pour{' '}
+                                <Link href="/services/plombier" className="footer-link" style={{ color: 'var(--muted)' }}>plombiers</Link>,{' '}
+                                <Link href="/services/electricien" className="footer-link" style={{ color: 'var(--muted)' }}>électriciens</Link>,{' '}
+                                <Link href="/services/serrurier" className="footer-link" style={{ color: 'var(--muted)' }}>serruriers</Link>,{' '}
+                                <Link href="/services/restaurateur" className="footer-link" style={{ color: 'var(--muted)' }}>restaurateurs</Link>
+                            </li>
                             <li>
                                 <a
                                     href="tel:+33670259333"
@@ -152,8 +159,10 @@ export default function Footer() {
                         >
                             Confidentialité
                         </Link>
+                        {/* rel=nofollow : /admin est disallow en robots.txt, inutile d'y envoyer les crawlers */}
                         <Link
                             href="/admin/login"
+                            rel="nofollow"
                             className="footer-link footer-link--muted"
                             style={{ fontSize: '0.85rem', color: 'var(--muted)', textDecoration: 'none', marginLeft: '1rem', borderLeft: '1px solid var(--border)', paddingLeft: '1.5rem' }}
                         >

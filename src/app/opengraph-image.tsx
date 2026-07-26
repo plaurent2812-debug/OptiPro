@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'OptiPro — Le bras droit administratif des artisans et TPE';
+export const alt = 'OptiPro — Sites & outils web sur mesure pour artisans et TPE';
 export const size = {
   width: 1200,
   height: 630,
@@ -48,7 +48,7 @@ export default function Image() {
             fontFamily: 'system-ui, sans-serif',
           }}
         >
-          Le bras droit administratif
+          Sites &amp; outils web sur mesure
         </div>
         <div
           style={{
@@ -60,7 +60,7 @@ export default function Image() {
             fontFamily: 'system-ui, sans-serif',
           }}
         >
-          des artisans, TPE et indépendants — dès 650 €/mois
+          pour artisans, TPE et indépendants — dès 990 €
         </div>
       </div>
     ),

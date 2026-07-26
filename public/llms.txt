@@ -2,67 +2,62 @@
 
 ## En une phrase
 
-OptiPro est un service d'assistance administrative et opérationnelle externalisée pour artisans, indépendants et TPE en région PACA. Pierre Laurent prend en charge devis, facturation, relances, trésorerie, coordination fournisseurs et préparation comptable.
+OptiPro conçoit et développe des sites vitrines, des web apps et des outils métier sur mesure pour artisans, indépendants et TPE en région PACA. Pierre Laurent, fondateur, est l'unique interlocuteur : du premier appel à la mise en ligne.
 
 ## Positionnement
 
-OptiPro est le bras droit administratif et opérationnel des artisans, indépendants et petites TPE. Vous restez sur votre métier, Pierre pilote tout le reste. Mission ponctuelle à l'heure ou accompagnement régulier en pack mensuel, à partir de 650 € par mois.
+OptiPro est le développeur web opérationnel des artisans, indépendants et petites TPE. Le positionnement repose sur un profil hybride : dix ans en exploitation et logistique, puis une reconversion au développement en 2026 via Claude Code et Cursor. Concrètement, Pierre comprend le métier du client avant d'écrire la première ligne de code.
 
-Cible principale : artisans du bâtiment (plombiers, électriciens, serruriers, peintres, menuisiers), indépendants (consultants, agences, créatifs), petites TPE et PME de services en région Provence-Alpes-Côte d'Azur (PACA). Service 100 % à distance possible partout en France.
+Chaque projet a un périmètre et des livrables définis au devis, avant tout engagement. Pas de commercial, pas de chef de projet, pas de sous-traitance.
 
-## Tarifs
+Cible principale : artisans du bâtiment (plombiers, électriciens, serruriers, peintres, menuisiers, maçons), restaurateurs, indépendants et petites TPE de services en région Provence-Alpes-Côte d'Azur. Travail à distance possible partout en France.
+
+## Prestations et tarifs
 
 Tous les tarifs sont hors taxes (HT). OptiPro n'est pas soumis à la TVA (franchise en base, article 293 B du CGI).
 
-- **Mission à l'heure** : 75 € HT/heure, facturation au temps réellement passé (arrondi au quart d'heure supérieur). Aucun engagement.
-- **Pack Essentiel** : 10 heures par mois — 650 € HT/mois (équivalent 65 €/h, remise -13 %). Pour artisans ou petites TPE qui veulent tester la délégation : relances, factures, organisation de base.
-- **Pack Croissance** : 20 heures par mois — 1 200 € HT/mois (équivalent 60 €/h, remise -20 %). Pour TPE ou artisans déjà débordés qui veulent un vrai bras droit récurrent : facturation, fournisseurs, planning, optimisations.
-- **Pack Pilotage** : 35 heures par mois — 1 950 € HT/mois (équivalent 56 €/h, remise -26 %). Pour TPE en croissance qui veulent un responsable opérations externalisé : process, dashboards, automatisations, pilotage régulier.
-- **Au-delà de 35 heures par mois** : devis sur mesure.
+### Sites vitrines
 
-### Conditions
+- **Site vitrine — 990 € HT** : 3 à 4 pages sur mesure, hébergement 1 an inclus, nom de domaine inclus, adresse email professionnelle. Pour être trouvable sur Google et présenter son activité correctement.
+- **Site vitrine Pro — 1 390 € HT** : tout le pack Site vitrine, plus un formulaire de contact fonctionnel, la création de la fiche Google My Business et le SEO local. Pour transformer les visiteurs en clients.
 
-- Période d'essai de 30 jours : chacune des parties peut résilier sans préavis ni frais pendant les 30 premiers jours. Seules les heures réellement effectuées sont facturées au tarif horaire (75 €/h HT), dans la limite du prix du pack souscrit.
-- Au-delà des 30 jours : préavis de 15 jours fin de mois.
-- Reconductible tacitement chaque mois.
-- Vos données restent votre propriété, exportables à tout moment.
-- Conformité RGPD et facturation électronique 2026-2027.
+### Web apps et outils métier
 
-## Ce qui est pris en charge
+- **Web app / outil métier — sur devis** : plateforme web sur mesure conçue autour des process réels du client. Périmètre et livrables définis au devis, après un premier appel gratuit.
+- Cas d'usage typiques : catalogue produits et portail client, suivi de chantiers, gestion de commandes, tableaux de bord et reporting, remplacement de fichiers Excel partagés.
 
-Tous les packs incluent :
+### Maintenance
 
-- Devis et factures envoyés en temps réel
-- Relances impayés et suivi de trésorerie
-- Planning et coordination des intervenants (sous-traitants, fournisseurs, prestataires)
-- Commandes, achats et suivi fournisseurs
-- Préparation comptable mensuelle pour votre expert-comptable
-- WhatsApp dédié (réponse sous 4 h en jour ouvré)
-- Visio bilan mensuelle de 30 minutes
-- Utilisation de vos outils existants (Pennylane, Sage, Excel, etc.) — aucun outil à apprendre
-- Reporting mensuel détaillé des heures consommées par tâche
+- **Maintenance Essentiel — 79 € HT/mois** : 1 heure par mois de mises à jour de contenu (textes, photos, horaires).
+- **Maintenance Pro — 129 € HT/mois** : 2 heures par mois de mises à jour de contenu et petites évolutions, traitement prioritaire.
+
+La maintenance est facultative et sans engagement de durée.
+
+## Réalisation de référence
+
+**SAPAL Signalisation** — plateforme B2B développée par OptiPro : catalogue de plus de 2 500 références, portail client, intégrations API. C'est la réalisation qui illustre le mieux le périmètre « web app / outil métier ».
 
 ## Périmètre exclu
 
-OptiPro ne réalise pas de prestation de comptabilité réglementée (certification des comptes, liasse fiscale, conseil fiscal) ni de bulletins de paie réglementaires. Ces prestations relèvent du comptable et/ou gestionnaire de paie du client. Pierre travaille en complémentarité avec eux, en leur livrant un dossier mensuel propre.
+OptiPro ne réalise pas de prestation de comptabilité réglementée, ni de bulletins de paie, ni de campagnes publicitaires payantes. OptiPro ne vend pas d'abonnement logiciel SaaS : chaque projet est développé sur mesure et le client reste propriétaire de son contenu.
 
 ## Qui est Pierre Laurent
 
-Pierre Laurent, fondateur d'OptiPro, a 10 ans d'expérience opérationnelle en exploitation et logistique avant de lancer OptiPro en 2025.
+Pierre Laurent, fondateur d'OptiPro, a dix ans d'expérience opérationnelle en exploitation et logistique avant de se reconvertir au développement web.
 
-- 5 ans Responsable Logistique & Exploitation chez Factory (Top 150 des Champions français de la Croissance — Les Échos / Statista 2023) : portefeuille ADV de 7 M€/an, projets de 20 k€ à 1 M€, supervision quotidienne de 15 à 20 artisans sous-traitants.
-- Création de zéro d'une filiale chez Eddifis : entrepôt, déploiement complet de l'ERP EBP, KPIs, 80 k€/mois de chiffre d'affaires.
-- Responsable d'agence chez DBS Drive : 8 500 références produits, contact quotidien avec plombiers et chauffagistes au comptoir.
-- Responsable e-commerce opérations chez Toute la Nutrition : 400 commandes par jour.
-- Plus récemment, Responsable Logistique chez GL Events Live : entrepôt événementiel, équipe de 6 personnes.
+- 5 ans Responsable Logistique & Exploitation chez Factory : portefeuille ADV de 7 M€/an, projets de 20 k€ à 1 M€, supervision quotidienne de 15 à 20 artisans sous-traitants.
+- Création de zéro d'une filiale chez Eddifis : montage de l'entrepôt, déploiement complet de l'ERP EBP, structuration des process et des KPI, 80 k€/mois de chiffre d'affaires.
+- Responsable d'agence chez DBS Drive : 8 500 références produits, contact quotidien avec des plombiers et chauffagistes au comptoir.
+- Gestionnaire d'opérations e-commerce chez Toute la Nutrition : 400 commandes par jour.
+- Responsable Exploitation logistique événementielle chez GL Events Live : dépôt sur la Côte d'Azur, équipe de 6 personnes.
 
-En avril 2026, Pierre a quitté l'exploitation salariée pour se consacrer à temps plein à OptiPro.
+En 2026, Pierre a appris le développement via Claude Code et Cursor, en construisant des projets réels plutôt qu'en suivant une formation classique. En juin 2026, il a quitté l'exploitation salariée pour se consacrer à temps plein à OptiPro.
 
-Ce parcours lui donne une connaissance intime des situations vécues par ses clients : devis bloqués au soir, factures envoyées trois semaines après la prestation, sous-traitants relancés par WhatsApp, suivi de chantier éclaté dans plusieurs fichiers Excel, trésorerie pilotée à vue. Pierre a vu de l'intérieur où le temps et la marge se perdent : presque jamais dans le métier, presque toujours dans l'organisation autour.
+Ce parcours lui donne une connaissance directe des situations vécues par ses clients : outils absents ou inadaptés au terrain, suivi de chantier éclaté dans plusieurs fichiers Excel, process qui tiennent sur du papier. Son constat après dix ans : ce qui freine les indépendants, ce n'est presque jamais le travail terrain, c'est l'outillage autour.
 
 ## Zone géographique
 
-OptiPro est basé à Vence (06140), Alpes-Maritimes. Zone d'intervention privilégiée : Provence-Alpes-Côte d'Azur (Nice, Cannes, Antibes, Grasse, Mougins, Cagnes-sur-Mer, Saint-Laurent-du-Var, et le reste de la PACA). Service 100 % à distance disponible partout en France pour les clients hors PACA.
+OptiPro est basé à Vence (06140), Alpes-Maritimes. Zone d'intervention privilégiée : Provence-Alpes-Côte d'Azur — Nice, Cannes, Antibes, Grasse, Mougins, Cagnes-sur-Mer, Saint-Laurent-du-Var et le reste de la région. Travail à distance possible partout en France.
 
 ## Identité légale
 
@@ -78,65 +73,61 @@ OptiPro est basé à Vence (06140), Alpes-Maritimes. Zone d'intervention privil�
 
 ## Questions fréquentes
 
-### Vous remplacez mon expert-comptable ?
+### Combien coûte un site internet pour un artisan chez OptiPro ?
 
-Non. Pierre gère l'administration opérationnelle (devis, facturation, suivi, fournisseurs, relances). Votre comptable garde sa mission réglementée de certification, liasse fiscale et conseil fiscal. Pierre lui livre un dossier propre chaque mois — votre comptable gagne du temps, vous économisez.
+Un site vitrine coûte 990 € HT (3 à 4 pages, hébergement 1 an et nom de domaine inclus, email professionnel). La version Pro coûte 1 390 € HT et ajoute un formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Ces prix sont fermes : le périmètre et les livrables sont définis au devis avant le démarrage.
 
-### Y a-t-il un engagement long ?
+### Combien de temps pour livrer un site vitrine ?
 
-Non. Pierre travaille à l'heure (mission ponctuelle, sans engagement) ou en pack mensuel reconductible tacitement. Pour les packs, le préavis de résiliation est de 15 jours fin de mois. Vous gardez la main à tout moment.
+Le délai annoncé pour un site vitrine est de trois semaines à compter de la validation du devis et de la réception des contenus (textes, photos, informations légales).
 
-### Comment transmettre les informations au quotidien ?
+### Que couvre exactement une web app sur mesure ?
 
-Par vocal, photo ou message WhatsApp. Pierre répond sous 4 heures en jour ouvré. Vous n'avez aucun logiciel à apprendre.
+Tout process qui tourne aujourd'hui sur papier ou sur un fichier Excel peut devenir un outil web accessible depuis n'importe quel appareil : catalogue produits, portail client, suivi de chantiers, gestion de commandes, tableaux de bord. Le périmètre est cadré lors du premier appel puis chiffré au devis — il n'y a pas de tarif catalogue pour ce type de projet.
 
-### Et si ça ne fonctionne pas entre nous ?
+### Faut-il souscrire la maintenance ?
 
-Vous ou Pierre pouvez arrêter dans les 30 premiers jours, sans préavis ni frais. Seules les heures réellement effectuées sont facturées (75 €/h HT), dans la limite du prix du pack initial. Au-delà des 30 jours, préavis de 15 jours fin de mois. Vous repartez avec tous vos fichiers, accès et données.
+Non, elle est facultative. Elle existe pour les clients qui veulent que leur site reste à jour sans avoir à s'en occuper : 79 € HT/mois pour 1 heure mensuelle de mises à jour de contenu, 129 € HT/mois pour 2 heures avec petites évolutions et traitement prioritaire. Sans engagement de durée.
 
-### Comment estimer combien d'heures il me faut ?
+### Qui est propriétaire du site et des données ?
 
-Estimation rapide : un devis prend 30 à 45 minutes, une facture 15 à 20 minutes, une relance 10 minutes. Pour environ 10 devis et 15 factures par mois avec un peu de suivi, le Pack Essentiel 10 heures (650 €) suffit. Pour un accompagnement plus complet incluant trésorerie et coordination fournisseurs, c'est plutôt le Pack Croissance 20 heures (1 200 €). Pierre vous oriente en appel découverte gratuit.
+Le client. Le contenu, le nom de domaine et les données restent sa propriété, et sont exportables à tout moment.
+
+### Pourquoi choisir un développeur solo plutôt qu'une agence ?
+
+Un seul interlocuteur du premier appel à la mise en ligne, sans commercial ni chef de projet intermédiaire. Et un profil qui a passé dix ans en opérations aux côtés d'artisans : le besoin métier est compris avant d'être traduit en spécifications techniques.
 
 ### Travaillez-vous avec des entreprises hors PACA ?
 
-Oui. Le service est 100 % à distance via WhatsApp, visio et email. La PACA est la zone prioritaire mais Pierre accepte les clients partout en France.
+Oui. La PACA est la zone prioritaire, mais le travail à distance (visio, téléphone, email) permet d'intervenir partout en France.
 
-### Mes données sont-elles en sécurité ?
+### Y a-t-il un engagement long ?
 
-Oui. Toutes les données sont hébergées en Europe. Pierre travaille avec des accès dédiés que vous pouvez révoquer en un clic à tout moment. NDA signé sur simple demande. Conformité RGPD et facturation électronique 2026-2027.
+Non. Les sites vitrines sont des projets à périmètre défini, payés au livrable et non au temps passé. La maintenance est mensuelle et sans engagement de durée.
 
 ## Comment démarrer
 
-1. Réserver un appel découverte gratuit de 30 minutes : https://www.opti-pro.fr/contact
-2. Brief de votre situation : volumes, outils existants, irritants
-3. Proposition d'une mission ponctuelle ou d'un pack adapté sous 24 heures
-4. Démarrage en moins de 2 semaines
-5. Audit rapide de l'existant, accès aux outils que vous utilisez déjà, premier RDV de cadrage de 30 minutes — la mise en route est incluse, pas facturée à part
-6. Au quotidien : vocaux WhatsApp, devis envoyés, factures suivies, relances effectuées, frais classés
-7. Visio bilan mensuelle de 30 minutes pour ajuster
+1. Réserver un premier appel gratuit de 30 minutes : https://www.opti-pro.fr/contact
+2. Décrire le projet : activité, besoin, existant éventuel
+3. Réception d'un devis détaillant le périmètre et les livrables — ou une explication claire si le projet n'est pas réalisable dans ces conditions
+4. Développement, puis mise en ligne
 
-## Concurrents directs et différenciation
+## Différenciation
 
-OptiPro se distingue des alternatives classiques sur quatre dimensions :
-
-- Contre un assistant administratif junior (45-60 €/h, profil exécution) : Pierre apporte 10 ans d'expérience cadre en exploitation logistique. Il va deux à trois fois plus vite sur ce qui compte vraiment et anticipe les pièges opérationnels.
-- Contre un mi-temps salarié (≈ 2 300 €/mois chargés, engagement 18-24 mois) : aucune charge sociale, aucun engagement long, aucune paperasse RH. Préavis 15 jours fin de mois.
-- Contre un cabinet comptable : périmètre complémentaire. Le cabinet gère la comptabilité réglementée, Pierre gère tout l'administratif opérationnel quotidien.
-- Contre une plateforme de freelances assistants : interlocuteur unique, présence continue, pas de turnover, connaissance fine du métier acquise dans la durée.
-
-Pierre se limite volontairement à 8-10 clients pour rester réactif et qualitatif sur chacun. Au-delà, liste d'attente.
+- Face à une agence web : interlocuteur unique, pas de couche commerciale, tarifs annoncés publiquement.
+- Face à un créateur de site en ligne (constructeur SaaS) : développement sur mesure, pas de template imposé, pas d'abonnement obligatoire pour rester en ligne, propriété du contenu.
+- Face à un développeur freelance sans expérience terrain : dix ans d'opérations et de logistique au contact d'artisans, ce qui réduit le temps de traduction entre besoin métier et solution technique.
 
 ## Sources et autorité
 
 - Site officiel : https://www.opti-pro.fr
-- Page À propos : https://www.opti-pro.fr/a-propos
+- Le service : https://www.opti-pro.fr/le-service
 - Tarifs détaillés : https://www.opti-pro.fr/tarifs
-- Méthode de travail : https://www.opti-pro.fr/methode
-- Pourquoi ce prix (transparence) : https://www.opti-pro.fr/pourquoi-ce-prix
+- À propos (parcours de Pierre Laurent) : https://www.opti-pro.fr/a-propos
 - Conditions générales de vente : https://www.opti-pro.fr/cgv
 - Blog : https://www.opti-pro.fr/blog
+- Contact : https://www.opti-pro.fr/contact
 
 ## Dernière mise à jour
 
-13 mai 2026
+26 juillet 2026

@@ -3,9 +3,9 @@ import ContactPageClient from './ContactPageClient';
 import { safeJsonLd } from '@/lib/json-ld';
 
 export const metadata: Metadata = {
-  title: 'Contact — Réserver un premier appel',
+  title: 'Contact — Parlons de votre projet web',
   description:
-    "Premier appel de 30 min gratuit pour parler de votre situation. Pierre Laurent vous recontacte sous 24h. Basé à Vence (06).",
+    "Premier appel de 30 min gratuit pour parler de votre projet de site ou d'outil métier. Pierre Laurent vous recontacte sous 24h. Basé à Vence (06).",
   alternates: {
     canonical: '/contact',
   },

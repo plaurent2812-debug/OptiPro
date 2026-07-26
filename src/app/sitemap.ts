@@ -4,7 +4,7 @@ import { getAllArticles } from '@/lib/blog';
 // Date de dernière modification du contenu (mise à jour manuelle quand le
 // contenu change vraiment, pas à chaque build). Google ignore les lastmod
 // dynamiques type `new Date()` car ils signalent un sitemap non fiable.
-const LAST_CONTENT_UPDATE = new Date('2026-05-13');
+const LAST_CONTENT_UPDATE = new Date('2026-07-26');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.opti-pro.fr';

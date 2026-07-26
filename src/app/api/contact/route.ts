@@ -4,9 +4,8 @@ import { Resend } from 'resend';
 const cibleLabels: Record<string, string> = {
     artisans: '🔧 Artisan / Indépendant',
     tpe: '🏢 TPE / PME',
-    'pme-ops': '📦 Petite structure',
-    projets: '🚀 Projet sur mesure',
-    abonnement: '🔄 Suivi mensuel',
+    'web-app': '🚀 Web app / outil métier',
+    maintenance: '🔄 Maintenance de site',
     default: 'Demande générale',
 };
 
@@ -15,26 +14,30 @@ function subjectFor(cible: string | undefined, name: string): string {
     return `${baseLabel} — ${name}`;
 }
 
-function getPackEstime(heuresEstimees: string | undefined): string {
-    switch (heuresEstimees) {
-        case '1-5':
-            return "Mission à l'heure (75€/h)";
-        case '5-10':
-            return 'Pack Essentiel — 10h (650€/mois)';
-        case '10-20':
-            return 'Pack Croissance — 20h (1 200€/mois)';
-        case '20-35':
-        case '20-30':
-            return 'Pack Pilotage — 35h (1 950€/mois)';
-        case '35+':
-        case '30+':
-            return 'Sur devis';
+/** Libellé de l'offre visée, aligné sur WEB_OFFERS / MAINTENANCE_PLANS (src/data/pricing.ts). */
+function getOffreEstimee(projet: string | undefined): string {
+    switch (projet) {
+        case 'site-vitrine':
+            return 'Site vitrine — 990€';
+        case 'site-vitrine-pro':
+            return 'Site vitrine Pro — 1 390€';
+        case 'web-app':
+            return 'Web app / outil métier — sur devis';
+        case 'maintenance':
+            return 'Maintenance — dès 79€/mois';
         case 'unknown':
             return 'À déterminer en appel découverte';
         default:
             return 'À déterminer';
     }
 }
+
+const situationLabels: Record<string, string> = {
+    'aucun-site': "N'a pas de site",
+    'site-a-refaire': 'A un site à refaire',
+    'site-a-maintenir': 'A un site à maintenir',
+    'process-a-outiller': 'A un process à outiller',
+};
 
 export async function POST(request: Request) {
     const apiKey = process.env.RESEND_API_KEY;
@@ -44,12 +47,12 @@ export async function POST(request: Request) {
         if (process.env.NODE_ENV === 'development') {
             console.log("⚠️ DEV MODE : Envoi d'email simulé car RESEND_API_KEY n'est pas définie.");
             const body = await request.json();
-            const packEstime = getPackEstime(body?.heuresEstimees);
+            const offreEstimee = getOffreEstimee(body?.projet);
             console.log('Nouveau contact reçu (simulé) :', {
                 ...body,
-                packEstime,
+                offreEstimee,
             });
-            return NextResponse.json({ success: true, simulated: true, packEstime });
+            return NextResponse.json({ success: true, simulated: true, offreEstimee });
         }
 
         console.error('RESEND_API_KEY is not defined or is just a placeholder.');
@@ -65,8 +68,8 @@ export async function POST(request: Request) {
             email,
             phone,
             metier,
-            heuresEstimees,
-            typeBesoin,
+            projet,
+            situation,
             message,
             cible,
         } = body;
@@ -79,7 +82,8 @@ export async function POST(request: Request) {
         }
 
         const cibleLabel = cibleLabels[cible ?? 'default'] ?? 'Demande générale';
-        const packEstime = getPackEstime(heuresEstimees);
+        const offreEstimee = getOffreEstimee(projet);
+        const situationLabel = situationLabels[situation ?? ''] ?? 'Non renseigné';
 
         // --- Enregistrement automatique dans le CRM (Table clients) ---
         const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -91,10 +95,9 @@ export async function POST(request: Request) {
 
                 const notes = [
                     `Cible : ${cibleLabel}`,
-                    `Métier : ${metier || 'Non renseigné'}`,
-                    `Heures estimées/mois : ${heuresEstimees || 'Non renseigné'}`,
-                    `Type de besoin : ${typeBesoin || 'Non renseigné'}`,
-                    `Pack estimé : ${packEstime}`,
+                    `Activité : ${metier || 'Non renseigné'}`,
+                    `Offre visée : ${offreEstimee}`,
+                    `Situation actuelle : ${situationLabel}`,
                     '',
                     'Message :',
                     message || 'Aucun message.',
@@ -144,10 +147,9 @@ export async function POST(request: Request) {
 
                     <h3 style="margin: 0 0 12px; color: #0f172a;">Pré-qualification automatique</h3>
                     <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 14px 16px; border-radius: 8px;">
-                        <p style="margin: 0 0 8px;"><strong>Métier :</strong> ${metier || '<em>Non renseigné</em>'}</p>
-                        <p style="margin: 0 0 8px;"><strong>Heures estimées/mois :</strong> ${heuresEstimees || '<em>Non renseigné</em>'}</p>
-                        <p style="margin: 0 0 8px;"><strong>Type de besoin :</strong> ${typeBesoin || '<em>Non renseigné</em>'}</p>
-                        <p style="margin: 0; font-size: 15px; color: #166534;"><strong>Pack estimé :</strong> ${packEstime}</p>
+                        <p style="margin: 0 0 8px;"><strong>Activité :</strong> ${metier || '<em>Non renseigné</em>'}</p>
+                        <p style="margin: 0 0 8px;"><strong>Situation actuelle :</strong> ${situationLabel}</p>
+                        <p style="margin: 0; font-size: 15px; color: #166534;"><strong>Offre visée :</strong> ${offreEstimee}</p>
                     </div>
 
                     <hr style="margin: 20px 0; border: none; border-top: 1px solid #e2e8f0;" />
@@ -166,7 +168,7 @@ export async function POST(request: Request) {
             );
         }
 
-        return NextResponse.json({ success: true, data, packEstime });
+        return NextResponse.json({ success: true, data, offreEstimee });
     } catch (err: unknown) {
         console.error('Erreur API Contact (catch):', err);
         return NextResponse.json(

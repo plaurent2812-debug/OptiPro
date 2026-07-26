@@ -141,10 +141,10 @@ export default function TemoignagesPage() {
                   Méthode documentée
                 </h3>
                 <p style={{ margin: 0, color: 'var(--secondary)', lineHeight: 1.55 }}>
-                  Toute la méthode OptiPro est expliquée publiquement : process de démarrage, outils utilisés, livrables, cadence. Pas de boîte noire.
+                  Le service est expliqué publiquement : ce qui est livré, à quel prix, dans quel délai. Le périmètre est défini au devis, avant de démarrer. Pas de boîte noire.
                 </p>
-                <Link href="/methode" style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>
-                  Voir la méthode →
+                <Link href="/le-service" style={{ color: 'var(--accent)', textDecoration: 'none', fontWeight: 600, fontSize: '0.95rem' }}>
+                  Voir le service →
                 </Link>
               </article>
 

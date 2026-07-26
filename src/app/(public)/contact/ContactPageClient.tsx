@@ -4,7 +4,7 @@ import { Suspense, useEffect, useState, type FormEvent } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Button from '@/components/ui/Button';
 
-type Cible = 'artisans' | 'tpe' | 'pme-ops' | 'projets' | 'abonnement' | 'default';
+type Cible = 'artisans' | 'tpe' | 'web-app' | 'maintenance' | 'default';
 
 interface CibleConfig {
     intro: string;
@@ -16,55 +16,47 @@ interface CibleConfig {
 
 const cibleConfigs: Record<Cible, CibleConfig> = {
     artisans: {
-        intro: 'Vous êtes artisan ou indépendant. Décrivez votre quotidien admin — devis, factures, relances, classement — on identifie où vous perdez du temps.',
-        projectLabel: 'Ce qui vous prend le plus de temps en admin',
-        projectPlaceholder: 'Ex : je passe mes soirées à faire des devis, j\'ai des impayés depuis 3 mois, je classe mes factures à la main...',
+        intro: "Vous êtes artisan ou indépendant et vous voulez un site qui vous rende trouvable sur Google. Décrivez votre activité — je vous dis ce qui est réaliste et à quel prix.",
+        projectLabel: 'Votre activité et ce que vous attendez du site',
+        projectPlaceholder: "Ex : je suis plombier à Cagnes, je n'ai pas de site, mes clients me trouvent uniquement par bouche-à-oreille...",
         ctaLabel: 'Envoyer ma demande — Pierre me recontacte sous 24h',
-        footnote: 'Premier échange de 30 min gratuit. Mission ponctuelle ou pack mensuel — sans engagement long.',
+        footnote: 'Premier appel de 30 min gratuit. Périmètre et livrables définis au devis, avant tout engagement.',
     },
     tpe: {
-        intro: 'Vous dirigez une TPE. Parlons de votre admin (devis, factures, relances, suivi) — ce que vous gagneriez à déléguer à un assistant dédié.',
-        projectLabel: 'Décrivez votre admin actuelle',
-        projectPlaceholder: 'Ex : 2 jours/semaine perdus en saisie, des relances oubliées, un classement chaotique...',
-        ctaLabel: 'Discuter de mon admin — Réponse sous 24h',
-        footnote: 'Premier échange de 30 min gratuit. Mission ponctuelle ou pack mensuel — sans engagement long.',
+        intro: "Vous dirigez une TPE. Parlons de votre présence en ligne et des outils qui vous feraient gagner du temps au quotidien.",
+        projectLabel: 'Votre projet et le contexte',
+        projectPlaceholder: "Ex : notre site date de 2018 et n'est pas à jour, on veut aussi un formulaire de devis en ligne...",
+        ctaLabel: 'Discuter de mon projet — Réponse sous 24h',
+        footnote: 'Premier appel de 30 min gratuit. Périmètre et livrables définis au devis, avant tout engagement.',
     },
-    'pme-ops': {
-        intro: 'Vous pilotez une petite structure et votre admin commence à déborder. Décrivez votre situation — volumes, outils, irritants — on regarde où un assistant peut absorber.',
-        projectLabel: 'Décrivez votre admin',
-        projectPlaceholder: 'Ex : 80 factures/mois saisies à la main, des relances sans process, 30 sous-traitants à suivre...',
-        ctaLabel: 'Parler de mon admin — Pierre me recontacte sous 24h',
-        footnote: 'Premier appel de 30 min gratuit. Mission ponctuelle ou pack mensuel — sans engagement long.',
-    },
-    projets: {
-        intro: 'Vous avez un projet d\'assistant admin sur mesure ou un besoin spécifique. Décrivez ce que vous avez en tête — on cadre ensemble.',
-        projectLabel: 'Présentez votre projet',
-        projectPlaceholder: 'Ex : intégration spécifique avec ma compta, automatisation d\'un workflow particulier...',
+    'web-app': {
+        intro: "Vous avez un process qui tourne encore sur papier ou sur Excel et vous voulez le remplacer par un outil sur mesure. Décrivez-le — on cadre ensemble le périmètre.",
+        projectLabel: 'Le process à outiller',
+        projectPlaceholder: "Ex : suivi de chantiers sur un tableau Excel partagé, catalogue produits à jour nulle part, réservations prises par téléphone...",
         ctaLabel: 'Cadrer mon projet — Pierre me recontacte sous 24h',
-        footnote: 'Premier échange de 30 min offert pour cadrer le besoin.',
+        footnote: 'Premier appel de 30 min gratuit pour cadrer le besoin. Web app sur devis, après définition du périmètre.',
     },
-    abonnement: {
-        intro: 'Vous êtes déjà client OptiPro ou vous voulez en savoir plus sur l\'accompagnement régulier. Dites-moi comment je peux vous accompagner.',
-        projectLabel: 'Ce que vous souhaitez mettre en place ou faire évoluer',
-        projectPlaceholder: 'Ex : monter en palier, ajouter une intégration, changer le rythme du reporting...',
+    maintenance: {
+        intro: "Vous avez déjà un site et vous cherchez quelqu'un pour le maintenir à jour. Dites-moi où il en est.",
+        projectLabel: 'Votre site actuel et vos besoins',
+        projectPlaceholder: 'Ex : site WordPress jamais mis à jour depuis 2 ans, horaires faux, besoin de changer les photos régulièrement...',
         ctaLabel: 'Demander un échange',
-        footnote: 'Pack mensuel reconductible, préavis 15 jours fin de mois.',
+        footnote: 'Maintenance à partir de 79€/mois. Sans engagement de durée.',
     },
     default: {
-        intro: 'Vous voulez déléguer votre admin (devis, factures, relances, classement) à un assistant fiable. Décrivez votre besoin.',
-        projectLabel: 'Ce qui vous prend le plus de temps en admin',
-        projectPlaceholder: 'Ex : je passe mes soirées à faire des devis, j\'ai des impayés depuis 3 mois...',
+        intro: "Vous voulez un site vitrine, une web app ou un outil métier sur mesure. Décrivez votre projet — je vous réponds sous 24h.",
+        projectLabel: 'Votre projet',
+        projectPlaceholder: "Ex : je veux un site pour mon entreprise de menuiserie, avec mes réalisations en photos et un formulaire de devis...",
         ctaLabel: 'Envoyer ma demande — Pierre me contacte sous 24h',
-        footnote: 'Premier échange de 30 min gratuit. Mission ponctuelle ou pack mensuel — sans engagement long.',
+        footnote: 'Premier appel de 30 min gratuit. Périmètre et livrables définis au devis, avant tout engagement.',
     },
 };
 
 const cibleLabels: Record<Cible, string> = {
     artisans: '🔧 Artisan / Indépendant',
     tpe: '🏢 TPE / PME',
-    'pme-ops': '📦 Petite structure',
-    projets: '🚀 Projet sur mesure',
-    abonnement: '🔄 Suivi mensuel',
+    'web-app': '🚀 Web app / outil métier',
+    maintenance: '🔄 Maintenance de site',
     default: 'Demande générale',
 };
 
@@ -76,25 +68,26 @@ const metierOptions = [
     { value: 'peintre', label: 'Peintre' },
     { value: 'menuisier', label: 'Menuisier' },
     { value: 'macon', label: 'Maçon' },
+    { value: 'restaurateur', label: 'Restaurateur' },
     { value: 'autre-artisan', label: 'Autre artisan' },
     { value: 'tpe-services', label: 'TPE services' },
     { value: 'autre', label: 'Autre' },
 ];
 
-const heuresEstimeesOptions = [
+const projetOptions = [
     { value: '', label: '— Sélectionnez —' },
-    { value: '1-5', label: '1-5h ponctuel' },
-    { value: '5-10', label: '5-10h (Pack Essentiel)' },
-    { value: '10-20', label: '10-20h (Pack Croissance)' },
-    { value: '20-35', label: '20-35h (Pack Pilotage)' },
-    { value: '35+', label: 'Plus de 35h' },
+    { value: 'site-vitrine', label: 'Site vitrine — 990€' },
+    { value: 'site-vitrine-pro', label: 'Site vitrine Pro — 1 390€' },
+    { value: 'web-app', label: 'Web app / outil métier — sur devis' },
+    { value: 'maintenance', label: 'Maintenance de site existant — dès 79€/mois' },
     { value: 'unknown', label: 'Je ne sais pas encore' },
 ];
 
-const typeBesoinOptions = [
-    { value: 'ponctuel', label: 'Mission ponctuelle' },
-    { value: 'regulier', label: 'Accompagnement régulier' },
-    { value: 'indecis', label: 'Je ne sais pas encore' },
+const situationOptions = [
+    { value: 'aucun-site', label: "Je n'ai pas de site" },
+    { value: 'site-a-refaire', label: 'J\'ai un site à refaire' },
+    { value: 'site-a-maintenir', label: 'J\'ai un site à maintenir' },
+    { value: 'process-a-outiller', label: 'J\'ai un process à outiller' },
 ];
 
 function ContactForm() {
@@ -102,6 +95,7 @@ function ContactForm() {
 
     const [cible, setCible] = useState<Cible>('default');
     const [metier, setMetier] = useState<string>('');
+    const [projet, setProjet] = useState<string>('');
 
     useEffect(() => {
         const rawCible = searchParams.get('cible') as Cible | null;
@@ -113,6 +107,12 @@ function ContactForm() {
         const matchedMetier = metierOptions.find((o) => o.value === rawMetier)?.value;
         if (matchedMetier) {
             setMetier(matchedMetier);
+        }
+
+        const rawProjet = searchParams.get('offre') ?? searchParams.get('projet');
+        const matchedProjet = projetOptions.find((o) => o.value === rawProjet)?.value;
+        if (matchedProjet) {
+            setProjet(matchedProjet);
         }
     }, [searchParams]);
 
@@ -145,8 +145,9 @@ function ContactForm() {
             setStatus('success');
             (e.target as HTMLFormElement).reset();
             const rawMetier = searchParams.get('metier');
-            const matchedMetier = metierOptions.find((o) => o.value === rawMetier)?.value ?? '';
-            setMetier(matchedMetier);
+            setMetier(metierOptions.find((o) => o.value === rawMetier)?.value ?? '');
+            const rawProjet = searchParams.get('offre') ?? searchParams.get('projet');
+            setProjet(projetOptions.find((o) => o.value === rawProjet)?.value ?? '');
         } catch (error: unknown) {
             console.error(error);
             const message = error instanceof Error ? error.message : 'error';
@@ -230,7 +231,7 @@ function ContactForm() {
             </div>
 
             <div className="form-group">
-                <label htmlFor="metier" className="form-label">Métier *</label>
+                <label htmlFor="metier" className="form-label">Votre activité *</label>
                 <select
                     id="metier"
                     name="metier"
@@ -247,27 +248,33 @@ function ContactForm() {
                 </select>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <div className="form-group">
-                    <label htmlFor="heuresEstimees" className="form-label">Heures estimées/mois *</label>
-                    <select id="heuresEstimees" name="heuresEstimees" className="form-input" required defaultValue="">
-                        {heuresEstimeesOptions.map((opt) => (
-                            <option key={opt.value} value={opt.value}>
-                                {opt.label}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="typeBesoin" className="form-label">Type de besoin *</label>
-                    <select id="typeBesoin" name="typeBesoin" className="form-input" required defaultValue="ponctuel">
-                        {typeBesoinOptions.map((opt) => (
-                            <option key={opt.value} value={opt.value}>
-                                {opt.label}
-                            </option>
-                        ))}
-                    </select>
-                </div>
+            <div className="form-group">
+                <label htmlFor="projet" className="form-label">Ce qui vous intéresse *</label>
+                <select
+                    id="projet"
+                    name="projet"
+                    className="form-input"
+                    required
+                    value={projet}
+                    onChange={(e) => setProjet(e.target.value)}
+                >
+                    {projetOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                        </option>
+                    ))}
+                </select>
+            </div>
+
+            <div className="form-group">
+                <label htmlFor="situation" className="form-label">Où en êtes-vous aujourd&apos;hui ? *</label>
+                <select id="situation" name="situation" className="form-input" required defaultValue="aucun-site">
+                    {situationOptions.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                        </option>
+                    ))}
+                </select>
             </div>
 
             <div className="form-group">
@@ -319,10 +326,10 @@ export default function ContactPageClient() {
                 <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                     <div className="section-label">Me contacter</div>
                     <h1 style={{ fontSize: '2.75rem', fontWeight: 800, letterSpacing: '-0.03em', marginBottom: '1rem', color: 'var(--foreground)' }}>
-                        Déléguer votre admin, à partir de 650€/mois
+                        Parlons de votre projet web
                     </h1>
                     <p style={{ color: 'var(--secondary)', fontSize: '1.1rem', maxWidth: '560px', margin: '0 auto', lineHeight: 1.6 }}>
-                        Quelques infos pour préparer l&apos;appel découverte. Je vous propose ensuite une mission ponctuelle ou un pack mensuel adapté.
+                        Quelques infos pour préparer l&apos;appel découverte. Site vitrine dès 990€, web app sur devis — le périmètre et les livrables sont définis avant tout engagement.
                     </p>
                 </div>
 

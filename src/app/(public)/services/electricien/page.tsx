@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import LandingPage from '@/components/seo/LandingPage';
 
 export const metadata: Metadata = {
-  title: 'Assistant administratif pour électriciens — OptiPro PACA',
+  title: 'Création de site internet pour électricien — PACA',
   description:
-    'Service d\'assistant admin externalisé pour électriciens. Devis multi-chantiers (rénovation, neuf, Consuel), factures, relances, comptable. À partir de 650€/mois ou 75€/h. Vence (06), interventions PACA et France.',
+    "Site internet pour électricien : rendre vos certifications visibles, montrer vos réalisations en photo et recevoir des demandes de devis qualifiées. Dès 990€ HT, livré en 3 semaines.",
   alternates: { canonical: '/services/electricien' },
   openGraph: {
-    title: 'Assistant admin pour électriciens — OptiPro',
-    description: 'Vous gérez les chantiers, je gère votre admin. Mission ou pack mensuel — dès 650€/mois.',
+    title: 'Création de site internet pour électricien — OptiPro',
+    description:
+      "Certifications visibles, réalisations en photo, devis en ligne : le site qui vous fait choisir avant l'appel. Dès 990€ HT. Vence (06), toute la PACA.",
     url: 'https://www.opti-pro.fr/services/electricien',
     type: 'website',
   },
@@ -28,64 +29,94 @@ const jsonLd = {
     {
       '@type': 'Service',
       '@id': 'https://www.opti-pro.fr/services/electricien#service',
-      name: 'Assistant administratif externalisé pour électriciens',
-      serviceType: 'AdministrativeService',
-      description: 'Service d\'assistant administratif externalisé pour électriciens indépendants et TPE. Gestion des devis multi-chantiers, factures, relances, trésorerie, suivi Consuel, dossier comptable mensuel.',
+      name: "Création de site internet pour électricien",
+      serviceType: 'WebDevelopment',
+      description:
+        "Création de sites vitrines et d'outils web sur mesure pour électriciens : mise en avant des qualifications et assurances, galerie de réalisations, formulaire de demande de devis détaillé, fiche Google My Business et SEO local.",
       provider: { '@id': 'https://www.opti-pro.fr/#organization' },
       areaServed: [
         { '@type': 'City', name: 'Vence' },
         { '@type': 'City', name: 'Nice' },
         { '@type': 'City', name: 'Antibes' },
         { '@type': 'City', name: 'Cannes' },
+        { '@type': 'City', name: 'Mougins' },
         { '@type': 'City', name: 'Grasse' },
-        { '@type': 'City', name: 'Cagnes-sur-Mer' },
         { '@type': 'AdministrativeArea', name: 'Alpes-Maritimes' },
         { '@type': 'AdministrativeArea', name: "Provence-Alpes-Côte d'Azur" },
-        { '@type': 'Country', name: 'France' },
       ],
-      audience: { '@type': 'Audience', name: 'Électriciens, électriciens du bâtiment, installateurs RGE' },
-      offers: {
-        '@type': 'AggregateOffer',
-        lowPrice: '650',
-        highPrice: '1950',
-        priceCurrency: 'EUR',
-        offerCount: 4,
-        valueAddedTaxIncluded: false,
-      },
+      audience: { '@type': 'Audience', name: 'Électriciens, électriciens du bâtiment, installateurs' },
+      offers: [
+        {
+          '@type': 'Offer',
+          name: 'Site vitrine',
+          description:
+            "3 à 4 pages sur mesure, hébergement 1 an inclus, nom de domaine inclus, adresse email professionnelle.",
+          price: 990,
+          priceCurrency: 'EUR',
+          valueAddedTaxIncluded: false,
+          url: 'https://www.opti-pro.fr/tarifs',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Site vitrine Pro',
+          description:
+            "Tout le pack Site vitrine, plus un formulaire de contact fonctionnel, la fiche Google My Business et le SEO local.",
+          price: 1390,
+          priceCurrency: 'EUR',
+          valueAddedTaxIncluded: false,
+          url: 'https://www.opti-pro.fr/tarifs',
+        },
+      ],
     },
     {
       '@type': 'FAQPage',
       mainEntity: [
         {
           '@type': 'Question',
-          name: "Comment gérer les devis sur un chantier de rénovation lourde ?",
+          name: "Comment mettre en avant mes qualifications et mes assurances sur le site ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Vous m'envoyez le métré et le détail des prestations en vocal ou photo. Je structure le devis avec lots, postes, fournitures, main d'œuvre. Avenants pendant le chantier ? Vous me dites « ajoute 3 prises et 2 va-et-vient au salon », je fais l'avenant et je l'envoie pour signature. Pas besoin d'attendre le bureau le soir.",
+            text: "On leur donne une place dédiée plutôt qu'une ligne perdue en bas de page : vos qualifications, votre attestation d'assurance décennale, vos habilitations, vos partenariats fabricants. Vous me transmettez les intitulés exacts et les logos dont vous disposez, je les intègre. C'est souvent l'élément qui fait basculer un particulier qui hésite entre deux devis, et c'est indispensable face à un syndic ou une agence.",
           },
         },
         {
           '@type': 'Question',
-          name: "Vous suivez les démarches Consuel ?",
+          name: "Pourquoi les photos de réalisations comptent autant pour un électricien ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Je ne fais pas la démarche technique (c'est votre métier réglementé). Mais je suis le calendrier administratif : envoi des dossiers, relance Consuel si pas de réponse sous 30 jours, notif au client une fois l'attestation reçue. Vous gardez la main sur la partie technique, je gère le suivi calendaire.",
+            text: "Parce que l'électricité est un métier dont le résultat est invisible : une fois les plaques posées, personne ne voit la qualité du travail. Un tableau électrique propre, un câblage rangé, une borne de recharge bien intégrée, ce sont des preuves visuelles de votre soin. Une galerie de réalisations avec vos propres photos, légendées par type de chantier, remplace tous les adjectifs.",
           },
         },
         {
           '@type': 'Question',
-          name: "Combien ça coûte pour un électricien indépendant ?",
+          name: "Le site peut-il m'aider à recevoir des demandes de devis plus précises ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Deux formules. Mission à l'heure (75€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
+            text: "C'est l'objectif du formulaire du pack Site vitrine Pro. Au lieu d'un champ message vide, on demande les informations dont vous avez besoin pour chiffrer : type de logement, année de construction approximative, nature de la demande (mise aux normes, rénovation complète, borne de recharge, dépannage), surface, et photo du tableau existant. Vous arrivez au premier rendez-vous en sachant déjà de quoi il s'agit.",
           },
         },
         {
           '@type': 'Question',
-          name: "Travaillez-vous avec des électriciens ailleurs qu'en PACA ?",
+          name: "Est-ce utile si je travaille surtout en sous-traitance pour des entreprises générales ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Oui. Le service est 100% à distance — vocaux WhatsApp, visios. La PACA est ma zone prioritaire, mais j'accepte les électriciens partout en France.",
+            text: "Oui, mais pour une autre raison. En sous-traitance, le site ne génère pas d'appels de particuliers : il sert de référence professionnelle. Un donneur d'ordre qui reçoit votre devis vérifie qui vous êtes. Trouver un site propre avec vos qualifications, vos moyens et vos chantiers de référence vous met au niveau des structures plus grosses face auxquelles vous êtes comparé.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: "Combien coûte un site internet d'électricien et quel est le délai ?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 3 semaines. La maintenance est ensuite optionnelle, à partir de 79€ par mois.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: "Et si j'ai besoin de plus qu'un site vitrine, par exemple pour suivre mes chantiers ?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "C'est l'offre web app, sur devis. Il s'agit d'une plateforme web construite autour de vos process : suivi de chantiers, tableau de bord, portail client. La première réalisation de ce type est SAPAL Signalisation, une plateforme B2B avec un catalogue de plus de 2 500 références, un portail client et des intégrations API. Le périmètre et les livrables sont définis au devis, avant de commencer.",
           },
         },
       ],
@@ -97,86 +128,131 @@ export default function ElectricienPage() {
   return (
     <LandingPage
       badge="Pour électriciens et installateurs"
-      h1="L'assistant administratif des électriciens"
-      intro="Vous tirez des câbles, vous validez des Consuel, vous coordonnez des chantiers. Vous n'avez pas le temps de structurer des devis détaillés à 23h ni de courir derrière les paiements. Voilà ce que je prends en charge pour vous, à partir de 650€/mois ou 75€/h."
+      h1="Création de site internet pour électricien"
+      intro="En électricité, le client ne compare pas des prix : il compare des risques. Il cherche qui est qualifié, qui est assuré, et à quoi ressemble le travail livré. Je construis le site qui répond à ces trois questions avant même qu'il décroche son téléphone. Site vitrine à partir de 990€ HT, livré en 3 semaines."
       painSection={{
-        title: "Quels sont les vrais blocages d'un électricien indépendant aujourd'hui ?",
+        title: "Pourquoi votre devis passe après celui du concurrent ?",
         points: [
-          "Devis multi-chantiers (lots, postes, fournitures, MO) impossibles à faire entre deux interventions.",
-          "Avenants oubliés sur les chantiers de rénovation, manque à gagner en fin de projet.",
-          "Suivi Consuel : dossiers égarés, relances ratées, clients qui appellent pour savoir où ça en est.",
-          "Factures impayées qui traînent — 1 800 à 3 500€/mois passent à la trappe.",
-          "Justificatifs en vrac, comptable qui râle en fin d'année, marge réelle inconnue.",
+          "Vos qualifications et votre assurance décennale n'apparaissent nulle part en ligne : le client doit vous croire sur parole, face à un concurrent qui les affiche.",
+          "Vous avez des dizaines de tableaux électriques impeccables en photo sur votre téléphone, et zéro en ligne.",
+          "Un particulier qui hésite entre trois devis va chercher chaque nom sur Google. Le seul qui n'a rien à montrer part en dernier.",
+          "Les demandes que vous recevez sont trop vagues pour être chiffrées : vous vous déplacez pour découvrir qu'il s'agissait d'un simple changement de prise.",
+          "Vous voulez développer un créneau précis — bornes de recharge, domotique, mise aux normes de copropriétés — mais rien ne le dit et on continue de vous appeler pour du dépannage.",
+          "Les entreprises générales et les syndics vous découvrent par votre devis, sans aucun élément pour vérifier votre sérieux.",
         ],
       }}
       featuredOffer={{
-        name: 'Pack Croissance — 20h',
-        price: '1 200 € HT/mois',
-        delay: 'Démarrage en moins de 2 semaines',
-        description: "Pour un suivi régulier de votre admin — devis, ADV, fournisseurs, suivi de projet, facturation. 20 heures dédiées par mois, sans engagement long.",
+        name: 'Site vitrine Pro',
+        price: '1 390 € HT',
+        delay: '3 semaines',
+        description:
+          "La formule pensée pour un métier où la confiance se gagne avant le premier rendez-vous : qualifications lisibles, réalisations montrées, demandes de devis exploitables dès leur réception.",
         features: [
-          'Devis structurés, envoyés sans délai après votre brief',
-          'Facturation, suivi des paiements, conforme PDP 2026-2027',
-          'Frais & dépenses saisis et classés par chantier',
-          'Trésorerie suivie, reporting mensuel commenté',
-          'Préparation du dossier mensuel pour votre comptable',
-          'WhatsApp dédié, réponse sous 4h en jour ouvré',
-          'Visio bilan mensuelle (30 min)',
-          'Préavis 15 jours fin de mois — vous gardez la main',
+          'Tout le pack Site vitrine (3 à 4 pages sur mesure)',
+          'Hébergement 1 an, nom de domaine et adresse email professionnelle inclus',
+          'Espace dédié aux qualifications, assurances et habilitations',
+          'Galerie de réalisations classée par type de chantier',
+          'Formulaire de devis détaillé avec photo du tableau existant',
+          'Fiche Google My Business et SEO local sur vos spécialités',
         ],
       }}
       process={[
         {
           step: '1',
-          title: 'Appel découverte (30 min, gratuit)',
-          description: "On parle de votre activité : volumes, type d'interventions, outils actuels. Je vous dis si on est faits pour bosser ensemble. Si oui, mission ponctuelle ou pack adapté proposé sous 24h.",
+          title: 'Premier appel — gratuit',
+          description:
+            "On identifie ce que vous voulez développer et ce que vous voulez arrêter : part de particuliers et de professionnels, rénovation ou neuf, spécialités à mettre en avant. C'est ce choix qui détermine la structure du site, pas le graphisme.",
         },
         {
           step: '2',
-          title: 'Le démarrage',
-          description: "Audit rapide de votre existant. Accès aux outils que vous utilisez déjà (Pennylane, Sage, Excel…). Premier RDV de cadrage 30 min. Pas de mise en route facturée à part — c'est inclus dans les premières heures.",
+          title: 'Preuves et contenu',
+          description:
+            "Vous me transmettez vos intitulés de qualification exacts, votre attestation d'assurance et vos photos de chantiers. Je rédige les pages, vous n'avez pas de texte à écrire. Le périmètre et les livrables sont fixés au devis.",
         },
         {
           step: '3',
-          title: 'Le quotidien',
-          description: "Vous m'envoyez vocaux/photos WhatsApp. Je crée les devis, envoie les factures, relance les impayés, classe les frais. Visio bilan mensuelle. Préavis 15 jours sur les packs.",
+          title: 'Développement et mise en ligne',
+          description:
+            "Je développe, je teste sur mobile et sur ordinateur, puis je publie sur votre nom de domaine. Délai annoncé pour un site vitrine : 3 semaines. Vous validez avant la mise en ligne.",
+        },
+        {
+          step: '4',
+          title: 'Après la livraison',
+          description:
+            "Le site est à vous. Ajouter un nouveau chantier à la galerie ou renouveler une attestation d'assurance rentre dans un forfait de maintenance si vous en prenez un, sinon vous me recontactez ponctuellement.",
         },
       ]}
       faq={[
         {
-          question: "Comment gérer les devis sur un chantier de rénovation lourde ?",
-          answer: "Vous m'envoyez le métré et le détail en vocal ou photo. Je structure le devis avec lots, postes, fournitures, main d'œuvre. Avenants pendant le chantier ? Vous me dites « ajoute 3 prises et 2 va-et-vient au salon », je fais l'avenant et je l'envoie pour signature.",
+          question: "Comment mettre en avant mes qualifications et mes assurances sur le site ?",
+          answer:
+            "On leur donne une place dédiée plutôt qu'une ligne perdue en bas de page : vos qualifications, votre attestation d'assurance décennale, vos habilitations, vos partenariats fabricants. Vous me transmettez les intitulés exacts et les logos dont vous disposez, je les intègre. C'est souvent l'élément qui fait basculer un particulier qui hésite entre deux devis, et c'est indispensable face à un syndic ou une agence.",
         },
         {
-          question: "Vous suivez les démarches Consuel ?",
-          answer: "Je ne fais pas la démarche technique (c'est votre métier réglementé). Mais je suis le calendrier administratif : envoi des dossiers, relance Consuel si pas de réponse sous 30 jours, notif au client une fois l'attestation reçue. Vous gardez la main sur la partie technique, je gère le suivi calendaire.",
+          question: "Pourquoi les photos de réalisations comptent autant pour un électricien ?",
+          answer:
+            "Parce que l'électricité est un métier dont le résultat est invisible : une fois les plaques posées, personne ne voit la qualité du travail. Un tableau électrique propre, un câblage rangé, une borne de recharge bien intégrée, ce sont des preuves visuelles de votre soin. Une galerie de réalisations avec vos propres photos, légendées par type de chantier, remplace tous les adjectifs.",
         },
         {
-          question: "Combien ça coûte pour un électricien indépendant ?",
-          answer: "Deux formules. Mission à l'heure (75€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
+          question: "Le site peut-il m'aider à recevoir des demandes de devis plus précises ?",
+          answer:
+            "C'est l'objectif du formulaire du pack Site vitrine Pro. Au lieu d'un champ message vide, on demande les informations dont vous avez besoin pour chiffrer : type de logement, année de construction approximative, nature de la demande (mise aux normes, rénovation complète, borne de recharge, dépannage), surface, et photo du tableau existant. Vous arrivez au premier rendez-vous en sachant déjà de quoi il s'agit.",
         },
         {
-          question: "Travaillez-vous avec des électriciens ailleurs qu'en PACA ?",
-          answer: "Oui. Service 100% à distance. PACA prioritaire, mais j'accepte les électriciens partout en France.",
+          question: "Est-ce utile si je travaille surtout en sous-traitance pour des entreprises générales ?",
+          answer:
+            "Oui, mais pour une autre raison. En sous-traitance, le site ne génère pas d'appels de particuliers : il sert de référence professionnelle. Un donneur d'ordre qui reçoit votre devis vérifie qui vous êtes. Trouver un site propre avec vos qualifications, vos moyens et vos chantiers de référence vous met au niveau des structures plus grosses face auxquelles vous êtes comparé.",
+        },
+        {
+          question: "Combien coûte un site internet d'électricien et quel est le délai ?",
+          answer:
+            "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 3 semaines. La maintenance est ensuite optionnelle, à partir de 79€ par mois.",
+        },
+        {
+          question: "Et si j'ai besoin de plus qu'un site vitrine, par exemple pour suivre mes chantiers ?",
+          answer:
+            "C'est l'offre web app, sur devis. Il s'agit d'une plateforme web construite autour de vos process : suivi de chantiers, tableau de bord, portail client. La première réalisation de ce type est SAPAL Signalisation, une plateforme B2B avec un catalogue de plus de 2 500 références, un portail client et des intégrations API. Le périmètre et les livrables sont définis au devis, avant de commencer.",
         },
       ]}
-      localMentions={['Vence', 'Nice', 'Antibes', 'Cannes', 'Grasse', "toute la PACA et la France à distance"]}
+      localMentions={['Vence', 'Nice', 'Antibes', 'Cannes', 'Mougins', 'Grasse']}
       industryContext={{
-        title: "La réalité de l'électricien indépendant en 2026 — pourquoi déléguer l'admin n'est plus un luxe",
-        intro: "Pendant 10 ans, j'ai piloté des opérations en logistique et exploitation, dont des entreprises d'électricité du bâtiment. J'ai vu de l'intérieur ce qui distingue les électriciens qui scalent leur activité de ceux qui restent coincés.",
-        keyFacts: [
+        title: "Pourquoi je regarde d'abord vos chantiers, pas votre logo",
+        intro:
+          "Chez Factory, j'ai supervisé quinze à vingt artisans sous-traitants sur des chantiers d'aménagement, avec un portefeuille ADV de 7 M€ par an. Une partie de mon travail consistait à choisir qui intervenait. À chaque fois, je vérifiais la même chose avant de confier un lot : les qualifications, l'assurance à jour, et ce que la personne avait déjà livré. Jamais la plaquette commerciale. Les électriciens qui décrochaient les lots n'étaient pas les plus bavards, c'étaient ceux dont on pouvait vérifier le travail en trente secondes.",
+        insight:
+          "Un site d'électricien qui convertit est construit comme un dossier de candidature, pas comme une publicité : ce que vous êtes autorisé à faire, ce que vous avez déjà fait, et comment vous joindre. Dans cet ordre. Le particulier comme le donneur d'ordre cherchent exactement la même chose, à savoir de quoi se rassurer avant d'engager de l'argent sur une installation qu'ils ne pourront pas juger eux-mêmes.",
+      }}
+      relatedLinks={{
+        title: 'Pour aller plus loin',
+        intro:
+          "Le détail des offres, la méthode de travail, et les communes des Alpes-Maritimes où les demandes sont les plus fréquentes.",
+        links: [
           {
-            stat: '8-12h',
-            label: "consacrées chaque semaine à l'administratif chez un électricien indépendant",
-            source: 'CAPEB',
+            href: '/tarifs',
+            label: 'Tarifs',
+            description: 'Site vitrine 990€, Site vitrine Pro 1 390€, web app sur devis, maintenance dès 79€/mois.',
           },
           {
-            stat: '60-90 jours',
-            label: "délai moyen de paiement client en B2B électricité",
-            source: 'INSEE 2024',
+            href: '/le-service',
+            label: 'Le service',
+            description: 'Le déroulé d’un projet, du premier appel à la mise en ligne.',
+          },
+          {
+            href: '/services/mougins',
+            label: 'Électriciens à Mougins',
+            description: 'Villas et résidences haut de gamme : domotique, rénovation lourde, exigence de finition.',
+          },
+          {
+            href: '/services/cannes',
+            label: 'Électriciens à Cannes',
+            description: 'Copropriétés, commerces et hôtellerie : beaucoup de mises aux normes et de donneurs d’ordre.',
+          },
+          {
+            href: '/services/antibes',
+            label: 'Électriciens à Antibes',
+            description: 'Résidentiel dense et locatif saisonnier, avec des interlocuteurs professionnels réguliers.',
           },
         ],
-        insight: "La spécificité d'un électricien : la marge réelle se joue sur le tracking des fournitures par chantier. Sans système qui classe automatiquement les tickets de caisse et les factures fournisseurs par projet, vous ne savez jamais quel chantier vous a vraiment rapporté.",
       }}
       jsonLd={jsonLd}
     />

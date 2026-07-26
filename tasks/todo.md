@@ -1,5 +1,41 @@
 # TODO — OptiPro
 
+## En cours — Corrections audit site (2026-07-26)
+Audit complet : voir tasks/audit-site-2026-07-26.md (score ≈60/100). Cause racine : le repositionnement de juin n'a touché que 4 pages — tout le reste vend encore l'offre admin 650-1950€/mois.
+
+### 🔴 Critique (cohérence de l'offre) — TERMINÉ le 2026-07-26
+- [x] /contact : H1 + formulaire refondus (activité / offre visée avec vrais prix / situation) — ContactPageClient.tsx + route API + email de préqualification
+- [x] JSON-LD LocalBusiness global réaligné + ajout OfferCatalog (5 offres réelles) — src/app/(public)/layout.tsx
+- [x] Réécriture des 10 pages /services/* (4 métiers + 6 villes) sur le positionnement web, différenciées, avec maillage interne
+- [x] CTA faux dans l'article facturation-electronique corrigé
+- [x] CGV réécrites pour la prestation web (devis, délais, PI du code, garanties) + SIREN renseigné
+- [x] public/llms.txt réécrit intégralement
+- [x] Bonus trouvés en cours de route : manifest PWA + image OpenGraph (partages sociaux) étaient encore « bras droit administratif — dès 650€/mois »
+- [x] Bonus : /methode et /pourquoi-ce-prix (code mort, 100% ancienne offre) supprimés — les redirects 301 existaient déjà ; lien interne mort corrigé dans /temoignages
+- [x] Bonus : 4 pages métier ajoutées au footer (elles étaient orphelines), /admin/login passé en rel=nofollow, LAST_CONTENT_UPDATE du sitemap à jour
+- Vérifs : tsc 0 erreur, build 52 pages OK, JSON-LD valide sur 7 pages testées (FAQ = HTML), 19/20 pages sans résidu (reste le blog)
+
+### ⚠️ À valider par Pierre (hypothèses posées dans les CGV)
+- [ ] Modalités de paiement CGV : j'ai écrit « 40% à la commande, solde à la livraison, 30 jours date de facture » — ce n'était nulle part sur le site, à confirmer ou corriger
+- [ ] Délai de réclamation de 14 jours après livraison + réemploi des briques techniques génériques : à valider juridiquement
+
+### 🟠 Haute
+- [ ] Blog : 6 articles à 301, 5 à réécrire, 3 à garder (tableau dans tasks/audit-2026-07-26/content.md) + bios auteur
+- [ ] Retirer/valider les stats invérifiables (« 30 artisans accompagnés », « 9 artisans sur 10 », cas plombier Cagnes)
+- [ ] Maillage : 4 pages métier orphelines (Footer.tsx l.87-95) + liens croisés ville↔métier
+- [ ] Schema : OfferCatalog sur /tarifs + Article/FAQPage sur l'article « combien coûte un site »
+- [ ] sitemap.ts : LAST_CONTENT_UPDATE figé au 2026-05-13 (l.7)
+
+### 🟡 Moyenne
+- [ ] Créer le GBP (après corrections) — « Concepteur de sites Web », mode SAB
+- [ ] Page /services/vence — meilleure opportunité SERP identifiée
+- [ ] Perf : icône PWA carrée (manifest.ts déclare 512x512 pour un logo 800×255), pagination /blog (196 KB RSC), imports GSAP ciblés, display swap next/font
+- [ ] Vercel : redirection directe http/apex → https://www (chaîne de 2 redirects actuellement)
+- [ ] Accueil : preuve sociale plus tôt + exemple « réservation en ligne » (persona restaurateur)
+
+### ⚪ Basse
+- [ ] Retirer le lien /admin/login du footer public
+
 ## En cours — Refonte positionnement « dev opérationnel » (2026-06-10)
 Repositionnement : bras droit admin → dev opérationnel (sites vitrines, web apps, outils métier).
 Offres : Vitrine 990€ / Vitrine Pro 1 390€ / Web app sur devis / Maintenance 79€ & 129€/mois.

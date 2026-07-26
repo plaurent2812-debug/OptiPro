@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import CityServicePage from '@/components/seo/CityServicePage';
 
 export const metadata: Metadata = {
-  title: 'Assistant administratif à Grasse — Bras droit admin & opérationnel OptiPro',
-  description: 'Externalisation administrative pour artisans, indépendants et TPE à Grasse et alentours. Devis, factures, relances, fournisseurs. Dès 650€/mois ou 75€/h.',
+  title: 'Création site internet Grasse — artisans et TPE',
+  description: "Création de site internet à Grasse pour artisans et TPE : site vitrine 990€ HT livré en 3 semaines, hébergement inclus. Développeur basé à Vence (06).",
   alternates: { canonical: '/services/grasse' },
   openGraph: {
-    title: 'Assistant administratif à Grasse — OptiPro',
-    description: 'Le bras droit admin & opérationnel des artisans grassois. Mission ou pack mensuel dès 650€/mois.',
+    title: 'Création de site internet à Grasse — OptiPro',
+    description: "Site vitrine 990€ HT livré en 3 semaines, web app sur devis. Développeur indépendant basé à Vence, dans les Alpes-Maritimes.",
     url: 'https://www.opti-pro.fr/services/grasse',
     type: 'website',
   },
@@ -22,80 +22,106 @@ export default function GrassePage() {
       postalCodes={['06130']}
       metaTitle={metadata.title as string}
       metaDescription={metadata.description as string}
-      h1="Le bras droit administratif des artisans et TPE grassois"
-      intro="Vous êtes artisan ou dirigeant de TPE à Grasse. Entre le centre médiéval, les zones industrielles parfumées et l'arrière-pays vallonné, vous gérez une activité avec ses spécificités : chantiers en zones rurales, clientèle locale fidèle, fournisseurs disséminés. OptiPro reprend tout l'admin et l'opérationnel pour que vous restiez sur le terrain."
-      economicContext="Grasse vit avec deux économies distinctes : l'industrie de la parfumerie et de l'arôme (Robertet, Mane, Givaudan, Charabot, Symrise) qui structure de nombreux sous-traitants techniques (chimie, conditionnement, transport spécialisé), et un tissu d'artisans BTP et de services qui dessert une zone géographique étendue (Pays de Grasse, Mougins, Peymeinade, Pégomas, Mouans-Sartoux). Les artisans grassois ont souvent des trajets plus longs entre chantiers que leurs confrères niçois ou cannois — chaque minute économisée sur l'admin compte double."
+      h1="Création de site internet à Grasse pour artisans et TPE"
+      intro="Vous cherchez quelqu'un dans les Alpes-Maritimes pour créer votre site internet à Grasse. Je suis développeur web indépendant, basé à Vence, et je construis des sites vitrines et des outils métier sur mesure pour les artisans et les TPE. Site vitrine à 990€ HT, livré en 3 semaines, hébergement, nom de domaine et adresse email professionnelle inclus."
+      economicContext="Grasse a deux visages économiques. D'un côté, la parfumerie et les arômes, avec des maisons historiques et tout un écosystème de sous-traitants techniques : conditionnement, logistique spécialisée, laboratoires, maintenance industrielle. De l'autre, un artisanat et un commerce de proximité qui desservent une zone étendue et vallonnée, du centre médiéval jusqu'à l'arrière-pays et au Pays de Grasse. Les artisans grassois couvrent souvent un territoire plus large et plus rural que leurs confrères du littoral, ce qui rend la visibilité en ligne d'autant plus utile : le client cherche « près de moi » sur une zone où les prestataires sont plus dispersés."
       geo={{ latitude: 43.6584, longitude: 6.9229 }}
       whyHere={[
         {
-          title: 'Adapté aux artisans en zone semi-rurale',
-          description: 'Grasse et son arrière-pays exigent des trajets plus longs entre chantiers. OptiPro vous fait gagner les 5-10h/semaine que vous perdriez à faire de l\'admin entre deux interventions.',
+          title: "Implanté dans le département",
+          description: "Je suis installé à Vence (06140), dans les Alpes-Maritimes comme vous. Un rendez-vous sur place pour cadrer le projet est possible, contrairement aux agences qui publient des pages « site internet Grasse » sans jamais y venir.",
         },
         {
-          title: 'Connaissance des fournisseurs industriels',
-          description: 'Si votre activité est liée à l\'industrie parfumerie (sous-traitance, transport, conditionnement), Pierre maîtrise les enjeux ADV B2B technique grâce à ses 5 ans chez Factory (7M€ ADV/an).',
+          title: "Utile sur une zone étendue",
+          description: "Quand votre clientèle est répartie entre Grasse, l'arrière-pays et les communes voisines, le site sert à qualifier les demandes en amont : ce que vous faites, jusqu'où vous vous déplacez, comment vous joindre. Moins d'appels hors sujet, moins de déplacements pour rien.",
         },
         {
-          title: 'Service 100% à distance',
-          description: 'WhatsApp dédié, visios. Vence est à 50 km de Grasse. Déplacement possible pour audit initial ou point trimestriel, sans frais sur la zone PACA.',
+          title: "Je comprends l'aspect industriel et logistique",
+          description: "10 ans en exploitation et logistique avant de me reconvertir au développement en 2026. Si votre activité gravite autour de la sous-traitance industrielle ou du conditionnement, je parle votre langue avant de parler technique.",
         },
         {
-          title: 'Aucun outil à apprendre',
-          description: 'OptiPro utilise les outils que vous avez déjà : Pennylane, Sage, Excel, EBP. Pas de nouvelle plateforme à maîtriser, pas de migration imposée.',
+          title: "Périmètre et prix définis au devis",
+          description: "Site vitrine 990€ HT, Site vitrine Pro 1 390€ HT, web app sur devis. Ce qui est inclus est écrit avant de démarrer : vous savez ce que vous payez et ce que vous recevez.",
         },
       ]}
       services={[
         {
-          icon: '📄',
-          title: 'Devis & factures',
-          description: 'Vocal WhatsApp depuis le chantier → devis structuré envoyé sous 1h. Facturation J+1 après intervention. Conforme PDP 2026-2027.',
+          icon: '🌐',
+          title: 'Site vitrine — 990€ HT',
+          description: "3 à 4 pages sur mesure : votre activité, vos prestations, votre zone d'intervention autour de Grasse. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 3 semaines.",
         },
         {
-          icon: '💰',
-          title: 'Trésorerie et relances',
-          description: 'Suivi quotidien des encaissements, relances impayés (J+15, J+30, J+45). 2 à 5k€/mois récupérés en moyenne sur les factures qui dormaient.',
+          icon: '📍',
+          title: 'Site vitrine Pro — 1 390€ HT',
+          description: "Tout le pack Site vitrine, plus un formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. C'est le pack qui compte le plus quand vos clients vous cherchent commune par commune.",
         },
         {
-          icon: '🤝',
-          title: 'Suivi fournisseurs',
-          description: 'Indispensable pour les activités liées à l\'industrie parfumerie (commandes spécifiques, traçabilité, contrôle qualité fournisseur).',
+          icon: '🗺️',
+          title: "Page zone d'intervention",
+          description: "Une page qui indique clairement les communes que vous couvrez autour de Grasse. Cela évite les demandes venues de l'autre bout du département et rassure ceux qui sont dans votre périmètre.",
         },
         {
-          icon: '📋',
-          title: 'Préparation comptable',
-          description: 'Dossier mensuel propre livré à votre expert-comptable grassois ou cannois. FEC à jour, factures classées, frais saisis.',
+          icon: '⚙️',
+          title: 'Web app et outil métier — sur devis',
+          description: "Catalogue produits, portail client, suivi de chantiers ou d'interventions, gestion de commandes, tableaux de bord. Particulièrement pertinent pour les activités de sous-traitance qui suivent aujourd'hui leurs commandes sur Excel.",
         },
         {
-          icon: '📊',
-          title: 'Tableaux de bord',
-          description: 'Visibilité sur votre trésorerie, vos en-cours, votre rentabilité par chantier ou par client. Visio mensuelle de 30 min.',
+          icon: '🔧',
+          title: 'Maintenance — 79€ ou 129€/mois',
+          description: "Maintenance Essentiel à 79€/mois (1h par mois : textes, photos, horaires) ou Maintenance Pro à 129€/mois (2h par mois, petites évolutions et traitement prioritaire). À prendre ou non, selon vos besoins.",
         },
         {
-          icon: '🗓️',
-          title: 'Planning et coordination',
-          description: 'Gestion des RDV, coordination sous-traitants, planning chantier. Particulièrement utile en arrière-pays grassois où les trajets sont longs.',
+          icon: '🏭',
+          title: 'Référence : SAPAL Signalisation',
+          description: "Ma réalisation de référence : une plateforme B2B avec un catalogue de plus de 2 500 références, un portail client et des intégrations API. Un bon repère si vous travaillez en B2B avec des clients réguliers.",
+        },
+      ]}
+      relatedLinks={[
+        {
+          href: '/tarifs',
+          label: 'Tarifs détaillés',
+          description: "Site vitrine, Site vitrine Pro, web app, maintenance : les prix et ce qui est inclus.",
+        },
+        {
+          href: '/le-service',
+          label: 'Le service en détail',
+          description: "Ce que je construis, comment se déroule un projet, et ce que vous recevez.",
+        },
+        {
+          href: '/services/plombier',
+          label: 'Site internet pour plombier',
+          description: "La page dédiée aux plombiers : urgences, zone d'intervention, devis.",
+        },
+        {
+          href: '/services/serrurier',
+          label: 'Site internet pour serrurier',
+          description: "La page dédiée aux serruriers : dépannage, communes couvertes, appel direct.",
         },
       ]}
       faq={[
         {
-          question: 'Vous travaillez avec des artisans dans tout le Pays de Grasse ?',
-          answer: 'Oui. Grasse, Mougins, Peymeinade, Mouans-Sartoux, Pégomas, Cabris, Saint-Vallier-de-Thiey, et toute l\'agglomération du Pays de Grasse. Service 100% à distance, sans frais de déplacement.',
+          question: "Vous travaillez dans tout le Pays de Grasse ?",
+          answer: "Oui. Grasse et son centre historique, mais aussi Peymeinade, Mouans-Sartoux, Pégomas, Cabris, Saint-Vallier-de-Thiey, Spéracèdes et les communes voisines de l'agglomération du Pays de Grasse. Je suis basé à Vence, dans le même département, donc un rendez-vous sur place est envisageable pour cadrer le projet.",
         },
         {
-          question: 'Vous avez l\'habitude des activités liées à la parfumerie ?',
-          answer: 'Pierre a 5 ans d\'expérience en pilotage ADV chez Factory sur des projets B2B techniques (20k€ à 1M€). Les méthodes ADV s\'appliquent aux sous-traitants industriels parfumerie : cadenciers, multi-BC, traçabilité, facturation complexe.',
+          question: "Combien coûte un site internet pour un artisan grassois ?",
+          answer: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : tout le pack précédent, plus un formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Web app ou outil métier : sur devis.",
         },
         {
-          question: 'Vous pouvez vous déplacer à Grasse si besoin ?',
-          answer: 'Oui, possible pour un audit initial ou un point trimestriel. Vence est à 50 km de Grasse. Aucun frais de déplacement facturé sur la zone PACA.',
+          question: "Mon activité est liée à la parfumerie et je travaille en B2B. Un site sert-il à quelque chose ?",
+          answer: "En B2B, le site sert moins à générer des appels qu'à crédibiliser : un donneur d'ordre qui vous a été recommandé va chercher votre nom en ligne avant de vous confier une commande. Une vitrine claire, à jour, qui explique vos moyens et vos certifications joue ce rôle. Et si votre besoin est plutôt d'outiller le suivi de commandes, c'est un projet de web app, chiffré sur devis.",
         },
         {
-          question: 'Combien ça coûte pour un artisan grassois ?',
-          answer: 'Deux formules. Mission à l\'heure (75€/h HT) pour les besoins ponctuels. Pack mensuel reconductible : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. Préavis 15 jours fin de mois. Période d\'essai 30 jours sans frais.',
+          question: "En combien de temps le site est-il en ligne ?",
+          answer: "Un site vitrine est livré en 3 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et inscrit dans le devis avant de démarrer.",
         },
         {
-          question: 'Vous gérez les déclarations URSSAF / RSI pour les auto-entrepreneurs ?',
-          answer: 'Je prépare les éléments (chiffre d\'affaires, factures classées, suivi des plafonds). La déclaration elle-même reste à votre charge ou à celle de votre comptable. Mais avec un dossier propre, ça prend 10 min au lieu de 2h.',
+          question: "Je peux indiquer sur le site les communes où je me déplace ?",
+          answer: "Oui, et c'est fortement conseillé sur une zone comme le Pays de Grasse. Une page ou une section listant vos communes d'intervention aide vos clients à savoir s'ils sont dans votre périmètre, et aide Google à comprendre où vous travaillez réellement.",
+        },
+        {
+          question: "Je suis en micro-entreprise, ce budget est-il justifié pour moi ?",
+          answer: "C'est une question légitime, et la réponse dépend de votre activité. Si vos clients vous trouvent uniquement par recommandation et que votre carnet est plein, un site est moins urgent. Si vous perdez des demandes parce que vous êtes introuvable en ligne, un site vitrine à 990€ HT se rembourse vite. Le premier appel est gratuit et sert précisément à répondre honnêtement à cette question.",
         },
       ]}
     />

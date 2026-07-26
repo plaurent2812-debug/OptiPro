@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import CityServicePage from '@/components/seo/CityServicePage';
 
 export const metadata: Metadata = {
-  title: 'Assistant administratif à Mougins — Bras droit admin & opérationnel OptiPro',
-  description: 'Externalisation administrative pour artisans, indépendants et TPE à Mougins. Devis, factures, fournisseurs, suivi de chantier. Dès 650€/mois ou 75€/h.',
+  title: 'Création site internet Mougins — artisans et TPE',
+  description: "Création de site internet à Mougins pour artisans, restaurateurs et TPE : site vitrine 990€ HT livré en 3 semaines. Développeur basé à Vence (06).",
   alternates: { canonical: '/services/mougins' },
   openGraph: {
-    title: 'Assistant administratif à Mougins — OptiPro',
-    description: 'Le bras droit admin & opérationnel des artisans mouginois. Mission ou pack mensuel dès 650€/mois.',
+    title: 'Création de site internet à Mougins — OptiPro',
+    description: "Site vitrine 990€ HT livré en 3 semaines, web app sur devis. Développeur indépendant basé à Vence, dans les Alpes-Maritimes.",
     url: 'https://www.opti-pro.fr/services/mougins',
     type: 'website',
   },
@@ -22,80 +22,106 @@ export default function MouginsPage() {
       postalCodes={['06250']}
       metaTitle={metadata.title as string}
       metaDescription={metadata.description as string}
-      h1="Le bras droit administratif des artisans et TPE mouginois"
-      intro="Vous êtes artisan ou dirigeant de TPE à Mougins. Entre le village perché, les zones résidentielles haut de gamme et les golfs, vous travaillez pour une clientèle exigeante qui ne tolère ni les délais ni l'amateurisme. OptiPro reprend tout votre admin opérationnel — devis structurés sous 1h, facturation J+1, relances pro — pour que votre image reste à la hauteur de la zone."
-      economicContext="Mougins se distingue par une concentration de villas haut de gamme, un tissu de PME tech et créatives, et une clientèle internationale fortunée. Les artisans et indépendants mouginois travaillent souvent pour des propriétaires qui comparent les devis, exigent des prestations irréprochables et changent de prestataire au moindre faux pas administratif. Un devis qui arrive 48h après la visite, une facture envoyée avec 3 semaines de retard ou une relance maladroite peut faire perdre un client à vie. Sur cette zone, l'admin n'est pas une corvée — c'est un signal de qualité."
+      h1="Création de site internet à Mougins pour artisans, restaurants et TPE"
+      intro="Vous cherchez un développeur près de vous pour créer votre site internet à Mougins. Je suis développeur web indépendant, basé à Vence dans les Alpes-Maritimes, et je construis des sites vitrines et des outils métier sur mesure pour les artisans, les restaurateurs et les TPE. Site vitrine à 990€ HT, livré en 3 semaines, hébergement et nom de domaine inclus."
+      economicContext="Mougins est connue pour sa restauration et pour ses zones résidentielles. Le village perché attire une clientèle qui vient d'abord pour la table, tandis que les quartiers résidentiels et les résidences alentour font travailler en continu les artisans du bâtiment, les paysagistes, les entreprises d'entretien et de piscine, et les services à domicile. Deux publics très différents, mais un même point commun : ils se décident après une recherche en ligne. Un restaurant sans carte consultable sur mobile ou un artisan sans vitrine web perd des clients au profit du concurrent qui a fait le nécessaire."
       geo={{ latitude: 43.6004, longitude: 7.0001 }}
       whyHere={[
         {
-          title: 'Image et professionnalisme',
-          description: 'Vos devis et factures vous représentent autant que votre travail. OptiPro structure tous vos documents commerciaux pour qu\'ils reflètent la qualité de votre prestation.',
+          title: "Un développeur des Alpes-Maritimes",
+          description: "Je suis installé à Vence (06140), à une trentaine de kilomètres de Mougins. On peut se rencontrer pour cadrer le projet — ce que ne fera pas une agence qui publie des pages ville en série sans être implantée dans le département.",
         },
         {
-          title: 'Réactivité face à une clientèle internationale',
-          description: 'Les propriétaires de Mougins comparent souvent 2-3 devis. Celui qui arrive en premier (et bien fait) gagne dans 70% des cas.',
+          title: "Un site à la hauteur de votre prestation",
+          description: "À Mougins, la clientèle compare et regarde les détails. Un site propre, rapide, avec de bonnes photos et des informations à jour, envoie le même signal de sérieux que votre travail sur place.",
         },
         {
-          title: 'Connaissance du tissu local',
-          description: 'Pierre est basé à Vence, à 30 km de Mougins. Il connaît la zone, les habitudes commerciales et les délais réalistes du marché haut de gamme PACA.',
+          title: "Un seul interlocuteur",
+          description: "Du premier appel à la mise en ligne, vous parlez à la personne qui construit le site. Pas de commercial, pas de chef de projet, pas de sous-traitance.",
         },
         {
-          title: 'Bilingue FR/EN si besoin',
-          description: 'Beaucoup de propriétaires à Mougins sont anglophones. OptiPro peut produire vos devis et factures en bilingue sans surcoût.',
+          title: "Périmètre et prix définis au devis",
+          description: "Site vitrine 990€ HT, Site vitrine Pro 1 390€ HT, web app sur devis. Le contenu de la prestation est écrit avant le démarrage, sans dérive de budget en cours de projet.",
         },
       ]}
       services={[
         {
-          icon: '📄',
-          title: 'Devis premium sous 1h',
-          description: 'Vocal WhatsApp depuis le chantier → devis structuré, design pro, envoyé au client dans l\'heure. Signature en ligne. Vous gagnez les dossiers à la rapidité.',
+          icon: '🌐',
+          title: 'Site vitrine — 990€ HT',
+          description: "3 à 4 pages sur mesure : votre activité, vos prestations ou votre carte, vos coordonnées et votre emplacement à Mougins. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 3 semaines.",
         },
         {
-          icon: '💰',
-          title: 'Relances professionnelles',
-          description: 'Sur une clientèle haut de gamme, le ton des relances est crucial. OptiPro gère un cycle de relance courtois mais ferme (J+15, J+30, J+45).',
+          icon: '📍',
+          title: 'Site vitrine Pro — 1 390€ HT',
+          description: "Tout le pack Site vitrine, plus un formulaire de contact fonctionnel, la fiche Google My Business et le SEO local — déterminant pour un restaurant ou un commerce du village, très dépendant de la recherche locale et de Maps.",
         },
         {
-          icon: '🤝',
-          title: 'Coordination sous-traitants',
-          description: 'Sur les chantiers Mougins, vous mobilisez souvent 5-15 corps de métier. OptiPro suit les commandes, livraisons, points fournisseurs.',
+          icon: '🍽️',
+          title: 'Pages adaptées à la restauration',
+          description: "Carte lisible sur mobile, horaires, emplacement, galerie photo soignée, lien vers votre outil de réservation existant. Léger et rapide, y compris en pleine saison.",
         },
         {
-          icon: '📋',
-          title: 'Préparation comptable',
-          description: 'Dossier mensuel propre livré à votre expert-comptable. Factures classées par chantier, frais OCR-isés, FEC à jour. Économie réelle sur les honoraires.',
+          icon: '🏡',
+          title: "Pages pour les métiers de la maison",
+          description: "Bâtiment, paysage, piscine, entretien, services à domicile : une page par prestation, avec des photos de réalisations et un formulaire qui vous remonte une demande déjà qualifiée.",
         },
         {
-          icon: '📊',
-          title: 'Marge réelle par projet',
-          description: 'Sur des chantiers à 80-300k€, la marge se joue sur la précision du suivi. OptiPro consolide fournitures, MO et sous-traitance en temps réel.',
+          icon: '⚙️',
+          title: 'Web app et outil métier — sur devis',
+          description: "Suivi de chantiers, planning d'interventions, portail client, gestion de commandes, tableaux de bord. Quand le papier et Excel ne suivent plus le rythme de l'activité.",
         },
         {
-          icon: '🗓️',
-          title: 'Agenda commercial',
-          description: 'Prise de RDV, confirmations, relances. Une clientèle exigeante n\'oublie rien — vous non plus.',
+          icon: '🔧',
+          title: 'Maintenance — 79€ ou 129€/mois',
+          description: "Maintenance Essentiel à 79€/mois (1h par mois de mises à jour de contenu) ou Maintenance Pro à 129€/mois (2h par mois, petites évolutions et traitement prioritaire). Pratique si votre carte ou vos horaires bougent souvent.",
+        },
+      ]}
+      relatedLinks={[
+        {
+          href: '/tarifs',
+          label: 'Tarifs détaillés',
+          description: "Site vitrine, Site vitrine Pro, web app, maintenance : les prix et ce qui est inclus.",
+        },
+        {
+          href: '/le-service',
+          label: 'Le service en détail',
+          description: "Ce que je construis, comment se déroule un projet, et ce que vous recevez.",
+        },
+        {
+          href: '/services/restaurateur',
+          label: 'Site internet pour restaurateur',
+          description: "La page dédiée à la restauration : carte, réservation, visibilité locale.",
+        },
+        {
+          href: '/services/electricien',
+          label: 'Site internet pour électricien',
+          description: "La page dédiée aux électriciens : prestations, dépannage, demandes de devis.",
         },
       ]}
       faq={[
         {
-          question: 'Vous travaillez avec des artisans dans tout Mougins ?',
-          answer: 'Oui. Mougins-Village, Mougins-le-Haut, Tournamy, Saint-Basile, et toute la commune. Service 100% à distance, sans frais de déplacement sur la zone PACA.',
+          question: "Vous créez des sites partout sur la commune de Mougins ?",
+          answer: "Oui. Mougins-Village, Mougins-le-Haut, Tournamy, Saint-Basile, la Vallée de la Siagne et le reste de la commune, ainsi que les communes voisines comme Le Cannet, Valbonne ou Mouans-Sartoux. Je suis basé à Vence, dans le même département : un rendez-vous sur place est possible pour cadrer le projet.",
         },
         {
-          question: 'Vous gérez les devis et factures en anglais ?',
-          answer: 'Oui. Beaucoup de propriétaires à Mougins sont anglophones. OptiPro produit vos devis et factures bilingues FR/EN sans surcoût. Les emails de relance peuvent aussi être adaptés.',
+          question: "Combien coûte un site internet pour un restaurant ou un artisan à Mougins ?",
+          answer: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : tout le pack précédent, plus un formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Une web app ou un outil métier se chiffre sur devis.",
         },
         {
-          question: 'Vous avez l\'habitude des chantiers haut de gamme ?',
-          answer: 'Oui. Pierre a piloté des projets de 20k€ à 1M€ chez Factory pendant 5 ans (portefeuille ADV 7M€/an). Les méthodes scalent du petit chantier au gros projet villa.',
+          question: "Je suis restaurateur au village. Vous gérez la carte et les réservations ?",
+          answer: "La carte, oui : elle est intégrée au site, lisible sur mobile, et modifiable via la maintenance quand elle change. Pour les réservations, le plus sain est en général de brancher le site sur l'outil que vous utilisez déjà plutôt que d'en redévelopper un. On tranche pendant l'appel découverte, en fonction de ce qui est le plus simple à vivre au quotidien.",
         },
         {
-          question: 'Combien ça coûte pour un artisan mouginois ?',
-          answer: 'Deux formules. Mission à l\'heure (75€/h HT) pour les besoins ponctuels. Pack mensuel reconductible : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. Préavis 15 jours fin de mois. Période d\'essai 30 jours sans frais.',
+          question: "En combien de temps le site est-il en ligne ?",
+          answer: "Un site vitrine est livré en 3 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et inscrit dans le devis avant le démarrage.",
         },
         {
-          question: 'Vous pouvez vous déplacer à Mougins ?',
-          answer: 'Oui, possible pour un audit initial ou un point trimestriel. Vence est à 30 km de Mougins. Aucun frais de déplacement facturé sur la zone PACA.',
+          question: "Une partie de ma clientèle est anglophone. Le site peut être bilingue ?",
+          answer: "C'est possible et cela se décide au devis, car une version bilingue double le contenu à rédiger et à maintenir. Souvent, traduire les pages essentielles suffit. On regarde ensemble ce qui est réellement utile pour votre activité plutôt que de tout dupliquer par principe.",
+        },
+        {
+          question: "Qui écrit les textes et fournit les photos ?",
+          answer: "Vous fournissez la matière — vos prestations, vos réalisations, vos photos — et je m'occupe de la structure, de la rédaction des pages et de la mise en forme. Si vos photos ne sont pas exploitables, je vous le dis franchement : sur Mougins, des visuels médiocres desservent le site plus qu'ils ne l'aident.",
         },
       ]}
     />

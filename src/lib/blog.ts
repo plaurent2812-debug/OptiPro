@@ -1871,7 +1871,7 @@ Erreur 5 : 300-800€/an</p>
 
 <div class="callout">
   <p><strong>Vous voulez vous mettre en conformité sans vous prendre la tête ?</strong></p>
-  <p>OptiPro accompagne ses clients sur la transition complète : choix d'outil, paramétrage, nettoyage du fichier clients, formation rapide. C'est inclus dans tous les packs mensuels — pas de surcoût. 30 minutes au téléphone pour faire le point sur votre situation actuelle.</p>
+  <p>OptiPro peut vous accompagner sur la transition : choix d'outil, paramétrage, nettoyage du fichier clients, prise en main. Le périmètre et le tarif sont définis au devis, après un premier appel. 30 minutes au téléphone pour faire le point sur votre situation actuelle.</p>
 
   <a href="/contact?cible=artisans" class="callout-link">Réserver un appel découverte →</a>
 </div>

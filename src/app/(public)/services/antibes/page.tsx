@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import CityServicePage from '@/components/seo/CityServicePage';
 
 export const metadata: Metadata = {
-  title: 'Assistant administratif à Antibes — Bras droit admin & opérationnel OptiPro',
-  description: 'Externalisation administrative pour artisans, indépendants et TPE à Antibes et Juan-les-Pins. Devis, factures, fournisseurs, suivi. Dès 650€/mois ou 75€/h.',
+  title: 'Création site internet Antibes — artisans et TPE',
+  description: "Création de site internet à Antibes et Juan-les-Pins pour artisans et TPE : site vitrine 990€ HT livré en 3 semaines. Développeur basé à Vence (06).",
   alternates: { canonical: '/services/antibes' },
   openGraph: {
-    title: 'Assistant administratif à Antibes — OptiPro',
-    description: 'Le bras droit admin & opérationnel des artisans antibois. Mission ou pack mensuel dès 650€/mois.',
+    title: 'Création de site internet à Antibes — OptiPro',
+    description: "Site vitrine 990€ HT livré en 3 semaines, web app sur devis. Développeur indépendant basé à Vence, proche d'Antibes.",
     url: 'https://www.opti-pro.fr/services/antibes',
     type: 'website',
   },
@@ -22,80 +22,106 @@ export default function AntibesPage() {
       postalCodes={['06600', '06160']}
       metaTitle={metadata.title as string}
       metaDescription={metadata.description as string}
-      h1="Le bras droit administratif des artisans et TPE antibois"
-      intro="Vous êtes artisan ou dirigeant de TPE à Antibes ou Juan-les-Pins. Vous bossez entre les villas du Cap, les chantiers du centre-ville et les locations saisonnières — et chaque semaine, 5 à 10h disparaissent dans l'admin au lieu d'aller sur le terrain. OptiPro prend en charge devis, facturation, relances, fournisseurs et préparation comptable."
-      economicContext="Antibes et Juan-les-Pins concentrent un tissu d'artisans BTP particulièrement dense, lié à l'entretien et à la rénovation des villas du Cap d'Antibes, des résidences secondaires et des locations meublées saisonnières. La clientèle est exigeante (souvent internationale, fortunée, attentive à la qualité et aux délais), ce qui rend la réactivité commerciale décisive. Un devis envoyé en 24h après la visite est devenu le standard ; au-delà, le concurrent passe avant. La gestion administrative classique au stylo et Excel ne tient plus."
+      h1="Création de site internet à Antibes et Juan-les-Pins"
+      intro="Vous cherchez un développeur proche de vous pour créer votre site internet à Antibes ou à Juan-les-Pins. Je suis développeur web indépendant, basé à Vence dans les Alpes-Maritimes, et je construis des sites vitrines et des outils métier sur mesure pour les artisans et les TPE. Site vitrine à 990€ HT, livré en 3 semaines, hébergement et nom de domaine inclus."
+      economicContext="Antibes est marquée par le nautisme : le port Vauban et les activités qui l'entourent — entretien et réparation de bateaux, sellerie marine, mécanique, électronique embarquée, avitaillement, services aux équipages — font vivre un tissu dense de petites entreprises très spécialisées. À cela s'ajoutent les artisans du bâtiment qui entretiennent et rénovent les villas du Cap et les résidences de Juan-les-Pins, ainsi qu'un environnement de TPE de services lié à la proximité de Sophia Antipolis. Ces métiers de niche sont souvent difficiles à trouver en ligne : le savoir-faire existe, la vitrine web manque."
       geo={{ latitude: 43.5808, longitude: 7.1239 }}
       whyHere={[
         {
-          title: 'Réactivité face à une clientèle exigeante',
-          description: 'Cap d\'Antibes, propriétaires internationaux, agences de location haut de gamme : la qualité du devis et son délai d\'envoi font la différence. OptiPro envoie vos devis sous 1h après votre vocal.',
+          title: "Un développeur du 06, pas une agence à distance",
+          description: "Je suis installé à Vence (06140), à une trentaine de kilomètres d'Antibes. Un rendez-vous sur place pour cadrer le projet est possible — ce que ne propose pas une agence qui génère des pages « site internet Antibes » sans être implantée dans le département.",
         },
         {
-          title: 'Volumes en pic saisonnier',
-          description: 'Avril à octobre, l\'activité explose sur Juan-les-Pins et le Cap. OptiPro absorbe les pics sans embauche ni surcoût caché.',
+          title: "Adapté aux métiers très spécialisés",
+          description: "Sellerie marine, électronique embarquée, mécanique, second œuvre : plus votre métier est de niche, plus il est important que le site explique précisément ce que vous faites. C'est ce qui vous rend trouvable par les bons clients.",
         },
         {
-          title: 'Connaissance des artisans de la zone',
-          description: 'Pierre a 10 ans d\'expérience en pilotage d\'exploitation en PACA, avec des chantiers BTP second œuvre. Il connaît les habitudes commerciales locales et les délais réalistes.',
+          title: "Un seul interlocuteur",
+          description: "Vous parlez à la personne qui construit le site, du premier appel jusqu'à la mise en ligne. Pas de commercial, pas d'intermédiaire, pas de sous-traitance.",
         },
         {
-          title: 'Service 100% à distance',
-          description: 'Vence est à 30 km d\'Antibes. WhatsApp dédié, réponse sous 4h. Déplacement possible pour audit initial ou point trimestriel, sans frais sur la zone PACA.',
+          title: "Périmètre et prix écrits au devis",
+          description: "Site vitrine 990€ HT, Site vitrine Pro 1 390€ HT, web app sur devis. Le périmètre et les livrables sont définis avant de commencer, ce qui évite les discussions à la livraison.",
         },
       ]}
       services={[
         {
-          icon: '📄',
-          title: 'Devis structurés sous 1h',
-          description: 'Vocal WhatsApp depuis la villa → devis détaillé envoyé au client dans l\'heure. Signature en ligne. Le client n\'a pas le temps d\'aller voir ailleurs.',
+          icon: '🌐',
+          title: 'Site vitrine — 990€ HT',
+          description: "3 à 4 pages sur mesure : votre activité, vos prestations, votre atelier ou votre zone d'intervention à Antibes et Juan-les-Pins. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 3 semaines.",
         },
         {
-          icon: '💰',
-          title: 'Relances multi-langues si besoin',
-          description: 'Calendrier de relance professionnel sur les factures impayées. Possibilité d\'adapter le ton pour la clientèle internationale (français/anglais selon le profil).',
+          icon: '📍',
+          title: 'Site vitrine Pro — 1 390€ HT',
+          description: "Tout le pack Site vitrine, plus un formulaire de contact fonctionnel, la fiche Google My Business et le SEO local — pour être trouvé sur les recherches locales autour du port Vauban, du Cap et de Juan-les-Pins.",
         },
         {
-          icon: '🤝',
-          title: 'Coordination fournisseurs',
-          description: 'Suivi des commandes, livraisons, sous-traitants. Particulièrement utile pour les chantiers haut de gamme avec 10-30 corps de métier mobilisés.',
+          icon: '⚓',
+          title: 'Pages métier pour le nautisme',
+          description: "Une page par spécialité plutôt qu'une page fourre-tout : entretien, réparation, sellerie, électronique, hivernage. Un client qui cherche une prestation précise tombe sur la page qui y répond.",
         },
         {
-          icon: '📋',
-          title: 'Préparation comptable mensuelle',
-          description: 'Dossier propre livré chaque mois à votre expert-comptable antibois. Factures classées par chantier, frais saisis avec OCR, FEC à jour.',
+          icon: '⚙️',
+          title: 'Web app et outil métier — sur devis',
+          description: "Catalogue de pièces ou de références, portail client, suivi d'interventions et de chantiers, gestion de commandes, tableaux de bord. De quoi remplacer les fichiers Excel qui circulent entre l'atelier et le bureau.",
         },
         {
-          icon: '📊',
-          title: 'Marge réelle par chantier',
-          description: 'Sur les chantiers à 50-200k€, la marge se joue sur le tracking des fournitures et de la main d\'œuvre. OptiPro consolide les chiffres en temps réel.',
+          icon: '🔧',
+          title: 'Maintenance — 79€ ou 129€/mois',
+          description: "Maintenance Essentiel à 79€/mois (1h par mois de mises à jour de contenu) ou Maintenance Pro à 129€/mois (2h par mois, petites évolutions et traitement prioritaire). Sans engagement de durée.",
         },
         {
-          icon: '🗓️',
-          title: 'Agenda et visites',
-          description: 'Planification des visites de chantier, RDV clients, points fournisseurs. Confirmations automatiques. Vous n\'oubliez plus un RDV important.',
+          icon: '🏭',
+          title: 'Référence : SAPAL Signalisation',
+          description: "Ma réalisation de référence : une plateforme B2B avec un catalogue de plus de 2 500 références, un portail client et des intégrations API. Un bon repère si vous avez un catalogue technique à mettre en ligne.",
+        },
+      ]}
+      relatedLinks={[
+        {
+          href: '/tarifs',
+          label: 'Tarifs détaillés',
+          description: "Site vitrine, Site vitrine Pro, web app, maintenance : les prix et ce qui est inclus.",
+        },
+        {
+          href: '/le-service',
+          label: 'Le service en détail',
+          description: "Ce que je construis, comment se déroule un projet, et ce que vous recevez.",
+        },
+        {
+          href: '/services/electricien',
+          label: 'Site internet pour électricien',
+          description: "La page dédiée aux électriciens : prestations, dépannage, demandes de devis.",
+        },
+        {
+          href: '/services/plombier',
+          label: 'Site internet pour plombier',
+          description: "La page dédiée aux plombiers : urgences, zone couverte, contact rapide.",
         },
       ]}
       faq={[
         {
-          question: 'Vous travaillez avec des artisans dans tout Antibes ?',
-          answer: 'Oui. Antibes-Centre, Juan-les-Pins, Cap d\'Antibes, Quartier des Semboules, La Fontonne, et toute la CASA (Communauté d\'Agglomération Sophia Antipolis). Service 100% à distance.',
+          question: "Vous créez des sites sur tout Antibes et Juan-les-Pins ?",
+          answer: "Oui. Antibes-Centre, le Vieil Antibes, Juan-les-Pins, le Cap d'Antibes, La Fontonne, Les Semboules, et le reste de la Communauté d'agglomération Sophia Antipolis. Je suis basé à Vence, dans le même département : un rendez-vous sur place pour cadrer le projet est possible.",
         },
         {
-          question: 'Vous pouvez vous adapter aux chantiers haut de gamme du Cap ?',
-          answer: 'Oui. Pierre a une expérience de pilotage de portefeuilles ADV chez Factory (Top 150 Champions de la Croissance) sur des projets de 20k€ à 1M€. Les méthodes scalent du petit chantier au gros budget.',
+          question: "Combien coûte un site internet pour un artisan antibois ?",
+          answer: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : tout le pack précédent, plus un formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Une web app ou un outil métier se chiffre sur devis.",
         },
         {
-          question: 'Vous gérez la facturation en anglais pour les clients internationaux ?',
-          answer: 'Oui. Devis et factures bilingues FR/EN disponibles si besoin. Pierre travaille en français au quotidien mais maîtrise l\'anglais pour les échanges clients internationaux.',
+          question: "Je travaille dans le nautisme au port Vauban. Un site vitrine est-il utile ?",
+          answer: "Oui, surtout pour un métier spécialisé. Un propriétaire ou un équipage qui cherche une prestation précise commence presque toujours par une recherche en ligne, parfois avant même d'arriver au port. Un site qui décrit clairement vos spécialités, votre atelier et vos moyens de contact vous rend comparable — et joignable — au moment où la demande se présente.",
         },
         {
-          question: 'Combien ça coûte pour un artisan antibois ?',
-          answer: 'Deux formules. Mission à l\'heure (75€/h HT) pour les besoins ponctuels. Pack mensuel reconductible : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. Préavis 15 jours fin de mois. Période d\'essai 30 jours sans frais.',
+          question: "En combien de temps le site est-il en ligne ?",
+          answer: "Un site vitrine est livré en 3 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et écrit dans le devis avant le démarrage.",
         },
         {
-          question: 'Vous travaillez avec Sophia Antipolis ?',
-          answer: 'Oui. Les TPE de Sophia Antipolis (consulting, services B2B, ingénierie) sont une cible naturelle pour OptiPro. Le besoin d\'admin externalisée y est encore plus fort qu\'en BTP — facturation B2B, suivi de projets, préparation comptable export.',
+          question: "J'ai un catalogue de pièces et de références. Vous pouvez le mettre en ligne ?",
+          answer: "Oui, c'est typiquement un projet de web app plutôt que de site vitrine, et cela se chiffre sur devis. Ma réalisation de référence, SAPAL Signalisation, est exactement ça : une plateforme B2B avec un catalogue de plus de 2 500 références, un portail client et des intégrations API.",
+        },
+        {
+          question: "Je suis une TPE de services vers Sophia Antipolis. Vous travaillez aussi pour ce profil ?",
+          answer: "Oui. Conseil, ingénierie, services B2B : le besoin est souvent moins un site vitrine classique qu'un outil interne — suivi de projets, portail client, tableaux de bord. On regarde pendant l'appel découverte ce qui vous fait réellement gagner du temps, puis je chiffre sur devis.",
         },
       ]}
     />

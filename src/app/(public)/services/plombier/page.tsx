@@ -2,13 +2,14 @@ import type { Metadata } from 'next';
 import LandingPage from '@/components/seo/LandingPage';
 
 export const metadata: Metadata = {
-  title: 'Assistant administratif pour plombiers — OptiPro PACA',
+  title: 'Création de site internet pour plombier — PACA',
   description:
-    'Service d\'assistant admin externalisé pour plombiers indépendants et plombiers-chauffagistes. Devis, factures, relances, comptable. À partir de 650€/mois ou 75€/h. Vence (06), interventions PACA et France.',
+    "Site internet pour plombier et plombier-chauffagiste : être trouvé en urgence sur Google mobile, présenter vos interventions, recevoir des demandes de devis. Dès 990€ HT, livré en 3 semaines.",
   alternates: { canonical: '/services/plombier' },
   openGraph: {
-    title: 'Assistant admin pour plombiers — OptiPro',
-    description: 'Vous gérez les fuites et les chantiers, je gère votre admin. Mission ou pack mensuel — dès 650€/mois.',
+    title: 'Création de site internet pour plombier — OptiPro',
+    description:
+      "Un site qui vous fait appeler quand la fuite tombe à 19h. Site vitrine dès 990€ HT, livré en 3 semaines. Vence (06), toute la PACA.",
     url: 'https://www.opti-pro.fr/services/plombier',
     type: 'website',
   },
@@ -28,9 +29,10 @@ const jsonLd = {
     {
       '@type': 'Service',
       '@id': 'https://www.opti-pro.fr/services/plombier#service',
-      name: 'Assistant administratif externalisé pour plombiers',
-      serviceType: 'AdministrativeService',
-      description: 'Service d\'assistant administratif externalisé pour plombiers indépendants et plombiers-chauffagistes. Gestion des devis (urgences et chantiers), factures, relances, trésorerie, frais, planning, dossier comptable mensuel.',
+      name: 'Création de site internet pour plombier et plombier-chauffagiste',
+      serviceType: 'WebDevelopment',
+      description:
+        "Création de sites vitrines et d'outils web sur mesure pour plombiers et plombiers-chauffagistes : visibilité Google mobile sur les recherches d'urgence, présentation des interventions, formulaire de demande de devis, fiche Google My Business et SEO local.",
       provider: { '@id': 'https://www.opti-pro.fr/#organization' },
       areaServed: [
         { '@type': 'City', name: 'Vence' },
@@ -41,51 +43,80 @@ const jsonLd = {
         { '@type': 'City', name: 'Cagnes-sur-Mer' },
         { '@type': 'AdministrativeArea', name: 'Alpes-Maritimes' },
         { '@type': 'AdministrativeArea', name: "Provence-Alpes-Côte d'Azur" },
-        { '@type': 'Country', name: 'France' },
       ],
-      audience: { '@type': 'Audience', name: 'Plombiers, plombiers-chauffagistes, sanitaire' },
-      offers: {
-        '@type': 'AggregateOffer',
-        lowPrice: '650',
-        highPrice: '1950',
-        priceCurrency: 'EUR',
-        offerCount: 4,
-        valueAddedTaxIncluded: false,
-      },
+      audience: { '@type': 'Audience', name: 'Plombiers, plombiers-chauffagistes, installateurs sanitaire' },
+      offers: [
+        {
+          '@type': 'Offer',
+          name: 'Site vitrine',
+          description:
+            "3 à 4 pages sur mesure, hébergement 1 an inclus, nom de domaine inclus, adresse email professionnelle.",
+          price: 990,
+          priceCurrency: 'EUR',
+          valueAddedTaxIncluded: false,
+          url: 'https://www.opti-pro.fr/tarifs',
+        },
+        {
+          '@type': 'Offer',
+          name: 'Site vitrine Pro',
+          description:
+            "Tout le pack Site vitrine, plus un formulaire de contact fonctionnel, la fiche Google My Business et le SEO local.",
+          price: 1390,
+          priceCurrency: 'EUR',
+          valueAddedTaxIncluded: false,
+          url: 'https://www.opti-pro.fr/tarifs',
+        },
+      ],
     },
     {
       '@type': 'FAQPage',
       mainEntity: [
         {
           '@type': 'Question',
-          name: "Comment gérer mes devis quand je sors d'une intervention ?",
+          name: "Un site internet sert vraiment à quelque chose quand la plomberie marche au bouche-à-oreille ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Vous m'envoyez un vocal WhatsApp depuis le chantier (« remplacement chauffe-eau 200L chez Mme Dupont, environ 1 200€, RDV mardi prochain »). Je crée le devis détaillé et l'envoie au client dans l'heure. Le client peut signer en ligne. Vous, vous repartez sur la prochaine intervention.",
+            text: "Le bouche-à-oreille amène le nom, le site confirme le choix. Quand un voisin vous recommande, la personne tape votre nom sur Google avant d'appeler. Si elle ne trouve rien, ou une page qui s'affiche mal sur téléphone, elle appelle le plombier suivant sur la liste. Le site ne remplace pas votre réputation : il évite de la perdre au moment de la décision.",
           },
         },
         {
           '@type': 'Question',
-          name: "Et le suivi des factures impayées entre deux dépannages ?",
+          name: "Comment le site aide-t-il sur une recherche d'urgence type fuite d'eau ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part.",
+            text: "Une urgence se cherche sur téléphone, debout, avec de l'eau au sol. Le site est donc construit pour ça : numéro de téléphone cliquable visible dès le premier écran sans scroller, zone d'intervention et communes annoncées noir sur blanc, chargement rapide même en 4G, et vos types d'intervention listés en clair (fuite, dégorgement, chauffe-eau, recherche de fuite). L'objectif est un appel en moins de dix secondes.",
           },
         },
         {
           '@type': 'Question',
-          name: "Combien ça coûte pour un plombier indépendant ?",
+          name: "Je peux recevoir des demandes de devis directement depuis le site ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Deux formules. Mission à l'heure (75€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
+            text: "Oui, avec le pack Site vitrine Pro. Le formulaire est pensé pour la plomberie : nature des travaux, commune, urgence ou travaux planifiés, possibilité de joindre une photo du chauffe-eau ou de l'arrivée d'eau. Vous recevez la demande par email avec les informations utiles, ce qui évite trois allers-retours téléphoniques avant de pouvoir chiffrer.",
           },
         },
         {
           '@type': 'Question',
-          name: "Travaillez-vous avec des plombiers ailleurs qu'en PACA ?",
+          name: "Faut-il montrer ses chantiers de rénovation sur le site ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Oui. Le service est 100% à distance — vocaux WhatsApp, visios. La PACA est ma zone prioritaire (Vence, Nice, Antibes, Cannes, Grasse), mais j'accepte les plombiers partout en France.",
+            text: "Pour le dépannage, non, c'est le téléphone qui compte. Pour les rénovations de salle de bain ou les remplacements de chaudière, oui : ce sont des devis à plusieurs milliers d'euros et le client compare. Une page de réalisations avec des photos avant/après de vos propres chantiers fait plus pour votre crédibilité que n'importe quel argumentaire.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: "Combien coûte un site internet de plombier et en combien de temps est-il en ligne ?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 3 semaines. Maintenance ensuite en option, à partir de 79€ par mois.",
+          },
+        },
+        {
+          '@type': 'Question',
+          name: "Qui s'occupe de mettre à jour mes tarifs ou mes horaires après la livraison ?",
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: "Deux possibilités. Soit vous prenez un forfait de maintenance et vous m'envoyez simplement la modification à faire : Maintenance Essentiel à 79€ par mois pour 1h mensuelle de mises à jour de contenu, Maintenance Pro à 129€ par mois pour 2h avec petites évolutions et traitement prioritaire. Soit vous n'en prenez pas, et le site continue de fonctionner : vous restez libre de me recontacter ponctuellement.",
           },
         },
       ],
@@ -97,91 +128,131 @@ export default function PlombierPage() {
   return (
     <LandingPage
       badge="Pour plombiers et plombiers-chauffagistes"
-      h1="L'assistant administratif des plombiers"
-      intro="Vous excellez dans la plomberie, pas dans Excel. Vous n'avez pas le temps de faire des devis sous 24h, de relancer les impayés, de tenir un dossier comptable propre. Voilà ce que je prends en charge pour vous, à partir de 650€/mois ou 75€/h."
+      h1="Création de site internet pour plombier"
+      intro="Quand un chauffe-eau lâche un dimanche soir, le client ne fouille pas les Pages Jaunes : il tape « plombier » sur son téléphone et appelle l'un des trois premiers résultats. Je construis le site qui vous met dans ces trois premiers résultats, avec un numéro cliquable et une zone d'intervention claire. Site vitrine à partir de 990€ HT, livré en 3 semaines."
       painSection={{
-        title: "Quels sont les vrais blocages d'un plombier indépendant aujourd'hui ?",
+        title: "Pourquoi les appels partent chez le plombier d'à côté ?",
         points: [
-          "Vous sortez d'une fuite à 19h. Le devis pour la rénovation salle de bain ? Pas avant 3 jours, et le client a déjà appelé un autre plombier.",
-          "Vous oubliez de relancer les factures impayées entre deux interventions urgentes. 2-5k€/mois passent à la trappe.",
-          "Votre conjoint(e) fait l'admin le soir et le week-end. Tension permanente, erreurs, retards URSSAF.",
-          "Aucune visibilité sur la trésorerie réelle. Vous ne savez jamais ce qui est encaissé, ce qui est en attente.",
-          "Justificatifs en vrac, comptable qui râle en fin d'année, marge réelle inconnue.",
+          "Vous n'apparaissez pas quand quelqu'un cherche « plombier » plus le nom de votre commune sur son téléphone. Vos concurrents, oui.",
+          "Votre seule présence en ligne est un annuaire ou une page Facebook qui n'a pas bougé depuis deux ans, avec un ancien numéro.",
+          "Sur mobile, il faut zoomer pour lire votre numéro et il n'est pas cliquable. Personne ne recopie dix chiffres à la main avec de l'eau au sol.",
+          "Rien n'indique les communes que vous couvrez : on ne sait pas si vous vous déplacez, donc on n'essaie pas.",
+          "Vos belles rénovations de salle de bain n'existent nulle part en photo, alors que c'est exactement ce que le client veut voir avant de signer un devis à 6 000€.",
+          "Vous recevez des appels pour des interventions que vous ne faites pas, et aucun pour celles que vous cherchez à développer.",
         ],
       }}
       featuredOffer={{
-        name: 'Pack Croissance — 20h',
-        price: '1 200 € HT/mois',
-        delay: 'Démarrage en moins de 2 semaines',
-        description: "Pour un suivi régulier de votre admin — devis, ADV, fournisseurs, suivi de projet, facturation. 20 heures dédiées par mois, sans engagement long.",
+        name: 'Site vitrine Pro',
+        price: '1 390 € HT',
+        delay: '3 semaines',
+        description:
+          "La formule adaptée à la plomberie : être trouvé sur les recherches d'urgence de votre secteur, être appelable en un geste, et recevoir des demandes de devis chiffrables sans jouer au ping-pong téléphonique.",
         features: [
-          'Devis structurés, envoyés sans délai après votre brief',
-          'Facturation, suivi des paiements, conforme PDP 2026-2027',
-          'Frais & dépenses saisis et classés par chantier',
-          'Trésorerie suivie, reporting mensuel commenté',
-          'Préparation du dossier mensuel pour votre comptable',
-          'WhatsApp dédié, réponse sous 4h en jour ouvré',
-          'Visio bilan mensuelle (30 min)',
-          'Préavis 15 jours fin de mois — vous gardez la main',
+          'Tout le pack Site vitrine (3 à 4 pages sur mesure)',
+          'Hébergement 1 an, nom de domaine et adresse email professionnelle inclus',
+          'Numéro cliquable visible dès le premier écran sur mobile',
+          'Formulaire de demande de devis avec photo du matériel et commune',
+          'Fiche Google My Business créée et renseignée',
+          'SEO local sur vos communes et vos types d’intervention',
         ],
       }}
       process={[
         {
           step: '1',
-          title: 'Appel découverte (30 min, gratuit)',
-          description: "On parle de votre activité : volumes, type d'interventions, outils actuels. Je vous dis si on est faits pour bosser ensemble. Si oui, mission ponctuelle ou pack adapté proposé sous 24h.",
+          title: 'Premier appel — gratuit',
+          description:
+            "On fait le tour de votre activité : dépannage, rénovation, chauffage, part de particuliers et de syndics, communes que vous acceptez de couvrir. Je vous dis franchement si un site vitrine suffit ou si vous avez besoin d'autre chose.",
         },
         {
           step: '2',
-          title: 'Le démarrage',
-          description: "Audit rapide de votre existant. Accès aux outils que vous utilisez déjà (Pennylane, Sage, Excel…). Premier RDV de cadrage 30 min. Pas de mise en route facturée à part — c'est inclus dans les premières heures.",
+          title: 'Contenu et structure',
+          description:
+            "Je rédige les pages à partir de nos échanges, vous n'avez pas de texte à écrire. Vous me fournissez vos photos de chantiers, ou on part sur une structure sans photos et on les ajoutera plus tard. Le périmètre et les livrables sont fixés au devis.",
         },
         {
           step: '3',
-          title: 'Le quotidien',
-          description: "Vous m'envoyez vocaux/photos WhatsApp. Je crée les devis, envoie les factures, relance les impayés, classe les frais. Visio bilan mensuelle. Préavis 15 jours sur les packs.",
+          title: 'Développement et mise en ligne',
+          description:
+            "Je développe le site, le teste sur téléphone, et je le mets en ligne sur votre nom de domaine. Délai annoncé : 3 semaines pour un site vitrine. Vous validez avant publication.",
+        },
+        {
+          step: '4',
+          title: 'Après la livraison',
+          description:
+            "Le site vous appartient. Vous pouvez prendre un forfait de maintenance pour que je gère les mises à jour (tarifs, horaires, nouvelles photos), ou ne rien prendre du tout et me recontacter au besoin.",
         },
       ]}
       faq={[
         {
-          question: "Comment gérer mes devis quand je sors d'une intervention ?",
-          answer: "Vous m'envoyez un vocal WhatsApp depuis le chantier. Je crée le devis détaillé et l'envoie au client dans l'heure. Le client peut signer en ligne. Vous, vous repartez sur la prochaine intervention.",
+          question: "Un site internet sert vraiment à quelque chose quand la plomberie marche au bouche-à-oreille ?",
+          answer:
+            "Le bouche-à-oreille amène le nom, le site confirme le choix. Quand un voisin vous recommande, la personne tape votre nom sur Google avant d'appeler. Si elle ne trouve rien, ou une page qui s'affiche mal sur téléphone, elle appelle le plombier suivant sur la liste. Le site ne remplace pas votre réputation : il évite de la perdre au moment de la décision.",
         },
         {
-          question: "Et le suivi des factures impayées entre deux dépannages ?",
-          answer: "Je gère les relances. Je tiens un calendrier de relance personnalisé (J+15, J+30, J+45) sur les factures impayées, sans intervention de votre part.",
+          question: "Comment le site aide-t-il sur une recherche d'urgence type fuite d'eau ?",
+          answer:
+            "Une urgence se cherche sur téléphone, debout, avec de l'eau au sol. Le site est donc construit pour ça : numéro de téléphone cliquable visible dès le premier écran sans scroller, zone d'intervention et communes annoncées noir sur blanc, chargement rapide même en 4G, et vos types d'intervention listés en clair (fuite, dégorgement, chauffe-eau, recherche de fuite). L'objectif est un appel en moins de dix secondes.",
         },
         {
-          question: "Combien ça coûte pour un plombier indépendant ?",
-          answer: "Deux formules. Mission à l'heure (75€/h HT) pour les besoins ponctuels — sans engagement. Pack mensuel reconductible pour un suivi régulier : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. TVA non applicable. Préavis 15 jours fin de mois sur les packs.",
+          question: "Je peux recevoir des demandes de devis directement depuis le site ?",
+          answer:
+            "Oui, avec le pack Site vitrine Pro. Le formulaire est pensé pour la plomberie : nature des travaux, commune, urgence ou travaux planifiés, possibilité de joindre une photo du chauffe-eau ou de l'arrivée d'eau. Vous recevez la demande par email avec les informations utiles, ce qui évite trois allers-retours téléphoniques avant de pouvoir chiffrer.",
         },
         {
-          question: "Travaillez-vous avec des plombiers ailleurs qu'en PACA ?",
-          answer: "Oui. Service 100% à distance — vocaux WhatsApp, visios. PACA prioritaire, mais j'accepte les plombiers partout en France.",
+          question: "Faut-il montrer ses chantiers de rénovation sur le site ?",
+          answer:
+            "Pour le dépannage, non, c'est le téléphone qui compte. Pour les rénovations de salle de bain ou les remplacements de chaudière, oui : ce sont des devis à plusieurs milliers d'euros et le client compare. Une page de réalisations avec des photos avant/après de vos propres chantiers fait plus pour votre crédibilité que n'importe quel argumentaire.",
+        },
+        {
+          question: "Combien coûte un site internet de plombier et en combien de temps est-il en ligne ?",
+          answer:
+            "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 3 semaines. Maintenance ensuite en option, à partir de 79€ par mois.",
+        },
+        {
+          question: "Qui s'occupe de mettre à jour mes tarifs ou mes horaires après la livraison ?",
+          answer:
+            "Deux possibilités. Soit vous prenez un forfait de maintenance et vous m'envoyez simplement la modification à faire : Maintenance Essentiel à 79€ par mois pour 1h mensuelle de mises à jour de contenu, Maintenance Pro à 129€ par mois pour 2h avec petites évolutions et traitement prioritaire. Soit vous n'en prenez pas, et le site continue de fonctionner : vous restez libre de me recontacter ponctuellement.",
         },
       ]}
-      localMentions={['Vence', 'Nice', 'Antibes', 'Cannes', 'Grasse', "toute la PACA et la France à distance"]}
+      localMentions={['Vence', 'Nice', 'Antibes', 'Cannes', 'Grasse', 'Cagnes-sur-Mer']}
       industryContext={{
-        title: "La réalité du plombier indépendant en 2026 — pourquoi déléguer l'admin n'est plus un luxe",
-        intro: "Pendant 10 ans, j'ai piloté des opérations en logistique et exploitation, dont des entreprises de plomberie et second œuvre. J'ai vu de l'intérieur ce qui distingue les plombiers qui gagnent leur vie sereinement de ceux qui s'épuisent. Voici ce que j'ai appris, appliqué à la réalité d'un plombier indépendant.",
-        keyFacts: [
+        title: "Ce que j'ai retenu de trois ans derrière un comptoir de plombiers",
+        intro:
+          "Chez DBS Drive, j'ai passé mes journées au contact de plombiers et de chauffagistes qui venaient chercher leurs pièces, dans une agence de 8 500 références. J'ai entendu les mêmes phrases pendant trois ans : le client qui a rappelé trois fois, celui qui a pris l'autre parce qu'il répondait, le chantier perdu parce que personne n'avait vu les photos du précédent. Ce n'est pas un métier où l'on manque de travail : c'est un métier où l'on perd des appels sans jamais le savoir.",
+        insight:
+          "Un site de plombier ne se juge pas sur son esthétique mais sur une seule question : combien de secondes entre l'arrivée sur la page depuis un téléphone et le déclenchement de l'appel ? Tout le reste — les pages de présentation, les photos de chantiers, la page de contact — sert les devis de rénovation, pas l'urgence. Ce sont deux usages différents sur un même site, et ils se construisent différemment.",
+      }}
+      relatedLinks={{
+        title: 'Pour aller plus loin',
+        intro:
+          "Les tarifs détaillés, la façon dont je travaille, et les pages dédiées aux communes des Alpes-Maritimes que je couvre le plus souvent.",
+        links: [
           {
-            stat: '6 à 8h',
-            label: "consacrées chaque semaine à l'administratif (devis, factures, relances) chez un plombier indépendant",
-            source: 'CAPEB',
+            href: '/tarifs',
+            label: 'Tarifs',
+            description: 'Site vitrine 990€, Site vitrine Pro 1 390€, web app sur devis, maintenance dès 79€/mois.',
           },
           {
-            stat: '60-90 jours',
-            label: "délai moyen de paiement client en B2B plomberie/chauffage",
-            source: 'INSEE 2024',
+            href: '/le-service',
+            label: 'Le service',
+            description: 'Comment se déroule un projet, ce qui est inclus, ce qui ne l’est pas.',
           },
           {
-            stat: '42€/h',
-            label: "taux horaire moyen facturable d'un plombier indépendant en France",
-            source: 'INSEE 2024',
+            href: '/services/nice',
+            label: 'Plombiers à Nice',
+            description: 'Métropole niçoise : forte densité, concurrence élevée sur les recherches d’urgence.',
+          },
+          {
+            href: '/services/cagnes-sur-mer',
+            label: 'Plombiers à Cagnes-sur-Mer',
+            description: 'Résidentiel et copropriétés du littoral, à quinze minutes de Vence.',
+          },
+          {
+            href: '/services/grasse',
+            label: 'Plombiers à Grasse',
+            description: 'Arrière-pays et habitat ancien : beaucoup de rénovation et de remplacement de chauffage.',
           },
         ],
-        insight: "La spécificité du plombier sur la Côte d'Azur : pic d'activité avant l'été (rénovations, climatisations) et pendant l'hiver (chauffage), creux entre. Avoir un système qui tourne tout seul pendant les pics et qui ne pèse rien pendant les creux change tout.",
       }}
       jsonLd={jsonLd}
     />

@@ -30,6 +30,9 @@ export interface CityPageProps {
 
   // Latitude/longitude pour le schema Place
   geo: { latitude: number; longitude: number };
+
+  // Maillage interne : pages métier / offres pertinentes pour cette ville (optionnel)
+  relatedLinks?: Array<{ href: string; label: string; description?: string }>;
 }
 
 export default function CityServicePage({
@@ -44,6 +47,7 @@ export default function CityServicePage({
   services,
   faq,
   geo,
+  relatedLinks = [],
 }: CityPageProps) {
   const url = `https://www.opti-pro.fr/services/${citySlug}`;
 
@@ -61,8 +65,8 @@ export default function CityServicePage({
       {
         '@type': 'Service',
         '@id': `${url}#service`,
-        name: `Assistant administratif et opérationnel ${cityNameInClause}`,
-        serviceType: 'AdministrativeService',
+        name: `Création de site internet ${cityNameInClause}`,
+        serviceType: 'WebDevelopment',
         description: intro,
         provider: { '@id': 'https://www.opti-pro.fr/#organization' },
         areaServed: {
@@ -82,6 +86,13 @@ export default function CityServicePage({
           },
         },
         audience: { '@type': 'Audience', name: 'Artisans, indépendants et TPE' },
+        offers: {
+          '@type': 'AggregateOffer',
+          lowPrice: '990',
+          highPrice: '1390',
+          priceCurrency: 'EUR',
+          offerCount: 2,
+        },
         url,
       },
       {
@@ -114,7 +125,7 @@ export default function CityServicePage({
             marginBottom: '1.5rem',
             letterSpacing: '0.02em',
           }}>
-            Pour artisans, indépendants &amp; TPE {cityNameInClause}
+            Développeur web pour artisans &amp; TPE {cityNameInClause}
           </span>
           <h1 style={{
             fontSize: 'clamp(2rem, 4vw, 2.8rem)',
@@ -148,6 +159,14 @@ export default function CityServicePage({
           }}>
             Réserver mon appel découverte (gratuit, 30 min)
           </Link>
+          <p style={{
+            marginTop: '1rem',
+            marginBottom: 0,
+            color: 'var(--secondary)',
+            fontSize: '0.95rem',
+          }}>
+            Site vitrine 990&nbsp;€ HT · Site vitrine Pro 1&nbsp;390&nbsp;€ HT · Web app sur devis
+          </p>
         </div>
       </section>
 
@@ -188,10 +207,10 @@ export default function CityServicePage({
       {/* SERVICES ADAPTÉS */}
       <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
         <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 1rem' }}>
-          Ce que je prends en charge {cityNameInClause}
+          Ce que je construis {cityNameInClause}
         </h2>
         <p style={{ textAlign: 'center', color: 'var(--secondary)', maxWidth: '640px', margin: '0 auto 3rem', lineHeight: 1.6 }}>
-          Tout votre admin et opérationnel, pris en charge — sur mesure, à l&apos;heure ou en pack mensuel.
+          Sites vitrines, outils métier et web apps sur mesure. Périmètre et livrables définis au devis, un seul interlocuteur du premier appel à la mise en ligne.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
           {services.map((s) => (
@@ -215,6 +234,43 @@ export default function CityServicePage({
           ))}
         </div>
       </section>
+
+      {/* MAILLAGE INTERNE — offres & pages métier */}
+      {relatedLinks.length > 0 && (
+        <section style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
+          <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: 'var(--primary)', textAlign: 'center', margin: '0 0 1rem' }}>
+            À consulter aussi
+          </h2>
+          <p style={{ textAlign: 'center', color: 'var(--secondary)', maxWidth: '640px', margin: '0 auto 2.5rem', lineHeight: 1.6 }}>
+            Les tarifs détaillés, le déroulé d&apos;un projet et les pages dédiées aux métiers les plus représentés {cityNameInClause}.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
+            {relatedLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                style={{
+                  display: 'block',
+                  padding: '1.25rem 1.5rem',
+                  background: 'var(--background)',
+                  border: '1px solid var(--border)',
+                  borderRadius: '0.75rem',
+                  textDecoration: 'none',
+                }}
+              >
+                <span style={{ display: 'block', fontWeight: 700, color: 'var(--primary)', marginBottom: link.description ? '0.4rem' : 0 }}>
+                  {link.label}
+                </span>
+                {link.description && (
+                  <span style={{ display: 'block', color: 'var(--secondary)', fontSize: '0.92rem', lineHeight: 1.5 }}>
+                    {link.description}
+                  </span>
+                )}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* FAQ LOCALE */}
       <section style={{ maxWidth: '780px', margin: '0 auto', padding: '0 1.5rem 5rem' }}>
@@ -246,7 +302,7 @@ export default function CityServicePage({
           Vous êtes {cityNameInClause} ? Parlons-en.
         </h2>
         <p style={{ color: 'var(--secondary)', lineHeight: 1.6, margin: '0 auto 2rem', maxWidth: '560px' }}>
-          30 minutes au téléphone ou en visio pour faire le point sur votre admin. Gratuit, sans engagement.
+          30 minutes au téléphone ou en visio pour cadrer votre projet de site ou d&apos;outil métier. Gratuit, sans engagement. Vous ressortez avec un périmètre clair et un prix.
         </p>
         <Link href="/contact" style={{
           display: 'inline-block',

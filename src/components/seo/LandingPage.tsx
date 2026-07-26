@@ -32,8 +32,15 @@ export interface LandingPageProps {
   industryContext?: {
     title: string;
     intro: string;
-    keyFacts: Array<{ stat: string; label: string; source?: string }>;
+    /** Optionnel : uniquement des chiffres vérifiables. Ne jamais inventer de statistique. */
+    keyFacts?: Array<{ stat: string; label: string; source?: string }>;
     insight?: string;
+  };
+  // Maillage interne contextuel (offres, méthode, villes)
+  relatedLinks?: {
+    title: string;
+    intro?: string;
+    links: Array<{ href: string; label: string; description: string }>;
   };
   // Schema additionnel (BreadcrumbList + Service custom)
   jsonLd: object;
@@ -49,6 +56,7 @@ export default function LandingPage({
   faq,
   localMentions,
   industryContext,
+  relatedLinks,
   jsonLd,
 }: LandingPageProps) {
   return (
@@ -248,39 +256,41 @@ export default function LandingPage({
                 {industryContext.intro}
               </p>
 
-              {/* Stats clés sectorielles */}
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                  gap: '1rem',
-                  marginBottom: '2.5rem',
-                }}
-              >
-                {industryContext.keyFacts.map((fact, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      background: 'var(--surface)',
-                      border: '1px solid var(--border)',
-                      borderRadius: '12px',
-                      padding: '1.25rem',
-                    }}
-                  >
-                    <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--accent)', marginBottom: '0.4rem' }}>
-                      {fact.stat}
-                    </div>
-                    <div style={{ color: 'var(--secondary)', fontSize: '0.92rem', lineHeight: 1.5 }}>
-                      {fact.label}
-                    </div>
-                    {fact.source && (
-                      <div style={{ color: 'var(--muted)', fontSize: '0.78rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
-                        Source : {fact.source}
+              {/* Stats clés sectorielles — uniquement si des faits vérifiables sont fournis */}
+              {industryContext.keyFacts && industryContext.keyFacts.length > 0 && (
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                    gap: '1rem',
+                    marginBottom: '2.5rem',
+                  }}
+                >
+                  {industryContext.keyFacts.map((fact, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        background: 'var(--surface)',
+                        border: '1px solid var(--border)',
+                        borderRadius: '12px',
+                        padding: '1.25rem',
+                      }}
+                    >
+                      <div style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--accent)', marginBottom: '0.4rem' }}>
+                        {fact.stat}
                       </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+                      <div style={{ color: 'var(--secondary)', fontSize: '0.92rem', lineHeight: 1.5 }}>
+                        {fact.label}
+                      </div>
+                      {fact.source && (
+                        <div style={{ color: 'var(--muted)', fontSize: '0.78rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
+                          Source : {fact.source}
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
 
               {/* Insight final */}
               {industryContext.insight && (
@@ -415,6 +425,70 @@ export default function LandingPage({
           </div>
         </div>
       </section>
+
+      {/* ===== MAILLAGE INTERNE ===== */}
+      {relatedLinks && relatedLinks.links.length > 0 && (
+        <>
+          <div className="section-divider" />
+          <section style={{ padding: '4rem 0' }}>
+            <div className="container" style={{ maxWidth: '900px' }}>
+              <h2
+                style={{
+                  fontSize: '1.5rem',
+                  fontWeight: 800,
+                  color: 'var(--primary)',
+                  marginBottom: relatedLinks.intro ? '0.75rem' : '2rem',
+                  lineHeight: 1.3,
+                }}
+              >
+                {relatedLinks.title}
+              </h2>
+              {relatedLinks.intro && (
+                <p style={{ color: 'var(--secondary)', fontSize: '1rem', lineHeight: 1.7, marginBottom: '2rem' }}>
+                  {relatedLinks.intro}
+                </p>
+              )}
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                  gap: '1rem',
+                }}
+              >
+                {relatedLinks.links.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    style={{
+                      display: 'block',
+                      background: 'var(--surface)',
+                      border: '1px solid var(--border)',
+                      borderRadius: '12px',
+                      padding: '1.25rem',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <span
+                      style={{
+                        display: 'block',
+                        color: 'var(--accent)',
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                        marginBottom: '0.4rem',
+                      }}
+                    >
+                      {link.label} →
+                    </span>
+                    <span style={{ display: 'block', color: 'var(--secondary)', fontSize: '0.9rem', lineHeight: 1.6 }}>
+                      {link.description}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        </>
+      )}
 
       {/* ===== FONDATEUR ===== */}
       <section style={{ padding: '4rem 0' }}>

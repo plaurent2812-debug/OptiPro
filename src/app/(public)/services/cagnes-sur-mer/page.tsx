@@ -2,12 +2,12 @@ import type { Metadata } from 'next';
 import CityServicePage from '@/components/seo/CityServicePage';
 
 export const metadata: Metadata = {
-  title: 'Assistant administratif à Cagnes-sur-Mer — Bras droit admin & opérationnel OptiPro',
-  description: 'Externalisation administrative pour artisans, indépendants et TPE à Cagnes-sur-Mer. Devis, factures, fournisseurs, suivi de chantier. Dès 650€/mois ou 75€/h.',
+  title: 'Création site internet Cagnes-sur-Mer — artisans, TPE',
+  description: "Création de site internet à Cagnes-sur-Mer pour artisans et commerces : site vitrine 990€ HT livré en 3 semaines. Développeur basé à Vence, à 15 km.",
   alternates: { canonical: '/services/cagnes-sur-mer' },
   openGraph: {
-    title: 'Assistant administratif à Cagnes-sur-Mer — OptiPro',
-    description: 'Le bras droit admin & opérationnel des artisans cagnois. Mission ou pack mensuel dès 650€/mois.',
+    title: 'Création de site internet à Cagnes-sur-Mer — OptiPro',
+    description: "Site vitrine 990€ HT livré en 3 semaines, web app sur devis. Développeur indépendant basé à Vence, à 15 km de Cagnes-sur-Mer.",
     url: 'https://www.opti-pro.fr/services/cagnes-sur-mer',
     type: 'website',
   },
@@ -22,80 +22,106 @@ export default function CagnesSurMerPage() {
       postalCodes={['06800']}
       metaTitle={metadata.title as string}
       metaDescription={metadata.description as string}
-      h1="Le bras droit administratif des artisans et TPE cagnois"
-      intro="Vous êtes artisan ou dirigeant de TPE à Cagnes-sur-Mer. Entre le Cros-de-Cagnes, le Haut-de-Cagnes, le centre-ville et l'hippodrome, vous travaillez sur un territoire dense avec une clientèle mixte (locale, résidentielle, touristique). OptiPro reprend tout l'admin opérationnel pour que vous restiez sur le terrain."
-      economicContext="Cagnes-sur-Mer cumule plusieurs profils économiques : commerces et artisans du centre-ville et du Cros-de-Cagnes, activités liées à l'hippodrome (événementiel, restauration, services), résidences saisonnières et locations meublées en bord de mer, et un tissu de TPE de services entre Nice et Antibes. La position géographique au cœur de la métropole niçoise (15 km de Nice, 10 km d'Antibes, 5 km de Saint-Laurent-du-Var) fait des artisans cagnois des prestataires multi-zones, ce qui complique la gestion administrative."
+      h1="Création de site internet à Cagnes-sur-Mer pour artisans et TPE"
+      intro="Vous cherchez quelqu'un tout près pour vous faire un site internet à Cagnes-sur-Mer. Je suis développeur web indépendant, basé à Vence, à une quinzaine de kilomètres de Cagnes : je construis des sites vitrines et des outils métier sur mesure pour les artisans, les commerces et les TPE. Site vitrine à 990€ HT, livré en 3 semaines, hébergement et nom de domaine inclus."
+      economicContext="Cagnes-sur-Mer repose largement sur le commerce de proximité et l'artisanat : les commerces du centre-ville, les restaurants et les activités du Cros-de-Cagnes, les boutiques du Haut-de-Cagnes, ainsi que l'animation liée à l'hippodrome de la Côte d'Azur. À cela s'ajoutent de nombreux artisans du bâtiment et prestataires de services qui interviennent aussi bien sur la commune que sur Nice et Antibes, toutes proches. Cette clientèle est locale, fidèle, mais elle vérifie de plus en plus en ligne avant d'appeler — et une entreprise sans site apparaît souvent moins fiable qu'un concurrent qui en a un."
       geo={{ latitude: 43.6634, longitude: 7.1495 }}
       whyHere={[
         {
-          title: 'Position centrale dans la métropole',
-          description: 'Vos chantiers s\'étalent souvent entre Nice, Antibes et Cagnes. OptiPro centralise tout l\'admin pour que vous gardiez une vision claire malgré la dispersion géographique.',
+          title: "À quinze kilomètres de chez vous",
+          description: "Je suis installé à Vence (06140), la commune voisine par la route de la vallée du Loup. Cagnes est à une quinzaine de kilomètres : un rendez-vous sur place pour cadrer le projet ne pose aucun problème.",
         },
         {
-          title: 'Connaissance du tissu local',
-          description: 'Pierre est basé à Vence, à 15 km de Cagnes. Plusieurs artisans cagnois (plomberie, électricité, second œuvre) font partie de son réseau professionnel.',
+          title: "Pensé pour la clientèle de proximité",
+          description: "Vos clients sont surtout des habitants du secteur. Le site doit répondre vite aux questions de base — ce que vous faites, où vous êtes, à quels horaires, comment vous joindre — et être impeccable sur mobile.",
         },
         {
-          title: 'Service 100% à distance',
-          description: 'WhatsApp dédié, visios. Aucun déplacement nécessaire au quotidien. Possibilité d\'un audit initial sur place, sans frais sur la zone PACA.',
+          title: "Utile si vous couvrez plusieurs communes",
+          description: "Beaucoup d'artisans cagnois travaillent aussi sur Nice, Saint-Laurent-du-Var et Antibes. Le site peut indiquer clairement votre zone d'intervention, ce qui évite les demandes hors périmètre.",
         },
         {
-          title: 'Adapté aux activités saisonnières',
-          description: 'Si vous travaillez avec l\'hippodrome, les locations saisonnières ou l\'événementiel, les packs s\'ajustent — montée en saison, redescente hors saison.',
+          title: "Périmètre et prix définis au devis",
+          description: "Site vitrine 990€ HT, Site vitrine Pro 1 390€ HT, web app sur devis. Le périmètre et les livrables sont écrits avant de démarrer, sans surprise à la livraison.",
         },
       ]}
       services={[
         {
-          icon: '📄',
-          title: 'Devis & factures multi-zones',
-          description: 'Vous gérez des chantiers entre Nice, Antibes et Cagnes — OptiPro centralise tous vos documents commerciaux dans un seul endroit.',
+          icon: '🌐',
+          title: 'Site vitrine — 990€ HT',
+          description: "3 à 4 pages sur mesure : votre activité, vos prestations, votre adresse ou votre zone d'intervention à Cagnes-sur-Mer. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 3 semaines.",
         },
         {
-          icon: '💰',
-          title: 'Relances et trésorerie',
-          description: 'Calendrier de relance (J+15, J+30, J+45). Particulièrement utile pour les clients de location saisonnière, souvent injoignables après leur départ.',
+          icon: '📍',
+          title: 'Site vitrine Pro — 1 390€ HT',
+          description: "Tout le pack Site vitrine, plus un formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. C'est ce qui compte le plus pour un commerce ou un artisan qui vit de la recherche « près de moi ».",
         },
         {
-          icon: '🤝',
-          title: 'Coordination sous-traitants',
-          description: 'Si vous travaillez avec d\'autres artisans cagnois ou de la métropole (plombier, électricien, peintre), OptiPro coordonne les plannings et les commandes.',
+          icon: '🏪',
+          title: "Pages pour le commerce de proximité",
+          description: "Horaires, adresse, plan d'accès, photos de la boutique, présentation de vos produits ou services. De quoi donner envie de pousser la porte plutôt que d'aller au centre commercial voisin.",
         },
         {
-          icon: '📋',
-          title: 'Préparation comptable',
-          description: 'Dossier propre livré chaque mois à votre expert-comptable cagnois, niçois ou antibois. Factures classées, frais OCR, FEC à jour.',
+          icon: '🗺️',
+          title: "Page zone d'intervention",
+          description: "Si vous intervenez entre Cagnes, Nice, Saint-Laurent-du-Var et Antibes, une page dédiée à votre zone clarifie votre périmètre pour vos clients comme pour Google.",
         },
         {
-          icon: '📊',
-          title: 'Visibilité par zone',
-          description: 'Si vous voulez savoir quel quartier vous rapporte le plus (Cros, Hippodrome, Haut-de-Cagnes), OptiPro met en place le suivi.',
+          icon: '⚙️',
+          title: 'Web app et outil métier — sur devis',
+          description: "Suivi de chantiers, planning d'interventions, gestion de commandes, portail client, catalogue produits, tableaux de bord. Pour remplacer le carnet et les fichiers Excel par un outil accessible depuis le téléphone.",
         },
         {
-          icon: '🗓️',
-          title: 'Planning géographique',
-          description: 'Organisation de votre journée par zone pour limiter les trajets. Vous concentrez Nice le matin, Cagnes l\'après-midi, Antibes le mercredi — pas l\'inverse.',
+          icon: '🔧',
+          title: 'Maintenance — 79€ ou 129€/mois',
+          description: "Maintenance Essentiel à 79€/mois (1h par mois : textes, photos, horaires) ou Maintenance Pro à 129€/mois (2h par mois, petites évolutions et traitement prioritaire). Sans engagement de durée.",
+        },
+      ]}
+      relatedLinks={[
+        {
+          href: '/tarifs',
+          label: 'Tarifs détaillés',
+          description: "Site vitrine, Site vitrine Pro, web app, maintenance : les prix et ce qui est inclus.",
+        },
+        {
+          href: '/le-service',
+          label: 'Le service en détail',
+          description: "Ce que je construis, comment se déroule un projet, et ce que vous recevez.",
+        },
+        {
+          href: '/services/plombier',
+          label: 'Site internet pour plombier',
+          description: "La page dédiée aux plombiers : urgences, zone d'intervention, devis.",
+        },
+        {
+          href: '/services/electricien',
+          label: 'Site internet pour électricien',
+          description: "La page dédiée aux électriciens : prestations, dépannage, contact rapide.",
         },
       ]}
       faq={[
         {
-          question: 'Vous travaillez avec des artisans dans tout Cagnes ?',
-          answer: 'Oui. Cagnes-Centre, Cros-de-Cagnes, Haut-de-Cagnes, La Villette, Les Vespins, et toute la commune. Service 100% à distance.',
+          question: "Vous travaillez dans tous les quartiers de Cagnes-sur-Mer ?",
+          answer: "Oui. Cagnes-Centre, Cros-de-Cagnes, Haut-de-Cagnes, Val Fleuri, Les Vespins, le secteur de l'hippodrome, et les communes voisines comme Villeneuve-Loubet, Saint-Laurent-du-Var ou La Colle-sur-Loup. Je suis basé à Vence, à une quinzaine de kilomètres : on peut se voir sur place pour cadrer le projet.",
         },
         {
-          question: 'Vous gérez les chantiers multi-zones (Nice, Antibes, Cagnes) ?',
-          answer: 'Oui. Beaucoup d\'artisans cagnois interviennent dans toute la métropole. OptiPro centralise l\'admin quelle que soit la zone du chantier. Vous gardez une vision claire malgré la dispersion.',
+          question: "Combien coûte un site internet pour un artisan ou un commerce cagnois ?",
+          answer: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : tout le pack précédent, plus un formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Web app ou outil métier : sur devis.",
         },
         {
-          question: 'Vous avez l\'habitude des activités saisonnières (Cros, locations) ?',
-          answer: 'Oui. Les packs s\'ajustent en montant pendant les pics (avril-octobre) et redescendent hors saison. Pas de surfacturation cachée. Préavis 15 jours fin de mois si vous voulez changer de palier.',
+          question: "En combien de temps mon site est-il en ligne ?",
+          answer: "Un site vitrine est livré en 3 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre retenu : il est défini avec vous et écrit dans le devis avant le démarrage.",
         },
         {
-          question: 'Combien ça coûte pour un artisan cagnois ?',
-          answer: 'Deux formules. Mission à l\'heure (75€/h HT) pour les besoins ponctuels. Pack mensuel reconductible : Pack Essentiel 10h à 650€/mois, Pack Croissance 20h à 1 200€/mois (le plus courant), Pack Pilotage 35h à 1 950€/mois. Préavis 15 jours fin de mois. Période d\'essai 30 jours sans frais.',
+          question: "Je travaille sur Cagnes mais aussi sur Nice et Antibes. Comment le montrer ?",
+          answer: "Le site indique votre zone d'intervention réelle, commune par commune si nécessaire. C'est utile pour vos clients, qui savent immédiatement si vous vous déplacez chez eux, et pour Google, qui comprend mieux où vous travaillez. C'est inclus dans la structure du site, sans supplément.",
         },
         {
-          question: 'Vous travaillez avec l\'hippodrome et l\'événementiel ?',
-          answer: 'Oui. Pierre a une expérience de 1 an en logistique événementielle chez GL Events Live (équipe de 6, entrepôt événementiel). Il connaît les pics, les contraintes de timing, la gestion des sous-traitants en montage rapide.',
+          question: "Je n'ai qu'une page Facebook. Est-ce suffisant ?",
+          answer: "Une page Facebook vous donne une présence, mais elle ne vous appartient pas, elle ressort mal dans les recherches Google et elle ne convertit pas très bien un visiteur en demande de devis. Un site vitrine avec votre propre nom de domaine et une fiche Google My Business à jour joue un rôle différent et complémentaire. Les deux peuvent cohabiter.",
+        },
+        {
+          question: "Que se passe-t-il après la première année d'hébergement ?",
+          answer: "L'hébergement est inclus pendant un an dans le pack Site vitrine. Au terme de cette période, on fait le point : soit vous continuez avec moi, éventuellement via une formule de maintenance à 79€ ou 129€ par mois, soit vous récupérez votre site et votre nom de domaine pour les héberger ailleurs. Rien n'est verrouillé de votre côté.",
         },
       ]}
     />

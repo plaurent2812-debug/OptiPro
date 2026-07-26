@@ -8,11 +8,11 @@ import { safeJsonLd } from "@/lib/json-ld";
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.opti-pro.fr'),
   title: {
-    default: 'OptiPro — Le bras droit administratif des artisans',
+    default: 'OptiPro — Sites & outils web sur mesure pour artisans et TPE',
     template: '%s | OptiPro',
   },
   description:
-    "Externalisation de l'admin opérationnel pour artisans, indépendants et TPE. Devis, ADV, fournisseurs, suivi de projet, facturation — sur une mission ponctuelle ou en pack mensuel, à partir de 650€/mois.",
+    "Création de sites vitrines, web apps et outils métier sur mesure pour artisans, indépendants et TPE en PACA. Site vitrine à partir de 990€, maintenance à partir de 79€/mois. Basé à Vence (06).",
   openGraph: {
     type: 'website',
     locale: 'fr_FR',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'OptiPro — Le bras droit administratif des artisans, indépendants et TPE en PACA',
+        alt: 'OptiPro — Sites vitrines, web apps et outils métier pour artisans, indépendants et TPE en PACA',
       },
     ],
   },
@@ -46,7 +46,7 @@ const jsonLd = {
       '@id': 'https://www.opti-pro.fr/#organization',
       name: 'OptiPro',
       description:
-        "Externalisation de l'admin opérationnel pour artisans, indépendants et TPE. Mission ponctuelle (75€/h) ou pack mensuel reconductible (de 650€/mois à 1 950€/mois). Devis, ADV, fournisseurs, suivi de projet, facturation, préparation comptable.",
+        "Création de sites vitrines, web apps et outils métier sur mesure pour artisans, indépendants et TPE en PACA. Site vitrine à partir de 990€, site vitrine Pro à 1 390€, web app sur devis, maintenance à partir de 79€/mois.",
       url: 'https://www.opti-pro.fr',
       email: 'p.laurent@opti-pro.fr',
       address: {
@@ -103,6 +103,61 @@ const jsonLd = {
       ],
       availableLanguage: 'fr',
       priceRange: '€€-€€€',
+      knowsAbout: [
+        'Création de site vitrine',
+        'Développement web sur mesure',
+        'Application web métier',
+        'SEO local',
+        'Automatisation des tâches administratives',
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Prestations OptiPro',
+        itemListElement: [
+          {
+            '@type': 'Offer',
+            name: 'Site vitrine',
+            description:
+              'Site vitrine de 3 à 4 pages sur mesure, hébergement 1 an et nom de domaine inclus, adresse email professionnelle.',
+            price: 990,
+            priceCurrency: 'EUR',
+            url: 'https://www.opti-pro.fr/tarifs',
+          },
+          {
+            '@type': 'Offer',
+            name: 'Site vitrine Pro',
+            description:
+              'Site vitrine complet avec formulaire de contact fonctionnel, fiche Google My Business et SEO local.',
+            price: 1390,
+            priceCurrency: 'EUR',
+            url: 'https://www.opti-pro.fr/tarifs',
+          },
+          {
+            '@type': 'Offer',
+            name: 'Web app / outil métier',
+            description:
+              'Plateforme web sur mesure conçue autour de vos process métier. Périmètre et livrables définis au devis.',
+            url: 'https://www.opti-pro.fr/tarifs',
+          },
+          {
+            '@type': 'Offer',
+            name: 'Maintenance Essentiel',
+            description: '1h par mois de mises à jour de contenu (textes, photos, horaires).',
+            price: 79,
+            priceCurrency: 'EUR',
+            url: 'https://www.opti-pro.fr/tarifs',
+          },
+          {
+            '@type': 'Offer',
+            name: 'Maintenance Pro',
+            description:
+              '2h par mois de mises à jour de contenu et petites évolutions, traitement prioritaire.',
+            price: 129,
+            priceCurrency: 'EUR',
+            url: 'https://www.opti-pro.fr/tarifs',
+          },
+        ],
+      },
       openingHoursSpecification: [
         {
           '@type': 'OpeningHoursSpecification',

@@ -1,5 +1,19 @@
 # TODO — OptiPro
 
+## En attente de décision — Intégration Pennylane (résilié le 2026-07-27)
+Pierre a résilié l'abonnement Pennylane. Le cron horaire de sync a été retiré de vercel.json
+(commit f75bea3, c'était la cause du blocage de déploiement ci-dessous), mais le reste de
+l'intégration (19 fichiers) est volontairement resté en l'état à sa demande :
+- src/lib/pennylane.ts, src/app/admin/sync-actions.ts, sync-helpers.ts
+- Boutons de sync manuelle : PennylaneSyncButton.tsx, PennylaneButton.tsx (devis), badge PennylaneSourceBadge.tsx
+- Route /api/cron/sync-pennylane : code toujours là, plus jamais déclenchée par un cron, mais reste accessible
+  par URL directe (CRON_SECRET non configuré en prod → aucune auth sur cette route)
+- CGU/confidentialite.tsx mentionne encore Pennylane comme sous-traitant
+
+À trancher avec Pierre la prochaine fois : soit désactiver proprement ces boutons (évite des clics qui
+échouent contre une API résiliée), soit tout retirer si Pennylane ne revient pas, soit laisser en l'état
+si une resouscription est probable à court terme.
+
 ## En cours — Corrections audit site (2026-07-26)
 Audit complet : voir tasks/audit-site-2026-07-26.md (score ≈60/100). Cause racine : le repositionnement de juin n'a touché que 4 pages — tout le reste vend encore l'offre admin 650-1950€/mois.
 
@@ -61,20 +75,11 @@ Audit complet : voir tasks/audit-site-2026-07-26.md (score ≈60/100). Cause rac
 ### ⚪ Basse
 - [ ] Retirer le lien /admin/login du footer public
 
-## En cours — Refonte positionnement « dev opérationnel » (2026-06-10)
+## Terminé — Refonte positionnement « dev opérationnel » (2026-06-10 → finalisé 2026-07-26/27)
 Repositionnement : bras droit admin → dev opérationnel (sites vitrines, web apps, outils métier).
 Offres : Vitrine 990€ / Vitrine Pro 1 390€ / Web app sur devis / Maintenance 79€ & 129€/mois.
-
-- [ ] src/data/pricing.ts : ajouter WEB_OFFERS + MAINTENANCE_PLANS (sans toucher aux anciennes constantes)
-- [ ] src/data/faq.ts : réécrire FAQ_HOMEPAGE + FAQ_TARIFS (nouveau positionnement)
-- [ ] Accueil : page.tsx (metadata + JSON-LD) + HomePageClient.tsx (tagline, 3 douleurs, 4 offres, retrait comparaison/admin)
-- [ ] /tarifs : OfferCatalogJsonLd.tsx + page.tsx + TarifsClient.tsx (grille 5 offres, retrait ROI/comparateur/packs horaires)
-- [ ] /le-service : réécriture complète (3 blocs + réf SAPAL + angle hybride ops+dev)
-- [ ] /a-propos : parcours reconversion dev via IA, profil hybride, retrait assistanat admin, JSON-LD Person
-- [ ] Dépublier /methode + /pourquoi-ce-prix : suppression routes, redirects 301, sitemap, footer, lien /temoignages
-- [ ] Footer : tagline + liens nav + copyright
-- [ ] Vérif : grep résiduels (bras droit, 650, 75€/h) hors pages SEO locales, rm -rf .next, tsc, build
-- [ ] Commit + push direct sur main
+Le commit du 10/06 n'avait touché que 4 pages (accueil, tarifs, le-service, à-propos) — tout le reste
+(contact, 10 pages services, blog, CGV, llms.txt, manifest, OG image) a été aligné les 26-27/07, voir sections ci-dessus.
 
 ## Terminé — Refonte hero homepage inspirée pierrelegoux.fr (2026-05-12)
 - [x] Analyse pierrelegoux.fr (palette, typo, structure, animations CSS pures)
@@ -149,9 +154,10 @@ Offres : Vitrine 990€ / Vitrine Pro 1 390€ / Web app sur devis / Maintenance
 - [x] Canonical URLs sur toutes les pages
 - [x] Build vérifié sans erreurs
 
-## À faire — SEO (actions manuelles Pierre)
-- [ ] Créer/revendiquer Google Business Profile (OptiPro, Vence)
-- [ ] Inscrire le site dans Google Search Console
+## À faire — SEO (actions manuelles Pierre) — PROCHAIN CHANTIER
+- [ ] Créer/revendiquer Google Business Profile (OptiPro, Vence) — catégorie « Concepteur de sites Web », mode SAB
+      (adresse masquée). Plus rien ne bloque techniquement depuis la correction du positionnement (26-27/07).
+- [ ] Inscrire le site dans Google Search Console (permettra aussi de récupérer le LCP terrain / CrUX, cf. todo perf)
 - [ ] Tester avec Google Rich Results Test après déploiement
 
 ## À faire — Site vitrine (plus tard)

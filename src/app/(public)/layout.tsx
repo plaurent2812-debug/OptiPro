@@ -94,8 +94,10 @@ const jsonLd = {
       logo: {
         '@type': 'ImageObject',
         url: 'https://www.opti-pro.fr/logo.png',
-        width: 200,
-        height: 60,
+        // Dimensions réelles du fichier (800x255). Les icônes PWA carrées sont
+        // déclarées séparément dans src/app/manifest.ts.
+        width: 800,
+        height: 255,
       },
       telephone: '+33670259333',
       sameAs: [

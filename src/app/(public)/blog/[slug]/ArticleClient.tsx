@@ -7,13 +7,17 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import type { Article } from '@/lib/blog';
 import { formatDateFr } from '@/lib/blog';
+import type { ArticleCard } from '../BlogListClient';
+import { revealOnScroll, ensureVisibleInViewport } from '@/lib/gsap-reveal';
 import styles from './article.module.css';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 type ArticleClientProps = {
   article: Article;
-  relatedArticles: Article[];
+  /** Seuls les champs affichés dans la sidebar « À lire aussi » — pas le HTML
+   *  complet des articles liés, qui gonflerait le payload RSC pour rien. */
+  relatedArticles: ArticleCard[];
 };
 
 export default function ArticleClient({
@@ -45,7 +49,7 @@ export default function ArticleClient({
             | undefined;
 
           if (!conditions || conditions.isReduced) {
-            gsap.set(
+            const all = rootRef.current?.querySelectorAll<HTMLElement>(
               [
                 `.${styles.breadcrumb}`,
                 `.${styles.articleHeader} > *`,
@@ -53,9 +57,11 @@ export default function ArticleClient({
                 `.${styles.body} h3`,
                 `.${styles.sidebarBox}`,
                 `.${styles.backToBlog}`,
-              ],
-              { opacity: 1, x: 0, y: 0, clearProps: 'transform' },
+              ].join(', '),
             );
+            if (all && all.length > 0) {
+              gsap.set(all, { opacity: 1, x: 0, y: 0, clearProps: 'transform' });
+            }
             if (progressBarRef.current) {
               progressBarRef.current.style.transform = 'scaleX(0)';
             }
@@ -115,61 +121,53 @@ export default function ArticleClient({
           // ───────────────────────────────────────────────
           // 3) Reveal des h2/h3 du contenu
           // ───────────────────────────────────────────────
-          const headings = gsap.utils.toArray<HTMLElement>(
+          const headings = rootRef.current?.querySelectorAll<HTMLElement>(
             `.${styles.body} h2, .${styles.body} h3`,
           );
-
-          headings.forEach((heading) => {
-            gsap.from(heading, {
-              opacity: 0,
-              y: 20,
-              duration: 0.6,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: heading,
-                start: 'top 85%',
-                once: true,
-              },
-            });
+          revealOnScroll(headings, {
+            y: 20,
+            duration: 0.6,
+            stagger: 0,
+            start: 'top 85%',
           });
 
           // ───────────────────────────────────────────────
           // 4) Sidebar — slide depuis la droite
           // ───────────────────────────────────────────────
-          const sidebarBoxes = gsap.utils.toArray<HTMLElement>(
+          const sidebarBoxes = rootRef.current?.querySelectorAll<HTMLElement>(
             `.${styles.sidebarBox}`,
           );
-
-          sidebarBoxes.forEach((box, idx) => {
-            gsap.from(box, {
-              opacity: 0,
-              x: 20,
-              duration: 0.6,
-              delay: idx * 0.08,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: box,
-                start: 'top 85%',
-                once: true,
-              },
-            });
+          revealOnScroll(sidebarBoxes, {
+            x: 20,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.08,
+            start: 'top 85%',
           });
 
           // ───────────────────────────────────────────────
           // 5) Bouton retour au blog
           // ───────────────────────────────────────────────
-          gsap.from(`.${styles.backToBlog}`, {
-            opacity: 0,
+          const backToBlog = rootRef.current?.querySelectorAll<HTMLElement>(
+            `.${styles.backToBlog}`,
+          );
+          revealOnScroll(backToBlog, {
+            y: 0,
             duration: 0.6,
             ease: 'power1.out',
-            scrollTrigger: {
-              trigger: `.${styles.backToBlog}`,
-              start: 'top 90%',
-              once: true,
-            },
+            start: 'top 90%',
+          });
+
+          // Filet de sécurité après recalcul de layout (polices, images).
+          ScrollTrigger.addEventListener('refresh', () => {
+            ensureVisibleInViewport(headings);
+            ensureVisibleInViewport(sidebarBoxes);
+            ensureVisibleInViewport(backToBlog);
           });
         },
       );
+
+      return () => mm.revert();
     },
     { scope: rootRef },
   );

@@ -78,7 +78,18 @@ export default function BlogPage() {
         {safeJsonLd(breadcrumbJsonLd)}
       </script>
 
-      <BlogListClient articles={articles} />
+      {/* Projection explicite : n'envoie au client que les champs affichés dans
+          les cartes, pas le HTML complet des articles (cf. type ArticleCard). */}
+      <BlogListClient
+        articles={articles.map((a) => ({
+          slug: a.slug,
+          titre: a.titre,
+          description: a.description,
+          datePublication: a.datePublication,
+          tempsLecture: a.tempsLecture,
+          categorie: a.categorie,
+        }))}
+      />
     </main>
   );
 }

@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Button from '@/components/ui/Button';
+import { revealOnScroll, ensureVisibleInViewport } from '@/lib/gsap-reveal';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -24,34 +25,25 @@ export default function AuditCta() {
           motionReduced: '(prefers-reduced-motion: reduce)',
         },
         (context) => {
-          const conditions = context.conditions as {
-            motionOk: boolean;
-            motionReduced: boolean;
-          };
-          const reduced = conditions.motionReduced;
+          const conditions = context.conditions as
+            | { motionOk: boolean; motionReduced: boolean }
+            | undefined;
+          if (!conditions) return;
 
-          gsap.set(target, {
-            opacity: 0,
-            y: reduced ? 0 : 40,
-          });
-
-          ScrollTrigger.create({
-            trigger: target,
+          // `revealOnScroll` révèle immédiatement le bloc s'il est déjà à
+          // l'écran : avec `start: 'top 75%'`, un CTA visible mais dont le haut
+          // dépassait la ligne de déclenchement restait à opacity 0.
+          revealOnScroll(target, {
+            y: 40,
+            duration: 0.8,
+            ease: 'power3.out',
             start: 'top 75%',
-            once: true,
-            onEnter: () => {
-              target.style.willChange = 'transform, opacity';
-              gsap.to(target, {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                ease: 'power3.out',
-                onComplete: () => {
-                  target.style.willChange = 'auto';
-                },
-              });
-            },
+            reduced: conditions.motionReduced,
           });
+
+          ScrollTrigger.addEventListener('refresh', () =>
+            ensureVisibleInViewport(target),
+          );
         },
       );
 

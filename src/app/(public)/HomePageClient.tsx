@@ -7,6 +7,7 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import AccordionItem from '@/components/ui/AccordionItem';
 import { FAQ_HOMEPAGE } from '@/data/faq';
+import { revealOnScroll, ensureVisibleInViewport } from '@/lib/gsap-reveal';
 import styles from './home.module.css';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -100,32 +101,22 @@ export default function HomePageClient() {
           }
 
           // ===== SCROLL REVEAL on cards/sections =====
+          // Les éléments déjà visibles au chargement sont révélés sans attendre
+          // un scroll (leur haut pouvait être sous la ligne « top 85% »).
           const revealTargets = rootRef.current?.querySelectorAll<HTMLElement>(
             '[data-reveal]',
           );
-          revealTargets?.forEach((target) => {
-            gsap.set(target, {
-              opacity: 0,
-              y: reduced ? 0 : 30,
-            });
-            ScrollTrigger.create({
-              trigger: target,
-              start: 'top 85%',
-              once: true,
-              onEnter: () => {
-                target.style.willChange = 'transform, opacity';
-                gsap.to(target, {
-                  opacity: 1,
-                  y: 0,
-                  duration: 0.6,
-                  ease: 'power2.out',
-                  onComplete: () => {
-                    target.style.willChange = 'auto';
-                  },
-                });
-              },
-            });
+          revealOnScroll(revealTargets, {
+            y: 30,
+            duration: 0.6,
+            stagger: 0.08,
+            start: 'top 85%',
+            reduced,
           });
+
+          ScrollTrigger.addEventListener('refresh', () =>
+            ensureVisibleInViewport(revealTargets),
+          );
         },
       );
 

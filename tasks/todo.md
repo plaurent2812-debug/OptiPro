@@ -40,7 +40,21 @@ Audit complet : voir tasks/audit-site-2026-07-26.md (score ≈60/100). Cause rac
       (la plus haute des pages ville), liens entrants depuis le footer (donc toutes les pages) + Cagnes-sur-Mer.
       NB : les « 400 commerces » et « 2476 entreprises » vus en recherche n'ont PAS été utilisés — page source
       mairie en 404, chiffres non vérifiables.
-- [ ] Perf : icône PWA carrée (manifest.ts déclare 512x512 pour un logo 800×255), pagination /blog (196 KB RSC), imports GSAP ciblés, display swap next/font
+- [x] Perf TERMINÉ le 2026-07-27 :
+      · payload RSC : cause réelle trouvée (≠ audit) — les objets `Article` complets, HTML inclus (76 KB), étaient
+        envoyés au client alors que les cartes n'affichent que 5 champs. Type `ArticleCard` + projection explicite.
+        Mesuré à nombre d'articles égal : /blog 156→55 KB (−65%), article 105→68 KB (−35%), JS inutilisé 48→27 KiB,
+        TBT 50→20 ms, poids transféré 450→350 KiB
+      · icônes PWA carrées 192/512 + maskable (safe-zone Android), palette réduite : 512 à 16,9 KiB au lieu de 44,8.
+        logo.png (63 KiB) hors du chemin critique. JSON-LD logo : dimensions réelles 800×255 rétablies
+      · `display: "swap"` explicite sur les 2 polices
+      · code mort supprimé : ProjectCard, RoiCalculator, ComparisonCards, OfferCatalogJsonLd + comparison.ts
+        (2 embarquaient GSAP). projects.ts CONSERVÉ (données réelles SAPAL/ProbaLab, reco E-E-A-T de l'audit)
+      · config Jest : elle scannait .claude/worktrees/ → 7 suites en échec étrangères au projet. Corrigé, 24 tests verts
+      · bug d'animation corrigé : `gsap.from` sur sélecteur string laissait du contenu à opacity 0 (hero /blog,
+        hero /a-propos, cartes). Helper src/lib/gsap-reveal.ts + pattern set/to scopé au ref racine
+      NB : l'audit se trompait sur les imports GSAP — ils étaient déjà corrects (gsap + ScrollTrigger seul)
+- [ ] Recouper le LCP avec les données terrain (CrUX/PSI) : quota PageSpeed épuisé les 26 et 27/07, à refaire
 - [ ] Vercel : redirection directe http/apex → https://www (chaîne de 2 redirects actuellement)
 - [ ] Accueil : preuve sociale plus tôt + exemple « réservation en ligne » (persona restaurateur)
 

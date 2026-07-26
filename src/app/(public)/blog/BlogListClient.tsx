@@ -5,14 +5,29 @@ import { useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import type { Article } from '@/lib/blog';
 import { formatDateFr } from '@/lib/blog';
+import { revealOnScroll, ensureVisibleInViewport } from '@/lib/gsap-reveal';
 import styles from './blog-list.module.css';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+/**
+ * Seuls les champs réellement affichés dans les cartes. On ne passe
+ * volontairement PAS l'objet `Article` complet : son champ `contenu` (le HTML
+ * intégral de l'article, ~76 KB cumulés) serait sérialisé dans le payload RSC
+ * de la page liste sans jamais être rendu.
+ */
+export type ArticleCard = {
+  slug: string;
+  titre: string;
+  description: string;
+  datePublication: string;
+  tempsLecture: number;
+  categorie: string;
+};
+
 type BlogListClientProps = {
-  articles: Article[];
+  articles: ArticleCard[];
 };
 
 export default function BlogListClient({ articles }: BlogListClientProps) {
@@ -33,82 +48,77 @@ export default function BlogListClient({ articles }: BlogListClientProps) {
             | undefined;
 
           if (!conditions || conditions.isReduced) {
-            gsap.set(
+            const all = rootRef.current?.querySelectorAll<HTMLElement>(
               [
                 `.${styles.eyebrow}`,
                 `.${styles.h1}`,
                 `.${styles.subtitle}`,
                 `.${styles.card}`,
                 `.${styles.bottomCta}`,
-              ],
-              { opacity: 1, y: 0, clearProps: 'transform' },
+              ].join(', '),
             );
+            if (all && all.length > 0) {
+              gsap.set(all, { opacity: 1, y: 0, clearProps: 'transform' });
+            }
             return;
           }
 
           // ───────────────────────────────────────────────
           // HERO — entrée staggered
           // ───────────────────────────────────────────────
-          const heroTl = gsap.timeline({
-            defaults: { ease: 'power3.out' },
-          });
-
-          heroTl
-            .from(`.${styles.eyebrow}`, {
-              opacity: 0,
-              y: 18,
+          // set + to (et non `from`) sur des éléments résolus depuis le ref racine :
+          // même pattern que HomePageClient. Un `gsap.from` par sélecteur string
+          // laisse le contenu à opacity 0 si le tween n'est jamais joué.
+          const heroEls = rootRef.current?.querySelectorAll<HTMLElement>(
+            [`.${styles.eyebrow}`, `.${styles.h1}`, `.${styles.subtitle}`].join(', '),
+          );
+          if (heroEls && heroEls.length > 0) {
+            gsap.set(heroEls, { opacity: 0, y: 20, willChange: 'transform, opacity' });
+            gsap.to(heroEls, {
+              opacity: 1,
+              y: 0,
               duration: 0.6,
-            })
-            .from(
-              `.${styles.h1}`,
-              { opacity: 0, y: 24, duration: 0.7 },
-              '-=0.35',
-            )
-            .from(
-              `.${styles.subtitle}`,
-              { opacity: 0, y: 16, duration: 0.6 },
-              '-=0.4',
-            );
+              stagger: 0.08,
+              ease: 'power3.out',
+              overwrite: 'auto',
+              onComplete: () => {
+                heroEls.forEach((el) => {
+                  el.style.willChange = 'auto';
+                });
+              },
+            });
+          }
 
           // ───────────────────────────────────────────────
-          // Cards — ScrollTrigger.batch (par vagues)
+          // Cards — révélation au scroll
+          // Les cartes déjà à l'écran (même partiellement) sont révélées
+          // immédiatement : `ScrollTrigger.batch` les laissait à opacity 0
+          // quand leur haut tombait sous la ligne « top 88% ».
           // ───────────────────────────────────────────────
-          const cards = gsap.utils.toArray<HTMLElement>(`.${styles.card}`);
-
-          // État initial (sécurité contre le flash)
-          gsap.set(cards, { opacity: 0, y: 40 });
-
-          ScrollTrigger.batch(cards, {
-            start: 'top 88%',
-            once: true,
-            onEnter: (batch) => {
-              gsap.to(batch, {
-                opacity: 1,
-                y: 0,
-                duration: 0.7,
-                stagger: 0.12,
-                ease: 'power2.out',
-                overwrite: 'auto',
-              });
-            },
-          });
+          const cards = rootRef.current?.querySelectorAll<HTMLElement>(
+            `.${styles.card}`,
+          );
+          revealOnScroll(cards, { y: 40, duration: 0.7, stagger: 0.12 });
 
           // ───────────────────────────────────────────────
           // Bottom CTA
           // ───────────────────────────────────────────────
-          gsap.from(`.${styles.bottomCta}`, {
-            opacity: 0,
-            y: 30,
-            duration: 0.8,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: `.${styles.bottomCta}`,
-              start: 'top 85%',
-              once: true,
-            },
-          });
+          revealOnScroll(
+            rootRef.current?.querySelectorAll<HTMLElement>(
+              `.${styles.bottomCta}`,
+            ),
+            { y: 30, duration: 0.8, start: 'top 85%' },
+          );
+
+          // Filet de sécurité : une fois les polices et le layout stabilisés,
+          // rien de visible à l'écran ne doit rester masqué.
+          ScrollTrigger.addEventListener('refresh', () =>
+            ensureVisibleInViewport(cards),
+          );
         },
       );
+
+      return () => mm.revert();
     },
     { scope: rootRef },
   );

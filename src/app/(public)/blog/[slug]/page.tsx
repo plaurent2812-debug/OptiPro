@@ -136,7 +136,17 @@ export default async function ArticlePage(
         {safeJsonLd(breadcrumbJsonLd)}
       </script>
 
-      <ArticleClient article={article} relatedArticles={related} />
+      <ArticleClient
+        article={article}
+        relatedArticles={related.map((r) => ({
+          slug: r.slug,
+          titre: r.titre,
+          description: r.description,
+          datePublication: r.datePublication,
+          tempsLecture: r.tempsLecture,
+          categorie: r.categorie,
+        }))}
+      />
     </main>
   );
 }

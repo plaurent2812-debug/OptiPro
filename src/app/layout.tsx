@@ -7,8 +7,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.opti-pro.fr'),
 };
 
-const outfit = Outfit({ subsets: ["latin"], variable: "--font-body" });
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-display" });
+// display: "swap" explicite — le texte s'affiche immédiatement avec la police de
+// substitution puis bascule, plutôt que de rester invisible le temps du chargement.
+const outfit = Outfit({ subsets: ["latin"], variable: "--font-body", display: "swap" });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 
 export default function RootLayout({
   children,

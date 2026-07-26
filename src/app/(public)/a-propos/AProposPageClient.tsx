@@ -7,6 +7,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Button from '@/components/ui/Button';
+import { revealOnScroll, ensureVisibleInViewport } from '@/lib/gsap-reveal';
 import styles from './a-propos.module.css';
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
@@ -115,7 +116,7 @@ export default function AProposPageClient() {
 
           if (!conditions || conditions.isReduced) {
             // Reduced motion : on rend tout visible immédiatement.
-            gsap.set(
+            const all = rootRef.current?.querySelectorAll<HTMLElement>(
               [
                 `.${styles.heroBadge}`,
                 `.${styles.heroTitle}`,
@@ -129,55 +130,65 @@ export default function AProposPageClient() {
                 `.${styles.formationCard}`,
                 `.${styles.valeurCard}`,
                 `.${styles.ctaInner}`,
-              ],
-              { opacity: 1, x: 0, y: 0, scale: 1, clearProps: 'transform' },
+              ].join(', '),
             );
+            if (all && all.length > 0) {
+              gsap.set(all, {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                scale: 1,
+                clearProps: 'transform',
+              });
+            }
             return;
           }
 
           // ───────────────────────────────────────────────
           // HERO — timeline staggered au mount
           // ───────────────────────────────────────────────
-          const heroTl = gsap.timeline({
-            defaults: { ease: 'power3.out' },
-          });
-
-          heroTl
-            .from(`.${styles.heroBadge}`, {
-              opacity: 0,
-              y: 20,
-              duration: 0.6,
-            })
-            .from(
+          // set + to sur des éléments résolus depuis le ref racine (pattern
+          // HomePageClient). Un `.from()` par sélecteur string laisserait le
+          // contenu à opacity 0 si le tween n'est jamais joué.
+          const heroEls = rootRef.current?.querySelectorAll<HTMLElement>(
+            [
+              `.${styles.heroBadge}`,
               `.${styles.heroTitle}`,
-              { opacity: 0, y: 30, duration: 0.8 },
-              '-=0.3',
-            )
-            .from(
               `.${styles.heroSubtitle}`,
-              { opacity: 0, y: 20, duration: 0.7 },
-              '-=0.45',
-            )
-            .from(
               `.${styles.heroMetaItem}`,
-              {
-                opacity: 0,
-                y: 12,
-                duration: 0.5,
-                stagger: 0.08,
+            ].join(', '),
+          );
+          if (heroEls && heroEls.length > 0) {
+            gsap.set(heroEls, { opacity: 0, y: 20, willChange: 'transform, opacity' });
+            gsap.to(heroEls, {
+              opacity: 1,
+              y: 0,
+              duration: 0.7,
+              stagger: 0.08,
+              ease: 'power3.out',
+              overwrite: 'auto',
+              onComplete: () => {
+                heroEls.forEach((el) => {
+                  el.style.willChange = 'auto';
+                });
               },
-              '-=0.4',
-            )
-            .from(
-              `.${styles.avatarWrap}`,
-              {
-                opacity: 0,
-                scale: 0.8,
-                duration: 0.9,
-                ease: 'back.out(1.4)',
-              },
-              '-=0.7',
-            );
+            });
+          }
+
+          const avatarEl = rootRef.current?.querySelector<HTMLElement>(
+            `.${styles.avatarWrap}`,
+          );
+          if (avatarEl) {
+            gsap.set(avatarEl, { opacity: 0, scale: 0.8 });
+            gsap.to(avatarEl, {
+              opacity: 1,
+              scale: 1,
+              duration: 0.9,
+              delay: 0.2,
+              ease: 'back.out(1.4)',
+              overwrite: 'auto',
+            });
+          }
 
           // Anneau avatar : rotation continue (remplace l'animation CSS).
           gsap.to(`.${styles.avatarRing}`, {
@@ -201,18 +212,12 @@ export default function AProposPageClient() {
           // ───────────────────────────────────────────────
           // PHILOSOPHIE — paragraphes staggered au scroll
           // ───────────────────────────────────────────────
-          gsap.from(`.${styles.philosophieText} p`, {
-            opacity: 0,
-            y: 30,
-            duration: 0.7,
-            ease: 'power2.out',
-            stagger: 0.15,
-            scrollTrigger: {
-              trigger: `.${styles.philosophie}`,
-              start: 'top 75%',
-              once: true,
-            },
-          });
+          revealOnScroll(
+            rootRef.current?.querySelectorAll<HTMLElement>(
+              `.${styles.philosophieText} p`,
+            ),
+            { y: 30, duration: 0.7, stagger: 0.15, start: 'top 75%' },
+          );
 
           // ───────────────────────────────────────────────
           // PARCOURS — la pièce maîtresse
@@ -252,32 +257,43 @@ export default function AProposPageClient() {
 
             if (!dot || !content) return;
 
-            const tl = gsap.timeline({
-              scrollTrigger: {
-                trigger: item,
-                start: 'top 70%',
-                once: true,
-              },
-              defaults: { ease: 'power2.out' },
-            });
-
-            tl.set(item, { opacity: 1 })
-              .from(dot, {
-                scale: 0,
-                opacity: 0,
-                duration: 0.5,
-                ease: 'back.out(2)',
-                transformOrigin: '50% 50%',
-              })
-              .from(
-                content,
-                {
+            const build = () => {
+              const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
+              tl.set(item, { opacity: 1 })
+                .from(dot, {
+                  scale: 0,
                   opacity: 0,
-                  x: -24,
-                  duration: 0.6,
-                },
-                '-=0.2',
-              );
+                  duration: 0.5,
+                  ease: 'back.out(2)',
+                  transformOrigin: '50% 50%',
+                })
+                .from(
+                  content,
+                  {
+                    opacity: 0,
+                    x: -24,
+                    duration: 0.6,
+                  },
+                  '-=0.2',
+                );
+              return tl;
+            };
+
+            // Un item déjà visible à l'écran s'anime tout de suite : sinon son
+            // dot/contenu restait à opacity 0 en attendant un scroll (le haut
+            // de l'item peut être sous la ligne « top 70% » dès le chargement).
+            const rect = item.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              build();
+              return;
+            }
+
+            ScrollTrigger.create({
+              trigger: item,
+              start: 'top 70%',
+              once: true,
+              onEnter: () => build(),
+            });
           });
 
           // 3) Badge "En poste" : pulsation subtle
@@ -291,48 +307,32 @@ export default function AProposPageClient() {
           });
 
           // 4) Carte formation
-          gsap.from(`.${styles.formationCard}`, {
-            opacity: 0,
-            y: 24,
-            duration: 0.7,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: `.${styles.formationCard}`,
-              start: 'top 85%',
-              once: true,
-            },
-          });
+          revealOnScroll(
+            rootRef.current?.querySelectorAll<HTMLElement>(
+              `.${styles.formationCard}`,
+            ),
+            { y: 24, duration: 0.7, start: 'top 85%' },
+          );
 
           // ───────────────────────────────────────────────
           // VALEURS — cards staggered au scroll
           // ───────────────────────────────────────────────
-          gsap.from(`.${styles.valeurCard}`, {
-            opacity: 0,
-            y: 40,
-            duration: 0.7,
-            ease: 'power2.out',
-            stagger: 0.15,
-            scrollTrigger: {
-              trigger: `.${styles.valeursGrid}`,
-              start: 'top 80%',
-              once: true,
-            },
-          });
+          revealOnScroll(
+            rootRef.current?.querySelectorAll<HTMLElement>(
+              `.${styles.valeurCard}`,
+            ),
+            { y: 40, duration: 0.7, stagger: 0.15, start: 'top 80%' },
+          );
 
           // ───────────────────────────────────────────────
           // CTA — fade + bouton subtle pulse
           // ───────────────────────────────────────────────
-          gsap.from(`.${styles.ctaInner}`, {
-            opacity: 0,
-            y: 30,
-            duration: 0.8,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: `.${styles.cta}`,
-              start: 'top 75%',
-              once: true,
-            },
-          });
+          revealOnScroll(
+            rootRef.current?.querySelectorAll<HTMLElement>(
+              `.${styles.ctaInner}`,
+            ),
+            { y: 30, duration: 0.8, start: 'top 75%' },
+          );
 
           // Subtle glow pulse sur le CTA principal
           const ctaBtn = rootRef.current?.querySelector<HTMLElement>(
@@ -348,8 +348,28 @@ export default function AProposPageClient() {
               ease: 'sine.inOut',
             });
           }
+
+          // Filet de sécurité : rien de visible à l'écran ne doit rester masqué
+          // après un recalcul de layout (polices web, images).
+          ScrollTrigger.addEventListener('refresh', () =>
+            ensureVisibleInViewport(
+              rootRef.current?.querySelectorAll<HTMLElement>(
+                [
+                  `.${styles.philosophieText} p`,
+                  `.${styles.timelineItem}`,
+                  `.${styles.timelineDot}`,
+                  `.${styles.timelineContent}`,
+                  `.${styles.formationCard}`,
+                  `.${styles.valeurCard}`,
+                  `.${styles.ctaInner}`,
+                ].join(', '),
+              ),
+            ),
+          );
         },
       );
+
+      return () => mm.revert();
     },
     { scope: rootRef },
   );

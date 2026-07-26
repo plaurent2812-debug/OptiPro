@@ -85,6 +85,7 @@ export default function Footer() {
                             <li style={{ color: 'var(--muted)', fontSize: '0.9rem' }}>OptiPro · Vence (06140) · Alpes-Maritimes</li>
                             <li style={{ color: 'var(--muted)', fontSize: '0.85rem', lineHeight: 1.7 }}>
                                 Interventions à{' '}
+                                <Link href="/services/vence" className="footer-link" style={{ color: 'var(--muted)' }}>Vence</Link>,{' '}
                                 <Link href="/services/nice" className="footer-link" style={{ color: 'var(--muted)' }}>Nice</Link>,{' '}
                                 <Link href="/services/cannes" className="footer-link" style={{ color: 'var(--muted)' }}>Cannes</Link>,{' '}
                                 <Link href="/services/antibes" className="footer-link" style={{ color: 'var(--muted)' }}>Antibes</Link>,{' '}

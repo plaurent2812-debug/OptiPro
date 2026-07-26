@@ -97,6 +97,11 @@ export default function CagnesSurMerPage() {
           label: 'Site internet pour électricien',
           description: "La page dédiée aux électriciens : prestations, dépannage, contact rapide.",
         },
+        {
+          href: '/services/vence',
+          label: 'Création de site internet à Vence',
+          description: "La commune voisine, où OptiPro est installé — rendez-vous sur place possible.",
+        },
       ]}
       faq={[
         {

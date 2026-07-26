@@ -22,6 +22,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/services/electricien`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/services/restaurateur`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.65 },
     // Pages ville PACA (priorité SEO local élevée)
+    // Vence = siège réel de l'EI → priorité la plus haute des pages ville
+    { url: `${baseUrl}/services/vence`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/services/nice`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${baseUrl}/services/cannes`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/services/antibes`, lastModified: LAST_CONTENT_UPDATE, changeFrequency: 'monthly', priority: 0.8 },

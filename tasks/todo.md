@@ -34,7 +34,12 @@ Audit complet : voir tasks/audit-site-2026-07-26.md (score ≈60/100). Cause rac
 
 ### 🟡 Moyenne
 - [ ] Créer le GBP (après corrections) — « Concepteur de sites Web », mode SAB
-- [ ] Page /services/vence — meilleure opportunité SERP identifiée
+- [x] Page /services/vence créée le 2026-07-26 — angle « je suis sur place » (les 7 concurrents de la SERP sont
+      des agences non implantées qui génèrent une page par commune). Ancrage local vérifié : marché ARTISA'VENCE,
+      Cité historique, place Clemenceau. SIREN cité en FAQ comme preuve d'implantation. Priorité sitemap 0.9
+      (la plus haute des pages ville), liens entrants depuis le footer (donc toutes les pages) + Cagnes-sur-Mer.
+      NB : les « 400 commerces » et « 2476 entreprises » vus en recherche n'ont PAS été utilisés — page source
+      mairie en 404, chiffres non vérifiables.
 - [ ] Perf : icône PWA carrée (manifest.ts déclare 512x512 pour un logo 800×255), pagination /blog (196 KB RSC), imports GSAP ciblés, display swap next/font
 - [ ] Vercel : redirection directe http/apex → https://www (chaîne de 2 redirects actuellement)
 - [ ] Accueil : preuve sociale plus tôt + exemple « réservation en ligne » (persona restaurateur)

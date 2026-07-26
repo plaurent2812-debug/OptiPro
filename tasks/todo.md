@@ -19,9 +19,15 @@ Audit complet : voir tasks/audit-site-2026-07-26.md (score ≈60/100). Cause rac
 - [ ] Modalités de paiement CGV : j'ai écrit « 40% à la commande, solde à la livraison, 30 jours date de facture » — ce n'était nulle part sur le site, à confirmer ou corriger
 - [ ] Délai de réclamation de 14 jours après livraison + réemploi des briques techniques génériques : à valider juridiquement
 
-### 🟠 Haute
-- [ ] Blog : 6 articles à 301, 5 à réécrire, 3 à garder (tableau dans tasks/audit-2026-07-26/content.md) + bios auteur
-- [ ] Retirer/valider les stats invérifiables (« 30 artisans accompagnés », « 9 artisans sur 10 », cas plombier Cagnes)
+### 🟠 Haute — blog TERMINÉ le 2026-07-26
+- [x] Blog : 6 articles supprimés + 301 ciblées par sujet, 8 conservés et réalignés (CTA, angle, maillage interne)
+- [x] Bio auteur corrigée (centralisée dans ArticleClient.tsx → les 8 articles d'un coup) + accroches /blog
+- [x] Stats invérifiables retirées : « 30 artisans accompagnés » et « 9 artisans sur 10 » (articles supprimés ou reformulés),
+      cas plombier Cagnes requalifié en « exemple type » (confirmé composite par Pierre), « devis sous 24h = 80% signature »
+      supprimé — vérification faite : **cette étude CAPEB n'existe pas**, tout comme les attributions INSEE (42€/h, 60-90 jours)
+- [x] Les 2 seules stats conservées sont sourcées et vérifiées page ouverte : CAPEB Baromètre ARTISANTE (42% des artisans,
+      charge admin 25-75%) et Banque de France ODP 2024 (retard moyen 13,6 j au T4). J'ai corrigé au passage une citation
+      CAPEB inexacte (« 10 à 25% du temps ») que la source ne dit pas.
 - [ ] Maillage : 4 pages métier orphelines (Footer.tsx l.87-95) + liens croisés ville↔métier
 - [ ] Schema : OfferCatalog sur /tarifs + Article/FAQPage sur l'article « combien coûte un site »
 - [ ] sitemap.ts : LAST_CONTENT_UPDATE figé au 2026-05-13 (l.7)

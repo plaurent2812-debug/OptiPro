@@ -7,14 +7,14 @@ import { safeJsonLd } from '@/lib/json-ld';
 export const metadata: Metadata = {
   title: 'Blog — Conseils pour artisans et TPE',
   description:
-    "Guides pratiques, retours d'expérience et conseils concrets pour les artisans et TPE qui veulent reprendre le contrôle de leur temps et de leurs outils.",
+    "Guides pratiques et conseils concrets pour les artisans et TPE : site internet, outils métier, automatisation et IA. Sans jargon, par un développeur qui vient du terrain.",
   alternates: {
     canonical: '/blog',
   },
   openGraph: {
     title: 'Blog OptiPro — Ressources pour artisans et TPE',
     description:
-      "Des guides pratiques pour artisans et TPE qui veulent reprendre le contrôle de leur temps.",
+      "Site internet, outils métier, automatisation : des guides concrets pour artisans et TPE.",
     url: 'https://www.opti-pro.fr/blog',
     type: 'website',
   },

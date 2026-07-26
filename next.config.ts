@@ -65,6 +65,42 @@ const nextConfig: NextConfig = {
         destination: '/tarifs',
         permanent: true,
       },
+      // Articles de blog dépubliés (2026-07-26) : contenu 100% ancienne offre
+      // « bras droit administratif ». Redirection vers la cible la plus proche
+      // par sujet pour préserver le jus SEO acquis.
+      {
+        source: '/blog/qu-est-ce-qu-un-bras-droit-administratif',
+        destination: '/le-service',
+        permanent: true,
+      },
+      {
+        source: '/blog/externaliser-admin-ou-embaucher-guide-decision',
+        destination: '/le-service',
+        permanent: true,
+      },
+      {
+        source: '/blog/externaliser-admin-vs-expert-comptable-difference',
+        destination: '/le-service',
+        permanent: true,
+      },
+      {
+        // Sujet devis/facturation → article outillage conservé
+        source: '/blog/comment-deleguer-devis-plombier',
+        destination: '/blog/automatiser-devis-artisan',
+        permanent: true,
+      },
+      {
+        // Sujet coût/tarifs → page tarifs (prix publics)
+        source: '/blog/cout-cache-admin-tpe-calcul-complet',
+        destination: '/tarifs',
+        permanent: true,
+      },
+      {
+        // Sujet « erreurs / outils qui coûtent du temps » → article conservé
+        source: '/blog/5-erreurs-admin-perdre-5000-euros-artisan',
+        destination: '/blog/outils-qui-font-perdre-temps-artisans',
+        permanent: true,
+      },
       // Force le redirect non-www → www en 308 permanent (consolidation PageRank)
       {
         source: '/:path*',

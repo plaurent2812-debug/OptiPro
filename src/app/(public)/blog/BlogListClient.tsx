@@ -122,8 +122,8 @@ export default function BlogListClient({ articles }: BlogListClientProps) {
             <div className={styles.eyebrow}>Ressources</div>
             <h1 className={styles.h1}>Ressources &amp; conseils</h1>
             <p className={styles.subtitle}>
-              Des guides pratiques pour artisans et TPE qui veulent reprendre le
-              contrôle de leur temps.
+              Site internet, outils métier, automatisation et IA : des guides
+              concrets pour artisans et TPE, sans jargon.
             </p>
           </div>
         </div>

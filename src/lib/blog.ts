@@ -29,6 +29,7 @@ export const articles: Article[] = [
     description:
       "Finies les heures perdues à recopier des devis dans Excel. Voici comment les artisans du bâtiment peuvent automatiser leur facturation avec des outils simples et abordables.",
     datePublication: '2026-04-15',
+    dateMaj: '2026-07-26',
     tempsLecture: 6,
     categorie: 'Automatisation',
     motsCles: [
@@ -49,7 +50,7 @@ export const articles: Article[] = [
 
 <p>Le problème avec le devis manuel, c'est qu'il ne se voit pas dans la compta. C'est du temps qui disparaît dans un fichier Excel, dans une boîte mail, dans un coin de bureau le dimanche soir. Mais les chiffres sont là.</p>
 
-<p>D'après les retours d'organisations professionnelles comme la <em>CAPEB</em> (Confédération de l'Artisanat et des Petites Entreprises du Bâtiment), un artisan du bâtiment consacrerait en moyenne <strong>15 à 20 % de son temps</strong> à l'administratif. Sur 40 heures par semaine, c'est 6 à 8 heures consacrées à du travail non facturable.</p>
+<p>Selon le <em>Baromètre ARTISANTE</em> de la CAPEB, <strong>42 % des artisans interrogés estiment que la gestion administrative représente entre 25 % et 75 % de leur charge de travail</strong>, en hausse de 4 points par rapport à 2021 (<a href="https://www.capeb.fr/actualites/9eme-edition-du-barometre-artisante" target="_blank" rel="noopener noreferrer">source CAPEB</a>). C'est du temps non facturable, et le devis en fait partie.</p>
 
 <ul>
   <li><strong>Re-saisie des informations client</strong> à chaque nouveau devis (nom, adresse, téléphone, SIRET).</li>
@@ -105,18 +106,26 @@ export const articles: Article[] = [
   <li>Situations de travaux pour les chantiers longs.</li>
 </ul>
 
-<h2>Comment ça marche concrètement (exemple plombier)</h2>
+<h2>Comment ça marche concrètement (exemple type)</h2>
 
-<p>Prenons Marc, plombier installé à Cagnes-sur-Mer. Avant, il faisait ses devis le soir sur Excel : 45 minutes par devis en moyenne. Aujourd'hui, avec Pennylane, voici son nouveau processus :</p>
+<p><em>Exemple type, à titre d'illustration.</em> Prenons un plombier qui faisait ses devis le soir sur Excel. Avec un outil de devis dédié, son processus ressemble à ça :</p>
 
 <ol>
-  <li><strong>Sur le chantier (5 min)</strong> : il prend les mesures et photographie l'existant avec son téléphone.</li>
-  <li><strong>Au bureau (12 min)</strong> : il ouvre Pennylane sur son téléphone, sélectionne le client (créé une fois pour toutes), pioche dans son catalogue (« Remplacement chauffe-eau 200L », « Pose mitigeur thermostatique »…), ajuste la main-d'œuvre.</li>
+  <li><strong>Sur le chantier</strong> : il prend les mesures et photographie l'existant avec son téléphone.</li>
+  <li><strong>Au bureau</strong> : il ouvre l'outil sur son téléphone, sélectionne le client (créé une fois pour toutes), pioche dans son catalogue (« Remplacement chauffe-eau 200L », « Pose mitigeur thermostatique »…), ajuste la main-d'œuvre.</li>
   <li><strong>Envoi (1 clic)</strong> : le PDF est généré automatiquement, envoyé par email avec un lien de signature électronique.</li>
-  <li><strong>Suivi auto</strong> : si le client n'a pas répondu en 3 jours, Pennylane lui envoie un rappel poli signé du nom de Marc.</li>
+  <li><strong>Suivi auto</strong> : si le client n'a pas répondu au bout de quelques jours, l'outil lui envoie un rappel poli signé de son nom.</li>
 </ol>
 
-<p>Total : <strong>18 minutes au lieu de 45</strong>. Sur 10 devis hebdo, Marc récupère 4h30 par semaine. Plus de 200 heures par an. C'est l'équivalent d'un mois de travail.</p>
+<p>L'essentiel du gain ne vient pas de la vitesse de frappe : il vient de la <strong>suppression de la re-saisie</strong> et du fait que le suivi ne repose plus sur votre mémoire.</p>
+
+<h2>Et si aucun logiciel du marché ne colle à votre métier ?</h2>
+
+<p>C'est le cas de figure que je rencontre le plus souvent. Les trois outils ci-dessus couvrent la majorité des besoins, mais certains artisans ont un fonctionnement que le catalogue standard ne sait pas modéliser : chiffrage au métré avec des coefficients maison, devis qui dépendent d'un barème négocié par client, suivi de chantier en plusieurs phases, matériel loué à refacturer.</p>
+
+<p>Dans ces cas-là, on construit un <strong>outil métier sur mesure</strong> : une petite application web qui reprend exactement votre logique de chiffrage, génère le devis au bon format et se branche sur votre facturation. C'est ce que je fais chez OptiPro, en complément des sites vitrines — le périmètre et le budget sont chiffrés au devis après un premier appel. Vous trouverez les repères de prix sur la <a href="/tarifs">page tarifs</a> et le détail de la méthode sur <a href="/le-service">la page du service</a>.</p>
+
+<p>La règle que j'applique : <strong>on ne développe sur mesure que ce qu'aucun outil du marché ne sait faire</strong>. Si Pennylane fait le job à 29 € par mois, prenez Pennylane.</p>
 
 <h2>Et si on veut aller plus loin ?</h2>
 
@@ -150,10 +159,13 @@ export const articles: Article[] = [
 
 <p>En un mois, vous avez basculé. En trois, vous ne pourriez plus revenir en arrière.</p>
 
+<p>Et si vos devis partent enfin vite, l'étape suivante est souvent la visibilité : à quoi sert un devis envoyé en 10 minutes si personne ne vous trouve sur Google ? C'est le sujet de l'article <a href="/blog/site-web-artisan-combien-ca-coute">Site web pour artisan : combien ça coûte vraiment</a>.</p>
+
 <div class="callout">
-  <p><strong>Vous voulez gagner du temps sans vous tromper d'outil ?</strong></p>
-  <p>Je propose un premier appel de 30 minutes, gratuit et sans engagement : vous me décrivez votre situation (volume de devis, outils actuels, points de friction), je vous indique l'outil le plus adapté à votre cas. Si on peut bosser ensemble, on enchaîne. Sinon, je vous oriente.</p>
+  <p><strong>Besoin d'un outil que le marché ne propose pas ?</strong></p>
+  <p>Premier appel de 30 minutes, gratuit et sans engagement : vous me décrivez votre façon de chiffrer et vos points de friction. Soit je vous oriente vers un logiciel existant (gratuitement, c'est souvent la bonne réponse), soit on cadre un outil sur mesure. Les repères de prix sont publics sur la page tarifs.</p>
   <a href="/contact" class="callout-link">Réserver un premier appel →</a>
+  <a href="/tarifs" class="callout-link">Voir les tarifs →</a>
 </div>
 `,
   },
@@ -168,6 +180,7 @@ export const articles: Article[] = [
     description:
       "Excel pour les devis, WhatsApp pour les relances, un cahier pour le planning... Ces outils du quotidien coûtent en réalité des heures aux artisans. Voici comment en sortir.",
     datePublication: '2026-04-08',
+    dateMaj: '2026-07-26',
     tempsLecture: 5,
     categorie: 'Productivité',
     motsCles: [
@@ -182,7 +195,7 @@ export const articles: Article[] = [
 
 <p>Ce n'est pas votre faute. Ce sont les outils qui sont mal adaptés. Ils étaient « gratuits » ou « pratiques » au début, ils sont devenus une habitude. Mais aujourd'hui, ils coûtent. En temps, en erreurs, en clients perdus.</p>
 
-<p>Voici les 5 outils que je vois revenir chez 9 artisans sur 10 — et comment passer à mieux sans complexifier sa vie.</p>
+<p>Voici les 5 outils que je vois revenir très souvent — et comment passer à mieux sans complexifier sa vie.</p>
 
 <h2>Outil 1 — Excel pour les devis</h2>
 
@@ -190,15 +203,15 @@ export const articles: Article[] = [
 
 <p><strong>Le coût caché :</strong> 30 à 45 minutes par devis × 8 devis/semaine = 4 à 6 heures perdues. Plus les erreurs de TVA qui peuvent coûter cher en cas de contrôle.</p>
 
-<p><strong>L'alternative :</strong> un outil de devis dédié comme Pennylane (29 € HT/mois) ou Henrri (gratuit pour les fonctions de base). Vous gagnez 60 % du temps, vous éliminez les erreurs de calcul, et vous avez un suivi clair.</p>
+<p><strong>L'alternative :</strong> un outil de devis dédié comme Pennylane (29 € HT/mois) ou Henrri (gratuit pour les fonctions de base). Vous éliminez la re-saisie et les erreurs de calcul, et vous avez enfin un suivi clair. Le détail des options est dans l'article <a href="/blog/automatiser-devis-artisan">comment automatiser ses devis</a>.</p>
 
 <h2>Outil 2 — WhatsApp pour les relances clients</h2>
 
 <p><strong>Le problème :</strong> WhatsApp est génial pour discuter. Catastrophique pour piloter une activité. Les messages se mélangent (perso et pro), les conversations se perdent dans le scroll, vous ne pouvez pas chercher « tous les clients qui n'ont pas répondu depuis 7 jours », et surtout… vous oubliez. Combien de devis dorment dans WhatsApp parce que vous avez oublié de relancer ?</p>
 
-<p><strong>Le coût caché :</strong> 1 devis sur 3 non signé faute de relance. Si votre panier moyen est de 1 500 €, c'est plusieurs milliers d'euros par mois qui partent en fumée.</p>
+<p><strong>Le coût caché :</strong> des devis qui ne sont jamais relancés, donc jamais signés — alors que le client était simplement passé à autre chose. C'est la fuite la plus silencieuse et la plus chère de la liste.</p>
 
-<p><strong>L'alternative :</strong> les relances automatiques d'un outil de devis. Vous envoyez le devis → le système relance à J+3, J+7, J+15, avec votre signature. Vous ne faites plus rien, et le taux de signature monte mécaniquement.</p>
+<p><strong>L'alternative :</strong> les relances automatiques d'un outil de devis. Vous envoyez le devis → le système relance à J+3, J+7, J+15, avec votre signature. Vous ne faites plus rien, et plus aucun devis ne dort par oubli.</p>
 
 <h2>Outil 3 — Le cahier ou agenda papier pour le planning</h2>
 
@@ -206,7 +219,7 @@ export const articles: Article[] = [
 
 <p><strong>Le coût caché :</strong> doubles bookings, rendez-vous oubliés, clients qui appellent pour confirmer parce qu'ils n'ont pas eu de rappel. Sans parler du temps passé à le recopier ou à chercher une date.</p>
 
-<p><strong>L'alternative :</strong> Google Calendar (gratuit) ou un agenda intégré à votre outil de gestion. Avantages immédiats : accès depuis le téléphone, partage avec un proche, rappels automatiques aux clients par SMS la veille du rendez-vous (taux de no-show divisé par 3).</p>
+<p><strong>L'alternative :</strong> Google Calendar (gratuit) ou un agenda intégré à votre outil de gestion. Avantages immédiats : accès depuis le téléphone, partage avec un proche, rappels automatiques aux clients par SMS la veille du rendez-vous, ce qui réduit nettement les rendez-vous manqués.</p>
 
 <h2>Outil 4 — L'email classique pour les bons de commande fournisseurs</h2>
 
@@ -226,19 +239,11 @@ export const articles: Article[] = [
 
 <h2>Le vrai coût total de ces 5 outils</h2>
 
-<p>Faisons le calcul. Si vous cumulez ces 5 outils « gratuits » :</p>
+<p>Pris un par un, chacun de ces outils vous coûte quelques dizaines de minutes par semaine. Cumulés, ils occupent une part significative de votre temps de gestion — et selon le <a href="https://www.capeb.fr/actualites/9eme-edition-du-barometre-artisante" target="_blank" rel="noopener noreferrer">Baromètre ARTISANTE de la CAPEB</a>, 42 % des artisans interrogés estiment que la gestion administrative représente entre 25 % et 75 % de leur charge de travail.</p>
 
-<ul>
-  <li>Excel devis : 5 h/semaine</li>
-  <li>WhatsApp relances : 1 h/semaine + devis perdus</li>
-  <li>Cahier planning : 1 h/semaine + no-shows</li>
-  <li>Email fournisseurs : 1 h/semaine + erreurs</li>
-  <li>Virements et relevés : 2 h/semaine + frais comptable</li>
-</ul>
+<p>L'important n'est pas le chiffre exact, c'est le constat : pour quelques dizaines d'euros par mois d'outils bien choisis, vous récupérez du temps que vous pouvez remettre sur des chantiers facturables — ou garder pour vous.</p>
 
-<p><strong>Total : 10 heures par semaine</strong>, soit 40 heures par mois. Une semaine entière de travail. Tous les mois.</p>
-
-<p>Pour 50 € HT/mois d'outils bien choisis, vous récupérez cette semaine. Et vous l'utilisez pour faire des chantiers facturables — ou pour souffler.</p>
+<p>Le calcul détaillé du budget outils, et le moment où il devient plus pertinent de faire développer un outil à votre main, sont expliqués sur <a href="/le-service">la page du service</a>.</p>
 
 <h2>Par où commencer ?</h2>
 
@@ -255,8 +260,9 @@ export const articles: Article[] = [
 
 <div class="callout">
   <p><strong>Vous voulez savoir lesquels de ces outils vous coûtent le plus cher ?</strong></p>
-  <p>Premier appel de 30 minutes, gratuit, sans engagement : vous me décrivez votre situation, on identifie ensemble les 2 ou 3 outils prioritaires à remplacer dans votre cas. Si je peux vous être utile, on enchaîne sur un vrai audit. Sinon, je vous oriente.</p>
+  <p>Premier appel de 30 minutes, gratuit, sans engagement : vous me décrivez votre situation, on identifie ensemble les 2 ou 3 outils prioritaires à remplacer. Souvent la réponse est un logiciel du marché, et je vous le dis sans rien vous vendre. Quand le besoin ne rentre dans aucune case, je développe le site ou l'outil web qui va avec.</p>
   <a href="/contact" class="callout-link">Réserver un premier appel →</a>
+  <a href="/tarifs" class="callout-link">Voir les tarifs →</a>
 </div>
 `,
   },
@@ -270,6 +276,7 @@ export const articles: Article[] = [
     description:
       "De 0€ à 5000€, les prix d'un site web artisan varient énormément. Ce guide transparent compare les options : DIY, agence, freelance — avec les vrais coûts et pièges à éviter.",
     datePublication: '2026-04-01',
+    dateMaj: '2026-07-26',
     tempsLecture: 7,
     categorie: 'Site web',
     motsCles: [
@@ -293,7 +300,7 @@ export const articles: Article[] = [
 <ul>
   <li><strong>Google est le premier réflexe</strong>. Quand quelqu'un cherche « plombier Vence », il tape sur Google. Sans site, vous n'existez pas dans cette recherche.</li>
   <li><strong>Les avis se vérifient en ligne</strong>. Avant d'appeler, le client va voir vos réalisations, vos avis, vos tarifs.</li>
-  <li><strong>Le devis en ligne est devenu un standard</strong>. Un formulaire de contact bien fait fait gagner 30 % de leads supplémentaires par rapport à un simple numéro de téléphone.</li>
+  <li><strong>Le devis en ligne est devenu un standard</strong>. Un formulaire de contact bien fait capte les clients qui ne veulent pas téléphoner — le soir, le week-end, ou simplement parce qu'ils préfèrent écrire.</li>
   <li><strong>Crédibilité</strong>. Pas de site = entreprise « moins sérieuse » dans l'esprit du client, à tort ou à raison.</li>
 </ul>
 
@@ -369,17 +376,17 @@ export const articles: Article[] = [
 
 <p><strong>Pour qui ?</strong> TPE ou PME avec un budget conséquent et des besoins complexes (e-commerce, espace client, multi-langues).</p>
 
-<h3>Option 4 — Freelance spécialisé (1 500 à 5 000 €)</h3>
+<h3>Option 4 — Freelance spécialisé (900 à 5 000 €)</h3>
 
 <p><strong>Comment ça marche :</strong> vous travaillez en direct avec un développeur indépendant qui connaît votre métier (artisan, TPE). Pas de commercial, pas de couches intermédiaires.</p>
 
-<p><strong>Vrai coût :</strong> 1 500 à 5 000 € selon la complexité, souvent avec un forfait maintenance optionnel à 30-50 €/mois.</p>
+<p><strong>Vrai coût :</strong> 900 à 5 000 € selon la complexité, souvent avec un forfait maintenance optionnel à 30-130 €/mois. Pour situer : chez OptiPro, un site vitrine de 3-4 pages avec hébergement la première année, nom de domaine et email pro est à <strong>990 € HT</strong>, et la version Pro (formulaire fonctionnel, fiche Google Business, SEO local) à <strong>1 390 € HT</strong> — tout est détaillé sur la <a href="/tarifs">page tarifs</a>.</p>
 
 <p><strong>Avantages :</strong></p>
 <ul>
   <li>Interlocuteur unique du début à la fin.</li>
   <li>Site sur mesure, optimisé SEO local.</li>
-  <li>Délais courts (4 à 8 semaines en général).</li>
+  <li>Délais courts (comptez environ 3 semaines chez OptiPro pour un site vitrine).</li>
   <li>Bon rapport qualité/prix.</li>
 </ul>
 
@@ -431,14 +438,17 @@ export const articles: Article[] = [
 
 <h2>Mon conseil honnête</h2>
 
-<p>Si vous démarrez et que vous êtes serré, allez sur Wix le temps de gagner de l'argent (3 à 6 mois). Mais à terme, l'option 4 (freelance spécialisé) est celle qui rapporte le plus. Un site bien fait, optimisé SEO local, génère des leads qualifiés tous les mois pendant des années. Le coût (1 500 à 3 000 €) est amorti en 3 à 6 mois.</p>
+<p>Si vous démarrez et que vous êtes vraiment serré, allez sur Wix le temps de gagner de l'argent (3 à 6 mois). Mais à terme, l'option 4 (freelance spécialisé) est celle qui rapporte le plus. Un site bien fait, optimisé SEO local, travaille pour vous tous les mois pendant des années — pour un budget compris entre 990 et 3 000 € selon les besoins.</p>
 
 <p>Évitez les agences sauf si vous avez plus de 5 000 € de budget et des besoins complexes — sinon vous payez pour des structures dont vous n'avez pas besoin.</p>
 
+<p>Et une fois le site en ligne, le vrai sujet devient le temps que vous passez sur la gestion : voir <a href="/blog/automatiser-devis-artisan">comment automatiser ses devis</a> et <a href="/blog/outils-qui-font-perdre-temps-artisans">les 5 outils qui font perdre du temps aux artisans</a>.</p>
+
 <div class="callout">
   <p><strong>Vous hésitez sur le bon budget pour votre site ?</strong></p>
-  <p>Premier appel de 30 minutes, gratuit : vous me décrivez votre activité, votre concurrence locale, vos objectifs, et je vous donne une fourchette honnête du budget nécessaire — sans pression de vente.</p>
+  <p>Premier appel de 30 minutes, gratuit : vous me décrivez votre activité, votre concurrence locale et vos objectifs, et je vous donne une fourchette honnête — sans pression de vente. Mes propres tarifs sont publics : site vitrine 990 € HT, version Pro 1 390 € HT, maintenance à partir de 79 €/mois HT.</p>
   <a href="/contact" class="callout-link">Réserver un premier appel →</a>
+  <a href="/tarifs" class="callout-link">Voir les tarifs détaillés →</a>
 </div>
 `,
   },
@@ -448,10 +458,11 @@ export const articles: Article[] = [
   // ────────────────────────────────────────────────────────────────
   {
     slug: 'facturation-artisan-gagner-du-temps',
-    titre: 'Facturation artisan : passer de 3h à 20 minutes par semaine',
+    titre: 'Facturation artisan : la ramener à une routine de 20 minutes par semaine',
     description:
-      "La facturation prend en moyenne 3h par semaine aux artisans. Avec les bons outils et une routine simple, vous pouvez descendre à 20 minutes. Voici comment.",
+      "La facturation grignote vos soirées par petits bouts. Avec les bons outils et une routine hebdo simple, elle tient en 20 minutes. Méthode en 3 étapes et outils.",
     datePublication: '2026-03-25',
+    dateMaj: '2026-07-26',
     tempsLecture: 5,
     categorie: 'Gestion',
     motsCles: [
@@ -462,13 +473,13 @@ export const articles: Article[] = [
       'Pennylane artisan',
     ],
     contenu: `
-<p class="lead">En France, un artisan passe en moyenne <strong>15 % de son temps sur des tâches administratives</strong>. Sur une semaine de 40 heures, c'est 6 heures. Et la facturation représente la moitié : 3 heures à éditer des factures, les envoyer, relancer les impayés, vérifier qui a payé.</p>
+<p class="lead">Selon le <a href="https://www.capeb.fr/actualites/9eme-edition-du-barometre-artisante" target="_blank" rel="noopener noreferrer">Baromètre ARTISANTE de la CAPEB</a>, <strong>42 % des artisans interrogés estiment que la gestion administrative représente entre 25 % et 75 % de leur charge de travail</strong>. Et la facturation en est une grosse part : éditer les factures, les envoyer, relancer les impayés, vérifier qui a payé.</p>
 
-<p>Cet article vous montre comment passer de 3 heures à 20 minutes par semaine. Pas avec une recette miracle, mais avec une méthode simple en 3 étapes, éprouvée pendant 10 ans à coordonner des artisans sous-traitants — et que je reproduirais aujourd'hui chez n'importe quel artisan indépendant.</p>
+<p>Cet article vous montre comment ramener cette charge à une routine courte, une fois par semaine. Pas avec une recette miracle : avec une méthode simple en 3 étapes — centraliser, automatiser, laisser l'outil relancer — et le bon outillage.</p>
 
 <h2>Pourquoi la facturation prend autant de temps</h2>
 
-<p>Avant de chercher la solution, comprenons le problème. La facturation est un voleur de temps invisible parce qu'elle se fait par petits bouts. 5 minutes ici, 15 minutes là, le dimanche soir, le lundi matin. Au total, ça pique 3 heures par semaine. Voici les principaux coupables :</p>
+<p>Avant de chercher la solution, comprenons le problème. La facturation est un voleur de temps invisible parce qu'elle se fait par petits bouts. 5 minutes ici, 15 minutes là, le dimanche soir, le lundi matin. Voici les principaux coupables :</p>
 
 <ul>
   <li><strong>La re-saisie manuelle</strong>. Vous avez fait un devis. Le chantier est terminé. Vous re-saisissez les mêmes lignes dans la facture. Au lieu de cliquer sur « convertir le devis en facture », ce qui prend 3 secondes.</li>
@@ -519,7 +530,7 @@ export const articles: Article[] = [
 
 <p>L'outil envoie tout seul, signé en votre nom. Vous n'intervenez que si le client appelle pour discuter.</p>
 
-<p>Résultat couramment rapporté par les utilisateurs (témoignages publics éditeurs) : <strong>taux d'impayés divisé par 2 à 3</strong>, et 1 à 2 heures par semaine récupérées sur les relances.</p>
+<p>L'effet principal n'est pas magique, il est mécanique : <strong>une facture en retard est toujours relancée, à date, sans que vous ayez à y penser ni à surmonter la gêne de le faire</strong>. Pour situer l'enjeu, la Banque de France indique dans son <a href="https://www.banque-france.fr/fr/publications-et-statistiques/publications/rapport-de-lobservatoire-des-delais-de-paiement-2024" target="_blank" rel="noopener noreferrer">rapport 2024 de l'Observatoire des délais de paiement</a> que les retards de paiement se sont dégradés en France, avec un retard moyen de 13,6 jours au quatrième trimestre.</p>
 
 <h2>Pennylane : pourquoi c'est le meilleur choix pour beaucoup d'artisans</h2>
 
@@ -534,7 +545,7 @@ export const articles: Article[] = [
   <li><strong>Support client réactif</strong> en français.</li>
 </ul>
 
-<p>Le prix (29 à 49 € HT/mois selon le forfait) est rapidement amorti. Si vous gagnez 2 h/semaine, ça fait 8 h/mois × 50 €/h = 400 € de valeur, pour 29 € investis. Le ROI est évident.</p>
+<p>Le prix (29 à 49 € HT/mois selon le forfait) se compare simplement : mettez en face le temps que vous passez aujourd'hui sur la facturation et ce que vaut une heure de votre travail facturable. Dans la plupart des cas, le calcul se fait tout seul.</p>
 
 <p><strong>Alternatives</strong> : Indy (gratuit, plus simple, idéal auto-entrepreneurs), Henrri (gratuit pour devis/factures uniquement), Tiime (similaire à Pennylane).</p>
 
@@ -569,12 +580,21 @@ export const articles: Article[] = [
   <li><strong>1 heure</strong> pour connecter la banque et configurer les relances automatiques.</li>
 </ul>
 
-<p><strong>Total : 8 heures sur 1 semaine</strong>. Un week-end intense, ou 2 soirées de 4h. Investissement payé en 3 semaines à raison de 3h gagnées chaque semaine.</p>
+<p><strong>Total : environ 8 heures</strong>. Un week-end intense, ou deux soirées. C'est le seul vrai obstacle — et il ne se présente qu'une fois.</p>
+
+<h2>Quand l'outil du marché ne suffit plus</h2>
+
+<p>Pennylane, Indy ou Henrri couvrent la grande majorité des situations. Mais il arrive qu'un artisan ait besoin de quelque chose qu'aucun logiciel standard ne fait : refacturer automatiquement des heures saisies sur chantier, appliquer un barème négocié par client, relier le suivi de chantier à la facturation, ou sortir un tableau de bord que l'outil ne sait pas produire.</p>
+
+<p>C'est là que je développe un <strong>outil web sur mesure</strong>, branché sur l'outil de facturation existant plutôt qu'en remplacement. C'est du développement, chiffré au devis après un premier appel — voir <a href="/le-service">la page du service</a> et les repères de prix sur la <a href="/tarifs">page tarifs</a>.</p>
+
+<p>À lire aussi si le sujet vous concerne : <a href="/blog/facturation-electronique-2026-2027-artisan-tpe">la réforme de la facturation électronique 2026-2027</a>, qui impose de toute façon de quitter Excel et Word avant septembre 2027.</p>
 
 <div class="callout">
   <p><strong>Vous voulez accélérer la mise en place ?</strong></p>
-  <p>Premier appel de 30 minutes, gratuit, pour identifier l'outil le plus adapté à votre activité. Si vous voulez un accompagnement de paramétrage, on cadre ça ensemble. L'objectif : que vous soyez opérationnel en 2 semaines, pas en 2 mois.</p>
+  <p>Premier appel de 30 minutes, gratuit : on identifie l'outil le plus adapté à votre activité. Si un logiciel du marché fait le job, je vous le dis et vous repartez avec la réponse. Si votre fonctionnement demande un outil web à votre main, on cadre le périmètre et je vous fais un devis.</p>
   <a href="/contact" class="callout-link">Réserver un premier appel →</a>
+  <a href="/tarifs" class="callout-link">Voir les tarifs →</a>
 </div>
 `,
   },
@@ -584,31 +604,32 @@ export const articles: Article[] = [
   // ────────────────────────────────────────────────────────────────
   {
     slug: 'reporting-hebdo-excel-3h-en-4-minutes',
-    titre: "Le reporting hebdo Excel que vous mettez 3h à faire — comment l'IA le fait en 4 minutes",
+    titre: "Le point hebdo Excel que vous mettez des heures à faire — comment l'IA le fait en quelques minutes",
     description:
-      "Lundi matin, le reporting transport ou logistique qui mange un après-midi entier. Le prompt exact, l'outil, et la mise en garde sur la confidentialité des données.",
+      "Suivi de chantiers et de marges sur Excel : le dimanche soir qui y passe. Le prompt exact, la méthode, et la mise en garde sur la confidentialité des données.",
     datePublication: '2026-05-03',
+    dateMaj: '2026-07-26',
     tempsLecture: 8,
-    categorie: 'Logistique',
+    categorie: 'Automatisation',
     motsCles: [
-      'reporting hebdomadaire',
-      'automatisation Excel transport',
-      'IA reporting logistique',
-      'TMS export Excel',
-      'reporting PME logistique',
+      'suivi chantier Excel',
+      'automatisation Excel artisan',
+      'IA reporting TPE',
+      'tableau de bord artisan',
+      'suivi marge chantier',
     ],
     contenu: `
-<p class="lead">Lundi matin. 8h15. Vous ouvrez votre boîte mail. Le directeur général veut son reporting hebdomadaire pour 11h. Vous savez ce qui vous attend : sortir l'export TMS, comparer avec l'export compta, recouper les volumes par client, calculer les marges par tournée, mettre tout ça dans le tableau habituel, formater les couleurs, écrire les trois lignes de commentaire.</p>
+<p class="lead">Dimanche soir. Vous ouvrez le classeur Excel « suivi 2026 ». Vous voulez juste savoir où vous en êtes : quels chantiers ont été facturés cette semaine, ce qui reste à encaisser, combien vous a coûté le matériel, et si le chantier de la rue des Écoles vous a rapporté quelque chose ou pas.</p>
 
-<p>Trois heures. Plus si un transporteur a déclaré ses km avec deux jours de retard.</p>
+<p>Deux heures plus tard, vous avez recopié les montants de vos factures, additionné les tickets de fournitures, cherché une facture Point.P qui manquait, et vous vous êtes trompé dans une somme.</p>
 
-<p>Vous le faites parce qu'il faut le faire. Mais le mardi, le rapport est déjà périmé : il y a eu deux nouveaux affrètements lundi, une rupture chez un client, un litige carburant qui change la marge d'une tournée. Le rapport raconte la semaine d'avant. Pas la semaine en cours.</p>
+<p>Vous le faites parce qu'il faut le faire — c'est le seul moment où vous voyez vos marges réelles. Mais c'est du temps pris sur votre week-end, et le mardi le tableau est déjà périmé.</p>
 
-<p>Cet article décrit <strong>la méthode pour ramener ce reporting de 3h à environ 4-8 minutes</strong> avec un prompt et un fichier. Aucun outil exotique. Pas de code. Une seule règle de méthode.</p>
+<p>Cet article décrit <strong>la méthode pour ramener ce point hebdo de plusieurs heures à quelques minutes</strong> avec un prompt et deux fichiers. Aucun outil exotique. Pas de code. Une seule règle de méthode. Elle marche aussi bien pour un artisan qui suit ses chantiers que pour une TPE qui suit ses clients ou ses affaires.</p>
 
-<h2>Le piège : l'IA face au reporting</h2>
+<h2>Le piège : l'IA face au suivi d'activité</h2>
 
-<p>La première erreur, c'est de demander à ChatGPT <em>"fais-moi un reporting transport de la semaine"</em>. Vous obtenez un texte générique sur le reporting transport en général, qui ne sert à rien.</p>
+<p>La première erreur, c'est de demander à ChatGPT <em>"fais-moi un point sur mon activité de la semaine"</em>. Vous obtenez un texte générique sur la gestion d'entreprise, qui ne sert à rien.</p>
 
 <p>La deuxième erreur, c'est de coller votre Excel et de dire <em>"analyse-moi ça"</em>. Vous obtenez une analyse vague, parfois fausse parce que l'IA hallucine sur des chiffres qu'elle ne sait pas lire correctement.</p>
 
@@ -616,123 +637,131 @@ export const articles: Article[] = [
 
 <h2>Le matériel à préparer (15 minutes, une seule fois)</h2>
 
-<p>Avant de pouvoir faire le reporting en 4 minutes la semaine prochaine, il faut 15 minutes pour préparer le terrain. Une seule fois. Après, c'est mécanique.</p>
+<p>Avant de pouvoir faire le point en quelques minutes la semaine prochaine, il faut 15 minutes pour préparer le terrain. Une seule fois. Après, c'est mécanique.</p>
 
-<p><strong>1. L'export TMS de la semaine.</strong> Format CSV. Colonnes minimales : numéro d'OT, date, client, transporteur, km parcourus, recette, coût d'achat. Si votre TMS sort plus, c'est mieux. Si il sort moins, on s'adapte (voir plus bas).</p>
+<p><strong>1. L'export de la semaine.</strong> Format CSV. Toutes les solutions de facturation (Pennylane, Indy, Henrri, EBP…) savent exporter en CSV, et si vous tenez déjà un classeur Excel, il fait très bien l'affaire. Colonnes minimales : date, client, chantier ou prestation, montant facturé HT, coût matériel, heures passées, statut de paiement. Si vous avez plus, c'est mieux. Si vous avez moins, on s'adapte (voir plus bas).</p>
 
-<p><strong>2. La structure du rapport attendu par le DG.</strong> Vous l'avez sous les yeux toutes les semaines. Ouvrez-le, copiez les en-têtes des colonnes, copiez la liste des clients par ordre habituel, copiez la zone de commentaire. Tout ça va devenir le <strong>template</strong>.</p>
+<p><strong>2. La structure du tableau que vous voulez lire.</strong> Celui que vous refaites chaque semaine à la main. Ouvrez-le, copiez les en-têtes des colonnes, la liste des chantiers ou clients dans l'ordre habituel, et la zone de commentaire. Tout ça va devenir le <strong>template</strong>.</p>
 
-<p><strong>3. Une convention de nommage pour les fichiers.</strong> Toujours <code>export-tms-semaine-XX.csv</code> et <code>template-reporting.xlsx</code>. Ça évite de chercher 10 minutes dans Téléchargements.</p>
+<p><strong>3. Une convention de nommage pour les fichiers.</strong> Toujours <code>export-semaine-XX.csv</code> et <code>template-suivi.xlsx</code>. Ça évite de chercher 10 minutes dans Téléchargements.</p>
 
 <p>C'est tout. Pas de plug-in, pas d'API, pas de connecteur.</p>
 
 <h2>Le prompt exact (à copier-coller)</h2>
 
-<p>Voici le prompt à utiliser chaque lundi. Stockez-le dans une note Apple Notes pinglée ou un Bloc-notes Windows épinglé. Vous le copiez-collez, vous joignez les deux fichiers, vous envoyez.</p>
+<p>Voici le prompt à utiliser chaque semaine. Stockez-le dans une note épinglée sur votre téléphone. Vous le copiez-collez, vous joignez les deux fichiers, vous envoyez.</p>
 
-<pre><code>Tu es l'assistant reporting de notre PME transport. Je te donne deux fichiers :
+<pre><code>Tu es l'assistant de gestion de mon entreprise artisanale. Je suis
+[votre métier] et je te donne deux fichiers :
 
-1. export-tms-semaine-XX.csv : l'export brut de notre TMS pour la
-   semaine. Une ligne = un OT (ordre de transport).
+1. export-semaine-XX.csv : l'export brut de ma facturation pour la
+   semaine. Une ligne = un chantier ou une prestation.
 
-2. template-reporting.xlsx : la structure du rapport hebdomadaire
-   attendu par notre DG (en-têtes, clients par ordre, format).
+2. template-suivi.xlsx : la structure du tableau de suivi que je
+   veux lire (en-têtes, chantiers par ordre, format).
 
 Ta mission :
 
-a) Génère le rapport rempli au format Excel, en respectant
+a) Génère le tableau rempli au format Excel, en respectant
    EXACTEMENT la structure du template. Mêmes colonnes, mêmes
-   clients, même ordre, même format de cellule.
+   lignes, même ordre, même format de cellule.
 
-b) Calcule pour chaque client :
-   - le CA (somme des recettes)
-   - le coût d'achat (somme des coûts transporteurs)
-   - la marge brute (CA - coût)
-   - le taux de marge (marge / CA, en %)
-   - le nombre d'OT
-   - les km totaux
+b) Calcule pour chaque chantier ou client :
+   - le montant facturé HT
+   - le coût matériel engagé
+   - la marge brute (facturé - matériel)
+   - le taux de marge (marge / facturé, en %)
+   - les heures passées
+   - la marge horaire (marge / heures)
 
-c) Compare avec la semaine précédente si je te fournis le rapport
+c) Compare avec la semaine précédente si je te fournis le tableau
    de la semaine N-1 en pièce jointe. Si oui, ajoute une colonne
-   "Variation N-1" en % pour le CA et la marge.
+   "Variation N-1" en % pour le facturé et la marge.
 
-d) Écris-moi 3 phrases de commentaire à mettre en bas du rapport :
-   - Le client le plus rentable de la semaine et pourquoi
-   - Le point d'attention (variation négative, marge faible,
-     volume anormal)
+d) Écris-moi 3 phrases de commentaire à mettre en bas du tableau :
+   - Le chantier le plus rentable de la semaine et pourquoi
+   - Le point d'attention (marge faible, chantier qui dérape en
+     heures, facture non encaissée qui traîne)
    - Une recommandation actionnable pour la semaine prochaine
 
 Contraintes IMPORTANTES :
 - Si une donnée est manquante dans l'export, écris "n/a" et
   mentionne-le dans le commentaire. NE devine PAS.
-- Si tu détectes une incohérence (CA négatif, km à zéro avec
-  recette, doublon d'OT), signale-le-moi avant de finaliser le
-  rapport.
+- Si tu détectes une incohérence (marge négative, heures à zéro
+  avec un montant facturé, doublon de facture), signale-le-moi
+  avant de finaliser le tableau.
 - Garde TOUS les chiffres en euros, arrondis à l'euro près.
   Pas de centimes.
 
 Livre :
-1. Le fichier Excel rempli, prêt à envoyer.
+1. Le fichier Excel rempli, prêt à utiliser.
 2. Un récap de 5 lignes maximum dans le chat avec les chiffres clés.
 3. La liste des incohérences détectées (s'il y en a).</code></pre>
 
-<p>Ce prompt fait <strong>environ 600 mots</strong>. C'est volontaire. C'est ce qui fait la différence entre un résultat moyen et un résultat utilisable.</p>
+<p>Ce prompt est long. C'est volontaire. C'est ce qui fait la différence entre un résultat moyen et un résultat utilisable.</p>
 
 <h2>Le résultat, en ordre de grandeur</h2>
 
 <p>Ce que vous pouvez raisonnablement attendre :</p>
 
 <ul>
-  <li><strong>Avant</strong> : 2h30 à 3h selon la complexité, parfois plus si un transporteur a déclaré ses km en retard.</li>
-  <li><strong>Après</strong> : 4 à 8 minutes, dont l'essentiel à uploader les fichiers, vérifier le résultat et corriger 1 à 2 erreurs typiques (un client mal classé, un commentaire à reformuler dans le ton maison).</li>
+  <li><strong>Avant</strong> : une à trois heures selon le nombre de chantiers et l'état de vos justificatifs.</li>
+  <li><strong>Après</strong> : quelques minutes, dont l'essentiel à joindre les fichiers, vérifier le résultat et corriger une ou deux erreurs typiques (un chantier mal classé, un commentaire à reformuler dans vos mots).</li>
 </ul>
 
-<p>Soit grosso modo <strong>2h30 récupérées chaque semaine</strong>. Sur 45 semaines de boulot, c'est ~110 heures par an. À 80 €/heure de coût chargé, ça représente ~9 000 € de temps qualifié récupéré annuellement. Pour 4 minutes de prompt et 15 minutes de prep une seule fois.</p>
+<p>Ce sont des ordres de grandeur, pas une promesse. Le gain réel dépend de la propreté de votre export, de la rigueur du template, et de votre capacité à vérifier rapidement le rendu. Ce qui compte, c'est que la corvée passe d'un créneau de week-end à une pause café.</p>
 
-<p>Ces ordres de grandeur sont des estimations issues de la pratique sur des reportings comparables. Le gain réel dépend de la qualité de votre export TMS, de la rigueur du template, et de votre capacité à vérifier rapidement le rendu.</p>
+<p>Le vrai bénéfice n'est d'ailleurs pas le temps : c'est que vous le faites <em>vraiment</em>, chaque semaine, au lieu de le repousser un mois sur deux.</p>
 
 <h2>Mise en garde — confidentialité des données</h2>
 
-<p>Je ne peux pas conclure cet article sans cette section, et c'est la raison pour laquelle beaucoup de directeurs logistique hésitent à se lancer. À raison.</p>
+<p>Je ne peux pas conclure cet article sans cette section, et c'est la raison pour laquelle beaucoup de dirigeants hésitent à se lancer. À raison.</p>
 
 <p><strong>Ce que vous ne devez JAMAIS coller dans un prompt grand public :</strong></p>
 
 <ul>
-  <li>Les noms et prénoms de vos clients ou contacts internes.</li>
-  <li>Les numéros de téléphone, emails directs, identifiants commerciaux.</li>
+  <li>Les noms et prénoms de vos clients particuliers.</li>
+  <li>Les adresses de chantier, numéros de téléphone et emails directs.</li>
   <li>Les conditions tarifaires détaillées par client (vous ne voulez pas que ça parte dans un dataset d'entraînement).</li>
-  <li>Les données nominatives des chauffeurs (RGPD).</li>
+  <li>Les données nominatives de vos salariés ou apprentis (RGPD).</li>
 </ul>
 
 <p><strong>Trois solutions concrètes :</strong></p>
 
 <ol>
-  <li><strong>Anonymiser avant l'upload.</strong> Renommez <em>Carrefour Bordeaux</em> en <em>Client A</em>, <em>Société Transport Martin</em> en <em>Transporteur 12</em>. Une simple table de correspondance que vous gardez dans un fichier à part. Vous remettez les vrais noms à la fin.</li>
-  <li><strong>Utiliser un compte ChatGPT Team / Claude for Work.</strong> Les conditions diffèrent : pas de réutilisation des données pour l'entraînement, conservation maîtrisée, conformité RGPD documentée. Coût : ~25 €/mois/utilisateur. Pour un reporting qui vous fait gagner 100h/an, le calcul est vite fait.</li>
-  <li><strong>Pour les données ultra-sensibles, rester sur du chiffre agrégé.</strong> Vous pouvez très bien envoyer <em>"5 clients représentent 70 % du CA, marges respectives 12 %, 18 %, 22 %, 8 %, 15 %"</em> sans nommer. Le rapport reste utile.</li>
+  <li><strong>Anonymiser avant l'envoi.</strong> Renommez <em>Mme Durand, 12 rue des Écoles</em> en <em>Client A</em>, et <em>SARL Martin</em> en <em>Client B</em>. Une simple table de correspondance que vous gardez dans un fichier à part. Vous remettez les vrais noms à la fin.</li>
+  <li><strong>Utiliser un compte payant professionnel</strong> (ChatGPT Team, Claude for Work). Les conditions diffèrent : pas de réutilisation des données pour l'entraînement, conservation maîtrisée, conformité RGPD documentée. Comptez quelques dizaines d'euros par mois.</li>
+  <li><strong>Pour les données sensibles, rester sur du chiffre agrégé.</strong> Vous pouvez très bien envoyer <em>"3 chantiers représentent 70 % du facturé, marges respectives 12 %, 18 %, 22 %"</em> sans nommer personne. Le tableau reste utile.</li>
 </ol>
 
-<p>⚠ <strong>Ne contournez jamais la règle interne de votre entreprise.</strong> Si votre RSSI a interdit les outils IA grand public, demandez d'abord. Une bonne automatisation refusée par le DSI vaut moins qu'une automatisation médiocre validée.</p>
+<p>⚠ <strong>Le réflexe à garder :</strong> avant de coller un fichier dans un outil IA, demandez-vous si vous accepteriez de l'envoyer par erreur à un concurrent. Si la réponse est non, anonymisez d'abord.</p>
 
-<h2>Et si votre TMS sort un export mal foutu ?</h2>
+<h2>Et si votre logiciel sort un export mal foutu ?</h2>
 
-<p>C'est le cas le plus fréquent. Les TMS franco-français des années 2010 sortent du CSV avec des séparateurs aléatoires, des dates en JJ/MM/AAAA ou MM/JJ/AAAA selon les exports, des en-têtes en français accentué qui cassent l'encodage.</p>
+<p>C'est le cas le plus fréquent. Beaucoup de logiciels métier sortent du CSV avec des séparateurs aléatoires, des dates en JJ/MM/AAAA ou MM/JJ/AAAA selon les exports, des en-têtes accentués qui cassent l'encodage.</p>
 
 <p>Trois options :</p>
 
 <ul>
-  <li><strong>Une passe de nettoyage avec l'IA.</strong> Demandez-lui de normaliser le CSV avant de produire le rapport. Ajoutez en début de prompt : <em>"Si le séparateur est anormal ou les dates ambiguës, corrige avant de calculer et explique-moi ce que tu as fait."</em></li>
-  <li><strong>Un mini-script Python ou JavaScript généré par l'IA</strong>, lancé une fois pour transformer l'export brut en CSV propre. C'est ce que je mets en place lors d'une intervention OptiPro : 30 minutes pour produire un script qui tourne ensuite tout seul.</li>
-  <li><strong>Demander à votre éditeur TMS un export propre</strong>, en vous appuyant sur la structure attendue. Vous découvrirez parfois que l'option existe déjà et personne ne l'avait jamais cochée.</li>
+  <li><strong>Une passe de nettoyage avec l'IA.</strong> Demandez-lui de normaliser le CSV avant de produire le tableau. Ajoutez en début de prompt : <em>"Si le séparateur est anormal ou les dates ambiguës, corrige avant de calculer et explique-moi ce que tu as fait."</em></li>
+  <li><strong>Un mini-script généré par l'IA</strong>, lancé une fois pour transformer l'export brut en CSV propre. C'est typiquement ce que je mets en place quand le nettoyage revient chaque semaine : un script qui tourne ensuite tout seul.</li>
+  <li><strong>Demander à votre éditeur un export propre</strong>, en vous appuyant sur la structure attendue. Vous découvrirez parfois que l'option existe déjà et que personne ne l'avait jamais cochée.</li>
 </ul>
 
+<h2>Quand arrêter de bricoler et passer à un outil</h2>
+
+<p>Cette méthode est parfaite pour démarrer, et pour beaucoup d'artisans elle suffit durablement. Mais si vous refaites la même manipulation toutes les semaines depuis six mois, le prompt n'est plus la bonne réponse : c'est le signe qu'il faut un <strong>petit outil web</strong> qui affiche vos chantiers, vos marges et vos impayés en permanence, sans export ni copier-coller.</p>
+
+<p>C'est le genre de web app que je développe sur mesure chez OptiPro, chiffrée au devis après un premier appel — voir <a href="/le-service">la page du service</a> et les repères de prix sur la <a href="/tarifs">page tarifs</a>. Et si votre facturation elle-même est encore éparpillée, commencez plutôt par <a href="/blog/facturation-artisan-gagner-du-temps">la routine de facturation hebdo</a>.</p>
+
 <div class="callout">
-  <p><strong>Vous gérez l'exploitation d'une PME transport, logistique ou BTP ?</strong></p>
-  <p>30 minutes au téléphone, gratuit, sans engagement. Vous me décrivez votre stack et vos process, je vous donne 3 leviers concrets sur lesquels vous pourriez gagner du temps — reporting, sous-traitants, ou autres. Si on peut bosser ensemble derrière, on cadre. Sinon, vous repartez avec les pistes.</p>
-  <a href="/contact" class="callout-link">Parler de mon exploitation →</a>
+  <p><strong>Vous suivez votre activité sur un Excel qui vous fatigue ?</strong></p>
+  <p>30 minutes au téléphone, gratuit, sans engagement. Vous me montrez votre tableau et votre façon de travailler, je vous dis honnêtement si un prompt bien écrit suffit — souvent c'est le cas — ou si un outil web sur mesure se justifie. Dans les deux cas vous repartez avec une réponse claire.</p>
+  <a href="/contact" class="callout-link">Réserver un premier appel →</a>
+  <a href="/tarifs" class="callout-link">Voir les tarifs →</a>
 </div>
 
-<p style="margin-top:2rem">Le tableau Excel hebdo n'est pas un sujet glamour. Mais c'est probablement le levier IA qui a le meilleur ratio temps-investi / temps-récupéré dans une PME logistique. Un dirigeant qui récupère 2 à 3 heures de temps qualifié par semaine, c'est un dirigeant qui peut enfin regarder ce qui compte vraiment : le développement commercial, la relation client, la stratégie. Pas la maintenance d'un fichier Excel.</p>
+<p style="margin-top:2rem">Le tableau Excel hebdo n'est pas un sujet glamour. Mais c'est probablement le levier IA avec le meilleur ratio temps-investi / temps-récupéré chez un artisan ou une TPE. Savoir chaque semaine quels chantiers gagnent de l'argent et quelles factures ne sont pas rentrées, ça change les décisions qu'on prend — quel devis accepter, quel client relancer, quel type de chantier arrêter de prendre.</p>
 
 <p>— Pierre</p>
 `,
@@ -747,6 +776,7 @@ Livre :
     description:
       "Devis depuis 3 lignes de notes, relance facture impayée, réponse à un avis Google négatif. Trois prompts copiables, testés, avec les variantes pour s'adapter à votre métier.",
     datePublication: '2026-05-02',
+    dateMaj: '2026-07-26',
     tempsLecture: 7,
     categorie: 'Pour les artisans',
     motsCles: [
@@ -801,7 +831,9 @@ maximum avant de rédiger. Sinon, va directement au devis.
 Je ne te demande PAS les prix — je les mets moi-même. Donne juste
 le texte.</code></pre>
 
-<p><strong>Ce que vous obtenez en 30 secondes :</strong> un texte de devis propre. Vous le copiez dans votre logiciel de devis (ou Word), vous mettez les chiffres, vous envoyez. <strong>Gain typique : 20 à 30 minutes par devis.</strong></p>
+<p><strong>Ce que vous obtenez en 30 secondes :</strong> un texte de devis propre. Vous le copiez dans votre logiciel de devis (ou Word), vous mettez les chiffres, vous envoyez.</p>
+
+<p>Si vous n'avez pas encore de logiciel de devis et que vous travaillez sur Word ou Excel, l'IA ne fera que déplacer le problème : lisez d'abord <a href="/blog/automatiser-devis-artisan">comment automatiser ses devis</a>.</p>
 
 <p><strong>Variante express :</strong> si vos notes font 2 lignes, ajoutez à la fin : <em>"Pose-moi 3 questions maximum si tu manques d'infos."</em></p>
 
@@ -879,10 +911,12 @@ Donne-moi 3 variantes :
 
 <p>La bonne image : l'IA est un <strong>stagiaire ultra-rapide</strong>. Il écrit vite, il propose plein d'idées, il ne fatigue pas. Mais il ne connaît ni votre métier ni vos clients. C'est vous le boss.</p>
 
+<p>Et quand l'IA ne suffit plus — parce que vous voulez que vos devis, votre suivi de chantier ou vos relances tournent vraiment tout seuls plutôt que prompt par prompt — c'est qu'il est temps d'outiller. C'est mon métier : je développe des sites et des outils web sur mesure pour les artisans et les TPE. Le détail est sur <a href="/le-service">la page du service</a>, et les prix sur la <a href="/tarifs">page tarifs</a>.</p>
+
 <div class="callout">
-  <p><strong>Vous voulez 10 prompts de plus, adaptés à votre métier précis ?</strong></p>
-  <p>Le diagnostic gratuit OptiPro liste les tâches admin que l'IA peut absorber dans votre quotidien — par métier (plombier, électricien, paysagiste, coiffeur, photographe, traiteur, etc.) — avec les prompts complets et les variantes.</p>
-  <a href="/contact?cible=artisans" class="callout-link">Demander mon diagnostic gratuit →</a>
+  <p><strong>Vous voulez des prompts adaptés à votre métier précis ?</strong></p>
+  <p>Premier appel de 30 minutes, gratuit et sans engagement : vous me décrivez votre quotidien, je vous donne les prompts qui correspondent à vos tâches réelles. Sans rien vous vendre. Si derrière vous avez besoin d'un site ou d'un outil web, on en parle — sinon vous repartez juste avec les prompts.</p>
+  <a href="/contact" class="callout-link">Réserver un premier appel →</a>
 </div>
 
 <p style="margin-top:2rem">— Pierre</p>
@@ -898,6 +932,7 @@ Donne-moi 3 variantes :
     description:
       "Pas besoin de coder. Pas besoin de comprendre les LLM. Juste 3 usages simples, les prompts exacts, et 30 minutes pour démarrer aujourd'hui.",
     datePublication: '2026-04-20',
+    dateMaj: '2026-07-26',
     tempsLecture: 8,
     categorie: 'Pour les artisans',
     motsCles: [
@@ -1007,7 +1042,7 @@ Garde ça court : 120 mots max.</code></pre>
 
 <p>Voici quatre trucs concrets :</p>
 
-<p><strong>Rédiger votre fiche Google Business.</strong> La plupart des fiches que je vois sont mal rédigées, vides, ou ressemblent à celles de 50 autres concurrents. Demandez à l'IA de vous rédiger une description de 300 caractères qui met en avant ce qui vous différencie. Précisez : votre métier, votre zone d'intervention, votre spécialité.</p>
+<p><strong>Rédiger votre fiche Google Business.</strong> La plupart des fiches que je vois sont mal rédigées, vides, ou ressemblent à celles de dizaines de concurrents. Demandez à l'IA de vous rédiger une description de 300 caractères qui met en avant ce qui vous différencie. Précisez : votre métier, votre zone d'intervention, votre spécialité. La fiche Google est gratuite et c'est le meilleur point de départ — l'étape suivante étant un vrai site, dont j'explique le budget réel dans <a href="/blog/site-web-artisan-combien-ca-coute">combien coûte un site web pour artisan</a>.</p>
 
 <p><strong>Écrire un post réseau social après un chantier, une mission, un livrable.</strong> Vous avez une belle photo avant/après ? Un témoignage client par message ? L'IA peut transformer <em>"on a refait la salle de bain de Mme Durand, elle est contente"</em> ou <em>"j'ai livré la stratégie à X, ils vont implémenter lundi"</em> en un post qui donne envie. En deux minutes.</p>
 
@@ -1047,673 +1082,14 @@ Garde ça court : 120 mots max.</code></pre>
 
 <div class="callout">
   <p><strong>Vous voulez aller plus vite ?</strong></p>
-  <p>30 minutes au téléphone avec moi, gratuit, sans engagement : vous me décrivez votre métier et vos process, je vous propose 3 prompts ou outils concrets adaptés à votre activité. Pas de blabla commercial, juste du concret.</p>
-  <a href="/contact?cible=artisans" class="callout-link">Réserver un premier appel →</a>
+  <p>30 minutes au téléphone avec moi, gratuit, sans engagement : vous me décrivez votre métier et vos process, je vous propose 3 prompts ou outils concrets adaptés à votre activité. Pas de blabla commercial, juste du concret. Et si le sujet devient « il me faudrait un site ou un outil web », c'est justement ce que je développe — les prix sont publics sur la <a href="/tarifs">page tarifs</a>.</p>
+  <a href="/contact" class="callout-link">Réserver un premier appel →</a>
+  <a href="/le-service" class="callout-link">Découvrir le service →</a>
 </div>
 
 <p style="margin-top:2rem">L'IA ne remplacera pas votre savoir-faire. Mais elle peut vous libérer du temps pour le pratiquer, pour développer votre activité, et pour rentrer chez vous plus tôt le soir.</p>
 
 <p>Ça vaut peut-être le coup d'essayer 30 minutes.</p>
-
-<p>— Pierre</p>
-`,
-  },
-
-  // ────────────────────────────────────────────────────────────────
-  // Article 9 — Déléguer ses devis quand on est plombier
-  // ────────────────────────────────────────────────────────────────
-  {
-    slug: 'comment-deleguer-devis-plombier',
-    titre: 'Comment déléguer ses devis quand on est plombier (et arrêter de bosser le dimanche soir)',
-    description:
-      "Vous êtes plombier indépendant et vos devis traînent ? Voici comment les déléguer concrètement, à qui, à quel prix, et ce que ça change sur votre CA et vos soirées.",
-    datePublication: '2026-05-13',
-    tempsLecture: 9,
-    categorie: 'Délégation',
-    motsCles: [
-      'déléguer devis plombier',
-      'externaliser devis artisan',
-      'assistant administratif plombier',
-      'plombier indépendant admin',
-      'gagner temps plombier',
-      'devis 24h plombier',
-    ],
-    image: '/og-image.jpg',
-    contenu: `
-<p>Vous sortez d'une intervention à 18h30. Vous rentrez chez vous. Vous mangez. Et là, vous vous installez devant l'ordinateur pour faire le devis du chauffe-eau que vous avez vu chez Madame Dupont ce matin.</p>
-
-<p>Il est 21h.</p>
-
-<p>Madame Dupont, elle, est en train de comparer les trois plombiers qui sont passés cette semaine. Celui qui lui envoie un devis ce soir gagne. Les deux autres, dont vous, perdent.</p>
-
-<p>Sauf que vous, vous n'envoyez pas votre devis ce soir. Vous le finissez vendredi. Quand vous l'envoyez le samedi matin, Madame Dupont a déjà signé chez un concurrent qui, lui, a répondu en 2h.</p>
-
-<p>Cette histoire, je l'ai entendue 30 fois en 2 ans. Tous les plombiers indépendants que je rencontre la vivent. Tous savent que c'est un problème. Aucun n'arrive à le résoudre seul.</p>
-
-<h2>Pourquoi les devis traînent — et ce que ça vous coûte vraiment</h2>
-
-<p>Un plombier indépendant en PACA fait en moyenne entre 15 et 30 devis par mois selon sa zone et son volume d'activité. Chaque devis sérieux (pas un dépannage à 80€, un vrai chantier à 800€-3 000€) prend 30 à 45 minutes à structurer correctement : fournitures, main d'œuvre, déplacement, TVA, mentions légales, signature électronique. Ça fait <strong>10 à 20h/mois d'admin pure</strong>.</p>
-
-<p>Et ces 10 à 20h se font où ? Pas pendant la journée — vous êtes sur les chantiers. Donc le soir, le week-end, parfois pendant les pauses déjeuner. Au final, vous bossez 60h/semaine pour en facturer 35.</p>
-
-<p>Le coût réel de ce retard, vous le mesurez sur trois lignes :</p>
-
-<ul>
-  <li><strong>Perte de signature.</strong> Les études CAPEB montrent qu'un devis envoyé sous 24h se signe à 80%, sous 48h à 65%, au-delà de 3 jours à 35%. Si vous envoyez vos devis en moyenne en 3-4 jours, vous perdez <strong>30 à 45% de vos opportunités</strong> sans le savoir.</li>
-  <li><strong>Avenants oubliés.</strong> Vous commencez le chantier, le client demande "pendant qu'on y est, vous pouvez aussi changer le mitigeur de la salle de bain ?". Vous dites oui, vous le faites, mais vous n'envoyez jamais l'avenant. Sur un chantier moyen, ça représente 200 à 500€ qui passent à la trappe — et chez certains plombiers, c'est <strong>15-30% du CA réel non facturé</strong>.</li>
-  <li><strong>Burn-out.</strong> Pas chiffrable directement, mais c'est ce qui finit par tout faire exploser. 60h/semaine sur la durée, votre couple, votre santé, votre humeur paient.</li>
-</ul>
-
-<h2>Les 4 façons de déléguer ses devis (et leurs vraies limites)</h2>
-
-<p>Quand un plombier comprend qu'il faut déléguer, il regarde généralement 4 options. Voilà ce que chacune donne en vrai.</p>
-
-<h3>Option 1 : Embaucher un mi-temps administratif</h3>
-
-<p>Le réflexe classique. Vous prenez un mi-temps à 1 200-1 500€ net/mois (1 700-2 100€ brut), soit 2 200-2 800€ chargé pour vous avec charges patronales. Plus l'équipement (PC, imprimante, logiciel), la formation, le risque de turnover, la gestion RH (paie, congés, arrêts maladie).</p>
-
-<p><strong>Avantages :</strong> présence physique, intégration possible dans l'équipe, polyvalence (peut faire autre chose que les devis).</p>
-
-<p><strong>Limites :</strong> coût élevé pour un plombier seul qui fait 8 000-12 000€ de CA/mois. Engagement long (CDI 18-24 mois minimum sur le marché actuel pour trouver et garder quelqu'un de bien). Si l'activité ralentit 3 mois (chantier qui tarde), vous payez quand même. Et surtout : un profil junior à ce salaire ne sait pas anticiper les pièges d'un devis BTP — il fait de la saisie, pas du pilotage.</p>
-
-<h3>Option 2 : Embaucher votre conjoint·e</h3>
-
-<p>Très fréquent en plomberie. Le ou la conjoint·e prend la fonction admin en plus de son boulot principal, ou même à temps plein. Sur le papier, c'est gratuit.</p>
-
-<p><strong>Avantages :</strong> confiance totale, alignement business, flexibilité.</p>
-
-<p><strong>Limites :</strong> ce n'est pas son métier. Le ou la conjoint·e apprend sur le tas, fait au mieux mais souvent sans la structure d'un pro. Les devis sortent, mais ils sortent <em>aussi tard</em> qu'avant (parce que le ou la conjoint·e a ses propres journées chargées). Pire : ça génère des conflits dans le couple ("tu m'as pas dit que le client de mardi attendait le devis !") qui finissent par dégrader la relation. Et zéro vacances en commun possible.</p>
-
-<h3>Option 3 : Une plateforme d'assistants en ligne (genre Side, Brigad, etc.)</h3>
-
-<p>Les plateformes proposent des assistants administratifs à l'heure, accessibles en ligne. Tarif 30-50€/h, sans engagement.</p>
-
-<p><strong>Avantages :</strong> flexibilité maximale, paiement à la demande.</p>
-
-<p><strong>Limites :</strong> turnover énorme. Vous n'avez jamais le même assistant deux missions de suite. Donc à chaque mission : ré-expliquer votre fonctionnement, vos clients récurrents, vos fournisseurs habituels, votre grille de prix. Le gain de temps est largement compensé par le temps de briefing à chaque fois. Et la qualité varie énormément selon qui répond ce jour-là.</p>
-
-<h3>Option 4 : Un assistant administratif indépendant dédié</h3>
-
-<p>Un freelance qui devient votre interlocuteur unique sur la durée. Tarif 60-90€/h selon le profil et l'expérience.</p>
-
-<p><strong>Avantages :</strong> apprend votre fonctionnement une fois pour toutes, vous connaît, anticipe. Aucune charge sociale, aucun engagement long. Préavis court (15-30 jours typiquement). Coût total maîtrisé.</p>
-
-<p><strong>Limites :</strong> il faut trouver le bon. Tous les "assistants indépendants" ne se valent pas. Un profil junior à 45€/h fera de l'exécution propre mais pas d'anticipation. Un profil senior à 75-90€/h apportera de la structuration en plus de l'exécution. La différence se voit en 2 mois.</p>
-
-<h2>À quoi ressemble une délégation qui marche (concrètement)</h2>
-
-<p>Je vais prendre l'exemple d'un plombier-chauffagiste de Cagnes-sur-Mer que j'accompagne depuis 4 mois. 38 ans, 10 ans d'activité, 2 salariés, environ 14 000€ de CA/mois. Sa femme faisait l'admin le soir, ça créait des tensions.</p>
-
-<p><strong>Avant.</strong> 18 devis/mois en moyenne. Délai d'envoi moyen : 4-5 jours. Taux de signature : 60%. Impayés en cours : 4 200€. Préparation comptable mensuelle : 6h de sa femme.</p>
-
-<p><strong>Mise en place de la délégation.</strong> Pack Croissance 20h/mois à 1 200€. Une seule règle : il m'envoie un vocal WhatsApp depuis le chantier ("appartement rue Marceau, remplacement chauffe-eau 200L, environ 1 200€, RDV avec Mme Martin mardi"). Je crée le devis structuré, je l'envoie au client avec signature en ligne dans les 60 minutes qui suivent le vocal. Pareil pour les avenants, les factures, les relances.</p>
-
-<p><strong>Après 3 mois.</strong> 22 devis/mois (capacité augmentée car les devis ne traînent plus). Délai d'envoi moyen : 50 minutes après le vocal. Taux de signature : 85%. Impayés en cours : 600€ (relances systématiques). Préparation comptable : sa femme a arrêté, je livre un dossier propre à son expert-comptable chaque mois.</p>
-
-<p><strong>Chiffrage du gain.</strong> +25% de taux de signature sur +20% de volume de devis = environ 4 chantiers supplémentaires par mois, soit +4 800€ de CA. + 3 600€ d'impayés rattrapés sur les 3 premiers mois. Coût total du pack : 3 600€. <strong>ROI net sur 3 mois : +4 800€ × 3 - 3 600€ = +10 800€</strong>, sans compter la paix retrouvée dans le couple et les week-ends récupérés.</p>
-
-<h2>Combien ça coûte vraiment de déléguer ses devis ?</h2>
-
-<p>Si vous faites 15 à 25 devis/mois (volume typique d'un plombier indépendant en PACA), le Pack Essentiel 10h à 650€/mois suffit largement. Comptez 30-45 min par devis = 7-12h/mois pour 15-25 devis. Vous avez encore 2-3h dispo pour les factures, les relances et le classement des frais.</p>
-
-<p>Si vous avez 1-2 salariés ou des chantiers complexes (rénovation lourde, multi-corps de métier), le Pack Croissance 20h à 1 200€/mois est la cible. Vous y mettez devis + factures + relances + suivi fournisseurs + dossier comptable.</p>
-
-<p>Si vous êtes une TPE en croissance (3-8 salariés) qui veut un vrai responsable opérations externalisé avec dashboards et process documentés, c'est le Pack Pilotage 35h à 1 950€/mois.</p>
-
-<p>Dans tous les cas, ce que vous payez en pack est largement compensé par le CA additionnel capté et les impayés rattrapés. Le seuil de rentabilité se situe en général entre le 2ème et le 3ème mois — après, c'est du gain net.</p>
-
-<h2>Comment choisir le bon prestataire</h2>
-
-<p>Trois critères qui font la différence sur la durée.</p>
-
-<p><strong>1. Expérience opérationnelle réelle.</strong> Demandez le parcours. Quelqu'un qui sort d'une formation de 6 mois en bureautique ne vaut pas quelqu'un qui a 5-10 ans de pilotage d'exploitation en entreprise. La capacité à anticiper qu'un fournisseur va vous bloquer un chantier la semaine prochaine, ça ne s'apprend pas en livre.</p>
-
-<p><strong>2. Engagement à 8-10 clients maximum.</strong> Si votre prestataire en a 30, vous serez le 30ème dans sa pile à priorités. Vos vocaux attendront. Vos relances tomberont en retard. Demandez explicitement combien il a de clients actuellement et combien il vise.</p>
-
-<p><strong>3. Période d'essai sans frais.</strong> Personne ne peut savoir en appel découverte si la collaboration va marcher. Une période d'essai de 30 jours sans préavis ni frais (chacun peut arrêter) protège tout le monde et signale un prestataire confiant dans la qualité de son travail.</p>
-
-<h2>Et si ça ne marche pas ?</h2>
-
-<p>C'est la peur principale quand on délègue pour la première fois. "Je vais m'engager et je vais le regretter."</p>
-
-<p>Trois garde-fous à exiger dans n'importe quel contrat :</p>
-
-<ul>
-  <li>Période d'essai 30 jours sans frais (la collaboration s'arrête, seules les heures réellement effectuées sont facturées).</li>
-  <li>Préavis court ensuite (15 jours fin de mois, pas 3 mois).</li>
-  <li>Vos données vous appartiennent et sont exportables à tout moment. Tous vos accès restent à vous, révocables en 1 clic.</li>
-</ul>
-
-<p>Avec ces 3 garde-fous, le risque est minimal. Le coût d'opportunité de ne <em>pas</em> déléguer est largement supérieur.</p>
-
-<div class="callout">
-  <p><strong>Vous voulez voir si OptiPro peut être votre bras droit ?</strong></p>
-  <p>30 minutes au téléphone, gratuit, sans engagement. Vous me racontez votre activité, vos volumes, ce qui vous fait perdre le plus de temps. Je vous dis si on est faits pour bosser ensemble et combien ça vous coûterait. Pas de blabla commercial.</p>
-  <a href="/contact?cible=artisans&metier=plombier" class="callout-link">Réserver un premier appel →</a>
-</div>
-
-<p style="margin-top:2rem">Vous bossez sur les chantiers. Vous facturez votre métier, pas votre paperasse. Le tarif d'un pack OptiPro représente moins d'une journée de votre travail facturable — mais il vous rend 20h par mois de capacité de production.</p>
-
-<p>Le calcul, à mon sens, est vite fait.</p>
-
-<p>— Pierre</p>
-`,
-  },
-
-  // ────────────────────────────────────────────────────────────────
-  // Article 10 — 5 erreurs admin qui font perdre 5000€/an aux artisans
-  // ────────────────────────────────────────────────────────────────
-  {
-    slug: '5-erreurs-admin-perdre-5000-euros-artisan',
-    titre: '5 erreurs admin qui font perdre 5 000€/an aux artisans (et comment les corriger)',
-    description:
-      "Devis, factures, relances, classement, fournisseurs : les 5 erreurs admin les plus coûteuses chez les artisans et TPE BTP. Diagnostic et solutions concrètes.",
-    datePublication: '2026-05-13',
-    tempsLecture: 8,
-    categorie: 'Gestion',
-    motsCles: [
-      'erreurs admin artisan',
-      'perdre argent admin BTP',
-      'gestion artisan optimiser',
-      'admin tpe erreurs',
-      'comment artisan gagner argent',
-    ],
-    image: '/og-image.jpg',
-    contenu: `
-<p>Sur les 30 artisans que j'ai accompagnés ou audités ces 18 derniers mois, j'ai vu les mêmes 5 erreurs revenir presque systématiquement. Chacune coûte en moyenne 1 000 à 2 000€ par an. Cumulées, on dépasse facilement les 5 000€ — sans que l'artisan s'en rende compte.</p>
-
-<p>Le pire : ces erreurs ne sont pas dues à un manque de sérieux ou de compétence. Ce sont des conséquences mécaniques d'une organisation admin qui n'évolue pas en même temps que l'activité.</p>
-
-<p>Voilà les 5 erreurs, dans l'ordre d'impact financier décroissant, avec à chaque fois le diagnostic et la solution.</p>
-
-<h2>Erreur n°1 — Ne pas relancer les factures impayées (perte typique : 1 500 à 3 000€/an)</h2>
-
-<p>C'est l'erreur la plus coûteuse, et de loin. Chez la plupart des artisans que j'ai audités, le taux d'impayé sur 12 mois oscille entre 5 et 12% du CA — pas parce que les clients sont mauvais payeurs, mais parce qu'<strong>aucune relance systématique n'est en place</strong>.</p>
-
-<p>Le scénario typique : facture envoyée à J0, échéance à 30 jours. À J+45, vous remarquez que le client n'a pas payé. Vous lui passez un coup de fil, il s'excuse, dit qu'il va régler "dans la semaine". À J+60, toujours rien. Vous renvoyez un email. À J+90, le client a oublié, vous êtes gêné de relancer. À J+120, vous abandonnez mentalement. La facture passe en perte.</p>
-
-<p><strong>Solution :</strong> mettre en place un calendrier de relance automatique sur 3 paliers : J+15 (relance courtoise, "un petit rappel pour la facture du..."), J+30 (relance ferme, "merci de procéder au règlement sous 7 jours"), J+45 (mise en demeure formelle). Ce système simple récupère 60-80% des impayés qui passaient à la trappe.</p>
-
-<h2>Erreur n°2 — Oublier de facturer les avenants (perte typique : 1 000 à 2 500€/an)</h2>
-
-<p>Vous êtes sur un chantier de salle de bain à 4 500€. En cours, le client demande "pendant qu'on y est, vous pouvez aussi me changer le robinet du jardin et le mitigeur de la cuisine ?". Vous dites oui, vous le faites. Ça représente 350€ de matos + 2h de travail = environ 500€.</p>
-
-<p>À la fin du chantier, vous facturez 4 500€. Pas 5 000€. Parce que vous n'avez pas fait d'avenant.</p>
-
-<p>Cette erreur représente 15 à 30% du CA non facturé chez les artisans qui ne tracent pas systématiquement les ajouts. Sur 1 an, c'est facilement 1 000 à 2 500€ qui disparaissent.</p>
-
-<p><strong>Solution :</strong> 1) Définir une règle : tout ajout client génère un avenant écrit avant exécution (même par WhatsApp, ça compte). 2) Avoir un système qui vous rappelle de faire l'avenant le soir même (note Google Keep, todo Asana, vocal à votre assistant). 3) Inclure une mention dans le devis initial : "Tout ajout en cours de chantier fera l'objet d'un avenant signé."</p>
-
-<h2>Erreur n°3 — Envoyer ses devis trop tard (perte typique : 800 à 2 000€/an)</h2>
-
-<p>Étude CAPEB 2023 : un devis envoyé sous 24h se signe à 80%. Sous 48h à 65%. Au-delà de 3 jours, le taux tombe à 35%.</p>
-
-<p>Si vous envoyez vos devis en moyenne en 3-4 jours (cas typique d'un artisan indépendant qui les fait le soir), vous perdez environ 30-45% de vos opportunités sans le savoir. Sur 20 devis/mois à 800€ moyens, c'est 6-9 chantiers perdus, soit 4 800 à 7 200€ de CA potentiel évaporé par mois — dont environ 30% étaient de toute façon perdus pour d'autres raisons, mais 800 à 2 000€/an restent directement liés au délai.</p>
-
-<p><strong>Solution :</strong> soit vous structurez votre fin de journée pour faire les devis avant 19h (vocal-to-template), soit vous déléguez (assistant administratif externalisé qui produit le devis en 1h après votre vocal WhatsApp).</p>
-
-<h2>Erreur n°4 — Ne pas tracker les fournitures par chantier (perte typique : 600 à 1 500€/an)</h2>
-
-<p>Vous achetez du matos chez Castorama, Leroy Merlin, votre fournisseur habituel. Les tickets s'accumulent dans la boîte à gants ou dans une pochette. À la fin du chantier, vous ne savez pas exactement combien vous avez dépensé pour ce projet précis.</p>
-
-<p>Conséquence : votre marge réelle est inconnue. Vous pensez gagner 1 200€ sur un chantier, en vrai vous en gagnez 700 (parce que vous avez oublié les 500€ de fournitures qui se sont dilués dans le mois). Vous refacturez les mêmes prix au chantier suivant. Vous continuez à perdre de la marge sans le voir.</p>
-
-<p><strong>Solution :</strong> photo systématique du ticket dès l'achat, classement par chantier (Google Drive, dossier physique, ou outil OCR comme Pennylane). 5 minutes par jour, ça change tout sur la connaissance de la marge.</p>
-
-<h2>Erreur n°5 — Préparer son dossier comptable au dernier moment (perte typique : 300 à 800€/an)</h2>
-
-<p>Janvier arrive. Votre expert-comptable vous demande votre dossier annuel. Vous passez un week-end entier à classer les factures, retrouver les tickets, justifier les frais. Vous bâclez. Votre comptable doit nettoyer, faire des allers-retours, demander des justificatifs manquants. Il vous facture 2 800€ pour son travail annuel.</p>
-
-<p>Si vous lui aviez livré un dossier propre chaque mois, son travail aurait pris la moitié du temps. Il vous aurait facturé 2 000€. Économie : 800€/an. Plus le temps de votre week-end de janvier que vous récupérez.</p>
-
-<p><strong>Solution :</strong> dossier mensuel propre livré au comptable avant le 5 de chaque mois. FEC à jour, factures classées (clients et fournisseurs), tickets de frais saisis, rapprochement bancaire fait. 2h par mois bien organisées = économie nette de 800€/an + un comptable plus efficace sur sa vraie expertise (fiscal, optimisation).</p>
-
-<h2>Cumul : combien ça représente vraiment ?</h2>
-
-<p>Erreur 1 : 1 500-3 000€/an<br>
-Erreur 2 : 1 000-2 500€/an<br>
-Erreur 3 : 800-2 000€/an<br>
-Erreur 4 : 600-1 500€/an<br>
-Erreur 5 : 300-800€/an</p>
-
-<p><strong>Total fourchette basse : 4 200€/an. Fourchette haute : 9 800€/an.</strong></p>
-
-<p>La moyenne observée sur les artisans que j'audite tourne autour de 5 500€/an. C'est presque un mois de chiffre d'affaires.</p>
-
-<h2>Comment corriger sans tout révolutionner</h2>
-
-<p>Pas besoin de tout changer en même temps. Voilà l'ordre recommandé :</p>
-
-<ol>
-  <li><strong>Cette semaine :</strong> mettre en place le calendrier de relance impayés (erreur 1). C'est l'erreur la plus rentable à corriger en premier — gain immédiat sur 30-60 jours.</li>
-  <li><strong>Ce mois-ci :</strong> instaurer la règle de l'avenant systématique (erreur 2). Demande juste un changement d'habitude, zéro outil.</li>
-  <li><strong>Mois suivant :</strong> structurer la production de devis sous 24h (erreur 3). Soit vous y arrivez seul avec un système, soit vous déléguez.</li>
-  <li><strong>Trimestre 2 :</strong> mettre en place le tracking fourniture par chantier (erreur 4). Nécessite une petite discipline quotidienne (5 min/jour).</li>
-  <li><strong>En continu :</strong> dossier comptable mensuel propre (erreur 5). C'est le résultat des 4 autres bien faites.</li>
-</ol>
-
-<p>Si vous êtes seul à bord, ces 5 corrections demandent environ 3-5h/semaine d'admin bien organisée. Pour beaucoup d'artisans, c'est exactement le temps qu'ils n'ont déjà pas. C'est là que la question de la délégation devient mathématiquement rentable.</p>
-
-<div class="callout">
-  <p><strong>Vous voulez savoir laquelle de ces 5 erreurs vous coûte le plus ?</strong></p>
-  <p>30 minutes au téléphone, gratuit, sans engagement : on fait le diagnostic ensemble sur votre situation réelle. Vous repartez avec 2-3 actions concrètes à mettre en place dès la semaine suivante, que vous décidiez de travailler avec moi ou non.</p>
-  <a href="/contact?cible=artisans" class="callout-link">Réserver un diagnostic gratuit →</a>
-</div>
-
-<p style="margin-top:2rem">Le métier d'artisan se gagne sur le chantier. La marge se perd dans l'admin. Pas l'inverse.</p>
-
-<p>— Pierre</p>
-`,
-  },
-
-  // ────────────────────────────────────────────────────────────────
-  // Article 11 — Qu'est-ce qu'un bras droit administratif
-  // ────────────────────────────────────────────────────────────────
-  {
-    slug: 'qu-est-ce-qu-un-bras-droit-administratif',
-    titre: "Qu'est-ce qu'un bras droit administratif (et combien ça coûte vraiment) ?",
-    description:
-      "Définition, périmètre, tarifs, différences avec un assistant ou un comptable : tout ce qu'il faut savoir sur le bras droit administratif externalisé pour artisans et TPE.",
-    datePublication: '2026-05-13',
-    tempsLecture: 7,
-    categorie: 'Définition',
-    motsCles: [
-      'bras droit administratif',
-      'assistant administratif externalisé',
-      'définition bras droit',
-      'tarif assistant tpe',
-      'externalisation admin',
-    ],
-    image: '/og-image.jpg',
-    contenu: `
-<p>L'expression "bras droit administratif" est devenue à la mode. Tout le monde l'utilise — agences, freelances, plateformes en ligne. Mais derrière le même mot, on trouve des réalités très différentes, des tarifs qui vont de 30€/h à 150€/h, et des niveaux de service incomparables.</p>
-
-<p>Cet article fait le tri. Définition claire, périmètre concret, fourchettes de prix actuels, et critères pour distinguer un vrai bras droit d'un simple exécutant.</p>
-
-<h2>Définition</h2>
-
-<p>Un <strong>bras droit administratif</strong> est un prestataire qui prend en charge l'ensemble de l'administration opérationnelle d'une entreprise — typiquement une TPE, un artisan indépendant ou un dirigeant solo — pour libérer du temps au gérant et professionnaliser la gestion quotidienne.</p>
-
-<p>La spécificité par rapport à un simple "assistant administratif" : le bras droit a une dimension de pilotage et d'anticipation. Il ne se contente pas d'exécuter ce qu'on lui demande, il identifie les problèmes avant qu'ils n'arrivent et propose des structurations (process, outils, indicateurs).</p>
-
-<p>Le terme "bras droit" implique aussi une relation durable et de confiance, pas une mission ponctuelle. C'est quelqu'un qui devient un interlocuteur unique sur la durée, qui apprend votre fonctionnement et qui s'engage avec vous.</p>
-
-<h2>Périmètre type d'un bras droit administratif</h2>
-
-<p>Selon les besoins du client, le périmètre couvre généralement :</p>
-
-<ul>
-  <li><strong>Devis et facturation</strong> : production rapide après brief vocal, envoi, suivi, conformité PDP 2026-2027.</li>
-  <li><strong>Trésorerie et relances</strong> : suivi des encaissements, relances impayés systématiques (J+15, J+30, J+45), prévisionnel.</li>
-  <li><strong>Fournisseurs et sous-traitants</strong> : commandes, suivi livraisons, gestion litiges, négociations ponctuelles.</li>
-  <li><strong>Préparation comptable</strong> : classement factures, saisie frais, FEC, dossier mensuel propre livré à l'expert-comptable.</li>
-  <li><strong>Tableaux de bord</strong> : visibilité trésorerie, en-cours, marges par chantier ou client.</li>
-  <li><strong>Coordination opérationnelle</strong> : planning, RDV, suivi de chantier ou de projet selon le métier.</li>
-  <li><strong>Optimisation continue</strong> : identification des points de friction, propositions d'amélioration des process.</li>
-</ul>
-
-<p>Le bras droit ne fait <em>pas</em> :</p>
-
-<ul>
-  <li>Comptabilité réglementée (certification, liasse fiscale, conseil fiscal) — c'est le métier de votre expert-comptable.</li>
-  <li>Paie réglementaire (bulletins, déclarations sociales) — c'est le métier de votre gestionnaire de paie.</li>
-  <li>Conseil juridique formel — c'est le métier d'un avocat.</li>
-</ul>
-
-<p>Il travaille <em>avec</em> ces professionnels en leur livrant un dossier propre, pas <em>à leur place</em>.</p>
-
-<h2>Combien ça coûte (tarifs marché 2026)</h2>
-
-<p>Le marché du bras droit administratif se segmente en 4 niveaux de tarification, selon le profil et l'expérience du prestataire :</p>
-
-<table style="width:100%;border-collapse:collapse;margin:1rem 0;">
-  <thead>
-    <tr style="background:rgba(249,115,22,0.05);">
-      <th style="padding:0.75rem;text-align:left;border:1px solid #e5e7eb;">Profil</th>
-      <th style="padding:0.75rem;text-align:left;border:1px solid #e5e7eb;">Tarif horaire</th>
-      <th style="padding:0.75rem;text-align:left;border:1px solid #e5e7eb;">Pack mensuel équivalent</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">Assistant junior (formation courte, peu d'XP)</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">25-45€/h</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">400-800€/mois pour 15h</td>
-    </tr>
-    <tr>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">Assistant indépendant confirmé (3-5 ans XP)</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">45-65€/h</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">700-1 200€/mois pour 15h</td>
-    </tr>
-    <tr>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">Bras droit senior (cadre opérationnel reconverti)</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">65-95€/h</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">1 000-1 800€/mois pour 15-20h</td>
-    </tr>
-    <tr>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">Consultant en cabinet</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">120-300€/h</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">Pas en pack mensuel typiquement</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>À titre de comparaison, un mi-temps salarié administratif (1 200-1 500€ net/mois soit 2 200-2 800€ chargé pour l'employeur) couvre en général 80h/mois — donc équivalent 28-35€/h "à plein temps", mais avec engagement long, charges patronales, équipement, congés et risque de turnover.</p>
-
-<h2>Comment savoir si on a besoin d'un bras droit</h2>
-
-<p>Trois questions diagnostiques :</p>
-
-<p><strong>1. Combien d'heures/semaine consacrez-vous à l'admin actuellement ?</strong> Si la réponse est plus de 5h/semaine, vous êtes dans la cible. Au-delà de 10h/semaine, c'est mathématiquement rentable de déléguer.</p>
-
-<p><strong>2. Quelle est la qualité actuelle de votre admin ?</strong> Devis envoyés en retard, factures qui traînent, impayés non relancés, dossier comptable chaotique : autant de signaux que l'admin actuelle pèse sur le CA et la marge.</p>
-
-<p><strong>3. Quel est votre taux horaire facturable ?</strong> Si vous gagnez 50€/h sur votre métier et que vous passez 8h/semaine à 0€/h sur de l'admin, vous perdez 1 600€/mois de capacité de production. Le coût d'un bras droit (650-1 950€/mois selon le pack) est largement inférieur à cette perte.</p>
-
-<h2>Comment choisir le bon bras droit</h2>
-
-<p>Trois critères qui font la différence sur la durée :</p>
-
-<p><strong>L'expérience opérationnelle réelle.</strong> Demandez le parcours. Un cadre senior reconverti (5-10 ans en exploitation, ADV, gestion d'équipe) apporte une capacité d'anticipation et de structuration qu'un profil junior n'a pas. La différence se voit dès le premier mois sur la qualité du dossier comptable.</p>
-
-<p><strong>L'engagement à 8-15 clients maximum.</strong> Au-delà, votre prestataire est en surcharge, vos vocaux attendent, vos relances passent en retard. C'est mécanique. Demandez explicitement combien il a de clients actuellement et combien il vise.</p>
-
-<p><strong>Une période d'essai sans frais.</strong> 30 jours typiquement, avec sortie possible sans préavis. Seules les heures effectuées sont dues. Ce garde-fou protège tout le monde et signale un prestataire confiant dans la qualité de son travail.</p>
-
-<h2>Vs assistant en plateforme vs salarié</h2>
-
-<p>Synthèse rapide :</p>
-
-<ul>
-  <li><strong>Assistant via plateforme (Side, Brigad, etc.)</strong> : flexibilité maximale, mais turnover important, pas de continuité, pas d'apprentissage cumulé de votre fonctionnement. Bon pour des missions ponctuelles isolées, pas pour de la durée.</li>
-  <li><strong>Mi-temps salarié</strong> : présence physique, possibilité d'intégrer dans l'équipe, mais coût élevé (2 200-2 800€/mois chargé), engagement long, gestion RH. Pertinent quand l'activité dépasse 25 000€/mois de CA stable.</li>
-  <li><strong>Bras droit indépendant senior</strong> : meilleur ratio expertise/coût/flexibilité pour une TPE qui fait 8 000-25 000€/mois de CA. Préavis court, charges nulles, expertise immédiate.</li>
-</ul>
-
-<p>Le choix se fait sur le volume d'activité, la régularité du besoin et le degré d'autonomie souhaité dans le pilotage.</p>
-
-<div class="callout">
-  <p><strong>Vous hésitez sur le bon profil pour votre activité ?</strong></p>
-  <p>30 minutes au téléphone, gratuit : vous me décrivez votre volume actuel, vos irritants, votre budget. Je vous oriente honnêtement — y compris si la bonne solution n'est pas OptiPro (mi-temps, plateforme, autre prestataire). Pas de blabla commercial.</p>
-  <a href="/contact" class="callout-link">Réserver un premier appel →</a>
-</div>
-
-<p style="margin-top:2rem">Le bras droit administratif n'est ni un luxe ni un gadget. C'est une décision financière qui se calcule. Sur la majorité des artisans et TPE, le calcul tombe dans le bon sens dès le 2ème ou 3ème mois.</p>
-
-<p>— Pierre</p>
-`,
-  },
-
-  // ────────────────────────────────────────────────────────────────
-  // Article 12 — Externaliser son admin ou embaucher
-  // ────────────────────────────────────────────────────────────────
-  {
-    slug: 'externaliser-admin-ou-embaucher-guide-decision',
-    titre: 'Externaliser son admin ou embaucher : guide de décision pour TPE',
-    description:
-      "Comparatif chiffré et critères de décision entre externaliser son admin auprès d'un freelance ou embaucher un salarié. Pour artisans, indépendants et dirigeants de TPE.",
-    datePublication: '2026-05-13',
-    tempsLecture: 8,
-    categorie: 'Stratégie',
-    motsCles: [
-      'externaliser admin ou embaucher',
-      'salarié admin tpe',
-      'comparatif embauche externalisation',
-      'cout salarié administratif',
-      'décision rh tpe',
-    ],
-    image: '/og-image.jpg',
-    contenu: `
-<p>Vous avez identifié que votre admin déborde. Vous savez qu'il faut une solution. Reste la question : faut-il embaucher un salarié administratif, ou externaliser auprès d'un freelance ?</p>
-
-<p>La réponse n'est pas universelle. Elle dépend de 4 variables qu'on va passer en revue. À la fin de cet article, vous aurez une grille claire pour décider en fonction de votre situation réelle, pas en fonction d'un réflexe.</p>
-
-<h2>Le coût total réel — ce qu'on oublie souvent</h2>
-
-<p>Quand un dirigeant compare "1 800€ brut/mois pour un salarié" vs "1 200€/mois pour un freelance", il compare des choses non comparables. Le coût réel d'un salarié est largement supérieur au brut.</p>
-
-<p><strong>Coût mensuel total d'un salarié administratif mi-temps en 2026 :</strong></p>
-
-<ul>
-  <li>Salaire brut : 1 800€</li>
-  <li>Charges patronales (40-45%) : 720-810€</li>
-  <li>Équipement initial (PC, écran, logiciels) amorti : ~100€/mois</li>
-  <li>Tickets restaurant ou mutuelle : 50-80€/mois</li>
-  <li>Gestion paie (votre comptable ou Payfit) : 30-40€/mois</li>
-  <li>Coût indirect (turnover potentiel, formation, gestion RH) : ~150€/mois en lissé</li>
-</ul>
-
-<p><strong>Total réel : 2 850-2 980€/mois pour 80h/mois de travail = 35-37€/h équivalent réel.</strong></p>
-
-<p>Avec engagement long (CDI 18-24 mois minimum dans la réalité du marché), congés payés à gérer, arrêts maladie potentiels, et le risque qu'au bout de 12 mois la personne parte chez un concurrent qui paie 5% de plus.</p>
-
-<h2>Le coût total réel — externalisation</h2>
-
-<p>Un freelance bras droit administratif à 75€/h pour 20h/mois = <strong>1 500€/mois (ou 1 200€ en pack négocié)</strong>. Pas de charge sociale, pas de gestion RH, pas d'équipement à fournir, pas de congés payés à porter, pas de risque turnover (préavis 15-30 jours).</p>
-
-<p>Volume horaire effectif : 20h/mois de travail dédié, équivalent à environ 25-30h salarié (un freelance senior travaille 2-3x plus vite sur des tâches qu'il maîtrise déjà — pas de temps perdu en montée en compétence ou en flottement entre missions).</p>
-
-<p><strong>Ratio coût/heure effective : 50-60€/h effectif (75€/h facial × productivité).</strong></p>
-
-<h2>Comparaison sur 24 mois (vraie échelle de décision)</h2>
-
-<p>Sur 2 ans, voilà ce que coûte chaque option :</p>
-
-<table style="width:100%;border-collapse:collapse;margin:1rem 0;">
-  <thead>
-    <tr style="background:rgba(249,115,22,0.05);">
-      <th style="padding:0.75rem;text-align:left;border:1px solid #e5e7eb;">Option</th>
-      <th style="padding:0.75rem;text-align:left;border:1px solid #e5e7eb;">Coût cumulé 24 mois</th>
-      <th style="padding:0.75rem;text-align:left;border:1px solid #e5e7eb;">Volume travail</th>
-      <th style="padding:0.75rem;text-align:left;border:1px solid #e5e7eb;">Coût/h effective</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">Salarié mi-temps</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">~68 000€</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">1 920h (80h × 24)</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">35€/h</td>
-    </tr>
-    <tr>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">Freelance Pack Croissance 20h</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">28 800€</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">480h dédiées (équivalent ~700h salarié en productivité)</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">60€/h facial / 41€ équivalent</td>
-    </tr>
-    <tr>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">Freelance Pack Pilotage 35h</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">46 800€</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">840h dédiées (équivalent ~1 200h salarié)</td>
-      <td style="padding:0.75rem;border:1px solid #e5e7eb;">56€/h facial / 39€ équivalent</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Pour un volume admin standard de TPE artisan (15-25h/mois de besoin réel), l'externalisation est <strong>20 à 40% moins chère sur 24 mois</strong> que l'embauche, à qualité égale ou supérieure.</p>
-
-<h2>Au-delà du coût : les vraies différences</h2>
-
-<p>Le coût n'est qu'un critère parmi d'autres. Voilà les 4 vrais axes de décision :</p>
-
-<p><strong>1. Présence physique vs distance.</strong> Un salarié est sur place, fait partie de l'équipe, peut répondre au téléphone, accueillir les visiteurs. Un freelance est à distance, joignable sous 4h en jour ouvré. Si vous avez besoin de quelqu'un physiquement présent pour l'accueil, le téléphone client direct, ou pour intégrer dans une équipe : salarié. Sinon : freelance.</p>
-
-<p><strong>2. Polyvalence vs spécialisation.</strong> Un salarié peut faire de l'admin <em>et</em> d'autres choses (commercial, accueil, gestion stock). Un freelance bras droit est focalisé sur son périmètre. Si vous avez besoin de polyvalence : salarié. Si vous avez besoin de pointu sur l'admin : freelance.</p>
-
-<p><strong>3. Variabilité du besoin.</strong> Si votre activité est très saisonnière (pic d'été, creux d'hiver), l'externalisation s'adapte (Pack Croissance en pic, Pack Essentiel en creux). Un salarié, c'est un coût fixe quelle que soit la charge. Pour les artisans BTP en PACA, la variabilité plaide pour le freelance.</p>
-
-<p><strong>4. Maturité de l'activité.</strong> Sous 10 000€/mois de CA, l'embauche n'est mathématiquement pas viable. Entre 10 000-25 000€/mois, le freelance est largement optimal. Au-delà de 25 000€/mois avec besoin de plusieurs fonctions admin (compta, social, commercial), l'embauche redevient pertinente.</p>
-
-<h2>Grille de décision en 5 questions</h2>
-
-<p>Répondez à ces 5 questions. Plus vous avez de "Salarié", plus l'embauche est pertinente. Plus vous avez de "Freelance", plus l'externalisation est pertinente.</p>
-
-<ol>
-  <li><strong>CA mensuel actuel ?</strong> &lt; 10k€ → Freelance. 10-25k€ → Freelance. &gt; 25k€ → Salarié possible.</li>
-  <li><strong>Besoin de présence physique ?</strong> Oui → Salarié. Non → Freelance.</li>
-  <li><strong>Activité saisonnière forte ?</strong> Oui → Freelance. Non → Salarié possible.</li>
-  <li><strong>Volume d'admin estimé ?</strong> &lt; 30h/mois → Freelance. &gt; 60h/mois → Salarié.</li>
-  <li><strong>Engagement long souhaité ?</strong> Oui (sécurité) → Salarié. Non (flexibilité) → Freelance.</li>
-</ol>
-
-<h2>Cas particulier : le test progressif</h2>
-
-<p>Si vous hésitez, voilà la séquence qui réduit le risque au maximum :</p>
-
-<p><strong>Mois 1-6 :</strong> commencer par un freelance bras droit en Pack Croissance (20h, 1 200€/mois). Période d'essai 30 jours sans frais pour valider la collaboration. Sur 6 mois, vous observez le volume réel de besoin, l'évolution de votre activité, et la valeur ajoutée d'un bras droit.</p>
-
-<p><strong>Mois 6 :</strong> bilan. Si le besoin se stabilise au-dessus de 50-60h/mois et que votre CA passe les 25k€/mois, étudier l'embauche d'un mi-temps. Sinon, continuer en freelance.</p>
-
-<p>Cette approche vous évite le piège classique de l'embauche prématurée qui plombe la trésorerie dès le 3ème mois.</p>
-
-<div class="callout">
-  <p><strong>Vous n'arrivez pas à trancher entre embauche et externalisation ?</strong></p>
-  <p>30 minutes au téléphone, gratuit : vous me décrivez votre CA, vos volumes, vos contraintes. Je vous donne une recommandation honnête — y compris vous dire que pour votre cas, l'embauche serait plus pertinente. Pas de blabla commercial.</p>
-  <a href="/contact?cible=tpe" class="callout-link">Réserver un appel découverte →</a>
-</div>
-
-<p style="margin-top:2rem">La meilleure solution dépend de votre situation. Mais sur 80% des TPE de moins de 25 000€/mois, l'externalisation gagne nettement sur les chiffres. Faites le calcul sur le vôtre.</p>
-
-<p>— Pierre</p>
-`,
-  },
-
-  // ────────────────────────────────────────────────────────────────
-  // Article 13 — Coût caché de l'admin pour une TPE
-  // ────────────────────────────────────────────────────────────────
-  {
-    slug: 'cout-cache-admin-tpe-calcul-complet',
-    titre: "Le coût caché de l'admin pour une TPE : calcul complet (et comment le réduire)",
-    description:
-      "Combien vous coûte vraiment votre admin interne ? Calcul détaillé des coûts directs et indirects pour une TPE, avec leviers concrets pour réduire la facture.",
-    datePublication: '2026-05-13',
-    tempsLecture: 7,
-    categorie: 'Finance',
-    motsCles: [
-      'coût caché admin tpe',
-      'calcul rentabilité admin',
-      'temps perdu admin entreprise',
-      'optimisation coût administratif',
-      'admin tpe combien',
-    ],
-    image: '/og-image.jpg',
-    contenu: `
-<p>Quand un dirigeant de TPE pense à son coût administratif, il pense aux logiciels (Pennylane, Sage, Excel) et aux honoraires de son expert-comptable. Total visible : 200-500€/mois.</p>
-
-<p>Et il pense que c'est ça, le coût de son admin.</p>
-
-<p>En réalité, c'est environ 10% du coût total. Les 90% restants sont cachés, dispersés dans son emploi du temps, son énergie, et les manques à gagner invisibles. Cet article fait le calcul complet, sur un cas type, et montre comment chaque catégorie peut être réduite.</p>
-
-<h2>Cas type : artisan plombier en TPE de 3 personnes (Cagnes-sur-Mer)</h2>
-
-<p>Posons les chiffres d'une TPE typique pour illustrer le calcul. Vous reproduirez avec vos propres chiffres en fin d'article.</p>
-
-<ul>
-  <li>CA annuel : 250 000€</li>
-  <li>Effectif : 1 dirigeant plombier + 2 salariés ouvriers</li>
-  <li>Activité : dépannage + petits chantiers + locations meublées (Côte d'Azur)</li>
-  <li>Outils admin : Excel, Pennylane (depuis 1 an), papier pour les chantiers</li>
-</ul>
-
-<h2>Coût direct visible : 380€/mois</h2>
-
-<ul>
-  <li>Pennylane Smart : 30€/mois</li>
-  <li>Expert-comptable annuel (3 200€ HT) : 270€/mois lissé</li>
-  <li>Téléphone pro + cloud Google : 50€/mois</li>
-  <li>Fournitures bureau : 30€/mois</li>
-</ul>
-
-<p>C'est ce que le dirigeant voit dans sa compta. Total annuel : 4 560€.</p>
-
-<h2>Coût caché n°1 : temps du dirigeant — 1 800-2 400€/mois</h2>
-
-<p>Le dirigeant consacre environ 10-12h/semaine à l'admin (devis, factures, relances, fournisseurs, suivi compta). Ce temps n'est pas du temps gratuit — c'est du temps qu'il ne passe <strong>pas</strong> à son métier facturable.</p>
-
-<p>Son taux horaire facturable : 60€/h en moyenne (mélange dépannage et chantier).</p>
-
-<p><strong>12h/semaine × 4 semaines × 60€/h = 2 880€/mois de coût d'opportunité.</strong></p>
-
-<p>Si on est plus modeste (parce qu'une partie de son admin se fait le soir hors heures facturables), on peut diviser par 1,5-2. <strong>Coût réel net : 1 800-2 400€/mois.</strong></p>
-
-<p>Mais ce n'est pas juste de l'argent qui ne rentre pas. C'est aussi du temps non facturable qui pourrait être consacré au développement commercial (prospection, devis sur des plus gros chantiers, montée en gamme), au pilotage de son équipe, ou simplement à sa vie personnelle.</p>
-
-<h2>Coût caché n°2 : impayés non relancés — 800-1 500€/mois</h2>
-
-<p>Sur 250 000€ de CA annuel, le taux d'impayé moyen en BTP sans relances structurées tourne autour de 4-8% selon les études Banque de France et CAPEB.</p>
-
-<p>Soit 10 000 à 20 000€/an de factures perdues, donc <strong>830 à 1 670€/mois</strong>.</p>
-
-<p>Mise en place de relances systématiques (J+15, J+30, J+45) ramène ce taux à 1-2%, soit 2 500-5 000€/an d'impayés irrécupérables, donc 200-400€/mois.</p>
-
-<p><strong>Gain net potentiel : 600-1 200€/mois.</strong></p>
-
-<h2>Coût caché n°3 : avenants oubliés — 500-1 000€/mois</h2>
-
-<p>Sur une activité avec 15-25 chantiers/mois et un panier moyen de 800€, les avenants représentent typiquement 15-25% du potentiel de CA additionnel. Sur cette TPE, c'est 2 400-5 000€/mois d'avenants potentiels.</p>
-
-<p>Sans système de tracking systématique, 30-50% de ces avenants ne sont jamais facturés au client. <strong>Perte moyenne : 700-1 500€/mois.</strong></p>
-
-<p>Mise en place d'un workflow d'avenant (vocal post-chantier → avenant signé sous 24h) ramène cette perte à 5-10%. <strong>Gain net potentiel : 500-1 000€/mois.</strong></p>
-
-<h2>Coût caché n°4 : devis en retard non signés — 600-1 200€/mois</h2>
-
-<p>Sur les ~20 devis/mois envoyés en moyenne (chantiers et petits travaux), un délai d'envoi typique de 3-4 jours réduit le taux de signature de 80% (sous 24h) à 50% (au-delà de 48h).</p>
-
-<p>Avec un panier moyen de 800€, c'est environ 6 chantiers/mois non signés à cause du délai (sur 20 envoyés), soit <strong>4 800€/mois de manque à gagner potentiel</strong>. Réducible significativement (mais pas 100%, car d'autres facteurs jouent — prix, disponibilité, recommandation).</p>
-
-<p>En passant les devis sous 24h, on récupère typiquement 1-2 chantiers/mois additionnels. <strong>Gain net réaliste : 600-1 200€/mois.</strong></p>
-
-<h2>Coût caché n°5 : marge perdue par défaut de tracking — 400-800€/mois</h2>
-
-<p>Sans tracking des fournitures par chantier, la marge réelle est inconnue. Les artisans répliquent leurs prix sur le chantier suivant sans savoir si leur marge effective est de 30%, 20% ou 10%.</p>
-
-<p>En mettant en place un tracking simple par chantier, la marge optimisée augmente de 3-5 points typiquement. Sur 250 000€ de CA, c'est <strong>625-1 040€/mois de marge supplémentaire</strong>.</p>
-
-<h2>Coût caché n°6 : honoraires comptables surchargés — 60-150€/mois</h2>
-
-<p>Un dossier mal préparé (factures non classées, frais non saisis, FEC non tenu) double facilement le temps de votre expert-comptable. Sur des honoraires annuels typiques de 3 200€, l'écart entre dossier propre et dossier mal tenu est de 700-1 800€/an, soit <strong>60-150€/mois</strong>.</p>
-
-<h2>Total coût caché : 4 360-7 050€/mois</h2>
-
-<p>Récapitulons les 6 catégories :</p>
-
-<ul>
-  <li>Temps du dirigeant : 1 800-2 400€/mois</li>
-  <li>Impayés non relancés : 600-1 200€/mois (récupérable)</li>
-  <li>Avenants oubliés : 500-1 000€/mois (récupérable)</li>
-  <li>Devis en retard : 600-1 200€/mois (récupérable)</li>
-  <li>Marge perdue : 400-800€/mois (récupérable)</li>
-  <li>Honoraires comptables surchargés : 60-150€/mois (récupérable)</li>
-</ul>
-
-<p><strong>Coût caché total : 4 360-6 750€/mois. Soit 52 000-81 000€/an.</strong></p>
-
-<p>Sur les 250 000€ de CA annuel, c'est <strong>21-32% du CA</strong> qui part en coût caché administratif. Et c'est invisible dans la compta — parce que ce sont des manques à gagner et du temps non valorisé, pas des dépenses sortantes.</p>
-
-<h2>Comment réduire chaque poste</h2>
-
-<p>Bonne nouvelle : 4 des 6 postes sont entièrement récupérables avec une bonne organisation admin. Voilà l'ordre d'attaque :</p>
-
-<ol>
-  <li><strong>Mois 1 :</strong> mettre en place les relances systématiques (gain : 600-1 200€/mois immédiat).</li>
-  <li><strong>Mois 1 :</strong> instaurer le workflow d'avenant systématique (gain : 500-1 000€/mois en 60 jours).</li>
-  <li><strong>Mois 2 :</strong> réduire le délai de devis sous 24h (gain : 600-1 200€/mois en 90 jours).</li>
-  <li><strong>Mois 3 :</strong> mettre en place tracking marges par chantier (gain : 400-800€/mois en 6 mois).</li>
-  <li><strong>En continu :</strong> dossier comptable mensuel propre (gain : 60-150€/mois immédiat).</li>
-</ol>
-
-<p>Le poste "temps du dirigeant" reste le plus gros. La seule façon de le réduire vraiment, c'est de déléguer une partie de l'admin — soit à un salarié (mi-temps à 2 800€/mois chargé), soit à un freelance bras droit (Pack Croissance à 1 200€/mois).</p>
-
-<p>Le calcul est rapide : un Pack Croissance à 1 200€/mois libère 5h/semaine au dirigeant (soit ~1 200€/mois de capacité facturable récupérée) + active les 4 leviers de gain ci-dessus (1 500-3 000€/mois). <strong>ROI net : 1 500-3 000€/mois après déduction du pack.</strong></p>
-
-<div class="callout">
-  <p><strong>Vous voulez calculer le coût caché réel de votre TPE ?</strong></p>
-  <p>30 minutes au téléphone, gratuit : vous me donnez vos chiffres (CA, volume devis, taux d'impayé, heures admin/semaine), je fais le calcul avec vous et je vous propose 2-3 actions concrètes — que vous décidiez de travailler avec moi ou non.</p>
-  <a href="/contact?cible=tpe" class="callout-link">Réserver un diagnostic gratuit →</a>
-</div>
-
-<p style="margin-top:2rem">Ce qui ne se mesure pas ne s'optimise pas. Le coût caché administratif est mesurable — sur la majorité des TPE, il représente 4 à 8 fois le coût visible. Le réduire de moitié, c'est plusieurs dizaines de milliers d'euros récupérés par an.</p>
 
 <p>— Pierre</p>
 `,
@@ -1728,6 +1104,7 @@ Erreur 5 : 300-800€/an</p>
     description:
       "Réforme PDP, calendrier, obligations, choix d'outils : tout ce qu'un artisan ou dirigeant de TPE doit savoir sur la facturation électronique 2026-2027 pour être conforme sans stress.",
     datePublication: '2026-05-13',
+    dateMaj: '2026-07-26',
     tempsLecture: 8,
     categorie: 'Conformité',
     motsCles: [
@@ -1787,7 +1164,7 @@ Erreur 5 : 300-800€/an</p>
   <li><strong>QuickBooks</strong> : conforme via partenaire PDP.</li>
 </ul>
 
-<p>Si vous utilisez encore Excel ou Word pour vos factures : il faudra passer à un outil dédié avant septembre 2027. Pas la peine de paniquer, mais autant le faire dès maintenant pour étaler la transition.</p>
+<p>Si vous utilisez encore Excel ou Word pour vos factures : il faudra passer à un outil dédié avant septembre 2027. Pas la peine de paniquer, mais autant le faire dès maintenant pour étaler la transition — et au passage récupérer du temps, ce qui est le sujet de <a href="/blog/outils-qui-font-perdre-temps-artisans">les 5 outils qui font perdre du temps aux artisans</a>.</p>
 
 <h3>Décision 2 : quelle PDP choisir ?</h3>
 
@@ -1853,9 +1230,11 @@ Erreur 5 : 300-800€/an</p>
   <li>QuickBooks + PDP : 35-55€/mois</li>
 </ul>
 
-<p>Plus une période de transition : 5-15h de paramétrage (par vous, votre comptable ou un prestataire externe). Coût : 0 (si vous le faites vous-même) à 600€ (si vous le déléguez).</p>
+<p>Plus une période de transition : comptez quelques heures de paramétrage, que vous pouvez faire vous-même ou avec votre expert-comptable, qui connaît déjà votre dossier et la PDP qu'il recommande.</p>
 
-<p>Sur l'année, surcoût total : 0-720€. Largement compensé par les gains de productivité de la dématérialisation (plus de courriers à imprimer, plus de PDF à archiver manuellement, moins d'erreurs de saisie).</p>
+<p>Le surcoût annuel reste modéré, et il est en partie compensé par les gains de la dématérialisation : plus de courriers à imprimer, plus de PDF à archiver manuellement, moins d'erreurs de saisie.</p>
+
+<p>Autant en profiter pour remettre à plat toute votre chaîne de facturation : la méthode est détaillée dans <a href="/blog/facturation-artisan-gagner-du-temps">facturation artisan : la ramener à une routine de 20 minutes par semaine</a>.</p>
 
 <h2>Et si je n'ai rien fait avant septembre 2027 ?</h2>
 
@@ -1870,146 +1249,14 @@ Erreur 5 : 300-800€/an</p>
 <p>Pas de panique : l'administration a toujours appliqué des périodes de tolérance lors de réformes similaires. Mais ne pas se préparer du tout est un vrai risque.</p>
 
 <div class="callout">
-  <p><strong>Vous voulez vous mettre en conformité sans vous prendre la tête ?</strong></p>
-  <p>OptiPro peut vous accompagner sur la transition : choix d'outil, paramétrage, nettoyage du fichier clients, prise en main. Le périmètre et le tarif sont définis au devis, après un premier appel. 30 minutes au téléphone pour faire le point sur votre situation actuelle.</p>
+  <p><strong>Vous voulez y voir clair sans vous prendre la tête ?</strong></p>
+  <p>Premier appel de 30 minutes, gratuit : on fait le point sur votre situation et je vous dis quel outil du marché couvre votre cas. Dans la majorité des situations, un logiciel conforme suffit et vous n'avez besoin de personne d'autre — je vous le dis franchement. Si votre facturation passe par un outil web spécifique à faire évoluer ou à interfacer avec une PDP, c'est du développement, et c'est mon métier.</p>
 
-  <a href="/contact?cible=artisans" class="callout-link">Réserver un appel découverte →</a>
+  <a href="/contact" class="callout-link">Réserver un premier appel →</a>
+  <a href="/tarifs" class="callout-link">Voir les tarifs →</a>
 </div>
 
 <p style="margin-top:2rem">La facturation électronique n'est pas un sujet technique réservé aux comptables. C'est un sujet d'organisation à anticiper. Avec 12-18 mois devant vous, c'est encore facile. Plus on s'approche de septembre 2027, plus ça deviendra coûteux et stressant.</p>
-
-<p>— Pierre</p>
-`,
-  },
-
-  // ────────────────────────────────────────────────────────────────
-  // Article 15 — Externaliser son admin ou prendre un comptable
-  // ────────────────────────────────────────────────────────────────
-  {
-    slug: 'externaliser-admin-vs-expert-comptable-difference',
-    titre: "Externaliser son admin ou prendre un expert-comptable : quelle différence ?",
-    description:
-      "Bras droit administratif et expert-comptable ne font pas le même métier. Différences concrètes, périmètres respectifs, et pourquoi les TPE ont besoin des deux pour bien fonctionner.",
-    datePublication: '2026-05-13',
-    tempsLecture: 6,
-    categorie: 'Stratégie',
-    motsCles: [
-      'bras droit vs comptable',
-      'expert-comptable tpe',
-      'externaliser admin comptable',
-      'différence admin compta',
-      'à qui déléguer quoi tpe',
-    ],
-    image: '/og-image.jpg',
-    contenu: `
-<p>"J'ai déjà un expert-comptable, je n'ai pas besoin d'un bras droit administratif."</p>
-
-<p>C'est la phrase que j'entends le plus en appel découverte. Et c'est presque toujours une confusion sur les périmètres respectifs de ces deux métiers — qui sont aussi différents qu'un médecin et un pharmacien : complémentaires, indispensables tous les deux, mais qui ne font pas le même boulot.</p>
-
-<p>Cet article clarifie une fois pour toutes ce que chacun fait, ce que chacun ne fait pas, et pourquoi 95% des TPE ont besoin des deux pour bien fonctionner.</p>
-
-<h2>Le métier de l'expert-comptable</h2>
-
-<p>L'expert-comptable est un professionnel réglementé, formé à 5-8 ans d'études supérieures (DCG + DSCG + DEC), inscrit à l'Ordre des Experts-Comptables. Son métier est encadré par la loi.</p>
-
-<p>Son périmètre exclusif :</p>
-
-<ul>
-  <li><strong>Tenue de la comptabilité réglementaire</strong> : enregistrement comptable selon le PCG, écritures de clôture, dépréciations, provisions.</li>
-  <li><strong>Établissement des comptes annuels</strong> : bilan, compte de résultat, annexe, liasse fiscale.</li>
-  <li><strong>Déclarations fiscales</strong> : TVA, IS/IR, CFE, CVAE, taxe d'apprentissage, formation pro.</li>
-  <li><strong>Conseil fiscal</strong> : optimisation, choix de régime, transmission, restructuration.</li>
-  <li><strong>Attestation et certification</strong> : signature engageant sa responsabilité juridique sur les comptes présentés.</li>
-</ul>
-
-<p>Son métier n'est <em>pas</em> :</p>
-
-<ul>
-  <li>Faire vos devis quotidiens.</li>
-  <li>Envoyer vos factures clients.</li>
-  <li>Relancer vos impayés.</li>
-  <li>Coordonner vos sous-traitants.</li>
-  <li>Suivre vos commandes fournisseurs.</li>
-  <li>Saisir vos frais quotidiens.</li>
-</ul>
-
-<p>Un expert-comptable peut le faire si vous lui demandez, mais à un tarif horaire très élevé (80-200€/h) et avec un délai qui ne correspond pas à vos besoins opérationnels (il vous voit en général une fois par mois, pas une fois par jour).</p>
-
-<h2>Le métier du bras droit administratif</h2>
-
-<p>Le bras droit administratif (assistant administratif externalisé, freelance ops, etc.) n'est pas un métier réglementé. C'est un prestataire qui prend en charge votre admin opérationnelle quotidienne.</p>
-
-<p>Son périmètre type :</p>
-
-<ul>
-  <li><strong>Devis et facturation</strong> : production rapide après brief vocal, envoi, conformité PDP 2026-2027.</li>
-  <li><strong>Trésorerie et relances</strong> : suivi quotidien des encaissements, relances impayés systématiques.</li>
-  <li><strong>Fournisseurs et sous-traitants</strong> : commandes, suivi livraisons, gestion litiges.</li>
-  <li><strong>Préparation comptable</strong> : classement factures, saisie frais, FEC, livraison mensuelle propre à l'expert-comptable.</li>
-  <li><strong>Tableaux de bord opérationnels</strong> : visibilité trésorerie, en-cours, marges par chantier.</li>
-  <li><strong>Coordination opérationnelle</strong> : planning, RDV, suivi chantier.</li>
-</ul>
-
-<p>Son métier n'est <em>pas</em> :</p>
-
-<ul>
-  <li>Établir vos comptes annuels.</li>
-  <li>Faire vos déclarations fiscales.</li>
-  <li>Vous conseiller sur l'optimisation fiscale.</li>
-  <li>Certifier vos comptes.</li>
-  <li>Faire vos bulletins de paie.</li>
-</ul>
-
-<h2>Pourquoi les deux sont complémentaires</h2>
-
-<p>L'admin opérationnel et la comptabilité réglementée fonctionnent en relais.</p>
-
-<p>Le bras droit administratif fait <strong>tout l'amont</strong> (devis, factures, frais, classement, FEC tenu à jour, dossier mensuel propre). Il livre à l'expert-comptable un dossier nickel.</p>
-
-<p>L'expert-comptable fait <strong>tout l'aval</strong> (comptabilité officielle, fiscal, certification, conseil). Avec un dossier propre, son travail prend la moitié du temps habituel.</p>
-
-<p>Schéma :</p>
-
-<p style="font-style:italic">Quotidien → Bras droit admin → Dossier mensuel propre → Expert-comptable → Comptes annuels + fiscal → Vous</p>
-
-<p>Les deux travaillent ensemble dans l'intérêt du dirigeant. Sans bras droit, l'expert-comptable doit nettoyer le dossier (et facture ce temps). Sans expert-comptable, le bras droit ne peut pas certifier les comptes.</p>
-
-<h2>Combien ça coûte d'avoir les deux ?</h2>
-
-<p>Pour une TPE artisan typique :</p>
-
-<ul>
-  <li><strong>Expert-comptable</strong> : 2 500-4 500€/an HT pour la mission classique (tenue, comptes annuels, déclarations).</li>
-  <li><strong>Bras droit administratif</strong> (Pack Croissance OptiPro) : 1 200€/mois HT = 14 400€/an HT.</li>
-</ul>
-
-<p>Total annuel : 17 000-19 000€ HT.</p>
-
-<p>Sur un CA annuel de 200-300k€, c'est 6-9% du CA en gestion externalisée. Largement compensé par les gains (temps dirigeant libéré, impayés rattrapés, marges optimisées) qui tournent en moyenne entre 30 000 et 50 000€/an additionnels.</p>
-
-<p>Note : avec un dossier propre livré chaque mois par le bras droit, vous pouvez souvent négocier les honoraires de votre expert-comptable à la baisse (-500 à -1 500€/an).</p>
-
-<h2>Quand commencer avec quoi ?</h2>
-
-<p><strong>Si vous démarrez votre activité</strong> (auto-entrepreneur, EI première année) : l'expert-comptable n'est pas obligatoire (sauf seuils). Vous pouvez démarrer avec un bras droit administratif pour structurer dès le départ, et ajouter un expert-comptable quand le CA dépasse les seuils ou quand la complexité fiscale augmente.</p>
-
-<p><strong>Si vous avez déjà un expert-comptable mais pas de bras droit</strong> : c'est le cas le plus fréquent. Votre admin quotidienne déborde, votre comptable est cher et limité dans son périmètre. Ajouter un bras droit libère immédiatement du temps et optimise les flux. ROI typique : 2-3 mois.</p>
-
-<p><strong>Si vous avez un bras droit mais pas d'expert-comptable</strong> : possible uniquement si vous êtes en franchise TVA et que votre comptabilité reste simple. Au-delà d'un certain volume ou complexité, l'expert-comptable devient indispensable juridiquement.</p>
-
-<h2>Le pire scénario : ni l'un ni l'autre</h2>
-
-<p>C'est encore le cas de beaucoup d'artisans solo qui se débrouillent seuls avec Excel et l'aide de leur conjoint·e. Sur le court terme, ça coûte zéro. Sur le long terme, ça coûte 30 000-80 000€/an de coût caché (voir notre article "Le coût caché de l'admin pour une TPE").</p>
-
-<p>Si vous êtes dans ce cas et que vous devez choisir par où commencer : privilégier l'expert-comptable d'abord (obligation légale au-delà de certains seuils), puis ajouter le bras droit dès que le volume justifie.</p>
-
-<div class="callout">
-  <p><strong>Vous voulez clarifier qui fait quoi dans votre cas ?</strong></p>
-  <p>30 minutes au téléphone, gratuit : on liste ensemble vos tâches admin actuelles, on identifie ce qui revient à l'expert-comptable, ce qui revient au bras droit, et ce qui peut rester chez vous. Vous repartez avec une cartographie claire — que vous travailliez avec moi ensuite ou non.</p>
-  <a href="/contact?cible=tpe" class="callout-link">Réserver un appel découverte →</a>
-</div>
-
-<p style="margin-top:2rem">Bras droit administratif et expert-comptable ne sont pas concurrents. Ce sont deux fonctions distinctes, complémentaires, qui font tourner une TPE sereinement quand elles sont bien articulées. Avec les deux en place, vous restez sur votre métier.</p>
 
 <p>— Pierre</p>
 `,

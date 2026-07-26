@@ -241,8 +241,9 @@ export default function ArticleClient({
                 <p className={styles.authorBioDesc}>
                   Fondateur d&apos;OptiPro · 10 ans en exploitation logistique (Toute la Nutrition,
                   DBS, Eddifis, Factory, GL Events Live). ERP déployé, 8 500 références gérées,
-                  7 M€ ADV piloté. Aujourd&apos;hui consultant indépendant à Vence — j&apos;aide
-                  les artisans, TPE et PME ops à reprendre le contrôle de leur temps.
+                  7 M€ ADV piloté. Aujourd&apos;hui développeur web à Vence — je construis des
+                  sites vitrines, des web apps et des outils métier sur mesure pour les artisans
+                  et les TPE.
                 </p>
                 <Link href="/a-propos" className={styles.authorBioLink}>
                   Mon parcours complet →

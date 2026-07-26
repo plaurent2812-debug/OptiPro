@@ -6,10 +6,6 @@
             "schedule": "0 7 * * *"
         },
         {
-            "path": "/api/cron/sync-pennylane",
-            "schedule": "0 * * * *"
-        },
-        {
             "path": "/api/cron/relances-impayes",
             "schedule": "0 9 * * *"
         }

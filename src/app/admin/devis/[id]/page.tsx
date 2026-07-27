@@ -4,9 +4,7 @@ import Link from 'next/link'
 import styles from '../../clients/clients.module.css'
 import { DEVIS_STATUT_LABELS, formatDate, formatMontant } from '@/lib/utils'
 import DevisActions from './DevisActions'
-import { Check, AlertTriangle, CheckCircle2, Settings, ExternalLink, Pencil } from 'lucide-react'
-import { pennylaneDevisUrl } from '@/lib/pennylane'
-import PennylaneSourceBadge from '@/components/admin/ui/PennylaneSourceBadge'
+import { Check, AlertTriangle, Pencil } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -76,16 +74,9 @@ export default async function DevisDetailPage(props: { params: Promise<{ id: str
           <DevisActions
             devisId={devis.id}
             statut={devis.statut}
-            hasPennylaneId={!!devis.pennylane_quote_id}
           />
         </div>
       </div>
-
-      <PennylaneSourceBadge
-        pennylaneId={devis.pennylane_quote_id}
-        pennylaneUrl={pennylaneDevisUrl(devis.pennylane_quote_id)}
-        entityType="devis"
-      />
 
       <div className={styles.formGrid}>
         
@@ -161,46 +152,6 @@ export default async function DevisDetailPage(props: { params: Promise<{ id: str
                   </li>
                 ))}
               </ul>
-            </>
-          )}
-        </div>
-
-        {/* Section Pennylane - Statut de synchronisation */}
-        <div className={styles.card} style={{ gap: '1.5rem', display: 'flex', flexDirection: 'column', padding: '2rem', height: '100%', justifyContent: 'center', alignItems: 'center', textAlign: 'center', background: '#F9FAFB' }}>
-          {devis.pennylane_quote_id ? (
-            <>
-              <CheckCircle2 size={48} strokeWidth={1.6} color="#16A34A" style={{ marginBottom: '0.5rem' }} />
-              <h3 style={{ fontSize: '1.25rem', color: '#111827', margin: 0 }}>Synchronisé avec Pennylane</h3>
-              <p style={{ color: '#6B7280', fontSize: '0.9rem', maxWidth: '400px', margin: 0 }}>
-                Ce devis est lié à Pennylane (ID&nbsp;: {devis.pennylane_quote_id}). Pennylane reste la source de vérité (PDF, envoi, signature).
-              </p>
-              <div style={{ marginTop: '0.5rem', padding: '0.5rem 1rem', background: '#D1FAE5', borderRadius: '8px', color: '#065F46', fontSize: '0.85rem', fontWeight: 600 }}>
-                Statut OptiPro&nbsp;: {DEVIS_STATUT_LABELS[devis.statut] || devis.statut}
-              </div>
-              <a
-                href={pennylaneDevisUrl(devis.pennylane_quote_id)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.primaryBtn}
-                style={{
-                  marginTop: '1rem',
-                  background: '#111827',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.45rem',
-                }}
-              >
-                <ExternalLink size={16} strokeWidth={2} />
-                <span>Ouvrir dans Pennylane</span>
-              </a>
-            </>
-          ) : (
-            <>
-              <Settings size={48} strokeWidth={1.6} color="#9CA3AF" style={{ marginBottom: '0.5rem' }} />
-              <h3 style={{ fontSize: '1.25rem', color: '#111827', margin: 0 }}>Non synchronisé</h3>
-              <p style={{ color: '#6B7280', fontSize: '0.9rem', maxWidth: '400px', margin: 0 }}>
-                Ce devis n&apos;a pas encore été envoyé vers Pennylane. Cliquez sur « Envoyer vers Pennylane » pour le créer dans votre logiciel de facturation.
-              </p>
             </>
           )}
         </div>

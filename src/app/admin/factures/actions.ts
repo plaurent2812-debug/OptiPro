@@ -3,12 +3,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-import {
-  createPennylaneInvoice,
-  PennylaneInvoicePayload,
-  getPennylaneInvoice,
-  mapPennylaneInvoiceStatus,
-} from '@/lib/pennylane'
 import { nextBillingDateFrom, formatDate, formatMontant } from '@/lib/utils'
 import { sendMail } from '@/lib/mailer'
 import {
@@ -223,16 +217,7 @@ export async function genererFactureAbonnementAction(abonnementId: string): Prom
 }
 
 /**
- * Marque une facture comme payée côté OptiPro (paiement reçu).
- *
- * IMPORTANT — Pennylane reste la source de vérité :
- * - On met à jour Supabase en local pour avoir un feedback immédiat.
- * - Après la mise à jour, on tente de re-pull la facture depuis Pennylane :
- *   - Si Pennylane dit "payée" → tout aligné, OK.
- *   - Si Pennylane dit autre chose (pending, etc.) → on garde notre statut
- *     local "payée" mais on retourne un warning pour rappeler à l'utilisateur
- *     d'enregistrer aussi le paiement côté Pennylane (sinon le prochain sync
- *     écrasera notre changement).
+ * Marque une facture comme payée (paiement reçu).
  */
 export async function markFactureAsPaidAction(
   factureId: string,
@@ -243,46 +228,22 @@ export async function markFactureAsPaidAction(
   if (authError || !user) return { error: 'Session expirée.' }
 
   const today = new Date().toISOString().slice(0, 10)
-  const { data: facture, error } = await supabase
+  const { error } = await supabase
     .from('factures')
     .update({ statut: 'payee', date_paiement: today })
     .eq('id', factureId)
-    .select('pennylane_invoice_id')
-    .single()
 
   if (error) return { error: error.message }
-
-  let warning: string | undefined
-
-  // Auto-resync : vérifier ce que dit Pennylane
-  if (facture?.pennylane_invoice_id) {
-    try {
-      const pennylaneInvoice = await getPennylaneInvoice(facture.pennylane_invoice_id)
-      const pennylaneStatus = (pennylaneInvoice?.status as string | undefined) ?? null
-      const mappedStatus = pennylaneStatus ? mapPennylaneInvoiceStatus(pennylaneStatus) : null
-
-      if (mappedStatus && mappedStatus !== 'payee') {
-        warning =
-          'Statut OptiPro mis à jour, mais Pennylane indique encore "' +
-          (pennylaneStatus ?? 'inconnu') +
-          '". Pensez à enregistrer le paiement dans Pennylane pour éviter qu\'un sync ultérieur ne ramène le statut.'
-      }
-    } catch (err) {
-      // On ne bloque pas si l'API Pennylane est indisponible — l'update local reste valable
-      console.warn('[markFactureAsPaid] resync Pennylane échec:', err)
-    }
-  }
 
   revalidatePath(`/admin/factures/${factureId}`)
   revalidatePath('/admin/factures')
   revalidatePath('/admin')
 
-  return warning ? { success: true, warning } : { success: true }
+  return { success: true }
 }
 
 /**
  * Valide et marque une facture brouillon comme envoyée.
- * Si pas encore poussée vers Pennylane, on le fait au passage.
  */
 export async function validateFactureAction(factureId: string): Promise<{ error?: string; success?: boolean }> {
   const supabase = await createClient()
@@ -292,125 +253,19 @@ export async function validateFactureAction(factureId: string): Promise<{ error?
 
   const { data: facture } = await supabase
     .from('factures')
-    .select('id, statut, pennylane_invoice_id')
+    .select('id, statut')
     .eq('id', factureId)
     .single()
 
   if (!facture) return { error: 'Facture introuvable.' }
   if (facture.statut !== 'brouillon') return { error: 'Cette facture n\'est plus en brouillon.' }
 
-  // Si pas encore sur Pennylane, on push d'abord (création + envoi via API)
-  if (!facture.pennylane_invoice_id) {
-    const pushResult = await pushFactureToPennylaneAction(factureId)
-    if (pushResult?.error) return { error: pushResult.error }
-  } else {
-    // Déjà sur Pennylane : on auto-resync depuis PL pour aligner le statut
-    // (au lieu de forcer 'envoyee' en aveugle).
-    try {
-      const pennylaneInvoice = await getPennylaneInvoice(facture.pennylane_invoice_id)
-      const pennylaneStatus = (pennylaneInvoice?.status as string | undefined) ?? null
-      const mappedStatus = pennylaneStatus ? mapPennylaneInvoiceStatus(pennylaneStatus) : null
-      await supabase
-        .from('factures')
-        .update({ statut: mappedStatus ?? 'envoyee' })
-        .eq('id', factureId)
-    } catch (err) {
-      console.warn('[validateFacture] resync Pennylane échec, fallback envoyee:', err)
-      await supabase.from('factures').update({ statut: 'envoyee' }).eq('id', factureId)
-    }
-  }
+  await supabase.from('factures').update({ statut: 'envoyee' }).eq('id', factureId)
 
   revalidatePath(`/admin/factures/${factureId}`)
   revalidatePath('/admin/factures')
   revalidatePath('/admin')
   return { success: true }
-}
-
-/**
- * Envoie une facture existante "Brouillon" du CRM vers Pennylane.
- * Réutilise le pennylane_customer_id du client si dispo (anti-doublon).
- */
-export async function pushFactureToPennylaneAction(factureId: string) {
-  const supabase = await createClient()
-
-  const { data: { user }, error: authError } = await supabase.auth.getUser()
-  if (authError || !user) {
-    return { error: 'Session expirée. Veuillez vous reconnecter.' }
-  }
-
-  const { data: facture, error } = await supabase
-    .from('factures')
-    .select(`
-      *,
-      clients (*),
-      factures_lignes (*)
-    `)
-    .eq('id', factureId)
-    .single()
-
-  if (error || !facture) {
-    return { error: "Facture introuvable." }
-  }
-
-  const client = facture.clients as Record<string, unknown>
-  const lignes = facture.factures_lignes as Array<{ description: string; quantite: number; prix_unitaire_ht: number }>
-
-  // Construction du payload : si le client a déjà un pennylane_customer_id,
-  // on le réutilise au lieu de re-créer un client (évite les doublons Pennylane).
-  const existingCustomerId = client?.pennylane_customer_id as string | null
-
-  const payload: PennylaneInvoicePayload = {
-    draft: true,
-    invoice: {
-      issue_date: facture.date_emission,
-      due_date: facture.date_echeance || undefined,
-      line_items: lignes.map((l) => ({
-        label: l.description,
-        quantity: Number(l.quantite),
-        unit: 'piece',
-        raw_currency_unit_price: String(l.prix_unitaire_ht),
-        vat_rate: 'exempt', // Franchise en base de TVA
-      })),
-    },
-  }
-
-  if (existingCustomerId) {
-    payload.customer_id = existingCustomerId
-  } else {
-    payload.create_customer = {
-      name: (client?.entreprise as string) || `${client?.prenom ?? ''} ${client?.nom ?? ''}`.trim() || 'Client',
-      emails: client?.email ? [client.email as string] : undefined,
-      registration_number: (client?.siret as string) || undefined,
-      address: (client?.adresse as string) || undefined,
-      postal_code: (client?.code_postal as string) || undefined,
-      city: (client?.ville as string) || undefined,
-    }
-  }
-
-  try {
-    const pennylaneRes = await createPennylaneInvoice(payload)
-
-    await supabase
-      .from('factures')
-      .update({ statut: 'envoyee', pennylane_invoice_id: String(pennylaneRes.id) })
-      .eq('id', factureId)
-
-    // Si Pennylane a créé un nouveau client (cas !existingCustomerId),
-    // on récupère son ID et on l'enregistre côté client OptiPro.
-    if (!existingCustomerId && pennylaneRes.customer_id && client?.id) {
-      await supabase
-        .from('clients')
-        .update({ pennylane_customer_id: String(pennylaneRes.customer_id) })
-        .eq('id', client.id as string)
-    }
-
-    revalidatePath(`/admin/factures/${factureId}`)
-    revalidatePath('/admin/factures')
-    return { success: true, message: "Brouillon de facture créé sur Pennylane avec succès !" }
-  } catch (err: unknown) {
-    const msg = err instanceof Error ? err.message : "Erreur de connexion avec l'API Pennylane."
-    return { error: msg }
-  }
 }
 
 /**

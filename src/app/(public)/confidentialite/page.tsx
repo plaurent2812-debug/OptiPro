@@ -129,7 +129,6 @@ export default function ConfidentialitePage() {
             <li><strong>Vercel Inc.</strong> (États-Unis) — hébergement du site et mesure d&apos;audience anonyme (Vercel Analytics). Transferts encadrés par les clauses contractuelles types de la Commission européenne et le Data Privacy Framework.</li>
             <li><strong>Supabase Inc.</strong> (Union européenne, région Francfort) — base de données et authentification de l&apos;espace administrateur. Dépose un cookie technique de session strictement nécessaire, uniquement sur les pages <code>/admin</code>.</li>
             <li><strong>Resend Inc.</strong> (États-Unis) — acheminement des e-mails issus du formulaire de contact. Les données ne sont pas conservées au-delà de la délivrance.</li>
-            <li><strong>Pennylane SAS</strong> (France) — outil de gestion commerciale (devis, factures) utilisé en interne. N&apos;est sollicité qu&apos;en cas de relation commerciale établie.</li>
             <li><strong>OVH SAS</strong> (France) — gestion technique du nom de domaine (DNS).</li>
           </ul>
 

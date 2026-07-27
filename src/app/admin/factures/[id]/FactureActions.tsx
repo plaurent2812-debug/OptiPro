@@ -6,7 +6,6 @@ import { Check, Send, Loader2 } from 'lucide-react'
 import {
   validateFactureAction,
   markFactureAsPaidAction,
-  pushFactureToPennylaneAction,
 } from '../actions'
 
 interface Props {
@@ -80,37 +79,4 @@ export function FactureHeaderActions({ factureId, statut, className }: Props) {
   }
 
   return null
-}
-
-/**
- * Bouton "Synchroniser avec Pennylane" dans la carte PDF.
- * Affiché uniquement si brouillon ET pas encore poussée.
- */
-export function PushPennylaneButton({ factureId, className }: { factureId: string; className?: string }) {
-  const [pending, startTransition] = useTransition()
-
-  const handlePush = () => {
-    startTransition(async () => {
-      const result = await pushFactureToPennylaneAction(factureId)
-      if (result?.error) toast.error(result.error)
-      else toast.success('Facture poussée vers Pennylane')
-    })
-  }
-
-  return (
-    <button
-      type="button"
-      onClick={handlePush}
-      disabled={pending}
-      className={className}
-      style={{ ...btnStyle, background: '#2563EB' }}
-    >
-      {pending ? (
-        <Loader2 size={16} strokeWidth={2} style={{ animation: 'spin 1s linear infinite' }} />
-      ) : (
-        <Send size={16} strokeWidth={2} />
-      )}
-      <span>{pending ? 'Synchronisation…' : 'Synchroniser avec Pennylane (Draft)'}</span>
-    </button>
-  )
 }

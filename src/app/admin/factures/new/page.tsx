@@ -103,7 +103,7 @@ function NewFactureInner() {
             ← Retour aux factures
           </Link>
           <h1 className={styles.title}>Nouvelle facture</h1>
-          <p className={styles.subtitle}>Brouillon créé localement. Synchronisé sur Pennylane à la validation.</p>
+          <p className={styles.subtitle}>Brouillon créé localement.</p>
         </div>
       </div>
 

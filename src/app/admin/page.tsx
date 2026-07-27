@@ -2,7 +2,6 @@ import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import styles from './clients/clients.module.css'
 import { formatMontant, formatDate } from '@/lib/utils'
-import PennylaneSyncButton from './PennylaneSyncButton'
 
 export const dynamic = 'force-dynamic'
 
@@ -13,7 +12,6 @@ export default async function AdminDashboardPage() {
   
   // 1. Chiffre d'Affaires du mois (Factures payées)
   // On filtre sur date_paiement si dispo, sinon date_emission (fallback)
-  // car Pennylane ne renvoie pas toujours paid_at dans la liste des factures.
   const now = new Date()
   const firstDayOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split('T')[0]
 
@@ -79,18 +77,6 @@ export default async function AdminDashboardPage() {
         <div>
           <h1 className={styles.title}>Vue d'ensemble</h1>
           <p className={styles.subtitle}>Bienvenue dans votre CRM OptiPro. Voici vos statistiques actuelles.</p>
-        </div>
-        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-          <a
-            href="https://app.pennylane.com/companies/23117446/welcome"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondaryBtn}
-            style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}
-          >
-            ↗ Pennylane
-          </a>
-          <PennylaneSyncButton />
         </div>
       </div>
 

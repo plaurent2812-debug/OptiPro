@@ -3,11 +3,9 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import styles from '../../clients/clients.module.css'
 import { FACTURE_STATUT_LABELS, formatDate, formatMontant } from '@/lib/utils'
-import { FactureHeaderActions, PushPennylaneButton } from './FactureActions'
+import { FactureHeaderActions } from './FactureActions'
 import RelanceCard from './RelanceCard'
-import { Link2, ExternalLink } from 'lucide-react'
-import { pennylaneFactureUrl } from '@/lib/pennylane'
-import PennylaneSourceBadge from '@/components/admin/ui/PennylaneSourceBadge'
+import { FileText } from 'lucide-react'
 
 export const dynamic = 'force-dynamic'
 
@@ -63,12 +61,6 @@ export default async function FactureDetailPage(props: { params: Promise<{ id: s
         </div>
       </div>
 
-      <PennylaneSourceBadge
-        pennylaneId={facture.pennylane_invoice_id}
-        pennylaneUrl={pennylaneFactureUrl(facture.pennylane_invoice_id)}
-        entityType="facture"
-      />
-
       <RelanceCard
         factureId={facture.id}
         statut={facture.statut}
@@ -113,34 +105,13 @@ export default async function FactureDetailPage(props: { params: Promise<{ id: s
           </ul>
         </div>
 
-        {/* Aperçu iFrame du PDF (Remplacé par API Pennylane) */}
+        {/* Émission de la facture : gérée en dehors du back-office (outil de facturation externe) */}
         <div className={styles.card} style={{ padding: '2rem', background: '#F9FAFB', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-          <Link2 size={48} strokeWidth={1.6} color="#f97316" style={{ marginBottom: '1rem' }} />
-          <h3 style={{ fontSize: '1.25rem', color: '#111827', margin: 0 }}>Facture Électronique (Factur-X)</h3>
+          <FileText size={48} strokeWidth={1.6} color="#9CA3AF" style={{ marginBottom: '1rem' }} />
+          <h3 style={{ fontSize: '1.25rem', color: '#111827', margin: 0 }}>Facture émise hors back-office</h3>
           <p style={{ color: '#6B7280', fontSize: '0.95rem', maxWidth: '400px' }}>
-            Cette facture est gérée par Pennylane pour garantir la conformité anti-fraude et la norme Factur-X 2026.
+            Cette fiche sert de suivi local. La facture officielle (PDF, conformité Factur-X) est émise via l&apos;outil de facturation externe.
           </p>
-          <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
-            {facture.statut === 'brouillon' && !facture.pennylane_invoice_id ? (
-              <PushPennylaneButton factureId={facture.id} className={styles.primaryBtn} />
-            ) : (
-              <a
-                href={pennylaneFactureUrl(facture.pennylane_invoice_id)}
-                className={styles.primaryBtn}
-                style={{
-                  background: '#111827',
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.45rem',
-                }}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <ExternalLink size={16} strokeWidth={2} />
-                <span>Ouvrir dans Pennylane</span>
-              </a>
-            )}
-          </div>
         </div>
 
       </div>

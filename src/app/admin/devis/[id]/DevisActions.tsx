@@ -3,11 +3,9 @@
 import { useTransition } from 'react'
 import { useRouter } from 'next/navigation'
 import { toast } from 'sonner'
-import { Receipt, Check, Send, RefreshCw, Archive, Loader2 } from 'lucide-react'
+import { Receipt, Check, Archive } from 'lucide-react'
 import {
   archiveDevisAction,
-  syncDevisFromPennylaneAction,
-  pushDevisToPennylaneAction,
   markDevisAsAcceptedAction,
 } from '../actions'
 import { convertirDevisEnFactureAction } from '../../factures/actions'
@@ -17,28 +15,11 @@ import styles from '../../clients/clients.module.css'
 interface DevisActionsProps {
   devisId: string
   statut: string
-  hasPennylaneId: boolean
 }
 
-export default function DevisActions({ devisId, statut, hasPennylaneId }: DevisActionsProps) {
+export default function DevisActions({ devisId, statut }: DevisActionsProps) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
-
-  const handlePush = () => {
-    startTransition(async () => {
-      const result = await pushDevisToPennylaneAction(devisId)
-      if (result?.error) toast.error(result.error)
-      else toast.success(result?.message || 'Devis envoyé vers Pennylane')
-    })
-  }
-
-  const handleSync = () => {
-    startTransition(async () => {
-      const result = await syncDevisFromPennylaneAction(devisId)
-      if (result?.error) toast.error(result.error)
-      else toast.success(result?.message || 'Statut synchronisé depuis Pennylane')
-    })
-  }
 
   const handleMarkAccepted = async () => {
     const result = await markDevisAsAcceptedAction(devisId)
@@ -64,8 +45,6 @@ export default function DevisActions({ devisId, statut, hasPennylaneId }: DevisA
     })
   }
 
-  const canPush = !hasPennylaneId
-  const canSync = hasPennylaneId
   const canMarkAccepted = statut === 'envoye' || statut === 'brouillon'
   const canConvert = statut === 'accepte'
   const canArchive = statut !== 'archive'
@@ -106,7 +85,7 @@ export default function DevisActions({ devisId, statut, hasPennylaneId }: DevisA
               className={styles.secondaryBtn}
               style={{ ...btnStyle, borderColor: '#059669', color: '#059669' }}
               disabled={isPending}
-              title="Marquer comme accepté (vente fermée hors Pennylane)"
+              title="Marquer comme accepté"
             >
               <Check size={16} strokeWidth={2.2} />
               <span>Marquer accepté</span>
@@ -115,47 +94,13 @@ export default function DevisActions({ devisId, statut, hasPennylaneId }: DevisA
           title="Marquer ce devis comme accepté ?"
           description={
             <p>
-              À utiliser quand la vente est fermée <strong>hors Pennylane</strong> (téléphone, e-mail, etc.). Le statut sera mis à jour côté OptiPro.
+              À utiliser quand la vente est fermée (téléphone, e-mail, etc.). Le statut sera mis à jour côté OptiPro.
             </p>
           }
           confirmLabel="Marquer accepté"
           variant="primary"
           onConfirm={handleMarkAccepted}
         />
-      )}
-
-      {canPush && (
-        <button
-          className={styles.primaryBtn}
-          onClick={handlePush}
-          disabled={isPending}
-          title="Envoyer ce devis vers Pennylane"
-          style={btnStyle}
-        >
-          {isPending ? (
-            <Loader2 size={16} strokeWidth={2} style={{ animation: 'spin 1s linear infinite' }} />
-          ) : (
-            <Send size={16} strokeWidth={2} />
-          )}
-          <span>{isPending ? 'Envoi…' : 'Envoyer vers Pennylane'}</span>
-        </button>
-      )}
-
-      {canSync && (
-        <button
-          className={styles.secondaryBtn}
-          style={{ ...btnStyle, borderColor: '#f97316', color: '#c2410c' }}
-          onClick={handleSync}
-          disabled={isPending}
-          title="Synchroniser le statut depuis Pennylane"
-        >
-          <RefreshCw
-            size={16}
-            strokeWidth={2}
-            style={isPending ? { animation: 'spin 1s linear infinite' } : undefined}
-          />
-          <span>{isPending ? 'Sync…' : 'Sync Pennylane'}</span>
-        </button>
       )}
 
       {canArchive && (

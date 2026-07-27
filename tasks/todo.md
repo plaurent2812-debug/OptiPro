@@ -1,18 +1,32 @@
 # TODO — OptiPro
 
-## En attente de décision — Intégration Pennylane (résilié le 2026-07-27)
-Pierre a résilié l'abonnement Pennylane. Le cron horaire de sync a été retiré de vercel.json
-(commit f75bea3, c'était la cause du blocage de déploiement ci-dessous), mais le reste de
-l'intégration (19 fichiers) est volontairement resté en l'état à sa demande :
-- src/lib/pennylane.ts, src/app/admin/sync-actions.ts, sync-helpers.ts
-- Boutons de sync manuelle : PennylaneSyncButton.tsx, PennylaneButton.tsx (devis), badge PennylaneSourceBadge.tsx
-- Route /api/cron/sync-pennylane : code toujours là, plus jamais déclenchée par un cron, mais reste accessible
-  par URL directe (CRON_SECRET non configuré en prod → aucune auth sur cette route)
-- CGU/confidentialite.tsx mentionne encore Pennylane comme sous-traitant
+## Repositionnement CDI temps plein dès septembre 2026 — TERMINÉ le 2026-07-27
+Pierre reprend un CDI temps plein en septembre. OptiPro devient une activité secondaire
+(soirs/week-ends) + SAPAL conservé en parallèle. Décisions actées : site en acquisition filtrée
+(pas GBP), back-office abandonné comme chantier actif, facturation via un outil externe.
 
-À trancher avec Pierre la prochaine fois : soit désactiver proprement ces boutons (évite des clics qui
-échouent contre une API résiliée), soit tout retirer si Pennylane ne revient pas, soit laisser en l'état
-si une resouscription est probable à court terme.
+- [x] Délai site vitrine 3 → 4 semaines (62 occurrences, 12 pages services/villes + accueil + CGV + llms.txt + 1 article blog)
+- [x] Contact : « Réponse garantie sous 24h · lundi-vendredi 9h-18h » → « Réponse sous 48h » (8 occurrences ContactPageClient + 2 metadata + contact.md)
+- [x] JSON-LD `openingHoursSpecification` (Mon-Fri 9h-18h) retiré de layout.tsx — incohérent avec un CDI temps plein
+- [x] Offre web app dépriorisée (hero accueil, hero /le-service, bandeau pages ville) — reste vendue, juste plus en avant-plan
+- [x] llms.txt et /a-propos : reformulés pour ne plus affirmer un temps plein sur OptiPro
+- [x] GBP : abandonné, retiré du todo (voir section SEO ci-dessous, action annulée)
+- [x] Intégration Pennylane retirée : 10 fichiers supprimés (lib/pennylane.ts, sync-actions.ts,
+      sync-helpers.ts, PennylaneSyncButton.tsx, PennylaneButton.tsx, PennylaneSourceBadge.tsx,
+      route cron non authentifiée /api/cron/sync-pennylane — CRON_SECRET absent en prod, faille corrigée),
+      8 fichiers mixtes nettoyés (devis/factures actions + pages + confidentialite.tsx)
+- [x] validateFactureAction/markFactureAsPaidAction simplifiées : suivi de statut local uniquement,
+      la facture officielle (PDF, Factur-X) est désormais émise via un outil de facturation externe
+- [x] 3 composants orphelins supprimés (reliquats « bras droit administratif ») : OptiboardTeaser,
+      TimelineMethode, AutomatedVsHuman — jamais importés
+- [x] Colonnes Supabase pennylane_* laissées en base (nullable, sans FK, aucun impact)
+- Vérifs : tsc 0 erreur, build 46 pages OK, 24/24 tests Jest, vérif visuelle /contact /accueil /services/nice
+
+### En suspens
+- [ ] Variables d'env `PENNYLANE_API_TOKEN` et `NEXT_PUBLIC_PENNYLANE_COMPANY_SLUG` à retirer manuellement
+      de `.env.local` et du dashboard Vercel (pas d'accès direct depuis le code)
+- [ ] `public/index.md` et `public/services.md` restent obsolètes (ancienne grille tarifaire pré-juin) —
+      passif préexistant non traité cette session, hors périmètre
 
 ## En cours — Corrections audit site (2026-07-26)
 Audit complet : voir tasks/audit-site-2026-07-26.md (score ≈60/100). Cause racine : le repositionnement de juin n'a touché que 4 pages — tout le reste vend encore l'offre admin 650-1950€/mois.
@@ -47,7 +61,6 @@ Audit complet : voir tasks/audit-site-2026-07-26.md (score ≈60/100). Cause rac
 - [ ] sitemap.ts : LAST_CONTENT_UPDATE figé au 2026-05-13 (l.7)
 
 ### 🟡 Moyenne
-- [ ] Créer le GBP (après corrections) — « Concepteur de sites Web », mode SAB
 - [x] Page /services/vence créée le 2026-07-26 — angle « je suis sur place » (les 7 concurrents de la SERP sont
       des agences non implantées qui génèrent une page par commune). Ancrage local vérifié : marché ARTISA'VENCE,
       Cité historique, place Clemenceau. SIREN cité en FAQ comme preuve d'implantation. Priorité sitemap 0.9
@@ -155,8 +168,8 @@ Le commit du 10/06 n'avait touché que 4 pages (accueil, tarifs, le-service, à-
 - [x] Build vérifié sans erreurs
 
 ## À faire — SEO (actions manuelles Pierre) — PROCHAIN CHANTIER
-- [ ] Créer/revendiquer Google Business Profile (OptiPro, Vence) — catégorie « Concepteur de sites Web », mode SAB
-      (adresse masquée). Plus rien ne bloque techniquement depuis la correction du positionnement (26-27/07).
+- [x] ~~Créer le Google Business Profile~~ — abandonné le 2026-07-27 : incompatible avec la disponibilité
+      réduite dès septembre (CDI temps plein), un GBP génère des demandes locales qui ne seraient pas honorées.
 - [ ] Inscrire le site dans Google Search Console (permettra aussi de récupérer le LCP terrain / CrUX, cf. todo perf)
 - [ ] Tester avec Google Rich Results Test après déploiement
 

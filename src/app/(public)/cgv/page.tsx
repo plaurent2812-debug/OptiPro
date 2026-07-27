@@ -63,7 +63,7 @@ export default function CgvPage() {
       <section>
         <h2>4. Délais, collaboration et livraison</h2>
         <p>
-          Le délai de livraison est indiqué au devis. Pour un site vitrine, le délai annoncé est de <strong>3 semaines</strong>. Ce délai court à compter de la réception de l&apos;acompte <em>et</em> de l&apos;ensemble des éléments nécessaires à la réalisation (textes, images, informations légales, accès techniques éventuels).
+          Le délai de livraison est indiqué au devis. Pour un site vitrine, le délai annoncé est de <strong>4 semaines</strong>. Ce délai court à compter de la réception de l&apos;acompte <em>et</em> de l&apos;ensemble des éléments nécessaires à la réalisation (textes, images, informations légales, accès techniques éventuels).
         </p>
         <p>
           Le client s&apos;engage à fournir ces éléments et à répondre aux demandes de validation dans un délai raisonnable. Le délai de livraison est suspendu pendant les périodes d&apos;attente imputables au client.

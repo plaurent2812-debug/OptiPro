@@ -4,12 +4,12 @@ import LandingPage from '@/components/seo/LandingPage';
 export const metadata: Metadata = {
   title: 'Création de site internet pour plombier — PACA',
   description:
-    "Site internet pour plombier et plombier-chauffagiste : être trouvé en urgence sur Google mobile, présenter vos interventions, recevoir des demandes de devis. Dès 990€ HT, livré en 3 semaines.",
+    "Site internet pour plombier et plombier-chauffagiste : être trouvé en urgence sur Google mobile, présenter vos interventions, recevoir des demandes de devis. Dès 990€ HT, livré en 4 semaines.",
   alternates: { canonical: '/services/plombier' },
   openGraph: {
     title: 'Création de site internet pour plombier — OptiPro',
     description:
-      "Un site qui vous fait appeler quand la fuite tombe à 19h. Site vitrine dès 990€ HT, livré en 3 semaines. Vence (06), toute la PACA.",
+      "Un site qui vous fait appeler quand la fuite tombe à 19h. Site vitrine dès 990€ HT, livré en 4 semaines. Vence (06), toute la PACA.",
     url: 'https://www.opti-pro.fr/services/plombier',
     type: 'website',
   },
@@ -108,7 +108,7 @@ const jsonLd = {
           name: "Combien coûte un site internet de plombier et en combien de temps est-il en ligne ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 3 semaines. Maintenance ensuite en option, à partir de 79€ par mois.",
+            text: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 4 semaines. Maintenance ensuite en option, à partir de 79€ par mois.",
           },
         },
         {
@@ -129,7 +129,7 @@ export default function PlombierPage() {
     <LandingPage
       badge="Pour plombiers et plombiers-chauffagistes"
       h1="Création de site internet pour plombier"
-      intro="Quand un chauffe-eau lâche un dimanche soir, le client ne fouille pas les Pages Jaunes : il tape « plombier » sur son téléphone et appelle l'un des trois premiers résultats. Je construis le site qui vous met dans ces trois premiers résultats, avec un numéro cliquable et une zone d'intervention claire. Site vitrine à partir de 990€ HT, livré en 3 semaines."
+      intro="Quand un chauffe-eau lâche un dimanche soir, le client ne fouille pas les Pages Jaunes : il tape « plombier » sur son téléphone et appelle l'un des trois premiers résultats. Je construis le site qui vous met dans ces trois premiers résultats, avec un numéro cliquable et une zone d'intervention claire. Site vitrine à partir de 990€ HT, livré en 4 semaines."
       painSection={{
         title: "Pourquoi les appels partent chez le plombier d'à côté ?",
         points: [
@@ -144,7 +144,7 @@ export default function PlombierPage() {
       featuredOffer={{
         name: 'Site vitrine Pro',
         price: '1 390 € HT',
-        delay: '3 semaines',
+        delay: '4 semaines',
         description:
           "La formule adaptée à la plomberie : être trouvé sur les recherches d'urgence de votre secteur, être appelable en un geste, et recevoir des demandes de devis chiffrables sans jouer au ping-pong téléphonique.",
         features: [
@@ -173,7 +173,7 @@ export default function PlombierPage() {
           step: '3',
           title: 'Développement et mise en ligne',
           description:
-            "Je développe le site, le teste sur téléphone, et je le mets en ligne sur votre nom de domaine. Délai annoncé : 3 semaines pour un site vitrine. Vous validez avant publication.",
+            "Je développe le site, le teste sur téléphone, et je le mets en ligne sur votre nom de domaine. Délai annoncé : 4 semaines pour un site vitrine. Vous validez avant publication.",
         },
         {
           step: '4',
@@ -206,7 +206,7 @@ export default function PlombierPage() {
         {
           question: "Combien coûte un site internet de plombier et en combien de temps est-il en ligne ?",
           answer:
-            "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 3 semaines. Maintenance ensuite en option, à partir de 79€ par mois.",
+            "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 4 semaines. Maintenance ensuite en option, à partir de 79€ par mois.",
         },
         {
           question: "Qui s'occupe de mettre à jour mes tarifs ou mes horaires après la livraison ?",

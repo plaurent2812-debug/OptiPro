@@ -386,7 +386,7 @@ export const articles: Article[] = [
 <ul>
   <li>Interlocuteur unique du début à la fin.</li>
   <li>Site sur mesure, optimisé SEO local.</li>
-  <li>Délais courts (comptez environ 3 semaines chez OptiPro pour un site vitrine).</li>
+  <li>Délais courts (comptez environ 4 semaines chez OptiPro pour un site vitrine).</li>
   <li>Bon rapport qualité/prix.</li>
 </ul>
 

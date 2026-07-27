@@ -4,12 +4,12 @@ import LandingPage from '@/components/seo/LandingPage';
 export const metadata: Metadata = {
   title: 'Création de site web pour serrurier — PACA',
   description:
-    "Site web pour serrurier : appel en un clic, disponibilité 24/7 affichée, zone d'intervention et tarifs de déplacement clairs. Dès 990€ HT, livré en 3 semaines. Vence (06).",
+    "Site web pour serrurier : appel en un clic, disponibilité 24/7 affichée, zone d'intervention et tarifs de déplacement clairs. Dès 990€ HT, livré en 4 semaines. Vence (06).",
   alternates: { canonical: '/services/serrurier' },
   openGraph: {
     title: 'Création de site web pour serrurier — OptiPro',
     description:
-      "Porte claquée à minuit : le client appelle le premier site qui charge et qui rassure. Site vitrine dès 990€ HT, livré en 3 semaines.",
+      "Porte claquée à minuit : le client appelle le premier site qui charge et qui rassure. Site vitrine dès 990€ HT, livré en 4 semaines.",
     url: 'https://www.opti-pro.fr/services/serrurier',
     type: 'website',
   },
@@ -115,7 +115,7 @@ const jsonLd = {
           name: "Combien coûte un site de serrurier et sous quel délai est-il en ligne ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 3 semaines. Ensuite, la maintenance est optionnelle : 79€ par mois pour 1h mensuelle, 129€ par mois pour 2h avec petites évolutions et traitement prioritaire.",
+            text: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 4 semaines. Ensuite, la maintenance est optionnelle : 79€ par mois pour 1h mensuelle, 129€ par mois pour 2h avec petites évolutions et traitement prioritaire.",
           },
         },
       ],
@@ -128,7 +128,7 @@ export default function SerrurierPage() {
     <LandingPage
       badge="Pour serruriers et métalliers"
       h1="Création de site web pour serrurier"
-      intro="Porte claquée à minuit, clés à l'intérieur : le client cherche sur son téléphone et appelle dans la minute, presque toujours l'un des premiers résultats. Tout se joue sur la vitesse d'affichage, un bouton d'appel évident et de quoi le rassurer en trois lignes. C'est exactement ce que je construis. Site vitrine à partir de 990€ HT, livré en 3 semaines."
+      intro="Porte claquée à minuit, clés à l'intérieur : le client cherche sur son téléphone et appelle dans la minute, presque toujours l'un des premiers résultats. Tout se joue sur la vitesse d'affichage, un bouton d'appel évident et de quoi le rassurer en trois lignes. C'est exactement ce que je construis. Site vitrine à partir de 990€ HT, livré en 4 semaines."
       painSection={{
         title: "Qu'est-ce qui fait raccrocher un client avant même de vous appeler ?",
         points: [
@@ -143,7 +143,7 @@ export default function SerrurierPage() {
       featuredOffer={{
         name: 'Site vitrine Pro',
         price: '1 390 € HT',
-        delay: '3 semaines',
+        delay: '4 semaines',
         description:
           "Construit pour le seul moment qui compte dans votre métier : les dix secondes entre l'arrivée sur la page et l'appel. Avec, en parallèle, un vrai parcours pour vos devis de blindage et de métallerie.",
         features: [
@@ -172,7 +172,7 @@ export default function SerrurierPage() {
           step: '3',
           title: 'Développement et test en conditions réelles',
           description:
-            "Je développe, puis je teste ce qui compte vraiment : vitesse d'affichage sur un téléphone en réseau mobile et déclenchement de l'appel en un geste. Délai annoncé pour un site vitrine : 3 semaines.",
+            "Je développe, puis je teste ce qui compte vraiment : vitesse d'affichage sur un téléphone en réseau mobile et déclenchement de l'appel en un geste. Délai annoncé pour un site vitrine : 4 semaines.",
         },
         {
           step: '4',
@@ -210,7 +210,7 @@ export default function SerrurierPage() {
         {
           question: "Combien coûte un site de serrurier et sous quel délai est-il en ligne ?",
           answer:
-            "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 3 semaines. Ensuite, la maintenance est optionnelle : 79€ par mois pour 1h mensuelle, 129€ par mois pour 2h avec petites évolutions et traitement prioritaire.",
+            "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 4 semaines. Ensuite, la maintenance est optionnelle : 79€ par mois pour 1h mensuelle, 129€ par mois pour 2h avec petites évolutions et traitement prioritaire.",
         },
       ]}
       localMentions={['Vence', 'Nice', 'Cagnes-sur-Mer', 'Antibes', 'Cannes']}

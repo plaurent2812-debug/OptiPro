@@ -19,21 +19,21 @@ const cibleConfigs: Record<Cible, CibleConfig> = {
         intro: "Vous êtes artisan ou indépendant et vous voulez un site qui vous rende trouvable sur Google. Décrivez votre activité — je vous dis ce qui est réaliste et à quel prix.",
         projectLabel: 'Votre activité et ce que vous attendez du site',
         projectPlaceholder: "Ex : je suis plombier à Cagnes, je n'ai pas de site, mes clients me trouvent uniquement par bouche-à-oreille...",
-        ctaLabel: 'Envoyer ma demande — Pierre me recontacte sous 24h',
+        ctaLabel: 'Envoyer ma demande — Pierre me recontacte sous 48h',
         footnote: 'Premier appel de 30 min gratuit. Périmètre et livrables définis au devis, avant tout engagement.',
     },
     tpe: {
         intro: "Vous dirigez une TPE. Parlons de votre présence en ligne et des outils qui vous feraient gagner du temps au quotidien.",
         projectLabel: 'Votre projet et le contexte',
         projectPlaceholder: "Ex : notre site date de 2018 et n'est pas à jour, on veut aussi un formulaire de devis en ligne...",
-        ctaLabel: 'Discuter de mon projet — Réponse sous 24h',
+        ctaLabel: 'Discuter de mon projet — Réponse sous 48h',
         footnote: 'Premier appel de 30 min gratuit. Périmètre et livrables définis au devis, avant tout engagement.',
     },
     'web-app': {
         intro: "Vous avez un process qui tourne encore sur papier ou sur Excel et vous voulez le remplacer par un outil sur mesure. Décrivez-le — on cadre ensemble le périmètre.",
         projectLabel: 'Le process à outiller',
         projectPlaceholder: "Ex : suivi de chantiers sur un tableau Excel partagé, catalogue produits à jour nulle part, réservations prises par téléphone...",
-        ctaLabel: 'Cadrer mon projet — Pierre me recontacte sous 24h',
+        ctaLabel: 'Cadrer mon projet — Pierre me recontacte sous 48h',
         footnote: 'Premier appel de 30 min gratuit pour cadrer le besoin. Web app sur devis, après définition du périmètre.',
     },
     maintenance: {
@@ -44,10 +44,10 @@ const cibleConfigs: Record<Cible, CibleConfig> = {
         footnote: 'Maintenance à partir de 79€/mois. Sans engagement de durée.',
     },
     default: {
-        intro: "Vous voulez un site vitrine, une web app ou un outil métier sur mesure. Décrivez votre projet — je vous réponds sous 24h.",
+        intro: "Vous voulez un site vitrine, une web app ou un outil métier sur mesure. Décrivez votre projet — je vous réponds sous 48h.",
         projectLabel: 'Votre projet',
         projectPlaceholder: "Ex : je veux un site pour mon entreprise de menuiserie, avec mes réalisations en photos et un formulaire de devis...",
-        ctaLabel: 'Envoyer ma demande — Pierre me contacte sous 24h',
+        ctaLabel: 'Envoyer ma demande — Pierre me contacte sous 48h',
         footnote: 'Premier appel de 30 min gratuit. Périmètre et livrables définis au devis, avant tout engagement.',
     },
 };
@@ -169,7 +169,7 @@ function ContactForm() {
                 </div>
                 <h2 style={{ marginBottom: '1rem' }}>Demande envoyée !</h2>
                 <p style={{ color: 'var(--muted)', fontSize: '1.1rem', marginBottom: '2rem' }}>
-                    Merci. Pierre vous contactera sous 24h pour organiser un premier échange de 30 minutes.
+                    Merci. Pierre vous contactera sous 48h pour organiser un premier échange de 30 minutes.
                 </p>
                 <Button onClick={() => setStatus('idle')} variant="outline">Envoyer une autre demande</Button>
             </div>
@@ -386,7 +386,7 @@ export default function ContactPageClient() {
                         </a>
                     </div>
                     <p style={{ color: 'var(--muted)', fontSize: '0.85rem', margin: 0 }}>
-                        Réponse garantie sous 24h · Du lundi au vendredi, 9h-18h
+                        Réponse sous 48h
                     </p>
                 </div>
 

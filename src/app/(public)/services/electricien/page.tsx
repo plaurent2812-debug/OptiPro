@@ -4,7 +4,7 @@ import LandingPage from '@/components/seo/LandingPage';
 export const metadata: Metadata = {
   title: 'Création de site internet pour électricien — PACA',
   description:
-    "Site internet pour électricien : rendre vos certifications visibles, montrer vos réalisations en photo et recevoir des demandes de devis qualifiées. Dès 990€ HT, livré en 3 semaines.",
+    "Site internet pour électricien : rendre vos certifications visibles, montrer vos réalisations en photo et recevoir des demandes de devis qualifiées. Dès 990€ HT, livré en 4 semaines.",
   alternates: { canonical: '/services/electricien' },
   openGraph: {
     title: 'Création de site internet pour électricien — OptiPro',
@@ -108,7 +108,7 @@ const jsonLd = {
           name: "Combien coûte un site internet d'électricien et quel est le délai ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 3 semaines. La maintenance est ensuite optionnelle, à partir de 79€ par mois.",
+            text: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 4 semaines. La maintenance est ensuite optionnelle, à partir de 79€ par mois.",
           },
         },
         {
@@ -129,7 +129,7 @@ export default function ElectricienPage() {
     <LandingPage
       badge="Pour électriciens et installateurs"
       h1="Création de site internet pour électricien"
-      intro="En électricité, le client ne compare pas des prix : il compare des risques. Il cherche qui est qualifié, qui est assuré, et à quoi ressemble le travail livré. Je construis le site qui répond à ces trois questions avant même qu'il décroche son téléphone. Site vitrine à partir de 990€ HT, livré en 3 semaines."
+      intro="En électricité, le client ne compare pas des prix : il compare des risques. Il cherche qui est qualifié, qui est assuré, et à quoi ressemble le travail livré. Je construis le site qui répond à ces trois questions avant même qu'il décroche son téléphone. Site vitrine à partir de 990€ HT, livré en 4 semaines."
       painSection={{
         title: "Pourquoi votre devis passe après celui du concurrent ?",
         points: [
@@ -144,7 +144,7 @@ export default function ElectricienPage() {
       featuredOffer={{
         name: 'Site vitrine Pro',
         price: '1 390 € HT',
-        delay: '3 semaines',
+        delay: '4 semaines',
         description:
           "La formule pensée pour un métier où la confiance se gagne avant le premier rendez-vous : qualifications lisibles, réalisations montrées, demandes de devis exploitables dès leur réception.",
         features: [
@@ -173,7 +173,7 @@ export default function ElectricienPage() {
           step: '3',
           title: 'Développement et mise en ligne',
           description:
-            "Je développe, je teste sur mobile et sur ordinateur, puis je publie sur votre nom de domaine. Délai annoncé pour un site vitrine : 3 semaines. Vous validez avant la mise en ligne.",
+            "Je développe, je teste sur mobile et sur ordinateur, puis je publie sur votre nom de domaine. Délai annoncé pour un site vitrine : 4 semaines. Vous validez avant la mise en ligne.",
         },
         {
           step: '4',
@@ -206,7 +206,7 @@ export default function ElectricienPage() {
         {
           question: "Combien coûte un site internet d'électricien et quel est le délai ?",
           answer:
-            "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 3 semaines. La maintenance est ensuite optionnelle, à partir de 79€ par mois.",
+            "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local. Le délai annoncé pour un site vitrine est de 4 semaines. La maintenance est ensuite optionnelle, à partir de 79€ par mois.",
         },
         {
           question: "Et si j'ai besoin de plus qu'un site vitrine, par exemple pour suivre mes chantiers ?",

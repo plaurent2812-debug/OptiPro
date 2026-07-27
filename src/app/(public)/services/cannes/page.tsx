@@ -3,11 +3,11 @@ import CityServicePage from '@/components/seo/CityServicePage';
 
 export const metadata: Metadata = {
   title: 'Création site internet Cannes — artisans et TPE',
-  description: "Création de site internet à Cannes pour artisans, restaurateurs et TPE : site vitrine 990€ HT livré en 3 semaines. Développeur basé à Vence (06).",
+  description: "Création de site internet à Cannes pour artisans, restaurateurs et TPE : site vitrine 990€ HT livré en 4 semaines. Développeur basé à Vence (06).",
   alternates: { canonical: '/services/cannes' },
   openGraph: {
     title: 'Création de site internet à Cannes — OptiPro',
-    description: "Site vitrine 990€ HT livré en 3 semaines, web app sur devis. Développeur indépendant basé à Vence, dans les Alpes-Maritimes.",
+    description: "Site vitrine 990€ HT livré en 4 semaines, web app sur devis. Développeur indépendant basé à Vence, dans les Alpes-Maritimes.",
     url: 'https://www.opti-pro.fr/services/cannes',
     type: 'website',
   },
@@ -23,7 +23,7 @@ export default function CannesPage() {
       metaTitle={metadata.title as string}
       metaDescription={metadata.description as string}
       h1="Création de site internet à Cannes pour artisans, commerces et TPE"
-      intro="Vous cherchez un développeur près de vous pour créer votre site internet à Cannes. Je suis développeur web indépendant, basé à Vence dans les Alpes-Maritimes, et je construis des sites vitrines et des outils métier sur mesure pour les artisans, les commerces et les TPE. Site vitrine à 990€ HT, livré en 3 semaines, hébergement et nom de domaine inclus."
+      intro="Vous cherchez un développeur près de vous pour créer votre site internet à Cannes. Je suis développeur web indépendant, basé à Vence dans les Alpes-Maritimes, et je construis des sites vitrines et des outils métier sur mesure pour les artisans, les commerces et les TPE. Site vitrine à 990€ HT, livré en 4 semaines, hébergement et nom de domaine inclus."
       economicContext="Cannes vit largement de l'hôtellerie-restauration, du commerce et de l'événementiel professionnel : les congrès et festivals amènent une clientèle de passage, exigeante et internationale, qui réserve et compare en ligne. Autour de cette économie tournent des artisans et des prestataires — agencement, rénovation, entretien, traiteurs, services aux résidences et aux locations meublées. Beaucoup travaillent essentiellement par recommandation et n'ont aucune vitrine en ligne : quand un client de passage cherche un restaurant, un artisan disponible ou un prestataire cannois depuis son téléphone, ils sont invisibles."
       geo={{ latitude: 43.5528, longitude: 7.0174 }}
       whyHere={[
@@ -48,7 +48,7 @@ export default function CannesPage() {
         {
           icon: '🌐',
           title: 'Site vitrine — 990€ HT',
-          description: "3 à 4 pages sur mesure : votre activité, vos prestations ou votre carte, vos coordonnées et votre emplacement à Cannes. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 3 semaines.",
+          description: "3 à 4 pages sur mesure : votre activité, vos prestations ou votre carte, vos coordonnées et votre emplacement à Cannes. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 4 semaines.",
         },
         {
           icon: '📍',
@@ -113,7 +113,7 @@ export default function CannesPage() {
         },
         {
           question: "En combien de temps le site est-il en ligne ?",
-          answer: "Un site vitrine est livré en 3 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et inscrit dans le devis avant le démarrage.",
+          answer: "Un site vitrine est livré en 4 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et inscrit dans le devis avant le démarrage.",
         },
         {
           question: "Mes clients sont souvent étrangers. Le site peut être en anglais ?",

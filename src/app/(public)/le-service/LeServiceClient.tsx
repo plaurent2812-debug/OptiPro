@@ -63,7 +63,7 @@ export default function LeServiceClient() {
       {/* HERO */}
       <section style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem 4rem', textAlign: 'center' }}>
         <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.15, margin: '0 0 1.5rem' }}>
-          Sites vitrines, web apps et outils métier sur mesure.
+          Sites vitrines sur mesure.
         </h1>
         <p style={{ fontSize: '1.15rem', color: 'var(--secondary)', lineHeight: 1.6, maxWidth: '680px', margin: '0 auto' }}>
           Je construis ce qui vous manque — et je comprends votre métier avant d&apos;écrire la première ligne de code.

@@ -3,11 +3,11 @@ import CityServicePage from '@/components/seo/CityServicePage';
 
 export const metadata: Metadata = {
   title: 'Création site internet Vence — développeur sur place',
-  description: "Création de site internet à Vence (06140) par un développeur installé dans la commune : site vitrine 990€ HT livré en 3 semaines, web app sur devis.",
+  description: "Création de site internet à Vence (06140) par un développeur installé dans la commune : site vitrine 990€ HT livré en 4 semaines, web app sur devis.",
   alternates: { canonical: '/services/vence' },
   openGraph: {
     title: 'Création de site internet à Vence — OptiPro',
-    description: "Développeur web installé à Vence (06140). Site vitrine 990€ HT livré en 3 semaines, web app et outil métier sur devis.",
+    description: "Développeur web installé à Vence (06140). Site vitrine 990€ HT livré en 4 semaines, web app et outil métier sur devis.",
     url: 'https://www.opti-pro.fr/services/vence',
     type: 'website',
   },
@@ -23,7 +23,7 @@ export default function VencePage() {
       metaTitle={metadata.title as string}
       metaDescription={metadata.description as string}
       h1="Création de site internet à Vence pour artisans, commerçants et TPE"
-      intro="Je suis développeur web indépendant et je suis installé à Vence (06140) — pas dans une autre ville avec une page à votre nom. Je construis des sites vitrines et des outils métier sur mesure pour les artisans, les commerçants et les TPE de la commune. Site vitrine à 990€ HT, livré en 3 semaines, hébergement et nom de domaine inclus. Et si vous préférez qu'on se voie plutôt qu'un échange par mail, c'est faisable : on est dans la même ville."
+      intro="Je suis développeur web indépendant et je suis installé à Vence (06140) — pas dans une autre ville avec une page à votre nom. Je construis des sites vitrines et des outils métier sur mesure pour les artisans, les commerçants et les TPE de la commune. Site vitrine à 990€ HT, livré en 4 semaines, hébergement et nom de domaine inclus. Et si vous préférez qu'on se voie plutôt qu'un échange par mail, c'est faisable : on est dans la même ville."
       economicContext="Vence vit de son centre historique, de son tourisme, de son artisanat d'art et d'un tissu dense de commerces de proximité et de professions libérales. Le marché artisanal ARTISA'VENCE, place Clemenceau, réunit chaque mois d'avril à octobre une vingtaine d'artisans et créateurs : céramique, bijoux, luminaires, produits alimentaires, art de la table. Pour ces activités, la visibilité en ligne joue un rôle particulier — une bonne partie de la clientèle découvre le commerce à distance, avant même de venir jusqu'au village. Un céramiste ou un créateur sans vitrine web dépend entièrement du passage physique et du bouche-à-oreille, alors qu'un site simple et bien fait permet de montrer son travail toute l'année, y compris hors saison."
       geo={{ latitude: 43.72226, longitude: 7.11382 }}
       whyHere={[
@@ -48,7 +48,7 @@ export default function VencePage() {
         {
           icon: '🌐',
           title: 'Site vitrine — 990€ HT',
-          description: "3 à 4 pages sur mesure : votre activité, vos prestations, vos coordonnées et votre emplacement à Vence. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 3 semaines.",
+          description: "3 à 4 pages sur mesure : votre activité, vos prestations, vos coordonnées et votre emplacement à Vence. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 4 semaines.",
         },
         {
           icon: '📍',
@@ -109,7 +109,7 @@ export default function VencePage() {
         },
         {
           question: "En combien de temps le site est-il en ligne ?",
-          answer: "Un site vitrine est livré en 3 semaines. Ce délai court à partir du moment où j'ai vos contenus — textes, photos, informations légales. Pour une web app, le délai dépend du périmètre et il est inscrit au devis avant le démarrage. Méfiez-vous des promesses de site livré en quelques jours : soit c'est un template rempli à la va-vite, soit le délai n'est pas tenu.",
+          answer: "Un site vitrine est livré en 4 semaines. Ce délai court à partir du moment où j'ai vos contenus — textes, photos, informations légales. Pour une web app, le délai dépend du périmètre et il est inscrit au devis avant le démarrage. Méfiez-vous des promesses de site livré en quelques jours : soit c'est un template rempli à la va-vite, soit le délai n'est pas tenu.",
         },
         {
           question: "Je suis créateur et je vends surtout sur les marchés. Un site me sert à quoi ?",

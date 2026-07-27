@@ -39,7 +39,7 @@ const OFFER_CARDS: {
   {
     title: 'Site vitrine — 990 €',
     desc: '3 à 4 pages, hébergement 1 an, domaine, email pro.',
-    badge: 'Livré en 3 semaines',
+    badge: 'Livré en 4 semaines',
   },
   {
     title: 'Site vitrine Pro — 1 390 €',
@@ -152,7 +152,7 @@ export default function HomePageClient() {
         </h1>
 
         <p className={styles.sub}>
-          Sites vitrines, web apps et outils métier sur mesure pour artisans et TPE en PACA.
+          Sites vitrines sur mesure pour artisans et TPE en PACA.
           Premier appel gratuit — périmètre et livrables définis au devis.
         </p>
 

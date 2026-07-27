@@ -15,7 +15,7 @@ Contactez-nous
 
 Quelques informations pour préparer notre échange.
 
-Décrivez votre besoin, Pierre vous recontacte sous 24h.
+Décrivez votre besoin, Pierre vous recontacte sous 48h.
 
 Nom complet \*
 
@@ -33,7 +33,7 @@ Enveloppe budgétaire envisagée— Sélectionnez —Moins de 500 €500 à 1 50
 
 Quand souhaitez-vous démarrer ?— Sélectionnez —Immédiat (moins d'1 mois)Dans 1 à 3 moisDans 3 à 6 moisPas pressé, je me renseigne
 
-Envoyer ma demande — Pierre me contacte sous 24h
+Envoyer ma demande — Pierre me contacte sous 48h
 
 Premier échange de 30 min gratuit et sans engagement.
 
@@ -41,4 +41,4 @@ Ou contactez Pierre directement :
 
 [p.laurent@opti-pro.fr](mailto:p.laurent@opti-pro.fr)
 
-Réponse garantie sous 24h · [LinkedIn](https://www.linkedin.com/in/pierre-laurent-809410123)
+Réponse sous 48h · [LinkedIn](https://www.linkedin.com/in/pierre-laurent-809410123)

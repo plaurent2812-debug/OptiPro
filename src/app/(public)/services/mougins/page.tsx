@@ -3,11 +3,11 @@ import CityServicePage from '@/components/seo/CityServicePage';
 
 export const metadata: Metadata = {
   title: 'Création site internet Mougins — artisans et TPE',
-  description: "Création de site internet à Mougins pour artisans, restaurateurs et TPE : site vitrine 990€ HT livré en 3 semaines. Développeur basé à Vence (06).",
+  description: "Création de site internet à Mougins pour artisans, restaurateurs et TPE : site vitrine 990€ HT livré en 4 semaines. Développeur basé à Vence (06).",
   alternates: { canonical: '/services/mougins' },
   openGraph: {
     title: 'Création de site internet à Mougins — OptiPro',
-    description: "Site vitrine 990€ HT livré en 3 semaines, web app sur devis. Développeur indépendant basé à Vence, dans les Alpes-Maritimes.",
+    description: "Site vitrine 990€ HT livré en 4 semaines, web app sur devis. Développeur indépendant basé à Vence, dans les Alpes-Maritimes.",
     url: 'https://www.opti-pro.fr/services/mougins',
     type: 'website',
   },
@@ -23,7 +23,7 @@ export default function MouginsPage() {
       metaTitle={metadata.title as string}
       metaDescription={metadata.description as string}
       h1="Création de site internet à Mougins pour artisans, restaurants et TPE"
-      intro="Vous cherchez un développeur près de vous pour créer votre site internet à Mougins. Je suis développeur web indépendant, basé à Vence dans les Alpes-Maritimes, et je construis des sites vitrines et des outils métier sur mesure pour les artisans, les restaurateurs et les TPE. Site vitrine à 990€ HT, livré en 3 semaines, hébergement et nom de domaine inclus."
+      intro="Vous cherchez un développeur près de vous pour créer votre site internet à Mougins. Je suis développeur web indépendant, basé à Vence dans les Alpes-Maritimes, et je construis des sites vitrines et des outils métier sur mesure pour les artisans, les restaurateurs et les TPE. Site vitrine à 990€ HT, livré en 4 semaines, hébergement et nom de domaine inclus."
       economicContext="Mougins est connue pour sa restauration et pour ses zones résidentielles. Le village perché attire une clientèle qui vient d'abord pour la table, tandis que les quartiers résidentiels et les résidences alentour font travailler en continu les artisans du bâtiment, les paysagistes, les entreprises d'entretien et de piscine, et les services à domicile. Deux publics très différents, mais un même point commun : ils se décident après une recherche en ligne. Un restaurant sans carte consultable sur mobile ou un artisan sans vitrine web perd des clients au profit du concurrent qui a fait le nécessaire."
       geo={{ latitude: 43.6004, longitude: 7.0001 }}
       whyHere={[
@@ -48,7 +48,7 @@ export default function MouginsPage() {
         {
           icon: '🌐',
           title: 'Site vitrine — 990€ HT',
-          description: "3 à 4 pages sur mesure : votre activité, vos prestations ou votre carte, vos coordonnées et votre emplacement à Mougins. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 3 semaines.",
+          description: "3 à 4 pages sur mesure : votre activité, vos prestations ou votre carte, vos coordonnées et votre emplacement à Mougins. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 4 semaines.",
         },
         {
           icon: '📍',
@@ -113,7 +113,7 @@ export default function MouginsPage() {
         },
         {
           question: "En combien de temps le site est-il en ligne ?",
-          answer: "Un site vitrine est livré en 3 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et inscrit dans le devis avant le démarrage.",
+          answer: "Un site vitrine est livré en 4 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et inscrit dans le devis avant le démarrage.",
         },
         {
           question: "Une partie de ma clientèle est anglophone. Le site peut être bilingue ?",

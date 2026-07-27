@@ -165,7 +165,7 @@ export default function CityServicePage({
             color: 'var(--secondary)',
             fontSize: '0.95rem',
           }}>
-            Site vitrine 990&nbsp;€ HT · Site vitrine Pro 1&nbsp;390&nbsp;€ HT · Web app sur devis
+            Site vitrine 990&nbsp;€ HT · Site vitrine Pro 1&nbsp;390&nbsp;€ HT
           </p>
         </div>
       </section>

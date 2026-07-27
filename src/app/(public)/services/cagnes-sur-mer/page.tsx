@@ -3,11 +3,11 @@ import CityServicePage from '@/components/seo/CityServicePage';
 
 export const metadata: Metadata = {
   title: 'Création site internet Cagnes-sur-Mer — artisans, TPE',
-  description: "Création de site internet à Cagnes-sur-Mer pour artisans et commerces : site vitrine 990€ HT livré en 3 semaines. Développeur basé à Vence, à 15 km.",
+  description: "Création de site internet à Cagnes-sur-Mer pour artisans et commerces : site vitrine 990€ HT livré en 4 semaines. Développeur basé à Vence, à 15 km.",
   alternates: { canonical: '/services/cagnes-sur-mer' },
   openGraph: {
     title: 'Création de site internet à Cagnes-sur-Mer — OptiPro',
-    description: "Site vitrine 990€ HT livré en 3 semaines, web app sur devis. Développeur indépendant basé à Vence, à 15 km de Cagnes-sur-Mer.",
+    description: "Site vitrine 990€ HT livré en 4 semaines, web app sur devis. Développeur indépendant basé à Vence, à 15 km de Cagnes-sur-Mer.",
     url: 'https://www.opti-pro.fr/services/cagnes-sur-mer',
     type: 'website',
   },
@@ -23,7 +23,7 @@ export default function CagnesSurMerPage() {
       metaTitle={metadata.title as string}
       metaDescription={metadata.description as string}
       h1="Création de site internet à Cagnes-sur-Mer pour artisans et TPE"
-      intro="Vous cherchez quelqu'un tout près pour vous faire un site internet à Cagnes-sur-Mer. Je suis développeur web indépendant, basé à Vence, à une quinzaine de kilomètres de Cagnes : je construis des sites vitrines et des outils métier sur mesure pour les artisans, les commerces et les TPE. Site vitrine à 990€ HT, livré en 3 semaines, hébergement et nom de domaine inclus."
+      intro="Vous cherchez quelqu'un tout près pour vous faire un site internet à Cagnes-sur-Mer. Je suis développeur web indépendant, basé à Vence, à une quinzaine de kilomètres de Cagnes : je construis des sites vitrines et des outils métier sur mesure pour les artisans, les commerces et les TPE. Site vitrine à 990€ HT, livré en 4 semaines, hébergement et nom de domaine inclus."
       economicContext="Cagnes-sur-Mer repose largement sur le commerce de proximité et l'artisanat : les commerces du centre-ville, les restaurants et les activités du Cros-de-Cagnes, les boutiques du Haut-de-Cagnes, ainsi que l'animation liée à l'hippodrome de la Côte d'Azur. À cela s'ajoutent de nombreux artisans du bâtiment et prestataires de services qui interviennent aussi bien sur la commune que sur Nice et Antibes, toutes proches. Cette clientèle est locale, fidèle, mais elle vérifie de plus en plus en ligne avant d'appeler — et une entreprise sans site apparaît souvent moins fiable qu'un concurrent qui en a un."
       geo={{ latitude: 43.6634, longitude: 7.1495 }}
       whyHere={[
@@ -48,7 +48,7 @@ export default function CagnesSurMerPage() {
         {
           icon: '🌐',
           title: 'Site vitrine — 990€ HT',
-          description: "3 à 4 pages sur mesure : votre activité, vos prestations, votre adresse ou votre zone d'intervention à Cagnes-sur-Mer. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 3 semaines.",
+          description: "3 à 4 pages sur mesure : votre activité, vos prestations, votre adresse ou votre zone d'intervention à Cagnes-sur-Mer. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 4 semaines.",
         },
         {
           icon: '📍',
@@ -114,7 +114,7 @@ export default function CagnesSurMerPage() {
         },
         {
           question: "En combien de temps mon site est-il en ligne ?",
-          answer: "Un site vitrine est livré en 3 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre retenu : il est défini avec vous et écrit dans le devis avant le démarrage.",
+          answer: "Un site vitrine est livré en 4 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre retenu : il est défini avec vous et écrit dans le devis avant le démarrage.",
         },
         {
           question: "Je travaille sur Cagnes mais aussi sur Nice et Antibes. Comment le montrer ?",

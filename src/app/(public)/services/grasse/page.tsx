@@ -3,11 +3,11 @@ import CityServicePage from '@/components/seo/CityServicePage';
 
 export const metadata: Metadata = {
   title: 'Création site internet Grasse — artisans et TPE',
-  description: "Création de site internet à Grasse pour artisans et TPE : site vitrine 990€ HT livré en 3 semaines, hébergement inclus. Développeur basé à Vence (06).",
+  description: "Création de site internet à Grasse pour artisans et TPE : site vitrine 990€ HT livré en 4 semaines, hébergement inclus. Développeur basé à Vence (06).",
   alternates: { canonical: '/services/grasse' },
   openGraph: {
     title: 'Création de site internet à Grasse — OptiPro',
-    description: "Site vitrine 990€ HT livré en 3 semaines, web app sur devis. Développeur indépendant basé à Vence, dans les Alpes-Maritimes.",
+    description: "Site vitrine 990€ HT livré en 4 semaines, web app sur devis. Développeur indépendant basé à Vence, dans les Alpes-Maritimes.",
     url: 'https://www.opti-pro.fr/services/grasse',
     type: 'website',
   },
@@ -23,7 +23,7 @@ export default function GrassePage() {
       metaTitle={metadata.title as string}
       metaDescription={metadata.description as string}
       h1="Création de site internet à Grasse pour artisans et TPE"
-      intro="Vous cherchez quelqu'un dans les Alpes-Maritimes pour créer votre site internet à Grasse. Je suis développeur web indépendant, basé à Vence, et je construis des sites vitrines et des outils métier sur mesure pour les artisans et les TPE. Site vitrine à 990€ HT, livré en 3 semaines, hébergement, nom de domaine et adresse email professionnelle inclus."
+      intro="Vous cherchez quelqu'un dans les Alpes-Maritimes pour créer votre site internet à Grasse. Je suis développeur web indépendant, basé à Vence, et je construis des sites vitrines et des outils métier sur mesure pour les artisans et les TPE. Site vitrine à 990€ HT, livré en 4 semaines, hébergement, nom de domaine et adresse email professionnelle inclus."
       economicContext="Grasse a deux visages économiques. D'un côté, la parfumerie et les arômes, avec des maisons historiques et tout un écosystème de sous-traitants techniques : conditionnement, logistique spécialisée, laboratoires, maintenance industrielle. De l'autre, un artisanat et un commerce de proximité qui desservent une zone étendue et vallonnée, du centre médiéval jusqu'à l'arrière-pays et au Pays de Grasse. Les artisans grassois couvrent souvent un territoire plus large et plus rural que leurs confrères du littoral, ce qui rend la visibilité en ligne d'autant plus utile : le client cherche « près de moi » sur une zone où les prestataires sont plus dispersés."
       geo={{ latitude: 43.6584, longitude: 6.9229 }}
       whyHere={[
@@ -48,7 +48,7 @@ export default function GrassePage() {
         {
           icon: '🌐',
           title: 'Site vitrine — 990€ HT',
-          description: "3 à 4 pages sur mesure : votre activité, vos prestations, votre zone d'intervention autour de Grasse. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 3 semaines.",
+          description: "3 à 4 pages sur mesure : votre activité, vos prestations, votre zone d'intervention autour de Grasse. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 4 semaines.",
         },
         {
           icon: '📍',
@@ -113,7 +113,7 @@ export default function GrassePage() {
         },
         {
           question: "En combien de temps le site est-il en ligne ?",
-          answer: "Un site vitrine est livré en 3 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et inscrit dans le devis avant de démarrer.",
+          answer: "Un site vitrine est livré en 4 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et inscrit dans le devis avant de démarrer.",
         },
         {
           question: "Je peux indiquer sur le site les communes où je me déplace ?",

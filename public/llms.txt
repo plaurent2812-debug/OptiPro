@@ -51,7 +51,7 @@ Pierre Laurent, fondateur d'OptiPro, a dix ans d'expérience opérationnelle en 
 - Gestionnaire d'opérations e-commerce chez Toute la Nutrition : 400 commandes par jour.
 - Responsable Exploitation logistique événementielle chez GL Events Live : dépôt sur la Côte d'Azur, équipe de 6 personnes.
 
-En 2026, Pierre a appris le développement via Claude Code et Cursor, en construisant des projets réels plutôt qu'en suivant une formation classique. En juin 2026, il a quitté l'exploitation salariée pour se consacrer à temps plein à OptiPro.
+En 2026, Pierre a appris le développement via Claude Code et Cursor, en construisant des projets réels plutôt qu'en suivant une formation classique. OptiPro fonctionne en missions à périmètre défini, compatibles avec une activité salariée en parallèle.
 
 Ce parcours lui donne une connaissance directe des situations vécues par ses clients : outils absents ou inadaptés au terrain, suivi de chantier éclaté dans plusieurs fichiers Excel, process qui tiennent sur du papier. Son constat après dix ans : ce qui freine les indépendants, ce n'est presque jamais le travail terrain, c'est l'outillage autour.
 
@@ -79,7 +79,7 @@ Un site vitrine coûte 990 € HT (3 à 4 pages, hébergement 1 an et nom de dom
 
 ### Combien de temps pour livrer un site vitrine ?
 
-Le délai annoncé pour un site vitrine est de trois semaines à compter de la validation du devis et de la réception des contenus (textes, photos, informations légales).
+Le délai annoncé pour un site vitrine est de quatre semaines à compter de la validation du devis et de la réception des contenus (textes, photos, informations légales).
 
 ### Que couvre exactement une web app sur mesure ?
 

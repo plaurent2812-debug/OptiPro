@@ -3,11 +3,11 @@ import CityServicePage from '@/components/seo/CityServicePage';
 
 export const metadata: Metadata = {
   title: 'Création site internet Antibes — artisans et TPE',
-  description: "Création de site internet à Antibes et Juan-les-Pins pour artisans et TPE : site vitrine 990€ HT livré en 3 semaines. Développeur basé à Vence (06).",
+  description: "Création de site internet à Antibes et Juan-les-Pins pour artisans et TPE : site vitrine 990€ HT livré en 4 semaines. Développeur basé à Vence (06).",
   alternates: { canonical: '/services/antibes' },
   openGraph: {
     title: 'Création de site internet à Antibes — OptiPro',
-    description: "Site vitrine 990€ HT livré en 3 semaines, web app sur devis. Développeur indépendant basé à Vence, proche d'Antibes.",
+    description: "Site vitrine 990€ HT livré en 4 semaines, web app sur devis. Développeur indépendant basé à Vence, proche d'Antibes.",
     url: 'https://www.opti-pro.fr/services/antibes',
     type: 'website',
   },
@@ -23,7 +23,7 @@ export default function AntibesPage() {
       metaTitle={metadata.title as string}
       metaDescription={metadata.description as string}
       h1="Création de site internet à Antibes et Juan-les-Pins"
-      intro="Vous cherchez un développeur proche de vous pour créer votre site internet à Antibes ou à Juan-les-Pins. Je suis développeur web indépendant, basé à Vence dans les Alpes-Maritimes, et je construis des sites vitrines et des outils métier sur mesure pour les artisans et les TPE. Site vitrine à 990€ HT, livré en 3 semaines, hébergement et nom de domaine inclus."
+      intro="Vous cherchez un développeur proche de vous pour créer votre site internet à Antibes ou à Juan-les-Pins. Je suis développeur web indépendant, basé à Vence dans les Alpes-Maritimes, et je construis des sites vitrines et des outils métier sur mesure pour les artisans et les TPE. Site vitrine à 990€ HT, livré en 4 semaines, hébergement et nom de domaine inclus."
       economicContext="Antibes est marquée par le nautisme : le port Vauban et les activités qui l'entourent — entretien et réparation de bateaux, sellerie marine, mécanique, électronique embarquée, avitaillement, services aux équipages — font vivre un tissu dense de petites entreprises très spécialisées. À cela s'ajoutent les artisans du bâtiment qui entretiennent et rénovent les villas du Cap et les résidences de Juan-les-Pins, ainsi qu'un environnement de TPE de services lié à la proximité de Sophia Antipolis. Ces métiers de niche sont souvent difficiles à trouver en ligne : le savoir-faire existe, la vitrine web manque."
       geo={{ latitude: 43.5808, longitude: 7.1239 }}
       whyHere={[
@@ -48,7 +48,7 @@ export default function AntibesPage() {
         {
           icon: '🌐',
           title: 'Site vitrine — 990€ HT',
-          description: "3 à 4 pages sur mesure : votre activité, vos prestations, votre atelier ou votre zone d'intervention à Antibes et Juan-les-Pins. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 3 semaines.",
+          description: "3 à 4 pages sur mesure : votre activité, vos prestations, votre atelier ou votre zone d'intervention à Antibes et Juan-les-Pins. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 4 semaines.",
         },
         {
           icon: '📍',
@@ -113,7 +113,7 @@ export default function AntibesPage() {
         },
         {
           question: "En combien de temps le site est-il en ligne ?",
-          answer: "Un site vitrine est livré en 3 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et écrit dans le devis avant le démarrage.",
+          answer: "Un site vitrine est livré en 4 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et écrit dans le devis avant le démarrage.",
         },
         {
           question: "J'ai un catalogue de pièces et de références. Vous pouvez le mettre en ligne ?",

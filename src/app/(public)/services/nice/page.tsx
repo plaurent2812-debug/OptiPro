@@ -3,11 +3,11 @@ import CityServicePage from '@/components/seo/CityServicePage';
 
 export const metadata: Metadata = {
   title: 'Création site internet Nice — artisans et TPE',
-  description: "Création de site internet à Nice pour artisans et TPE : site vitrine 990€ HT, livré en 3 semaines. Développeur indépendant basé à Vence (06).",
+  description: "Création de site internet à Nice pour artisans et TPE : site vitrine 990€ HT, livré en 4 semaines. Développeur indépendant basé à Vence (06).",
   alternates: { canonical: '/services/nice' },
   openGraph: {
     title: 'Création de site internet à Nice — OptiPro',
-    description: "Site vitrine 990€ HT livré en 3 semaines, web app sur devis. Développeur indépendant basé à Vence, proche de Nice.",
+    description: "Site vitrine 990€ HT livré en 4 semaines, web app sur devis. Développeur indépendant basé à Vence, proche de Nice.",
     url: 'https://www.opti-pro.fr/services/nice',
     type: 'website',
   },
@@ -23,7 +23,7 @@ export default function NicePage() {
       metaTitle={metadata.title as string}
       metaDescription={metadata.description as string}
       h1="Création de site internet à Nice pour artisans et TPE"
-      intro="Vous cherchez quelqu'un près de vous pour vous faire un site internet à Nice. Je suis développeur web indépendant, basé à Vence, à une vingtaine de kilomètres de Nice : je construis des sites vitrines et des outils métier sur mesure pour les artisans et les TPE. Site vitrine à 990€ HT, livré en 3 semaines, hébergement et nom de domaine inclus."
+      intro="Vous cherchez quelqu'un près de vous pour vous faire un site internet à Nice. Je suis développeur web indépendant, basé à Vence, à une vingtaine de kilomètres de Nice : je construis des sites vitrines et des outils métier sur mesure pour les artisans et les TPE. Site vitrine à 990€ HT, livré en 4 semaines, hébergement et nom de domaine inclus."
       economicContext="Nice concentre une densité de TPE et d'indépendants rare sur la Côte d'Azur : artisans du bâtiment, commerces de quartier, restauration, services à la personne, professions libérales. L'activité y est fortement marquée par le tourisme, ce qui signifie une clientèle qui change souvent et qui cherche presque toujours sur son téléphone avant d'appeler. Dans ce contexte, un artisan niçois sans site — ou avec une page Facebook laissée à l'abandon — devient difficile à trouver, à comparer et à contacter. Un site vitrine clair, rapide et bien référencé localement est souvent le premier outil commercial qui manque."
       geo={{ latitude: 43.7102, longitude: 7.2620 }}
       whyHere={[
@@ -48,7 +48,7 @@ export default function NicePage() {
         {
           icon: '🌐',
           title: 'Site vitrine — 990€ HT',
-          description: "3 à 4 pages sur mesure pour présenter votre activité à Nice : vos prestations, votre zone d'intervention, vos coordonnées. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 3 semaines.",
+          description: "3 à 4 pages sur mesure pour présenter votre activité à Nice : vos prestations, votre zone d'intervention, vos coordonnées. Hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Livré en 4 semaines.",
         },
         {
           icon: '📍',
@@ -109,7 +109,7 @@ export default function NicePage() {
         },
         {
           question: "En combien de temps mon site est-il en ligne ?",
-          answer: "Un site vitrine est livré en 3 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et écrit dans le devis avant de démarrer.",
+          answer: "Un site vitrine est livré en 4 semaines. Pour une web app ou un outil métier, le délai dépend du périmètre : il est défini avec vous et écrit dans le devis avant de démarrer.",
         },
         {
           question: "Je veux surtout être trouvé sur Google à Nice. C'est possible ?",

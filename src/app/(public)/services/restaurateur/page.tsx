@@ -4,12 +4,12 @@ import LandingPage from '@/components/seo/LandingPage';
 export const metadata: Metadata = {
   title: 'Création de site internet pour restaurant — PACA',
   description:
-    "Site internet pour restaurant : menu toujours à jour, réservation en ligne, photos de vos plats et fiche Google renseignée. Dès 990€ HT, livré en 3 semaines. Vence (06).",
+    "Site internet pour restaurant : menu toujours à jour, réservation en ligne, photos de vos plats et fiche Google renseignée. Dès 990€ HT, livré en 4 semaines. Vence (06).",
   alternates: { canonical: '/services/restaurateur' },
   openGraph: {
     title: 'Création de site internet pour restaurant — OptiPro',
     description:
-      "Carte à jour, réservation en ligne, photos qui donnent envie : le site qui remplit vos couverts. Dès 990€ HT, livré en 3 semaines.",
+      "Carte à jour, réservation en ligne, photos qui donnent envie : le site qui remplit vos couverts. Dès 990€ HT, livré en 4 semaines.",
     url: 'https://www.opti-pro.fr/services/restaurateur',
     type: 'website',
   },
@@ -115,7 +115,7 @@ const jsonLd = {
           name: "Combien coûte un site de restaurant et quel est le délai de livraison ?",
           acceptedAnswer: {
             '@type': 'Answer',
-            text: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local, c'est la formule la plus adaptée à un restaurant. Le délai annoncé pour un site vitrine est de 3 semaines. Un module de réservation avancé relève de l'offre web app, sur devis.",
+            text: "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local, c'est la formule la plus adaptée à un restaurant. Le délai annoncé pour un site vitrine est de 4 semaines. Un module de réservation avancé relève de l'offre web app, sur devis.",
           },
         },
       ],
@@ -128,7 +128,7 @@ export default function RestaurateurPage() {
     <LandingPage
       badge="Pour restaurants, cafés et brasseries"
       h1="Création de site internet pour restaurant"
-      intro="Un client qui hésite entre votre restaurant et celui d'à côté cherche trois choses sur son téléphone : la carte, les horaires réels, et un moyen de réserver tout de suite. Si l'une des trois manque, il réserve ailleurs. Je construis le site qui répond aux trois, avec une carte que vous pouvez enfin garder à jour. Site vitrine à partir de 990€ HT, livré en 3 semaines."
+      intro="Un client qui hésite entre votre restaurant et celui d'à côté cherche trois choses sur son téléphone : la carte, les horaires réels, et un moyen de réserver tout de suite. Si l'une des trois manque, il réserve ailleurs. Je construis le site qui répond aux trois, avec une carte que vous pouvez enfin garder à jour. Site vitrine à partir de 990€ HT, livré en 4 semaines."
       painSection={{
         title: "Pourquoi le client réserve chez le voisin ?",
         points: [
@@ -143,7 +143,7 @@ export default function RestaurateurPage() {
       featuredOffer={{
         name: 'Site vitrine Pro',
         price: '1 390 € HT',
-        delay: '3 semaines',
+        delay: '4 semaines',
         description:
           "La formule adaptée à la restauration : la carte au centre du site, un formulaire de réservation qui arrive directement dans votre boîte mail sans commission, et une fiche Google enfin cohérente avec vos horaires réels.",
         features: [
@@ -172,7 +172,7 @@ export default function RestaurateurPage() {
           step: '3',
           title: 'Développement et mise en ligne',
           description:
-            "Je développe le site, teste la réservation de bout en bout et vérifie l'affichage de la carte sur téléphone, puis je publie sur votre nom de domaine. Délai annoncé pour un site vitrine : 3 semaines.",
+            "Je développe le site, teste la réservation de bout en bout et vérifie l'affichage de la carte sur téléphone, puis je publie sur votre nom de domaine. Délai annoncé pour un site vitrine : 4 semaines.",
         },
         {
           step: '4',
@@ -210,7 +210,7 @@ export default function RestaurateurPage() {
         {
           question: "Combien coûte un site de restaurant et quel est le délai de livraison ?",
           answer:
-            "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local, c'est la formule la plus adaptée à un restaurant. Le délai annoncé pour un site vitrine est de 3 semaines. Un module de réservation avancé relève de l'offre web app, sur devis.",
+            "Site vitrine à 990€ HT : 3 à 4 pages sur mesure, hébergement 1 an, nom de domaine et adresse email professionnelle inclus. Site vitrine Pro à 1 390€ HT : le même pack plus le formulaire de contact fonctionnel, la fiche Google My Business et le SEO local, c'est la formule la plus adaptée à un restaurant. Le délai annoncé pour un site vitrine est de 4 semaines. Un module de réservation avancé relève de l'offre web app, sur devis.",
         },
       ]}
       localMentions={['Vence', 'Nice', 'Cannes', 'Antibes', 'Mougins']}

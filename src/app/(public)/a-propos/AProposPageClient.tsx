@@ -26,7 +26,7 @@ const timeline: TimelineItem[] = [
     company: 'OptiPro',
     role: 'Fondateur — Développeur web sur mesure pour artisans et TPE',
     description:
-      "J'ai quitté l'exploitation salariée pour construire des outils web pour artisans et TPE. Sites vitrines, web apps, outils métier sur mesure — des projets à périmètre défini, livrés en temps et en heure. Première réalisation : SAPAL Signalisation, plateforme B2B avec catalogue 2 500+ références, portail client et intégrations API.",
+      "Je construis des outils web pour artisans et TPE, en missions à périmètre défini. Sites vitrines, web apps, outils métier sur mesure — des projets livrés en temps et en heure. Première réalisation : SAPAL Signalisation, plateforme B2B avec catalogue 2 500+ références, portail client et intégrations API.",
     current: true,
   },
   {

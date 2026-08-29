@@ -22,8 +22,10 @@ de marques ou d'éléments Marvel.
 - [x] TypeScript + lint + tests structurels sans build
 - [x] Validation visuelle locale desktop/mobile, navigation, images, redirections et console navigateur
 - [x] Build Next.js de production validé : 12/12 pages statiques générées avec Next.js 16.3.3
-- [ ] Déploiement Vercel et contrôle Production — autorisation explicite requise
-- [ ] Retrait des variables Supabase/Resend/Pennylane dans Vercel après déploiement de la version statique
+- [x] Déploiement Vercel Production validé sur `www.opti-pro.fr` : commit `7d52610`, statut READY,
+      pages et redirections HTTP, rendu desktop/mobile, navigation, images et console contrôlés
+- [x] Variables Vercel Supabase et Resend retirées après validation de la version statique ;
+      `vercel env ls` confirme qu’il ne reste aucune variable sur `optipro-website`
 - [ ] Sauvegarde de la base OptiPro avant suppression : bloquée car le quota Supabase Free autorise déjà
       2 projets actifs (ProbaLab et Ferdinand). Le projet OptiPro reste `INACTIVE`, intact et non supprimé.
 

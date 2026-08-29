@@ -95,7 +95,7 @@ export default function HomePage() {
 
           <div className={styles.projectGrid}>
             {projects.map((project, index) => (
-              <article className={`${styles.projectCard} ${styles[project.statusTone]}`} key={project.slug}>
+              <article className={`${styles.projectCard} ${project.statusTone === "amber" ? styles.amber : ""}`} key={project.slug}>
                 <div className={styles.projectInfo}>
                   <div className={styles.projectMeta}>
                     <span>{project.code}</span>

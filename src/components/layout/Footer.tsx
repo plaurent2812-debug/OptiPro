@@ -7,20 +7,20 @@ export default function Footer() {
       <div className="shell">
         <div className={styles.footerTop}>
           <div>
-            <p className={styles.footerSignal}>SYSTEM / ONLINE</p>
-            <p className={styles.footerTitle}>Construire. Mesurer. Améliorer.</p>
+            <p className={styles.footerSignal}>NOTES / PROJETS / PARCOURS</p>
+            <p className={styles.footerTitle}>Un endroit pour garder une trace.</p>
           </div>
           <div className={styles.footerLinks}>
             <Link href="/projets">Projets</Link>
-            <Link href="/a-propos">À propos</Link>
-            <Link href="/contact">Contact</Link>
+            <Link href="/a-propos">Parcours</Link>
+            <Link href="/contact">Me contacter</Link>
             <a href="https://github.com/plaurent2812-debug" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             <a href="https://www.linkedin.com/in/pierre-laurent-809410123" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
           </div>
         </div>
         <div className={styles.footerBottom}>
-          <p>© {new Date().getFullYear()} Pierre Laurent · OptiPro</p>
-          <p className={styles.noClient}>Studio de produits personnels · aucune mission client</p>
+          <p>© {new Date().getFullYear()} Pierre Laurent</p>
+          <p className={styles.siteNote}>Site personnel · Vence, France</p>
           <div>
             <Link href="/mentions-legales">Mentions légales</Link>
             <Link href="/confidentialite">Confidentialité</Link>

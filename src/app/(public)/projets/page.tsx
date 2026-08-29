@@ -5,7 +5,7 @@ import styles from "../content.module.css";
 
 export const metadata: Metadata = {
   title: "Projets",
-  description: "ProbaLab, Ferdinand et les produits numériques conçus par Pierre Laurent.",
+  description: "Les applications, outils et projets personnels créés par Pierre Laurent.",
   alternates: { canonical: "/projets" },
 };
 
@@ -14,9 +14,9 @@ export default function ProjectsPage() {
     <main>
       <section className={styles.pageHero}>
         <div className="shell">
-          <p className="eyebrow">Product systems</p>
-          <h1>Des produits que je veux <em>voir exister.</em></h1>
-          <p>Je prends la responsabilité de toute la chaîne : vision produit, architecture, données, expérience web et mobile, distribution et preuve de fonctionnement.</p>
+          <p className="eyebrow">Apps, outils & expérimentations</p>
+          <h1>Ce que j’ai créé — et ce qui est encore <em>en train de le devenir.</em></h1>
+          <p>Certains projets sont déjà utilisés, d’autres continuent de changer chaque semaine. Je les rassemble ici avec leur histoire, leur état actuel et les idées que j’y explore.</p>
         </div>
       </section>
 
@@ -38,11 +38,11 @@ export default function ProjectsPage() {
               <p className={styles.statement}>{project.statement}</p>
               <p className={styles.description}>{project.description}</p>
               <div className={styles.matrix}>
-                <div><span>PLATEFORMES</span><strong>{project.platforms.join(" · ")}</strong></div>
-                <div><span>SYSTÈMES</span><strong>{project.capabilities.slice(0, 3).join(" · ")}</strong></div>
+                <div><span>DISPONIBLE SUR</span><strong>{project.platforms.join(" · ")}</strong></div>
+                <div><span>CE QUE J’Y EXPLORE</span><strong>{project.capabilities.slice(0, 3).join(" · ")}</strong></div>
               </div>
               <div className={styles.tags}>{project.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div>
-              {project.href ? <a href={project.href} className={styles.projectLink} target="_blank" rel="noopener noreferrer">VISITER {project.name.toUpperCase()} ↗</a> : <span className={styles.projectWait}>ACCÈS PUBLIC / À VENIR</span>}
+              {project.href ? <a href={project.href} className={styles.projectLink} target="_blank" rel="noopener noreferrer">DÉCOUVRIR {project.name.toUpperCase()} ↗</a> : <span className={styles.projectWait}>ENCORE UN PEU DE PATIENCE</span>}
             </div>
           </article>
         ))}

@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Pierre Laurent — Product builder",
+    name: "Pierre Laurent — Site personnel",
     short_name: "Pierre Laurent",
-    description: "Produits numériques, données, web et mobile.",
+    description: "Projets, applications, parcours et centres d’intérêt.",
     start_url: "/",
     display: "standalone",
     background_color: "#05080d",

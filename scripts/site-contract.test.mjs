@@ -27,7 +27,7 @@ function containsFile(path) {
   );
 }
 
-test("le portfolio expose uniquement les routes prévues", () => {
+test("le site personnel expose uniquement les routes prévues", () => {
   requiredFiles.forEach((file) => assert.equal(existsSync(file), true, `${file} doit exister`));
   retiredPaths.forEach((path) => assert.equal(containsFile(path), false, `${path} ne doit contenir aucun fichier`));
 });
@@ -47,10 +47,28 @@ test("les anciens parcours commerciaux sont redirigés", () => {
   });
 });
 
-test("le nouveau discours ne vend plus de prestation", () => {
-  const files = requiredFiles.map((file) => readFileSync(file, "utf8")).join("\n");
-  ["990", "1 390", "appel découverte", "demander un devis", "maintenance mensuelle"].forEach((phrase) => {
+test("le discours reste personnel et non commercial", () => {
+  const contentFiles = [
+    ...requiredFiles,
+    "src/components/layout/Header.tsx",
+    "src/components/layout/Footer.tsx",
+    "src/app/layout.tsx",
+  ];
+  const files = contentFiles.map((file) => readFileSync(file, "utf8")).join("\n");
+  [
+    "990",
+    "1 390",
+    "appel découverte",
+    "demander un devis",
+    "maintenance mensuelle",
+    "product builder",
+    "client work",
+    "pas prestations",
+    "aucune mission client",
+    "studio de produits",
+  ].forEach((phrase) => {
     assert.equal(files.toLowerCase().includes(phrase.toLowerCase()), false, `discours commercial résiduel : ${phrase}`);
   });
-  assert.match(files, /aucune mission client/i);
+  assert.match(files, /site personnel/i);
+  assert.match(files, /mon parcours/i);
 });

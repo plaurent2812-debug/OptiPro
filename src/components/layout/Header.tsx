@@ -6,8 +6,7 @@ import styles from "./layout.module.css";
 
 const links = [
   { href: "/projets", label: "Projets" },
-  { href: "/a-propos", label: "À propos" },
-  { href: "/contact", label: "Contact" },
+  { href: "/a-propos", label: "Parcours" },
 ];
 
 function closeMobileMenu(event: MouseEvent<HTMLElement>) {
@@ -25,7 +24,7 @@ export default function Header() {
         <Link href="/" className={styles.brand} aria-label="Pierre Laurent — accueil">
           <span className={styles.brandMark} aria-hidden="true">PL</span>
           <span className={styles.brandName}>PIERRE.LAURENT</span>
-          <span className={styles.brandRole}>/ PRODUCT BUILDER</span>
+          <span className={styles.brandRole}>/ SITE PERSONNEL</span>
         </Link>
 
         <nav className={styles.desktopNav} aria-label="Navigation principale">
@@ -34,14 +33,6 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <a
-            href="https://www.probalab.net"
-            className={styles.productLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ProbaLab <span aria-hidden="true">↗</span>
-          </a>
         </nav>
 
         <details className={styles.mobileMenu}>
@@ -50,9 +41,6 @@ export default function Header() {
             {links.map((link) => (
               <Link key={link.href} href={link.href} onClick={closeMobileMenu}>{link.label}</Link>
             ))}
-            <a href="https://www.probalab.net" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
-              ProbaLab ↗
-            </a>
           </nav>
         </details>
       </div>

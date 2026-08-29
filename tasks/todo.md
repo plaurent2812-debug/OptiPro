@@ -1,15 +1,18 @@
 # TODO — OptiPro
 
-## Pivot portfolio produits personnels — EN COURS le 2026-08-30
+## Pivot site personnel — EN COURS le 2026-08-30
 
 Décision owner : arrêt définitif des missions client. OptiPro devient le site personnel de
-Pierre Laurent, centré sur ProbaLab, Ferdinand et les futurs produits. Direction visuelle :
+Pierre Laurent, centré sur ses projets, son parcours, ses centres d’intérêt et ce qu’il crée.
+ProbaLab et Ferdinand sont les projets actuels, sans transformer le site en vitrine produit.
+Direction visuelle :
 univers technologique sombre et cinématographique, interface système originale, sans reprise
 de marques ou d'éléments Marvel.
 
 - [x] Archive Git locale créée : tag `archive/client-site-2026-08-29`
 - [x] Branche de travail créée : `codex/refonte-studio-produits`
 - [x] Nouvelle identité éditoriale et visuelle implémentée
+- [x] Discours de « studio / product builder » retiré au profit d’un vrai site personnel non commercial
 - [x] Pages actives limitées à Accueil, Projets, À propos, Contact, Mentions légales, Confidentialité
 - [x] ProbaLab et Ferdinand présentés comme produits personnels, pas comme clients
 - [x] Tarifs, prestations, pages locales, blog commercial, formulaire, CRM/admin et crons retirés du code actif

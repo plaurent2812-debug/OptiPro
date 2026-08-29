@@ -1,13 +1,12 @@
-# Pierre Laurent — Product Lab
+# Pierre Laurent — Site personnel
 
-Site personnel de Pierre Laurent, product builder et créateur de ProbaLab et
-Ferdinand.
+Site personnel de Pierre Laurent : projets, applications, outils, parcours et
+centres d’intérêt.
 
-## Positionnement
+## Intention
 
-Ce dépôt n'est plus un site de prestations. Il présente des produits numériques
-personnels et la méthode qui les relie : systèmes de données, applications web,
-expériences mobiles et automatisations fiables.
+Ce dépôt rassemble les projets que je crée, ce que j’apprends en les construisant
+et quelques éléments de mon parcours. Il ne poursuit pas un objectif commercial.
 
 ## Stack
 

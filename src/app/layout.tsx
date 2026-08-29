@@ -18,26 +18,26 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.opti-pro.fr"),
   title: {
-    default: "Pierre Laurent — Product builder",
+    default: "Pierre Laurent — Projets, apps et parcours",
     template: "%s · Pierre Laurent",
   },
   description:
-    "Je conçois et développe des produits numériques utiles, du moteur de données à l’expérience mobile. Créateur de ProbaLab et Ferdinand.",
+    "Le site personnel de Pierre Laurent : projets, applications, outils, parcours et centres d’intérêt.",
   authors: [{ name: "Pierre Laurent", url: "https://www.opti-pro.fr" }],
   creator: "Pierre Laurent",
   category: "technology",
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "Pierre Laurent — Product builder",
-    title: "Pierre Laurent — Je construis des systèmes utiles",
+    siteName: "Pierre Laurent — Site personnel",
+    title: "Pierre Laurent — Projets, apps et parcours",
     description:
-      "Produits numériques, données, web et mobile. Découvrez ProbaLab, Ferdinand et les prochains systèmes.",
+      "Mes projets, les applications que je crée, mon parcours et ce qui m’intéresse.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pierre Laurent — Product builder",
-    description: "Produits numériques, données, web et mobile.",
+    title: "Pierre Laurent — Site personnel",
+    description: "Projets, applications, parcours et centres d’intérêt.",
   },
   icons: {
     icon: "/icon.svg",

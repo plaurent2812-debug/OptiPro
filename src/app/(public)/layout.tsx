@@ -10,11 +10,10 @@ const jsonLd = {
       "@id": "https://www.opti-pro.fr/#pierre-laurent",
       name: "Pierre Laurent",
       description:
-        "Product builder français. Créateur de ProbaLab et Ferdinand, spécialisé dans les produits numériques, la donnée, le web et le mobile.",
+        "Site personnel de Pierre Laurent : projets, applications, outils, parcours et centres d’intérêt.",
       url: "https://www.opti-pro.fr",
       email: "p.laurent@opti-pro.fr",
       image: "https://www.opti-pro.fr/pierre-laurent-tech-hero.png",
-      jobTitle: "Product builder",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Vence",
@@ -38,7 +37,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": "https://www.opti-pro.fr/#website",
       url: "https://www.opti-pro.fr",
-      name: "Pierre Laurent — Product builder",
+      name: "Pierre Laurent — Site personnel",
       author: { "@id": "https://www.opti-pro.fr/#pierre-laurent" },
       inLanguage: "fr-FR",
     },

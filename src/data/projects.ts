@@ -19,12 +19,12 @@ export const projects: ProductProject[] = [
   {
     slug: "probalab",
     name: "ProbaLab",
-    code: "PRJ-01 / DECISION INTELLIGENCE",
+    code: "PROJET 01 / PROBALAB",
     status: "Développement actif",
     statusTone: "cyan",
-    statement: "Rendre une décision complexe lisible, sans promettre ce que les données ne prouvent pas.",
+    statement: "Une question personnelle devenue un écosystème web et mobile complet.",
     description:
-      "Un écosystème web et mobile d’aide à la décision pour les paris sportifs : lecture du marché, analyse factuelle, suivi de bankroll, journal et apprentissage. Le produit privilégie les preuves, la traçabilité et le droit de passer.",
+      "J’ai créé ProbaLab pour rendre les décisions liées aux paris sportifs plus lisibles et responsables. Le projet réunit lecture du marché, analyse factuelle, suivi de bankroll, journal et apprentissage — avec une règle importante : les données doivent aussi savoir dire quand elles ne savent pas.",
     image: "/projects/probalab-app.png",
     icon: "/projects/probalab-icon.png",
     imageAlt: "Écran Bankroll de l’application ProbaLab",
@@ -36,12 +36,12 @@ export const projects: ProductProject[] = [
   {
     slug: "ferdinand",
     name: "Ferdinand",
-    code: "PRJ-02 / PERSONAL OPERATIONS",
+    code: "PROJET 02 / FERDINAND",
     status: "Produit en évolution",
     statusTone: "amber",
-    statement: "Confier une information une fois. Être prévenu quand elle devient utile.",
+    statement: "Mon idée d’un assistant personnel discret qui n’oublie jamais l’essentiel.",
     description:
-      "Un majordome numérique calme et fiable qui veille sur les échéances des véhicules, appareils et biens du quotidien. Ferdinand transforme les rappels dispersés en un système simple, personnel et durable.",
+      "Ferdinand est né de toutes ces échéances du quotidien que l’on note quelque part avant de les oublier : véhicules, appareils, contrats ou entretien. J’explore avec lui l’idée d’un majordome numérique calme, fiable et réellement utile.",
     image: "/projects/ferdinand-app.jpg",
     icon: "/projects/ferdinand-icon.png",
     imageAlt: "Tableau de bord de l’application Ferdinand",

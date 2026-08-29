@@ -21,7 +21,7 @@ de marques ou d'éléments Marvel.
 - [x] Nouveau portrait hero généré et intégré avec les visuels réels des deux produits
 - [x] TypeScript + lint + tests structurels sans build
 - [x] Validation visuelle locale desktop/mobile, navigation, images, redirections et console navigateur
-- [ ] Build Next.js de production — autorisation explicite requise avant lancement
+- [x] Build Next.js de production validé : 12/12 pages statiques générées avec Next.js 16.3.3
 - [ ] Déploiement Vercel et contrôle Production — autorisation explicite requise
 - [ ] Retrait des variables Supabase/Resend/Pennylane dans Vercel après déploiement de la version statique
 - [ ] Sauvegarde de la base OptiPro avant suppression : bloquée car le quota Supabase Free autorise déjà

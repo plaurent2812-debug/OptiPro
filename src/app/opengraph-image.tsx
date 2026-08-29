@@ -12,7 +12,10 @@ export default function OpenGraphImage() {
       <div style={{ position: "relative", width: "100%", padding: "76px 84px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 16, color: "#50e6ff", fontSize: 20, letterSpacing: 4 }}><div style={{ width: 12, height: 12, borderRadius: 99, background: "#50e6ff", boxShadow: "0 0 22px #50e6ff" }} /> SITE PERSONNEL</div>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ fontSize: 76, lineHeight: .96, letterSpacing: -4, fontWeight: 700 }}>Projets, apps<br />et idées en cours.</div>
+          <div style={{ display: "flex", flexDirection: "column", fontSize: 76, lineHeight: .96, letterSpacing: -4, fontWeight: 700 }}>
+            <span>Projets, apps</span>
+            <span>et idées en cours.</span>
+          </div>
           <div style={{ marginTop: 28, color: "#9aabb8", fontSize: 28 }}>Pierre Laurent · ProbaLab · Ferdinand · et la suite</div>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", color: "#60717f", fontSize: 17, letterSpacing: 3 }}><span>PROJETS / PARCOURS / TECH</span><span>WWW.OPTI-PRO.FR</span></div>

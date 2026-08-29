@@ -1,34 +1,14 @@
-import Button from '@/components/ui/Button';
+import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div style={{
-      minHeight: 'calc(100vh - var(--header-height) - 300px)',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      textAlign: 'center',
-      padding: '4rem 1.5rem',
-    }}>
-      <div style={{
-        fontSize: '6rem',
-        fontWeight: '800',
-        color: 'var(--accent)',
-        lineHeight: '1',
-        marginBottom: '1rem',
-      }}>
-        404
+    <main style={{ minHeight: "100svh", display: "grid", placeItems: "center", padding: "6rem 1.5rem", textAlign: "center" }}>
+      <div>
+        <p className="eyebrow">Signal lost / 404</p>
+        <h1 style={{ marginTop: "1rem", fontSize: "clamp(4rem, 18vw, 11rem)", lineHeight: .85, letterSpacing: "-.08em" }}>Hors réseau.</h1>
+        <p style={{ margin: "2rem auto", maxWidth: 520, color: "var(--text-dim)" }}>Cette route n’appartient plus au système actif.</p>
+        <Link href="/" className="button-primary">Retour au noyau →</Link>
       </div>
-      <h1 style={{ fontSize: '2rem', marginBottom: '1rem', color: 'var(--primary)' }}>
-        Page introuvable
-      </h1>
-      <p style={{ color: 'var(--muted)', marginBottom: '2rem', maxWidth: '500px', fontSize: '1.125rem' }}>
-        La page que vous cherchez n&apos;existe pas ou a été déplacée.
-      </p>
-      <Button href="/" variant="primary">
-        Retour à l&apos;accueil
-      </Button>
-    </div>
+    </main>
   );
 }

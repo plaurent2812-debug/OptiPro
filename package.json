@@ -1,43 +1,27 @@
 {
-  "name": "optipro",
-  "version": "0.1.0",
+  "name": "pierre-laurent-product-lab",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/notify_indexnow.mjs",
     "start": "next start",
     "lint": "eslint",
-    "test": "jest",
-    "test:ci": "jest --ci --coverage"
+    "typecheck": "tsc --noEmit",
+    "test": "node --test scripts/site-contract.test.mjs"
   },
   "dependencies": {
-    "@gsap/react": "^2.1.2",
-    "@radix-ui/react-alert-dialog": "^1.1.15",
-    "@react-pdf/renderer": "^4.3.2",
-    "@supabase/ssr": "^0.10.0",
-    "@supabase/supabase-js": "^2.100.1",
     "@vercel/analytics": "^2.0.1",
-    "gsap": "^3.15.0",
-    "lucide-react": "^1.14.0",
-    "next": "^16.2.1",
+    "next": "16.3.3",
     "react": "19.2.3",
-    "react-dom": "19.2.3",
-    "resend": "^6.9.4",
-    "sonner": "^2.0.7"
+    "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.9.1",
-    "@testing-library/react": "^16.3.2",
-    "@types/jest": "^30.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "jest": "^30.3.0",
-    "jest-environment-jsdom": "^30.3.0",
-    "ts-jest": "^29.4.6",
     "typescript": "^5"
   }
 }

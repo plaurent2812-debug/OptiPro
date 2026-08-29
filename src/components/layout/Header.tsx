@@ -1,197 +1,61 @@
-'use client';
+"use client";
 
-import { useState, useCallback, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import type { MouseEvent } from "react";
+import Link from "next/link";
+import styles from "./layout.module.css";
 
-import Button from '../ui/Button';
-import Logo from '../ui/Logo';
+const links = [
+  { href: "/projets", label: "Projets" },
+  { href: "/a-propos", label: "À propos" },
+  { href: "/contact", label: "Contact" },
+];
+
+function closeMobileMenu(event: MouseEvent<HTMLElement>) {
+  const details = event.currentTarget.closest("details");
+
+  if (details instanceof HTMLDetailsElement) {
+    details.open = false;
+  }
+}
 
 export default function Header() {
-    const [menuOpen, setMenuOpen] = useState(false);
-    const pathname = usePathname();
+  return (
+    <header className={styles.header}>
+      <div className={`shell ${styles.headerInner}`}>
+        <Link href="/" className={styles.brand} aria-label="Pierre Laurent — accueil">
+          <span className={styles.brandMark} aria-hidden="true">PL</span>
+          <span className={styles.brandName}>PIERRE.LAURENT</span>
+          <span className={styles.brandRole}>/ PRODUCT BUILDER</span>
+        </Link>
 
-    const toggleMenu = useCallback(() => {
-        setMenuOpen((prev) => !prev);
-    }, []);
+        <nav className={styles.desktopNav} aria-label="Navigation principale">
+          {links.map((link) => (
+            <Link key={link.href} href={link.href} className={styles.navLink}>
+              {link.label}
+            </Link>
+          ))}
+          <a
+            href="https://www.probalab.net"
+            className={styles.productLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            ProbaLab <span aria-hidden="true">↗</span>
+          </a>
+        </nav>
 
-    const closeMenu = useCallback(() => {
-        setMenuOpen(false);
-    }, []);
-
-    const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20);
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const navLinks = [
-        { href: '/le-service', label: 'Le service' },
-        { href: '/tarifs', label: 'Tarifs' },
-        { href: '/a-propos', label: 'À propos' },
-        { href: '/contact', label: 'Contact' },
-    ];
-
-    return (
-        <>
-        <header style={{
-            height: 'var(--header-height)',
-            borderBottom: '1px solid var(--border)',
-            position: 'fixed',
-            width: '100%',
-            backgroundColor: 'rgba(248, 250, 252, 0.88)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            zIndex: 1000,
-            top: 0,
-            boxShadow: scrolled ? '0 4px 20px rgba(0,0,0,0.08)' : 'none',
-            transition: 'box-shadow 0.3s ease',
-        }}>
-            <div className="container" style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <Link href="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }} onClick={closeMenu}>
-                    <Logo size="1.9rem" />
-                </Link>
-
-                {/* Desktop nav */}
-                <nav className="desktop-nav" style={{ display: 'flex', gap: '0.25rem', alignItems: 'center' }}>
-                    {navLinks.map(({ href, label }) => {
-                        const isActive = pathname === href;
-                        return (
-                            <Link
-                                key={href}
-                                href={href}
-                                className="nav-link"
-                                style={{
-                                    fontSize: '0.9rem',
-                                    fontWeight: 500,
-                                    color: isActive ? 'var(--foreground)' : 'var(--secondary)',
-                                    padding: '0.4rem 0.85rem',
-                                    borderRadius: '8px',
-                                    transition: 'all 0.3s ease',
-                                    position: 'relative' as const,
-                                    background: isActive ? 'rgba(0,0,0,0.05)' : 'transparent',
-                                }}
-                            >
-                                {label}
-                            </Link>
-                        );
-                    })}
-                    <Button
-                        href="/contact"
-                        variant="primary"
-                        style={{ marginLeft: '0.75rem', fontSize: '0.9rem', padding: '0.6rem 1.25rem' }}
-                    >
-                        Premier appel — gratuit
-                    </Button>
-                </nav>
-
-                {/* Hamburger button */}
-                <button
-                    className="hamburger-btn"
-                    onClick={toggleMenu}
-                    aria-label={menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
-                    aria-expanded={menuOpen}
-                    style={{
-                        display: 'none',
-                        background: 'none',
-                        border: 'none',
-                        cursor: 'pointer',
-                        padding: '0.5rem',
-                        zIndex: 1001,
-                    }}
-                >
-                    <div style={{
-                        width: '24px',
-                        height: '18px',
-                        position: 'relative',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'space-between',
-                    }}>
-                        <span style={{
-                            display: 'block',
-                            width: '100%',
-                            height: '2px',
-                            background: 'var(--foreground)',
-                            borderRadius: '2px',
-                            transition: 'all 0.3s ease',
-                            transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none',
-                        }} />
-                        <span style={{
-                            display: 'block',
-                            width: '100%',
-                            height: '2px',
-                            background: 'var(--foreground)',
-                            borderRadius: '2px',
-                            transition: 'all 0.3s ease',
-                            opacity: menuOpen ? 0 : 1,
-                        }} />
-                        <span style={{
-                            display: 'block',
-                            width: '100%',
-                            height: '2px',
-                            background: 'var(--foreground)',
-                            borderRadius: '2px',
-                            transition: 'all 0.3s ease',
-                            transform: menuOpen ? 'rotate(-45deg) translate(6px, -6px)' : 'none',
-                        }} />
-                    </div>
-                </button>
-            </div>
-        </header>
-
-        {/* Mobile nav — slide-down animated, sorti du <header> pour corriger les bugs de stacking context iOS/Safari */}
-        <div
-            className={`mobile-nav${menuOpen ? ' mobile-nav--open' : ''}`}
-            style={{
-                position: 'fixed',
-                top: 'var(--header-height)',
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: 'rgba(5, 12, 26, 0.97)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
-                display: 'flex',
-                flexDirection: 'column',
-                padding: '2rem 1.5rem',
-                gap: '0.5rem',
-                zIndex: 999, /* zIndex juste en dessous du header(1000) pour qu'il passe dessous, mais au dessus du contenu complet */
-                borderTop: '1px solid var(--border)',
-                transform: menuOpen ? 'translateY(0)' : 'translateY(-100%)',
-                opacity: menuOpen ? 1 : 0,
-                visibility: menuOpen ? 'visible' : 'hidden',
-                transition: 'transform 0.4s cubic-bezier(0.22,1,0.36,1), opacity 0.3s, visibility 0.4s',
-                pointerEvents: menuOpen ? 'auto' : 'none',
-            }}
-        >
-            {navLinks.map(({ href, label }) => {
-                const isActive = pathname === href;
-                return (
-                    <Link
-                        key={href}
-                        href={href}
-                        onClick={closeMenu}
-                        style={{
-                            padding: '1rem 0',
-                            fontWeight: isActive ? 700 : 500,
-                            fontSize: '1.125rem',
-                            color: isActive ? 'var(--accent)' : '#94a3b8',
-                            borderBottom: '1px solid rgba(255,255,255,0.07)',
-                        }}
-                    >
-                        {label}
-                    </Link>
-                );
-            })}
-            <div style={{ marginTop: '1rem' }}>
-                <Button href="/contact" variant="primary" style={{ width: '100%', textAlign: 'center' }} onClick={closeMenu}>
-                    Premier appel — gratuit
-                </Button>
-            </div>
-        </div>
-        </>
-    );
+        <details className={styles.mobileMenu}>
+          <summary aria-label="Ouvrir le menu"><span /><span /></summary>
+          <nav aria-label="Navigation mobile">
+            {links.map((link) => (
+              <Link key={link.href} href={link.href} onClick={closeMobileMenu}>{link.label}</Link>
+            ))}
+            <a href="https://www.probalab.net" target="_blank" rel="noopener noreferrer" onClick={closeMobileMenu}>
+              ProbaLab ↗
+            </a>
+          </nav>
+        </details>
+      </div>
+    </header>
+  );
 }

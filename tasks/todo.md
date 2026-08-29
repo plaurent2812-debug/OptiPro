@@ -1,5 +1,29 @@
 # TODO — OptiPro
 
+## Pivot portfolio produits personnels — EN COURS le 2026-08-30
+
+Décision owner : arrêt définitif des missions client. OptiPro devient le site personnel de
+Pierre Laurent, centré sur ProbaLab, Ferdinand et les futurs produits. Direction visuelle :
+univers technologique sombre et cinématographique, interface système originale, sans reprise
+de marques ou d'éléments Marvel.
+
+- [x] Archive Git locale créée : tag `archive/client-site-2026-08-29`
+- [x] Branche de travail créée : `codex/refonte-studio-produits`
+- [x] Nouvelle identité éditoriale et visuelle implémentée
+- [x] Pages actives limitées à Accueil, Projets, À propos, Contact, Mentions légales, Confidentialité
+- [x] ProbaLab et Ferdinand présentés comme produits personnels, pas comme clients
+- [x] Tarifs, prestations, pages locales, blog commercial, formulaire, CRM/admin et crons retirés du code actif
+- [x] Dépendances Supabase, Resend, GSAP, React PDF et composants admin retirés du manifeste npm
+- [x] Redirections permanentes préparées pour les anciennes URL publiques
+- [x] Nouveau portrait hero généré et intégré avec les visuels réels des deux produits
+- [x] TypeScript + lint + tests structurels sans build
+- [x] Validation visuelle locale desktop/mobile, navigation, images, redirections et console navigateur
+- [ ] Build Next.js de production — autorisation explicite requise avant lancement
+- [ ] Déploiement Vercel et contrôle Production — autorisation explicite requise
+- [ ] Retrait des variables Supabase/Resend/Pennylane dans Vercel après déploiement de la version statique
+- [ ] Sauvegarde de la base OptiPro avant suppression : bloquée car le quota Supabase Free autorise déjà
+      2 projets actifs (ProbaLab et Ferdinand). Le projet OptiPro reste `INACTIVE`, intact et non supprimé.
+
 ## Repositionnement CDI temps plein dès septembre 2026 — TERMINÉ le 2026-07-27
 Pierre reprend un CDI temps plein en septembre. OptiPro devient une activité secondaire
 (soirs/week-ends) + SAPAL conservé en parallèle. Décisions actées : site en acquisition filtrée

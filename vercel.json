@@ -1,13 +1,3 @@
 {
-    "framework": "nextjs",
-    "crons": [
-        {
-            "path": "/api/cron/abonnements",
-            "schedule": "0 7 * * *"
-        },
-        {
-            "path": "/api/cron/relances-impayes",
-            "schedule": "0 9 * * *"
-        }
-    ]
+  "framework": "nextjs"
 }

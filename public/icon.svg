@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="PL">
+  <rect width="64" height="64" rx="14" fill="#05080d"/>
+  <path d="M7 19V9h10M47 9h10v10M57 45v10H47M17 55H7V45" fill="none" stroke="#50e6ff" stroke-width="2"/>
+  <text x="32" y="39" text-anchor="middle" fill="#edfaff" font-family="ui-monospace, monospace" font-size="22" font-weight="700">PL</text>
+  <circle cx="52" cy="14" r="2" fill="#ff9d3d"/>
+</svg>

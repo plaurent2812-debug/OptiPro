@@ -1,21 +1,9 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/admin', '/api'],
-      },
-      { userAgent: 'GPTBot', allow: '/' },
-      { userAgent: 'OAI-SearchBot', allow: '/' },
-      { userAgent: 'ClaudeBot', allow: '/' },
-      { userAgent: 'PerplexityBot', allow: '/' },
-      { userAgent: 'Google-Extended', allow: '/' },
-      { userAgent: 'Applebot-Extended', allow: '/' },
-      { userAgent: 'Bingbot', allow: '/' },
-    ],
-    sitemap: 'https://www.opti-pro.fr/sitemap.xml',
+    rules: [{ userAgent: "*", allow: "/", disallow: ["/api/"] }],
+    sitemap: "https://www.opti-pro.fr/sitemap.xml",
+    host: "https://www.opti-pro.fr",
   };
 }

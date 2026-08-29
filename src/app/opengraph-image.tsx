@@ -1,71 +1,23 @@
-import { ImageResponse } from 'next/og';
+import { ImageResponse } from "next/og";
 
-export const alt = 'OptiPro — Sites & outils web sur mesure pour artisans et TPE';
-export const size = {
-  width: 1200,
-  height: 630,
-};
-export const contentType = 'image/png';
+export const alt = "Pierre Laurent — Product builder";
+export const size = { width: 1200, height: 630 };
+export const contentType = "image/png";
 
-export default function Image() {
+export default function OpenGraphImage() {
   return new ImageResponse(
-    (
-      <div
-        style={{
-          background: 'linear-gradient(to bottom right, #f8fafc, #e2e8f0)',
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: '80px',
-        }}
-      >
-        <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            marginBottom: '40px',
-            backgroundColor: '#ffffff',
-            padding: '2rem 4rem',
-            borderRadius: '2rem',
-            boxShadow: '0 20px 40px rgba(0,0,0,0.05)'
-        }}>
-            <div style={{ display: 'flex', alignItems: 'baseline', fontSize: '110px', fontWeight: '800', fontFamily: 'system-ui, sans-serif', letterSpacing: '-0.03em' }}>
-                <span style={{ color: '#0d1b40' }}>Opti</span>
-                <span style={{ color: '#e86d00' }}>Pro</span>
-            </div>
+    <div style={{ width: "100%", height: "100%", display: "flex", position: "relative", overflow: "hidden", color: "#edfaff", background: "#05080d", fontFamily: "sans-serif" }}>
+      <div style={{ position: "absolute", inset: 0, display: "flex", opacity: .28, backgroundImage: "linear-gradient(rgba(80,230,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(80,230,255,.16) 1px, transparent 1px)", backgroundSize: "54px 54px" }} />
+      <div style={{ position: "absolute", width: 560, height: 560, borderRadius: 999, border: "1px solid rgba(80,230,255,.28)", right: -80, top: -120, boxShadow: "0 0 120px rgba(80,230,255,.12)" }} />
+      <div style={{ position: "relative", width: "100%", padding: "76px 84px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 16, color: "#50e6ff", fontSize: 20, letterSpacing: 4 }}><div style={{ width: 12, height: 12, borderRadius: 99, background: "#50e6ff", boxShadow: "0 0 22px #50e6ff" }} /> PERSONAL PRODUCT LAB</div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ fontSize: 76, lineHeight: .96, letterSpacing: -4, fontWeight: 700 }}>Je construis des systèmes<br />qui pensent avec vous.</div>
+          <div style={{ marginTop: 28, color: "#9aabb8", fontSize: 28 }}>Pierre Laurent · Product builder · ProbaLab · Ferdinand</div>
         </div>
-        
-        <div
-          style={{
-            fontSize: '48px',
-            color: '#1e293b',
-            lineHeight: 1.4,
-            textAlign: 'center',
-            fontWeight: '600',
-            fontFamily: 'system-ui, sans-serif',
-          }}
-        >
-          Sites &amp; outils web sur mesure
-        </div>
-        <div
-          style={{
-            fontSize: '36px',
-            color: '#64748b',
-            marginTop: '20px',
-            textAlign: 'center',
-            fontWeight: '500',
-            fontFamily: 'system-ui, sans-serif',
-          }}
-        >
-          pour artisans, TPE et indépendants — dès 990 €
-        </div>
+        <div style={{ display: "flex", justifyContent: "space-between", color: "#60717f", fontSize: 17, letterSpacing: 3 }}><span>DATA / WEB / MOBILE</span><span>WWW.OPTI-PRO.FR</span></div>
       </div>
-    ),
-    {
-      ...size,
-    }
+    </div>,
+    size,
   );
 }

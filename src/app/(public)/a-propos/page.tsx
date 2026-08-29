@@ -1,78 +1,60 @@
-import type { Metadata } from 'next';
-import AProposPageClient from './AProposPageClient';
-import { safeJsonLd } from '@/lib/json-ld';
+import type { Metadata } from "next";
+import Image from "next/image";
+import styles from "../content.module.css";
 
 export const metadata: Metadata = {
-  title: { absolute: 'À propos — Pierre Laurent, fondateur OptiPro' },
-  description:
-    "Pierre Laurent, fondateur d'OptiPro. 10 ans en opérations et logistique, reconversion dev via Claude Code et Cursor. Développeur web sur mesure pour artisans et TPE — sites vitrines, web apps, outils métier.",
-  alternates: {
-    canonical: '/a-propos',
-  },
-  openGraph: {
-    title: 'À propos — Pierre Laurent, fondateur OptiPro',
-    description:
-      "10 ans en opérations et logistique, reconversion dev. Aujourd'hui créateur de sites vitrines et web apps sur mesure pour artisans et TPE.",
-    url: '/a-propos',
-    type: 'profile',
-  },
+  title: "À propos",
+  description: "Parcours, méthode et philosophie de Pierre Laurent, product builder et créateur de ProbaLab et Ferdinand.",
+  alternates: { canonical: "/a-propos" },
 };
 
-const personJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  '@id': 'https://www.opti-pro.fr/a-propos#pierre-laurent',
-  name: 'Pierre Laurent',
-  jobTitle: "Fondateur d'OptiPro · Développeur web sur mesure pour artisans et TPE",
-  description:
-    "Fondateur d'OptiPro. 10 ans en exploitation logistique et opérations. Reconversion développeur via Claude Code et Cursor. Crée des sites vitrines (990€ et 1 390€), des web apps et des outils métier sur mesure pour artisans et TPE.",
-  url: 'https://www.opti-pro.fr/a-propos',
-  telephone: '+33670259333',
-  knowsLanguage: ['fr', 'en'],
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Vence',
-    postalCode: '06140',
-    addressRegion: 'Alpes-Maritimes',
-    addressCountry: 'FR',
-  },
-  worksFor: { '@id': 'https://www.opti-pro.fr/#organization' },
-  sameAs: [
-    'https://www.linkedin.com/in/pierre-laurent-809410123',
-  ],
-  image: 'https://www.opti-pro.fr/pierre-laurent.png',
-  alumniOf: {
-    '@type': 'EducationalOrganization',
-    name: 'Afipe',
-  },
-  knowsAbout: [
-    'Développement web Next.js',
-    'Sites vitrines pour artisans',
-    'Web apps et outils métier',
-    'SEO local',
-    'Opérations et logistique',
-    'Pilotage exploitation',
-    'Coordination de sous-traitants',
-    'Déploiement ERP (EBP)',
-    'Gestion des stocks',
-  ],
-};
+const manifesto = [
+  ["01", "Comprendre avant de coder", "Le bon produit commence par une décision claire, pas par une liste de fonctionnalités."],
+  ["02", "Automatiser sans aveugler", "Une automatisation utile laisse des traces, expose ses limites et reste contrôlable."],
+  ["03", "Construire le produit entier", "Je relie le modèle de données, le backend, l’interface, le mobile et l’exploitation."],
+  ["04", "Prouver ce qui fonctionne", "Tests, logs, artefacts et validation réelle sont des preuves différentes. Je ne les confonds pas."],
+];
 
-const breadcrumbJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.opti-pro.fr' },
-    { '@type': 'ListItem', position: 2, name: 'À propos', item: 'https://www.opti-pro.fr/a-propos' },
-  ],
-};
-
-export default function AProposPage() {
+export default function AboutPage() {
   return (
-    <>
-      <script type="application/ld+json">{safeJsonLd(personJsonLd)}</script>
-      <script type="application/ld+json">{safeJsonLd(breadcrumbJsonLd)}</script>
-      <AProposPageClient />
-    </>
+    <main>
+      <section className={styles.pageHero}>
+        <div className="shell">
+          <p className="eyebrow">Human behind the systems</p>
+          <h1>Très tech.<br /><em>Profondément concret.</em></h1>
+          <p>Je ne me reconnaissais plus dans un site qui vendait des prestations. Cet espace raconte désormais ce que je construis vraiment — et pourquoi je le construis.</p>
+        </div>
+      </section>
+
+      <section className={`shell ${styles.aboutGrid}`}>
+        <div className={`panel ${styles.portrait}`}>
+          <div className={styles.portraitMedia}>
+            <Image src="/pierre-laurent-tech-hero.png" alt="Portrait de Pierre Laurent" fill sizes="(max-width: 900px) 100vw, 40vw" priority />
+          </div>
+        </div>
+        <div className={styles.aboutCopy}>
+          <p className="eyebrow">Profile / Pierre Laurent</p>
+          <h2>Je construis les outils que j’aimerais avoir à mes côtés.</h2>
+          <p>J’ai passé dix ans au contact d’opérations réelles : flux, urgences, données imparfaites et décisions qui ne peuvent pas attendre. Cette culture me suit dans chaque produit.</p>
+          <p>Aujourd’hui, je conçois mes propres systèmes. <strong>ProbaLab</strong> rend une décision sportive plus lisible et responsable. <strong>Ferdinand</strong> veille sur les échéances du quotidien. Deux sujets différents, mais la même obsession : réduire le bruit sans masquer la réalité.</p>
+          <p>J’aime les interfaces futuristes, les systèmes cohérents et les assistants qui semblent comprendre le contexte. Mais la technologie n’est jamais là pour jouer un rôle : elle doit devenir une présence discrète, fiable et utile.</p>
+
+          <div className={styles.manifesto}>
+            {manifesto.map(([index, title, copy]) => (
+              <article key={index}><span>{index}</span><div><h3>{title}</h3><p>{copy}</p></div></article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={`shell ${styles.history}`}>
+        <p className="eyebrow">Trajectory</p>
+        <div className={styles.historyGrid}>
+          <article className="panel"><span>AVANT</span><h3>Opérations & logistique</h3><p>Comprendre le terrain, les contraintes, les dépendances et ce qui se passe réellement quand un système rencontre l’humain.</p></article>
+          <article className="panel"><span>MAINTENANT</span><h3>Produits numériques</h3><p>Concevoir et opérer des produits complets, de la donnée jusqu’au dernier écran mobile.</p></article>
+          <article className="panel"><span>ENSUITE</span><h3>Nouveaux systèmes personnels</h3><p>Explorer d’autres problèmes quotidiens où une technologie calme et intelligente peut vraiment changer l’expérience.</p></article>
+        </div>
+      </section>
+    </main>
   );
 }

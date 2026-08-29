@@ -1,170 +1,38 @@
-import type { Metadata } from 'next';
-import { safeJsonLd } from '@/lib/json-ld';
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Mentions légales',
-  description: 'Mentions légales du site OptiPro — éditeur, hébergement, données personnelles.',
-  alternates: {
-    canonical: '/mentions-legales',
-  },
+  title: "Mentions légales",
+  description: "Mentions légales du site personnel de Pierre Laurent.",
+  alternates: { canonical: "/mentions-legales" },
 };
 
-const sectionHeadingStyle: React.CSSProperties = {
-  fontSize: '1.25rem',
-  fontWeight: 700,
-  color: 'var(--primary)',
-  marginBottom: '0.75rem',
-  marginTop: '2.5rem',
-  letterSpacing: '-0.01em',
-};
-
-const paragraphStyle: React.CSSProperties = {
-  color: 'var(--secondary)',
-  fontSize: '0.95rem',
-  lineHeight: 1.8,
-  marginBottom: '0.5rem',
-};
-
-const linkStyle: React.CSSProperties = {
-  color: 'var(--accent)',
-  textDecoration: 'none',
-};
-
-export default function MentionsLegalesPage() {
+export default function LegalPage() {
   return (
-    <main style={{ paddingTop: '6rem' }}>
-      <script type="application/ld+json">{safeJsonLd({
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://www.opti-pro.fr' },
-          { '@type': 'ListItem', position: 2, name: 'Mentions légales', item: 'https://www.opti-pro.fr/mentions-legales' },
-        ],
-      })}</script>
-      <section style={{ padding: '3rem 0 6rem' }}>
-        <div className="container" style={{ maxWidth: '760px' }}>
+    <main className="legal-page">
+      <article className="shell">
+        <p className="eyebrow">Legal information</p>
+        <h1>Mentions légales</h1>
+        <p className="legal-intro">DERNIÈRE MISE À JOUR / 30 AOÛT 2026</p>
 
-          {/* Page title */}
-          <h1
-            style={{
-              fontSize: '2.25rem',
-              fontWeight: 800,
-              color: 'var(--primary)',
-              marginBottom: '0.5rem',
-              letterSpacing: '-0.03em',
-            }}
-          >
-            Mentions légales
-          </h1>
-          <p style={{ color: 'var(--muted)', fontSize: '0.9rem', marginBottom: '0' }}>
-            Conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l&apos;économie numérique (LCEN)
-          </p>
+        <h2>1. Éditeur</h2>
+        <p>Le site <strong>www.opti-pro.fr</strong> est édité par Pierre Laurent, entrepreneur individuel, sous la dénomination commerciale OptiPro.</p>
+        <p>Siège : Bâtiment Le Matisse, 541 Avenue Colonel Meyère, 06140 Vence, France<br />SIREN : 934 301 987<br />SIRET : 934 301 987 00020<br />Code APE : 70.22Z<br />Directeur de la publication : Pierre Laurent<br />Contact : <a href="mailto:p.laurent@opti-pro.fr">p.laurent@opti-pro.fr</a></p>
+        <p>Ce site présente les projets numériques personnels de Pierre Laurent. Il ne propose pas de prestations ni de prise de commande.</p>
 
-          <hr style={{ margin: '2rem 0', border: 'none', borderTop: '1px solid var(--border)' }} />
+        <h2>2. Hébergement</h2>
+        <p>Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a>.</p>
+        <p>Le nom de domaine est géré par OVH SAS, 2 rue Kellermann, 59100 Roubaix, France.</p>
 
-          {/* 1. Éditeur */}
-          <h2 style={sectionHeadingStyle}>1. Éditeur du site</h2>
-          <p style={paragraphStyle}>
-            Le site <strong>opti-pro.fr</strong> est édité par :
-          </p>
-          <p style={paragraphStyle}>
-            <strong>Pierre Laurent</strong><br />
-            Entrepreneur individuel<br />
-            Dénomination commerciale : <strong>OptiPro</strong><br />
-            Activité : Assistance administrative et opérationnelle externalisée pour artisans, indépendants et TPE<br />
-            Siège : Bâtiment Le Matisse, 541 Avenue Colonel Meyère, 06140 Vence<br />
-            SIREN : 934 301 987<br />
-            SIRET : 934 301 987 00020<br />
-            Code APE : 70.22Z — Conseil pour les affaires et autres conseils de gestion<br />
-            TVA : Non assujetti (franchise en base de TVA, article 293 B du CGI)<br />
-            Directeur de la publication : Pierre Laurent<br />
-            Email : <a href="mailto:p.laurent@opti-pro.fr" style={linkStyle}>p.laurent@opti-pro.fr</a><br />
-            Site web : <a href="https://www.opti-pro.fr" style={linkStyle}>www.opti-pro.fr</a>
-          </p>
+        <h2>3. Propriété intellectuelle</h2>
+        <p>Les textes, visuels, interfaces, logotypes, photographies et éléments techniques de ce site sont protégés. Ils appartiennent à Pierre Laurent / OptiPro ou à leurs titulaires respectifs lorsqu’une mention l’indique.</p>
+        <p>Toute reproduction ou adaptation substantielle nécessite une autorisation écrite préalable.</p>
 
-          {/* 2. Hébergement */}
-          <h2 style={sectionHeadingStyle}>2. Hébergement</h2>
-          <p style={paragraphStyle}>
-            Le site est hébergé par :
-          </p>
-          <p style={paragraphStyle}>
-            <strong>Vercel Inc.</strong><br />
-            340 S Lemon Ave #4133<br />
-            Walnut, CA 91789<br />
-            États-Unis d&apos;Amérique<br />
-            <a href="https://vercel.com" style={linkStyle} target="_blank" rel="noopener noreferrer">vercel.com</a>
-          </p>
+        <h2>4. Produits présentés</h2>
+        <p>ProbaLab et Ferdinand sont des produits distincts. Leurs services, comptes utilisateurs et traitements de données sont régis par leurs propres documents juridiques accessibles depuis leurs interfaces respectives.</p>
 
-          {/* 3. Propriété intellectuelle */}
-          <h2 style={sectionHeadingStyle}>3. Propriété intellectuelle</h2>
-          <p style={paragraphStyle}>
-            L&apos;ensemble des éléments constituant ce site (textes, images, logotypes, structure, code source) est la propriété exclusive de Pierre Laurent / OptiPro, sauf mentions contraires.
-          </p>
-          <p style={paragraphStyle}>
-            Toute reproduction, représentation, modification, publication, adaptation ou exploitation partielle ou totale des éléments du site, quel que soit le moyen ou le procédé utilisé, est strictement interdite sans l&apos;autorisation écrite préalable de Pierre Laurent.
-          </p>
-          <p style={paragraphStyle}>
-            Toute exploitation non autorisée du site ou de ses contenus sera considérée comme constitutive d&apos;une contrefaçon et poursuivie conformément aux dispositions des articles L.335-2 et suivants du Code de la propriété intellectuelle.
-          </p>
-
-          {/* 4. Données personnelles */}
-          <h2 style={sectionHeadingStyle}>4. Données personnelles &amp; RGPD</h2>
-          <p style={paragraphStyle}>
-            <strong>Responsable de traitement :</strong> Pierre Laurent (OptiPro), Bâtiment Le Matisse, 541 Avenue Colonel Meyère, 06140 Vence — <a href="mailto:p.laurent@opti-pro.fr" style={linkStyle}>p.laurent@opti-pro.fr</a>.
-          </p>
-          <p style={paragraphStyle}>
-            <strong>Délégué à la protection des données (DPO) :</strong> OptiPro étant une structure individuelle (EI), aucun DPO n&apos;est désigné. Pierre Laurent assure directement le rôle de point de contact pour toute question RGPD.
-          </p>
-          <p style={paragraphStyle}>
-            Le site collecte des données personnelles uniquement via le formulaire de contact. Les informations collectées sont : nom, adresse e-mail, numéro de téléphone (facultatif), nom de l&apos;entreprise (facultatif), secteur d&apos;activité (facultatif) et message.
-          </p>
-          <p style={paragraphStyle}>
-            <strong>Base légale :</strong> consentement explicite (formulaire de contact, RGPD art. 6.1.a) et intérêt légitime (réponse aux demandes commerciales, RGPD art. 6.1.f).
-          </p>
-          <p style={paragraphStyle}>
-            <strong>Destinataires :</strong> les données sont traitées par Pierre Laurent uniquement, transmises via l&apos;API Resend (sous-traitant) pour l&apos;envoi d&apos;e-mails. Aucune cession ni revente à des tiers. Aucun transfert hors Union européenne (Resend opère depuis Delaware, USA, mais via les Standard Contractual Clauses approuvées par la Commission européenne).
-          </p>
-          <p style={paragraphStyle}>
-            <strong>Durée de conservation :</strong> les e-mails de contact sont conservés 3 ans à compter du dernier contact pour permettre le suivi commercial. Les données client (devis signés, factures) sont conservées 10 ans conformément aux obligations légales comptables.
-          </p>
-          <p style={paragraphStyle}>
-            <strong>Vos droits RGPD :</strong> conformément aux articles 15 à 22 du RGPD, vous disposez d&apos;un droit d&apos;accès, de rectification, d&apos;effacement, de limitation, d&apos;opposition et de portabilité de vos données. Vous pouvez aussi définir des directives sur le sort de vos données après votre décès. Pour exercer ces droits, contactez <a href="mailto:p.laurent@opti-pro.fr" style={linkStyle}>p.laurent@opti-pro.fr</a> en précisant votre nom et l&apos;objet de votre demande. Réponse sous 1 mois maximum.
-          </p>
-          <p style={paragraphStyle}>
-            <strong>Réclamation CNIL :</strong> si vous estimez que vos droits ne sont pas respectés, vous pouvez introduire une réclamation auprès de la Commission Nationale de l&apos;Informatique et des Libertés (CNIL) — <a href="https://www.cnil.fr/fr/plaintes" style={linkStyle} target="_blank" rel="noopener noreferrer">cnil.fr/fr/plaintes</a>, ou par courrier : 3 Place de Fontenoy — TSA 80715 — 75334 PARIS CEDEX 07.
-          </p>
-          <p style={paragraphStyle}>
-            Pour en savoir plus, consultez la <a href="/confidentialite" style={linkStyle}>politique de confidentialité</a>.
-          </p>
-
-          {/* 5. Cookies */}
-          <h2 style={sectionHeadingStyle}>5. Cookies</h2>
-          <p style={paragraphStyle}>
-            Ce site n&apos;utilise pas de cookies de traçage, de ciblage publicitaire ou d&apos;analyse d&apos;audience. Seuls des cookies techniques strictement nécessaires au fonctionnement du site (gestion de session Next.js) peuvent être déposés. Ces cookies ne collectent aucune donnée personnelle identifiable et ne nécessitent pas de consentement.
-          </p>
-
-          {/* 6. Responsabilité */}
-          <h2 style={sectionHeadingStyle}>6. Limitation de responsabilité</h2>
-          <p style={paragraphStyle}>
-            Pierre Laurent / OptiPro s&apos;efforce d&apos;assurer l&apos;exactitude et la mise à jour des informations diffusées sur ce site. Cependant, OptiPro ne peut garantir l&apos;exhaustivité ou l&apos;absence d&apos;erreur des informations présentées et décline toute responsabilité pour toute imprécision, inexactitude ou omission.
-          </p>
-          <p style={paragraphStyle}>
-            OptiPro ne peut être tenu responsable des dommages directs ou indirects résultant de l&apos;utilisation de ce site ou de l&apos;impossibilité d&apos;y accéder. Les liens hypertextes présents sur le site peuvent renvoyer vers des sites tiers ; OptiPro n&apos;exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu.
-          </p>
-
-          {/* 7. Crédits */}
-          <h2 style={sectionHeadingStyle}>7. Crédits</h2>
-          <p style={paragraphStyle}>
-            Ce site a été conçu et développé par <strong>Pierre Laurent</strong> — OptiPro.
-          </p>
-
-          <hr style={{ margin: '2.5rem 0 1.5rem', border: 'none', borderTop: '1px solid var(--border)' }} />
-          <p style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>
-            Dernière mise à jour : 5 mai 2026
-          </p>
-
-        </div>
-      </section>
+        <h2>5. Responsabilité</h2>
+        <p>Les informations de ce portfolio sont fournies à titre de présentation et peuvent évoluer avec les produits. Les liens externes conduisent vers des services dont les conditions et politiques leur sont propres.</p>
+      </article>
     </main>
   );
 }

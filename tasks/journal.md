@@ -3,6 +3,53 @@
 > Entrées antéchronologiques (la plus récente en haut).
 > Format : date, PRs/commits, modifs BD, modifs structurantes, leçons, en suspens, stats.
 
+## 2026-08-29 → 2026-08-30 — OptiPro devient le site personnel de Pierre
+
+**Décision structurante** : arrêt définitif des missions client. Le domaine OptiPro est conservé comme site
+personnel pour présenter ProbaLab, Ferdinand, les futurs projets, le parcours et les centres d’intérêt de Pierre,
+sans offre commerciale ni posture de studio.
+
+### Commits poussés sur `main` et déployés en production
+- `4cffb8c` — première transformation de la vitrine client en studio de produits personnels
+- `921cb6c` — recentrage éditorial complet sur Pierre, ses projets et son parcours
+- `7d52610` — correction de l’image sociale pour rendre le build de production compatible
+- `b8e0d9d` — consignation de la première mise en production du site personnel
+- `18a15a6` — nettoyage d’une variante visuelle résiduelle sur ProbaLab
+- `a3ec992` — retrait complet des portraits et renforcement de l’identité abstraite IA / interface système
+
+### Modifications BD / infrastructure
+- Aucune modification de données ni de schéma Supabase.
+- Toutes les variables Supabase et Resend ont été retirées de Vercel après validation du fonctionnement statique.
+- Le projet Supabase OptiPro reste `INACTIVE`, intact et non supprimé : sa sauvegarde est bloquée par la limite
+  de deux projets actifs du plan Free, déjà utilisée par ProbaLab et Ferdinand.
+- Tag de retour arrière créé : `archive/client-site-2026-08-29`.
+
+### Modifications fonctionnelles structurantes
+- Suppression des services, tarifs, contenus commerciaux, blog d’acquisition, formulaire, CRM/admin et crons.
+- Site actif limité à Accueil, Projets, Parcours, Contact, Mentions légales et Confidentialité.
+- ProbaLab et Ferdinand présentés comme projets personnels ; aucune promesse de prestation ou appel commercial.
+- Nouvelle direction sombre et technologique : noyau IA, flux de données, télémétrie et animations CSS, sans
+  reprise de marque Marvel et sans portrait de Pierre.
+- LinkedIn confirmé dans le footer et sur la page Contact ; anciens fichiers de portrait supprimés et URL en 404.
+
+### Vérifications et production
+- TypeScript, ESLint, 5 tests structurels, `npm audit --omit=dev` et build Next.js validés.
+- Build final : 12/12 pages statiques générées avec Next.js 16.3.3.
+- Rendus desktop et mobile, menu mobile, liens LinkedIn, pages et console navigateur vérifiés localement puis
+  sur `https://www.opti-pro.fr`.
+- Déploiement final Vercel `dpl_GNk97fG4AvZwXoThmg6tchWj7pEQ` au statut `READY`.
+- En-têtes de sécurité contrôlés ; anciennes URL de portrait confirmées en 404.
+
+### Leçons et points en suspens
+- Aucune nouvelle leçon ajoutée à `tasks/lessons.md` pendant cette session.
+- Seul point en suspens : sauvegarder puis décider du devenir du projet Supabase OptiPro lorsque le quota le
+  permettra. Aucune suppression de données n’a été effectuée.
+
+### Stats de session
+- 6 commits depuis l’archive ; 166 fichiers touchés (+3710 / -29559 lignes).
+- 131 fichiers supprimés, 10 ajoutés et 25 modifiés.
+- 1 nouvelle production publique validée sur le domaine principal.
+
 ## 2026-07-26 → 2026-07-27 — Audit complet + correction du repositionnement + déblocage déploiement
 
 **Contexte** : le repositionnement « dev opérationnel » du 10 juin (commit `6a7040d`) n'avait touché que 4 pages.

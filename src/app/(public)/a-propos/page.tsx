@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import styles from "../content.module.css";
 
 export const metadata: Metadata = {
@@ -27,9 +26,15 @@ export default function AboutPage() {
       </section>
 
       <section className={`shell ${styles.aboutGrid}`}>
-        <div className={`panel ${styles.portrait}`}>
-          <div className={styles.portraitMedia}>
-            <Image src="/pierre-laurent-tech-hero.png" alt="Portrait de Pierre Laurent" fill sizes="(max-width: 900px) 100vw, 40vw" priority />
+        <div className={`panel ${styles.profileVisual}`} aria-hidden="true">
+          <div className={styles.profileGrid} />
+          <div className={styles.profileCore}>
+            <span /><span /><i />
+          </div>
+          <div className={styles.profileReadout}>
+            <div><span>INTERESTS</span><strong>AI / AUTOMATION / INTERFACES</strong></div>
+            <div><span>PROJECTS</span><strong>PROBALAB / FERDINAND</strong></div>
+            <div><span>MODE</span><strong>CURIOUS / BUILDING</strong></div>
           </div>
         </div>
         <div className={styles.aboutCopy}>

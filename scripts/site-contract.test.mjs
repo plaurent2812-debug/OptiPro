@@ -72,3 +72,21 @@ test("le discours reste personnel et non commercial", () => {
   assert.match(files, /site personnel/i);
   assert.match(files, /mon parcours/i);
 });
+
+test("le site ne publie plus de portrait et conserve LinkedIn", () => {
+  ["public/pierre-laurent-tech-hero.png", "public/pierre-laurent.png"].forEach((file) => {
+    assert.equal(existsSync(file), false, `${file} ne doit plus être publié`);
+  });
+
+  const sources = [
+    "src/app/(public)/page.tsx",
+    "src/app/(public)/a-propos/page.tsx",
+    "src/app/(public)/layout.tsx",
+    "src/components/layout/Footer.tsx",
+    "src/app/(public)/contact/page.tsx",
+  ].map((file) => readFileSync(file, "utf8")).join("\n");
+
+  assert.equal(sources.includes("pierre-laurent-tech-hero.png"), false);
+  assert.equal(sources.includes("pierre-laurent.png"), false);
+  assert.match(sources, /https:\/\/www\.linkedin\.com\/in\/pierre-laurent-809410123/);
+});

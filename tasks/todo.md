@@ -18,7 +18,9 @@ de marques ou d'éléments Marvel.
 - [x] Tarifs, prestations, pages locales, blog commercial, formulaire, CRM/admin et crons retirés du code actif
 - [x] Dépendances Supabase, Resend, GSAP, React PDF et composants admin retirés du manifeste npm
 - [x] Redirections permanentes préparées pour les anciennes URL publiques
-- [x] Nouveau portrait hero généré et intégré avec les visuels réels des deux produits
+- [x] Portrait retiré du site et des fichiers publics à la demande de Pierre
+- [x] Hero et page Parcours remplacés par une interface abstraite IA / automatisation, sans visage
+- [x] Lien LinkedIn confirmé dans le footer et sur la page Contact
 - [x] TypeScript + lint + tests structurels sans build
 - [x] Validation visuelle locale desktop/mobile, navigation, images, redirections et console navigateur
 - [x] Build Next.js de production validé : 12/12 pages statiques générées avec Next.js 16.3.3

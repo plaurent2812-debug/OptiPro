@@ -36,27 +36,27 @@ export default function HomePage() {
     <main>
       <section className={styles.hero}>
         <div className={styles.heroMedia} aria-hidden="true">
-          <Image
-            src="/pierre-laurent-tech-hero.png"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className={styles.heroImage}
-          />
+          <div className={styles.signalGrid} />
+          <div className={styles.aiCore}>
+            <span /><span /><span /><i />
+          </div>
+          <div className={styles.dataStream}>
+            <span>CONTEXT / ACTIVE</span>
+            <span>NEURAL LAYER / READY</span>
+            <span>AUTOMATION / LISTENING</span>
+          </div>
+          <div className={styles.coreLabel}>AI CORE / PERSONAL INTERFACE</div>
           <div className={styles.heroShade} />
         </div>
-
-        <div className={styles.orbit} aria-hidden="true"><span /><span /><span /></div>
 
         <div className={`shell ${styles.heroInner}`}>
           <div className={styles.heroCopy}>
             <div className={styles.online}><span /> SITE PERSONNEL / PIERRE LAURENT</div>
             <h1>
-              Bonjour, moi c’est <em>Pierre.</em>
+              J’imagine, je code, <em>j’expérimente.</em>
             </h1>
             <p>
-              Je crée des apps, des outils et des expériences numériques autour des sujets qui m’intéressent. Ce site rassemble mes projets, mon parcours et les idées que j’explore en chemin.
+              Moi, c’est Pierre. Je crée des apps, des outils et des expériences où l’IA, la data et l’automatisation deviennent vraiment utiles. Ce site rassemble mes projets, mon parcours et les idées que j’explore en chemin.
             </p>
             <div className={styles.heroActions}>
               <Link href="/projets" className="button-primary">Voir ce que je crée <span aria-hidden="true">→</span></Link>

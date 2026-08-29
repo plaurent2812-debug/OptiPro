@@ -13,7 +13,6 @@ const jsonLd = {
         "Site personnel de Pierre Laurent : projets, applications, outils, parcours et centres d’intérêt.",
       url: "https://www.opti-pro.fr",
       email: "p.laurent@opti-pro.fr",
-      image: "https://www.opti-pro.fr/pierre-laurent-tech-hero.png",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Vence",

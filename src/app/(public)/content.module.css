@@ -1,4 +1,9 @@
 .pageHero { padding: calc(var(--header-height) + 5rem) 0 4.5rem; border-bottom: 1px solid var(--line); }
+.project { scroll-margin-top: calc(var(--header-height) + 2rem); }
+.projectEvidence { margin-top: 1.3rem; padding-left: 1rem; border-left: 1px solid rgba(134,216,238,.35); }
+.projectEvidence > span { color: var(--cyan); font: .55rem/1.5 var(--font-mono), monospace; letter-spacing: .08em; }
+.projectEvidence h3 { margin-top: .45rem; font-size: .84rem; font-weight: 500; }
+.projectEvidence p { margin-top: .4rem; color: var(--text-dim); font-size: .8rem; }
 .pageHero h1 { max-width: 720px; margin-top: 1rem; font-size: clamp(2rem, 4.2vw, 3.25rem); line-height: 1.06; letter-spacing: -.05em; font-weight: 520; }
 .pageHero h1 em { color: var(--cyan); font-style: normal; }
 .pageHero p:not(.eyebrow) { max-width: 580px; margin-top: 1.3rem; color: var(--text-dim); font-size: clamp(.88rem, 1.35vw, .98rem); }

@@ -78,6 +78,19 @@
 .textLink { padding: .6rem 0; color: var(--text-dim); font-size: .8rem; border-bottom: 1px solid transparent; }
 .textLink:hover { color: var(--text); border-bottom-color: var(--text-dim); }
 
+.heroFacts { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin-top: 1.65rem; color: var(--text-dim); font-size: .68rem; }
+.heroFacts span + span::before { content: "·"; margin-right: 1.2rem; color: var(--amber); }
+.twoWorlds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding-block: 1.5rem; }
+.twoWorlds a { display: grid; grid-template-columns: 1fr auto; padding: .65rem 2rem; border-left: 1px solid var(--line); }
+.twoWorlds a:first-child { padding-left: 0; border: 0; }
+.twoWorlds span { color: var(--amber); font: .56rem/1.5 var(--font-mono), monospace; letter-spacing: .08em; }
+.twoWorlds a:last-child span { color: var(--cyan); }
+.twoWorlds strong { grid-column: 1; margin-top: .35rem; font-weight: 400; color: var(--text-dim); font-size: .82rem; }
+.twoWorlds i { grid-column: 2; grid-row: 1 / 3; align-self: center; padding-left: 1rem; color: var(--text-dim); font-style: normal; transition: transform 180ms ease; }
+.twoWorlds a:hover i { transform: translateY(3px); color: var(--text); }
+.personalIntro { padding: 5rem 0 0; scroll-margin-top: calc(var(--header-height) + 1rem); }
+.personalIntro .sectionHeader { margin-bottom: 0; }
+
 .projectsSection, .principlesSection, .stackSection { padding: 6.5rem 0; }
 .projectsSection { scroll-margin-top: var(--header-height); }
 .projectNav { position: sticky; top: var(--header-height); z-index: 4; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); background: rgba(7,9,12,.96); backdrop-filter: blur(18px); }
@@ -168,6 +181,10 @@
 }
 
 @media (max-width: 720px) {
+  .twoWorlds { grid-template-columns: 1fr; padding-block: .5rem; }
+  .twoWorlds a, .twoWorlds a:first-child { padding: 1rem 0; border-left: 0; }
+  .twoWorlds a + a { border-top: 1px solid var(--line); }
+  .personalIntro { padding-top: 3.5rem; }
   .projectNav { grid-template-columns: repeat(2, 1fr); position: relative; top: auto; }
   .projectNav a { min-height: 2.8rem; }
   .hero { min-height: auto; padding-block: calc(var(--header-height) + 2.5rem) 3.5rem; }

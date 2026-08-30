@@ -5,8 +5,10 @@ import Link from "next/link";
 import styles from "./layout.module.css";
 
 const links = [
-  { href: "/projets", label: "Projets" },
   { href: "/a-propos", label: "Parcours" },
+  { href: "/projets", label: "Projets" },
+  { href: "/cv", label: "CV" },
+  { href: "/contact", label: "Contact" },
 ];
 
 function closeMobileMenu(event: MouseEvent<HTMLElement>) {
@@ -22,6 +24,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={`shell ${styles.headerInner}`}>
         <Link href="/" className={styles.brand} aria-label="Pierre Laurent — accueil">
+          <span className={styles.brandMark} aria-hidden="true">PL<span>.</span></span>
           <span className={styles.brandName}>Pierre Laurent</span>
         </Link>
 

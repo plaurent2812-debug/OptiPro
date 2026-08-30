@@ -4,6 +4,7 @@ import Link from "next/link";
 import { projects } from "@/data/projects";
 import BuildSequence from "@/components/visuals/BuildSequence";
 import ScrollJourney from "@/components/visuals/ScrollJourney";
+import ProfessionalOverview from "@/components/profile/ProfessionalOverview";
 import styles from "./home.module.css";
 
 export const metadata: Metadata = {
@@ -46,44 +47,59 @@ export default function HomePage() {
                 <em>main</em>
               </div>
               <div className={styles.codeBody}>
-                <p><i>01</i><span className={styles.codeMuted}>{"// projets personnels"}</span></p>
-                <p><i>02</i><span><b>const</b> projects = [</span></p>
-                <p><i>03</i><span>&nbsp;&nbsp;<strong>&quot;ProbaLab&quot;</strong>,</span></p>
-                <p><i>04</i><span>&nbsp;&nbsp;<strong>&quot;Ferdinand&quot;</strong>,</span></p>
-                <p><i>05</i><span>&nbsp;&nbsp;<strong>&quot;Ro Nutritionniste&quot;</strong>,</span></p>
-                <p><i>06</i><span>&nbsp;&nbsp;<strong>&quot;Odysio&quot;</strong>,</span></p>
-                <p><i>07</i><span>];</span></p>
-                <p><i>08</i><span><b>const</b> focus = [<strong>&quot;web&quot;</strong>, <strong>&quot;mobile&quot;</strong>, <strong>&quot;data&quot;</strong>];</span></p>
-                <p><i>09</i><span>build&#40;&#123; curious: <b>true</b>, useful: <b>true</b> &#125;&#41;;</span></p>
+                <p><i>01</i><span className={styles.codeMuted}>{"// du terrain aux outils"}</span></p>
+                <p><i>02</i><span><b>const</b> pierre = &#123;</span></p>
+                <p><i>03</i><span>&nbsp;&nbsp;terrain: <strong>&quot;opérations&quot;</strong>,</span></p>
+                <p><i>04</i><span>&nbsp;&nbsp;pilotage: <strong>&quot;data&quot;</strong>,</span></p>
+                <p><i>05</i><span>&nbsp;&nbsp;création: [<strong>&quot;code&quot;</strong>, <strong>&quot;IA&quot;</strong>],</span></p>
+                <p><i>06</i><span>&nbsp;&nbsp;moteur: <strong>&quot;curiosité&quot;</strong></span></p>
+                <p><i>07</i><span>&#125;;</span></p>
+                <p><i>08</i><span className={styles.codeMuted}>{"// comprendre, puis construire"}</span></p>
+                <p><i>09</i><span>build&#40;&#123; useful: <b>true</b> &#125;&#41;;</span></p>
               </div>
               <div className={styles.windowFooter}>
-                <span><i /> ready</span>
-                <span>4 projects</span>
+                <span><i /> toujours en évolution</span>
+                <span>pro + perso</span>
                 <span>UTF-8</span>
               </div>
             </div>
             <div className={styles.techCard}>
-              <span>Current focus</span>
-              <strong>BUILDING USEFUL THINGS</strong>
-              <small>WEB · MOBILE · DATA</small>
+              <span>Ma façon de faire</span>
+              <strong>COMPRENDRE → STRUCTURER → CRÉER</strong>
+              <small>OPÉRATIONS · CODE · IA</small>
             </div>
           </div>
           <div className={styles.heroColumn}>
-            <p className={styles.intro}>Pierre Laurent · Site personnel</p>
+            <p className={styles.intro}>Pierre Laurent · Opérations & création numérique</p>
             <div className={styles.heroCopy}>
-              <span className={styles.status}><i /> Projets en évolution</span>
+              <span className={styles.status}><i /> Logistique · Administration · Data</span>
               <h1>
-                Je transforme des idées en <em>outils.</em>
+                Faire avancer les opérations.<br /><em>Construire les bons outils.</em>
               </h1>
               <p>
-                Je crée des applications web et mobiles, des outils de données et des automatisations. Ici, je partage mes projets, ce que j’apprends et les sujets que j’explore.
+                Responsable des opérations et passionné de tech. Je relie le terrain, les équipes et les données. Et je crée des applications et des automatisations pour donner vie à mes idées.
               </p>
               <div className={styles.heroActions}>
-                <Link href="/projets" className="button-primary">Voir mes projets <span aria-hidden="true">→</span></Link>
-                <Link href="/a-propos" className={styles.textLink}>À propos</Link>
+                <Link href="/a-propos" className="button-primary">Découvrir mon parcours <span aria-hidden="true">→</span></Link>
+                <Link href="/projets" className={styles.textLink}>Explorer mes projets <span aria-hidden="true">↗</span></Link>
               </div>
+              <div className={styles.heroFacts}><span>10 ans d’expérience terrain</span><span>Vence, France</span></div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <nav className={`shell ${styles.twoWorlds}`} aria-label="Explorer mes deux univers">
+        <a href="#parcours"><span>01 / PROFESSIONNEL</span><strong>Un parcours dans les opérations</strong><i aria-hidden="true">↓</i></a>
+        <a href="#explorations"><span>02 / PERSONNEL</span><strong>Un terrain de jeu dans la tech</strong><i aria-hidden="true">↓</i></a>
+      </nav>
+
+      <ProfessionalOverview />
+
+      <section id="explorations" className={styles.personalIntro} aria-labelledby="personal-title">
+        <div className={`shell ${styles.sectionHeader}`}>
+          <div><p className="eyebrow">02 / Projets personnels</p><h2 id="personal-title" className="section-title">La curiosité ne s’arrête pas<br />à la fin de la journée.</h2></div>
+          <p className="section-copy">Applications web et mobiles, données, IA : mes projets personnels sont mon terrain d’expérimentation. J’y explore des idées, j’apprends de nouveaux outils et je soigne leur mise en pratique.</p>
         </div>
       </section>
 
@@ -91,7 +107,7 @@ export default function HomePage() {
 
       <section className={styles.projectsSection} id="projets">
         <div className="shell">
-          <p className="eyebrow">En ce moment</p>
+          <p className="eyebrow">Mes réalisations numériques</p>
           <div className={styles.sectionHeader}>
             <h2 className="section-title">Quatre projets, quatre façons différentes de construire.</h2>
             <p className="section-copy">
@@ -191,10 +207,10 @@ export default function HomePage() {
       <section className={styles.finalSection}>
         <div className={`shell ${styles.finalPanel}`}>
           <div>
-            <p className="eyebrow">Pourquoi ce site</p>
-            <h2>Garder une trace de ce que je fais.</h2>
-            <p>Ce site n’a pas vocation à vendre quoi que ce soit. Il me sert à rassembler mes projets, raconter leur évolution et montrer un peu qui je suis derrière le code.</p>
-            <Link href="/a-propos" className="button-secondary">Découvrir mon parcours <span aria-hidden="true">→</span></Link>
+            <p className="eyebrow">Faisons connaissance</p>
+            <h2>Un parcours à découvrir.<br />Des idées à partager.</h2>
+            <p>Vous cherchez à comprendre mon expérience, ma façon de travailler ou ce que je construis ? Ce site personnel rassemble les deux faces de mon parcours. Je serai ravi d’en discuter.</p>
+            <div className={styles.heroActions}><Link href="/contact" className="button-primary">Échanger avec moi <span aria-hidden="true">→</span></Link><Link href="/cv" className={styles.textLink}>Consulter mon CV ↗</Link></div>
           </div>
         </div>
       </section>

@@ -1,53 +1,68 @@
 import type { Metadata } from "next";
-import styles from "../content.module.css";
+import Link from "next/link";
+import { education, experiences, interests, languages, professionalProfile, skillGroups } from "@/data/profile";
+import styles from "@/components/profile/profile.module.css";
 
 export const metadata: Metadata = {
-  title: "Parcours",
-  description: "Le parcours de Pierre Laurent, ses centres d’intérêt et ce qui se trouve derrière ses projets.",
+  title: "Parcours & compétences",
+  description: "Le parcours de Pierre Laurent : dix ans dans les opérations et la logistique, management, administration, data et création d’outils numériques.",
   alternates: { canonical: "/a-propos" },
 };
-
-const manifesto = [
-  ["01", "Toujours apprendre", "Chaque projet est aussi une excuse pour comprendre un nouveau domaine, un nouvel outil ou une autre façon de faire."],
-  ["02", "Faire fonctionner pour de vrai", "J’aime aller au-delà de la démonstration et suivre une idée jusqu’au moment où elle devient réellement utilisable."],
-  ["03", "Soigner les détails", "Une transition, un mot ou un état vide peuvent changer complètement la sensation laissée par une application."],
-  ["04", "Garder un esprit critique", "Une technologie impressionnante reste un outil. Je veux comprendre ce qu’elle sait faire, mais aussi là où elle peut se tromper."],
-];
 
 export default function AboutPage() {
   return (
     <main>
-      <section className={styles.pageHero}>
+      <section className={styles.profileHero}>
         <div className="shell">
-          <p className="eyebrow">Derrière les projets</p>
-          <h1>Un parcours fait de terrain, de curiosité et de <em>beaucoup de tech.</em></h1>
-          <p>Je ne suis pas arrivé au numérique par une route toute tracée. J’y suis venu en cherchant de meilleurs outils, puis en ayant envie de les construire moi-même.</p>
+          <p className="eyebrow">Parcours professionnel / Pierre Laurent</p>
+          <h1>Comprendre le terrain.<br />Structurer l’action.<br /><em>Faire avancer les équipes.</em></h1>
+          <p>{professionalProfile.summary} La création numérique prolonge cette approche : comprendre un besoin, puis concevoir une solution qui fonctionne.</p>
+          <div className={styles.overviewActions}><Link href="/cv" className="button-primary">Consulter mon CV <span aria-hidden="true">↗</span></Link><Link href="/contact">Échanger avec moi →</Link></div>
         </div>
       </section>
 
-      <section className={`shell ${styles.aboutGrid}`}>
-        <div className={styles.aboutCopy}>
-          <p className="eyebrow">Pierre Laurent</p>
-          <h2>J’aime comprendre comment les choses fonctionnent — puis essayer de les améliorer.</h2>
-          <p>J’ai passé dix ans au contact d’opérations réelles : des flux, des urgences, des informations imparfaites et des décisions qui ne peuvent pas attendre. C’est là que j’ai appris à regarder un système dans son ensemble, pas seulement l’écran visible.</p>
-          <p>La tech a progressivement pris une place centrale. D’abord comme moyen d’automatiser ce qui me frustrerait au quotidien, puis comme terrain de création à part entière. Aujourd’hui, <strong>ProbaLab</strong> et <strong>Ferdinand</strong> sont les deux projets qui racontent le mieux cette évolution.</p>
-          <p>J’aime les interfaces sobres, les systèmes bien pensés et l’automatisation qui simplifie réellement le quotidien. Ce qui m’intéresse, c’est moins l’effet spectaculaire que le moment où une technologie complexe devient naturelle à utiliser.</p>
-
-          <div className={styles.manifesto}>
-            {manifesto.map(([index, title, copy]) => (
-              <article key={index}><span>{index}</span><div><h3>{title}</h3><p>{copy}</p></div></article>
+      <div className={`shell ${styles.profileLayout}`}>
+        <aside className={styles.profileAside}>
+          <p className="eyebrow">Le fil du parcours</p>
+          <h2>De l’exécution au pilotage.</h2>
+          <p>Entrepôt, agence, logistique, exploitation : une vision des opérations construite à chaque étape.</p>
+          <nav aria-label="Étapes du parcours">
+            <a href="#pharmagreen">Pharmagreen · 2026</a>
+            <a href="#gl-events">GL Events Live · 2025</a>
+            <a href="#factory">Factory · 2019</a>
+            <a href="#eddifis">Les premières responsabilités</a>
+            <a href="#competences">Compétences & outils</a>
+          </nav>
+          <small>VENCE, ALPES-MARITIMES<br />FRANÇAIS / ANGLAIS BILINGUE</small>
+        </aside>
+        <section aria-label="Expériences professionnelles">
+          <ol className={styles.timeline}>
+            {experiences.map((experience) => (
+              <li className={styles.experience} id={experience.id} key={experience.id}>
+                <div className={styles.experienceMeta}><span>{experience.marker}</span><span>{experience.period}</span></div>
+                <h3>{experience.company}</h3>
+                <h4>{experience.role}</h4>
+                <p>{experience.context}</p>
+                {experience.highlights.length > 0 && <ul>{experience.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}</ul>}
+                <div className={styles.tags}>{experience.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+              </li>
             ))}
-          </div>
-        </div>
-      </section>
+          </ol>
+        </section>
+      </div>
 
-      <section className={`shell ${styles.history}`}>
-        <p className="eyebrow">Mon parcours</p>
-        <div className={styles.historyGrid}>
-          <article><span>LE TERRAIN</span><h3>Opérations & logistique</h3><p>Dix années à comprendre les contraintes réelles, les dépendances et tout ce qui se passe quand un système rencontre des humains.</p></article>
-          <article><span>LE DÉCLIC</span><h3>Créer mes propres outils</h3><p>Passer de « cet outil devrait exister » à l’envie de comprendre, prototyper, coder et aller jusqu’à une vraie application.</p></article>
-          <article><span>AUJOURD’HUI</span><h3>ProbaLab, Ferdinand et la suite</h3><p>Faire évoluer mes projets actuels et rester libre d’explorer le prochain sujet qui éveillera ma curiosité.</p></article>
-        </div>
+      <section id="competences" className={`shell ${styles.skillsSection}`} aria-labelledby="skills-title">
+        <p className="eyebrow">Compétences & outils</p>
+        <h2 id="skills-title" className="section-title">Une expérience opérationnelle.<br />Une pratique numérique.</h2>
+        <div className={styles.skillGroups}>{skillGroups.map((group) => <article key={group.title}><h3>{group.title}</h3><ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</div>
+      </section>
+      <section className={`shell ${styles.detailsSection}`} aria-label="Formation et langues">
+        <div><h2>Formation</h2><p>{education.title}<br />{education.school} · {education.period}</p></div>
+        <div><h2>Langues</h2>{languages.map((language) => <p key={language}>{language}</p>)}</div>
+      </section>
+      <section className={`shell ${styles.personalBridge}`}>
+        <div><p className="eyebrow">Derrière le parcours</p><h2>Curieux, sur le terrain<br />comme derrière un écran.</h2><p>J’aime les outils bien pensés, les interfaces précises et les idées qui deviennent des applications. Mes projets personnels sont une autre façon de découvrir mon travail.</p><Link href="/projets" className="button-secondary">Explorer mes projets <span aria-hidden="true">→</span></Link></div>
+        <div className={styles.interestList}>{interests.map((interest) => <span key={interest}>{interest}</span>)}</div>
       </section>
     </main>
   );

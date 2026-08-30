@@ -119,3 +119,23 @@ test("le décor neuronal reste natif, animé et accessible", () => {
     assert.equal(styles.includes(marker), true, `animation neuronale manquante : ${marker}`);
   });
 });
+
+test("Ro Nutritionniste est présenté comme un prototype web", () => {
+  const projects = readFileSync("src/data/projects.ts", "utf8");
+
+  assert.match(projects, /slug: "ro-nutritionniste"/);
+  assert.match(projects, /status: "Prototype avancé"/);
+  assert.match(projects, /visual: "browser"/);
+  assert.match(projects, /ro-nutritionniste-mi0hamiri-optipro-projects\.vercel\.app/);
+  assert.equal(existsSync("public/projects/ro-nutritionniste.webp"), true);
+});
+
+test("Odysio est présenté sans inventer de disponibilité publique", () => {
+  const projects = readFileSync("src/data/projects.ts", "utf8");
+
+  assert.match(projects, /slug: "odysio"/);
+  assert.match(projects, /status: "Projet en pause"/);
+  assert.match(projects, /visual: "identity"/);
+  assert.match(projects, /platforms: \["iOS", "TestFlight"\]/);
+  assert.equal(existsSync("public/projects/odysio-icon.png"), true);
+});

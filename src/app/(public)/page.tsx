@@ -48,14 +48,15 @@ export default function HomePage() {
                 <p><i>02</i><span><b>const</b> projects = [</span></p>
                 <p><i>03</i><span>&nbsp;&nbsp;<strong>&quot;ProbaLab&quot;</strong>,</span></p>
                 <p><i>04</i><span>&nbsp;&nbsp;<strong>&quot;Ferdinand&quot;</strong>,</span></p>
-                <p><i>05</i><span>];</span></p>
-                <p><i>06</i><span>&nbsp;</span></p>
-                <p><i>07</i><span><b>const</b> focus = [<strong>&quot;web&quot;</strong>, <strong>&quot;mobile&quot;</strong>, <strong>&quot;data&quot;</strong>];</span></p>
-                <p><i>08</i><span>build&#40;&#123; curious: <b>true</b>, useful: <b>true</b> &#125;&#41;;</span></p>
+                <p><i>05</i><span>&nbsp;&nbsp;<strong>&quot;Ro Nutritionniste&quot;</strong>,</span></p>
+                <p><i>06</i><span>&nbsp;&nbsp;<strong>&quot;Odysio&quot;</strong>,</span></p>
+                <p><i>07</i><span>];</span></p>
+                <p><i>08</i><span><b>const</b> focus = [<strong>&quot;web&quot;</strong>, <strong>&quot;mobile&quot;</strong>, <strong>&quot;data&quot;</strong>];</span></p>
+                <p><i>09</i><span>build&#40;&#123; curious: <b>true</b>, useful: <b>true</b> &#125;&#41;;</span></p>
               </div>
               <div className={styles.windowFooter}>
                 <span><i /> ready</span>
-                <span>2 projects</span>
+                <span>4 projects</span>
                 <span>UTF-8</span>
               </div>
             </div>
@@ -88,15 +89,15 @@ export default function HomePage() {
         <div className="shell">
           <p className="eyebrow">En ce moment</p>
           <div className={styles.sectionHeader}>
-            <h2 className="section-title">Deux projets qui occupent une bonne partie de mes idées.</h2>
+            <h2 className="section-title">Quatre projets, quatre façons différentes de construire.</h2>
             <p className="section-copy">
-              Ils sont nés de problèmes que j’avais envie de résoudre pour moi-même. Je les construis, je les utilise et je les fais évoluer au fil de ce que j’apprends.
+              Ils partent de problèmes concrets et d’univers très différents. Je les construis et je les fais évoluer au fil de ce que j’apprends.
             </p>
           </div>
 
           <div className={styles.projectGrid}>
             {projects.map((project, index) => (
-              <article className={`${styles.projectCard} ${project.statusTone === "amber" ? styles.amber : ""}`} key={project.slug}>
+              <article className={`${styles.projectCard} ${styles[project.statusTone] ?? ""}`} key={project.slug}>
                 <div className={styles.projectInfo}>
                   <div className={styles.projectMeta}>
                     <span>{project.code}</span>
@@ -114,13 +115,32 @@ export default function HomePage() {
                       Découvrir {project.name} <span aria-hidden="true">↗</span>
                     </a>
                   ) : (
-                    <span className={styles.projectCtaMuted}>Projet encore discret pour le moment</span>
+                    <span className={styles.projectCtaMuted}>{project.waitLabel ?? "Projet encore discret pour le moment"}</span>
                   )}
                 </div>
                 <div className={styles.deviceStage}>
-                  <div className={styles.phone}>
-                    <Image src={project.image} alt={project.imageAlt} width={1320} height={2868} sizes="(max-width: 760px) 68vw, 330px" />
-                  </div>
+                  {project.visual === "browser" ? (
+                    <div className={styles.browser}>
+                      <div className={styles.browserBar} aria-hidden="true"><i /><i /><i /><span>ro-nutritionniste</span></div>
+                      <div className={styles.browserViewport}>
+                        <Image src={project.image} alt={project.imageAlt} width={1536} height={1024} sizes="(max-width: 760px) 82vw, 520px" />
+                      </div>
+                    </div>
+                  ) : project.visual === "identity" ? (
+                    <div className={`${styles.phone} ${styles.identityPhone}`}>
+                      <div className={styles.identityScreen}>
+                        <span className={styles.identitySignal}>04 · MOBILE</span>
+                        <Image src={project.image} alt={project.imageAlt} width={1024} height={1024} sizes="(max-width: 760px) 34vw, 170px" />
+                        <strong>Odysio</strong>
+                        <span>Carnet d’explorateur</span>
+                        <small>QUÊTES · CHAPITRES · XP</small>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className={styles.phone}>
+                      <Image src={project.image} alt={project.imageAlt} width={1320} height={2868} sizes="(max-width: 760px) 68vw, 330px" />
+                    </div>
+                  )}
                 </div>
               </article>
             ))}

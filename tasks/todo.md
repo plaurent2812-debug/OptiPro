@@ -1,5 +1,21 @@
 # TODO — OptiPro
 
+## Ajout Odysio — TERMINÉ LOCALEMENT le 2026-08-30
+
+- [x] État réel du produit, de TestFlight et de la mise en pause vérifié
+- [x] Projet ajouté aux données partagées avec un statut non public explicite
+- [x] Identité mobile dédiée intégrée à partir de l’icône actuelle
+- [x] TypeScript, lint, 9 tests et rendu local vérifiés
+- [ ] Push et déploiement de production — en attente de l’autorisation explicite de Pierre
+
+## Ajout Ro Nutritionniste — TERMINÉ LOCALEMENT le 2026-08-30
+
+- [x] État réel de la démo et du déploiement Vercel vérifié
+- [x] Projet ajouté aux données partagées de l’accueil et de la page Projets
+- [x] Visuel horizontal dédié intégré sans le présenter comme une app mobile
+- [x] TypeScript, lint, 8 tests et rendu local vérifiés
+- [ ] Push et déploiement de production — en attente de l’autorisation explicite de Pierre
+
 ## Refonte minimaliste — TERMINÉE le 2026-08-30
 
 Direction demandée par Pierre : conserver un site personnel sombre et technologique, mais retirer

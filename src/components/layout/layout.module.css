@@ -38,6 +38,10 @@
 }
 
 .navLink:hover { color: var(--text); background: rgba(255,255,255,0.025); }
+.navLink[aria-current="page"], .mobileMenu a[aria-current="page"] { color: var(--cyan); }
+.cvLink { margin-left: 1rem; padding: .65rem 0 .65rem 1.25rem; border-left: 1px solid var(--line-strong); color: var(--text-dim); font: .64rem var(--font-mono), monospace; }
+.cvLink:hover, .cvLink[aria-current="page"] { color: var(--amber); }
+.cvLink span { margin-left: .4rem; }
 
 .mobileMenu { display: none; position: relative; }
 .mobileMenu summary { width: 2.5rem; height: 2.5rem; display: grid; place-content: center; gap: 0.38rem; cursor: pointer; list-style: none; }
@@ -78,6 +82,7 @@
   .desktopNav { display: none; }
   .mobileMenu { display: block; }
   .footerTop { flex-direction: column; }
+  .footerLinks { justify-content: flex-start; }
   .footerBottom { grid-template-columns: 1fr; }
   .footerBottom > div { justify-content: flex-start; }
 }

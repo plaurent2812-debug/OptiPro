@@ -6,7 +6,7 @@
 .projectEvidence p { margin-top: .4rem; color: var(--text-dim); font-size: .8rem; }
 .pageHero h1 { max-width: 720px; margin-top: 1rem; font-size: clamp(2rem, 4.2vw, 3.25rem); line-height: 1.06; letter-spacing: -.05em; font-weight: 520; }
 .pageHero h1 em { color: var(--cyan); font-style: normal; }
-.pageHero p:not(.eyebrow) { max-width: 580px; margin-top: 1.3rem; color: var(--text-dim); font-size: clamp(.88rem, 1.35vw, .98rem); }
+.pageHero p:not(:global(.eyebrow)) { max-width: 580px; margin-top: 1.3rem; color: var(--text-dim); font-size: clamp(.88rem, 1.35vw, .98rem); }
 
 .projects { padding: 5.5rem 0 7rem; display: grid; gap: 5.5rem; }
 .project { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(3rem, 7vw, 5.5rem); align-items: center; padding-bottom: 5.5rem; border-bottom: 1px solid var(--line); }
@@ -50,6 +50,21 @@
 .projectLink, .projectWait { color: var(--text); font-size: .82rem; border-bottom: 1px solid var(--muted); }
 .projectLink:hover { border-bottom-color: var(--cyan); }
 .projectWait { color: var(--muted); border: 0; }
+.projectIndex { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 2.5rem; border-top: 1px solid var(--line); }
+.projectIndex a { display: flex; align-items: center; gap: .65rem; padding: 1rem .8rem; font-size: .75rem; border-bottom: 1px solid var(--line); }
+.projectIndex a:first-child { padding-left: 0; }
+.projectIndex span { color: var(--text-dim); font: .55rem var(--font-mono), monospace; }
+.projectIndex i { margin-left: auto; font-style: normal; color: var(--cyan); }
+.projectIndex a:hover { color: var(--cyan); }
+.furtherReading { display: grid; grid-template-columns: 1.2fr .8fr; gap: 5rem; align-items: center; padding-bottom: 5rem; }
+.furtherReading h2 { margin-top: .7rem; font-size: 1.8rem; font-weight: 500; letter-spacing: -.04em; }
+.furtherReading h3 { font-size: 1.05rem; font-weight: 500; }
+.furtherReading p:not(:global(.eyebrow)) { margin: .8rem 0 1.3rem; color: var(--text-dim); font-size: .85rem; }
+.professionalContact { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
+.professionalContact h3 { color: var(--amber); font-size: .9rem; font-weight: 500; }
+.professionalContact p { margin-top: .6rem; color: var(--text-dim); font-size: .82rem; }
+.professionalContact a { display: inline-block; margin: 1rem 1.5rem 0 0; font-size: .75rem; }
+.professionalContact a:hover { color: var(--amber); }
 
 .aboutGrid { max-width: 760px; padding: 5.5rem 0 6.5rem; }
 .aboutCopy h2 { margin-top: 1rem; font-size: clamp(1.75rem, 3.2vw, 2.55rem); line-height: 1.1; letter-spacing: -.045em; font-weight: 520; }
@@ -82,6 +97,10 @@
 .contactAside .signal { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); color: var(--muted); font: 500 .58rem/1.8 var(--font-mono), monospace; letter-spacing: .08em; }
 
 @media (max-width: 900px) {
+  .projectCopy { grid-row: 1; }
+  .projectIndex { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .projectIndex a { padding-left: 0; }
+  .furtherReading { grid-template-columns: 1fr; gap: 2.5rem; }
   .project, .contactGrid { grid-template-columns: 1fr; gap: 3rem; }
   .historyGrid { grid-template-columns: 1fr; gap: 0; }
   .historyGrid article { min-height: 180px; }
@@ -93,7 +112,7 @@
   .projects, .aboutGrid, .contactSection { padding: 4.2rem 0 5.5rem; }
   .project { gap: 2.2rem; padding-bottom: 4.2rem; }
   .visual { min-height: 410px; padding: 1.5rem; }
-  .phone { width: min(72%, 235px); }
+  .phone { width: min(58%, 180px); }
   .browser { width: 100%; }
   .matrix { grid-template-columns: 1fr; }
   .matrix div:nth-child(odd), .matrix div:nth-child(even) { padding-inline: 0; }

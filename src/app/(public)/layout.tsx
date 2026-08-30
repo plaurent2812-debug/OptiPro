@@ -13,7 +13,7 @@ const jsonLd = {
       name: "Pierre Laurent",
       jobTitle: "Responsable des Opérations",
       description:
-        "Responsable des opérations, passionné de tech et d’IA : parcours professionnel en logistique et exploitation, création d’applications et d’outils numériques.",
+        "Créateur d’applications et d’outils numériques, passionné de tech et d’IA. Un portfolio personnel nourri par une expérience professionnelle dans les opérations, la logistique et la data.",
       url: "https://pierre-laurent.fr",
       email: "p.laurent@opti-pro.fr",
       address: {
@@ -44,7 +44,7 @@ const jsonLd = {
       "@type": "WebSite",
       "@id": "https://pierre-laurent.fr/#website",
       url: "https://pierre-laurent.fr",
-      name: "Pierre Laurent — Site personnel",
+      name: "Pierre Laurent — Portfolio personnel",
       author: { "@id": "https://pierre-laurent.fr/#pierre-laurent" },
       inLanguage: "fr-FR",
     },

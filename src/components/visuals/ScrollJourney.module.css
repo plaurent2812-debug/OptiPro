@@ -50,8 +50,8 @@
 .miniProjects span { font-size: clamp(.4rem,1.55cqw,.6rem); color: var(--text-dim); }
 .miniProjects i { margin-left: auto; color: var(--cyan); font-size: .5rem; font-style: normal; }
 .buildModule { position: absolute; z-index: 3; top: 79%; width: 30%; padding: .75rem; border: 1px solid var(--line-strong); border-radius: .5rem; background: #0c1117; opacity: var(--structure); }
-.logicModule { left: 0; transform: translateX(calc((1 - var(--structure)) * -25px)); }
-.dataModule { right: 0; transform: translateX(calc((1 - var(--structure)) * 25px)); }
+.logicModule { left: 0; transform: translateX(calc((1 - var(--structure)) * -1 * min(25px, 3vw))); }
+.dataModule { right: 0; transform: translateX(calc((1 - var(--structure)) * min(25px, 3vw))); }
 .buildModule code { display: block; margin-top: .8rem; color: var(--text-dim); font: .65rem/1.65 var(--font-mono),monospace; }.buildModule b { font-weight: 400; color: #b4a7e8; }.buildModule em { font-style: normal; color: var(--cyan); }
 .dataRows { margin: .9rem 0 .6rem; display: grid; gap: .3rem; }.dataRows i { height: .4rem; border-radius: 2px; background: linear-gradient(90deg,#86d8ee66 20%,#ffffff12 20%); }.dataRows i:nth-child(2) { width: 75%; }.dataRows i:nth-child(3) { width: 90%; }.buildModule small { font-size: .6rem; color: var(--text-dim); }
 .readyNode { position: absolute; left: 35%; top: 90%; display: flex; align-items: center; gap: .5rem; opacity: var(--interface); color: var(--text-dim); font: .46rem var(--font-mono),monospace; }

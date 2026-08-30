@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { projects } from "@/data/projects";
 import styles from "../content.module.css";
 
@@ -26,9 +27,10 @@ export default function ProjectsPage() {
     <main>
       <section className={styles.pageHero}>
         <div className="shell">
-          <p className="eyebrow">Mon terrain de jeu personnel</p>
-          <h1>Ce que j’ai créé — et ce qui est encore <em>en train de le devenir.</em></h1>
-          <p>Ces projets sont développés à titre personnel, en parallèle de mon parcours professionnel. Ils montrent ma façon de passer d’un besoin à un outil : concevoir, relier les données, développer, tester et améliorer.</p>
+          <p className="eyebrow">Projets / Conception & développement</p>
+          <h1>Ce que je construis.<br /><em>Et pourquoi.</em></h1>
+          <p>Chaque projet a son point de départ, ses choix et ses défis. Voici les idées derrière les interfaces, ce que j’y développe et ce qui reste à explorer.</p>
+          <nav className={styles.projectIndex} aria-label="Choisir un projet">{projects.map((project, index) => <a href={`#${project.slug}`} key={project.slug}><span>0{index + 1}</span>{project.name}<i aria-hidden="true">↓</i></a>)}</nav>
         </div>
       </section>
 
@@ -55,7 +57,7 @@ export default function ProjectsPage() {
                 </div>
               ) : (
                 <div className={styles.phone}>
-                  <Image src={project.image} alt={project.imageAlt} width={1320} height={2868} sizes="(max-width: 620px) 72vw, 310px" />
+                  <Image src={project.image} alt={project.imageAlt} width={1320} height={2868} sizes="(max-width: 620px) 180px, 250px" loading={project.slug === "probalab" ? "eager" : "lazy"} />
                 </div>
               )}
             </div>
@@ -72,12 +74,16 @@ export default function ProjectsPage() {
                 <div><span>PLATEFORMES / STADE</span><strong>{project.platforms.join(" · ")}</strong></div>
                 <div><span>CE QUE J’Y EXPLORE</span><strong>{project.capabilities.slice(0, 3).join(" · ")}</strong></div>
               </div>
-              <div className={styles.projectEvidence}><span>MON IMPLICATION</span><h3>{project.role}</h3><p>{project.demonstrates}</p></div>
+              <div className={styles.projectEvidence}><span>CE QUE J’Y CONSTRUIS</span><h3>{project.role}</h3><p>{project.demonstrates}</p></div>
               <div className={styles.tags}>{project.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div>
-              {project.href ? <a href={project.href} className={styles.projectLink} target="_blank" rel="noopener noreferrer">DÉCOUVRIR {project.name.toUpperCase()} ↗</a> : <span className={styles.projectWait}>{(project.waitLabel ?? "Encore un peu de patience").toUpperCase()}</span>}
+              {project.href ? <a href={project.href} className={styles.projectLink} target="_blank" rel="noopener noreferrer">{project.linkLabel} ↗</a> : <span className={styles.projectWait}>{project.waitLabel}</span>}
             </div>
           </article>
         ))}
+      </section>
+      <section className={`shell ${styles.furtherReading}`}>
+        <div><p className="eyebrow">La suite de la conversation</p><h2>Un projet vous parle ?</h2><p>Je partage volontiers les idées, les choix et les apprentissages qui se cachent derrière.</p><Link href="/contact" className="button-primary">Échanger avec moi →</Link></div>
+        <div><h3>Et mon parcours professionnel ?</h3><p>Les opérations, la logistique et la data sont l’autre fil de mon parcours.</p><Link href="/a-propos" className={styles.projectLink}>Découvrir mon parcours →</Link></div>
       </section>
     </main>
   );

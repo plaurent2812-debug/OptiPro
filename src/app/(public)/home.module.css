@@ -8,7 +8,7 @@
   border-bottom: 1px solid var(--line);
 }
 
-.heroInner { position: relative; z-index: 1; width: 100%; display: grid; grid-template-columns: minmax(0, .82fr) minmax(360px, 1.18fr); gap: clamp(3rem, 8vw, 7rem); align-items: center; }
+.heroInner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, .82fr) minmax(360px, 1.18fr); gap: clamp(3rem, 8vw, 7rem); align-items: center; }
 .heroVisual { position: relative; min-height: 430px; display: grid; place-items: center; grid-column: 2; }
 .codeWindow { position: relative; width: min(100%, 560px); overflow: hidden; border: 1px solid rgba(134,216,238,.12); border-radius: .7rem; background: rgba(9,12,16,.9); box-shadow: 0 24px 65px rgba(0,0,0,.22); animation: terminalFloat 9s ease-in-out infinite; }
 .windowBar { min-height: 3rem; padding: 0 1rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; border-bottom: 1px solid var(--line); color: var(--muted); font: 500 .61rem/1 var(--font-mono), monospace; }

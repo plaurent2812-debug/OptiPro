@@ -1,5 +1,14 @@
 # TODO — OptiPro
 
+## Alignement du hero — CORRIGÉ LOCALEMENT le 2026-08-30
+
+- [x] Cause identifiée : `width: 100%` sur `.heroInner` écrase la largeur commune `.shell`
+- [x] Largeur concurrente retirée ; `.shell` gère à nouveau les marges et la largeur maximale
+- [x] Alignement exact avec le header et absence de débordement vérifiés à 320, 390, 768, 980, 981, 1024, 1490 et 1920 px
+- [x] Captures desktop/mobile et navigation Projets → accueil contrôlées ; aucune erreur console
+- [x] TypeScript, lint, 10 tests existants et `git diff --check` validés sans build local
+- Push autorisé par Pierre ; état du déploiement automatique à vérifier après publication
+
 ## Curseur personnalisé — TERMINÉ le 2026-08-30
 
 - [x] Point central et halo fluide intégrés sans dépendance supplémentaire

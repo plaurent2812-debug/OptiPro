@@ -1,6 +1,20 @@
 # TODO — OptiPro
 
-## Parcours au défilement — VALIDÉ PAR PIERRE le 2026-08-30
+## Défilement mobile — LIVRAISON AUTORISÉE le 2026-08-31
+
+- [x] Vidéo iPhone examinée : schéma déjà complet et visuels projets statiques
+- [x] Cause reproduite à 390 × 844 : animation désactivée par largeur et scène non fixe
+- [x] Scène fixe compacte au-dessus du texte, progression mobile et révélation des images ; parcours desktop conservé
+- [x] Dimensions CSS identiques avant/après hydratation pour éviter le décalage des liens directs ; marge du lien de sortie adaptée à la scène fixe
+- [x] Défilement aller/retour et ancres : idée 0/0, briques 1/0, outil 1/1 ; transitions intermédiaires 0,434 ; révélation projet 0 → 0,644 → 1
+- [x] Contrôles navigateur à 320×568, 390×844, 402×874, 768×1024, 980×800, 1024×768, 1440×900 et 844×390 ; aucune largeur débordante
+- [x] Mode statique conservé pour une hauteur inférieure à 500 px et la réduction des mouvements ; aucune capture du défilement ni dépendance ajoutée
+- [x] Lint, TypeScript et 10 tests existants validés sans build local
+- [x] Publication demandée par Pierre : commit, push, CI distante et mise en Production autorisés
+- [ ] Vérifier CI, fusion, déploiement Vercel et parcours sur le domaine public
+- Limite : contrôles en navigateur avec dimensions mobiles, pas sur un iPhone physique ; réduction du mouvement vérifiée dans les règles CSS/JS, sans changer la préférence système.
+
+## Parcours au défilement — DÉPLOYÉ EN PRODUCTION le 2026-08-30
 
 - [x] Référence Pocca observée : schéma fixe et construction progressive liée au défilement
 - [x] Séquence originale en trois étapes : intuition, construction des briques, interface avec les projets
@@ -12,16 +26,22 @@
 - [x] Lint, TypeScript et 10 tests existants verts ; HTML serveur contrôlé hors scripts
 - Limite de validation : réduction du mouvement vérifiée dans les règles CSS/JS et via le même mode statique sur petits écrans ; préférence système non modifiée. Activation clavier automatique non concluante dans le navigateur intégré, ancres et focus contrôlés.
 - [x] Aperçu validé par Pierre ; commit et push autorisés sur `codex/scroll-journey`
-- Aucun build local ni fusion dans `main` ; Production non publiée dans cette livraison
+- [x] Mise en Production autorisée par Pierre ; PR #9 fusionnée au commit `4eb9cd32e6f81c0cc5d2618915f19b05ca83007f`
+- [x] CI PR `33337394537` et CI `main` `33337434947` vertes : lint, TypeScript, tests et build
+- [x] Vercel `dpl_69Sx8X4McurbvHnQsHKJnMeAzSdr` READY, cible Production, alias `www.opti-pro.fr` ; build distant en 18 s
+- [x] Domaine public : `/`, `/projets`, `/a-propos`, `/contact` en 200 ; nouvelle séquence présente dans le HTML serveur
+- [x] Production contrôlée sur desktop/mobile : progression 0 → 0,781 → 1, ancres, navigation Projets → accueil, marges et absence de débordement
+- [x] Aucun log navigateur de niveau erreur observé ; scan Vercel de cette livraison sans résultat au niveau erreur
+- Aucun build local, changement Supabase, variable d’environnement ou réglage Vercel ; avertissement CI Node.js 20 des actions existantes non bloquant
 
-## Alignement du hero — CORRIGÉ LOCALEMENT le 2026-08-30
+## Alignement du hero — DÉPLOYÉ EN PRODUCTION le 2026-08-30
 
 - [x] Cause identifiée : `width: 100%` sur `.heroInner` écrase la largeur commune `.shell`
 - [x] Largeur concurrente retirée ; `.shell` gère à nouveau les marges et la largeur maximale
 - [x] Alignement exact avec le header et absence de débordement vérifiés à 320, 390, 768, 980, 981, 1024, 1490 et 1920 px
 - [x] Captures desktop/mobile et navigation Projets → accueil contrôlées ; aucune erreur console
 - [x] TypeScript, lint, 10 tests existants et `git diff --check` validés sans build local
-- Push autorisé par Pierre ; état du déploiement automatique à vérifier après publication
+- [x] Commit `1a0e944` déployé en Production (`dpl_cHNyr7BmAufcyZfaBANRoCTCv6d2`) ; alignement reconfirmé après livraison du parcours au défilement
 
 ## Curseur personnalisé — TERMINÉ le 2026-08-30
 

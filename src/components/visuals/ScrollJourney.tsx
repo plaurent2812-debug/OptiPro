@@ -16,7 +16,8 @@ export default function ScrollJourney({ children }: { children: ReactNode }) {
     const steps = Array.from(root.querySelectorAll<HTMLElement>("[data-build-step]"));
     const links = Array.from(root.querySelectorAll<HTMLAnchorElement>("[data-step-link]"));
     const visuals = Array.from(root.querySelectorAll<HTMLElement>("[data-project-visual]"));
-    const motion = window.matchMedia("(min-width: 981px) and (min-height: 700px) and (prefers-reduced-motion: no-preference)");
+    const motion = window.matchMedia("(min-height: 500px) and (prefers-reduced-motion: no-preference)");
+    const compact = window.matchMedia("(max-width: 980px), (max-height: 699px)");
     let frame = 0;
 
     const update = () => {
@@ -25,9 +26,10 @@ export default function ScrollJourney({ children }: { children: ReactNode }) {
       // Read geometry together before updating styles; no React render on scroll.
       const positions = steps.map((step) => step.getBoundingClientRect().top);
       const visualPositions = motion.matches ? visuals.map((visual) => visual.getBoundingClientRect().top) : [];
-      const activationLine = motion.matches
+      const readingLine = steps[0] ? parseFloat(window.getComputedStyle(steps[0]).scrollMarginTop) : 0;
+      const activationLine = motion.matches && !compact.matches
         ? height * .55
-        : steps[0] ? parseFloat(window.getComputedStyle(steps[0]).scrollMarginTop) + 2 : 0;
+        : readingLine + 2;
       let active = 0;
       positions.forEach((top, index) => {
         if (top <= activationLine) active = index;
@@ -47,8 +49,11 @@ export default function ScrollJourney({ children }: { children: ReactNode }) {
 
       if (sequence && positions.length === 3) {
         const distance = Math.max(1, positions[1] - positions[0]);
-        sequence.style.setProperty("--structure", clamp((height * .82 - positions[1]) / (distance * .65)).toFixed(3));
-        sequence.style.setProperty("--interface", clamp((height * .82 - positions[2]) / (distance * .65)).toFixed(3));
+        // On mobile the illustration stays above the text, not beside it.
+        const start = height * (compact.matches ? .95 : .82);
+        const travel = compact.matches ? Math.max(1, start - readingLine) : distance * .65;
+        sequence.style.setProperty("--structure", clamp((start - positions[1]) / travel).toFixed(3));
+        sequence.style.setProperty("--interface", clamp((start - positions[2]) / travel).toFixed(3));
       }
       visuals.forEach((visual, index) => {
         visual.style.setProperty("--reveal", clamp((height * .95 - visualPositions[index]) / (height * .58)).toFixed(3));
@@ -63,6 +68,7 @@ export default function ScrollJourney({ children }: { children: ReactNode }) {
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", schedule);
     motion.addEventListener("change", schedule);
+    compact.addEventListener("change", schedule);
     update();
 
     return () => {
@@ -71,6 +77,7 @@ export default function ScrollJourney({ children }: { children: ReactNode }) {
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", schedule);
       motion.removeEventListener("change", schedule);
+      compact.removeEventListener("change", schedule);
       delete root.dataset.scrollMotion;
       sequence?.style.removeProperty("--structure");
       sequence?.style.removeProperty("--interface");

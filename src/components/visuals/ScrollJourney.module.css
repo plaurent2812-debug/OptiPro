@@ -59,7 +59,7 @@
 .journey[data-scroll-motion="true"] [data-project-visual] > div { transform: translateY(calc((1 - var(--reveal, 1)) * 65px)) scale(calc(.9 + var(--reveal, 1) * .1)); }
 .journey[data-scroll-motion="true"] [data-project-visual] img { clip-path: inset(calc((1 - var(--reveal, 1)) * 45%) 0 round 1rem); filter: saturate(calc(.25 + var(--reveal, 1) * .75)); }
 @media (max-width: 980px), (max-height: 699px), (prefers-reduced-motion: reduce) {
-  .sequence { --structure: 1 !important; --interface: 1 !important; padding-top: 4rem; }
+  .sequence { padding-top: 4rem; }
   .sequenceGrid { grid-template-columns: 1fr; gap: 1.5rem; }
   .scene { position: relative; top: auto; grid-row: 1; max-width: 550px; width: 100%; margin-inline: auto; padding-block: 2rem 3rem; }
   .steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; padding-bottom: 3rem; }
@@ -76,4 +76,35 @@
   .appContent > strong { margin: .45rem 0 .6rem; }.miniProjects { gap: .3rem; }.miniProjects > div { padding: .35rem .2rem; gap: .25rem; }.miniProjects img { width: 16px; height: 16px; }
   .buildModule { top: 84%; padding: .6rem; }.buildModule code { font-size: .5rem; margin-top: .4rem; }.buildModule small { font-size: .45rem; }.dataRows { margin-top: .6rem; }.dataRows i { height: .25rem; }
   .readyNode { left: 32%; font-size: .36rem; }.sceneCaption { font-size: .42rem; }
+}
+@media (min-height: 500px) and (prefers-reduced-motion: no-preference) {
+  @media (max-width: 980px), (max-height: 699px) {
+    .sequence { --nav-height: 3.5rem; --scene-height: min(38svh, 23rem); }
+    .stepNav { position: sticky; top: var(--header-height); height: var(--nav-height); padding-block: .65rem; }
+    .sequenceGrid { display: flex; flex-direction: column; gap: 0; }
+    .scene { order: -1; position: sticky; top: calc(var(--header-height) + var(--nav-height)); z-index: 3; flex: none; width: 100%; max-width: none; height: var(--scene-height); padding: 1rem 0 2.5rem; background: var(--bg); border-bottom: 1px solid var(--line); }
+    .sceneCanvas { width: min(100%, calc((var(--scene-height) - 3.5rem) * 600 / 560)); margin-inline: auto; font-size: 0; }
+    .steps { display: block; width: 100%; padding-bottom: 0; }
+    .step { min-height: max(60svh, 19rem); padding-block: 1.5rem 4rem; border-top: 0; scroll-margin-top: calc(var(--header-height) + var(--nav-height) + var(--scene-height)); }
+    .step:last-child { min-height: 0; padding-bottom: 2rem; }
+    .projectJump { scroll-margin-top: calc(var(--header-height) + var(--nav-height) + var(--scene-height) + 1rem); }
+    .step h3 { margin-top: .7rem; }
+    /* Scale the whole diagram together when the available height is small. */
+    .ideaNode { padding: 3cqw; }.ideaNode strong { font-size: 3cqw; margin-top: 2cqw; }
+    .ideaNode > span, .buildModule > span { font-size: 1.6cqw; }.ideaNode > i { display: none; }
+    .blueprint { padding: 3cqw; }.blueprint > span { font-size: 1.6cqw; }.blueprint > div { margin-top: 3cqw; }
+    .appBar { min-height: 0; padding: 2cqw; font-size: 1.6cqw; gap: 2cqw; }
+    .appContent { padding: 3cqw; }.appEyebrow { font-size: 1.4cqw; }
+    .appContent > strong { font-size: 4.2cqw; margin: 2cqw 0 3cqw; }
+    .appScaffold { inset: 10cqw 3cqw 3cqw; gap: 2cqw; }
+    .appScaffold > i { height: 2cqw; }.appScaffold > div { margin-top: 1cqw; gap: 2cqw; }
+    .miniProjects { gap: 1.3cqw; }.miniProjects > div { padding: 1.5cqw 1cqw; gap: 1cqw; }
+    .miniProjects img { width: 5cqw; height: 5cqw; }.miniProjects span { font-size: 1.8cqw; }.miniProjects i { font-size: 1.8cqw; }
+    .buildModule { top: 84%; padding: 2.5cqw; }.buildModule code { font-size: 2.3cqw; margin-top: 2cqw; }
+    .buildModule small { font-size: 2cqw; }.dataRows { margin: 2cqw 0; gap: 1cqw; }.dataRows i { height: 1cqw; }
+    .readyNode { left: 34%; gap: 1cqw; font-size: 1.5cqw; }.sceneCaption { font-size: 1.8cqw; }
+  }
+}
+@media (max-height: 499px), (prefers-reduced-motion: reduce) {
+  .sequence { --structure: 1 !important; --interface: 1 !important; }
 }

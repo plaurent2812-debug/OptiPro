@@ -13,7 +13,7 @@ et quelques éléments de mon parcours. Il ne poursuit pas un objectif commercia
 - Next.js 16 / React 19 / TypeScript
 - CSS Modules et variables CSS
 - Vercel Analytics
-- déploiement Vercel sur `www.opti-pro.fr`
+- déploiement Vercel sur `pierre-laurent.fr` ; anciens domaines `opti-pro.fr` et `www.opti-pro.fr` redirigés
 
 Le site public est statique et ne dépend plus de Supabase, Resend ou d'un
 back-office.

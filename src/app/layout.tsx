@@ -16,14 +16,14 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.opti-pro.fr"),
+  metadataBase: new URL("https://pierre-laurent.fr"),
   title: {
     default: "Pierre Laurent — Opérations, data & création numérique",
     template: "%s · Pierre Laurent",
   },
   description:
     "Responsable des opérations, passionné de tech et d’IA. Le parcours professionnel, les compétences et les projets personnels de Pierre Laurent.",
-  authors: [{ name: "Pierre Laurent", url: "https://www.opti-pro.fr" }],
+  authors: [{ name: "Pierre Laurent", url: "https://pierre-laurent.fr" }],
   creator: "Pierre Laurent",
   category: "technology",
   openGraph: {

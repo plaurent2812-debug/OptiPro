@@ -12,12 +12,12 @@ export default function LegalPage() {
       <article className="shell">
         <p className="eyebrow">Legal information</p>
         <h1>Mentions légales</h1>
-        <p className="legal-intro">DERNIÈRE MISE À JOUR / 30 AOÛT 2026</p>
+        <p className="legal-intro">DERNIÈRE MISE À JOUR / 31 AOÛT 2026</p>
 
         <h2>1. Éditeur</h2>
-        <p>Le site <strong>www.opti-pro.fr</strong> est édité par Pierre Laurent, entrepreneur individuel, sous la dénomination commerciale OptiPro.</p>
+        <p>Le site <strong>pierre-laurent.fr</strong> est édité par Pierre Laurent, entrepreneur individuel, sous la dénomination commerciale OptiPro.</p>
         <p>Siège : Bâtiment Le Matisse, 541 Avenue Colonel Meyère, 06140 Vence, France<br />SIREN : 934 301 987<br />SIRET : 934 301 987 00020<br />Code APE : 70.22Z<br />Directeur de la publication : Pierre Laurent<br />Contact : <a href="mailto:p.laurent@opti-pro.fr">p.laurent@opti-pro.fr</a></p>
-        <p>Ce site présente les projets numériques personnels de Pierre Laurent. Il ne propose pas de prestations ni de prise de commande.</p>
+        <p>Ce site présente le parcours professionnel et les projets numériques personnels de Pierre Laurent. Il ne propose pas de prestations ni de prise de commande.</p>
 
         <h2>2. Hébergement</h2>
         <p>Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a>.</p>

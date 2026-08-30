@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 const LAST_UPDATE = new Date("2026-08-31");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.opti-pro.fr";
+  const baseUrl = "https://pierre-laurent.fr";
   return [
     { url: baseUrl, lastModified: LAST_UPDATE, changeFrequency: "monthly", priority: 1 },
     { url: `${baseUrl}/projets`, lastModified: LAST_UPDATE, changeFrequency: "monthly", priority: 0.9 },

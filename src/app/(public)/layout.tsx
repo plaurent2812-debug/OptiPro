@@ -9,12 +9,12 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://www.opti-pro.fr/#pierre-laurent",
+      "@id": "https://pierre-laurent.fr/#pierre-laurent",
       name: "Pierre Laurent",
       jobTitle: "Responsable des Opérations",
       description:
         "Responsable des opérations, passionné de tech et d’IA : parcours professionnel en logistique et exploitation, création d’applications et d’outils numériques.",
-      url: "https://www.opti-pro.fr",
+      url: "https://pierre-laurent.fr",
       email: "p.laurent@opti-pro.fr",
       address: {
         "@type": "PostalAddress",
@@ -42,10 +42,10 @@ const jsonLd = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.opti-pro.fr/#website",
-      url: "https://www.opti-pro.fr",
+      "@id": "https://pierre-laurent.fr/#website",
+      url: "https://pierre-laurent.fr",
       name: "Pierre Laurent — Site personnel",
-      author: { "@id": "https://www.opti-pro.fr/#pierre-laurent" },
+      author: { "@id": "https://pierre-laurent.fr/#pierre-laurent" },
       inLanguage: "fr-FR",
     },
   ],

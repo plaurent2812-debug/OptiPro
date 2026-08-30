@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Pierre Laurent — Site personnel",
     short_name: "Pierre Laurent",
-    description: "Projets, applications, parcours et centres d’intérêt.",
+    description: "Parcours professionnel, opérations, data et projets numériques personnels.",
     start_url: "/",
     display: "standalone",
     background_color: "#05080d",

@@ -2,6 +2,7 @@
 
 | Date | Ce qui s'est passé | Règle |
 |------|-------------------|-------|
+| 2026-08-31 | Vercel Analytics chargeait son script de débogage externe dans la démo locale, bloqué par la CSP et signalé comme erreur navigateur | Réserver Analytics à la production ; ne pas élargir la CSP pour activer le suivi d’une démo locale |
 | 2026-08-31 | Le parcours approuvé sur desktop devenait entièrement statique sur mobile parce que largeur d’écran et réduction du mouvement partageaient la même désactivation | Adapter le placement et la progression au mobile au lieu de retirer l’interaction centrale ; vérifier une progression intermédiaire réelle, les ancres et la sortie du parcours sur petit écran, avec une géométrie stable avant/après hydratation |
 | 2026-08-30 | Le seuil d’étape active centré dans le viewport sélectionnait déjà l’étape suivante sur mobile, où les textes sont plus courts | Pour une navigation par ancres, distinguer le seuil desktop animé du seuil mobile : ce dernier doit suivre la marge de défilement réelle de la cible |
 | 2026-08-30 | `width: 100%` sur `.heroInner` écrasait la largeur de `.shell` et supprimait les marges du hero | Laisser le conteneur partagé gérer sa largeur ; vérifier l’alignement réel du titre avec le header sur desktop et mobile, y compris après navigation |

@@ -15,6 +15,8 @@ export type ProductProject = {
   platforms: string[];
   technologies: string[];
   capabilities: string[];
+  role: string;
+  demonstrates: string;
 };
 
 export const projects: ProductProject[] = [
@@ -35,6 +37,8 @@ export const projects: ProductProject[] = [
     platforms: ["Web", "iOS", "Android"],
     technologies: ["Next.js", "React Native", "Python", "PostgreSQL", "Supabase"],
     capabilities: ["Data pipeline", "Analyse", "Abonnements", "Notifications", "IA visuelle"],
+    role: "Conception et développement de l’écosystème web et mobile",
+    demonstrates: "Relier des données complexes, rendre l’analyse lisible et expliciter les limites de l’information.",
   },
   {
     slug: "ferdinand",
@@ -52,6 +56,8 @@ export const projects: ProductProject[] = [
     platforms: ["iOS", "Android", "Web"],
     technologies: ["Expo", "React Native", "TypeScript", "Supabase", "Push"],
     capabilities: ["Échéances", "Récurrence", "Notifications", "Mode sombre", "Accessibilité"],
+    role: "Conception et développement d’un assistant du quotidien",
+    demonstrates: "Transformer un besoin récurrent en parcours simple, avec rappels, suivi et attention aux détails.",
   },
   {
     slug: "ro-nutritionniste",
@@ -70,6 +76,8 @@ export const projects: ProductProject[] = [
     platforms: ["Web", "Démo interactive"],
     technologies: ["Next.js", "React", "TypeScript", "Vercel", "Design system"],
     capabilities: ["Recettes", "Rendez-vous", "Générateur", "Contenus", "Administration"],
+    role: "Conception de l’interface et développement de la démonstration",
+    demonstrates: "Comprendre un métier et réunir ses contenus et ses outils dans une expérience cohérente.",
   },
   {
     slug: "odysio",
@@ -88,5 +96,7 @@ export const projects: ProductProject[] = [
     platforms: ["iOS", "TestFlight"],
     technologies: ["Expo", "React Native", "TypeScript", "Supabase", "RevenueCat"],
     capabilities: ["Quêtes", "Narration IA", "Progression", "Chapitres", "Notifications"],
+    role: "Conception et développement d’un prototype mobile",
+    demonstrates: "Explorer l’engagement par la narration et l’IA, tester sur appareil et prioriser la suite du produit.",
   },
 ];

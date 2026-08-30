@@ -40,12 +40,12 @@ const nextConfig: NextConfig = {
       { source: "/dashboard/:path*", destination: "/", permanent: true },
       { source: "/admin", destination: "/", permanent: true },
       { source: "/admin/:path*", destination: "/", permanent: true },
-      {
+      ...["opti-pro.fr", "www.opti-pro.fr", "www.pierre-laurent.fr"].map((host) => ({
         source: "/:path*",
-        has: [{ type: "host", value: "opti-pro.fr" }],
-        destination: "https://www.opti-pro.fr/:path*",
+        has: [{ type: "host" as const, value: host }],
+        destination: "https://pierre-laurent.fr/:path*",
         permanent: true,
-      },
+      })),
     ];
   },
   async headers() {

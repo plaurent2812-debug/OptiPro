@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import styles from "../content.module.css";
 
 export const metadata: Metadata = {
@@ -12,9 +13,9 @@ export default function ContactPage() {
     <main>
       <section className={styles.pageHero}>
         <div className="shell">
-          <p className="eyebrow">Quelques liens</p>
-          <h1>Me retrouver <em>ailleurs.</em></h1>
-          <p>Ce site est surtout un carnet personnel. Pour suivre mes projets, regarder le code ou simplement échanger, voici les endroits où me trouver.</p>
+          <p className="eyebrow">Contact / Pierre Laurent</p>
+          <h1>La suite commence<br />par une <em>conversation.</em></h1>
+          <p>Mon expérience des opérations, un projet numérique ou une perspective professionnelle : je suis toujours intéressé par les échanges qui ouvrent de nouvelles idées.</p>
         </div>
       </section>
 
@@ -23,18 +24,20 @@ export default function ContactPage() {
           <article className={styles.contactMain}>
             <p className="tech-label">ÉCRIRE / ÉCHANGER</p>
             <h2>Le plus simple reste un message.</h2>
-            <p>Un retour sur un projet, une idée à partager ou juste l’envie de discuter tech : mon adresse email est le chemin le plus direct.</p>
+            <p>Pour parler de mon parcours, de votre organisation ou d’un sujet tech, écrivez-moi. Vous pouvez aussi retrouver mon expérience et mes compétences dans mon CV.</p>
             <div className={styles.buttonRow}>
               <a href="mailto:p.laurent@opti-pro.fr" className="button-primary">p.laurent@opti-pro.fr <span aria-hidden="true">→</span></a>
               <a href="https://www.linkedin.com/in/pierre-laurent-809410123" target="_blank" rel="noopener noreferrer" className="button-secondary">LinkedIn ↗</a>
+              <Link href="/cv" className="button-secondary">Consulter mon CV ↗</Link>
             </div>
-            <p className={styles.availability}>PAS DE FORMULAIRE · PAS DE NEWSLETTER · JUSTE UN EMAIL</p>
+            <p className={styles.availability}>UN ÉCHANGE DIRECT · PROFESSIONNEL OU PERSONNEL</p>
           </article>
           <aside className={styles.contactAside}>
             <h3>Mes autres espaces</h3>
             <dl>
               <div><dt>IDENTITÉ</dt><dd>Pierre Laurent</dd></div>
               <div><dt>BASE</dt><dd>Vence · France</dd></div>
+              <div><dt>PROCHAINE ÉTAPE · SEPTEMBRE 2026</dt><dd>Responsable des Opérations · Pharmagreen</dd></div>
               <div><dt>GITHUB</dt><dd><a href="https://github.com/plaurent2812-debug" target="_blank" rel="noopener noreferrer">plaurent2812-debug ↗</a></dd></div>
               <div><dt>PROBALAB</dt><dd><a href="https://www.probalab.net" target="_blank" rel="noopener noreferrer">probalab.net ↗</a></dd></div>
             </dl>

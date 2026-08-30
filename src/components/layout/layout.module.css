@@ -24,6 +24,8 @@
 }
 
 .brandName { color: var(--text); font-size: .82rem; font-weight: 550; letter-spacing: -.01em; }
+.brandMark { display: inline-flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; border: 1px solid var(--line-strong); border-radius: .35rem; color: var(--text); font: 500 .7rem/1 var(--font-mono), monospace; }
+.brandMark span { color: var(--cyan); }
 
 .desktopNav { display: flex; align-items: center; gap: 0.25rem; }
 

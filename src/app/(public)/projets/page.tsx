@@ -26,15 +26,15 @@ export default function ProjectsPage() {
     <main>
       <section className={styles.pageHero}>
         <div className="shell">
-          <p className="eyebrow">Apps, outils & expérimentations</p>
+          <p className="eyebrow">Mon terrain de jeu personnel</p>
           <h1>Ce que j’ai créé — et ce qui est encore <em>en train de le devenir.</em></h1>
-          <p>Certains projets sont déjà utilisés, d’autres continuent de changer chaque semaine. Je les rassemble ici avec leur histoire, leur état actuel et les idées que j’y explore.</p>
+          <p>Ces projets sont développés à titre personnel, en parallèle de mon parcours professionnel. Ils montrent ma façon de passer d’un besoin à un outil : concevoir, relier les données, développer, tester et améliorer.</p>
         </div>
       </section>
 
       <section className={`shell ${styles.projects}`}>
         {projects.map((project) => (
-          <article className={styles.project} key={project.slug}>
+          <article id={project.slug} className={styles.project} key={project.slug}>
             <div className={`${styles.visual} ${visualTone[project.statusTone]}`}>
               {project.visual === "browser" ? (
                 <div className={styles.browser}>
@@ -69,9 +69,10 @@ export default function ProjectsPage() {
               <p className={styles.statement}>{project.statement}</p>
               <p className={styles.description}>{project.description}</p>
               <div className={styles.matrix}>
-                <div><span>DISPONIBLE SUR</span><strong>{project.platforms.join(" · ")}</strong></div>
+                <div><span>PLATEFORMES / STADE</span><strong>{project.platforms.join(" · ")}</strong></div>
                 <div><span>CE QUE J’Y EXPLORE</span><strong>{project.capabilities.slice(0, 3).join(" · ")}</strong></div>
               </div>
+              <div className={styles.projectEvidence}><span>MON IMPLICATION</span><h3>{project.role}</h3><p>{project.demonstrates}</p></div>
               <div className={styles.tags}>{project.technologies.map((technology) => <span key={technology}>{technology}</span>)}</div>
               {project.href ? <a href={project.href} className={styles.projectLink} target="_blank" rel="noopener noreferrer">DÉCOUVRIR {project.name.toUpperCase()} ↗</a> : <span className={styles.projectWait}>{(project.waitLabel ?? "Encore un peu de patience").toUpperCase()}</span>}
             </div>

@@ -3,6 +3,43 @@
 > Entrées antéchronologiques (la plus récente en haut).
 > Format : date, PRs/commits, modifs BD, modifs structurantes, leçons, en suspens, stats.
 
+## 2026-08-30 — Raffinement premium compact
+
+### PRs et commits poussés sur `main`
+- PR #8 — réduction globale de l’échelle visuelle et raffinement premium, fusionnée au commit `389e996`.
+- `acb2b42` — typographie, espacements, cartes projets, pages internes et décor neuronal compactés.
+- `3446522` — état de livraison consigné dans `tasks/todo.md`.
+
+### Modifications BD / infrastructure
+- Aucune modification de base de données, de schéma Supabase ou de variable d’environnement.
+- Déploiement Vercel Production `dpl_GMNw8CFRg9fmZ6A5465Fmr7A3PWP` au statut `READY`, aliasé sur
+  `www.opti-pro.fr`.
+
+### Modifications fonctionnelles structurantes
+- Titres, textes courants, boutons, navigation et footer ramenés à une échelle plus petite et éditoriale.
+- Hero débarrassé de sa grande carte vitrée ; composition rééquilibrée autour d’un texte compact et d’un
+  terminal HTML/CSS plus discret.
+- Cartes de projets raccourcies et allégées sans retirer leurs informations ni leurs visuels produit.
+- Pages Projets, Parcours et Contact harmonisées avec la nouvelle densité.
+- Fond neuronal, balayages et halos conservés mais fortement atténués pour rester un détail technologique.
+
+### Vérifications
+- TypeScript, ESLint, 9 tests structurels et build Next.js local validés.
+- 12 pages statiques générées ; CI Preview et CI `main` entièrement vertes.
+- Accueil, Projets, Parcours et Contact contrôlés en HTTP 200 sur le domaine public.
+- Aucun log d’erreur Production trouvé après publication.
+
+### Leçons et points en suspens
+- Aucune nouvelle leçon ajoutée : le workflow Preview → CI → merge → Production a fonctionné sans incident.
+- GitHub Actions signale toujours la dépréciation de Node.js 20 pour `actions/checkout@v4` et
+  `actions/setup-node@v4` ; avertissement non bloquant à traiter lors d’une maintenance CI.
+- `AGENTS.md` reste local, non suivi et absent des commits.
+
+### Stats de session
+- 1 PR fusionnée et 3 commits fonctionnels/documentaires avant cette clôture.
+- 6 fichiers touchés par la refonte : +164 / -153 lignes.
+- 1 Preview et 2 déploiements Production validés, dont un second sans changement produit pour la documentation.
+
 ## 2026-08-30 — Refonte minimaliste et ajout de Ro Nutritionniste / Odysio
 
 ### PRs et commits poussés sur `main`

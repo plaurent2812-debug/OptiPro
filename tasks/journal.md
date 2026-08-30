@@ -3,6 +3,56 @@
 > Entrées antéchronologiques (la plus récente en haut).
 > Format : date, PRs/commits, modifs BD, modifs structurantes, leçons, en suspens, stats.
 
+## 2026-08-30 — Refonte minimaliste et ajout de Ro Nutritionniste / Odysio
+
+### PRs et commits poussés sur `main`
+- PR #6 — refonte minimaliste et futuriste du site personnel, fusionnée au commit `0fdc12a`.
+- `781dbb7` — nouveau hero en environnement de développement HTML/CSS, typographie réduite,
+  réseau neuronal animé et harmonisation des pages publiques.
+- `b29fa8b` — restauration du script `test:ci` attendu par le workflow GitHub.
+- `60100a4` — consignation du premier déploiement de la refonte.
+- PR #7 — ajout de Ro Nutritionniste et Odysio, fusionnée au commit `6a7ed22`.
+- `10f9c77` — ajout des deux projets, de leurs visuels et de leurs états réels.
+- `c54a310` — consignation de leur publication en production.
+
+### Modifications BD / infrastructure
+- Aucune modification de base de données, de schéma Supabase ou de variable d’environnement.
+- Deux cycles Preview → CI → Production validés via GitHub et Vercel.
+- Production finale Vercel `dpl_EjZKq1UhQx4a8Jeo5g75BbS4cQ4u` au statut `READY`, avec
+  `www.opti-pro.fr` et ses routes principales contrôlés en HTTP 200.
+
+### Modifications fonctionnelles structurantes
+- Direction visuelle simplifiée : textes moins imposants, interface bleu nuit inspirée de Vivva,
+  terminal animé, curseur, scan lumineux et réseau neuronal CSS en mouvement.
+- Ro Nutritionniste ajouté comme prototype web avancé avec une fenêtre navigateur et le déploiement
+  Preview fonctionnel ; aucune affirmation de livraison publique définitive.
+- Odysio ajouté comme application iOS/TestFlight volontairement mise en pause, sans faux lien App Store.
+- Accueil et page Projets passent de deux à quatre projets ; nouveaux visuels locaux optimisés par Next Image.
+
+### Vérifications
+- TypeScript et ESLint validés localement puis dans GitHub Actions.
+- 9 tests structurels verts ; builds Next.js GitHub et Vercel validés.
+- Accueil, page Projets et nouveaux fichiers image contrôlés sur le domaine public.
+- Aucun log d’erreur Production trouvé dans la fenêtre Vercel consultée après déploiement.
+
+### Leçon ajoutée
+- Le workflow appelait `npm run test:ci` alors que seul `npm test` existait : garder les scripts du
+  manifeste synchronisés avec les commandes exactes de `.github/workflows/ci.yml`.
+
+### Points en suspens / à reprendre
+- L’alias stable `ro-nutritionniste.vercel.app` renvoie encore une 404 ; OptiPro pointe donc vers le
+  déploiement Preview fonctionnel et immuable en attendant une vraie publication du projet de Romain.
+- Odysio reste volontairement en pause ; widget, achat sandbox et lancement public ne sont pas présentés
+  comme terminés sur le site.
+- GitHub Actions signale la dépréciation de Node.js 20 pour `actions/checkout@v4` et
+  `actions/setup-node@v4` ; avertissement non bloquant à traiter lors d’une prochaine maintenance CI.
+- `AGENTS.md` reste un fichier local non suivi et n’a été inclus dans aucun commit de cette session.
+
+### Stats de session
+- 7 commits, dont 2 PRs fusionnées.
+- 21 fichiers touchés : 4 ajoutés, 17 modifiés, +650 / -362 lignes.
+- 2 nouveaux projets publiés et 2 déploiements Production validés.
+
 ## 2026-08-29 → 2026-08-30 — OptiPro devient le site personnel de Pierre
 
 **Décision structurante** : arrêt définitif des missions client. Le domaine OptiPro est conservé comme site

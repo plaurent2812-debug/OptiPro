@@ -1,6 +1,6 @@
 # TODO — OptiPro
 
-## Refonte minimaliste — EN COURS le 2026-08-30
+## Refonte minimaliste — TERMINÉE le 2026-08-30
 
 Direction demandée par Pierre : conserver un site personnel sombre et technologique, mais retirer
 l’accumulation d’effets JARVIS au profit d’une interface calme, lisible et centrée sur le contenu.
@@ -18,8 +18,8 @@ l’accumulation d’effets JARVIS au profit d’une interface calme, lisible et
 - [x] Pages Projets, Parcours, Contact, header et footer alignés sur la nouvelle direction
 - [x] Responsive et compilation de développement contrôlés
 - [x] TypeScript, ESLint et tests structurels validés sans build
-- [ ] Build de production — en attente de l’autorisation explicite de Pierre
-- [ ] Déploiement Vercel et contrôle du domaine public
+- [x] Build GitHub CI validé sur la PR #6
+- [x] Déploiement Vercel Production `READY` et contrôle de `www.opti-pro.fr` effectué
 
 ## Pivot site personnel — EN COURS le 2026-08-30
 

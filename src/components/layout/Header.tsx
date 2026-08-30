@@ -22,9 +22,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={`shell ${styles.headerInner}`}>
         <Link href="/" className={styles.brand} aria-label="Pierre Laurent — accueil">
-          <span className={styles.brandMark} aria-hidden="true">PL</span>
-          <span className={styles.brandName}>PIERRE.LAURENT</span>
-          <span className={styles.brandRole}>/ SITE PERSONNEL</span>
+          <span className={styles.brandName}>Pierre Laurent</span>
         </Link>
 
         <nav className={styles.desktopNav} aria-label="Navigation principale">

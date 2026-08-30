@@ -23,7 +23,7 @@ export default function ProjectsPage() {
       <section className={`shell ${styles.projects}`}>
         {projects.map((project) => (
           <article className={styles.project} key={project.slug}>
-            <div className={`panel ${styles.visual} ${project.statusTone === "amber" ? styles.visualAmber : ""}`}>
+            <div className={`${styles.visual} ${project.statusTone === "amber" ? styles.visualAmber : ""}`}>
               <div className={styles.phone}>
                 <Image src={project.image} alt={project.imageAlt} width={1320} height={2868} sizes="(max-width: 620px) 72vw, 310px" />
               </div>

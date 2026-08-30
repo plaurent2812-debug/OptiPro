@@ -1,5 +1,15 @@
 # TODO — OptiPro
 
+## Raffinement premium compact — TERMINÉ LOCALEMENT le 2026-08-30
+
+- [x] Échelle typographique globale nettement réduite
+- [x] Hero simplifié sans grande carte vitrée autour du texte
+- [x] Densité et hauteur des projets réduites
+- [x] Pages Projets, Parcours, Contact, header et footer harmonisés
+- [x] Décor neuronal rendu beaucoup plus subtil
+- [x] TypeScript, lint, 9 tests et build Next.js (12 pages statiques) validés
+- [ ] Version Production à publier et contrôler
+
 ## Ajout Odysio — TERMINÉ ET DÉPLOYÉ le 2026-08-30
 
 - [x] État réel du produit, de TestFlight et de la mise en pause vérifié

@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import CustomCursor from "@/components/visuals/CustomCursor";
 import NeuralBackdrop from "@/components/visuals/NeuralBackdrop";
 import { safeJsonLd } from "@/lib/json-ld";
 
@@ -49,6 +50,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
     <>
       <script type="application/ld+json">{safeJsonLd(jsonLd)}</script>
       <NeuralBackdrop />
+      <CustomCursor />
       <Header />
       {children}
       <Footer />

@@ -1,5 +1,13 @@
 # TODO — OptiPro
 
+## Curseur personnalisé — TERMINÉ le 2026-08-30
+
+- [x] Point central et halo fluide intégrés sans dépendance supplémentaire
+- [x] Réaction visuelle discrète sur les liens, boutons et contrôles interactifs
+- [x] Curseur natif conservé pour le texte et les champs
+- [x] Désactivation sur mobile, pointeur grossier et réduction des animations
+- [x] TypeScript, lint, 10 tests structurels et rendu navigateur validés
+
 ## Raffinement premium compact — TERMINÉ ET DÉPLOYÉ le 2026-08-30
 
 - [x] Échelle typographique globale nettement réduite

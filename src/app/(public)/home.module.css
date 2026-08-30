@@ -79,10 +79,16 @@
 .textLink:hover { color: var(--text); border-bottom-color: var(--text-dim); }
 
 .projectsSection, .principlesSection, .stackSection { padding: 6.5rem 0; }
+.projectsSection { scroll-margin-top: var(--header-height); }
+.projectNav { position: sticky; top: var(--header-height); z-index: 4; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); background: rgba(7,9,12,.96); backdrop-filter: blur(18px); }
+.projectNav a { min-height: 3.3rem; display: flex; align-items: center; gap: .65rem; padding: .7rem 1rem; color: var(--text-dim); font-size: .7rem; }
+.projectNav a span { color: var(--muted); font: .52rem var(--font-mono), monospace; }
+.projectNav a:hover, .projectNav a:focus-visible { color: var(--cyan); background: var(--cyan-soft); }
 .sectionHeader { display: grid; grid-template-columns: 1.08fr .92fr; gap: 4rem; align-items: end; margin-bottom: 3rem; }
 .projectGrid { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
 
 .projectCard {
+  scroll-margin-top: calc(var(--header-height) + 4rem);
   min-height: 510px;
   display: grid;
   grid-template-columns: 1.08fr .92fr;
@@ -162,6 +168,8 @@
 }
 
 @media (max-width: 720px) {
+  .projectNav { grid-template-columns: repeat(2, 1fr); position: relative; top: auto; }
+  .projectNav a { min-height: 2.8rem; }
   .hero { min-height: auto; padding-block: calc(var(--header-height) + 2.5rem) 3.5rem; }
   .heroInner { gap: 2.5rem; }
   .heroVisual { min-height: 330px; }

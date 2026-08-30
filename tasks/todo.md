@@ -1,5 +1,19 @@
 # TODO — OptiPro
 
+## Parcours au défilement — VALIDÉ PAR PIERRE le 2026-08-30
+
+- [x] Référence Pocca observée : schéma fixe et construction progressive liée au défilement
+- [x] Séquence originale en trois étapes : intuition, construction des briques, interface avec les projets
+- [x] Visuels projets révélés au défilement et accès directs aux étapes et aux quatre projets
+- [x] Scroll natif conservé ; contenu serveur, ancres natives et cibles de focus accessibles
+- [x] Animation sans dépendance, activée uniquement sur desktop assez haut et sans préférence de réduction du mouvement
+- [x] Desktop/mobile contrôlés à 320, 390, 768, 980, 1024, 1280 et 1920 px : aucune largeur débordante, marges du hero conservées
+- [x] Progression intermédiaire au scroll, trois étapes, ancre mobile active, accès direct Ro et navigation Projets → accueil contrôlés
+- [x] Lint, TypeScript et 10 tests existants verts ; HTML serveur contrôlé hors scripts
+- Limite de validation : réduction du mouvement vérifiée dans les règles CSS/JS et via le même mode statique sur petits écrans ; préférence système non modifiée. Activation clavier automatique non concluante dans le navigateur intégré, ancres et focus contrôlés.
+- [x] Aperçu validé par Pierre ; commit et push autorisés sur `codex/scroll-journey`
+- Aucun build local ni fusion dans `main` ; Production non publiée dans cette livraison
+
 ## Alignement du hero — CORRIGÉ LOCALEMENT le 2026-08-30
 
 - [x] Cause identifiée : `width: 100%` sur `.heroInner` écrase la largeur commune `.shell`

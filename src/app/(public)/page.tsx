@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { projects } from "@/data/projects";
+import BuildSequence from "@/components/visuals/BuildSequence";
+import ScrollJourney from "@/components/visuals/ScrollJourney";
 import styles from "./home.module.css";
 
 export const metadata: Metadata = {
@@ -33,7 +35,7 @@ const interests = [
 
 export default function HomePage() {
   return (
-    <main>
+    <ScrollJourney>
       <section className={styles.hero}>
         <div className={`shell ${styles.heroInner}`}>
           <div className={styles.heroVisual} aria-hidden="true">
@@ -85,7 +87,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className={styles.projectsSection}>
+      <BuildSequence />
+
+      <section className={styles.projectsSection} id="projets">
         <div className="shell">
           <p className="eyebrow">En ce moment</p>
           <div className={styles.sectionHeader}>
@@ -95,9 +99,12 @@ export default function HomePage() {
             </p>
           </div>
 
+          <nav className={styles.projectNav} aria-label="Explorer les projets">
+            {projects.map((project, index) => <a key={project.slug} href={`#projet-${project.slug}`}><span>0{index + 1}</span>{project.name}</a>)}
+          </nav>
           <div className={styles.projectGrid}>
             {projects.map((project, index) => (
-              <article className={`${styles.projectCard} ${styles[project.statusTone] ?? ""}`} key={project.slug}>
+              <article id={`projet-${project.slug}`} className={`${styles.projectCard} ${styles[project.statusTone] ?? ""}`} key={project.slug}>
                 <div className={styles.projectInfo}>
                   <div className={styles.projectMeta}>
                     <span>{project.code}</span>
@@ -118,7 +125,7 @@ export default function HomePage() {
                     <span className={styles.projectCtaMuted}>{project.waitLabel ?? "Projet encore discret pour le moment"}</span>
                   )}
                 </div>
-                <div className={styles.deviceStage}>
+                <div className={styles.deviceStage} data-project-visual>
                   {project.visual === "browser" ? (
                     <div className={styles.browser}>
                       <div className={styles.browserBar} aria-hidden="true"><i /><i /><i /><span>ro-nutritionniste</span></div>
@@ -191,6 +198,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-    </main>
+    </ScrollJourney>
   );
 }

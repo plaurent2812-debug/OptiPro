@@ -2,6 +2,7 @@
 
 | Date | Ce qui s'est passé | Règle |
 |------|-------------------|-------|
+| 2026-08-30 | Le seuil d’étape active centré dans le viewport sélectionnait déjà l’étape suivante sur mobile, où les textes sont plus courts | Pour une navigation par ancres, distinguer le seuil desktop animé du seuil mobile : ce dernier doit suivre la marge de défilement réelle de la cible |
 | 2026-08-30 | `width: 100%` sur `.heroInner` écrasait la largeur de `.shell` et supprimait les marges du hero | Laisser le conteneur partagé gérer sa largeur ; vérifier l’alignement réel du titre avec le header sur desktop et mobile, y compris après navigation |
 | 2026-08-30 | Le curseur personnalisé recalculait son état uniquement pendant `pointermove`, donc un lien pouvait rester visuellement « survolé » après une navigation qui remplaçait le contenu sous une souris immobile | Pour tout curseur piloté par la cible DOM, recalculer aussi `elementFromPoint` après les mutations de navigation et le défilement, puis vérifier le cas souris immobile entre deux routes |
 | 2026-08-30 | Le workflow GitHub appelait `npm run test:ci`, mais ce script avait disparu de `package.json` alors que `npm test` passait localement | Avant un push de livraison, vérifier la commande exacte exécutée par `.github/workflows/ci.yml` et conserver un alias `test:ci` explicite si le workflow en dépend |

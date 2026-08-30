@@ -1,5 +1,26 @@
 # TODO — OptiPro
 
+## Refonte minimaliste — EN COURS le 2026-08-30
+
+Direction demandée par Pierre : conserver un site personnel sombre et technologique, mais retirer
+l’accumulation d’effets JARVIS au profit d’une interface calme, lisible et centrée sur le contenu.
+
+- [x] Hero simplifié autour du nom, d’une phrase forte et de deux liens
+- [x] Grilles, noyaux IA, télémétrie, halos et animations décoratives retirés
+- [x] Référence Vivva analysée : fond bleu nuit, grille discrète, point focal unique et respiration retenus
+- [x] Première piste de particules générée puis retirée après retour : rendu encore trop « IA »
+- [x] Visuel du hero reconstruit en HTML/CSS comme environnement de développement lisible
+- [x] Échelle typographique réduite sur l’accueil et toutes les pages internes
+- [x] Réseau de nœuds et connexions CSS ajouté en fond global avec dérive lente et réduction de mouvement respectée
+- [x] Couche neuronale HTML/CSS enrichie : impulsions, signaux, anneaux et balayage animés
+- [x] Fenêtre de code mise en mouvement : scan lumineux, curseur, statuts et cartes flottantes
+- [x] Cartes ProbaLab et Ferdinand aplaties et allégées
+- [x] Pages Projets, Parcours, Contact, header et footer alignés sur la nouvelle direction
+- [x] Responsive et compilation de développement contrôlés
+- [x] TypeScript, ESLint et tests structurels validés sans build
+- [ ] Build de production — en attente de l’autorisation explicite de Pierre
+- [ ] Déploiement Vercel et contrôle du domaine public
+
 ## Pivot site personnel — EN COURS le 2026-08-30
 
 Décision owner : arrêt définitif des missions client. OptiPro devient le site personnel de

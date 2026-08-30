@@ -26,23 +26,12 @@ export default function AboutPage() {
       </section>
 
       <section className={`shell ${styles.aboutGrid}`}>
-        <div className={`panel ${styles.profileVisual}`} aria-hidden="true">
-          <div className={styles.profileGrid} />
-          <div className={styles.profileCore}>
-            <span /><span /><i />
-          </div>
-          <div className={styles.profileReadout}>
-            <div><span>INTERESTS</span><strong>AI / AUTOMATION / INTERFACES</strong></div>
-            <div><span>PROJECTS</span><strong>PROBALAB / FERDINAND</strong></div>
-            <div><span>MODE</span><strong>CURIOUS / BUILDING</strong></div>
-          </div>
-        </div>
         <div className={styles.aboutCopy}>
           <p className="eyebrow">Pierre Laurent</p>
           <h2>J’aime comprendre comment les choses fonctionnent — puis essayer de les améliorer.</h2>
           <p>J’ai passé dix ans au contact d’opérations réelles : des flux, des urgences, des informations imparfaites et des décisions qui ne peuvent pas attendre. C’est là que j’ai appris à regarder un système dans son ensemble, pas seulement l’écran visible.</p>
           <p>La tech a progressivement pris une place centrale. D’abord comme moyen d’automatiser ce qui me frustrerait au quotidien, puis comme terrain de création à part entière. Aujourd’hui, <strong>ProbaLab</strong> et <strong>Ferdinand</strong> sont les deux projets qui racontent le mieux cette évolution.</p>
-          <p>J’adore les interfaces futuristes, l’intelligence artificielle, l’automatisation et cette idée d’un assistant qui comprend le contexte sans devenir envahissant. Les univers à la Tony Stark ou JARVIS m’inspirent pour cette raison : la technologie y semble puissante, mais surtout naturelle.</p>
+          <p>J’aime les interfaces sobres, les systèmes bien pensés et l’automatisation qui simplifie réellement le quotidien. Ce qui m’intéresse, c’est moins l’effet spectaculaire que le moment où une technologie complexe devient naturelle à utiliser.</p>
 
           <div className={styles.manifesto}>
             {manifesto.map(([index, title, copy]) => (
@@ -55,9 +44,9 @@ export default function AboutPage() {
       <section className={`shell ${styles.history}`}>
         <p className="eyebrow">Mon parcours</p>
         <div className={styles.historyGrid}>
-          <article className="panel"><span>LE TERRAIN</span><h3>Opérations & logistique</h3><p>Dix années à comprendre les contraintes réelles, les dépendances et tout ce qui se passe quand un système rencontre des humains.</p></article>
-          <article className="panel"><span>LE DÉCLIC</span><h3>Créer mes propres outils</h3><p>Passer de « cet outil devrait exister » à l’envie de comprendre, prototyper, coder et aller jusqu’à une vraie application.</p></article>
-          <article className="panel"><span>AUJOURD’HUI</span><h3>ProbaLab, Ferdinand et la suite</h3><p>Faire évoluer mes projets actuels et rester libre d’explorer le prochain sujet qui éveillera ma curiosité.</p></article>
+          <article><span>LE TERRAIN</span><h3>Opérations & logistique</h3><p>Dix années à comprendre les contraintes réelles, les dépendances et tout ce qui se passe quand un système rencontre des humains.</p></article>
+          <article><span>LE DÉCLIC</span><h3>Créer mes propres outils</h3><p>Passer de « cet outil devrait exister » à l’envie de comprendre, prototyper, coder et aller jusqu’à une vraie application.</p></article>
+          <article><span>AUJOURD’HUI</span><h3>ProbaLab, Ferdinand et la suite</h3><p>Faire évoluer mes projets actuels et rester libre d’explorer le prochain sujet qui éveillera ma curiosité.</p></article>
         </div>
       </section>
     </main>

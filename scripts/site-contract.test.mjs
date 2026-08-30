@@ -9,6 +9,8 @@ const requiredFiles = [
   "src/app/(public)/contact/page.tsx",
   "src/app/(public)/mentions-legales/page.tsx",
   "src/app/(public)/confidentialite/page.tsx",
+  "src/components/visuals/NeuralBackdrop.tsx",
+  "src/components/visuals/NeuralBackdrop.module.css",
 ];
 
 const retiredPaths = [
@@ -89,4 +91,31 @@ test("le site ne publie plus de portrait et conserve LinkedIn", () => {
   assert.equal(sources.includes("pierre-laurent-tech-hero.png"), false);
   assert.equal(sources.includes("pierre-laurent.png"), false);
   assert.match(sources, /https:\/\/www\.linkedin\.com\/in\/pierre-laurent-809410123/);
+});
+
+test("la direction minimaliste ne réintroduit pas le chrome système", () => {
+  const files = [
+    "src/app/(public)/page.tsx",
+    "src/app/(public)/a-propos/page.tsx",
+    "src/app/(public)/home.module.css",
+    "src/app/(public)/content.module.css",
+  ].map((file) => readFileSync(file, "utf8")).join("\n");
+
+  ["AI CORE", "NEURAL LAYER", "SCROLL TO DISCOVER", "TELEMETRY"].forEach((phrase) => {
+    assert.equal(files.includes(phrase), false, `chrome système résiduel : ${phrase}`);
+  });
+  assert.equal(existsSync("public/hero-particles.webp"), false, "le visuel IA généré ne doit plus être publié");
+  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /workspace\.ts/);
+});
+
+test("le décor neuronal reste natif, animé et accessible", () => {
+  const layout = readFileSync("src/app/(public)/layout.tsx", "utf8");
+  const component = readFileSync("src/components/visuals/NeuralBackdrop.tsx", "utf8");
+  const styles = readFileSync("src/components/visuals/NeuralBackdrop.module.css", "utf8");
+
+  assert.match(layout, /<NeuralBackdrop \/>/);
+  assert.match(component, /aria-hidden="true"/);
+  ["clusterDrift", "nodePulse", "signalFlow", "ringSpin", "prefers-reduced-motion"].forEach((marker) => {
+    assert.equal(styles.includes(marker), true, `animation neuronale manquante : ${marker}`);
+  });
 });

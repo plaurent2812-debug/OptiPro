@@ -2,6 +2,7 @@
 
 | Date | Ce qui s'est passé | Règle |
 |------|-------------------|-------|
+| 2026-08-30 | Le workflow GitHub appelait `npm run test:ci`, mais ce script avait disparu de `package.json` alors que `npm test` passait localement | Avant un push de livraison, vérifier la commande exacte exécutée par `.github/workflows/ci.yml` et conserver un alias `test:ci` explicite si le workflow en dépend |
 | 2026-08-30 | Le build Next.js a échoué au prerender de `opengraph-image` car un conteneur Satori comportait plusieurs nœuds enfants sans `display` explicite | Dans les images Open Graph basées sur `ImageResponse`, donner `display: flex`, `contents` ou `none` à tout conteneur ayant plusieurs enfants ; préférer deux `span` dans un flex vertical à un texte avec `<br />` |
 | 2026-08-30 | Le site continuait à vendre des prestations alors que l'activité était désormais centrée exclusivement sur des produits personnels | Un changement de modèle d'activité doit retirer simultanément les offres, CTA, routes SEO, formulaires, back-office, crons, dépendances et données structurées ; archiver avant de décommissionner |
 | 2026-03-28 | Les métriques (50+, 12 clients, 98%) étaient inventées — Pierre les a fait retirer | Ne jamais inventer de chiffres. Demander les vrais chiffres ou ne pas en mettre |

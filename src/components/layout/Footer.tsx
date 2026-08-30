@@ -7,8 +7,8 @@ export default function Footer() {
       <div className="shell">
         <div className={styles.footerTop}>
           <div>
-            <p className={styles.footerSignal}>NOTES / PROJETS / PARCOURS</p>
-            <p className={styles.footerTitle}>Un endroit pour garder une trace.</p>
+            <p className={styles.footerTitle}>Pierre Laurent</p>
+            <p className={styles.footerSignal}>Projets, parcours et expérimentations.</p>
           </div>
           <div className={styles.footerLinks}>
             <Link href="/projets">Projets</Link>

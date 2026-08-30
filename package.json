@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
-    "test": "node --test scripts/site-contract.test.mjs"
+    "test": "node --test scripts/site-contract.test.mjs",
+    "test:ci": "node --test scripts/site-contract.test.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

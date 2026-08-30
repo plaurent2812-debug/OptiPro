@@ -21,8 +21,8 @@ const interests = [
   },
   {
     index: "02",
-    title: "L’IA et l’automatisation utile",
-    copy: "Pas pour remplacer le jugement, mais pour enlever du bruit, relier les informations et rendre les outils plus attentifs au contexte.",
+    title: "L’automatisation utile",
+    copy: "Utiliser le code et parfois l’IA pour enlever du bruit, relier les informations et rendre les outils plus attentifs au contexte.",
   },
   {
     index: "03",
@@ -35,51 +35,52 @@ export default function HomePage() {
   return (
     <main>
       <section className={styles.hero}>
-        <div className={styles.heroMedia} aria-hidden="true">
-          <div className={styles.signalGrid} />
-          <div className={styles.aiCore}>
-            <span /><span /><span /><i />
-          </div>
-          <div className={styles.dataStream}>
-            <span>CONTEXT / ACTIVE</span>
-            <span>NEURAL LAYER / READY</span>
-            <span>AUTOMATION / LISTENING</span>
-          </div>
-          <div className={styles.coreLabel}>AI CORE / PERSONAL INTERFACE</div>
-          <div className={styles.heroShade} />
-        </div>
-
         <div className={`shell ${styles.heroInner}`}>
-          <div className={styles.heroCopy}>
-            <div className={styles.online}><span /> SITE PERSONNEL / PIERRE LAURENT</div>
-            <h1>
-              J’imagine, je code, <em>j’expérimente.</em>
-            </h1>
-            <p>
-              Moi, c’est Pierre. Je crée des apps, des outils et des expériences où l’IA, la data et l’automatisation deviennent vraiment utiles. Ce site rassemble mes projets, mon parcours et les idées que j’explore en chemin.
-            </p>
-            <div className={styles.heroActions}>
-              <Link href="/projets" className="button-primary">Voir ce que je crée <span aria-hidden="true">→</span></Link>
-              <Link href="/a-propos" className="button-secondary">Mon parcours</Link>
+          <div className={styles.heroVisual} aria-hidden="true">
+            <div className={styles.codeWindow}>
+              <div className={styles.windowBar}>
+                <div><i /><i /><i /></div>
+                <span>workspace.ts</span>
+                <em>main</em>
+              </div>
+              <div className={styles.codeBody}>
+                <p><i>01</i><span className={styles.codeMuted}>{"// projets personnels"}</span></p>
+                <p><i>02</i><span><b>const</b> projects = [</span></p>
+                <p><i>03</i><span>&nbsp;&nbsp;<strong>&quot;ProbaLab&quot;</strong>,</span></p>
+                <p><i>04</i><span>&nbsp;&nbsp;<strong>&quot;Ferdinand&quot;</strong>,</span></p>
+                <p><i>05</i><span>];</span></p>
+                <p><i>06</i><span>&nbsp;</span></p>
+                <p><i>07</i><span><b>const</b> focus = [<strong>&quot;web&quot;</strong>, <strong>&quot;mobile&quot;</strong>, <strong>&quot;data&quot;</strong>];</span></p>
+                <p><i>08</i><span>build&#40;&#123; curious: <b>true</b>, useful: <b>true</b> &#125;&#41;;</span></p>
+              </div>
+              <div className={styles.windowFooter}>
+                <span><i /> ready</span>
+                <span>2 projects</span>
+                <span>UTF-8</span>
+              </div>
+            </div>
+            <div className={styles.techCard}>
+              <span>Current focus</span>
+              <strong>BUILDING USEFUL THINGS</strong>
+              <small>WEB · MOBILE · DATA</small>
             </div>
           </div>
-
-          <aside className={styles.identityPanel} aria-label="Profil système">
-            <div><span>EN CE MOMENT</span><strong>PROBALAB + FERDINAND</strong></div>
-            <div><span>J’AIME</span><strong>APPS / IA / AUTOMATISATION</strong></div>
-            <div><span>TERRAIN DE JEU</span><strong>WEB / MOBILE / DATA</strong></div>
-            <div><span>BASE</span><strong>VENCE · FRANCE</strong></div>
-          </aside>
-        </div>
-
-        <div className={styles.scrollCue} aria-hidden="true">SCROLL TO DISCOVER <span /></div>
-      </section>
-
-      <section className={styles.statusRail} aria-label="En quelques mots">
-        <div className="shell">
-          <div><span className={styles.pulse} /> CARNET DE BORD PERSONNEL</div>
-          <div>PROJETS EN COURS <strong>02</strong></div>
-          <div>PROCHAINE IDÉE <strong>INCONNUE</strong></div>
+          <div className={styles.heroColumn}>
+            <p className={styles.intro}>Pierre Laurent · Site personnel</p>
+            <div className={styles.heroCopy}>
+              <span className={styles.status}><i /> Projets en évolution</span>
+              <h1>
+                Je transforme des idées en <em>outils.</em>
+              </h1>
+              <p>
+                Je crée des applications web et mobiles, des outils de données et des automatisations. Ici, je partage mes projets, ce que j’apprends et les sujets que j’explore.
+              </p>
+              <div className={styles.heroActions}>
+                <Link href="/projets" className="button-primary">Voir mes projets <span aria-hidden="true">→</span></Link>
+                <Link href="/a-propos" className={styles.textLink}>À propos</Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -103,7 +104,7 @@ export default function HomePage() {
                   </div>
                   <div className={styles.projectTitleRow}>
                     <Image src={project.icon} alt="" width={58} height={58} className={styles.projectIcon} />
-                    <div><span className="tech-label">PROJET 0{index + 1}</span><h3>{project.name}</h3></div>
+                    <div><span className="tech-label">Projet 0{index + 1}</span><h3>{project.name}</h3></div>
                   </div>
                   <blockquote>{project.statement}</blockquote>
                   <p>{project.description}</p>
@@ -117,12 +118,9 @@ export default function HomePage() {
                   )}
                 </div>
                 <div className={styles.deviceStage}>
-                  <div className={styles.deviceHalo} />
                   <div className={styles.phone}>
-                    <div className={styles.phoneBar} />
                     <Image src={project.image} alt={project.imageAlt} width={1320} height={2868} sizes="(max-width: 760px) 68vw, 330px" />
                   </div>
-                  <span className={styles.telemetry}>UI / NATIVE<br />SYNC / SECURE<br />STATE / VERIFIED</span>
                 </div>
               </article>
             ))}
@@ -141,7 +139,7 @@ export default function HomePage() {
           </div>
           <div className={styles.principlesGrid}>
             {interests.map((interest) => (
-              <article className="panel" key={interest.index}>
+              <article key={interest.index}>
                 <span>{interest.index}</span>
                 <h3>{interest.title}</h3>
                 <p>{interest.copy}</p>
@@ -164,8 +162,7 @@ export default function HomePage() {
       </section>
 
       <section className={styles.finalSection}>
-        <div className={`shell panel ${styles.finalPanel}`}>
-          <div className={styles.core} aria-hidden="true"><span /><span /><span /></div>
+        <div className={`shell ${styles.finalPanel}`}>
           <div>
             <p className="eyebrow">Pourquoi ce site</p>
             <h2>Garder une trace de ce que je fais.</h2>

@@ -20,7 +20,7 @@ export default function ContactPage() {
 
       <section className={`shell ${styles.contactSection}`}>
         <div className={styles.contactGrid}>
-          <article className={`panel ${styles.contactMain}`}>
+          <article className={styles.contactMain}>
             <p className="tech-label">ÉCRIRE / ÉCHANGER</p>
             <h2>Le plus simple reste un message.</h2>
             <p>Un retour sur un projet, une idée à partager ou juste l’envie de discuter tech : mon adresse email est le chemin le plus direct.</p>
@@ -30,7 +30,7 @@ export default function ContactPage() {
             </div>
             <p className={styles.availability}>PAS DE FORMULAIRE · PAS DE NEWSLETTER · JUSTE UN EMAIL</p>
           </article>
-          <aside className={`panel ${styles.contactAside}`}>
+          <aside className={styles.contactAside}>
             <h3>Mes autres espaces</h3>
             <dl>
               <div><dt>IDENTITÉ</dt><dd>Pierre Laurent</dd></div>

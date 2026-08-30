@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import NeuralBackdrop from "@/components/visuals/NeuralBackdrop";
 import { safeJsonLd } from "@/lib/json-ld";
 
 const jsonLd = {
@@ -47,6 +48,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
   return (
     <>
       <script type="application/ld+json">{safeJsonLd(jsonLd)}</script>
+      <NeuralBackdrop />
       <Header />
       {children}
       <Footer />

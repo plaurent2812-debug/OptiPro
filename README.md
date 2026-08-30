@@ -1,12 +1,15 @@
-# Pierre Laurent — Site personnel
+# Pierre Laurent — Portfolio personnel
 
 Site personnel de Pierre Laurent : projets, applications, outils, parcours et
 centres d’intérêt.
 
 ## Intention
 
-Ce dépôt rassemble les projets que je crée, ce que j’apprends en les construisant
-et quelques éléments de mon parcours. Il ne poursuit pas un objectif commercial.
+Le portfolio donne la priorité aux projets : aperçus dans le hero, galerie puis
+coulisses de création. `/projets` détaille les idées, l’implication et l’état réel
+de chacun. Le parcours professionnel reste directement accessible via
+`/a-propos` et le CV imprimable via `/cv`, pour les contacts et recruteurs.
+Il ne poursuit pas un objectif commercial.
 
 ## Stack
 

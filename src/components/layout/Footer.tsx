@@ -8,11 +8,11 @@ export default function Footer() {
         <div className={styles.footerTop}>
           <div>
             <p className={styles.footerTitle}>Pierre Laurent</p>
-            <p className={styles.footerSignal}>Opérations, data & création numérique.</p>
+            <p className={styles.footerSignal}>Des idées, du code et beaucoup de curiosité.</p>
           </div>
           <div className={styles.footerLinks}>
             <Link href="/projets">Projets</Link>
-            <Link href="/a-propos">Parcours</Link>
+            <Link href="/a-propos">Parcours pro</Link>
             <Link href="/cv">CV</Link>
             <Link href="/contact">Me contacter</Link>
             <a href="https://github.com/plaurent2812-debug" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
@@ -21,7 +21,7 @@ export default function Footer() {
         </div>
         <div className={styles.footerBottom}>
           <p>© {new Date().getFullYear()} Pierre Laurent</p>
-          <p className={styles.siteNote}>Site personnel · Vence, France</p>
+          <p className={styles.siteNote}>Portfolio personnel · Vence, France</p>
           <div>
             <Link href="/mentions-legales">Mentions légales</Link>
             <Link href="/confidentialite">Confidentialité</Link>

@@ -1,5 +1,10 @@
 # Lessons Learned
 
+[2026-08-31] | Le déplacement horizontal de modules pourtant invisibles dépassait le viewport à 320 × 900 px et élargissait la page. | Borner aussi la course des éléments animés par la largeur disponible ; tester les états de départ et intermédiaires sur des écrans étroits et hauts, pas seulement le rendu final.
+
+[2026-08-31] | L’ajout du CV avait fait passer le parcours et plusieurs introductions avant les projets du portfolio. | Faire refléter la priorité éditoriale dans le premier écran, le CTA et l’ordre des sections ; conserver le parcours pro accessible sans le dupliquer sur l’accueil.
+
+
 | Date | Ce qui s'est passé | Règle |
 |------|-------------------|-------|
 | 2026-08-31 | Vercel Analytics chargeait son script de débogage externe dans la démo locale, bloqué par la CSP et signalé comme erreur navigateur | Réserver Analytics à la production ; ne pas élargir la CSP pour activer le suivi d’une démo locale |

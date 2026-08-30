@@ -13,7 +13,7 @@ export default function BuildSequence() {
     <section id="construction" className={styles.sequence} data-build-sequence aria-labelledby="construction-title">
       <div className="shell">
         <div className={styles.sequenceHeading}>
-          <div><p className="eyebrow">De l’idée à l’outil</p><h2 id="construction-title" className="section-title">Voir les choses prendre forme.</h2></div>
+          <div><p className="eyebrow">02 / Dans les coulisses</p><h2 id="construction-title" className="section-title">Comment une idée<br />prend forme.</h2></div>
           <p className={styles.scrollHint}>Un peu de curiosité. Beaucoup d’itérations.<span aria-hidden="true">↓</span></p>
         </div>
         <nav className={styles.stepNav} aria-label="Les étapes de création">
@@ -25,7 +25,7 @@ export default function BuildSequence() {
               <div key={step.id} id={step.id} tabIndex={-1} data-build-step className={styles.step}>
                 <span className={styles.stepNumber}>0{index + 1} / 03</span>
                 <h3>{step.title}</h3><p>{step.copy}</p>
-                {index === 2 && <a className={styles.projectJump} href="#projets">Explorer les projets <span aria-hidden="true">↘</span></a>}
+                {index === 2 && <a className={styles.projectJump} href="#parcours">Ce qui nourrit cette approche <span aria-hidden="true">↓</span></a>}
               </div>
             ))}
           </div>

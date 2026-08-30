@@ -2,12 +2,12 @@
 
 import type { MouseEvent } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./layout.module.css";
 
 const links = [
-  { href: "/a-propos", label: "Parcours" },
   { href: "/projets", label: "Projets" },
-  { href: "/cv", label: "CV" },
+  { href: "/a-propos", label: "Parcours pro" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -20,6 +20,8 @@ function closeMobileMenu(event: MouseEvent<HTMLElement>) {
 }
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className={styles.header}>
       <div className={`shell ${styles.headerInner}`}>
@@ -30,18 +32,20 @@ export default function Header() {
 
         <nav className={styles.desktopNav} aria-label="Navigation principale">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} className={styles.navLink}>
+            <Link key={link.href} href={link.href} className={styles.navLink} aria-current={pathname === link.href ? "page" : undefined}>
               {link.label}
             </Link>
           ))}
+          <Link href="/cv" className={styles.cvLink} aria-current={pathname === "/cv" ? "page" : undefined}>CV <span aria-hidden="true">↗</span></Link>
         </nav>
 
         <details className={styles.mobileMenu}>
           <summary aria-label="Ouvrir le menu"><span /><span /></summary>
           <nav aria-label="Navigation mobile">
             {links.map((link) => (
-              <Link key={link.href} href={link.href} onClick={closeMobileMenu}>{link.label}</Link>
+              <Link key={link.href} href={link.href} onClick={closeMobileMenu} aria-current={pathname === link.href ? "page" : undefined}>{link.label}</Link>
             ))}
+            <Link href="/cv" onClick={closeMobileMenu} aria-current={pathname === "/cv" ? "page" : undefined}>Consulter mon CV ↗</Link>
           </nav>
         </details>
       </div>

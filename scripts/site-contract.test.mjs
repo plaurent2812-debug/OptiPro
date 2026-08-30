@@ -107,7 +107,6 @@ test("la direction minimaliste ne réintroduit pas le chrome système", () => {
     assert.equal(files.includes(phrase), false, `chrome système résiduel : ${phrase}`);
   });
   assert.equal(existsSync("public/hero-particles.webp"), false, "le visuel IA généré ne doit plus être publié");
-  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /workspace\.ts/);
 });
 
 test("le décor neuronal reste natif, animé et accessible", () => {

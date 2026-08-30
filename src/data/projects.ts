@@ -6,6 +6,9 @@ export type ProductProject = {
   statusTone: "cyan" | "amber" | "sage";
   visual: "phone" | "browser" | "identity";
   statement: string;
+  category: string;
+  summary: string;
+  linkLabel?: string;
   description: string;
   image: string;
   icon: string;
@@ -28,6 +31,9 @@ export const projects: ProductProject[] = [
     statusTone: "cyan",
     visual: "phone",
     statement: "Une question personnelle devenue un écosystème web et mobile complet.",
+    category: "Data & décisions",
+    summary: "Mieux comprendre les paris sportifs, suivre ses décisions et en tirer des leçons. Un écosystème web et mobile qui assume aussi les limites de ses données.",
+    linkLabel: "Visiter le site",
     description:
       "J’ai créé ProbaLab pour rendre les décisions liées aux paris sportifs plus lisibles et responsables. Le projet réunit lecture du marché, analyse factuelle, suivi de bankroll, journal et apprentissage — avec une règle importante : les données doivent aussi savoir dire quand elles ne savent pas.",
     image: "/projects/probalab-app.png",
@@ -48,6 +54,9 @@ export const projects: ProductProject[] = [
     statusTone: "amber",
     visual: "phone",
     statement: "Mon idée d’un assistant personnel discret qui n’oublie jamais l’essentiel.",
+    category: "Assistant du quotidien",
+    summary: "Véhicules, contrats, entretien : rassembler les échéances du quotidien dans un assistant calme, pour ne plus avoir à tout garder en tête.",
+    waitLabel: "Application en développement",
     description:
       "Ferdinand est né de toutes ces échéances du quotidien que l’on note quelque part avant de les oublier : véhicules, appareils, contrats ou entretien. J’explore avec lui l’idée d’un majordome numérique calme, fiable et réellement utile.",
     image: "/projects/ferdinand-app.jpg",
@@ -67,6 +76,9 @@ export const projects: ProductProject[] = [
     statusTone: "sage",
     visual: "browser",
     statement: "Un univers nutritionnel doux transformé en expérience web complète.",
+    category: "Expérience web",
+    summary: "Une démonstration pensée pour un nutritionniste : une identité chaleureuse, des recettes et des rendez-vous réunis dans une expérience cohérente.",
+    linkLabel: "Explorer la démo",
     description:
       "J’ai conçu pour Romain ONESTA une démonstration de site qui réunit présentation, recettes, contenus, prise de rendez-vous et outils de personnalisation. Ce projet me permet d’explorer une interface plus éditoriale et chaleureuse, sans perdre la précision du produit.",
     image: "/projects/ro-nutritionniste.webp",
@@ -87,12 +99,14 @@ export const projects: ProductProject[] = [
     statusTone: "cyan",
     visual: "identity",
     statement: "Un carnet d’explorateur qui transforme les habitudes en quêtes personnelles.",
+    category: "Habitudes & narration",
+    summary: "Et si les habitudes devenaient une aventure ? Un prototype mobile mêlant quêtes, progression et narration, testé sur iOS puis mis en pause.",
     description:
       "Odysio donne une dimension narrative aux habitudes : quêtes, progression, XP, chapitres, avatar et rappels contextualisés. Une version iOS a été testée sur appareil ; j’ai volontairement mis le projet en pause avant de poursuivre le widget, les achats sandbox et le lancement public.",
     image: "/projects/odysio-icon.png",
     icon: "/projects/odysio-icon.png",
     imageAlt: "Icône actuelle de l’application Odysio",
-    waitLabel: "Reprise prévue plus tard",
+    waitLabel: "Prototype en pause",
     platforms: ["iOS", "TestFlight"],
     technologies: ["Expo", "React Native", "TypeScript", "Supabase", "RevenueCat"],
     capabilities: ["Quêtes", "Narration IA", "Progression", "Chapitres", "Notifications"],

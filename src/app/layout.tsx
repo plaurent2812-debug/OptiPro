@@ -18,26 +18,26 @@ const jetBrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://pierre-laurent.fr"),
   title: {
-    default: "Pierre Laurent — Opérations, data & création numérique",
+    default: "Pierre Laurent — Projets, code & curiosité",
     template: "%s · Pierre Laurent",
   },
   description:
-    "Responsable des opérations, passionné de tech et d’IA. Le parcours professionnel, les compétences et les projets personnels de Pierre Laurent.",
+    "Le portfolio personnel de Pierre Laurent : applications web et mobiles, automatisation et IA. Découvrez mes projets, leurs coulisses et mon parcours professionnel.",
   authors: [{ name: "Pierre Laurent", url: "https://pierre-laurent.fr" }],
   creator: "Pierre Laurent",
   category: "technology",
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "Pierre Laurent — Site personnel",
-    title: "Pierre Laurent — Opérations, data & création numérique",
+    siteName: "Pierre Laurent — Portfolio personnel",
+    title: "Pierre Laurent — Projets, code & curiosité",
     description:
-      "Dix ans d’expérience opérationnelle, une pratique du code et de l’IA. Découvrez mon parcours et les outils que je crée.",
+      "Des idées, du code, du concret. Applications web et mobiles, automatisation et IA : les projets que je construis et ce que j’apprends en chemin.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pierre Laurent — Site personnel",
-    description: "Opérations, logistique, data et projets numériques personnels.",
+    title: "Pierre Laurent — Portfolio personnel",
+    description: "Applications, automatisation, IA : mes projets personnels et les idées derrière les outils.",
   },
   icons: {
     icon: "/icon.svg",

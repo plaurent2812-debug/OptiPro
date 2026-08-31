@@ -142,8 +142,8 @@ test("Ro Nutritionniste est présenté comme un prototype web", () => {
   assert.match(projects, /slug: "ro-nutritionniste"/);
   assert.match(projects, /status: "Prototype avancé"/);
   assert.match(projects, /visual: "browser"/);
-  assert.match(projects, /ro-nutritionniste-mi0hamiri-optipro-projects\.vercel\.app/);
-  assert.equal(existsSync("public/projects/ro-nutritionniste.webp"), true);
+  assert.match(projects, /href: "https:\/\/ro-nutritionniste\.vercel\.app"/);
+  assert.equal(existsSync("public/projects/ro-nutritionniste-site.webp"), true);
 });
 
 test("Odysio est présenté sans inventer de disponibilité publique", () => {

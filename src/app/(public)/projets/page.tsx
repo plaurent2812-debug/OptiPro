@@ -42,14 +42,14 @@ export default function ProjectsPage() {
                 <div className={styles.browser}>
                   <div className={styles.browserBar} aria-hidden="true"><i /><i /><i /><span>ro-nutritionniste</span></div>
                   <div className={styles.browserViewport}>
-                    <Image src={project.image} alt={project.imageAlt} width={1536} height={1024} sizes="(max-width: 620px) 82vw, 520px" />
+                    <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 620px) 82vw, 520px" />
                   </div>
                 </div>
               ) : project.visual === "identity" ? (
                 <div className={`${styles.phone} ${styles.identityPhone}`}>
                   <div className={styles.identityScreen}>
                     <span className={styles.identitySignal}>04 · MOBILE</span>
-                    <Image src={project.image} alt={project.imageAlt} width={1024} height={1024} sizes="(max-width: 620px) 38vw, 170px" />
+                    <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 620px) 38vw, 170px" />
                     <strong>Odysio</strong>
                     <span>Carnet d’explorateur</span>
                     <small>QUÊTES · CHAPITRES · XP</small>
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
                 </div>
               ) : (
                 <div className={styles.phone}>
-                  <Image src={project.image} alt={project.imageAlt} width={1320} height={2868} sizes="(max-width: 620px) 180px, 250px" loading={project.slug === "probalab" ? "eager" : "lazy"} />
+                  <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 620px) 180px, 250px" loading={project.slug === "probalab" ? "eager" : "lazy"} />
                 </div>
               )}
             </div>

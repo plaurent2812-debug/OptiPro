@@ -33,7 +33,7 @@ export default function HomePage() {
               {projects.slice(0, 2).map((project) => (
                 <a href={`#projet-${project.slug}`} key={project.slug} className={styles.previewProject}>
                   <div className={`${styles.previewScreen} ${styles[project.statusTone] ?? ""}`}>
-                    <Image src={project.image} alt={project.imageAlt} width={1320} height={2868} sizes="(max-width: 720px) 35vw, 180px" loading="eager" />
+                    <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 720px) 35vw, 180px" loading="eager" />
                   </div>
                   <div className={styles.previewCaption}><strong>{project.name}</strong><span aria-hidden="true">↘</span><small>{project.category}</small></div>
                 </a>
@@ -70,18 +70,18 @@ export default function HomePage() {
                     <div className={styles.browser}>
                       <div className={styles.browserBar} aria-hidden="true"><i /><i /><i /><span>ro-nutritionniste</span></div>
                       <div className={styles.browserViewport}>
-                        <Image src={project.image} alt={project.imageAlt} width={1536} height={1024} sizes="(max-width: 760px) 82vw, 460px" />
+                        <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 760px) 82vw, 460px" />
                       </div>
                     </div>
                   ) : project.visual === "identity" ? (
                     <div className={styles.identity}>
-                      <Image src={project.image} alt={project.imageAlt} width={1024} height={1024} sizes="160px" />
+                      <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="160px" />
                       <strong>Odysio</strong><span>Le quotidien, en mode aventure.</span>
                       <small>QUÊTES · CHAPITRES · XP</small>
                     </div>
                   ) : (
                     <div className={styles.phone}>
-                      <Image src={project.image} alt={project.imageAlt} width={1320} height={2868} sizes="(max-width: 720px) 150px, 164px" loading={project.slug === "probalab" ? "eager" : "lazy"} />
+                      <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 720px) 150px, 164px" loading={project.slug === "probalab" ? "eager" : "lazy"} />
                     </div>
                   )}
                 </Link>

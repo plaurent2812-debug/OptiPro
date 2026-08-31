@@ -11,6 +11,8 @@ export type ProductProject = {
   linkLabel?: string;
   description: string;
   image: string;
+  imageWidth: number;
+  imageHeight: number;
   icon: string;
   imageAlt: string;
   href?: string;
@@ -36,9 +38,11 @@ export const projects: ProductProject[] = [
     linkLabel: "Visiter le site",
     description:
       "J’ai créé ProbaLab pour rendre les décisions liées aux paris sportifs plus lisibles et responsables. Le projet réunit lecture du marché, analyse factuelle, suivi de bankroll, journal et apprentissage — avec une règle importante : les données doivent aussi savoir dire quand elles ne savent pas.",
-    image: "/projects/probalab-app.png",
+    image: "/projects/probalab-analyser.webp",
+    imageWidth: 440,
+    imageHeight: 956,
     icon: "/projects/probalab-icon.png",
-    imageAlt: "Écran Bankroll de l’application ProbaLab",
+    imageAlt: "Interface mobile du site ProbaLab : comparaison d’une cote avec le consensus du marché, sur un exemple pédagogique",
     href: "https://www.probalab.net",
     platforms: ["Web", "iOS", "Android"],
     technologies: ["Next.js", "React Native", "Python", "PostgreSQL", "Supabase"],
@@ -60,6 +64,8 @@ export const projects: ProductProject[] = [
     description:
       "Ferdinand est né de toutes ces échéances du quotidien que l’on note quelque part avant de les oublier : véhicules, appareils, contrats ou entretien. J’explore avec lui l’idée d’un majordome numérique calme, fiable et réellement utile.",
     image: "/projects/ferdinand-app.jpg",
+    imageWidth: 1320,
+    imageHeight: 2868,
     icon: "/projects/ferdinand-icon.png",
     imageAlt: "Tableau de bord de l’application Ferdinand",
     platforms: ["iOS", "Android", "Web"],
@@ -78,13 +84,15 @@ export const projects: ProductProject[] = [
     statement: "Un univers nutritionnel doux transformé en expérience web complète.",
     category: "Expérience web",
     summary: "Une démonstration pensée pour un nutritionniste : une identité chaleureuse, des recettes et des rendez-vous réunis dans une expérience cohérente.",
-    linkLabel: "Explorer la démo",
+    linkLabel: "Visiter le site",
     description:
       "J’ai conçu pour Romain ONESTA une démonstration de site qui réunit présentation, recettes, contenus, prise de rendez-vous et outils de personnalisation. Ce projet me permet d’explorer une interface plus éditoriale et chaleureuse, sans perdre la précision du produit.",
-    image: "/projects/ro-nutritionniste.webp",
-    icon: "/projects/ro-nutritionniste.webp",
-    imageAlt: "Univers visuel naturel du site Ro Nutritionniste",
-    href: "https://ro-nutritionniste-mi0hamiri-optipro-projects.vercel.app",
+    image: "/projects/ro-nutritionniste-site.webp",
+    imageWidth: 1280,
+    imageHeight: 720,
+    icon: "/projects/ro-nutritionniste-icon.webp",
+    imageAlt: "Accueil du site Ro Nutritionniste : identité sauge, assiette équilibrée et accompagnement de Romain ONESTA",
+    href: "https://ro-nutritionniste.vercel.app",
     platforms: ["Web", "Démo interactive"],
     technologies: ["Next.js", "React", "TypeScript", "Vercel", "Design system"],
     capabilities: ["Recettes", "Rendez-vous", "Générateur", "Contenus", "Administration"],
@@ -104,6 +112,8 @@ export const projects: ProductProject[] = [
     description:
       "Odysio donne une dimension narrative aux habitudes : quêtes, progression, XP, chapitres, avatar et rappels contextualisés. Une version iOS a été testée sur appareil ; j’ai volontairement mis le projet en pause avant de poursuivre le widget, les achats sandbox et le lancement public.",
     image: "/projects/odysio-icon.png",
+    imageWidth: 1024,
+    imageHeight: 1024,
     icon: "/projects/odysio-icon.png",
     imageAlt: "Icône actuelle de l’application Odysio",
     waitLabel: "Prototype en pause",

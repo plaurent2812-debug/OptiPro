@@ -1,0 +1,38 @@
+.system { position: relative; min-width: 0; padding: 1.6rem 1.75rem .7rem; border: 1px solid var(--line-strong); background: linear-gradient(145deg, #14212a99, #0b1218cc 75%); box-shadow: 0 24px 80px #0002; }
+.system legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.intro { color: var(--text-dim); font: .72rem/1.5 var(--font-mono), monospace; letter-spacing: .07em; text-transform: uppercase; }
+.controls { display: flex; margin-top: .8rem; border-bottom: 1px solid var(--line-strong); }
+.control { position: relative; flex: 1; cursor: pointer; text-align: center; }
+.control input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.control span { display: flex; min-height: 44px; justify-content: center; align-items: center; padding: .5rem .55rem; font-size: .78rem; color: var(--text-dim); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 180ms, border-color 180ms, background-color 180ms; }
+.control:has(:checked) span { color: var(--cyan); border-color: var(--cyan); background: var(--cyan-soft); }
+.control:hover span { color: var(--text); }
+.control:has(:focus-visible) { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.panels { display: grid; }
+.facet { grid-area: 1 / 1; min-width: 0; visibility: hidden; }
+.system:has(input[value="produit"]:checked) [id="facet-produit"],
+.system:has(input[value="operations"]:checked) [id="facet-operations"],
+.system:has(input[value="automatisation"]:checked) [id="facet-automatisation"],
+.system:has(input[value="ia"]:checked) [id="facet-ia"] { visibility: visible; }
+.need { padding: 1.65rem 0 0; }
+.stepLabel { display: block; color: var(--muted); font: .68rem/1.5 var(--font-mono), monospace; letter-spacing: .035em; }
+.need p { margin-top: .55rem; max-width: 340px; color: var(--text); font-size: 1.12rem; line-height: 1.45; letter-spacing: -.015em; }
+.connection { display: flex; align-items: center; gap: 1rem; min-height: 78px; padding-left: 1.1rem; }
+.trace { position: relative; display: flex; align-items: end; justify-content: center; align-self: stretch; width: 1rem; flex-shrink: 0; color: var(--cyan); padding-bottom: 9px; }
+.trace::before { content: ""; position: absolute; top: 10px; bottom: 24px; width: 1px; background: linear-gradient(var(--line-strong), var(--cyan)); }
+.connection p { color: var(--text-dim); font-size: .8rem; line-height: 1.5; }
+.tool { position: relative; border: 1px solid #a0e5e03b; padding: 1.4rem; background: linear-gradient(125deg, #a0e5e00a, transparent 75%), var(--panel); box-shadow: 6px 6px 0 #a0e5e006; }
+.tool .stepLabel { color: var(--cyan); }
+.toolHeading { display: flex; align-items: center; gap: .8rem; margin-top: 1rem; }
+.toolHeading img { flex-shrink: 0; border-radius: .7rem; }
+.toolHeading h2 { font-size: clamp(1.35rem, 2.05vw, 1.85rem); line-height: 1.18; font-weight: 400; letter-spacing: -.035em; }
+.tool > p { margin-top: .8rem; color: var(--text-dim); font-size: .85rem; line-height: 1.65; }
+.parts { display: flex; flex-wrap: wrap; gap: .4rem .9rem; list-style: none; margin-top: 1.1rem; padding-top: .8rem; border-top: 1px solid var(--line); }
+.parts li { display: flex; align-items: center; gap: .4rem; color: var(--text-dim); font-size: .73rem; }
+.parts li::before { content: ""; width: 4px; height: 4px; border: 1px solid var(--cyan); }
+.example { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 60px; padding-block: .9rem; color: var(--text-dim); font-size: .75rem; line-height: 1.5; }
+.example > span { flex-shrink: 0; color: var(--cyan); font-size: 1rem; }
+.example:hover { color: var(--cyan); }
+@media (max-width: 1100px) { .system { padding-inline: 1.2rem; } .control span { font-size: .72rem; padding-inline: .4rem; } .tool { padding: 1.1rem; } }
+@media (max-width: 720px) { .system { margin-top: 2.5rem; padding: 1.3rem 1.15rem .5rem; } .need p { font-size: 1.1rem; } .toolHeading h2 { font-size: 1.6rem; } .tool > p { font-size: .85rem; } }
+@media (max-width: 400px) { .controls { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .1rem; } .control span { font-size: .8rem; } .system { padding-inline: 1rem; } .tool { padding: 1rem; } .toolHeading h2 { font-size: 1.4rem; } }

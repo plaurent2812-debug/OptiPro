@@ -11,8 +11,8 @@ const requiredFiles = [
   "src/app/(public)/confidentialite/page.tsx",
   "src/components/visuals/NeuralBackdrop.tsx",
   "src/components/visuals/NeuralBackdrop.module.css",
-  "src/components/visuals/CustomCursor.tsx",
-  "src/components/visuals/CustomCursor.module.css",
+  "src/components/visuals/SystemCore.tsx",
+  "src/components/visuals/SystemCore.module.css",
 ];
 
 const retiredPaths = [
@@ -109,31 +109,28 @@ test("la direction minimaliste ne réintroduit pas le chrome système", () => {
   assert.equal(existsSync("public/hero-particles.webp"), false, "le visuel IA généré ne doit plus être publié");
 });
 
-test("le décor neuronal reste natif, animé et accessible", () => {
-  const layout = readFileSync("src/app/(public)/layout.tsx", "utf8");
+test("le décor ne masque pas le contenu et ne tourne pas en permanence", () => {
   const component = readFileSync("src/components/visuals/NeuralBackdrop.tsx", "utf8");
   const styles = readFileSync("src/components/visuals/NeuralBackdrop.module.css", "utf8");
-
-  assert.match(layout, /<NeuralBackdrop \/>/);
+  const globals = readFileSync("src/app/globals.css", "utf8");
   assert.match(component, /aria-hidden="true"/);
-  ["clusterDrift", "nodePulse", "signalFlow", "ringSpin", "prefers-reduced-motion"].forEach((marker) => {
-    assert.equal(styles.includes(marker), true, `animation neuronale manquante : ${marker}`);
-  });
+  assert.match(styles, /pointer-events: none/);
+  assert.doesNotMatch(styles, /infinite/);
+  assert.match(globals, /prefers-reduced-motion: reduce/);
 });
 
-test("le curseur personnalisé reste progressif et accessible", () => {
+test("la navigation reste native et les exemples fonctionnent sans JavaScript", () => {
   const layout = readFileSync("src/app/(public)/layout.tsx", "utf8");
-  const component = readFileSync("src/components/visuals/CustomCursor.tsx", "utf8");
-  const styles = readFileSync("src/components/visuals/CustomCursor.module.css", "utf8");
+  const header = readFileSync("src/components/layout/Header.tsx", "utf8");
+  const core = readFileSync("src/components/visuals/SystemCore.tsx", "utf8");
   const globals = readFileSync("src/app/globals.css", "utf8");
-
-  assert.match(layout, /<CustomCursor \/>/);
-  assert.match(component, /aria-hidden="true"/);
-  ["pointer: fine", "hover: hover", "prefers-reduced-motion: reduce", "requestAnimationFrame"].forEach((marker) => {
-    assert.equal(`${component}\n${styles}`.includes(marker), true, `garde du curseur manquante : ${marker}`);
-  });
-  assert.match(styles, /pointer-events: none/);
-  assert.match(globals, /data-custom-cursor/);
+  assert.doesNotMatch(layout, /CustomCursor/);
+  assert.doesNotMatch(globals, /cursor: none/);
+  assert.match(header, /href="#contenu"/);
+  assert.match(header, /Escape/);
+  assert.match(core, /<fieldset/);
+  assert.match(core, /type="radio"/);
+  assert.doesNotMatch(core, /use client|useEffect|requestAnimationFrame|<canvas/);
 });
 
 test("Ro Nutritionniste est présenté comme un prototype web", () => {

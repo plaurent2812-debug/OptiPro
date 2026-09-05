@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import ProjectVisual from "@/components/projects/ProjectVisual";
 import { projects } from "@/data/projects";
 import styles from "../content.module.css";
 
@@ -8,12 +9,6 @@ export const metadata: Metadata = {
   title: "Projets",
   description: "Les applications, outils et projets personnels créés par Pierre Laurent.",
   alternates: { canonical: "/projets" },
-};
-
-const visualTone = {
-  cyan: "",
-  amber: styles.visualAmber,
-  sage: styles.visualSage,
 };
 
 const statusTone = {
@@ -24,7 +19,7 @@ const statusTone = {
 
 export default function ProjectsPage() {
   return (
-    <main>
+    <main id="contenu" tabIndex={-1}>
       <section className={styles.pageHero}>
         <div className="shell">
           <p className="eyebrow">Projets / Conception & développement</p>
@@ -35,32 +30,9 @@ export default function ProjectsPage() {
       </section>
 
       <section className={`shell ${styles.projects}`}>
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <article id={project.slug} className={styles.project} key={project.slug}>
-            <div className={`${styles.visual} ${visualTone[project.statusTone]}`}>
-              {project.visual === "browser" ? (
-                <div className={styles.browser}>
-                  <div className={styles.browserBar} aria-hidden="true"><i /><i /><i /><span>ro-nutritionniste</span></div>
-                  <div className={styles.browserViewport}>
-                    <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 620px) 82vw, 520px" />
-                  </div>
-                </div>
-              ) : project.visual === "identity" ? (
-                <div className={`${styles.phone} ${styles.identityPhone}`}>
-                  <div className={styles.identityScreen}>
-                    <span className={styles.identitySignal}>04 · MOBILE</span>
-                    <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 620px) 38vw, 170px" />
-                    <strong>Odysio</strong>
-                    <span>Carnet d’explorateur</span>
-                    <small>QUÊTES · CHAPITRES · XP</small>
-                  </div>
-                </div>
-              ) : (
-                <div className={styles.phone}>
-                  <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 620px) 180px, 250px" loading={project.slug === "probalab" ? "eager" : "lazy"} />
-                </div>
-              )}
-            </div>
+            <ProjectVisual project={project} index={index} />
             <div className={styles.projectCopy}>
               <span className={styles.projectNumber}>{project.code}</span>
               <div className={styles.projectHeader}>
@@ -82,7 +54,7 @@ export default function ProjectsPage() {
         ))}
       </section>
       <section className={`shell ${styles.furtherReading}`}>
-        <div><p className="eyebrow">La suite de la conversation</p><h2>Un projet vous parle ?</h2><p>Je partage volontiers les idées, les choix et les apprentissages qui se cachent derrière.</p><Link href="/contact" className="button-primary">Échanger avec moi →</Link></div>
+        <div><p className="eyebrow">Au fil des projets</p><h2>Continuer à explorer.</h2><p>Mon profil GitHub rassemble la partie publique de mes explorations et de mon travail de développement.</p><a href="https://github.com/plaurent2812-debug" target="_blank" rel="noopener noreferrer" className="button-primary">Retrouver mon GitHub ↗</a></div>
         <div><h3>Et mon parcours professionnel ?</h3><p>Les opérations, la logistique et la data sont l’autre fil de mon parcours.</p><Link href="/a-propos" className={styles.projectLink}>Découvrir mon parcours →</Link></div>
       </section>
     </main>

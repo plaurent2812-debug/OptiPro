@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main>
+    <main id="contenu" tabIndex={-1}>
       <section className={styles.profileHero}>
         <div className="shell">
           <p className="eyebrow">Parcours professionnel / Pierre Laurent</p>
           <h1>Comprendre le terrain.<br />Structurer l’action.<br /><em>Faire avancer les équipes.</em></h1>
           <p>{professionalProfile.summary} La création numérique prolonge cette approche : comprendre un besoin, puis concevoir une solution qui fonctionne.</p>
-          <div className={styles.overviewActions}><Link href="/cv" className="button-primary">Consulter mon CV <span aria-hidden="true">↗</span></Link><Link href="/contact">Échanger avec moi →</Link></div>
+          <div className={styles.overviewActions}><Link href="/cv" className="button-primary">Consulter mon CV <span aria-hidden="true">↗</span></Link><Link href="/projets">Explorer mes projets →</Link></div>
           <dl className={styles.highlights}>{careerHighlights.map((highlight) => <div key={highlight.value}><dt>{highlight.label}</dt><dd>{highlight.value}</dd></div>)}</dl>
         </div>
       </section>

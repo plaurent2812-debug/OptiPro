@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function CvPage() {
   return (
-    <main className={styles.page}>
+    <main id="contenu" tabIndex={-1} className={styles.page}>
       <div className={`shell ${styles.toolbar}`}>
         <div><Link href="/a-propos">← Retour au parcours</Link><p>Une vue synthétique, conçue pour être partagée.</p></div>
         <PrintButton />
@@ -47,7 +47,7 @@ export default function CvPage() {
             <section><h2 className={styles.sectionTitle}>Centres d’intérêt</h2><p>{interests.join(" · ")}</p></section>
           </aside>
         </div>
-        <footer className={styles.sheetFooter}><span>Pierre Laurent · Opérations & création numérique</span><span>Mise à jour : août 2026</span></footer>
+        <footer className={styles.sheetFooter}><span>Pierre Laurent · Opérations & création numérique</span><span>Mise à jour : septembre 2026</span></footer>
       </article>
       <p className={`shell ${styles.printHint}`}>Le bouton ouvre la fenêtre d’impression de votre navigateur, qui permet aussi d’enregistrer ce CV en PDF.</p>
     </main>

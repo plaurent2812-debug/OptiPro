@@ -10,27 +10,27 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main>
+    <main id="contenu" tabIndex={-1}>
       <section className={styles.pageHero}>
         <div className="shell">
           <p className="eyebrow">Contact / Pierre Laurent</p>
-          <h1>La suite commence<br />par une <em>conversation.</em></h1>
-          <p>Un retour sur une application, une idée à explorer, une discussion tech ou un contact professionnel : tout commence par un échange.</p>
+          <h1>Mes coordonnées.<br /><em>Mes autres espaces.</em></h1>
+          <p>Les liens pour me retrouver, consulter mon parcours ou découvrir mes projets.</p>
         </div>
       </section>
 
       <section className={`shell ${styles.contactSection}`}>
         <div className={styles.contactGrid}>
           <article className={styles.contactMain}>
-            <p className="tech-label">ÉCRIRE / ÉCHANGER</p>
-            <h2>Le plus simple reste un message.</h2>
-            <p>Vous avez exploré un projet, repéré un détail à améliorer ou simplement envie d’en parler ? Écrivez-moi directement.</p>
+            <p className="tech-label">COORDONNÉES</p>
+            <h2>Pierre Laurent</h2>
+            <p>Responsable des Opérations chez Pharmagreen et créateur de projets numériques personnels.</p>
             <div className={styles.buttonRow}>
               <a href="mailto:p.laurent@opti-pro.fr" className="button-primary">p.laurent@opti-pro.fr <span aria-hidden="true">→</span></a>
               <a href="https://www.linkedin.com/in/pierre-laurent-809410123" target="_blank" rel="noopener noreferrer" className="button-secondary">LinkedIn ↗</a>
             </div>
-            <p className={styles.availability}>UN ÉCHANGE DIRECT · PROFESSIONNEL OU PERSONNEL</p>
-            <div className={styles.professionalContact}><h3>Pour un échange professionnel</h3><p>Mon expérience, mes responsabilités et mes compétences sont réunies dans mon parcours et mon CV.</p><Link href="/a-propos">Parcours professionnel →</Link><Link href="/cv">Consulter mon CV ↗</Link></div>
+            <p className={styles.availability}>VENCE · FRANCE</p>
+            <div className={styles.professionalContact}><h3>Mon parcours professionnel</h3><p>Mon expérience, mes responsabilités et mes compétences sont réunies dans mon parcours et mon CV.</p><Link href="/a-propos">Parcours professionnel →</Link><Link href="/cv">Consulter mon CV ↗</Link></div>
           </article>
           <aside className={styles.contactAside}>
             <h3>Mes autres espaces</h3>

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function LegalPage() {
   return (
-    <main className="legal-page">
+    <main id="contenu" tabIndex={-1} className="legal-page">
       <article className="shell">
         <p className="eyebrow">Legal information</p>
         <h1>Mentions légales</h1>

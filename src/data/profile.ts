@@ -1,9 +1,9 @@
-// Parcours issu du CV fourni par Pierre, complété par sa déclaration du 31 août 2026.
-// Pharmagreen décrit un périmètre annoncé : aucun résultat acquis n'est revendiqué.
+// Parcours issu du CV fourni par Pierre, poste Pharmagreen confirmé en cours le 5 septembre 2026.
+// Le périmètre du poste est déclaré par Pierre ; aucun résultat non documenté n'est ajouté.
 export const professionalProfile = {
   title: "Responsable des Opérations",
   company: "Pharmagreen",
-  period: "À partir de septembre 2026",
+  period: "Depuis septembre 2026",
   scope: ["Logistique", "Administration", "Data"],
   summary: "Dix ans dans les opérations et la logistique, avec une conviction : une organisation solide repose sur des équipes bien coordonnées, des processus clairs et des outils adaptés au terrain.",
 };
@@ -11,7 +11,6 @@ export const professionalProfile = {
 export const careerHighlights = [
   { value: "10 ans", label: "dans les opérations et la logistique" },
   { value: "8", label: "collaborateurs encadrés en direct au maximum" },
-  { value: "1 000+", label: "postes sur des projets d’aménagement pilotés" },
 ];
 
 export const capabilities = [
@@ -35,9 +34,9 @@ export const capabilities = [
 export const experiences = [
   {
     id: "pharmagreen", company: "Pharmagreen", role: "Responsable des Opérations",
-    period: "À partir de sept. 2026", marker: "NOUVEAU CHAPITRE",
+    period: "Sept. 2026 — Aujourd’hui", marker: "POSTE ACTUEL",
     context: "Périmètre du poste : logistique, administration et data.",
-    highlights: ["Prise de poste en septembre 2026 pour piloter ces trois dimensions des opérations."],
+    highlights: ["Je pilote la logistique, l’administration et la data de Pharmagreen."],
     tags: ["Logistique", "Administration", "Data"],
   },
   {

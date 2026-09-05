@@ -14,7 +14,7 @@ export default function Footer() {
             <Link href="/projets">Projets</Link>
             <Link href="/a-propos">Parcours pro</Link>
             <Link href="/cv">CV</Link>
-            <Link href="/contact">Me contacter</Link>
+            <Link href="/contact">Contact</Link>
             <a href="https://github.com/plaurent2812-debug" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
             <a href="https://www.linkedin.com/in/pierre-laurent-809410123" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
           </div>

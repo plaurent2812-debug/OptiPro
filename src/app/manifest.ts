@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Projets personnels, applications web et mobiles, automatisation et IA. Le portfolio de Pierre Laurent.",
     start_url: "/",
     display: "standalone",
-    background_color: "#05080d",
-    theme_color: "#05080d",
+    background_color: "#080c10",
+    theme_color: "#080c10",
     icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml", purpose: "any" }],
   };
 }

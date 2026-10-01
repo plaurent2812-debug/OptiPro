@@ -1,4 +1,4 @@
-.overview { padding: 7rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: calc(var(--header-height) + 1rem); }
+.overview { padding: 5rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: calc(var(--header-height) + 1rem); }
 .overviewGrid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 4rem; align-items: center; }
 .overview :global(.eyebrow) { color: var(--amber); }
 .overviewCopy { max-width: 560px; margin-top: 1.3rem; color: var(--text-dim); font-size: 1rem; line-height: 1.85; }
@@ -8,7 +8,6 @@
 .roleCompany { margin-top: .4rem; color: var(--text-dim); font-size: .88rem; }
 .roleScope > div { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.1rem; }
 .roleScope span { padding: .35rem .6rem; border: 1px solid var(--line-strong); border-radius: .25rem; font: .7rem/1.3 var(--font-mono), monospace; }
-.roleNote { margin-top: 1.4rem; padding-top: 1.1rem; border-top: 1px solid var(--line); color: var(--text-dim); font-size: .86rem; }
 .highlights { margin-top: 2.5rem; padding-top: 2rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 1px solid var(--line); }
 .highlights > div { display: flex; flex-direction: column-reverse; gap: .55rem; padding-inline: 2rem; border-right: 1px solid var(--line); }
 .highlights > div:first-child { padding-left: 0; }
@@ -22,7 +21,7 @@
 .profileHero { padding: calc(var(--header-height) + 5rem) 0 3.5rem; border-bottom: 1px solid var(--line); }
 .profileHero :global(.eyebrow) { color: var(--amber); }
 .profileHero h1 { max-width: 1100px; margin-top: 1.1rem; font-size: clamp(2.5rem, 5vw, 4.7rem); line-height: 1.1; font-weight: 400; letter-spacing: -.055em; text-wrap: balance; }
-.profileHero h1 em { color: var(--amber); font-style: normal; }
+.profileHero h1 em { color: var(--amber); font-family: var(--font-editorial); font-weight: 400; }
 .profileHero p:not(:global(.eyebrow)) { max-width: 650px; margin-top: 1.4rem; color: var(--text-dim); font-size: .95rem; }
 .profileLayout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 5rem; padding-block: 4.5rem; }
 .profileAside { align-self: start; position: sticky; top: calc(var(--header-height) + 2rem); }

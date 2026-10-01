@@ -25,15 +25,14 @@ export default function ProjectsPage() {
           <p className="eyebrow">Projets / Conception & développement</p>
           <h1>Ce que je construis.<br /><em>Et pourquoi.</em></h1>
           <p>Chaque projet a son point de départ, ses choix et ses défis. Voici les idées derrière les interfaces, ce que j’y développe et ce qui reste à explorer.</p>
-          <nav className={styles.projectIndex} aria-label="Choisir un projet">{projects.map((project, index) => <a href={`#${project.slug}`} key={project.slug}><span>0{index + 1}</span>{project.name}<i aria-hidden="true">↓</i></a>)}</nav>
+          <nav className={styles.projectIndex} aria-label="Choisir un projet">{projects.map((project, index) => <a href={`#${project.slug}`} key={project.slug}><span aria-hidden="true">0{index + 1}</span>{project.name}<i aria-hidden="true">↓</i></a>)}</nav>
         </div>
       </section>
 
       <section className={`shell ${styles.projects}`}>
         {projects.map((project, index) => (
           <article id={project.slug} className={styles.project} key={project.slug}>
-            <ProjectVisual project={project} index={index} eager={index === 0} />
-            <div className={styles.projectCopy}>
+            <div className={styles.projectIntro}>
               <span className={styles.projectNumber}>{project.code}</span>
               <div className={styles.projectHeader}>
                 <Image src={project.icon} alt="" width={64} height={64} />
@@ -41,6 +40,9 @@ export default function ProjectsPage() {
               </div>
               <span className={`${styles.status} ${statusTone[project.statusTone]}`}><i /> {project.status}</span>
               <p className={styles.statement}>{project.statement}</p>
+            </div>
+            <div className={styles.projectVisual}><ProjectVisual project={project} index={index} eager={index === 0} /></div>
+            <div className={styles.projectCopy}>
               <p className={styles.description}>{project.description}</p>
               <div className={styles.matrix}>
                 <div><span>PLATEFORMES / STADE</span><strong>{project.platforms.join(" · ")}</strong></div>

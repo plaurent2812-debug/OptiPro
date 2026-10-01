@@ -160,7 +160,7 @@ test("Idéoscope 2027 est présenté comme un outil civique publié et transpare
   assert.match(projects, /status: "Site en ligne"/);
   assert.match(projects, /href: "https:\/\/ideoscope2027\.fr\/"/);
   assert.match(projects, /sans collecte des réponses/);
-  assert.equal(existsSync("public/projects/ideoscope-2027.webp"), true);
+  assert.equal(existsSync("public/projects/ideoscope-2027-interface.webp"), true);
   assert.equal(existsSync("public/projects/ideoscope-2027-icon.svg"), true);
 });
 

@@ -55,7 +55,7 @@ export default function Header() {
             <span className={styles.brandName}>Pierre Laurent<span>Opérations & création numérique</span></span>
           </Link>
           <nav className={styles.desktopNav} aria-label="Navigation principale">
-            {links.map((link, index) => <Link key={link.href} href={link.href} className={styles.navLink} aria-current={pathname === link.href ? "page" : undefined}><span aria-hidden="true">0{index + 1}</span>{link.label}</Link>)}
+            {links.map((link) => <Link key={link.href} href={link.href} className={styles.navLink} aria-current={pathname === link.href ? "page" : undefined}>{link.label}</Link>)}
             <Link href="/cv" className={styles.cvLink} aria-current={pathname === "/cv" ? "page" : undefined}>Mon CV <span aria-hidden="true">↗</span></Link>
           </nav>
           <details className={styles.mobileMenu} ref={menuRef}>

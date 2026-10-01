@@ -69,7 +69,7 @@ export default function SystemCore() {
               <span className={styles.stepLabel}>02 / Ce que je construis</span>
               <div className={styles.toolHeading}>
                 {facet.icon && <Image src={facet.icon} alt="" width={44} height={44} sizes="44px" />}
-                <h2>{facet.tool}</h2>
+                <h3>{facet.tool}</h3>
               </div>
               <p>{facet.description}</p>
               <ul className={styles.parts} aria-label="Les éléments de l’outil">

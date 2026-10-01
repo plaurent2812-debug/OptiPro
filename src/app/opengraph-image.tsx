@@ -1,24 +1,26 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Pierre Laurent — Des idées. Du code. Du concret.";
+export const alt = "Pierre Laurent — Relier les idées. Construire le concret.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
   return new ImageResponse(
-    <div style={{ width: "100%", height: "100%", display: "flex", position: "relative", overflow: "hidden", color: "#edfaff", background: "#05080d", fontFamily: "sans-serif" }}>
-      <div style={{ position: "absolute", inset: 0, display: "flex", opacity: .28, backgroundImage: "linear-gradient(rgba(80,230,255,.16) 1px, transparent 1px), linear-gradient(90deg, rgba(80,230,255,.16) 1px, transparent 1px)", backgroundSize: "54px 54px" }} />
-      <div style={{ position: "absolute", width: 560, height: 560, borderRadius: 999, border: "1px solid rgba(80,230,255,.28)", right: -80, top: -120, boxShadow: "0 0 120px rgba(80,230,255,.12)" }} />
-      <div style={{ position: "relative", width: "100%", padding: "76px 84px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 16, color: "#86d8ee", fontSize: 20, letterSpacing: 4 }}><div style={{ width: 12, height: 12, borderRadius: 99, background: "#86d8ee" }} /> PIERRE LAURENT / PORTFOLIO</div>
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", flexDirection: "column", fontSize: 76, lineHeight: .96, letterSpacing: -4, fontWeight: 700 }}>
-            <span>Des idées. Du code.</span>
-            <span style={{ color: "#86d8ee" }}>Du concret.</span>
-          </div>
-          <div style={{ marginTop: 28, color: "#9aabb8", fontSize: 28 }}>Applications · Web · Automatisation · IA</div>
+    <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "64px 80px", color: "#eff2ef", background: "#080c10", fontFamily: "sans-serif" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 24 }}>
+        <div style={{ display: "flex", fontSize: 52, letterSpacing: -5 }}><span>p</span><span style={{ color: "#a0e5e0" }}>l.</span></div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}><span style={{ fontSize: 24 }}>Pierre Laurent</span><span style={{ fontSize: 16, color: "#a7b1b7" }}>Opérations · Code · Curiosité</span></div>
+      </div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+        <div style={{ display: "flex", flexDirection: "column", fontSize: 78, lineHeight: 1.1, letterSpacing: -4 }}>
+          <span>Relier les idées.</span>
+          <span style={{ color: "#a0e5e0" }}>Construire le concret.</span>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", color: "#9aabb8", fontSize: 16 }}><span>ProbaLab / Ferdinand / Ro Nutritionniste / Odysio</span><span>pierre-laurent.fr</span></div>
+        <div style={{ display: "flex", width: 700, height: 1, marginTop: 16, background: "#dcaf86" }} />
+      </div>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", paddingTop: 24, borderTop: "1px solid #c4d5e036", fontSize: 17, color: "#a7b1b7" }}>
+        <span>Des applications, des expériences web, des outils.</span>
+        <span style={{ color: "#a0e5e0" }}>pierre-laurent.fr</span>
       </div>
     </div>,
     size,

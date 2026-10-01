@@ -1,5 +1,5 @@
 export type ProductProject = {
-  slug: "la-parallaxe" | "probalab" | "ferdinand" | "ro-nutritionniste" | "odysio";
+  slug: "le-fond-du-sujet" | "ideoscope-2027" | "la-parallaxe" | "probalab" | "ferdinand" | "ro-nutritionniste" | "odysio";
   name: string;
   code: string;
   status: string;
@@ -26,9 +26,59 @@ export type ProductProject = {
 
 export const projects: ProductProject[] = [
   {
+    slug: "le-fond-du-sujet",
+    name: "Le Fond du sujet",
+    code: "PROJET 01 / LE FOND DU SUJET",
+    status: "Site en ligne",
+    statusTone: "amber",
+    visual: "browser",
+    statement: "Partir d’une question d’actualité pour comprendre les mécanismes derrière les chiffres.",
+    category: "Décryptage de l’actualité",
+    summary: "Des dossiers à trois niveaux de lecture — L’essentiel, Comprendre, Explorer — avec des sources datées et des outils interactifs pour rendre les chiffres et leurs mécanismes plus lisibles.",
+    linkLabel: "Lire les dossiers",
+    description:
+      "Le Fond du sujet propose une lecture progressive de l’actualité : une réponse courte, les mécanismes qui l’expliquent, puis les sources et les limites pour aller plus loin. Les dossiers associent explications, visualisations et simulations, en distinguant les données observées, les annonces et les scénarios.",
+    image: "/projects/le-fond-du-sujet.webp",
+    imageWidth: 1280,
+    imageHeight: 720,
+    icon: "/projects/le-fond-du-sujet-icon.svg",
+    imageAlt: "Accueil du Fond du sujet : Au-delà du chiffre et dossier sur le prix à la pompe",
+    href: "https://www.lefonddusujet.fr/",
+    platforms: ["Web", "Site publié"],
+    technologies: ["HTML", "CSS", "JavaScript"],
+    capabilities: ["Lecture progressive", "Simulations interactives", "Sources datées"],
+    role: "Conception éditoriale et développement d’un site de décryptage interactif",
+    demonstrates: "Rendre un sujet d’actualité compréhensible, relier les explications aux sources et expliciter les hypothèses des simulations.",
+  },
+  {
+    slug: "ideoscope-2027",
+    name: "Idéoscope 2027",
+    code: "PROJET 02 / IDÉOSCOPE 2027",
+    status: "Site en ligne",
+    statusTone: "cyan",
+    visual: "browser",
+    statement: "Un outil civique pour comparer ses convictions aux textes publiés, sans transformer le résultat en consigne de vote.",
+    category: "Outil civique",
+    summary: "40 questions, 7 mouvements et une méthode transparente pour situer ses convictions à partir de sources officielles, sans collecte des réponses.",
+    linkLabel: "Tester Idéoscope",
+    description:
+      "Idéoscope 2027 compare les réponses à un corpus de textes politiques publiés. Le questionnaire rend son calcul, ses sources, leur fraîcheur et ses limites visibles ; les réponses restent dans le navigateur et le résultat mesure une proximité sur les propositions couvertes, jamais une intention de vote.",
+    image: "/projects/ideoscope-2027.webp",
+    imageWidth: 1200,
+    imageHeight: 630,
+    icon: "/projects/ideoscope-2027-icon.svg",
+    imageAlt: "Identité d’Idéoscope 2027 : comparer ses convictions, pas les étiquettes",
+    href: "https://ideoscope2027.fr/",
+    platforms: ["Web", "Site publié"],
+    technologies: ["HTML", "CSS", "JavaScript", "WebMCP"],
+    capabilities: ["Questionnaire", "Score explicable", "Sources et transparence", "Données locales"],
+    role: "Conception éditoriale et développement d’un questionnaire civique sourcé",
+    demonstrates: "Comparer des positions politiques avec une méthode auditable, des sources datées et des limites clairement exposées.",
+  },
+  {
     slug: "la-parallaxe",
     name: "La Parallaxe",
-    code: "PROJET 01 / LA PARALLAXE",
+    code: "PROJET 03 / LA PARALLAXE",
     status: "Site en ligne",
     statusTone: "sage",
     visual: "browser",
@@ -53,7 +103,7 @@ export const projects: ProductProject[] = [
   {
     slug: "probalab",
     name: "ProbaLab",
-    code: "PROJET 02 / PROBALAB",
+    code: "PROJET 04 / PROBALAB",
     status: "Développement actif",
     statusTone: "cyan",
     visual: "phone",
@@ -78,7 +128,7 @@ export const projects: ProductProject[] = [
   {
     slug: "ferdinand",
     name: "Ferdinand",
-    code: "PROJET 03 / FERDINAND",
+    code: "PROJET 05 / FERDINAND",
     status: "Produit en évolution",
     statusTone: "amber",
     visual: "phone",
@@ -102,7 +152,7 @@ export const projects: ProductProject[] = [
   {
     slug: "ro-nutritionniste",
     name: "Ro Nutritionniste",
-    code: "PROJET 04 / RO NUTRITIONNISTE",
+    code: "PROJET 06 / RO NUTRITIONNISTE",
     status: "Prototype avancé",
     statusTone: "sage",
     visual: "browser",
@@ -127,7 +177,7 @@ export const projects: ProductProject[] = [
   {
     slug: "odysio",
     name: "Odysio",
-    code: "PROJET 05 / ODYSIO",
+    code: "PROJET 07 / ODYSIO",
     status: "Projet en pause",
     statusTone: "cyan",
     visual: "identity",

@@ -153,6 +153,17 @@ test("La Parallaxe est présentée comme un site scientifique publié", () => {
   assert.equal(existsSync("public/projects/la-parallaxe-icon.png"), true);
 });
 
+test("Idéoscope 2027 est présenté comme un outil civique publié et transparent", () => {
+  const projects = readFileSync("src/data/projects.ts", "utf8");
+
+  assert.match(projects, /slug: "ideoscope-2027"/);
+  assert.match(projects, /status: "Site en ligne"/);
+  assert.match(projects, /href: "https:\/\/ideoscope2027\.fr\/"/);
+  assert.match(projects, /sans collecte des réponses/);
+  assert.equal(existsSync("public/projects/ideoscope-2027.webp"), true);
+  assert.equal(existsSync("public/projects/ideoscope-2027-icon.svg"), true);
+});
+
 test("Odysio est présenté sans inventer de disponibilité publique", () => {
   const projects = readFileSync("src/data/projects.ts", "utf8");
 

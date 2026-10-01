@@ -9,7 +9,7 @@ export default function ProfessionalOverview() {
         <div>
           <p className="eyebrow">03 / Côté professionnel</p>
           <h2 id="professional-title" className="section-title">Derrière les projets,<br />une expérience du terrain.</h2>
-          <p className={styles.overviewCopy}>Mon métier, ce sont les opérations. Dix ans à organiser les flux, coordonner les équipes et faire avancer les choses. Cette expérience nourrit aussi les outils que je crée : partir d’un besoin réel, structurer, puis simplifier.</p>
+          <p className={styles.overviewCopy}>Mon métier, ce sont les opérations. Organiser les flux, coordonner les équipes, structurer les données : cette expérience du terrain nourrit les outils que je crée.</p>
           <div className={styles.overviewActions}>
             <Link href="/a-propos" className="button-secondary">Mon parcours professionnel <span aria-hidden="true">→</span></Link>
             <Link href="/cv">Consulter mon CV <span aria-hidden="true">↗</span></Link>
@@ -20,7 +20,6 @@ export default function ProfessionalOverview() {
           <h3>{professionalProfile.title}</h3>
           <p className={styles.roleCompany}>{professionalProfile.company}</p>
           <div className={styles.roleScope}><div>{professionalProfile.scope.map((scope) => <span key={scope}>{scope}</span>)}</div></div>
-          <p className={styles.roleNote}>Expériences, responsabilités et compétences : mon parcours et mon CV sont là pour aller plus loin.</p>
         </div>
       </div>
     </section>

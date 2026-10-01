@@ -2,15 +2,13 @@ import Image from "next/image";
 import type { ProductProject } from "@/data/projects";
 import styles from "./ProjectVisual.module.css";
 
-export default function ProjectVisual({ project, index = 0, eager = false }: { project: ProductProject; index?: number; eager?: boolean }) {
+export default function ProjectVisual({ project, index = 0, eager = false, compact = false }: { project: ProductProject; index?: number; eager?: boolean; compact?: boolean }) {
   return (
-    <div className={styles.stage} data-tone={project.statusTone} data-visual={project.visual}>
-      <div className={styles.topline}><span>{project.category}</span><span>0{index + 1}</span></div>
-      <div className={styles.orbit} aria-hidden="true" />
+    <figure className={`${styles.stage} ${compact ? styles.compact : ""}`} data-tone={project.statusTone} data-visual={project.visual}>
+      <div className={styles.topline} aria-hidden="true"><span>{project.category}</span><span>0{index + 1}</span></div>
       {project.visual === "browser" ? (
         <div className={styles.browser}>
-          <div className={styles.browserBar} aria-hidden="true"><span>● ● ●</span><span>{project.name}</span><span>↗</span></div>
-          <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 720px) 85vw, (max-width: 1024px) 70vw, 620px" loading={eager ? "eager" : undefined} />
+          <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes={compact ? "(max-width: 720px) 40vw, (max-width: 1100px) 42vw, 270px" : "(max-width: 820px) 90vw, (max-width: 1024px) 50vw, 640px"} loading={eager ? "eager" : undefined} />
         </div>
       ) : project.visual === "identity" ? (
         <div className={styles.identity}>
@@ -19,12 +17,10 @@ export default function ProjectVisual({ project, index = 0, eager = false }: { p
         </div>
       ) : (
         <div className={styles.phone}>
-          <div className={styles.phoneScreen}>
-            <Image src={project.image} alt={project.imageAlt} fill sizes="(max-width: 720px) 160px, (max-width: 1024px) 185px, 220px" loading={eager ? "eager" : undefined} />
-          </div>
+          <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes={compact ? "90px" : "(max-width: 720px) 150px, 180px"} loading={eager ? "eager" : undefined} />
         </div>
       )}
-      <span className={styles.caption}>{project.visual === "identity" ? "Identité du prototype · Projet en pause" : "Aperçu réel du projet"}</span>
-    </div>
+      <figcaption className={styles.caption}>{project.visual === "identity" ? "Identité du prototype · Projet en pause" : "Interface réelle du projet"}</figcaption>
+    </figure>
   );
 }

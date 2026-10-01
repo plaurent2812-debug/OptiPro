@@ -1,18 +1,18 @@
-.pageHero { padding: calc(var(--header-height) + 5rem) 0 4rem; border-bottom: 1px solid var(--line); }
+.pageHero { padding: calc(var(--header-height) + 3rem) 0 3rem; border-bottom: 1px solid var(--line); }
 .pageHero h1 { max-width: 1000px; margin-top: 2rem; font-size: clamp(3rem, 6vw, 5.5rem); font-weight: 400; line-height: 1.04; letter-spacing: -.065em; }
-.pageHero h1 em { color: var(--cyan); font-style: normal; }
+.pageHero h1 em { color: var(--cyan); font-family: var(--font-editorial); font-weight: 400; }
 .pageHero p:not(:global(.eyebrow)) { max-width: 610px; margin-top: 1.8rem; color: var(--text-dim); font-size: 1.05rem; }
 .projectIndex { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 3.5rem; border-top: 1px solid var(--line-strong); }
 .projectIndex a { display: flex; align-items: center; gap: 1rem; min-height: 64px; padding: 1rem; border-bottom: 1px solid var(--line); font-size: .88rem; }.projectIndex a:first-child { padding-left: 0; }
 .projectIndex span { color: var(--muted); font: .65rem var(--font-mono), monospace; }.projectIndex i { margin-left: auto; color: var(--cyan); font-style: normal; }.projectIndex a:hover { color: var(--cyan); background: var(--cyan-soft); }
 .projects { padding-block: 4.5rem; }
-.project { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; padding-block: 3.5rem 5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--line-strong); scroll-margin-top: calc(var(--header-height) + 1.5rem); }
-.project > :first-child { position: sticky; top: calc(var(--header-height) + 1.5rem); }
-.projectCopy { min-width: 0; }
+.project { display: grid; grid-template-columns: 1.1fr .9fr; column-gap: 4rem; row-gap: 1.3rem; align-items: start; padding-block: 3rem 4rem; margin-bottom: 1rem; border-bottom: 1px solid var(--line-strong); scroll-margin-top: calc(var(--header-height) + 1.5rem); }
+.projectIntro, .projectCopy { grid-column: 2; min-width: 0; }
+.projectVisual { grid-column: 1; grid-row: 1 / 3; position: sticky; top: calc(var(--header-height) + 1.5rem); min-width: 0; }
 .projectNumber { color: var(--muted); font: .68rem/1.6 var(--font-mono), monospace; letter-spacing: .06em; }
 .projectHeader { display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0 1rem; }.projectHeader img { width: 48px; height: 48px; border-radius: .7rem; }.projectHeader h2 { font-size: clamp(2rem, 3.3vw, 3rem); font-weight: 400; letter-spacing: -.05em; line-height: 1.1; }
 .status { display: inline-flex; align-items: center; gap: .6rem; font-size: .8rem; color: var(--text-dim); }.status i { width: 5px; height: 5px; border-radius: 50%; background: var(--cyan); }.statusAmber i { background: var(--amber); }.statusSage i { background: #b8cba7; }
-.statement { margin-top: 1.8rem; font-size: 1.3rem; line-height: 1.5; letter-spacing: -.025em; }.description { margin-top: 1.2rem; color: var(--text-dim); font-size: .95rem; line-height: 1.8; }
+.statement { margin-top: 1.3rem; font-size: 1.2rem; line-height: 1.5; letter-spacing: -.025em; }.description { color: var(--text-dim); font-size: .95rem; line-height: 1.8; }
 .matrix { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem; padding-block: 1.3rem; border-block: 1px solid var(--line); }.matrix span, .projectEvidence > span { display: block; color: var(--muted); font: .63rem/1.5 var(--font-mono), monospace; }.matrix strong { display: block; margin-top: .65rem; font-size: .85rem; font-weight: 400; color: var(--text-dim); }
 .projectEvidence { margin-top: 2rem; border-left: 1px solid var(--cyan); padding-left: 1.2rem; }.projectEvidence > span { color: var(--cyan); }.projectEvidence h3 { margin-top: .8rem; font-size: 1rem; font-weight: 400; }.projectEvidence p { margin-top: .6rem; color: var(--text-dim); font-size: .9rem; }
 .tags { display: flex; flex-wrap: wrap; gap: .6rem 1.2rem; margin-block: 2rem; }.tags span { color: var(--muted); font: .65rem/1.6 var(--font-mono), monospace; }
@@ -24,7 +24,7 @@
 .professionalContact { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }.professionalContact h3 { color: var(--amber); font-size: 1.1rem; font-weight: 400; }.professionalContact p { margin-top: .7rem; color: var(--text-dim); font-size: .9rem; }.professionalContact a { display: inline-flex; align-items: center; min-height: 44px; margin: 1rem 2rem 0 0; font-size: .85rem; }.professionalContact a:hover { color: var(--cyan); }
 .contactAside { border-left: 1px solid var(--line-strong); padding-left: 2rem; }.contactAside h3 { font-size: 1.15rem; font-weight: 400; }.contactAside dl { display: grid; gap: 1.7rem; margin-top: 2rem; }.contactAside dt { color: var(--muted); font: .65rem var(--font-mono), monospace; }.contactAside dd { font-size: .9rem; margin-top: .6rem; overflow-wrap: anywhere; }.contactAside dd a { min-height: 44px; display: inline-flex; align-items: center; }.contactAside a:hover { color: var(--cyan); }.signal { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font: .65rem/2 var(--font-mono), monospace; }
 @media (max-width: 1024px) { .project { gap: 2.5rem; }.contactGrid { gap: 3rem; }.projectIndex a { font-size: .8rem; gap: .6rem; padding-inline: .6rem; } }
-@media (max-width: 900px) { .project, .contactGrid, .furtherReading { grid-template-columns: 1fr; gap: 2.5rem; }.project > :first-child { position: relative; top: auto; }.projectCopy { grid-row: 1; }.contactAside { border-left: 0; border-top: 1px solid var(--line-strong); padding: 2rem 0 0; }.contactAside dl { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
+@media (max-width: 900px) { .project, .contactGrid, .furtherReading { grid-template-columns: 1fr; gap: 1.7rem; }.projectIntro, .projectVisual, .projectCopy { grid-column: 1; grid-row: auto; }.projectVisual { position: relative; top: auto; }.contactAside { border-left: 0; border-top: 1px solid var(--line-strong); padding: 2rem 0 0; }.contactAside dl { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
 @media (max-width: 720px) {
   .pageHero { padding-top: calc(var(--header-height) + 3rem); padding-bottom: 2.5rem; }.pageHero h1 { margin-top: 1.5rem; font-size: clamp(2.4rem, 9.2vw, 4rem); }.pageHero p:not(:global(.eyebrow)) { font-size: .95rem; }
   .projectIndex { grid-template-columns: 1fr 1fr; margin-top: 2.5rem; }.projectIndex a { padding-left: 0; }.projectIndex a:nth-child(even) { padding-left: .7rem; }

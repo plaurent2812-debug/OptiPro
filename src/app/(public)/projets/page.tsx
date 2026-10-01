@@ -32,7 +32,7 @@ export default function ProjectsPage() {
       <section className={`shell ${styles.projects}`}>
         {projects.map((project, index) => (
           <article id={project.slug} className={styles.project} key={project.slug}>
-            <ProjectVisual project={project} index={index} />
+            <ProjectVisual project={project} index={index} eager={index === 0} />
             <div className={styles.projectCopy}>
               <span className={styles.projectNumber}>{project.code}</span>
               <div className={styles.projectHeader}>

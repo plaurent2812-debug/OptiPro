@@ -9,10 +9,11 @@ const requiredFiles = [
   "src/app/(public)/contact/page.tsx",
   "src/app/(public)/mentions-legales/page.tsx",
   "src/app/(public)/confidentialite/page.tsx",
-  "src/components/visuals/NeuralBackdrop.tsx",
-  "src/components/visuals/NeuralBackdrop.module.css",
-  "src/components/visuals/SystemCore.tsx",
-  "src/components/visuals/SystemCore.module.css",
+  "src/app/(public)/optipro/page.tsx",
+  "src/components/visuals/NetworkMap.tsx",
+  "src/components/visuals/NetworkMap.module.css",
+  "src/data/offer.ts",
+  "src/data/network.ts",
 ];
 
 const retiredPaths = [
@@ -31,7 +32,7 @@ function containsFile(path) {
   );
 }
 
-test("le site personnel expose uniquement les routes prévues", () => {
+test("le site expose uniquement les routes prévues", () => {
   requiredFiles.forEach((file) => assert.equal(existsSync(file), true, `${file} doit exister`));
   retiredPaths.forEach((path) => assert.equal(containsFile(path), false, `${path} ne doit contenir aucun fichier`));
 });
@@ -51,7 +52,7 @@ test("les anciens parcours commerciaux sont redirigés", () => {
   });
 });
 
-test("le discours reste personnel et non commercial", () => {
+test("l’ancienne offre ne réapparaît pas", () => {
   const contentFiles = [
     ...requiredFiles,
     "src/components/layout/Header.tsx",
@@ -67,14 +68,37 @@ test("le discours reste personnel et non commercial", () => {
     "maintenance mensuelle",
     "product builder",
     "client work",
-    "pas prestations",
-    "aucune mission client",
     "studio de produits",
   ].forEach((phrase) => {
-    assert.equal(files.toLowerCase().includes(phrase.toLowerCase()), false, `discours commercial résiduel : ${phrase}`);
+    assert.equal(files.toLowerCase().includes(phrase.toLowerCase()), false, `ancien discours commercial résiduel : ${phrase}`);
   });
-  assert.match(files, /site personnel/i);
   assert.match(files, /mon parcours/i);
+});
+
+test("l’offre OptiPro affiche les conditions validées par Pierre", () => {
+  const offer = readFileSync("src/data/offer.ts", "utf8");
+  ["890 €", "79 €", "790 €", "12 mois", "1 h de modifications par mois", "60 €", "Alpes-Maritimes", "tel:+33670259333", "p.laurent@opti-pro.fr", "TVA non applicable, art. 293 B du CGI"].forEach((value) => {
+    assert.equal(offer.includes(value), true, `condition manquante : ${value}`);
+  });
+  const page = readFileSync("src/app/(public)/optipro/page.tsx", "utf8");
+  assert.match(page, /non cumulable/);
+  assert.match(page, /contact\.phoneHref/);
+  assert.match(page, /contact\.emailHref/);
+  const sitemap = readFileSync("src/app/sitemap.ts", "utf8");
+  assert.match(sitemap, /\/optipro/);
+});
+
+test("les mentions légales reflètent l’activité et la franchise de TVA", () => {
+  const legal = readFileSync("src/app/(public)/mentions-legales/page.tsx", "utf8");
+  assert.doesNotMatch(legal, /ne propose pas de prestations/i);
+  assert.match(legal, /TVA non applicable, art\. 293 B du CGI/);
+  assert.match(legal, /Code APE : 70\.22Z/);
+});
+
+test("aucune donnée ni aucun projet Pharmagreen n’est présenté comme réalisation", () => {
+  ["src/data/projects.ts", "src/data/network.ts", "src/app/(public)/optipro/page.tsx"].forEach((file) => {
+    assert.equal(readFileSync(file, "utf8").toLowerCase().includes("pharmagreen"), false, `${file} ne doit pas citer Pharmagreen`);
+  });
 });
 
 test("le site ne publie plus de portrait et conserve LinkedIn", () => {
@@ -88,6 +112,7 @@ test("le site ne publie plus de portrait et conserve LinkedIn", () => {
     "src/app/(public)/layout.tsx",
     "src/components/layout/Footer.tsx",
     "src/app/(public)/contact/page.tsx",
+    "src/data/offer.ts",
   ].map((file) => readFileSync(file, "utf8")).join("\n");
 
   assert.equal(sources.includes("pierre-laurent-tech-hero.png"), false);
@@ -109,9 +134,9 @@ test("la direction minimaliste ne réintroduit pas le chrome système", () => {
   assert.equal(existsSync("public/hero-particles.webp"), false, "le visuel IA généré ne doit plus être publié");
 });
 
-test("le décor ne masque pas le contenu et ne tourne pas en permanence", () => {
-  const component = readFileSync("src/components/visuals/NeuralBackdrop.tsx", "utf8");
-  const styles = readFileSync("src/components/visuals/NeuralBackdrop.module.css", "utf8");
+test("le plan de lignes ne masque pas le contenu et ne tourne pas en permanence", () => {
+  const component = readFileSync("src/components/visuals/NetworkMap.tsx", "utf8");
+  const styles = readFileSync("src/components/visuals/NetworkMap.module.css", "utf8");
   const globals = readFileSync("src/app/globals.css", "utf8");
   assert.match(component, /aria-hidden="true"/);
   assert.match(styles, /pointer-events: none/);
@@ -122,7 +147,7 @@ test("le décor ne masque pas le contenu et ne tourne pas en permanence", () => 
 test("la navigation reste native et les exemples fonctionnent sans JavaScript", () => {
   const layout = readFileSync("src/app/(public)/layout.tsx", "utf8");
   const header = readFileSync("src/components/layout/Header.tsx", "utf8");
-  const core = readFileSync("src/components/visuals/SystemCore.tsx", "utf8");
+  const core = readFileSync("src/components/visuals/NetworkMap.tsx", "utf8");
   const globals = readFileSync("src/app/globals.css", "utf8");
   assert.doesNotMatch(layout, /CustomCursor/);
   assert.doesNotMatch(globals, /cursor: none/);

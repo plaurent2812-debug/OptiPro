@@ -1,8 +1,0 @@
-.backdrop {
-  position: absolute;
-  inset: 0 0 auto;
-  height: 1000px;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(ellipse at 78% 30%, #20374540, transparent 48%), radial-gradient(ellipse at 10% 0%, #1a292830, transparent 55%);
-}

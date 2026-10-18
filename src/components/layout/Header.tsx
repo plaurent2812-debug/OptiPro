@@ -3,10 +3,13 @@
 import { useEffect, useRef, type MouseEvent } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { contact } from "@/data/offer";
+import PhoneIcon from "./PhoneIcon";
 import styles from "./layout.module.css";
 
 const links = [
-  { href: "/projets", label: "Projets" },
+  { href: "/optipro", label: "Sites pour entreprises" },
+  { href: "/projets", label: "Réalisations" },
   { href: "/a-propos", label: "Parcours" },
   { href: "/contact", label: "Contact" },
 ];
@@ -33,7 +36,7 @@ export default function Header() {
     const onOutside = (event: PointerEvent) => {
       if (event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
     };
-    const desktop = window.matchMedia("(min-width: 821px)");
+    const desktop = window.matchMedia("(min-width: 981px)");
     const onDesktop = () => { if (desktop.matches) menu.open = false; };
     document.addEventListener("keydown", onEscape);
     document.addEventListener("pointerdown", onOutside);
@@ -51,19 +54,21 @@ export default function Header() {
       <header className={styles.header}>
         <div className={`shell ${styles.headerInner}`}>
           <Link href="/" className={styles.brand} aria-label="Pierre Laurent — accueil">
-            <span className={styles.brandMark} aria-hidden="true">p<span>l.</span></span>
-            <span className={styles.brandName}>Pierre Laurent<span>Opérations & création numérique</span></span>
+            <span className={styles.brandMark} aria-hidden="true">PL</span>
+            <span className={styles.brandName}>Pierre Laurent<span>Opérations, applications, sites</span></span>
           </Link>
           <nav className={styles.desktopNav} aria-label="Navigation principale">
             {links.map((link) => <Link key={link.href} href={link.href} className={styles.navLink} aria-current={pathname === link.href ? "page" : undefined}>{link.label}</Link>)}
-            <Link href="/cv" className={styles.cvLink} aria-current={pathname === "/cv" ? "page" : undefined}>Mon CV <span aria-hidden="true">↗</span></Link>
+            <a href={contact.phoneHref} className={styles.phoneButton}><PhoneIcon />{contact.phoneDisplay}</a>
           </nav>
+          <a href={contact.phoneHref} className={styles.phoneIconButton} aria-label={`Appeler le ${contact.phoneDisplay}`}><PhoneIcon /></a>
           <details className={styles.mobileMenu} ref={menuRef}>
             <summary aria-label="Menu"><span className={styles.menuLabel}>Menu</span><span className={styles.menuIcon} aria-hidden="true"><i /><i /></span></summary>
             <nav aria-label="Navigation mobile">
-              {links.map((link, index) => <Link key={link.href} href={link.href} onClick={closeMobileMenu} aria-current={pathname === link.href ? "page" : undefined}><span>0{index + 1}</span>{link.label}<i aria-hidden="true">↗</i></Link>)}
-              <Link href="/cv" onClick={closeMobileMenu} aria-current={pathname === "/cv" ? "page" : undefined}><span>04</span>Mon CV<i aria-hidden="true">↗</i></Link>
-              <p>Pierre Laurent · Vence, France</p>
+              {links.map((link) => <Link key={link.href} href={link.href} onClick={closeMobileMenu} aria-current={pathname === link.href ? "page" : undefined}>{link.label}</Link>)}
+              <Link href="/cv" onClick={closeMobileMenu} aria-current={pathname === "/cv" ? "page" : undefined}>Mon CV</Link>
+              <a href={contact.phoneHref} className={styles.menuPhone}><PhoneIcon />Appeler le {contact.phoneDisplay}</a>
+              <p>Pierre Laurent, {contact.city}, {contact.area}</p>
             </nav>
           </details>
         </div>

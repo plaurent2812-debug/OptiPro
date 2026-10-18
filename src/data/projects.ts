@@ -1,3 +1,5 @@
+import type { LineId } from "./network";
+
 export type ProductProject = {
   slug: "le-fond-du-sujet" | "ideoscope-2027" | "la-parallaxe" | "probalab" | "ferdinand" | "ro-nutritionniste" | "odysio";
   name: string;
@@ -22,6 +24,8 @@ export type ProductProject = {
   capabilities: string[];
   role: string;
   demonstrates: string;
+  /** Lignes du plan de compétences desservies par le projet */
+  lines: LineId[];
 };
 
 export const projects: ProductProject[] = [
@@ -49,6 +53,7 @@ export const projects: ProductProject[] = [
     capabilities: ["Lecture progressive", "Simulations interactives", "Sources datées"],
     role: "Conception éditoriale et développement d’un site de décryptage interactif",
     demonstrates: "Rendre un sujet d’actualité compréhensible, relier les explications aux sources et expliciter les hypothèses des simulations.",
+    lines: ["web", "data"],
   },
   {
     slug: "ideoscope-2027",
@@ -74,6 +79,7 @@ export const projects: ProductProject[] = [
     capabilities: ["Questionnaire", "Score explicable", "Sources et transparence", "Données locales"],
     role: "Conception éditoriale et développement d’un questionnaire civique sourcé",
     demonstrates: "Comparer des positions politiques avec une méthode auditable, des sources datées et des limites clairement exposées.",
+    lines: ["apps"],
   },
   {
     slug: "la-parallaxe",
@@ -99,6 +105,7 @@ export const projects: ProductProject[] = [
     capabilities: ["Explications par couches", "Interactions", "Sources"],
     role: "Identité, conception et développement d’une expérience éditoriale interactive",
     demonstrates: "Rendre un sujet complexe accessible sans effacer ses nuances, ses limites ni les sources qui permettent de le vérifier.",
+    lines: ["web"],
   },
   {
     slug: "probalab",
@@ -124,6 +131,7 @@ export const projects: ProductProject[] = [
     capabilities: ["Data pipeline", "Analyse", "Abonnements", "Notifications", "IA visuelle"],
     role: "Conception et développement de l’écosystème web et mobile",
     demonstrates: "Relier des données complexes, rendre l’analyse lisible et expliciter les limites de l’information.",
+    lines: ["apps", "data"],
   },
   {
     slug: "ferdinand",
@@ -148,6 +156,7 @@ export const projects: ProductProject[] = [
     capabilities: ["Échéances", "Récurrence", "Notifications", "Mode sombre", "Accessibilité"],
     role: "Conception et développement d’un assistant du quotidien",
     demonstrates: "Transformer un besoin récurrent en parcours simple, avec rappels, suivi et attention aux détails.",
+    lines: ["apps"],
   },
   {
     slug: "ro-nutritionniste",
@@ -173,6 +182,7 @@ export const projects: ProductProject[] = [
     capabilities: ["Recettes", "Rendez-vous", "Générateur", "Contenus", "Administration"],
     role: "Conception de l’interface et développement de la démonstration",
     demonstrates: "Comprendre un métier et réunir ses contenus et ses outils dans une expérience cohérente.",
+    lines: ["web"],
   },
   {
     slug: "odysio",
@@ -197,5 +207,6 @@ export const projects: ProductProject[] = [
     capabilities: ["Quêtes", "Narration IA", "Progression", "Chapitres", "Notifications"],
     role: "Conception et développement d’un prototype mobile",
     demonstrates: "Explorer l’engagement par la narration et l’IA, tester sur appareil et prioriser la suite du produit.",
+    lines: ["apps"],
   },
 ];

@@ -1,21 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow, Barlow_Condensed } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-// Barlow s'inspire de la signalétique routière : une seule famille, deux largeurs.
-const barlow = Barlow({
+// Geist pour le texte, Geist Mono réservé aux graduations des graphiques.
+const geist = Geist({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-display",
+  variable: "--font-geist",
   display: "swap",
 });
 
-const barlowCondensed = Barlow_Condensed({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  weight: ["600", "700"],
-  variable: "--font-condensed",
+  variable: "--font-geist-mono",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -35,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Pierre Laurent",
     title: "Pierre Laurent — Opérations, applications et sites pour entreprises",
     description:
-      "Je fais tourner les opérations et je construis les outils qui vont avec : logistique, applications, automatisation, data et sites vitrines OptiPro.",
+      "Je relie le terrain au logiciel : logistique, applications, automatisation, data et sites vitrines OptiPro.",
   },
   twitter: {
     card: "summary_large_image",
@@ -49,14 +48,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "light",
-  themeColor: "#eef0eb",
+  colorScheme: "dark",
+  themeColor: "#0a0d12",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" data-scroll-behavior="smooth">
-      <body className={`${barlow.variable} ${barlowCondensed.variable}`}>
+    <html lang="fr" data-scroll-behavior="smooth" className={`${geist.variable} ${geistMono.variable}`}>
+      <body>
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>

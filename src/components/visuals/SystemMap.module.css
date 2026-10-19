@@ -1,0 +1,197 @@
+/* ============================================================
+   Console « système » : cinq étapes reliées par des flux
+   Sélection par boutons radio et :has(), sans JavaScript.
+   ============================================================ */
+.console { margin-top: clamp(32px, 3.6vw, 48px); overflow: hidden; border: 1px solid var(--line-2); border-radius: 16px; background: var(--panel); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04), 0 40px 80px -40px rgba(0, 0, 0, .7); }
+
+.bar { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; padding: 12px 18px; border-bottom: 1px solid var(--line); background: var(--bar); }
+.title { display: flex; align-items: center; gap: 10px; color: var(--tx); font-size: .875rem; font-weight: 550; letter-spacing: -.005em; }
+.state { display: inline-flex; align-items: center; gap: 7px; padding-left: 10px; border-left: 1px solid var(--line-2); color: var(--tx-3); font-weight: 450; }
+.state i { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 3px rgba(111, 211, 156, .15); }
+.legend { display: flex; flex-wrap: wrap; gap: 18px; margin-left: auto; color: var(--tx-2); font-size: .8125rem; }
+.legend li { display: flex; align-items: center; gap: 8px; }
+.legend li::before { content: ""; width: 16px; height: 2px; border-radius: 2px; background: var(--c); }
+
+.sys { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 400px; }
+.stage { position: relative; aspect-ratio: 800 / 460; container-type: inline-size; background-image: radial-gradient(circle at 1px 1px, #1f2632 1px, transparent 1.4px); background-position: 10px 10px; background-size: 20px 20px; }
+.deco { position: absolute; inset: 14px; pointer-events: none; }
+.deco i { position: absolute; width: 10px; height: 10px; border: 0 solid var(--line-3); }
+.deco i:nth-child(1) { top: 0; left: 0; border-top-width: 1px; border-left-width: 1px; }
+.deco i:nth-child(2) { top: 0; right: 0; border-top-width: 1px; border-right-width: 1px; }
+.deco i:nth-child(3) { bottom: 0; left: 0; border-bottom-width: 1px; border-left-width: 1px; }
+.deco i:nth-child(4) { right: 0; bottom: 0; border-right-width: 1px; border-bottom-width: 1px; }
+
+/* ---------- flux ---------- */
+.wires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.wire path { fill: none; }
+.base { stroke: var(--line-3); stroke-width: 1; }
+.lit { stroke: var(--c); stroke-width: 1.25; stroke-dasharray: 100 100; stroke-dashoffset: 100; opacity: .55; animation: draw .7s var(--d) cubic-bezier(.5, 0, .2, 1) forwards; transition: opacity .3s, stroke-width .3s; }
+/* Impulsions : trois passages, puis le schéma se fige allumé */
+.glow, .pulse { stroke: var(--c); stroke-linecap: round; stroke-dasharray: 4 240; stroke-dashoffset: 8; animation: travel var(--t) linear var(--pd) 3 both; }
+.glow { stroke-width: 7; opacity: .16; }
+.pulse { stroke-width: 2; }
+.port { fill: var(--panel); stroke: var(--line-3); stroke-width: 1; animation: portOn .4s var(--d) forwards; }
+.wireLabel { fill: var(--tx-3); font-family: var(--sans); font-size: 12px; letter-spacing: .005em; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes travel { 0% { stroke-dashoffset: 8; } 62% { stroke-dashoffset: -108; } 100% { stroke-dashoffset: -108; } }
+@keyframes portOn { to { stroke: var(--c); } }
+
+/* Flux reliés à l’étape choisie */
+.sys:has(.radio[value="terrain"]:checked) .wire[data-a="terrain"] .lit,
+.sys:has(.radio[value="donnees"]:checked) .wire[data-b="donnees"] .lit,
+.sys:has(.radio[value="donnees"]:checked) .wire[data-a="donnees"] .lit,
+.sys:has(.radio[value="auto"]:checked) .wire[data-b="auto"] .lit,
+.sys:has(.radio[value="auto"]:checked) .wire[data-a="auto"] .lit,
+.sys:has(.radio[value="apps"]:checked) .wire[data-b="apps"] .lit,
+.sys:has(.radio[value="apps"]:checked) .wire[data-a="apps"] .lit,
+.sys:has(.radio[value="site"]:checked) .wire[data-b="site"] .lit { opacity: 1; stroke-width: 1.6; }
+
+/* ---------- nœuds ---------- */
+.node {
+  --w: 190;
+  position: absolute;
+  top: calc(var(--y) / 460 * 100%);
+  left: calc(var(--x) / 800 * 100%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: clamp(168px, calc(var(--w) / 800 * 100cqw), calc(var(--w) * 1px + 24px));
+  padding: 12px 30px 12px 12px;
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--node-a) 0%, var(--node-b) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .065), 0 1px 0 rgba(0, 0, 0, .5), 0 18px 36px -20px rgba(0, 0, 0, .9);
+  text-align: left;
+  cursor: pointer;
+  opacity: .26;
+  transform: translate(-50%, -50%);
+  animation: nodeOn .6s var(--d) var(--ease) forwards;
+  transition: border-color .25s var(--ease), box-shadow .25s var(--ease), background .25s;
+}
+.node::after { content: ""; position: absolute; inset: -1px; border: 1px solid var(--c); border-radius: inherit; opacity: 0; pointer-events: none; animation: flash 1.2s var(--d) ease-out forwards; }
+.node:hover { border-color: #3c4759; }
+.node:has(.radio:checked) {
+  border-color: color-mix(in srgb, var(--c) 60%, #2a3340);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--c) 7%, var(--node-a)) 0%, var(--node-b) 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 0 0 3px color-mix(in srgb, var(--c) 14%, transparent), 0 18px 36px -20px rgba(0, 0, 0, .9);
+}
+.node:has(.radio:focus-visible) { outline: 2px solid var(--tx); outline-offset: 3px; }
+.radio { position: absolute; width: 1px; height: 1px; margin: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.well { display: grid; flex: none; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line-2); border-radius: 9px; background: linear-gradient(180deg, #0f1319, #12171e); color: var(--c); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035); }
+.well svg { width: 19px; height: 19px; }
+.node b { display: block; font-size: clamp(14px, 1.875cqw, 15.5px); font-weight: 600; line-height: 1.2; letter-spacing: -.012em; white-space: nowrap; }
+.node small { display: block; margin-top: 3px; color: var(--tx-3); font-size: clamp(12px, 1.55cqw, 13px); line-height: 1.3; white-space: nowrap; }
+.led { position: absolute; top: 11px; right: 11px; width: 6px; height: 6px; border-radius: 50%; background: #3a4352; animation: led .5s calc(var(--d) + .15s) forwards; }
+.hub { --w: 236; padding-block: 16px; }
+.hub .well { width: 42px; height: 42px; border-radius: 10px; }
+.hub .well svg { width: 22px; height: 22px; }
+.hub b { font-size: clamp(15px, 2cqw, 17px); }
+@keyframes nodeOn { to { opacity: 1; } }
+@keyframes flash { 0% { opacity: 0; } 18% { opacity: .95; } 100% { opacity: 0; } }
+@keyframes drop { 0% { background-position: 0 -14px, 0 0; } 60% { background-position: 0 34px, 0 0; } 100% { background-position: 0 34px, 0 0; } }
+@keyframes led { to { background: var(--c); box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 20%, transparent); } }
+
+/* ---------- panneau de détail ---------- */
+.panel { display: flex; flex-direction: column; min-width: 0; padding: 22px 24px 20px; border-left: 1px solid var(--line-2); background: linear-gradient(180deg, #121720, #0f131a); }
+.pane { display: none; flex: 1; flex-direction: column; animation: paneIn .35s var(--ease); }
+.sys:has(.radio[value="terrain"]:checked) .pane[data-k="terrain"],
+.sys:has(.radio[value="donnees"]:checked) .pane[data-k="donnees"],
+.sys:has(.radio[value="auto"]:checked) .pane[data-k="auto"],
+.sys:has(.radio[value="apps"]:checked) .pane[data-k="apps"],
+.sys:has(.radio[value="site"]:checked) .pane[data-k="site"] { display: flex; }
+@keyframes paneIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.paneHead { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line-2); }
+.paneWell { display: grid; flex: none; place-items: center; width: 38px; height: 38px; border: 1px solid color-mix(in srgb, var(--c) 40%, var(--line-2)); border-radius: 10px; background: color-mix(in srgb, var(--c) 7%, #11161d); color: var(--c); }
+.paneWell svg { width: 19px; height: 19px; }
+.paneStep { color: var(--tx-3); font-size: .8125rem; line-height: 1.3; }
+.paneHead h2 { font-size: 1.1875rem; font-weight: 600; line-height: 1.25; letter-spacing: -.018em; }
+.paneLede { margin: 14px 0 10px; color: var(--tx-2); font-size: .9375rem; line-height: 1.5; text-wrap: pretty; }
+.proofs > div { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 14px; padding: 10px 0; border-top: 1px solid var(--line); }
+.proofs > div:first-child { border-top: 0; }
+.proofs dt { color: var(--tx); font-size: 1.25rem; font-weight: 600; line-height: 1.2; letter-spacing: -.025em; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.proofs dt small { margin-left: 2px; color: var(--tx-3); font-size: .75rem; font-weight: 500; letter-spacing: 0; }
+.proofs .word { padding-top: 2px; font-size: .875rem; line-height: 1.3; letter-spacing: -.005em; white-space: normal; }
+.proofs dd { color: var(--tx); font-size: .875rem; line-height: 1.4; }
+.proofs dd span { display: block; margin-top: 2px; color: var(--tx-3); font-size: .8125rem; }
+.paneFoot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
+.paneFoot a { position: relative; padding-bottom: 2px; border-bottom: 1px solid var(--line-3); color: var(--tx); font-size: .875rem; font-weight: 550; transition: border-color .2s; }
+.paneFoot a::after { content: ""; position: absolute; inset: -12px -6px; }
+.paneFoot a:hover { border-color: var(--tx); }
+.tools { color: var(--tx-3); font-size: .8125rem; text-align: right; }
+.hint { display: none; }
+
+.foot { display: flex; justify-content: space-between; gap: 16px; padding: 11px 18px; border-top: 1px solid var(--line); background: var(--bar); color: var(--tx-3); font-size: .8125rem; }
+
+/* tablette : panneau sous le schéma */
+@media (max-width: 1179.98px) {
+  .sys { grid-template-columns: minmax(0, 1fr); }
+  .stage { justify-self: center; width: 100%; max-width: 900px; }
+  .panel { border-top: 1px solid var(--line-2); border-left: 0; }
+}
+
+/* tablette étroite : nœuds plus compacts */
+@media (min-width: 760px) and (max-width: 959.98px) {
+  .node { gap: 10px; width: 184px; padding: 10px 16px 10px 10px; }
+  .node .well { width: 28px; height: 28px; border-radius: 8px; }
+  .node .well svg { width: 16px; height: 16px; }
+  .node b { font-size: 14px; }
+  .node small { font-size: 11.5px; }
+  .led { top: 8px; right: 8px; }
+  .hub { width: 216px; padding-block: 12px; }
+  .hub .well { width: 34px; height: 34px; }
+  .hub b { font-size: 15px; }
+  .deco { display: none; }
+}
+
+/* mobile : le schéma devient un flux vertical, le détail s’ouvre sous l’étape choisie */
+@media (max-width: 759.98px) {
+  .bar { gap: 10px; padding: 12px 16px; }
+  .state { display: none; }
+  .legend { gap: 8px 14px; margin-left: 0; }
+  .sys { display: flex; flex-direction: column; padding: 20px 16px 22px; }
+  .stage { display: contents; }
+  .wires, .deco { display: none; }
+  .node, .hub { position: relative; top: auto; left: auto; order: var(--o); width: 100%; margin-top: 30px; padding: 12px 30px 12px 12px; transform: none; }
+  .node[data-k="terrain"] { margin-top: 0; }
+  .hub .well { width: 36px; height: 36px; }
+  .hub .well svg { width: 19px; height: 19px; }
+  .node b, .hub b { font-size: 15px; }
+  .node small { font-size: 12.5px; }
+  .node:not([data-k="terrain"])::before {
+    content: "";
+    position: absolute;
+    top: -31px;
+    left: 30px;
+    width: 1px;
+    height: 30px;
+    background: linear-gradient(180deg, transparent 0, var(--ce) 50%, transparent 100%) no-repeat 0 -14px / 1px 14px, linear-gradient(var(--line-3), var(--line-3));
+    animation: drop 2.6s linear var(--pd) 3;
+  }
+  .panel { position: relative; order: 1; margin: 12px 0 0 30px; padding: 0; border: 0; background: none; }
+  .sys:has(.radio[value="donnees"]:checked) .panel { order: 3; }
+  .sys:has(.radio[value="auto"]:checked) .panel { order: 5; }
+  .sys:has(.radio[value="apps"]:checked) .panel { order: 7; }
+  .sys:has(.radio[value="site"]:checked) .panel { order: 9; }
+  .panel::before { content: ""; position: absolute; top: -12px; bottom: -30px; left: 0; width: 1px; background: var(--line-3); }
+  .pane { margin-left: 14px; padding: 16px; border: 1px solid var(--line-2); border-radius: 12px; background: linear-gradient(180deg, #141922, #10141b); }
+  .proofs > div { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+  .proofs dt { font-size: 1.0625rem; }
+  .proofs .word { padding-top: 0; font-size: .9375rem; }
+  .paneFoot { flex-direction: column; align-items: flex-start; }
+  .tools { text-align: left; }
+  .hint { display: block; order: 20; margin-top: 18px; color: var(--tx-3); font-size: .8125rem; text-align: center; }
+  .foot { display: none; }
+}
+@media (max-width: 359.98px) {
+  .legend { font-size: .75rem; }
+}
+
+/* Mouvement réduit : tout est allumé, rien ne circule */
+@media (prefers-reduced-motion: reduce) {
+  .node { opacity: 1; }
+  .node::after { opacity: 0; }
+  .led { background: var(--c); box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 20%, transparent); }
+  .lit { stroke-dashoffset: 0; }
+  .glow, .pulse { display: none; }
+  .port { stroke: var(--c); }
+}

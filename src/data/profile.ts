@@ -31,13 +31,37 @@ export const capabilities = [
   },
 ];
 
-export const experiences = [
+/** Barre de la frise des opérations sur l’accueil (années d’activité réelles, bornes incluses). */
+export type TimelineEntry = {
+  /** Remplace le nom de l’entreprise sur l’accueil (le poste actuel n’y est pas nommé) */
+  label?: string;
+  from: number;
+  to: number;
+  current?: boolean;
+  headline: string;
+  detail: string;
+};
+
+export type Experience = {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  marker: string;
+  context: string;
+  highlights: string[];
+  tags: string[];
+  timeline?: TimelineEntry;
+};
+
+export const experiences: Experience[] = [
   {
     id: "pharmagreen", company: "Pharmagreen", role: "Responsable des Opérations",
     period: "Sept. 2026 — Aujourd’hui", marker: "POSTE ACTUEL",
     context: "Périmètre du poste : logistique, administration et data.",
     highlights: ["Je pilote la logistique, l’administration et la data de Pharmagreen."],
     tags: ["Logistique", "Administration", "Data"],
+    timeline: { label: "Aujourd’hui", from: 2026, to: 2026, current: true, headline: "Responsable des Opérations", detail: "Logistique, administration et data." },
   },
   {
     id: "gl-events", company: "GL Events Live", role: "Responsable Exploitation",
@@ -49,6 +73,7 @@ export const experiences = [
       "Management de 8 personnes et conduite de travaux d’amélioration du site.",
     ],
     tags: ["Exploitation", "Management", "Pilotage par la donnée"],
+    timeline: { from: 2025, to: 2026, headline: "Contrats transporteurs renégociés", detail: "Réorganisation d’un dépôt, tableaux de bord automatisés, management de 8 personnes." },
   },
   {
     id: "parenthese", company: "Parenthèse familiale", role: "Apprendre et construire autrement",
@@ -66,6 +91,7 @@ export const experiences = [
       "Gestion ADV, maîtrise des coûts et de la marge, encadrement de 3 collaborateurs et supervision des équipes d’installation.",
     ],
     tags: ["Gestion de projets", "ADV", "Coordination terrain"],
+    timeline: { from: 2019, to: 2024, headline: "De 400\u00a0k€ à 10\u00a0M€ de CA annuel", detail: "Un portefeuille de projets multiplié en cinq ans, avec des projets jusqu’à 5\u202f000\u00a0m²." },
   },
   {
     id: "eddifis", company: "Groupe Eddifis", role: "Responsable Logistique",
@@ -73,6 +99,7 @@ export const experiences = [
     context: "Créer une filiale d’approvisionnement au service des sociétés du groupe.",
     highlights: ["Mise en place du dépôt, d’EBP, de la base produits, du sourcing et des processus de commande et de facturation."],
     tags: ["Création d’activité", "ERP", "Approvisionnement"],
+    timeline: { from: 2019, to: 2019, headline: "Une filiale d’approvisionnement créée", detail: "Le dépôt, le logiciel de gestion (ERP EBP), la base produits et les achats." },
   },
   {
     id: "dbs", company: "DBS Drive", role: "Responsable d’Agence",
@@ -80,6 +107,7 @@ export const experiences = [
     context: "Supervision logistique d’une agence de robinetterie et de chauffage.",
     highlights: ["Animation de 3 vendeurs et pilotage de 8 500 références : seuils, réassort et inventaires."],
     tags: ["Stocks", "Management", "Relation client"],
+    timeline: { from: 2017, to: 2019, headline: "8\u202f500 références pilotées", detail: "Responsable d’agence\u00a0: seuils, réassort et inventaires." },
   },
   {
     id: "nutrition", company: "Toute la Nutrition", role: "Responsable Adjoint Entrepôt",
@@ -87,8 +115,15 @@ export const experiences = [
     context: "Organiser les préparations et les expéditions au quotidien.",
     highlights: ["Supervision de 400 commandes par jour et management d’une équipe de 3 à 4 préparateurs."],
     tags: ["Préparation", "Expédition", "Équipe terrain"],
+    timeline: { from: 2015, to: 2017, headline: "400 commandes par jour", detail: "Supervision de la préparation et de l’expédition, avec une équipe de 3 à 4 préparateurs." },
   },
 ];
+
+/** Les deux seules valeurs connues du portefeuille Factory : aucune valeur intermédiaire. */
+export const factoryGrowth = {
+  start: { year: "2019", value: "400\u00a0k€" },
+  end: { year: "2024", value: "10\u00a0M€" },
+};
 
 export const skillGroups = [
   { title: "Opérations & organisation", items: ["Pilotage de projets", "Management", "Coordination de prestataires", "Stocks & flux", "ADV", "Négociation"] },

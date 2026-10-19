@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Confidentialité",
-  description: "Politique de confidentialité du site personnel de Pierre Laurent.",
+  description: "Politique de confidentialité du site de Pierre Laurent.",
   alternates: { canonical: "/confidentialite" },
 };
 
@@ -10,15 +10,15 @@ export default function PrivacyPage() {
   return (
     <main id="contenu" tabIndex={-1} className="legal-page">
       <article className="shell">
-        <p className="eyebrow">Privacy protocol</p>
+        <p className="eyebrow">Données personnelles</p>
         <h1>Confidentialité</h1>
-        <p className="legal-intro">DERNIÈRE MISE À JOUR / 30 AOÛT 2026</p>
+        <p className="legal-intro">Dernière mise à jour : 19 octobre 2026</p>
 
         <h2>1. Principe</h2>
-        <p>Ce portfolio a été volontairement simplifié pour limiter la collecte de données. Il ne comporte ni formulaire de contact, ni compte visiteur, ni espace client, ni base de données associée à la navigation publique.</p>
+        <p>Ce site a été volontairement simplifié pour limiter la collecte de données. Il ne comporte ni formulaire de contact, ni compte visiteur, ni espace client, ni base de données associée à la navigation publique.</p>
 
         <h2>2. Contact direct</h2>
-        <p>Le lien de contact ouvre votre logiciel de messagerie. Si vous écrivez à <a href="mailto:p.laurent@opti-pro.fr">p.laurent@opti-pro.fr</a>, les données transmises sont celles que vous choisissez d’inclure dans votre message. Elles sont utilisées uniquement pour vous répondre et gérer l’échange correspondant.</p>
+        <p>Les liens de contact ouvrent votre logiciel de messagerie ou votre téléphone. Si vous écrivez à <a href="mailto:p.laurent@opti-pro.fr">p.laurent@opti-pro.fr</a>, les données transmises sont celles que vous choisissez d’inclure dans votre message. Elles sont utilisées uniquement pour vous répondre et gérer l’échange correspondant.</p>
 
         <h2>3. Mesure d’audience</h2>
         <p>Vercel Analytics fournit des statistiques techniques et agrégées de fréquentation. Aucun outil publicitaire, pixel social ou dispositif de profilage inter-sites n’est installé sur ce site.</p>

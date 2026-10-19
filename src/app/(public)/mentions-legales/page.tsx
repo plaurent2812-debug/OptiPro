@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
-  description: "Mentions légales du site personnel de Pierre Laurent.",
+  description: "Mentions légales du site de Pierre Laurent et de l’offre OptiPro.",
   alternates: { canonical: "/mentions-legales" },
 };
 
@@ -10,14 +10,14 @@ export default function LegalPage() {
   return (
     <main id="contenu" tabIndex={-1} className="legal-page">
       <article className="shell">
-        <p className="eyebrow">Legal information</p>
+        <p className="eyebrow">Informations légales</p>
         <h1>Mentions légales</h1>
-        <p className="legal-intro">DERNIÈRE MISE À JOUR / 31 AOÛT 2026</p>
+        <p className="legal-intro">Dernière mise à jour : 19 octobre 2026</p>
 
         <h2>1. Éditeur</h2>
         <p>Le site <strong>pierre-laurent.fr</strong> est édité par Pierre Laurent, entrepreneur individuel, sous la dénomination commerciale OptiPro.</p>
-        <p>Siège : Bâtiment Le Matisse, 541 Avenue Colonel Meyère, 06140 Vence, France<br />SIREN : 934 301 987<br />SIRET : 934 301 987 00020<br />Code APE : 70.22Z<br />Directeur de la publication : Pierre Laurent<br />Contact : <a href="mailto:p.laurent@opti-pro.fr">p.laurent@opti-pro.fr</a></p>
-        <p>Ce site personnel présente les projets numériques de Pierre Laurent et donne accès à son parcours professionnel. Il ne propose pas de prestations ni de prise de commande.</p>
+        <p>Siège : Bâtiment Le Matisse, 541 Avenue Colonel Meyère, 06140 Vence, France<br />SIREN : 934 301 987<br />SIRET : 934 301 987 00020<br />Code APE : 70.22Z<br />TVA non applicable, art. 293 B du CGI<br />Directeur de la publication : Pierre Laurent<br />Contact : <a href="mailto:p.laurent@opti-pro.fr">p.laurent@opti-pro.fr</a> · <a href="tel:+33670259333">06 70 25 93 33</a></p>
+        <p>Ce site présente le parcours et les réalisations de Pierre Laurent, ainsi que l’offre OptiPro de création de sites vitrines destinée aux entreprises.</p>
 
         <h2>2. Hébergement</h2>
         <p>Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a>.</p>
@@ -31,7 +31,7 @@ export default function LegalPage() {
         <p>ProbaLab et Ferdinand sont des produits distincts. Leurs services, comptes utilisateurs et traitements de données sont régis par leurs propres documents juridiques accessibles depuis leurs interfaces respectives.</p>
 
         <h2>5. Responsabilité</h2>
-        <p>Les informations de ce portfolio sont fournies à titre de présentation et peuvent évoluer avec les produits. Les liens externes conduisent vers des services dont les conditions et politiques leur sont propres.</p>
+        <p>Les informations de ce site sont fournies à titre de présentation et peuvent évoluer avec les produits. Les liens externes conduisent vers des services dont les conditions et politiques leur sont propres.</p>
       </article>
     </main>
   );

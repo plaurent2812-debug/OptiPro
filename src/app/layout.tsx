@@ -1,43 +1,46 @@
 import type { Metadata, Viewport } from "next";
-import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Barlow, Barlow_Condensed } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+// Barlow s'inspire de la signalétique routière : une seule famille, deux largeurs.
+const barlow = Barlow({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-display",
   display: "swap",
 });
 
-const jetBrainsMono = JetBrains_Mono({
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
-  variable: "--font-mono",
+  weight: ["600", "700"],
+  variable: "--font-condensed",
   display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pierre-laurent.fr"),
   title: {
-    default: "Pierre Laurent — Projets, code & curiosité",
+    default: "Pierre Laurent — Opérations, applications et sites pour entreprises",
     template: "%s · Pierre Laurent",
   },
   description:
-    "Le portfolio personnel de Pierre Laurent : applications web et mobiles, automatisation et IA. Découvrez mes projets, leurs coulisses et mon parcours professionnel.",
+    "Dix ans dans les opérations et la logistique, des applications web et mobiles, de l’automatisation, de l’IA et de la data. Et OptiPro : des sites vitrines pour les TPE et PME des Alpes-Maritimes.",
   authors: [{ name: "Pierre Laurent", url: "https://pierre-laurent.fr" }],
   creator: "Pierre Laurent",
-  category: "technology",
+  category: "business",
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "Pierre Laurent — Portfolio personnel",
-    title: "Pierre Laurent — Projets, code & curiosité",
+    siteName: "Pierre Laurent",
+    title: "Pierre Laurent — Opérations, applications et sites pour entreprises",
     description:
-      "Des idées, du code, du concret. Applications web et mobiles, automatisation et IA : les projets que je construis et ce que j’apprends en chemin.",
+      "Je fais tourner les opérations et je construis les outils qui vont avec : logistique, applications, automatisation, data et sites vitrines OptiPro.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pierre Laurent — Portfolio personnel",
-    description: "Applications, automatisation, IA : mes projets personnels et les idées derrière les outils.",
+    title: "Pierre Laurent — Opérations, applications et sites pour entreprises",
+    description: "Logistique, applications, automatisation, data et sites vitrines OptiPro pour les entreprises des Alpes-Maritimes.",
   },
   icons: {
     icon: "/icon.svg",
@@ -46,14 +49,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  colorScheme: "dark",
-  themeColor: "#080c10",
+  colorScheme: "light",
+  themeColor: "#eef0eb",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr" data-theme="dark" data-scroll-behavior="smooth">
-      <body className={`${spaceGrotesk.variable} ${jetBrainsMono.variable}`}>
+    <html lang="fr" data-scroll-behavior="smooth">
+      <body className={`${barlow.variable} ${barlowCondensed.variable}`}>
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>

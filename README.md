@@ -1,15 +1,18 @@
-# Pierre Laurent — Portfolio personnel
+# Pierre Laurent — Opérations, applications et sites pour entreprises
 
-Site personnel de Pierre Laurent : projets, applications, outils, parcours et
-centres d’intérêt.
+Site de Pierre Laurent : en quelques secondes, l’étendue de son savoir-faire
+(opérations et logistique, applications web et mobiles, automatisation, IA et
+data) et l’offre OptiPro de sites vitrines pour les TPE et PME des
+Alpes-Maritimes.
 
 ## Intention
 
-Le portfolio donne la priorité aux projets : aperçus dans le hero, galerie puis
-coulisses de création. `/projets` détaille les idées, l’implication et l’état réel
-de chacun. Le parcours professionnel reste directement accessible via
-`/a-propos` et le CV imprimable via `/cv`, pour les contacts et recruteurs.
-Il ne poursuit pas un objectif commercial.
+L’accueil présente un plan de lignes : chaque compétence est une ligne, chaque
+preuve réelle une station. `/optipro` détaille l’offre (tarifs, déroulé, FAQ)
+avec un appel direct par téléphone ou e-mail, sans formulaire. `/projets`,
+`/a-propos` et `/cv` gardent le détail des réalisations et du parcours.
+Les prix et coordonnées ne se modifient qu’à un seul endroit :
+`src/data/offer.ts`. Aucun projet ni aucune donnée Pharmagreen n’est présenté.
 
 ## Stack
 
@@ -18,7 +21,7 @@ Il ne poursuit pas un objectif commercial.
 - Vercel Analytics
 - déploiement Vercel sur `pierre-laurent.fr` ; anciens domaines `opti-pro.fr` et `www.opti-pro.fr` redirigés
 
-Le site public est statique et ne dépend plus de Supabase, Resend ou d'un
+Le site public est statique et ne dépend ni de Supabase, ni de Resend, ni d'un
 back-office.
 
 ## Commandes

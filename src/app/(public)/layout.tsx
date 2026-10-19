@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import ScrollReveal from "@/components/layout/ScrollReveal";
 import { contact } from "@/data/offer";
 import { safeJsonLd } from "@/lib/json-ld";
 
@@ -77,6 +78,7 @@ export default function PublicLayout({ children }: { children: React.ReactNode }
       <Header />
       {children}
       <Footer />
+      <ScrollReveal />
     </>
   );
 }

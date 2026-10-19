@@ -223,3 +223,19 @@ test("Odysio est présenté sans inventer de disponibilité publique", () => {
   assert.match(projects, /platforms: \["iOS", "TestFlight"\]/);
   assert.equal(existsSync("public/projects/odysio-icon.png"), true);
 });
+
+test("l’apparition au défilement ne masque jamais le contenu sans script", () => {
+  const reveal = readFileSync("src/components/layout/ScrollReveal.tsx", "utf8");
+  const globals = readFileSync("src/app/globals.css", "utf8");
+  const layout = readFileSync("src/app/(public)/layout.tsx", "utf8");
+  assert.match(layout, /<ScrollReveal \/>/);
+  assert.match(reveal, /prefers-reduced-motion: reduce/);
+  assert.match(reveal, /IntersectionObserver/);
+  assert.match(reveal, /threshold: 0\b/, "un bloc plus haut que l’écran doit pouvoir apparaître");
+  // Le masquage n'existe que sous la classe posée par le script, et jamais en mouvement réduit.
+  const hidden = globals.match(/[^}\n]*\[data-reveal\]:not\(\[data-revealed\]\)[^{]*\{[^}]*opacity: 0/);
+  assert.ok(hidden, "règle de masquage introuvable");
+  assert.match(hidden[0], /html\.reveal-on/);
+  assert.match(globals, /@media \(prefers-reduced-motion: no-preference\) \{\s*html\.reveal-on \[data-reveal\]/);
+  assert.doesNotMatch(globals, /\[data-reveal\][^{]*\{[^}]*(top|margin|height):/, "aucune propriété de mise en page ne doit être animée");
+});

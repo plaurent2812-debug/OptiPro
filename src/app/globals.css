@@ -104,6 +104,14 @@ main:focus { outline: none; }
   .btn { width: 100%; }
 }
 
+/* Apparition au défilement (ScrollReveal) : masquage posé uniquement par le script,
+   en opacité et translation pour ne provoquer aucun décalage de mise en page. */
+@media (prefers-reduced-motion: no-preference) {
+  html.reveal-on [data-reveal] { transition: opacity .7s var(--ease) var(--reveal-delay, 0ms), translate .7s var(--ease) var(--reveal-delay, 0ms); }
+  html.reveal-on [data-reveal]:not([data-revealed]) { opacity: 0; translate: 0 1.5rem; }
+}
+@media print { [data-reveal] { opacity: 1 !important; translate: none !important; } }
+
 /* Mouvement réduit : tout est affiché dans son état final, rien ne circule */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

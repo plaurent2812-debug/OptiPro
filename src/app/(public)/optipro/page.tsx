@@ -4,7 +4,12 @@ import Link from "next/link";
 import { contact, optipro } from "@/data/offer";
 import { projects } from "@/data/projects";
 import { safeJsonLd } from "@/lib/json-ld";
-import PhoneIcon from "@/components/layout/PhoneIcon";
+import OfferCard from "@/components/offer/OfferCard";
+import PageHero from "@/components/ui/PageHero";
+import Section from "@/components/ui/Section";
+import CallBlock from "@/components/ui/CallBlock";
+import Icon from "@/components/ui/Icon";
+import { BrowserFrame, StatusPill } from "@/components/ui/Frames";
 import styles from "./optipro.module.css";
 
 export const metadata: Metadata = {
@@ -56,83 +61,114 @@ export default function OptiProPage() {
     <main id="contenu" tabIndex={-1}>
       <script type="application/ld+json">{safeJsonLd(jsonLd)}</script>
 
-      <section className={`shell ${styles.hero}`} aria-labelledby="optipro-title">
-        <div className={styles.heroCopy}>
-          <p className={styles.brandLine}><span aria-hidden="true">S</span>{optipro.brand}, sites vitrines pour les {optipro.audience}</p>
-          <h1 id="optipro-title">Un site professionnel pour votre entreprise, sans vous en occuper.</h1>
-          <p className={styles.lede}>Je conçois le site de votre entreprise, je le mets en ligne, puis je m’occupe de vos modifications chaque mois. Un seul interlocuteur et un prix clair, dans les {contact.area}.</p>
-          <div className={styles.actions}>
-            <a href={contact.phoneHref} className="button-primary"><PhoneIcon />Appeler le {contact.phoneDisplay}</a>
-            <a href={contact.emailHref} className="button-secondary">Écrire à {contact.email}</a>
-          </div>
-        </div>
+      <PageHero
+        titleId="optipro-title"
+        kicker={`${optipro.brand}, sites vitrines pour les ${optipro.audience}`}
+        tone="green"
+        icon="site"
+        title="Un site professionnel pour votre entreprise, sans vous en occuper."
+        actions={
+          <>
+            <a className="btn btn-primary" href={contact.phoneHref}><Icon name="tel" /><span>Appeler le <span className="num">{contact.phoneDisplay}</span></span></a>
+            <a className="btn btn-ghost" href={contact.emailHref}><Icon name="mail" />Écrire un e-mail</a>
+          </>
+        }
+      >
+        <p>Je conçois le site de votre entreprise, je le mets en ligne, puis je m’occupe de vos modifications chaque mois. <strong>Un seul interlocuteur et un prix clair, dans les {contact.area}.</strong></p>
+      </PageHero>
 
-        <aside className={styles.ticket} aria-labelledby="ticket-title">
-          <h2 id="ticket-title">Votre site vitrine</h2>
-          <dl>
-            <div><dt>Mise en ligne</dt><dd><strong>{optipro.setupPrice}</strong>une seule fois</dd></div>
-            <div><dt>Abonnement</dt><dd><strong>{optipro.monthlyPrice}<small> par mois</small></strong>ou {optipro.yearlyPrice} par an</dd></div>
-            <div><dt>Modifications</dt><dd><strong>1 h<small> par mois</small></strong>non cumulable, puis {optipro.extraHourPrice} de l’heure</dd></div>
-            <div><dt>Engagement</dt><dd><strong>{optipro.commitment}</strong></dd></div>
-            <div><dt>Zone</dt><dd><strong>{contact.area}</strong></dd></div>
-          </dl>
-          <p>{optipro.vatNotice}</p>
-        </aside>
-      </section>
+      <Section
+        id="tarif"
+        titleId="price-title"
+        tone="green"
+        icon="site"
+        tag="Le tarif"
+        title="Votre site vitrine, clé en main, à un prix clair."
+        lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Choisissez le rythme pour voir le montant.`}
+      >
+        <OfferCard />
+      </Section>
 
-      <section className={styles.steps} aria-labelledby="steps-title">
-        <div className="shell">
-          <h2 id="steps-title" className="section-title">Comment ça se passe</h2>
-          <ol>
-            {steps.map((step) => <li key={step.title}><h3>{step.title}</h3><p>{step.copy}</p></li>)}
-          </ol>
-        </div>
-      </section>
+      <Section
+        id="deroule"
+        titleId="steps-title"
+        tone="cyan"
+        icon="route"
+        tag="Le déroulé"
+        title="Comment ça se passe"
+        lede="Quatre étapes, du premier appel au suivi mensuel. Vous n’avez rien de technique à gérer."
+        alt
+      >
+        <ol className={styles.steps}>
+          {steps.map((step, index) => (
+            <li key={step.title}>
+              <span className={styles.port} aria-hidden="true" />
+              <p className={styles.stepCount}>Étape {index + 1} sur {steps.length}</p>
+              <h3>{step.title}</h3>
+              <p>{step.copy}</p>
+            </li>
+          ))}
+        </ol>
+      </Section>
 
-      <section className={`shell ${styles.billing}`} aria-labelledby="billing-title">
-        <div>
-          <h2 id="billing-title" className="section-title">Au mois ou à l’année</h2>
-          <p className="section-copy">Le site et le service sont les mêmes. Seul le rythme de paiement change, après les {optipro.setupPrice} de mise en ligne.</p>
-        </div>
+      <Section
+        id="rythme"
+        titleId="billing-title"
+        tone="green"
+        icon="doc"
+        tag="Au mois ou à l’année"
+        title="Le même service, deux rythmes de paiement."
+        lede={`Le site, le suivi et l’heure de modifications mensuelle, non cumulable, sont les mêmes. Seul le rythme de paiement change, après les ${optipro.setupPrice} de mise en ligne.`}
+      >
         <div className={styles.plans}>
           <article>
             <h3>Au mois</h3>
-            <p className={styles.amount}>{optipro.monthlyPrice}<small> par mois</small></p>
-            <p>Soit 948 € sur les {optipro.commitment} d’engagement.</p>
+            <p className={styles.amount}><b>{optipro.monthlyPrice}</b><span>par mois</span></p>
+            <p>Soit {optipro.monthlyTotal} sur les {optipro.commitment} d’engagement.</p>
           </article>
           <article className={styles.planBest}>
             <h3>À l’année</h3>
-            <p className={styles.amount}>{optipro.yearlyPrice}<small> par an</small></p>
-            <p>Soit {optipro.yearlySaving} d’économie sur l’année.</p>
+            <p className={styles.amount}><b>{optipro.yearlyPrice}</b><span>par an</span></p>
+            <p>Soit <strong>{optipro.yearlySaving} d’économie</strong> sur l’année.</p>
           </article>
         </div>
-      </section>
+      </Section>
 
-      <section className={styles.why} aria-labelledby="why-title">
-        <div className={`shell ${styles.whyInner}`}>
-          <div>
-            <h2 id="why-title" className="section-title">Quelqu’un qui connaît le terrain</h2>
+      <Section
+        id="terrain"
+        titleId="why-title"
+        tone="amber"
+        icon="terrain"
+        tag="Pourquoi moi"
+        title="Quelqu’un qui connaît le terrain"
+        alt
+        intro={
+          <div className={styles.why}>
             <p>J’ai passé dix ans dans les opérations et la logistique, de l’entrepôt à la renégociation de contrats transporteurs. Je commence donc par comprendre votre activité, pas par parler de technique.</p>
             <p>Je développe aussi des applications et des automatisations. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
-            <Link href="/#reseau" className={styles.textLink}>Voir tout ce que je sais faire</Link>
+            <Link href="/#savoir-faire" className={styles.textLink}>Voir tout ce que je sais faire</Link>
           </div>
-          <ul className={styles.examples} aria-label="Exemples de sites réalisés">
-            {examples.map((project) => (
-              <li key={project.slug}>
-                <Link href={`/projets#${project.slug}`}>
-                  <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 820px) 90vw, 360px" />
-                  <strong>{project.name}</strong>
-                  <span>{project.status === "Prototype avancé" ? "Démonstration de site" : project.status}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+        }
+      >
+        <ul className={styles.examples} aria-label="Exemples de sites réalisés">
+          {examples.map((project) => (
+            <li key={project.slug}>
+              <Link href={`/projets#${project.slug}`}>
+                <BrowserFrame label={project.name}>
+                  <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 959px) 94vw, 400px" />
+                </BrowserFrame>
+                <span className={styles.exampleCaption}>
+                  <span><b>{project.name}</b><span>{project.pitch}</span></span>
+                  <StatusPill tone={project.badgeTone}>{project.badge}</StatusPill>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Section>
 
-      <section className={`shell ${styles.faq}`} aria-labelledby="faq-title">
-        <h2 id="faq-title" className="section-title">Vos questions</h2>
-        <div>
+      <Section id="questions" titleId="faq-title" tone="cyan" icon="question" tag="Questions fréquentes" title="Vos questions">
+        <div className={styles.faq}>
           {faq.map((item) => (
             <details key={item.q}>
               <summary>{item.q}</summary>
@@ -140,18 +176,9 @@ export default function OptiProPage() {
             </details>
           ))}
         </div>
-      </section>
+      </Section>
 
-      <section className={styles.cta} aria-labelledby="cta-title">
-        <div className={`shell ${styles.ctaInner}`}>
-          <h2 id="cta-title">Parlons de votre site.</h2>
-          <p>Un appel suffit pour savoir si l’offre vous convient.</p>
-          <div className={styles.actions}>
-            <a href={contact.phoneHref} className={styles.inkButton}><PhoneIcon />Appeler le {contact.phoneDisplay}</a>
-            <a href={contact.emailHref} className={styles.ctaMail}>Écrire à {contact.email}</a>
-          </div>
-        </div>
-      </section>
+      <CallBlock titleId="cta-title" title="Parlons de votre site. Un appel suffit pour savoir si l’offre vous convient." />
     </main>
   );
 }

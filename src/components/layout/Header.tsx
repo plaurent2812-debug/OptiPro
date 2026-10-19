@@ -3,13 +3,15 @@
 import { useEffect, useRef, type MouseEvent } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { contact } from "@/data/offer";
-import PhoneIcon from "./PhoneIcon";
+import { contact, optipro } from "@/data/offer";
+import Icon from "@/components/ui/Icon";
+import BrandMark from "./BrandMark";
 import styles from "./layout.module.css";
 
 const links = [
-  { href: "/optipro", label: "Sites pour entreprises" },
+  { href: "/#savoir-faire", label: "Savoir-faire" },
   { href: "/projets", label: "Réalisations" },
+  { href: "/optipro", label: optipro.brand },
   { href: "/a-propos", label: "Parcours" },
   { href: "/contact", label: "Contact" },
 ];
@@ -19,6 +21,8 @@ function closeMobileMenu(event: MouseEvent<HTMLElement>) {
   if (details instanceof HTMLDetailsElement) details.open = false;
 }
 
+// Le menu mobile est un <details> natif : il s’ouvre sans JavaScript.
+// Le script ne fait qu’ajouter la fermeture par Échap, par clic extérieur et au passage en bureau.
 export default function Header() {
   const pathname = usePathname();
   const menuRef = useRef<HTMLDetailsElement>(null);
@@ -36,7 +40,7 @@ export default function Header() {
     const onOutside = (event: PointerEvent) => {
       if (event.target instanceof Node && !menu.contains(event.target)) menu.open = false;
     };
-    const desktop = window.matchMedia("(min-width: 981px)");
+    const desktop = window.matchMedia("(min-width: 960px)");
     const onDesktop = () => { if (desktop.matches) menu.open = false; };
     document.addEventListener("keydown", onEscape);
     document.addEventListener("pointerdown", onOutside);
@@ -48,26 +52,28 @@ export default function Header() {
     };
   }, [pathname]);
 
+  const current = (href: string) => (pathname === href ? "page" : undefined);
+
   return (
     <>
       <a href="#contenu" className={styles.skipLink}>Aller au contenu</a>
       <header className={styles.header}>
         <div className={`shell ${styles.headerInner}`}>
-          <Link href="/" className={styles.brand} aria-label="Pierre Laurent — accueil">
-            <span className={styles.brandMark} aria-hidden="true">PL</span>
-            <span className={styles.brandName}>Pierre Laurent<span>Opérations, applications, sites</span></span>
+          <Link href="/" className={styles.brand} aria-label={`Pierre Laurent, ${optipro.brand}, accueil`}>
+            <BrandMark className={styles.mark} />
+            Pierre Laurent <small>{optipro.brand}</small>
           </Link>
-          <nav className={styles.desktopNav} aria-label="Navigation principale">
-            {links.map((link) => <Link key={link.href} href={link.href} className={styles.navLink} aria-current={pathname === link.href ? "page" : undefined}>{link.label}</Link>)}
-            <a href={contact.phoneHref} className={styles.phoneButton}><PhoneIcon />{contact.phoneDisplay}</a>
+          <nav className={styles.nav} aria-label="Navigation principale">
+            {links.map((link) => <Link key={link.href} href={link.href} aria-current={current(link.href)}>{link.label}</Link>)}
           </nav>
-          <a href={contact.phoneHref} className={styles.phoneIconButton} aria-label={`Appeler le ${contact.phoneDisplay}`}><PhoneIcon /></a>
-          <details className={styles.mobileMenu} ref={menuRef}>
-            <summary aria-label="Menu"><span className={styles.menuLabel}>Menu</span><span className={styles.menuIcon} aria-hidden="true"><i /><i /></span></summary>
+          <a className={styles.telTop} href={contact.phoneHref} aria-label={`Appeler le ${contact.phoneDisplay}`}>
+            <Icon name="tel" /><span className="num">{contact.phoneDisplay}</span>
+          </a>
+          <details className={styles.menu} ref={menuRef}>
+            <summary aria-label="Menu"><span className={styles.burger} aria-hidden="true" /></summary>
             <nav aria-label="Navigation mobile">
-              {links.map((link) => <Link key={link.href} href={link.href} onClick={closeMobileMenu} aria-current={pathname === link.href ? "page" : undefined}>{link.label}</Link>)}
-              <Link href="/cv" onClick={closeMobileMenu} aria-current={pathname === "/cv" ? "page" : undefined}>Mon CV</Link>
-              <a href={contact.phoneHref} className={styles.menuPhone}><PhoneIcon />Appeler le {contact.phoneDisplay}</a>
+              {links.map((link) => <Link key={link.href} href={link.href} onClick={closeMobileMenu} aria-current={current(link.href)}>{link.label}</Link>)}
+              <Link href="/cv" onClick={closeMobileMenu} aria-current={current("/cv")}>Mon CV</Link>
               <p>Pierre Laurent, {contact.city}, {contact.area}</p>
             </nav>
           </details>

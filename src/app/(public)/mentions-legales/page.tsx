@@ -10,7 +10,7 @@ export default function LegalPage() {
   return (
     <main id="contenu" tabIndex={-1} className="legal-page">
       <article className="shell">
-        <p className="eyebrow">Informations légales</p>
+        <p className="legal-kicker">Informations légales</p>
         <h1>Mentions légales</h1>
         <p className="legal-intro">Dernière mise à jour : 19 octobre 2026</p>
 

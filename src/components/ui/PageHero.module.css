@@ -1,0 +1,20 @@
+.hero { padding: clamp(36px, 4.6vw, 64px) 0 clamp(56px, 7vw, 96px); }
+.kicker { display: flex; align-items: center; gap: 10px; margin-bottom: clamp(20px, 2.4vw, 32px); color: var(--tx); font-size: .9063rem; font-weight: 550; }
+.well { display: grid; flex: none; place-items: center; width: 30px; height: 30px; border: 1px solid color-mix(in srgb, var(--c) 38%, var(--line-2)); border-radius: 8px; background: color-mix(in srgb, var(--c) 6%, #11161d); color: var(--c); }
+.well svg { width: 16px; height: 16px; }
+.grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; gap: 28px 24px; }
+.title { grid-column: 1 / span 7; font-size: clamp(2.5rem, 1rem + 4.4vw, 4.75rem); font-weight: 600; line-height: .98; letter-spacing: -.047em; text-wrap: balance; }
+.title span { color: var(--tx-3); }
+.side { grid-column: 8 / span 5; padding-bottom: 8px; }
+.side > p { color: var(--tx-2); font-size: 1.0625rem; line-height: 1.55; text-wrap: pretty; }
+.side > p + p { margin-top: 12px; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.side strong { color: var(--tx); font-weight: 550; }
+
+@media (max-width: 1179.98px) {
+  .title { grid-column: 1 / -1; }
+  .side { grid-column: 1 / span 8; }
+}
+@media (max-width: 959.98px) {
+  .side { grid-column: 1 / -1; }
+}

@@ -15,7 +15,7 @@ export default function CvPage() {
   return (
     <main id="contenu" tabIndex={-1} className={styles.page}>
       <div className={`shell ${styles.toolbar}`}>
-        <div><Link href="/a-propos">← Retour au parcours</Link><p>Une vue synthétique, conçue pour être partagée.</p></div>
+        <div><Link href="/a-propos" className={styles.back}>Retour au parcours</Link><p>Une vue synthétique, conçue pour être partagée.</p></div>
         <PrintButton />
       </div>
       <article className={styles.sheet} aria-label="Curriculum vitæ de Pierre Laurent">

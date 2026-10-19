@@ -19,9 +19,11 @@ export const optipro = {
   monthlyPrice: "79 €",
   yearlyPrice: "790 €",
   // 12 × 79 € = 948 € ; 948 € − 790 € = 158 €
+  monthlyTotal: "948 €",
   yearlySaving: "158 €",
   commitment: "12 mois",
   includedEdits: "1 h de modifications par mois",
+  includedTime: "1 h",
   extraHourPrice: "60 €",
   vatNotice: "TVA non applicable, art. 293 B du CGI",
 };

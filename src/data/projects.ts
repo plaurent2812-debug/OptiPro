@@ -1,11 +1,8 @@
-import type { LineId } from "./network";
-
 export type ProductProject = {
   slug: "le-fond-du-sujet" | "ideoscope-2027" | "la-parallaxe" | "probalab" | "ferdinand" | "ro-nutritionniste" | "odysio";
   name: string;
   code: string;
   status: string;
-  statusTone: "cyan" | "amber" | "sage";
   visual: "phone" | "browser" | "identity";
   statement: string;
   category: string;
@@ -24,8 +21,15 @@ export type ProductProject = {
   capabilities: string[];
   role: string;
   demonstrates: string;
-  /** Lignes du plan de compétences desservies par le projet */
-  lines: LineId[];
+  /** État court affiché dans les pastilles de l’accueil */
+  badge: string;
+  badgeTone: "live" | "idle";
+  /** Présentation en une ligne pour l’accueil */
+  pitch: string;
+  /** Supports, en clair */
+  reach: string;
+  /** Capture mobile sans barre d’état : l’écran réserve la place de l’îlot */
+  insetScreen?: boolean;
 };
 
 export const projects: ProductProject[] = [
@@ -34,7 +38,6 @@ export const projects: ProductProject[] = [
     name: "Le Fond du sujet",
     code: "PROJET 01 / LE FOND DU SUJET",
     status: "Site en ligne",
-    statusTone: "amber",
     visual: "browser",
     statement: "Partir d’une question d’actualité pour comprendre les mécanismes derrière les chiffres.",
     category: "Décryptage de l’actualité",
@@ -53,14 +56,16 @@ export const projects: ProductProject[] = [
     capabilities: ["Lecture progressive", "Simulations interactives", "Sources datées"],
     role: "Conception éditoriale et développement d’un site de décryptage interactif",
     demonstrates: "Rendre un sujet d’actualité compréhensible, relier les explications aux sources et expliciter les hypothèses des simulations.",
-    lines: ["web", "data"],
+    badge: "En ligne",
+    badgeTone: "live",
+    pitch: "Site de décryptage de l’actualité",
+    reach: "Web",
   },
   {
     slug: "ideoscope-2027",
     name: "Idéoscope 2027",
     code: "PROJET 02 / IDÉOSCOPE 2027",
     status: "Site en ligne",
-    statusTone: "cyan",
     visual: "browser",
     statement: "Un outil civique pour comparer ses convictions aux textes publiés, sans transformer le résultat en consigne de vote.",
     category: "Outil civique",
@@ -79,14 +84,16 @@ export const projects: ProductProject[] = [
     capabilities: ["Questionnaire", "Score explicable", "Sources et transparence", "Données locales"],
     role: "Conception éditoriale et développement d’un questionnaire civique sourcé",
     demonstrates: "Comparer des positions politiques avec une méthode auditable, des sources datées et des limites clairement exposées.",
-    lines: ["apps"],
+    badge: "En ligne",
+    badgeTone: "live",
+    pitch: "Un questionnaire civique en ligne.",
+    reach: "Web",
   },
   {
     slug: "la-parallaxe",
     name: "La Parallaxe",
     code: "PROJET 03 / LA PARALLAXE",
     status: "Site en ligne",
-    statusTone: "sage",
     visual: "browser",
     statement: "Une expérience de vulgarisation scientifique où l’émerveillement ouvre la voie à la compréhension.",
     category: "Culture scientifique",
@@ -105,14 +112,16 @@ export const projects: ProductProject[] = [
     capabilities: ["Explications par couches", "Interactions", "Sources"],
     role: "Identité, conception et développement d’une expérience éditoriale interactive",
     demonstrates: "Rendre un sujet complexe accessible sans effacer ses nuances, ses limites ni les sources qui permettent de le vérifier.",
-    lines: ["web"],
+    badge: "En ligne",
+    badgeTone: "live",
+    pitch: "Site éditorial scientifique",
+    reach: "Web",
   },
   {
     slug: "probalab",
     name: "ProbaLab",
     code: "PROJET 04 / PROBALAB",
     status: "Développement actif",
-    statusTone: "cyan",
     visual: "phone",
     statement: "Une idée imaginée avec un ami, devenue un écosystème web et mobile.",
     category: "Data & décisions",
@@ -131,14 +140,17 @@ export const projects: ProductProject[] = [
     capabilities: ["Data pipeline", "Analyse", "Abonnements", "Notifications", "IA visuelle"],
     role: "Conception et développement de l’écosystème web et mobile",
     demonstrates: "Relier des données complexes, rendre l’analyse lisible et expliciter les limites de l’information.",
-    lines: ["apps", "data"],
+    badge: "Développement actif",
+    badgeTone: "live",
+    pitch: "Un écosystème web et mobile construit autour de la donnée.",
+    reach: "Web et mobile",
+    insetScreen: true,
   },
   {
     slug: "ferdinand",
     name: "Ferdinand",
     code: "PROJET 05 / FERDINAND",
     status: "Produit en évolution",
-    statusTone: "amber",
     visual: "phone",
     statement: "Mon idée d’un assistant personnel discret qui n’oublie jamais l’essentiel.",
     category: "Assistant du quotidien",
@@ -156,14 +168,16 @@ export const projects: ProductProject[] = [
     capabilities: ["Échéances", "Récurrence", "Notifications", "Mode sombre", "Accessibilité"],
     role: "Conception et développement d’un assistant du quotidien",
     demonstrates: "Transformer un besoin récurrent en parcours simple, avec rappels, suivi et attention aux détails.",
-    lines: ["apps"],
+    badge: "En évolution",
+    badgeTone: "live",
+    pitch: "Un assistant du quotidien, qui garde l’œil sur vos échéances.",
+    reach: "iOS et Android",
   },
   {
     slug: "ro-nutritionniste",
     name: "Ro Nutritionniste",
     code: "PROJET 06 / RO NUTRITIONNISTE",
     status: "Prototype avancé",
-    statusTone: "sage",
     visual: "browser",
     statement: "Un univers nutritionnel doux transformé en expérience web complète.",
     category: "Expérience web",
@@ -182,14 +196,16 @@ export const projects: ProductProject[] = [
     capabilities: ["Recettes", "Rendez-vous", "Générateur", "Contenus", "Administration"],
     role: "Conception de l’interface et développement de la démonstration",
     demonstrates: "Comprendre un métier et réunir ses contenus et ses outils dans une expérience cohérente.",
-    lines: ["web"],
+    badge: "Démonstration",
+    badgeTone: "idle",
+    pitch: "Démonstration de site pour un nutritionniste",
+    reach: "Web",
   },
   {
     slug: "odysio",
     name: "Odysio",
     code: "PROJET 07 / ODYSIO",
     status: "Projet en pause",
-    statusTone: "cyan",
     visual: "identity",
     statement: "Un carnet d’explorateur qui transforme les habitudes en quêtes personnelles.",
     category: "Habitudes & narration",
@@ -207,6 +223,9 @@ export const projects: ProductProject[] = [
     capabilities: ["Quêtes", "Narration IA", "Progression", "Chapitres", "Notifications"],
     role: "Conception et développement d’un prototype mobile",
     demonstrates: "Explorer l’engagement par la narration et l’IA, tester sur appareil et prioriser la suite du produit.",
-    lines: ["apps"],
+    badge: "En pause",
+    badgeTone: "idle",
+    pitch: "Un prototype d’application.",
+    reach: "iOS",
   },
 ];

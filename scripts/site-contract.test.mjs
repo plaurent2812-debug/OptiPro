@@ -10,13 +10,17 @@ const requiredFiles = [
   "src/app/(public)/mentions-legales/page.tsx",
   "src/app/(public)/confidentialite/page.tsx",
   "src/app/(public)/optipro/page.tsx",
-  "src/components/visuals/NetworkMap.tsx",
-  "src/components/visuals/NetworkMap.module.css",
+  "src/components/visuals/SystemMap.tsx",
+  "src/components/visuals/SystemMap.module.css",
+  "src/components/offer/OfferCard.tsx",
   "src/data/offer.ts",
-  "src/data/network.ts",
+  "src/data/system.ts",
 ];
 
 const retiredPaths = [
+  "src/components/visuals/NetworkMap.tsx",
+  "src/components/visuals/NetworkMap.module.css",
+  "src/data/network.ts",
   "src/app/admin",
   "src/app/api/contact",
   "src/app/api/cron",
@@ -96,7 +100,7 @@ test("les mentions légales reflètent l’activité et la franchise de TVA", ()
 });
 
 test("aucune donnée ni aucun projet Pharmagreen n’est présenté comme réalisation", () => {
-  ["src/data/projects.ts", "src/data/network.ts", "src/app/(public)/optipro/page.tsx"].forEach((file) => {
+  ["src/data/projects.ts", "src/data/system.ts", "src/app/(public)/page.tsx", "src/app/(public)/optipro/page.tsx", "src/components/offer/OfferCard.tsx"].forEach((file) => {
     assert.equal(readFileSync(file, "utf8").toLowerCase().includes("pharmagreen"), false, `${file} ne doit pas citer Pharmagreen`);
   });
 });
@@ -134,20 +138,39 @@ test("la direction minimaliste ne réintroduit pas le chrome système", () => {
   assert.equal(existsSync("public/hero-particles.webp"), false, "le visuel IA généré ne doit plus être publié");
 });
 
-test("le plan de lignes ne masque pas le contenu et ne tourne pas en permanence", () => {
-  const component = readFileSync("src/components/visuals/NetworkMap.tsx", "utf8");
-  const styles = readFileSync("src/components/visuals/NetworkMap.module.css", "utf8");
+test("le schéma ne masque pas le contenu et ne tourne pas en permanence", () => {
+  const component = readFileSync("src/components/visuals/SystemMap.tsx", "utf8");
+  const styles = readFileSync("src/components/visuals/SystemMap.module.css", "utf8");
   const globals = readFileSync("src/app/globals.css", "utf8");
   assert.match(component, /aria-hidden="true"/);
   assert.match(styles, /pointer-events: none/);
   assert.doesNotMatch(styles, /infinite/);
+  assert.match(styles, /prefers-reduced-motion: reduce/);
   assert.match(globals, /prefers-reduced-motion: reduce/);
+});
+
+test("le graphique Factory n’affiche que les deux valeurs connues", () => {
+  const home = readFileSync("src/app/(public)/page.tsx", "utf8");
+  const profile = readFileSync("src/data/profile.ts", "utf8");
+  assert.doesNotMatch(home, /× ?25|x ?25/);
+  assert.match(profile, /400\\u00a0k€/);
+  assert.match(profile, /10\\u00a0M€/);
+});
+
+test("le thème clair et ses polices ont disparu", () => {
+  const layout = readFileSync("src/app/layout.tsx", "utf8");
+  const globals = readFileSync("src/app/globals.css", "utf8");
+  assert.doesNotMatch(layout, /Barlow/);
+  assert.match(layout, /Geist/);
+  assert.match(layout, /colorScheme: "dark"/);
+  assert.doesNotMatch(globals, /#eef0eb|#f2b705|--font-condensed/i);
 });
 
 test("la navigation reste native et les exemples fonctionnent sans JavaScript", () => {
   const layout = readFileSync("src/app/(public)/layout.tsx", "utf8");
   const header = readFileSync("src/components/layout/Header.tsx", "utf8");
-  const core = readFileSync("src/components/visuals/NetworkMap.tsx", "utf8");
+  const core = readFileSync("src/components/visuals/SystemMap.tsx", "utf8");
+  const offerCard = readFileSync("src/components/offer/OfferCard.tsx", "utf8");
   const globals = readFileSync("src/app/globals.css", "utf8");
   assert.doesNotMatch(layout, /CustomCursor/);
   assert.doesNotMatch(globals, /cursor: none/);
@@ -156,6 +179,8 @@ test("la navigation reste native et les exemples fonctionnent sans JavaScript", 
   assert.match(core, /<fieldset/);
   assert.match(core, /type="radio"/);
   assert.doesNotMatch(core, /use client|useEffect|requestAnimationFrame|<canvas/);
+  assert.match(offerCard, /type="radio"/);
+  assert.doesNotMatch(offerCard, /use client|useEffect|useState/);
 });
 
 test("Ro Nutritionniste est présenté comme un prototype web", () => {

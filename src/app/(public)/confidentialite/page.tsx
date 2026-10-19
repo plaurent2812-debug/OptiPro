@@ -10,7 +10,7 @@ export default function PrivacyPage() {
   return (
     <main id="contenu" tabIndex={-1} className="legal-page">
       <article className="shell">
-        <p className="eyebrow">Données personnelles</p>
+        <p className="legal-kicker">Données personnelles</p>
         <h1>Confidentialité</h1>
         <p className="legal-intro">Dernière mise à jour : 19 octobre 2026</p>
 

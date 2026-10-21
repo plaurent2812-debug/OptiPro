@@ -113,7 +113,7 @@ export default function OptiProTransportPage() {
         icon="site"
         tag="Exemples"
         title="Des sites réalisés"
-        lede="Conçus et développés de bout en bout. Le vôtre reprend votre activité, vos véhicules et votre zone, avec la demande de devis et la page de recrutement."
+        lede="Conçus et mis en ligne de bout en bout. Le vôtre reprend votre activité, vos véhicules et votre zone, avec la demande de devis et la page de recrutement."
         alt
       >
         <SiteShowcase />

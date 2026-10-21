@@ -95,7 +95,7 @@ export const systemSteps: SystemStep[] = [
     id: "apps", tone: "green", icon: "app", name: "Applications", hint: "Web et mobile",
     x: 120, y: 390, delay: 2.15, inTone: "cyan", inDelay: 4.1,
     step: "Étape 4 sur 5, les outils", title: "Applications web & mobiles",
-    lede: "Des applications que je conçois et que je développe moi-même, de l’idée à l’écran.",
+    lede: "Des applications que je conçois et que je réalise, de l’idée à l’écran.",
     proofs: [
       { term: "Ferdinand", kind: "word", text: "assistant du quotidien, iOS et Android", source: "En évolution" },
       { term: "ProbaLab", kind: "word", text: "écosystème web et mobile autour de la donnée", source: "Développement actif" },

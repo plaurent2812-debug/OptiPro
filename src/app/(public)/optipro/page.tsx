@@ -109,7 +109,7 @@ export default function OptiProPage() {
         icon="site"
         tag="Exemples"
         title="Des sites réalisés"
-        lede="Un site vitrine et deux sites éditoriaux, conçus et développés de bout en bout. Votre site est construit de la même façon, à partir de votre activité."
+        lede="Un site vitrine et deux sites éditoriaux, conçus et mis en ligne de bout en bout. Votre site est construit de la même façon, à partir de votre activité."
       >
         <SiteShowcase />
         <h3 className={styles.subhead}>Pour votre métier</h3>
@@ -164,7 +164,7 @@ export default function OptiProPage() {
         intro={
           <div className={styles.why}>
             <p>J’ai passé dix ans dans les opérations et la logistique, de l’entrepôt à la renégociation de contrats transporteurs. Je commence donc par comprendre votre activité, pas par parler de technique.</p>
-            <p>Je développe aussi des applications et des automatisations. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
+            <p>Je crée aussi des applications et des automatisations. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
             <Link href="/a-propos" className={styles.textLink}>Qui suis-je</Link>
           </div>
         }

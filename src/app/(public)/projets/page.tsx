@@ -10,7 +10,7 @@ import styles from "../content.module.css";
 
 export const metadata: Metadata = {
   title: "Réalisations",
-  description: "Sites et applications conçus et développés par Pierre Laurent, créateur des sites internet OptiPro dans les Alpes-Maritimes.",
+  description: "Sites et applications conçus et réalisés par Pierre Laurent, créateur des sites internet OptiPro dans les Alpes-Maritimes.",
   alternates: { canonical: "/projets" },
 };
 

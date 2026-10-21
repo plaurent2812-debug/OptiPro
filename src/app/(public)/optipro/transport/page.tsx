@@ -4,6 +4,8 @@ import { contact, optipro, optiproAreaSchema, optiproOfferSchema } from "@/data/
 import { safeJsonLd } from "@/lib/json-ld";
 import OfferCard from "@/components/offer/OfferCard";
 import SiteShowcase from "@/components/offer/SiteShowcase";
+import ProofStrip from "@/components/offer/ProofStrip";
+import Guarantees from "@/components/offer/Guarantees";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
@@ -72,6 +74,7 @@ export default function OptiProTransportPage() {
         kicker={`${optipro.brand} pour les transporteurs du 06`}
         tone="amber"
         icon="truck"
+        after={<ProofStrip />}
         title={<>Sites internet pour transporteurs <span>des {contact.area}.</span></>}
         actions={
           <>
@@ -146,6 +149,10 @@ export default function OptiProTransportPage() {
         <p className={styles.sectorLink}>
           <Link href="/optipro#questions" className={styles.textLink}>Détails de l’offre et questions fréquentes</Link>
         </p>
+      </Section>
+
+      <Section id="engagements" titleId="guarantees-title" tone="green" icon="doc" tag="Mes engagements" title="Ce que je vous garantis, noir sur blanc.">
+        <Guarantees />
       </Section>
 
       <CallBlock titleId="cta-title" title="Vous êtes transporteur dans le 06 ? Un appel suffit pour savoir si l’offre vous convient." />

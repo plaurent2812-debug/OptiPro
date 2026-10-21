@@ -1,0 +1,18 @@
+.list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); }
+.list li { padding: 28px 24px 30px; border-left: 1px solid var(--line-2); }
+.list li:first-child { padding-left: 0; border-left: 0; }
+.check { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(111, 211, 156, .12); color: var(--green); }
+.check svg { width: 16px; height: 16px; stroke-width: 2.2; }
+.list h3 { margin-top: 16px; font-size: 1.125rem; font-weight: 600; line-height: 1.25; letter-spacing: -.02em; }
+.list p { margin-top: 8px; color: var(--tx-2); font-size: .9375rem; line-height: 1.55; text-wrap: pretty; }
+
+@media (max-width: 959.98px) {
+  .list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .list li:nth-child(3) { padding-left: 0; border-left: 0; }
+  .list li:nth-child(n + 3) { border-top: 1px solid var(--line-2); }
+}
+@media (max-width: 759.98px) {
+  .list { grid-template-columns: minmax(0, 1fr); }
+  .list li { padding: 22px 0; border-left: 0; }
+  .list li + li { border-top: 1px solid var(--line-2); }
+}

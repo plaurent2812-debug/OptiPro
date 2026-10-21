@@ -4,10 +4,16 @@ import Link from "next/link";
 import { showcaseSites, type ProductProject } from "@/data/projects";
 import { contact, optipro } from "@/data/offer";
 import OfferCard from "@/components/offer/OfferCard";
+import ProofStrip from "@/components/offer/ProofStrip";
+import Deliverables from "@/components/offer/Deliverables";
+import LighthouseProof from "@/components/offer/LighthouseProof";
+import Comparison from "@/components/offer/Comparison";
+import Guarantees from "@/components/offer/Guarantees";
+import { lighthouse } from "@/data/proof";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
-import Icon, { type IconName } from "@/components/ui/Icon";
+import Icon from "@/components/ui/Icon";
 import { BrowserFrame, StatusPill } from "@/components/ui/Frames";
 import styles from "./home.module.css";
 
@@ -21,12 +27,8 @@ export const metadata: Metadata = {
 
 const [featuredSite, ...otherSites] = showcaseSites;
 
-const benefits: { icon: IconName; title: string; copy: string }[] = [
-  { icon: "site", title: "Un site à votre image", copy: "Je construis les pages à partir de ce que vous m’expliquez : votre activité, vos clients, votre zone. Vous n’avez rien de technique à gérer." },
-  { icon: "app", title: "Lisible sur téléphone", copy: "Votre site s’affiche aussi bien sur téléphone que sur ordinateur, et votre numéro s’appelle d’un geste." },
-  { icon: "doc", title: "Des modifications chaque mois", copy: "Une heure de modifications comprise chaque mois : horaires, photos, textes, nouveaux services. Vous m’appelez, je m’en occupe." },
-  { icon: "tel", title: "Un seul interlocuteur", copy: `Basé à ${contact.city}, joignable par téléphone. Vous parlez directement à celui qui fait votre site.` },
-];
+const scores = lighthouse.scores.map((score) => score.value);
+const scoreRange = Math.min(...scores) === Math.max(...scores) ? `${Math.max(...scores)}/100` : `${Math.min(...scores)} à ${Math.max(...scores)}/100`;
 
 function SiteCaption({ site }: { site: ProductProject }) {
   return (
@@ -53,6 +55,8 @@ export default function HomePage() {
           </>
         }
         after={
+          <>
+          <ProofStrip />
           <div className={styles.heroVisual}>
             <div className={styles.heroMain}>
               <figure className={styles.site}>
@@ -74,32 +78,49 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+          </>
         }
       >
-        <p>Je conçois le site de votre entreprise, je le mets en ligne, puis je le tiens à jour chaque mois. <strong>{optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois.</strong></p>
+        <p>Un site rapide, référencé dans votre ville, rédigé pour vous et en ligne en {optipro.deliveryTime}. Ensuite, je le fais vivre chaque mois. <strong>{optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois.</strong></p>
       </PageHero>
 
       <Section
-        id="avantages"
-        titleId="benefits-title"
+        id="livrables"
+        titleId="deliverables-title"
         tone="green"
         icon="site"
         tag="Ce que vous obtenez"
-        title="Un site professionnel, sans y passer vos soirées."
-        lede="Vous gérez votre entreprise. Je m’occupe de votre site, de sa création à ses mises à jour."
+        title="Tout ce qu’il faut pour être trouvé, puis appelé."
+        lede={`Compris dans la mise en ligne à ${optipro.setupPrice}. Vous gérez votre entreprise, je m’occupe du reste.`}
         alt
       >
-        <ul className={styles.benefits}>
-          {benefits.map((benefit) => (
-            <li key={benefit.title}>
-              <span className={styles.benefitWell} aria-hidden="true"><Icon name={benefit.icon} /></span>
-              <h3>{benefit.title}</h3>
-              <p>{benefit.copy}</p>
-            </li>
-          ))}
-        </ul>
+        <Deliverables />
       </Section>
 
+      <Section
+        id="preuve"
+        titleId="proof-title"
+        tone="green"
+        icon="auto"
+        tag="La preuve par ce site"
+        title={`Ce site obtient ${scoreRange} chez Google.`}
+        lede="Mesuré avec Google Lighthouse, l’outil qui évalue la vitesse, l’accessibilité, les bonnes pratiques et le référencement d’une page. Votre site est livré avec sa propre mesure."
+      >
+        <LighthouseProof />
+      </Section>
+
+      <Section
+        id="comparatif"
+        titleId="comparison-title"
+        tone="cyan"
+        icon="route"
+        tag="Comparez"
+        title="Agence, faire soi‑même ou OptiPro ?"
+        lede="Les mêmes critères pour les trois solutions, avec les repères publics du marché pour les deux premières."
+        alt
+      >
+        <Comparison />
+      </Section>
 
       <Section
         id="tarif"
@@ -108,10 +129,14 @@ export default function HomePage() {
         icon="site"
         tag={`L’offre ${optipro.brand}`}
         title="Votre site internet, clé en main, à un prix clair."
-        lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Engagement de ${optipro.commitment}.`}
+        lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Engagement de ${optipro.commitment}, puis sans engagement.`}
       >
         <OfferCard />
         <p className={styles.more}><Link href="/optipro">Voir le détail de l’offre, le déroulé et les questions fréquentes</Link><Link href="/optipro/prix-site-internet">Combien coûte un site internet&nbsp;?</Link></p>
+      </Section>
+
+      <Section id="engagements" titleId="guarantees-title" tone="green" icon="doc" tag="Mes engagements" title="Ce que je vous garantis, noir sur blanc." alt>
+        <Guarantees />
       </Section>
 
       <Section
@@ -122,7 +147,6 @@ export default function HomePage() {
         tag="Transporteurs"
         title="Vous êtes transporteur dans le 06 ?"
         lede="Une page dédiée à votre métier : demande de devis guidée, recrutement de conducteurs, site géré pour vous."
-        alt
         intro={<p className={styles.more}><Link href="/optipro/transport">Voir l’offre pour les transporteurs</Link></p>}
       />
 
@@ -133,11 +157,12 @@ export default function HomePage() {
         icon="terrain"
         tag="Pourquoi moi"
         title="Dix ans sur le terrain avant de faire des sites."
+        alt
         intro={
           <>
             <div className={styles.bio}>
               <p>J’ai passé dix ans dans les opérations et la logistique : entrepôts, agences, transport. Je commence donc par comprendre votre activité, pas par parler de technique.</p>
-              <p>Je développe aussi des applications et des automatisations. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
+              <p>Je conçois et je code moi-même : ce site, noté {scoreRange} chez Google, comme des applications web et mobiles. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
             </div>
             <p className={styles.more}><Link href="/a-propos">Qui suis-je</Link><Link href="/projets">Mes réalisations</Link></p>
           </>

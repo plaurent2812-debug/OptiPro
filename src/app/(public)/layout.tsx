@@ -11,7 +11,7 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://pierre-laurent.fr/#pierre-laurent",
       name: "Pierre Laurent",
-      jobTitle: "Responsable des Opérations",
+      jobTitle: "Créateur de sites internet, fondateur d’OptiPro",
       description:
         "Fondateur d’OptiPro, création de sites internet pour les entreprises des Alpes-Maritimes. Dix ans dans les opérations et la logistique, créateur d’applications web et mobiles et d’automatisations.",
       url: "https://pierre-laurent.fr",

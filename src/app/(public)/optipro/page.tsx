@@ -4,6 +4,9 @@ import { contact, optipro, optiproAreaSchema, optiproOfferSchema } from "@/data/
 import { safeJsonLd } from "@/lib/json-ld";
 import OfferCard from "@/components/offer/OfferCard";
 import SiteShowcase from "@/components/offer/SiteShowcase";
+import ProofStrip from "@/components/offer/ProofStrip";
+import Deliverables from "@/components/offer/Deliverables";
+import Guarantees from "@/components/offer/Guarantees";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
@@ -19,12 +22,13 @@ export const metadata: Metadata = {
 
 const steps = [
   { title: "On en parle", copy: "Vous m’appelez ou vous m’écrivez. On fait le point sur votre activité, vos clients et ce que votre site doit leur dire." },
-  { title: "Je construis votre site", copy: "Je conçois et je réalise les pages à partir de ce que vous m’avez expliqué. Vous n’avez rien de technique à gérer." },
-  { title: "Mise en ligne", copy: "Votre site est publié, lisible sur ordinateur comme sur téléphone, et vos clients peuvent vous trouver." },
+  { title: "Je construis votre site", copy: "Je rédige les textes et je conçois les pages à partir de ce que vous m’avez expliqué. Vous relisez, vous validez." },
+  { title: `En ligne en ${optipro.deliveryTime}`, copy: "Votre site est publié avec son référencement local et sa mesure de vitesse, lisible sur ordinateur comme sur téléphone." },
   { title: "Ensuite, je le fais vivre", copy: "Une heure de modifications est comprise chaque mois : horaires, photos, textes, nouvelles prestations." },
 ];
 
 const faq = [
+  { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
   { q: "Que se passe-t-il si je n’utilise pas mon heure de modifications ?", a: "Elle n’est pas reportée sur le mois suivant : l’heure de modifications mensuelle n’est pas cumulable." },
   { q: "Et si j’ai besoin de plus d’une heure dans le mois ?", a: `Chaque heure supplémentaire est facturée ${optipro.extraHourPrice}.` },
   { q: "Combien de temps suis-je engagé ?", a: `${optipro.commitment}. Vous choisissez de payer chaque mois (${optipro.monthlyPrice}) ou en une fois pour l’année (${optipro.yearlyPrice}). ${optipro.afterCommitment}` },
@@ -59,6 +63,7 @@ export default function OptiProPage() {
         tone="green"
         icon="site"
         title={<>Création de site internet à Vence et Nice, <span>sans vous en occuper.</span></>}
+        after={<ProofStrip />}
         actions={
           <>
             <a className="btn btn-primary" href={contact.phoneHref}><Icon name="tel" /><span>Appeler le <span className="num">{contact.phoneDisplay}</span></span></a>
@@ -83,6 +88,19 @@ export default function OptiProPage() {
       </Section>
 
       <Section
+        id="livrables"
+        titleId="deliverables-title"
+        tone="green"
+        icon="site"
+        tag="Compris dans la mise en ligne"
+        title={`Ce que comprennent les ${optipro.setupPrice}.`}
+        lede="Un site complet, rédigé, référencé dans votre ville et mesuré, prêt à être trouvé et appelé."
+        alt
+      >
+        <Deliverables />
+      </Section>
+
+      <Section
         id="exemples"
         titleId="examples-title"
         tone="green"
@@ -90,7 +108,6 @@ export default function OptiProPage() {
         tag="Exemples"
         title="Des sites réalisés"
         lede="Un site vitrine et deux sites éditoriaux, conçus et développés de bout en bout. Votre site est construit de la même façon, à partir de votre activité."
-        alt
       >
         <SiteShowcase />
         <p className={styles.sectorLink}>
@@ -105,7 +122,8 @@ export default function OptiProPage() {
         icon="route"
         tag="Le déroulé"
         title="Comment ça se passe"
-        lede="Quatre étapes, du premier appel au suivi mensuel. Vous n’avez rien de technique à gérer."
+        lede={`Quatre étapes, du premier appel au suivi mensuel. En ligne en ${optipro.deliveryTime}, sans rien de technique à gérer.`}
+        alt
       >
         <ol className={styles.steps}>
           {steps.map((step, index) => (
@@ -127,7 +145,6 @@ export default function OptiProPage() {
         tag="Au mois ou à l’année"
         title="Le même service, deux rythmes de paiement."
         lede={`Le site, le suivi et l’heure de modifications mensuelle, non cumulable, sont les mêmes. Seul le rythme de paiement change, après les ${optipro.setupPrice} de mise en ligne.`}
-        alt
       >
         <div className={styles.plans}>
           <article>
@@ -141,6 +158,10 @@ export default function OptiProPage() {
             <p>Soit <strong>{optipro.yearlySaving} d’économie</strong> sur l’année.</p>
           </article>
         </div>
+      </Section>
+
+      <Section id="engagements" titleId="guarantees-title" tone="green" icon="doc" tag="Mes engagements" title="Ce que je vous garantis, noir sur blanc." alt>
+        <Guarantees />
       </Section>
 
       <Section

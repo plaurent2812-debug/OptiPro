@@ -178,6 +178,34 @@ test("les conditions de l’abonnement validées par Pierre sont affichées", ()
   assert.match(readFileSync("src/app/(public)/optipro/prix-site-internet/page.tsx", "utf8"), /optipro\.ownership/);
 });
 
+test("les preuves affichées sont mesurées, datées ou confirmées par Pierre", () => {
+  const proof = readFileSync("src/data/proof.ts", "utf8");
+  assert.match(proof, /measuredOn: "21 octobre 2026"/);
+  assert.match(proof, /Lighthouse 12\.8/);
+  const offer = readFileSync("src/data/offer.ts", "utf8");
+  assert.match(offer, /deliveryTime: "3 semaines"/);
+  ["Vos textes rédigés", "Le référencement local", "Un rapport de vitesse", "Hébergement et domaine compris"].forEach((value) => {
+    assert.equal(offer.includes(value), true, `livrable manquant : ${value}`);
+  });
+  assert.doesNotMatch(offer, /Google Business/, "la fiche Google Business n’est pas incluse dans l’offre");
+  const market = readFileSync("src/data/market.ts", "utf8");
+  assert.match(market, /80 % des sites livrés en 3 mois ou moins/);
+  assert.match(readFileSync("src/components/offer/Comparison.tsx", "utf8"), /marketSource\.url/);
+  const home = readFileSync("src/app/(public)/page.tsx", "utf8");
+  ["<ProofStrip />", "<Deliverables />", "<LighthouseProof />", "<Comparison />", "<Guarantees />"].forEach((component) => {
+    assert.equal(home.includes(component), true, `bloc manquant sur l’accueil : ${component}`);
+  });
+  // Le score affiché est calculé depuis la mesure, jamais écrit en dur.
+  assert.doesNotMatch(home, /\b(99|100)\/100\b/);
+});
+
+test("Qui suis-je présente le créateur de sites, sans le poste salarié actuel", () => {
+  const about = readFileSync("src/app/(public)/a-propos/page.tsx", "utf8");
+  assert.match(about, /experience\.id !== "pharmagreen"/);
+  assert.doesNotMatch(about, /href="#pharmagreen"/);
+  assert.match(readFileSync("src/app/(public)/layout.tsx", "utf8"), /jobTitle: "Créateur de sites internet, fondateur d’OptiPro"/);
+});
+
 test("les mentions légales reflètent l’activité et la franchise de TVA", () => {
   const legal = readFileSync("src/app/(public)/mentions-legales/page.tsx", "utf8");
   assert.doesNotMatch(legal, /ne propose pas de prestations/i);

@@ -9,7 +9,6 @@ export default function OfferCard() {
       <div className={styles.grid}>
         <div className={styles.price}>
           <p className={styles.name}>
-            <span className={styles.well}><Icon name="site" /></span>
             <span>{optipro.brand}, site vitrine<small>Pour les {optipro.audience} des {contact.area}</small></span>
           </p>
 

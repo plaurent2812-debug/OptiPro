@@ -20,21 +20,21 @@ export const metadata: Metadata = {
 
 const factors = [
   { title: "Le nombre de pages et les textes", copy: "Un site de quelques pages ne demande pas le même travail qu’un site complet. Le temps passé à rédiger vos textes compte autant que le développement." },
-  { title: "Les fonctionnalités", copy: "Prise de rendez-vous, demande de devis, boutique en ligne, plusieurs langues : chaque fonction ajoutée alourdit le projet." },
+  { title: "Les fonctionnalités", copy: "Prise de rendez-vous, demande de devis, boutique en ligne, plusieurs langues : chaque fonction ajoutée alourdit le projet." },
   { title: "L’outil utilisé", copy: "Un créateur de site en ligne, WordPress ou un développement sur mesure n’ont ni le même coût ni la même liberté." },
-  { title: "Qui le fait", copy: "Vous-même, un indépendant ou une agence : vous payez soit votre temps, soit une prestation, avec plus ou moins d’accompagnement." },
+  { title: "Qui le fait", copy: "Vous-même, un indépendant ou une agence : vous payez soit votre temps, soit une prestation, avec plus ou moins d’accompagnement." },
   { title: "Le suivi après la mise en ligne", copy: "Un site qui n’est jamais mis à jour vieillit vite. Les modifications et la maintenance sont souvent oubliées dans le premier devis." },
 ];
 
 const recurring = [
   { title: "Le nom de domaine", copy: `Votre adresse en .fr ou en .com, à renouveler chaque année. À titre d’exemple, un .fr chez OVHcloud coûte ${domainRenewal} au renouvellement (relevé du même baromètre, octobre 2026).` },
-  { title: "L’hébergement", copy: "Le serveur qui rend votre site accessible. Il est parfois compris dans un abonnement : vérifiez-le." },
+  { title: "L’hébergement", copy: "Le serveur qui rend votre site accessible. Il est parfois compris dans un abonnement : vérifiez-le." },
   { title: "La maintenance", copy: "Mises à jour, sauvegardes et correctifs de sécurité. Sur un site WordPress, ce poste n’est pas facultatif." },
   { title: "Les modifications", copy: "Changer des horaires, des photos, un tarif ou ajouter un service. Demandez combien coûte une modification avant de signer." },
 ];
 
 const questions = [
-  "Qu’est-ce qui est compris : nombre de pages, rédaction des textes, photos, formulaire de contact ?",
+  "Qu’est-ce qui est compris : nombre de pages, rédaction des textes, photos, formulaire de contact ?",
   "L’hébergement et le nom de domaine sont-ils inclus ? À quel prix au renouvellement ?",
   "À qui appartiennent le nom de domaine, le site, les contenus et les accès ?",
   "Combien coûte une modification une fois le site en ligne ?",
@@ -77,7 +77,6 @@ export default function PriceGuidePage() {
         titleId="guide-title"
         kicker="Guide, prix d’un site internet"
         tone="green"
-        icon="doc"
         title={<>Combien coûte un site internet pour une TPE <span>dans les {contact.area}&nbsp;?</span></>}
         actions={
           <>
@@ -93,7 +92,6 @@ export default function PriceGuidePage() {
         id="reperes"
         titleId="figures-title"
         tone="green"
-        icon="doc"
         tag="La réponse courte"
         title="Les repères du marché"
         lede="Ces chiffres viennent de budgets réels de création de sites, pas d’une grille théorique. Ils donnent un ordre de grandeur, pas un devis."
@@ -113,7 +111,7 @@ export default function PriceGuidePage() {
         </p>
       </Section>
 
-      <Section id="leviers" titleId="factors-title" tone="cyan" icon="route" tag="Ce qui fait varier le prix" title="Cinq choses qui font le prix d’un site">
+      <Section id="leviers" titleId="factors-title" tone="cyan" tag="Ce qui fait varier le prix" title="Cinq choses qui font le prix d’un site">
         <ol className={`${styles.steps} ${styles.fiveSteps}`}>
           {factors.map((factor, index) => (
             <li key={factor.title}>
@@ -130,7 +128,6 @@ export default function PriceGuidePage() {
         id="couts-annuels"
         titleId="recurring-title"
         tone="amber"
-        icon="doc"
         tag="Après la mise en ligne"
         title="Les coûts qui reviennent chaque année"
         lede="La création paie la mise en ligne. Ensuite, un site coûte chaque année, même s’il ne change pas."
@@ -150,7 +147,6 @@ export default function PriceGuidePage() {
         id="abonnement"
         titleId="model-title"
         tone="green"
-        icon="site"
         tag="Paiement unique ou abonnement"
         title="Deux façons de payer, à comparer sur la même durée"
         intro={
@@ -163,7 +159,7 @@ export default function PriceGuidePage() {
         }
       />
 
-      <Section id="questions" titleId="questions-title" tone="cyan" icon="question" tag="Avant de signer" title="Les questions à poser à tout prestataire" alt>
+      <Section id="questions" titleId="questions-title" tone="cyan" tag="Avant de signer" title="Les questions à poser à tout prestataire" alt>
         <ul className={styles.checklist}>
           {questions.map((question) => <li key={question}>{question}</li>)}
         </ul>

@@ -1,13 +1,13 @@
 .wrap { min-width: 0; }
 .table { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: fixed; }
 .table th, .table td { padding: 16px 20px; border-bottom: 1px solid var(--line-2); text-align: left; vertical-align: top; font-size: .9688rem; line-height: 1.45; }
-.table thead th { color: var(--tx-2); font-size: .875rem; font-weight: 550; }
-.table tbody th { width: 18%; color: var(--tx-3); font-size: .875rem; font-weight: 550; }
+.table thead th { color: var(--tx-2); font-size: .875rem; font-weight: 500; }
+.table tbody th { width: 18%; color: var(--tx-3); font-size: .875rem; font-weight: 500; }
 .table tbody td { color: var(--tx-2); }
 .table thead td { width: 18%; border-bottom-color: var(--line-2); }
 /* Colonne OptiPro : un panneau vert continu */
-.table .ours { border-right: 1px solid rgba(111, 211, 156, .35); border-left: 1px solid rgba(111, 211, 156, .35); background: rgba(111, 211, 156, .05); color: var(--tx); font-weight: 550; }
-.table thead .ours { border-top: 1px solid rgba(111, 211, 156, .35); border-radius: var(--r) var(--r) 0 0; color: var(--green); font-size: 1rem; font-weight: 600; }
+.table .ours { border-right: 1px solid var(--line-3); border-left: 1px solid var(--line-3); background: var(--panel); color: var(--tx); font-weight: 500; }
+.table thead .ours { border-top: 1px solid var(--line-3); border-radius: var(--r) var(--r) 0 0; color: var(--tx); font-size: 1rem; font-weight: 600; }
 .table tbody tr:last-child .ours { border-radius: 0 0 var(--r) var(--r); }
 .source { max-width: 88ch; margin-top: 18px; color: var(--tx-3); font-size: .875rem; line-height: 1.55; }
 .source a { color: var(--tx-2); text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 4px; }
@@ -19,7 +19,7 @@
   .table tbody tr { margin-bottom: 14px; overflow: hidden; border: 1px solid var(--line-2); border-radius: var(--r); background: var(--panel); }
   .table tbody th { width: auto; padding: 14px 16px 6px; border: 0; color: var(--tx); font-size: 1rem; }
   .table td { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 10px; padding: 10px 16px; border-bottom: 0; border-top: 1px solid var(--line); }
-  .table td::before { content: attr(data-col); color: var(--tx-3); font-size: .8125rem; font-weight: 550; }
-  .table .ours, .table tbody tr:last-child .ours { border: 0; border-top: 1px solid rgba(111, 211, 156, .3); border-radius: 0; }
+  .table td::before { content: attr(data-col); color: var(--tx-3); font-size: .8125rem; font-weight: 500; }
+  .table .ours, .table tbody tr:last-child .ours { border: 0; border-top: 1px solid var(--line-3); border-radius: 0; }
   .table .ours::before { color: var(--green); }
 }

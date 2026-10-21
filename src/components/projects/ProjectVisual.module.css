@@ -1,10 +1,10 @@
-.stage { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0; padding: 52px clamp(16px, 3vw, 36px) 48px; overflow: hidden; border: 1px solid var(--line-2); border-radius: 20px; background: radial-gradient(circle at 1px 1px, #1b222d 1px, transparent 1.4px) 0 0 / 22px 22px, linear-gradient(180deg, #11161e, #0d1117); }
+.stage { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0; padding: 52px clamp(16px, 3vw, 36px) 48px; overflow: hidden; border: 1px solid var(--line-2); border-radius: var(--r-l); background: var(--panel); }
 .topline { position: absolute; top: 16px; left: 20px; color: var(--tx-3); font-size: .8125rem; }
 .caption { position: absolute; right: 20px; bottom: 14px; left: 20px; color: var(--tx-3); font-size: .8125rem; }
 .browser { width: 100%; }
 .phone { width: min(220px, 56%); }
 .identity { display: flex; flex-direction: column; align-items: center; gap: 10px; min-height: 280px; justify-content: center; text-align: center; }
-.identity img { width: 132px; height: 132px; border-radius: 28%; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .9); }
+.identity img { width: 132px; height: 132px; border-radius: 28%; box-shadow: 0 24px 48px -28px rgba(0, 0, 0, .9); }
 .identity strong { margin-top: 8px; font-size: 1.0625rem; font-weight: 600; letter-spacing: -.015em; }
 .identity span { color: var(--tx-3); font-size: .875rem; }
 

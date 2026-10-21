@@ -1,15 +1,13 @@
 import { deliverables } from "@/data/offer";
-import Icon from "@/components/ui/Icon";
 import styles from "./Deliverables.module.css";
 
 // Ce que comprend la mise en ligne (data/offer.ts, confirmé par Pierre).
-// « spec » : fiche technique en deux colonnes, sans cartes (accueil).
-export default function Deliverables({ variant = "cards" }: { variant?: "cards" | "spec" }) {
+// Une fiche en colonnes séparées par des filets : le titre fait le travail, sans icône.
+export default function Deliverables({ columns = 2 }: { columns?: 2 | 3 }) {
   return (
-    <ul className={variant === "spec" ? styles.spec : styles.list}>
+    <ul className={styles.list} data-columns={columns}>
       {deliverables.map((item) => (
         <li key={item.title}>
-          <span className={styles.well} aria-hidden="true"><Icon name={item.icon} /></span>
           <h3>{item.title}</h3>
           <p>{item.copy}</p>
         </li>

@@ -2,13 +2,13 @@
    Projets
    ============================================================ */
 .projectIndex { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin-top: clamp(32px, 4vw, 48px); overflow: hidden; border: 1px solid var(--line-2); border-radius: var(--r); background: var(--line-2); }
-.projectIndex a { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 10px 16px; background: var(--panel); font-size: .9375rem; font-weight: 550; letter-spacing: -.01em; transition: background-color .2s; }
+.projectIndex a { display: flex; align-items: center; gap: 12px; min-height: 56px; padding: 10px 16px; background: var(--panel); font-size: .9375rem; font-weight: 500; letter-spacing: -.01em; transition: background-color .2s; }
 .projectIndex a:hover { background: var(--raised); }
 /* la dernière case complète sa rangée : aucune case vide ne laisse voir le fond des filets */
 .projectIndex a:last-child:nth-child(4n + 3) { grid-column: span 2; }
 .projectIndex a:last-child:nth-child(4n + 2) { grid-column: span 3; }
 .projectIndex a:last-child:nth-child(4n + 1) { grid-column: span 4; }
-.projectIndex img { width: 28px; height: 28px; flex: none; border-radius: 7px; }
+.projectIndex img { width: 28px; height: 28px; flex: none; border-radius: 6px; }
 
 .projects { border-top: 1px solid var(--line); }
 .project { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: start; gap: clamp(28px, 4vw, 56px); padding-block: clamp(56px, 7vw, 96px); border-bottom: 1px solid var(--line); }
@@ -17,28 +17,28 @@
 .projectCopy { min-width: 0; }
 .projectCode { color: var(--tx-3); font-size: .8125rem; }
 .projectHeader { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-top: 14px; }
-.projectHeader img { width: 48px; height: 48px; border-radius: 12px; }
-.projectHeader h2 { font-size: clamp(2rem, 1.2rem + 2.2vw, 2.75rem); font-weight: 600; line-height: 1.05; letter-spacing: -.04em; }
+.projectHeader img { width: 48px; height: 48px; border-radius: var(--r); }
+.projectHeader h2 { font-size: clamp(1.75rem, 1.1rem + 1.8vw, 2.5rem); font-weight: 600; line-height: 1.08; letter-spacing: -.03em; }
 .statement { margin-top: 20px; color: var(--tx); font-size: 1.1875rem; line-height: 1.45; letter-spacing: -.015em; text-wrap: pretty; }
 .description { margin-top: 14px; color: var(--tx-2); font-size: .9688rem; line-height: 1.65; }
-.matrix { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 24px; overflow: hidden; border: 1px solid var(--line-2); border-radius: 12px; background: var(--line-2); }
+.matrix { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; margin-top: 24px; overflow: hidden; border: 1px solid var(--line-2); border-radius: var(--r); background: var(--line-2); }
 .matrix div { padding: 14px 16px; background: var(--panel); }
 .matrix dt { color: var(--tx-3); font-size: .8125rem; }
 .matrix dd { margin-top: 4px; color: var(--tx); font-size: .9063rem; }
 .evidence { margin-top: 24px; padding-left: 16px; border-left: 1px solid color-mix(in srgb, var(--green) 60%, transparent); }
-.evidence p:first-child { color: var(--green); font-size: .8125rem; font-weight: 550; }
+.evidence p:first-child { color: var(--green); font-size: .8125rem; font-weight: 500; }
 .evidence h3 { margin-top: 6px; font-size: 1.0625rem; font-weight: 600; line-height: 1.35; letter-spacing: -.015em; }
 .evidence p:last-child { margin-top: 6px; color: var(--tx-2); font-size: .9375rem; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-block: 24px; }
 .tags li { padding: 4px 10px; border: 1px solid var(--line-2); border-radius: 999px; color: var(--tx-2); font-size: .8125rem; }
-.projectLink { display: inline-flex; align-items: center; min-height: 44px; color: var(--tx); font-size: .9375rem; font-weight: 550; text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 6px; }
+.projectLink { display: inline-flex; align-items: center; min-height: 44px; color: var(--tx); font-size: .9375rem; font-weight: 500; text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 6px; }
 .projectLink:hover { text-decoration-color: var(--tx); }
 .projectWait { color: var(--tx-3); font-size: .875rem; }
 
 .further { padding: clamp(64px, 7vw, 104px) 0; border-top: 1px solid var(--line); background: var(--bg-1); }
 .furtherGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .furtherGrid > div { display: flex; flex-direction: column; align-items: flex-start; padding: clamp(24px, 3vw, 36px); border: 1px solid var(--line-2); border-radius: var(--r); background: var(--panel); }
-.furtherGrid h2 { font-size: clamp(1.5rem, 1.1rem + 1.2vw, 2rem); font-weight: 600; line-height: 1.1; letter-spacing: -.035em; }
+.furtherGrid h2 { font-size: clamp(1.375rem, 1.1rem + 1vw, 1.75rem); font-weight: 600; line-height: 1.15; letter-spacing: -.025em; }
 .furtherGrid p { margin: 12px 0 24px; color: var(--tx-2); }
 .furtherGrid :global(.btn) { margin-top: auto; }
 
@@ -47,7 +47,7 @@
    ============================================================ */
 .contactSection { padding: 0 0 clamp(64px, 7vw, 104px); }
 .contactGrid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; }
-.card { padding: clamp(24px, 3.5vw, 40px); border: 1px solid var(--line-2); border-radius: var(--r); background: var(--panel); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035); }
+.card { padding: clamp(24px, 3.5vw, 40px); border: 1px solid var(--line-2); border-radius: var(--r); background: var(--panel); }
 .card h2 { font-size: 1.1875rem; font-weight: 600; letter-spacing: -.018em; }
 .card > p { margin-top: 10px; color: var(--tx-2); }
 .buttonRow { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
@@ -55,7 +55,7 @@
 .offerBox h3 { font-size: 1rem; font-weight: 600; }
 .offerBox p { margin-top: 6px; color: var(--tx-2); font-size: .9375rem; }
 .links { display: flex; flex-wrap: wrap; gap: 0 24px; margin-top: 8px; }
-.links a { display: inline-flex; align-items: center; min-height: 44px; font-size: .9375rem; font-weight: 550; text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 6px; }
+.links a { display: inline-flex; align-items: center; min-height: 44px; font-size: .9375rem; font-weight: 500; text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 6px; }
 .links a:hover { text-decoration-color: var(--tx); }
 .directory { margin-top: 12px; }
 .directory div { display: grid; grid-template-columns: 110px minmax(0, 1fr); align-items: center; gap: 16px; min-height: 52px; border-top: 1px solid var(--line); }

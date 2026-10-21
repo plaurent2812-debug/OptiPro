@@ -5,7 +5,7 @@ export const professionalProfile = {
   company: "Pharmagreen",
   period: "Depuis septembre 2026",
   scope: ["Logistique", "Administration", "Data"],
-  summary: "Dix ans dans les opérations et la logistique, avec une conviction : une organisation solide repose sur des équipes bien coordonnées, des processus clairs et des outils adaptés au terrain.",
+  summary: "Dix ans dans les opérations et la logistique, avec une conviction : une organisation solide repose sur des équipes bien coordonnées, des processus clairs et des outils adaptés au terrain.",
 };
 
 export const careerHighlights = [
@@ -58,7 +58,7 @@ export const experiences: Experience[] = [
   {
     id: "pharmagreen", company: "Pharmagreen", role: "Responsable des Opérations",
     period: "Sept. 2026 — Aujourd’hui", marker: "POSTE ACTUEL",
-    context: "Périmètre du poste : logistique, administration et data.",
+    context: "Périmètre du poste : logistique, administration et data.",
     highlights: ["Je pilote la logistique, l’administration et la data de Pharmagreen."],
     tags: ["Logistique", "Administration", "Data"],
     timeline: { label: "Aujourd’hui", from: 2026, to: 2026, current: true, headline: "Responsable des Opérations", detail: "Logistique, administration et data." },
@@ -68,7 +68,7 @@ export const experiences: Experience[] = [
     period: "Sept. 2025 — Avr. 2026", marker: "ÉVÉNEMENTIEL",
     context: "Fiabiliser un dépôt et les flux de livraison et de retour de salon.",
     highlights: [
-      "Réorganisation du dépôt : adressage, inventaire et processus de livraison et de retour.",
+      "Réorganisation du dépôt : adressage, inventaire et processus de livraison et de retour.",
       "Renégociation des contrats transporteurs et déploiement de tableaux de bord automatisés.",
       "Management de 8 personnes et conduite de travaux d’amélioration du site.",
     ],
@@ -105,7 +105,7 @@ export const experiences: Experience[] = [
     id: "dbs", company: "DBS Drive", role: "Responsable d’Agence",
     period: "Déc. 2017 — Janv. 2019", marker: "DISTRIBUTION SPÉCIALISÉE",
     context: "Supervision logistique d’une agence de robinetterie et de chauffage.",
-    highlights: ["Animation de 3 vendeurs et pilotage de 8 500 références : seuils, réassort et inventaires."],
+    highlights: ["Animation de 3 vendeurs et pilotage de 8 500 références : seuils, réassort et inventaires."],
     tags: ["Stocks", "Management", "Relation client"],
     timeline: { from: 2017, to: 2019, headline: "8\u202f500 références pilotées", detail: "Responsable d’agence\u00a0: seuils, réassort et inventaires." },
   },

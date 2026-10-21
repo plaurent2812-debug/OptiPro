@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main id="contenu" tabIndex={-1}>
-      <PageHero titleId="contact-title" kicker="Contact" tone="green" icon="tel" title={<>Un site pour votre entreprise&nbsp;? <span>Appelez-moi.</span></>}>
+      <PageHero titleId="contact-title" kicker="Contact" tone="green" title={<>Un site pour votre entreprise&nbsp;? <span>Appelez-moi.</span></>}>
         <p>Je réponds moi-même, depuis {contact.city}. Un appel suffit pour faire le point sur votre activité et savoir si l’offre {optipro.brand} vous convient.</p>
       </PageHero>
 

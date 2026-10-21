@@ -101,7 +101,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <CallBlock titleId="cta-title" title="Besoin d’un site pour votre entreprise ? Le plus simple, c’est d’appeler." />
+      <CallBlock titleId="cta-title" title="Besoin d’un site pour votre entreprise ? Le plus simple, c’est d’appeler." />
     </main>
   );
 }

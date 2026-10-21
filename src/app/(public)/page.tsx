@@ -111,7 +111,7 @@ export default function HomePage() {
         lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Engagement de ${optipro.commitment}.`}
       >
         <OfferCard />
-        <p className={styles.more}><Link href="/optipro">Voir le détail de l’offre, le déroulé et les questions fréquentes</Link></p>
+        <p className={styles.more}><Link href="/optipro">Voir le détail de l’offre, le déroulé et les questions fréquentes</Link><Link href="/optipro/prix-site-internet">Combien coûte un site internet&nbsp;?</Link></p>
       </Section>
 
       <Section
@@ -120,7 +120,7 @@ export default function HomePage() {
         tone="amber"
         icon="truck"
         tag="Transporteurs"
-        title="Vous êtes transporteur dans le 06 ?"
+        title="Vous êtes transporteur dans le 06 ?"
         lede="Une page dédiée à votre métier : demande de devis guidée, recrutement de conducteurs, site géré pour vous."
         alt
         intro={<p className={styles.more}><Link href="/optipro/transport">Voir l’offre pour les transporteurs</Link></p>}

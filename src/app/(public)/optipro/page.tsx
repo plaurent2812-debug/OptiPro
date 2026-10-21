@@ -77,6 +77,7 @@ export default function OptiProPage() {
         lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Choisissez le rythme pour voir le montant.`}
       >
         <OfferCard />
+        <p className={styles.sectorLink}><Link href="/optipro/prix-site-internet" className={styles.textLink}>Comparer avec les prix du marché</Link></p>
       </Section>
 
       <Section

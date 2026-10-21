@@ -23,6 +23,9 @@ export const optipro = {
   // 12 × 79 € = 948 € ; 948 € − 790 € = 158 €
   monthlyTotal: "948 €",
   yearlySaving: "158 €",
+  // Coût des 12 premiers mois : 890 € + 948 € = 1 838 € ; 890 € + 790 € = 1 680 €
+  firstYearMonthly: "1 838 €",
+  firstYearYearly: "1 680 €",
   commitment: "12 mois",
   includedEdits: "1 h de modifications par mois",
   includedTime: "1 h",

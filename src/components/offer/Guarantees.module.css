@@ -1,10 +1,10 @@
 .list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); }
-.list li { padding: 28px 24px 30px; border-left: 1px solid var(--line-2); }
-.list li:first-child { padding-left: 0; border-left: 0; }
-.check { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(111, 211, 156, .12); color: var(--green); }
-.check svg { width: 16px; height: 16px; stroke-width: 2.2; }
-.list h3 { margin-top: 16px; font-size: 1.125rem; font-weight: 600; line-height: 1.25; letter-spacing: -.02em; }
-.list p { margin-top: 8px; color: var(--tx-2); font-size: .9375rem; line-height: 1.55; text-wrap: pretty; }
+.list li { padding: 26px 24px 28px 0; }
+.list li + li { padding-left: 24px; border-left: 1px solid var(--line-2); }
+.check { display: inline-grid; place-items: center; width: 20px; height: 20px; color: var(--green); }
+.check svg { width: 18px; height: 18px; stroke-width: 2; }
+.list h3 { margin-top: 14px; font-size: 1.0625rem; font-weight: 500; line-height: 1.3; letter-spacing: -.012em; }
+.list p { max-width: 36ch; margin-top: 8px; color: var(--tx-2); font-size: .9375rem; line-height: 1.5; text-wrap: pretty; }
 
 @media (max-width: 959.98px) {
   .list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -13,12 +13,12 @@
 }
 @media (max-width: 759.98px) {
   .list { grid-template-columns: minmax(0, 1fr); }
-  .list li { padding: 22px 0; border-left: 0; }
+  .list li, .list li + li { padding: 20px 0; border-left: 0; }
   .list li + li { border-top: 1px solid var(--line-2); }
 }
 
 /* Variante compacte : les quatre engagements en une ligne */
-.compact { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 28px; }
-.compact li { display: flex; align-items: center; gap: 10px; color: var(--tx); font-size: .9688rem; font-weight: 550; }
-.compact .check { width: 24px; height: 24px; }
-.compact .check svg { width: 14px; height: 14px; }
+.compact { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 24px; }
+.compact li { display: flex; align-items: center; gap: 8px; color: var(--tx); font-size: .9375rem; font-weight: 500; }
+.compact .check { width: 16px; height: 16px; }
+.compact .check svg { width: 15px; height: 15px; }

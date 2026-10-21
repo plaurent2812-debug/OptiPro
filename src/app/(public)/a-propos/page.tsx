@@ -15,7 +15,7 @@ const aboutExperiences = experiences.filter((experience) => experience.id !== "p
 
 export const metadata: Metadata = {
   title: "Qui suis-je",
-  description: `Pierre Laurent, créateur des sites ${optipro.brand} à Vence : dix ans dans les opérations et la logistique, puis la création de sites, d’applications et d’automatisations.`,
+  description: `Pierre Laurent, créateur des sites ${optipro.brand} à Vence : dix ans dans les opérations et la logistique, puis la création de sites, d’applications et d’automatisations.`,
   alternates: { canonical: "/a-propos" },
 };
 
@@ -26,7 +26,6 @@ export default function AboutPage() {
         titleId="about-title"
         kicker={`Qui suis-je, Pierre Laurent, ${optipro.brand}`}
         tone="amber"
-        icon="route"
         title={<>Celui qui crée votre site <span>connaît le terrain.</span></>}
         actions={
           <>
@@ -44,7 +43,7 @@ export default function AboutPage() {
         <p>{professionalProfile.summary} La création numérique prolonge cette approche&nbsp;: comprendre un besoin, puis concevoir une solution qui fonctionne. <strong>Sous la marque {optipro.brand}, je crée les sites internet des {optipro.audience} des Alpes-Maritimes.</strong></p>
       </PageHero>
 
-      <Section id="systeme" titleId="system-title" tone="cyan" icon="auto" tag="Ce que je relie" title="Du terrain à l’écran, la même personne." alt>
+      <Section id="systeme" titleId="system-title" tone="cyan" tag="Ce que je relie" title="Du terrain à l’écran, la même personne." alt>
         <SystemMap />
       </Section>
 
@@ -81,7 +80,6 @@ export default function AboutPage() {
         id="competences"
         titleId="skills-title"
         tone="cyan"
-        icon="auto"
         tag="Compétences et outils"
         title="Une expérience opérationnelle. Une pratique numérique."
         alt
@@ -100,7 +98,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section id="curiosite" titleId="bridge-title" tone="green" icon="user" tag="Derrière le parcours" title="Curieux, sur le terrain comme derrière un écran.">
+      <Section id="curiosite" titleId="bridge-title" tone="green" tag="Derrière le parcours" title="Curieux, sur le terrain comme derrière un écran.">
         <div className={styles.personalBridge}>
           <div>
             <p>J’aime les outils bien pensés, les interfaces précises et les idées qui deviennent des applications. Mes projets personnels sont une autre façon de découvrir mon travail.</p>

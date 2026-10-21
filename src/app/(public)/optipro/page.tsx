@@ -26,15 +26,15 @@ const steps = [
   { title: "On en parle", copy: "Vous m’appelez ou vous m’écrivez. On fait le point sur votre activité, vos clients et ce que votre site doit leur dire." },
   { title: "Je construis votre site", copy: "Je rédige les textes et je conçois les pages à partir de ce que vous m’avez expliqué. Vous relisez, vous validez." },
   { title: `En ligne en ${optipro.deliveryTime}`, copy: "Votre site est publié avec son référencement local et sa mesure de vitesse, lisible sur ordinateur comme sur téléphone." },
-  { title: "Ensuite, je le fais vivre", copy: "Une heure de modifications est comprise chaque mois : horaires, photos, textes, nouvelles prestations." },
+  { title: "Ensuite, je le fais vivre", copy: "Une heure de modifications est comprise chaque mois : horaires, photos, textes, nouvelles prestations." },
 ];
 
 const faq = [
-  { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
-  { q: "Que se passe-t-il si je n’utilise pas mon heure de modifications ?", a: "Elle n’est pas reportée sur le mois suivant : l’heure de modifications mensuelle est non cumulable." },
+  { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
+  { q: "Que se passe-t-il si je n’utilise pas mon heure de modifications ?", a: "Elle n’est pas reportée sur le mois suivant : l’heure de modifications mensuelle est non cumulable." },
   { q: "Et si j’ai besoin de plus d’une heure dans le mois ?", a: `Chaque heure supplémentaire est facturée ${optipro.extraHourPrice}.` },
   { q: "Combien de temps suis-je engagé ?", a: `${optipro.commitment}. Vous choisissez de payer chaque mois (${optipro.monthlyPrice}) ou en une fois pour l’année (${optipro.yearlyPrice}). ${optipro.afterCommitment}` },
-  { q: "L’hébergement et le nom de domaine sont-ils compris ?", a: `Oui. ${optipro.hostingIncluded} dans l’abonnement : vous n’avez ni hébergeur à choisir ni renouvellement à surveiller.` },
+  { q: "L’hébergement et le nom de domaine sont-ils compris ?", a: `Oui. ${optipro.hostingIncluded} dans l’abonnement : vous n’avez ni hébergeur à choisir ni renouvellement à surveiller.` },
   { q: "À qui appartient mon site ?", a: `À vous. ${optipro.ownership}` },
   { q: "Pourquoi n’y a-t-il pas de TVA ?", a: `En tant qu’entrepreneur individuel en franchise en base, je ne facture pas la TVA : ${optipro.vatNotice}. Les prix affichés sont ceux que vous payez.` },
   { q: "Où intervenez-vous ?", a: `Je suis basé à ${contact.city} et j’interviens dans tout le département des ${contact.area} : Vence, Nice, Cagnes-sur-Mer, Saint-Laurent-du-Var, Antibes, Grasse… Et ${contact.remoteArea} : tout se fait par téléphone et par e-mail.` },
@@ -63,7 +63,6 @@ export default function OptiProPage() {
         titleId="optipro-title"
         kicker={`${optipro.brand}, création de sites internet pour les ${optipro.audience}`}
         tone="green"
-        icon="site"
         title={<>Création de site internet à Vence et Nice, <span>sans vous en occuper.</span></>}
         after={<ProofStrip />}
         actions={
@@ -80,7 +79,6 @@ export default function OptiProPage() {
         id="tarif"
         titleId="price-title"
         tone="green"
-        icon="site"
         tag="Le tarif"
         title="Votre site vitrine, clé en main, à un prix clair."
         lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Choisissez le rythme pour voir le montant.`}
@@ -93,20 +91,18 @@ export default function OptiProPage() {
         id="livrables"
         titleId="deliverables-title"
         tone="green"
-        icon="site"
         tag="Compris dans la mise en ligne"
         title={`Ce que comprennent les ${optipro.setupPrice}.`}
         lede="Un site complet, rédigé, référencé dans votre ville et mesuré, prêt à être trouvé et appelé."
         alt
       >
-        <Deliverables />
+        <Deliverables columns={3} />
       </Section>
 
       <Section
         id="exemples"
         titleId="examples-title"
         tone="green"
-        icon="site"
         tag="Exemples"
         title="Des sites réalisés"
         lede="Un site vitrine et deux sites éditoriaux, conçus et mis en ligne de bout en bout. Votre site est construit de la même façon, à partir de votre activité."
@@ -120,7 +116,6 @@ export default function OptiProPage() {
         id="deroule"
         titleId="steps-title"
         tone="cyan"
-        icon="route"
         tag="Le déroulé"
         title="Comment ça se passe"
         lede={`Quatre étapes, du premier appel au suivi mensuel. En ligne en ${optipro.deliveryTime}, sans rien de technique à gérer.`}
@@ -142,7 +137,6 @@ export default function OptiProPage() {
         id="comparatif"
         titleId="comparison-title"
         tone="cyan"
-        icon="route"
         tag="Comparez"
         title="Agence, faire soi‑même ou OptiPro ?"
         lede="Les mêmes critères pour les trois solutions, avec les repères publics du marché pour les deux premières."
@@ -150,7 +144,7 @@ export default function OptiProPage() {
         <Comparison />
       </Section>
 
-      <Section id="engagements" titleId="guarantees-title" tone="green" icon="doc" tag="Mes engagements" title="Ce que je vous garantis, noir sur blanc." alt>
+      <Section id="engagements" titleId="guarantees-title" tone="green" tag="Mes engagements" title="Ce que je vous garantis, noir sur blanc." alt>
         <Guarantees />
       </Section>
 
@@ -158,7 +152,6 @@ export default function OptiProPage() {
         id="terrain"
         titleId="why-title"
         tone="amber"
-        icon="terrain"
         tag="Pourquoi moi"
         title="Quelqu’un qui connaît le terrain"
         intro={
@@ -170,7 +163,7 @@ export default function OptiProPage() {
         }
       />
 
-      <Section id="questions" titleId="faq-title" tone="cyan" icon="question" tag="Questions fréquentes" title="Vos questions" alt>
+      <Section id="questions" titleId="faq-title" tone="cyan" tag="Questions fréquentes" title="Vos questions" alt>
         <div className={styles.faq}>
           {faq.map((item) => (
             <details key={item.q}>

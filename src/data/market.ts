@@ -25,7 +25,7 @@ export const comparison = {
     { label: "Textes", values: ["À écrire vous-même", "Selon le devis", "Rédigés pour vous"] },
     { label: "Modifications", values: ["Vous les faites", "Maintenance au devis", `${optipro.includedTime} par mois comprise`] },
     { label: "Hébergement", values: ["Compris dans l’outil", "À vérifier dans le devis", "Compris, domaine à votre nom"] },
-    { label: "Interlocuteur", values: ["Vous", "Une équipe : chef de projet, designer, développeur", `Une seule personne, à ${contact.city}`] },
+    { label: "Interlocuteur", values: ["Vous", "Une équipe : chef de projet, designer, développeur", `Une seule personne, à ${contact.city}`] },
     { label: "Délai", values: ["Votre temps libre", "80 % des sites livrés en 3 mois ou moins", optipro.deliveryTime] },
   ],
 };

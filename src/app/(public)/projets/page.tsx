@@ -21,7 +21,6 @@ export default function ProjectsPage() {
         titleId="projects-title"
         kicker="Réalisations, conception et développement"
         tone="green"
-        icon="app"
         title={<>Ce que je construis. <span>Et pourquoi.</span></>}
         after={
           <nav className={styles.projectIndex} aria-label="Choisir un projet">

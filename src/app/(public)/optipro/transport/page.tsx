@@ -24,7 +24,7 @@ const features: { icon: IconName; title: string; copy: string }[] = [
   {
     icon: "doc",
     title: "Des demandes de devis complètes",
-    copy: "Votre client remplit un formulaire guidé : départ, arrivée, date, nature de la marchandise, nombre de palettes ou poids. Vous recevez la demande par e-mail avec ce qu’il faut pour chiffrer, sans rappeler pour les détails.",
+    copy: "Votre client remplit un formulaire guidé : départ, arrivée, date, nature de la marchandise, nombre de palettes ou poids. Vous recevez la demande par e-mail avec ce qu’il faut pour chiffrer, sans rappeler pour les détails.",
   },
   {
     icon: "user",
@@ -34,7 +34,7 @@ const features: { icon: IconName; title: string; copy: string }[] = [
   {
     icon: "site",
     title: "Un site géré sans y penser",
-    copy: "Une heure de modifications est comprise chaque mois : nouvelle offre d’emploi, nouveau service, nouvelles photos de la flotte. Vous m’appelez ou vous m’écrivez, je m’en occupe.",
+    copy: "Une heure de modifications est comprise chaque mois : nouvelle offre d’emploi, nouveau service, nouvelles photos de la flotte. Vous m’appelez ou vous m’écrivez, je m’en occupe.",
   },
 ];
 
@@ -46,7 +46,7 @@ const jsonLd = {
       "@id": "https://pierre-laurent.fr/optipro/transport#service",
       name: "Création de site internet pour transporteurs",
       serviceType: "Création de site internet",
-      description: "Sites internet pour les entreprises de transport des Alpes-Maritimes : demande de devis guidée, recrutement de conducteurs, mises à jour mensuelles comprises.",
+      description: "Sites internet pour les entreprises de transport des Alpes-Maritimes : demande de devis guidée, recrutement de conducteurs, mises à jour mensuelles comprises.",
       provider: { "@id": "https://pierre-laurent.fr/#optipro" },
       audience: { "@type": "BusinessAudience", name: "Entreprises de transport routier de marchandises" },
       areaServed: optiproAreaSchema,
@@ -73,7 +73,6 @@ export default function OptiProTransportPage() {
         titleId="transport-title"
         kicker={`${optipro.brand} pour les transporteurs du 06`}
         tone="amber"
-        icon="truck"
         after={<ProofStrip />}
         title={<>Sites internet pour transporteurs <span>des {contact.area}.</span></>}
         actions={
@@ -90,7 +89,6 @@ export default function OptiProTransportPage() {
         id="atouts"
         titleId="features-title"
         tone="amber"
-        icon="route"
         tag="Ce que fait votre site"
         title="Trois choses dont un transporteur a besoin"
         lede="Un site de transporteur n’a pas besoin d’en faire beaucoup. Il doit rassurer un client pressé, recevoir des demandes exploitables et vous aider à embaucher."
@@ -110,7 +108,6 @@ export default function OptiProTransportPage() {
         id="exemples"
         titleId="example-title"
         tone="green"
-        icon="site"
         tag="Exemples"
         title="Des sites réalisés"
         lede="Conçus et mis en ligne de bout en bout. Le vôtre reprend votre activité, vos véhicules et votre zone, avec la demande de devis et la page de recrutement."
@@ -123,12 +120,11 @@ export default function OptiProTransportPage() {
         id="terrain"
         titleId="why-title"
         tone="amber"
-        icon="terrain"
         tag="Pourquoi moi"
         title="Je connais le transport de l’autre côté du téléphone"
         intro={
           <div className={styles.why}>
-            <p>J’ai passé dix ans dans les opérations et la logistique. Responsable d’exploitation chez GL Events Live, j’ai renégocié les contrats transporteurs : je sais ce qu’un donneur d’ordres cherche avant d’appeler, la zone couverte, les moyens et la réactivité.</p>
+            <p>J’ai passé dix ans dans les opérations et la logistique. Responsable d’exploitation chez GL Events Live, j’ai renégocié les contrats transporteurs : je sais ce qu’un donneur d’ordres cherche avant d’appeler, la zone couverte, les moyens et la réactivité.</p>
             <p>Votre site doit répondre à ces questions en quelques secondes. Je l’écris avec vous, je le mets en ligne et je le fais vivre.</p>
             <Link href="/a-propos" className={styles.textLink}>Voir mon parcours</Link>
           </div>
@@ -139,7 +135,6 @@ export default function OptiProTransportPage() {
         id="tarif"
         titleId="price-title"
         tone="green"
-        icon="site"
         tag="Le tarif"
         title="Le même prix que pour toute entreprise."
         lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année, engagement de ${optipro.commitment}.`}
@@ -151,7 +146,7 @@ export default function OptiProTransportPage() {
         </p>
       </Section>
 
-      <Section id="engagements" titleId="guarantees-title" tone="green" icon="doc" tag="Mes engagements" title="Ce que je vous garantis, noir sur blanc.">
+      <Section id="engagements" titleId="guarantees-title" tone="green" tag="Mes engagements" title="Ce que je vous garantis, noir sur blanc.">
         <Guarantees />
       </Section>
 

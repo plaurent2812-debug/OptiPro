@@ -2,21 +2,21 @@
 .header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--line); background: rgba(10, 13, 18, .78); -webkit-backdrop-filter: saturate(140%) blur(14px); backdrop-filter: saturate(140%) blur(14px); }
 .headerInner { display: flex; align-items: center; gap: 24px; height: var(--header-height); }
 .brand { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: .9688rem; font-weight: 600; letter-spacing: -.01em; white-space: nowrap; }
-.brand small { padding-left: 10px; border-left: 1px solid var(--line-2); color: var(--tx-3); font-size: .875rem; font-weight: 450; letter-spacing: 0; }
-.mark { display: grid; flex: none; place-items: center; width: 26px; height: 26px; border: 1px solid var(--line-3); border-radius: 7px; background: linear-gradient(180deg, #1a202a, #12161d); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .06); }
+.brand small { padding-left: 10px; border-left: 1px solid var(--line-2); color: var(--tx-3); font-size: .875rem; font-weight: 400; letter-spacing: 0; }
+.mark { display: grid; flex: none; place-items: center; width: 26px; height: 26px; border: 1px solid var(--line-3); border-radius: var(--r-s); background: var(--raised); }
 .nav { display: flex; gap: 4px; margin-left: auto; }
-.nav a { position: relative; padding: 8px 12px; border-radius: 8px; color: var(--tx-2); font-size: .9063rem; transition: color .2s, background-color .2s; }
+.nav a { position: relative; padding: 8px 12px; border-radius: var(--r-s); color: var(--tx-2); font-size: .9063rem; transition: color .2s, background-color .2s; }
 .nav a::after { content: ""; position: absolute; inset: -3px 0; }
 .nav a:hover { background: rgba(255, 255, 255, .04); color: var(--tx); }
 .nav a[aria-current] { color: var(--tx); }
-.telTop { position: relative; display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border: 1px solid var(--line-3); border-radius: 9px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04); font-size: .9063rem; font-weight: 550; white-space: nowrap; transition: border-color .2s, background-color .2s; }
+.telTop { position: relative; display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border: 1px solid var(--line-3); border-radius: var(--r-s); font-size: .9063rem; font-weight: 500; white-space: nowrap; transition: border-color .2s, background-color .2s; }
 .telTop::after { content: ""; position: absolute; inset: -4px; }
 .telTop:hover { border-color: var(--line-hover); background: rgba(255, 255, 255, .04); }
 .telTop svg { width: 15px; height: 15px; flex: none; color: var(--green); }
 
 /* menu mobile natif */
 .menu { display: none; }
-.menu summary { position: relative; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--line-3); border-radius: 9px; list-style: none; }
+.menu summary { position: relative; display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--line-3); border-radius: var(--r-s); list-style: none; }
 .menu summary::-webkit-details-marker { display: none; }
 .menu summary::after { content: ""; position: absolute; inset: -4px; }
 .burger { display: block; width: 15px; height: 1.5px; border-radius: 2px; background: var(--tx); box-shadow: 0 -5px 0 var(--tx), 0 5px 0 var(--tx); transition: transform .2s; }
@@ -29,7 +29,7 @@
 .menu nav a[aria-current] { color: var(--green); }
 .menu nav p { margin-top: 14px; color: var(--tx-3); font-size: .875rem; }
 
-.skipLink { position: fixed; top: -60px; left: 12px; z-index: 100; padding: 10px 14px; border-radius: 8px; background: var(--tx); color: var(--bg); font-weight: 600; }
+.skipLink { position: fixed; top: -60px; left: 12px; z-index: 100; padding: 10px 14px; border-radius: var(--r-s); background: var(--tx); color: var(--bg); font-weight: 600; }
 .skipLink:focus { top: 12px; }
 
 /* ---------- pied de page ---------- */
@@ -62,10 +62,10 @@
 /* ---------- Barre d’appel fixe sur téléphone ---------- */
 .callBar { display: none; }
 @media (max-width: 759.98px) {
-  .callBar { position: fixed; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); left: 12px; z-index: 60; display: flex; gap: 8px; padding: 6px; border: 1px solid var(--line-3); border-radius: 16px; background: rgba(10, 13, 18, .86); -webkit-backdrop-filter: saturate(140%) blur(14px); backdrop-filter: saturate(140%) blur(14px); box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .9); }
-  .callBarTel { display: flex; flex: 1; align-items: center; justify-content: center; gap: 10px; min-height: 48px; border-radius: 11px; background: var(--tx); color: var(--bg); font-size: 1rem; font-weight: 600; }
+  .callBar { position: fixed; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); left: 12px; z-index: 60; display: flex; gap: 8px; padding: 6px; border: 1px solid var(--line-3); border-radius: var(--r); background: rgba(10, 13, 18, .86); -webkit-backdrop-filter: saturate(140%) blur(14px); backdrop-filter: saturate(140%) blur(14px); box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .9); }
+  .callBarTel { display: flex; flex: 1; align-items: center; justify-content: center; gap: 10px; min-height: 48px; border-radius: var(--r-s); background: var(--tx); color: var(--bg); font-size: 1rem; font-weight: 600; }
   .callBarTel svg { width: 18px; height: 18px; }
-  .callBarMail { display: grid; flex: none; place-items: center; width: 52px; min-height: 48px; border: 1px solid var(--line-3); border-radius: 11px; color: var(--tx); }
+  .callBarMail { display: grid; flex: none; place-items: center; width: 52px; min-height: 48px; border: 1px solid var(--line-3); border-radius: var(--r-s); color: var(--tx); }
   .callBarMail svg { width: 18px; height: 18px; }
   /* le numéro passe en bas : l’en-tête garde la marque et le menu */
   .telTop { display: none; }

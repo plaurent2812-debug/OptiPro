@@ -1,6 +1,6 @@
 .page { padding: 2.5rem 0 4rem; }
 .toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.4rem; margin-bottom: 2rem; }
-.back { display: inline-flex; align-items: center; min-height: 44px; color: var(--tx); font-size: .9375rem; font-weight: 550; text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 6px; }
+.back { display: inline-flex; align-items: center; min-height: 44px; color: var(--tx); font-size: .9375rem; font-weight: 500; text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 6px; }
 .back:hover { text-decoration-color: var(--tx); }
 .toolbar p { color: var(--tx-3); font-size: .875rem; }
 .sheet { width: min(calc(100% - 4rem), 1080px); margin-inline: auto; padding: clamp(1.8rem, 5vw, 4rem); background: #f5f5f0; color: #293137; border-top: 4px solid #a1683b; box-shadow: 0 25px 90px rgba(0,0,0,.25); }

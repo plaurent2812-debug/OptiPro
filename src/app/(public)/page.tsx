@@ -40,7 +40,6 @@ export default function HomePage() {
         titleId="hero-title"
         kicker={`${optipro.brand}, sites internet pour les ${optipro.audience} des ${contact.area}`}
         tone="green"
-        icon="site"
         title={<>Création de site internet dans les Alpes-Maritimes. <span>Je m’occupe de tout.</span></>}
         actions={
           <>
@@ -52,7 +51,6 @@ export default function HomePage() {
           <>
           <ProofStrip />
           <figure className={styles.stage}>
-            <div className={styles.glow} aria-hidden="true" />
             <BrowserFrame label={featuredSite.name} className={styles.desk}>
               <Image src={featuredSite.image} alt={featuredSite.imageAlt} width={featuredSite.imageWidth} height={featuredSite.imageHeight} sizes="(max-width: 959px) 92vw, 1040px" priority />
             </BrowserFrame>
@@ -75,20 +73,18 @@ export default function HomePage() {
         id="livrables"
         titleId="deliverables-title"
         tone="green"
-        icon="site"
         tag="Ce que vous obtenez"
         title="Tout ce qu’il faut pour être trouvé, puis appelé."
         lede={`Compris dans la mise en ligne à ${optipro.setupPrice}. Vous gérez votre entreprise, je m’occupe du reste.`}
         alt
       >
-        <Deliverables variant="spec" />
+        <Deliverables />
       </Section>
 
       <Section
         id="preuve"
         titleId="proof-title"
         tone="green"
-        icon="auto"
         tag="La preuve par ce site"
         title={`Ce site obtient ${scoreRange} chez Google.`}
         lede="Mesuré avec Google Lighthouse, l’outil qui évalue la vitesse, l’accessibilité, les bonnes pratiques et le référencement d’une page. Votre site est livré avec sa propre mesure."
@@ -100,7 +96,6 @@ export default function HomePage() {
         id="tarif"
         titleId="offer-title"
         tone="green"
-        icon="site"
         tag={`L’offre ${optipro.brand}`}
         title="Votre site internet, clé en main, à un prix clair."
         lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Engagement de ${optipro.commitment}, puis sans engagement.`}
@@ -115,19 +110,17 @@ export default function HomePage() {
         id="metiers"
         titleId="trades-title"
         tone="cyan"
-        icon="user"
         tag="Pour qui"
         title="Un site pensé pour votre métier."
-        lede="Artisan, salon de coiffure, commerce, restaurant ou transporteur : chaque site part de votre activité et de ce que vos clients cherchent en premier."
+        lede="Artisan, salon de coiffure, commerce, restaurant ou transporteur : chaque site part de votre activité et de ce que vos clients cherchent en premier."
       >
-        <Trades compact />
+        <Trades />
       </Section>
 
       <Section
         id="pourquoi-moi"
         titleId="why-title"
         tone="amber"
-        icon="terrain"
         tag="Pourquoi moi"
         title="Dix ans sur le terrain avant de faire des sites."
         alt
@@ -139,7 +132,7 @@ export default function HomePage() {
             </figure>
             <div>
               <div className={styles.bio}>
-                <p>J’ai passé dix ans dans les opérations et la logistique : entrepôts, agences, transport. Je commence donc par comprendre votre activité, pas par parler de technique.</p>
+                <p>J’ai passé dix ans dans les opérations et la logistique : entrepôts, agences, transport. Je commence donc par comprendre votre activité, pas par parler de technique.</p>
                 <p>Je conçois et je réalise ce site, noté {scoreRange} chez Google, comme des applications web et mobiles. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
               </div>
               <p className={styles.more}><Link href="/a-propos">Qui suis-je</Link><Link href="/projets">Mes réalisations</Link></p>

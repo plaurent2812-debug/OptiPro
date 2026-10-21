@@ -1,5 +1,35 @@
 # Lessons Learned
 
+[2026-10-21] | Pour alléger les sections, j’avais prévu des étiquettes numérotées « 01–06 » en police mono à la place des puces-icônes : c’est un autre tic de template (numéroter ce qui n’est pas une séquence, mono pour les petites étiquettes). | Ne numéroter que de vraies séquences (étapes, frise). Une étiquette de section est un mot en gris, sans icône ni chiffre ; la teinte ne vit que dans le fil et le point.
+
+[2026-10-21] | Chrome headless avec `--window-size=390,…` ne simule pas un téléphone : la fenêtre garde une largeur minimale (~500 px) et la capture est rognée, texte coupé à droite. | Pour le mobile, utiliser le volet intégré avec `resize_window` (preset mobile) et, le volet étant masqué, forcer l’apparition (`reveal-on` retiré, `data-revealed` posé) avant de capturer ; vérifier les positions par `getBoundingClientRect`, une zone vide à la capture peut n’être qu’un défaut de peinture.
+
+[2026-10-21] | J’avais écrit « Je conçois et je code moi-même » (accueil) et repris « que je développe moi-même » (schéma Qui suis-je) ; c’est faux : Pierre réalise ses sites et applications avec Claude et Codex. | Ne jamais affirmer que Pierre code lui-même. Formulation neutre validée : « je conçois et je réalise », sans parler de code ni d’IA. Vérifier toute affirmation sur la façon de travailler de Pierre avant de l’écrire, comme pour les chiffres. Un test du contrat bloque désormais ces formulations.
+
+[2026-10-21] | J’avais illustré l’offre avec trois maquettes d’entreprises fictives ; Pierre les a jugées « faux templates » et a demandé ses vrais sites, sans les présenter comme personnels. | Comme exemples, montrer les vrais sites (Ro Nutritionniste, La Parallaxe, Le Fond du sujet) via `showcaseSites`, avec leur statut réel (« Démonstration », « En ligne ») ; pas de « mes sites » ni « projets personnels » sur les pages commerciales, et jamais de faux client.
+
+[2026-10-21] | Après la fusion de la PR #23, Vercel a lancé le déploiement de production avec environ 10 minutes de retard, et mon `curl` toutes les 10 s a déclenché la protection anti-robot de Vercel : 403 `x-vercel-mitigated: challenge` sur toutes les pages, alors que le site fonctionnait pour les visiteurs. | Attendre un déploiement avec le statut GitHub du commit (`gh api …/status`), sans interroger le site en boucle ; contrôler ensuite la production quelques fois seulement, et en cas de 403 lire `x-vercel-mitigated` puis vérifier dans un vrai navigateur avant de conclure à une panne.
+
+[2026-10-21] | L’accueil de pierre-laurent.fr se lisait comme un CV (frise, graphique Factory, applications) alors que Pierre prospecte et veut vendre ; l’offre n’arrivait qu’en 5e section. | Le site vend d’abord l’offre OptiPro : premier écran, menu, titres et image de partage orientés « création de site internet » ; parcours et CV en preuves secondaires. Cela annule les consignes « site personnel » (2026-08-30) et « ne pas trop inviter au contact » (2026-09-05).
+
+[2026-10-21] | Les maquettes en unités `cqw` avaient un texte de base géant : `container-type` était posé sur l’élément même qui utilisait `cqw`, donc l’unité se rapportait à la fenêtre. | Poser `container-type` sur un parent dédié, jamais sur l’élément dont la taille de police est en `cqw` ; vérifier le rendu dans au moins deux largeurs de conteneur.
+
+[2026-10-19] | Les contrôles d'apparition au défilement dans le navigateur intégré laissaient 9 blocs masqués : le volet était caché, donc aucune image n'était produite et IntersectionObserver ne se déclenchait pas. | Pour tout comportement lié au défilement ou aux animations, vérifier d'abord la visibilité du volet (`tabs_context`) ; s'il est masqué, valider dans un vrai Chrome headless piloté par le protocole DevTools, pas par captures du volet.
+
+[2026-09-05] | L’anneau du premier écran évoquait un système technique sans permettre de comprendre ce que Pierre construit. | Donner un sens autonome au visuel principal : montrer un besoin, l’action et un outil concret. Une interaction doit changer l’exemple et sa signification, pas seulement l’orientation d’un décor.
+
+[2026-09-05] | Le récit de ProbaLab attribuait l’idée à Pierre seul alors qu’elle a été pensée avec un ami. | Mentionner cette origine commune sur l’accueil et la fiche ; distinguer l’origine de l’idée du rôle de développement sans inventer la répartition du travail.
+
+[2026-09-05] | Le téléphone du portfolio n’avait pas d’écran aux dimensions explicites et sa translation rognait le bas du visuel. | Borner la hauteur du téléphone à sa scène, définir un écran interne et faire remplir cet écran par l’image ; vérifier le cadrage au repos, au survol et en mouvement réduit sur ordinateur et mobile.
+
+[2026-09-05] | La conclusion invitait trop fortement à prendre contact pour un portfolio personnel. | Centrer la fin du parcours sur les projets et les explorations ; garder les coordonnées accessibles sans faire de la prise de contact l’objectif du site.
+
+[2026-09-05] | Pharmagreen était encore présenté comme une prise de poste future après le début confirmé par Pierre. | Répercuter la confirmation du poste actuel dans la donnée partagée, le parcours et le CV, sans inventer de résultats professionnels.
+
+[2026-09-05] | Le passage de sticky à static sur un visuel mobile retirait le bloc de référence de ses décors absolus, avec un débordement transitoire au défilement. | Pour désactiver sticky sur un composant contenant des éléments absolus, conserver position: relative et réinitialiser top ; contrôler la largeur pendant tout le défilement, pas uniquement en haut de page.
+
+[2026-10-01] | La compensation du header fixe était appliquée à la fois sur le document et sur les cibles d’ancre, ce qui additionnait les deux marges. | Appliquer la compensation à un seul niveau et vérifier la position réelle de la cible après un clic, une arrivée par URL et un changement de format.
+
 [2026-08-31] | Le déplacement horizontal de modules pourtant invisibles dépassait le viewport à 320 × 900 px et élargissait la page. | Borner aussi la course des éléments animés par la largeur disponible ; tester les états de départ et intermédiaires sur des écrans étroits et hauts, pas seulement le rendu final.
 
 [2026-08-31] | L’ajout du CV avait fait passer le parcours et plusieurs introductions avant les projets du portfolio. | Faire refléter la priorité éditoriale dans le premier écran, le CTA et l’ordre des sections ; conserver le parcours pro accessible sans le dupliquer sur l’accueil.

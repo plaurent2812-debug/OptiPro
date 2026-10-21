@@ -1,12 +1,13 @@
-.proof { padding: clamp(24px, 3.4vw, 40px); border: 1px solid var(--line-2); border-radius: var(--r); background: radial-gradient(120% 140% at 50% 0%, rgba(111, 211, 156, .07), transparent 60%), var(--panel); }
+/* Quatre jauges entre deux filets : la mesure se lit sans décor */
+.proof { padding: clamp(28px, 3.4vw, 44px) 0 clamp(24px, 3vw, 32px); border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2); }
 .gauges { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
 .gauges li { position: relative; display: grid; justify-items: center; gap: 12px; text-align: center; }
-.gauges svg { width: clamp(96px, 10vw, 128px); height: auto; transform: rotate(-90deg); }
-.track { fill: none; stroke: var(--line-2); stroke-width: 6; }
-.ring { fill: none; stroke: var(--green); stroke-width: 6; stroke-linecap: round; stroke-dashoffset: var(--offset); filter: drop-shadow(0 0 6px rgba(111, 211, 156, .35)); animation: fill 1.4s var(--ease) both; }
-.gauges b { position: absolute; top: calc(clamp(96px, 10vw, 128px) / 2); left: 50%; color: var(--tx); font-size: clamp(1.5rem, 1.1rem + 1vw, 2rem); font-weight: 600; letter-spacing: -.04em; transform: translate(-50%, -50%); }
-.gauges span { color: var(--tx-2); font-size: .9375rem; font-weight: 550; }
-.meta { max-width: 88ch; margin: clamp(24px, 3vw, 32px) auto 0; color: var(--tx-3); font-size: .875rem; line-height: 1.55; text-align: center; }
+.gauges svg { width: clamp(96px, 10vw, 120px); height: auto; transform: rotate(-90deg); }
+.track { fill: none; stroke: var(--line-2); stroke-width: 4; }
+.ring { fill: none; stroke: var(--green); stroke-width: 4; stroke-linecap: round; stroke-dashoffset: var(--offset); animation: fill 1.4s var(--ease) both; }
+.gauges b { position: absolute; top: calc(clamp(96px, 10vw, 120px) / 2); left: 50%; color: var(--tx); font-size: clamp(1.5rem, 1.1rem + 1vw, 1.875rem); font-weight: 600; letter-spacing: -.035em; transform: translate(-50%, -50%); }
+.gauges span { color: var(--tx-2); font-size: .9375rem; font-weight: 500; }
+.meta { max-width: 80ch; margin: clamp(24px, 3vw, 32px) auto 0; color: var(--tx-3); font-size: .875rem; line-height: 1.55; text-align: center; text-wrap: pretty; }
 .meta a { color: var(--tx-2); text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 4px; }
 
 /* 2 × π × 34 ≈ 213,63 : anneau vide au départ */

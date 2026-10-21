@@ -8,6 +8,7 @@ import ProofStrip from "@/components/offer/ProofStrip";
 import Deliverables from "@/components/offer/Deliverables";
 import Guarantees from "@/components/offer/Guarantees";
 import Trades from "@/components/offer/Trades";
+import Comparison from "@/components/offer/Comparison";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
@@ -30,7 +31,7 @@ const steps = [
 
 const faq = [
   { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
-  { q: "Que se passe-t-il si je n’utilise pas mon heure de modifications ?", a: "Elle n’est pas reportée sur le mois suivant : l’heure de modifications mensuelle n’est pas cumulable." },
+  { q: "Que se passe-t-il si je n’utilise pas mon heure de modifications ?", a: "Elle n’est pas reportée sur le mois suivant : l’heure de modifications mensuelle est non cumulable." },
   { q: "Et si j’ai besoin de plus d’une heure dans le mois ?", a: `Chaque heure supplémentaire est facturée ${optipro.extraHourPrice}.` },
   { q: "Combien de temps suis-je engagé ?", a: `${optipro.commitment}. Vous choisissez de payer chaque mois (${optipro.monthlyPrice}) ou en une fois pour l’année (${optipro.yearlyPrice}). ${optipro.afterCommitment}` },
   { q: "L’hébergement et le nom de domaine sont-ils compris ?", a: `Oui. ${optipro.hostingIncluded} dans l’abonnement : vous n’avez ni hébergeur à choisir ni renouvellement à surveiller.` },
@@ -138,26 +139,15 @@ export default function OptiProPage() {
       </Section>
 
       <Section
-        id="rythme"
-        titleId="billing-title"
-        tone="green"
-        icon="doc"
-        tag="Au mois ou à l’année"
-        title="Le même service, deux rythmes de paiement."
-        lede={`Le site, le suivi et l’heure de modifications mensuelle, non cumulable, sont les mêmes. Seul le rythme de paiement change, après les ${optipro.setupPrice} de mise en ligne.`}
+        id="comparatif"
+        titleId="comparison-title"
+        tone="cyan"
+        icon="route"
+        tag="Comparez"
+        title="Agence, faire soi‑même ou OptiPro ?"
+        lede="Les mêmes critères pour les trois solutions, avec les repères publics du marché pour les deux premières."
       >
-        <div className={styles.plans}>
-          <article>
-            <h3>Au mois</h3>
-            <p className={styles.amount}><b>{optipro.monthlyPrice}</b><span>par mois</span></p>
-            <p>Soit {optipro.monthlyTotal} sur les {optipro.commitment} d’engagement.</p>
-          </article>
-          <article className={styles.planBest}>
-            <h3>À l’année</h3>
-            <p className={styles.amount}><b>{optipro.yearlyPrice}</b><span>par an</span></p>
-            <p>Soit <strong>{optipro.yearlySaving} d’économie</strong> sur l’année.</p>
-          </article>
-        </div>
+        <Comparison />
       </Section>
 
       <Section id="engagements" titleId="guarantees-title" tone="green" icon="doc" tag="Mes engagements" title="Ce que je vous garantis, noir sur blanc." alt>

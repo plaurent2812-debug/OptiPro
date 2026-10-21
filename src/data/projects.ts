@@ -30,6 +30,8 @@ export type ProductProject = {
   reach: string;
   /** Capture mobile sans barre d’état : l’écran réserve la place de l’îlot */
   insetScreen?: boolean;
+  /** Capture du même site sur téléphone, prise à la même date que la capture ordinateur */
+  mobileImage?: { src: string; width: number; height: number; alt: string };
 };
 
 export const projects: ProductProject[] = [
@@ -189,7 +191,9 @@ export const projects: ProductProject[] = [
     imageWidth: 1280,
     imageHeight: 720,
     icon: "/projects/ro-nutritionniste-icon.webp",
-    imageAlt: "Accueil du site Ro Nutritionniste : identité sauge, assiette équilibrée et accompagnement de Romain ONESTA",
+    // Captures ordinateur et téléphone refaites le 21 octobre 2026 sur le site en ligne.
+    imageAlt: "Accueil du site Ro Nutritionniste sur ordinateur : « Mieux manger. À votre rythme. », assiette équilibrée et bouton de demande de bilan",
+    mobileImage: { src: "/projects/ro-nutritionniste-mobile.webp", width: 780, height: 1600, alt: "Le même site Ro Nutritionniste sur téléphone, avec le bouton « Demander un bilan »" },
     href: "https://ro-nutritionniste.vercel.app",
     platforms: ["Web", "Démo interactive"],
     technologies: ["Next.js", "React", "TypeScript", "Vercel", "Design system"],

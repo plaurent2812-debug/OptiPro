@@ -7,9 +7,23 @@
 .link { display: inline-flex; align-items: center; min-height: 44px; margin-top: auto; padding-top: 12px; color: var(--tx); font-size: .9375rem; font-weight: 550; text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 6px; }
 .link:hover { text-decoration-color: var(--tx); }
 
+/* Variante compacte : colonnes séparées par des filets, sans cartes */
+.compact { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line-2); }
+.compact li { display: flex; flex-direction: column; padding: 24px 24px 4px; border-left: 1px solid var(--line-2); }
+.compact li:first-child { padding-left: 0; border-left: 0; }
+.compact h3 { margin-top: 16px; font-size: 1.0625rem; font-weight: 600; line-height: 1.25; letter-spacing: -.015em; }
+.compact p:not(.who) { margin-top: 10px; color: var(--tx-2); font-size: .9375rem; line-height: 1.5; text-wrap: pretty; }
+
 @media (max-width: 1179.98px) {
   .list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .compact li:nth-child(3) { padding-left: 0; border-left: 0; }
+  .compact li:nth-child(n + 3) { border-top: 1px solid var(--line-2); }
+  .compact li { padding-bottom: 24px; }
 }
 @media (max-width: 759.98px) {
   .list { grid-template-columns: minmax(0, 1fr); }
+  .compact { grid-template-columns: minmax(0, 1fr); }
+  .compact li, .compact li:nth-child(3) { padding: 20px 0; border-left: 0; }
+  .compact li + li { border-top: 1px solid var(--line-2); }
 }

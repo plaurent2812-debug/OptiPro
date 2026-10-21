@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { showcaseSites, type ProductProject } from "@/data/projects";
+import { showcaseSites } from "@/data/projects";
 import { portrait } from "@/data/portrait";
 import { contact, optipro } from "@/data/offer";
 import OfferCard from "@/components/offer/OfferCard";
 import ProofStrip from "@/components/offer/ProofStrip";
 import Deliverables from "@/components/offer/Deliverables";
 import LighthouseProof from "@/components/offer/LighthouseProof";
-import Comparison from "@/components/offer/Comparison";
 import Guarantees from "@/components/offer/Guarantees";
 import Trades from "@/components/offer/Trades";
 import { lighthouse } from "@/data/proof";
@@ -16,7 +15,7 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon from "@/components/ui/Icon";
-import { BrowserFrame, StatusPill } from "@/components/ui/Frames";
+import { BrowserFrame, PhoneFrame, StatusPill } from "@/components/ui/Frames";
 import styles from "./home.module.css";
 
 // Accueil = page de vente OptiPro. Le parcours et le CV restent sur /a-propos et /cv.
@@ -27,19 +26,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const [featuredSite, ...otherSites] = showcaseSites;
+// Premier écran : le site de démonstration Ro, sur ordinateur et sur téléphone (captures du même jour).
+const [featuredSite] = showcaseSites;
+const featuredMobile = featuredSite.mobileImage!;
 
 const scores = lighthouse.scores.map((score) => score.value);
 const scoreRange = Math.min(...scores) === Math.max(...scores) ? `${Math.max(...scores)}/100` : `${Math.min(...scores)} à ${Math.max(...scores)}/100`;
-
-function SiteCaption({ site }: { site: ProductProject }) {
-  return (
-    <figcaption>
-      <div><Link href={`/projets#${site.slug}`}><b>{site.name}</b></Link><span>{site.pitch}</span></div>
-      <StatusPill tone={site.badgeTone}>{site.badge}</StatusPill>
-    </figcaption>
-  );
-}
 
 export default function HomePage() {
   return (
@@ -59,27 +51,20 @@ export default function HomePage() {
         after={
           <>
           <ProofStrip />
-          <div className={styles.heroVisual}>
-            <div className={styles.heroMain}>
-              <figure className={styles.site}>
-                <BrowserFrame label={featuredSite.name}>
-                  <Image src={featuredSite.image} alt={featuredSite.imageAlt} width={featuredSite.imageWidth} height={featuredSite.imageHeight} sizes="(max-width: 959px) 94vw, 820px" priority />
-                </BrowserFrame>
-                <SiteCaption site={featuredSite} />
-              </figure>
-              <p className={styles.more}><Link href="/projets">Voir toutes les réalisations</Link></p>
-            </div>
-            <div className={styles.heroSide}>
-              {otherSites.map((site) => (
-                <figure key={site.slug} className={styles.site}>
-                  <BrowserFrame label={site.name}>
-                    <Image src={site.image} alt={site.imageAlt} width={site.imageWidth} height={site.imageHeight} sizes="(max-width: 959px) 47vw, 400px" />
-                  </BrowserFrame>
-                  <SiteCaption site={site} />
-                </figure>
-              ))}
-            </div>
-          </div>
+          <figure className={styles.stage}>
+            <div className={styles.glow} aria-hidden="true" />
+            <BrowserFrame label={featuredSite.name} className={styles.desk}>
+              <Image src={featuredSite.image} alt={featuredSite.imageAlt} width={featuredSite.imageWidth} height={featuredSite.imageHeight} sizes="(max-width: 959px) 92vw, 1040px" priority />
+            </BrowserFrame>
+            <PhoneFrame className={styles.mobile}>
+              <Image src={featuredMobile.src} alt={featuredMobile.alt} width={featuredMobile.width} height={featuredMobile.height} sizes="(max-width: 759px) 32vw, 240px" priority />
+            </PhoneFrame>
+            <figcaption className={styles.stageCaption}>
+              <span><b>{featuredSite.name}</b> {featuredSite.pitch.charAt(0).toLowerCase()}{featuredSite.pitch.slice(1)}, sur ordinateur et sur téléphone.</span>
+              <StatusPill tone={featuredSite.badgeTone}>{featuredSite.badge}</StatusPill>
+              <Link href="/projets" className={styles.stageLink}>Voir toutes les réalisations</Link>
+            </figcaption>
+          </figure>
           </>
         }
       >
@@ -96,7 +81,7 @@ export default function HomePage() {
         lede={`Compris dans la mise en ligne à ${optipro.setupPrice}. Vous gérez votre entreprise, je m’occupe du reste.`}
         alt
       >
-        <Deliverables />
+        <Deliverables variant="spec" />
       </Section>
 
       <Section
@@ -112,19 +97,6 @@ export default function HomePage() {
       </Section>
 
       <Section
-        id="comparatif"
-        titleId="comparison-title"
-        tone="cyan"
-        icon="route"
-        tag="Comparez"
-        title="Agence, faire soi‑même ou OptiPro ?"
-        lede="Les mêmes critères pour les trois solutions, avec les repères publics du marché pour les deux premières."
-        alt
-      >
-        <Comparison />
-      </Section>
-
-      <Section
         id="tarif"
         titleId="offer-title"
         tone="green"
@@ -132,13 +104,11 @@ export default function HomePage() {
         tag={`L’offre ${optipro.brand}`}
         title="Votre site internet, clé en main, à un prix clair."
         lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Engagement de ${optipro.commitment}, puis sans engagement.`}
+        alt
       >
         <OfferCard />
-        <p className={styles.more}><Link href="/optipro">Voir le détail de l’offre, le déroulé et les questions fréquentes</Link><Link href="/optipro/prix-site-internet">Combien coûte un site internet&nbsp;?</Link></p>
-      </Section>
-
-      <Section id="engagements" titleId="guarantees-title" tone="green" icon="doc" tag="Mes engagements" title="Ce que je vous garantis, noir sur blanc." alt>
-        <Guarantees />
+        <Guarantees compact />
+        <p className={styles.more}><Link href="/optipro">Voir le détail de l’offre et les questions fréquentes</Link><Link href="/optipro#comparatif">Comparer avec une agence</Link><Link href="/optipro/prix-site-internet">Combien coûte un site internet&nbsp;?</Link></p>
       </Section>
 
       <Section
@@ -150,7 +120,7 @@ export default function HomePage() {
         title="Un site pensé pour votre métier."
         lede="Artisan, salon de coiffure, commerce, restaurant ou transporteur : chaque site part de votre activité et de ce que vos clients cherchent en premier."
       >
-        <Trades />
+        <Trades compact />
       </Section>
 
       <Section

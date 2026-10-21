@@ -4,9 +4,10 @@ import Icon from "@/components/ui/Icon";
 import styles from "./Trades.module.css";
 
 // Métiers servis : ce que le site fait pour chacun. « withPageLinks » ajoute le lien vers une page dédiée quand elle existe.
-export default function Trades({ withPageLinks = false }: { withPageLinks?: boolean }) {
+// « compact » : bandeau de quatre colonnes sans cartes (accueil).
+export default function Trades({ withPageLinks = false, compact = false }: { withPageLinks?: boolean; compact?: boolean }) {
   return (
-    <ul className={styles.list}>
+    <ul className={compact ? styles.compact : styles.list}>
       {trades.map((trade) => (
         <li key={trade.title}>
           <span className={styles.well} aria-hidden="true"><Icon name={trade.icon} /></span>

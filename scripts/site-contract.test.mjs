@@ -85,7 +85,7 @@ test("l’accueil vend l’offre avant de présenter le parcours", () => {
   assert.match(home, /<OfferCard \/>/);
   assert.match(home, /contact\.phoneHref/);
   // Le site parle de tous les métiers : la page transporteurs sert à la prospection, hors accueil et hors menu.
-  assert.match(home, /<Trades \/>/);
+  assert.match(home, /<Trades\b/);
   assert.doesNotMatch(home, /\/optipro\/transport/);
   assert.doesNotMatch(home, /@\/data\/profile|SystemMap/, "le parcours et le schéma de compétences restent sur /a-propos");
 
@@ -197,10 +197,17 @@ test("les preuves affichées sont mesurées, datées ou confirmées par Pierre",
   const market = readFileSync("src/data/market.ts", "utf8");
   assert.match(market, /80 % des sites livrés en 3 mois ou moins/);
   assert.match(readFileSync("src/components/offer/Comparison.tsx", "utf8"), /marketSource\.url/);
+  // Le comparatif vit sur /optipro ; l’accueil y renvoie.
+  assert.match(readFileSync("src/app/(public)/optipro/page.tsx", "utf8"), /<Comparison \/>/);
+  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /href="\/optipro#comparatif"/);
   const home = readFileSync("src/app/(public)/page.tsx", "utf8");
-  ["<ProofStrip />", "<Deliverables />", "<LighthouseProof />", "<Comparison />", "<Guarantees />"].forEach((component) => {
+  ["<ProofStrip", "<Deliverables", "<LighthouseProof", "<Guarantees"].forEach((component) => {
     assert.equal(home.includes(component), true, `bloc manquant sur l’accueil : ${component}`);
   });
+  // Premier écran : le même site sur ordinateur et sur téléphone, captures réelles.
+  assert.match(home, /<PhoneFrame/);
+  assert.match(readFileSync("src/data/projects.ts", "utf8"), /mobileImage: \{ src: "\/projects\/ro-nutritionniste-mobile\.webp"/);
+  assert.equal(existsSync("public/projects/ro-nutritionniste-mobile.webp"), true);
   // Le score affiché est calculé depuis la mesure, jamais écrit en dur.
   assert.doesNotMatch(home, /\b(99|100)\/100\b/);
 });
@@ -210,6 +217,15 @@ test("Qui suis-je présente le créateur de sites, sans le poste salarié actuel
   assert.match(about, /experience\.id !== "pharmagreen"/);
   assert.doesNotMatch(about, /href="#pharmagreen"/);
   assert.match(readFileSync("src/app/(public)/layout.tsx", "utf8"), /jobTitle: "Créateur de sites internet, fondateur d’OptiPro"/);
+});
+
+test("la barre d’appel fixe n’existe que sur téléphone", () => {
+  const layout = readFileSync("src/app/(public)/layout.tsx", "utf8");
+  assert.match(layout, /<MobileCallBar \/>/);
+  const css = readFileSync("src/components/layout/layout.module.css", "utf8");
+  assert.match(css, /\.callBar \{ display: none; \}/);
+  assert.match(css, /@media print \{\n  \.callBar \{ display: none; \}/);
+  assert.match(readFileSync("src/components/layout/MobileCallBar.tsx", "utf8"), /contact\.phoneHref/);
 });
 
 test("les mentions légales reflètent l’activité et la franchise de TVA", () => {

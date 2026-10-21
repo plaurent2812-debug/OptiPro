@@ -16,3 +16,9 @@
   .list li { padding: 22px 0; border-left: 0; }
   .list li + li { border-top: 1px solid var(--line-2); }
 }
+
+/* Variante compacte : les quatre engagements en une ligne */
+.compact { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 28px; }
+.compact li { display: flex; align-items: center; gap: 10px; color: var(--tx); font-size: .9688rem; font-weight: 550; }
+.compact .check { width: 24px; height: 24px; }
+.compact .check svg { width: 14px; height: 14px; }

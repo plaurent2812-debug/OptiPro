@@ -8,18 +8,6 @@
 .steps h3 { margin-top: 6px; font-size: 1.25rem; font-weight: 600; line-height: 1.2; letter-spacing: -.025em; }
 .steps li > p:last-child { margin-top: 8px; color: var(--tx-2); font-size: .9375rem; line-height: 1.5; text-wrap: pretty; }
 
-/* Mensuel ou annuel */
-/* aligné sur la colonne du titre (4e colonne de la grille de 12, gouttière 24 px) */
-.plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-left: calc((100% + 24px) / 4); }
-.plans article { padding: clamp(22px, 3vw, 32px); border: 1px solid var(--line-2); border-radius: var(--r); background: var(--panel); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035); }
-.plans .planBest { border-color: rgba(111, 211, 156, .4); background: linear-gradient(180deg, rgba(111, 211, 156, .05), var(--panel) 60%); }
-.plans h3 { color: var(--tx-2); font-size: .9375rem; font-weight: 550; }
-.amount { display: flex; align-items: baseline; gap: 10px; margin-block: 8px 10px; font-variant-numeric: tabular-nums; }
-.amount b { font-size: clamp(2.5rem, 1.8rem + 2vw, 3.5rem); font-weight: 600; line-height: 1; letter-spacing: -.05em; white-space: nowrap; }
-.amount span { color: var(--tx-2); font-size: 1rem; }
-.plans article > p:last-child { color: var(--tx-2); font-size: .9375rem; }
-.plans strong { color: var(--green); font-weight: 550; }
-
 /* Le terrain */
 .why { max-width: 60ch; margin-top: 20px; }
 .why p { color: var(--tx-2); font-size: clamp(1.0625rem, 1rem + .3vw, 1.1875rem); line-height: 1.55; text-wrap: pretty; }
@@ -49,10 +37,10 @@
   .steps::before { display: none; }
   .steps li { padding-top: 18px; border-top: 1px solid var(--line-2); }
   .port { top: -5px; left: 0; }
-  .plans, .faq { margin-left: 0; }
+  .faq { margin-left: 0; }
 }
 @media (max-width: 759.98px) {
-  .steps, .plans { grid-template-columns: minmax(0, 1fr); }
+  .steps { grid-template-columns: minmax(0, 1fr); }
 }
 
 /* Page transporteurs : atouts */

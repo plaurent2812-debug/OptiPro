@@ -74,7 +74,7 @@ export default function SystemMap() {
             <article key={step.id} className={styles.pane} data-k={step.id} data-tone={step.tone}>
               <header className={styles.paneHead}>
                 <span className={styles.paneWell}><Icon name={step.icon} /></span>
-                <div><p className={styles.paneStep}>{step.step}</p><h2>{step.title}</h2></div>
+                <div><p className={styles.paneStep}>{step.step}</p><h3>{step.title}</h3></div>
               </header>
               <p className={styles.paneLede}>{step.lede}</p>
               <dl className={styles.proofs}>

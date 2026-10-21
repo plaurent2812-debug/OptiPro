@@ -1,4 +1,4 @@
-// Le schéma « Système » de l’accueil : cinq étapes, du terrain jusqu’au site en ligne.
+// Le schéma « Système » de la page Qui suis-je : cinq étapes, du terrain jusqu’au site en ligne.
 // Les preuves reprennent uniquement des faits déjà publiés (profile.ts, projects.ts, offer.ts).
 import type { IconName } from "@/components/ui/Icon";
 import type { Tone } from "@/components/ui/Section";
@@ -63,7 +63,7 @@ export const systemSteps: SystemStep[] = [
       { term: "10\u00a0M€", kind: "num", text: "de CA annuel, contre 400\u00a0k€ cinq ans plus tôt", source: "Factory, 2019–2024" },
       { term: "8", unit: "pers.", kind: "num", text: "managées, contrats transporteurs renégociés", source: "GL Events Live, 2025–2026" },
     ],
-    link: { href: "#savoir-faire", label: "Voir le parcours en détail" },
+    link: { href: "#parcours", label: "Voir le parcours en détail" },
   },
   {
     id: "donnees", tone: "cyan", icon: "data", name: "Données", hint: "Tableaux de bord",
@@ -75,7 +75,7 @@ export const systemSteps: SystemStep[] = [
       { term: "Base produits", kind: "word", text: "et logiciel de gestion (ERP EBP) mis en place pour une nouvelle filiale", source: "Groupe Eddifis, 2019" },
       { term: "Analyse", kind: "word", text: "chaîne de traitement et d’analyse des données", source: "ProbaLab" },
     ],
-    link: { href: "#data", label: "Voir la partie données" },
+    link: { href: "#competences", label: "Voir les compétences et outils" },
     tools: "Python, PostgreSQL / Supabase",
   },
   {
@@ -88,7 +88,7 @@ export const systemSteps: SystemStep[] = [
       { term: "Simulations", kind: "word", text: "interactives et sourcées, pour comprendre l’actualité", source: "Le Fond du sujet" },
       { term: "API & IA", kind: "word", text: "relier vos logiciels entre eux et à l’intelligence artificielle", source: "Outils utilisés au quotidien" },
     ],
-    link: { href: "#data", label: "Voir ce que j’ai automatisé" },
+    link: { href: "#competences", label: "Voir les compétences et outils" },
     tools: "Python, TypeScript",
   },
   {
@@ -102,7 +102,7 @@ export const systemSteps: SystemStep[] = [
       { term: "Idéoscope 2027", kind: "word", text: "questionnaire civique", source: "En ligne" },
       { term: "Odysio", kind: "word", text: "prototype iOS", source: "En pause" },
     ],
-    link: { href: "#realisations", label: "Voir les applications" },
+    link: { href: "/projets", label: "Voir les applications" },
     tools: "Next.js, React Native",
   },
   {
@@ -116,7 +116,7 @@ export const systemSteps: SystemStep[] = [
       { term: "Le Fond du sujet", kind: "word", text: "site de décryptage de l’actualité", source: "En ligne" },
       { term: optipro.setupPrice, kind: "num", text: `de mise en ligne, puis ${optipro.monthlyPrice} par mois`, source: contact.area },
     ],
-    link: { href: "#optipro", label: `Découvrir l’offre ${optipro.brand}` },
+    link: { href: "/optipro", label: `Découvrir l’offre ${optipro.brand}` },
   },
 ];
 

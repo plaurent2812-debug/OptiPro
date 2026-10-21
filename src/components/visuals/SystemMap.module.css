@@ -104,7 +104,7 @@
 .paneWell { display: grid; flex: none; place-items: center; width: 38px; height: 38px; border: 1px solid color-mix(in srgb, var(--c) 40%, var(--line-2)); border-radius: 10px; background: color-mix(in srgb, var(--c) 7%, #11161d); color: var(--c); }
 .paneWell svg { width: 19px; height: 19px; }
 .paneStep { color: var(--tx-3); font-size: .8125rem; line-height: 1.3; }
-.paneHead h2 { font-size: 1.1875rem; font-weight: 600; line-height: 1.25; letter-spacing: -.018em; }
+.paneHead h3 { font-size: 1.1875rem; font-weight: 600; line-height: 1.25; letter-spacing: -.018em; }
 .paneLede { margin: 14px 0 10px; color: var(--tx-2); font-size: .9375rem; line-height: 1.5; text-wrap: pretty; }
 .proofs > div { display: grid; grid-template-columns: 108px minmax(0, 1fr); gap: 14px; padding: 10px 0; border-top: 1px solid var(--line); }
 .proofs > div:first-child { border-top: 0; }

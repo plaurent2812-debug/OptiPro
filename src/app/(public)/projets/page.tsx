@@ -4,13 +4,13 @@ import Link from "next/link";
 import ProjectVisual from "@/components/projects/ProjectVisual";
 import PageHero from "@/components/ui/PageHero";
 import { StatusPill } from "@/components/ui/Frames";
-import { contact } from "@/data/offer";
+import { contact, optipro } from "@/data/offer";
 import { projects } from "@/data/projects";
 import styles from "../content.module.css";
 
 export const metadata: Metadata = {
-  title: "Projets",
-  description: "Les applications, outils et projets personnels créés par Pierre Laurent.",
+  title: "Réalisations",
+  description: "Sites et applications conçus et développés par Pierre Laurent, créateur des sites internet OptiPro dans les Alpes-Maritimes.",
   alternates: { canonical: "/projets" },
 };
 
@@ -19,7 +19,7 @@ export default function ProjectsPage() {
     <main id="contenu" tabIndex={-1}>
       <PageHero
         titleId="projects-title"
-        kicker="Projets, conception et développement"
+        kicker="Réalisations, conception et développement"
         tone="green"
         icon="app"
         title={<>Ce que je construis. <span>Et pourquoi.</span></>}
@@ -75,12 +75,12 @@ export default function ProjectsPage() {
           <div>
             <h2>Continuer à explorer.</h2>
             <p>Mon profil GitHub rassemble la partie publique de mes explorations et de mon travail de développement.</p>
-            <a href={contact.github} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Retrouver mon GitHub</a>
+            <a href={contact.github} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">Retrouver mon GitHub</a>
           </div>
           <div>
-            <h2>Et mon parcours professionnel&nbsp;?</h2>
-            <p>Les opérations, la logistique et la data sont l’autre fil de mon parcours.</p>
-            <Link href="/a-propos" className="btn btn-ghost">Découvrir mon parcours</Link>
+            <h2>Un site pour votre entreprise&nbsp;?</h2>
+            <p>La même exigence, au service des {optipro.audience} des {contact.area}&nbsp;: {optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois.</p>
+            <Link href="/optipro" className="btn btn-primary">Voir l’offre {optipro.brand}</Link>
           </div>
         </div>
       </section>

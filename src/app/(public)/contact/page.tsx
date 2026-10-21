@@ -7,22 +7,22 @@ import styles from "../content.module.css";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: `Joindre Pierre Laurent au ${contact.phoneDisplay} ou par e-mail : sites vitrines OptiPro, applications, automatisation et opérations, dans les Alpes-Maritimes.`,
+  description: `Joindre Pierre Laurent, ${optipro.brand}, au ${contact.phoneDisplay} ou par e-mail pour la création de votre site internet dans les ${contact.area}.`,
   alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {
   return (
     <main id="contenu" tabIndex={-1}>
-      <PageHero titleId="contact-title" kicker="Contact" tone="green" icon="tel" title={<>Une question, un projet&nbsp;? <span>Appelez-moi.</span></>}>
-        <p>Je réponds moi-même, depuis {contact.city}. Un site pour votre entreprise, un outil à construire ou simplement un échange sur mon parcours&nbsp;: le plus simple est de m’appeler ou de m’écrire.</p>
+      <PageHero titleId="contact-title" kicker="Contact" tone="green" icon="tel" title={<>Un site pour votre entreprise&nbsp;? <span>Appelez-moi.</span></>}>
+        <p>Je réponds moi-même, depuis {contact.city}. Un appel suffit pour faire le point sur votre activité et savoir si l’offre {optipro.brand} vous convient.</p>
       </PageHero>
 
       <section className={styles.contactSection} aria-label="Coordonnées">
         <div className={`shell ${styles.contactGrid}`}>
           <article className={styles.card}>
             <h2>Pierre Laurent</h2>
-            <p>Responsable des Opérations, créateur d’applications et d’outils numériques, et fondateur d’{optipro.brand} pour les sites vitrines d’entreprise.</p>
+            <p>Fondateur d’{optipro.brand}&nbsp;: je crée, mets en ligne et fais vivre les sites internet des {optipro.audience} des {contact.area}.</p>
             <div className={styles.buttonRow}>
               <a href={contact.phoneHref} className="btn btn-primary"><Icon name="tel" /><span className="num">{contact.phoneDisplay}</span></a>
               <a href={contact.emailHref} className="btn btn-ghost"><Icon name="mail" />{contact.email}</a>
@@ -32,8 +32,8 @@ export default function ContactPage() {
               <p>{optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois ou {optipro.yearlyPrice} par an, pour les {optipro.audience} des {contact.area}.</p>
               <p className={styles.links}>
                 <Link href="/optipro">Voir l’offre {optipro.brand}</Link>
-                <Link href="/a-propos">Mon parcours</Link>
-                <Link href="/cv">Mon CV</Link>
+                <Link href="/optipro/transport">Transporteurs</Link>
+                <Link href="/a-propos">Qui suis-je</Link>
               </p>
             </div>
           </article>

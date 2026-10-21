@@ -8,11 +8,12 @@ import Icon from "@/components/ui/Icon";
 import BrandMark from "./BrandMark";
 import styles from "./layout.module.css";
 
+// Navigation commerciale : l’offre d’abord. Le CV reste accessible depuis le pied de page.
 const links = [
-  { href: "/#savoir-faire", label: "Savoir-faire" },
+  { href: "/optipro", label: "Offre et tarifs" },
+  { href: "/optipro/transport", label: "Transporteurs" },
   { href: "/projets", label: "Réalisations" },
-  { href: "/optipro", label: optipro.brand },
-  { href: "/a-propos", label: "Parcours" },
+  { href: "/a-propos", label: "Qui suis-je" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -74,7 +75,6 @@ export default function Header() {
             <summary aria-label="Menu"><span className={styles.burger} aria-hidden="true" /></summary>
             <nav aria-label="Navigation mobile">
               {links.map((link) => <Link key={link.href} href={link.href} onClick={closeMobileMenu} aria-current={current(link.href)}>{link.label}</Link>)}
-              <Link href="/cv" onClick={closeMobileMenu} aria-current={current("/cv")}>Mon CV</Link>
               <p>Pierre Laurent, {contact.city}, {contact.area}</p>
             </nav>
           </details>

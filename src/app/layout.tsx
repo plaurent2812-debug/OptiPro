@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { contact, optipro } from "@/data/offer";
 import "./globals.css";
 
 // Geist pour le texte, Geist Mono réservé aux graduations des graphiques.
@@ -20,26 +21,24 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://pierre-laurent.fr"),
   title: {
-    default: "Pierre Laurent — Opérations, applications et sites pour entreprises",
+    default: `Création de site internet dans les Alpes-Maritimes · ${optipro.brand}`,
     template: "%s · Pierre Laurent",
   },
-  description:
-    "Dix ans dans les opérations et la logistique, des applications web et mobiles, de l’automatisation, de l’IA et de la data. Et OptiPro : des sites vitrines pour les TPE et PME des Alpes-Maritimes.",
+  description: `${optipro.brand} : création de sites internet pour les ${optipro.audience} des ${contact.area}, conçus, mis en ligne et mis à jour par Pierre Laurent, à ${contact.city}. ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois.`,
   authors: [{ name: "Pierre Laurent", url: "https://pierre-laurent.fr" }],
   creator: "Pierre Laurent",
   category: "business",
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "Pierre Laurent",
-    title: "Pierre Laurent — Opérations, applications et sites pour entreprises",
-    description:
-      "Je relie le terrain au logiciel : logistique, applications, automatisation, data et sites vitrines OptiPro.",
+    siteName: `${optipro.brand}, Pierre Laurent`,
+    title: `Création de site internet dans les ${contact.area} · ${optipro.brand}`,
+    description: `Votre site internet conçu, mis en ligne et mis à jour pour vous : ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois, un seul interlocuteur à ${contact.city}.`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pierre Laurent — Opérations, applications et sites pour entreprises",
-    description: "Logistique, applications, automatisation, data et sites vitrines OptiPro pour les entreprises des Alpes-Maritimes.",
+    title: `Création de site internet dans les ${contact.area} · ${optipro.brand}`,
+    description: `Votre site internet conçu, mis en ligne et mis à jour pour vous : ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois.`,
   },
   icons: {
     icon: "/icon.svg",

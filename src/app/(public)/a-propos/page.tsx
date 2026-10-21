@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { careerHighlights, education, experiences, interests, languages, professionalProfile, skillGroups } from "@/data/profile";
+import { optipro } from "@/data/offer";
+import SystemMap from "@/components/visuals/SystemMap";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
+import CallBlock from "@/components/ui/CallBlock";
 import styles from "@/components/profile/profile.module.css";
 
 export const metadata: Metadata = {
-  title: "Parcours professionnel",
-  description: "Le parcours de Pierre Laurent : dix ans dans les opérations et la logistique, management, administration, data et création d’outils numériques.",
+  title: "Qui suis-je",
+  description: `Pierre Laurent, créateur des sites ${optipro.brand} à Vence : dix ans dans les opérations et la logistique, puis la création de sites, d’applications et d’automatisations.`,
   alternates: { canonical: "/a-propos" },
 };
 
@@ -16,22 +19,26 @@ export default function AboutPage() {
     <main id="contenu" tabIndex={-1}>
       <PageHero
         titleId="about-title"
-        kicker="Parcours professionnel, Pierre Laurent"
+        kicker={`Qui suis-je, Pierre Laurent, ${optipro.brand}`}
         tone="amber"
         icon="route"
-        title={<>Comprendre le terrain. Structurer l’action. <span>Faire avancer les équipes.</span></>}
+        title={<>Celui qui crée votre site <span>connaît le terrain.</span></>}
         actions={
           <>
-            <Link href="/cv" className="btn btn-primary">Consulter mon CV</Link>
-            <Link href="/projets" className="btn btn-ghost">Explorer mes projets</Link>
+            <Link href="/optipro" className="btn btn-primary">Voir l’offre {optipro.brand}</Link>
+            <Link href="/cv" className="btn btn-ghost">Consulter mon CV</Link>
           </>
         }
         after={<dl className={styles.highlights}>{careerHighlights.map((highlight) => <div key={highlight.value}><dt>{highlight.label}</dt><dd>{highlight.value}</dd></div>)}</dl>}
       >
-        <p>{professionalProfile.summary} La création numérique prolonge cette approche&nbsp;: comprendre un besoin, puis concevoir une solution qui fonctionne.</p>
+        <p>{professionalProfile.summary} La création numérique prolonge cette approche&nbsp;: comprendre un besoin, puis concevoir une solution qui fonctionne. <strong>Sous la marque {optipro.brand}, je crée les sites internet des {optipro.audience} des Alpes-Maritimes.</strong></p>
       </PageHero>
 
-      <section className={styles.journey} aria-labelledby="journey-title">
+      <Section id="systeme" titleId="system-title" tone="cyan" icon="auto" tag="Ce que je relie" title="Du terrain à l’écran, la même personne." alt>
+        <SystemMap />
+      </Section>
+
+      <section id="parcours" className={styles.journey} aria-labelledby="journey-title">
         <div className={`shell ${styles.profileLayout}`}>
           <aside className={styles.profileAside}>
             <p className={styles.asideKicker}>Le fil du parcours</p>
@@ -93,6 +100,8 @@ export default function AboutPage() {
           <ul className={styles.interestList} aria-label="Centres d’intérêt">{interests.map((interest) => <li key={interest}>{interest}</li>)}</ul>
         </div>
       </Section>
+
+      <CallBlock titleId="cta-title" title="Besoin d’un site pour votre entreprise ? Le plus simple, c’est d’appeler." />
     </main>
   );
 }

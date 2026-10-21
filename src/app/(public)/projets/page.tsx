@@ -73,14 +73,14 @@ export default function ProjectsPage() {
       <section className={styles.further} aria-label="Pour aller plus loin">
         <div className={`shell ${styles.furtherGrid}`}>
           <div>
-            <h2>Continuer à explorer.</h2>
-            <p>Mon profil GitHub rassemble la partie publique de mes explorations et de mon travail de développement.</p>
-            <a href={contact.github} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">Retrouver mon GitHub</a>
-          </div>
-          <div>
             <h2>Un site pour votre entreprise&nbsp;?</h2>
             <p>La même exigence, au service des {optipro.audience} des {contact.area}&nbsp;: {optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois.</p>
             <Link href="/optipro" className="btn btn-primary">Voir l’offre {optipro.brand}</Link>
+          </div>
+          <div>
+            <h2>Continuer à explorer.</h2>
+            <p>Mon profil GitHub rassemble la partie publique de mes explorations et de mon travail de développement.</p>
+            <a href={contact.github} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">Retrouver mon GitHub</a>
           </div>
         </div>
       </section>

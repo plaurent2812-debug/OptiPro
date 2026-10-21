@@ -1,7 +1,7 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import ScrollReveal from "@/components/layout/ScrollReveal";
-import { contact } from "@/data/offer";
+import { contact, optiproAreaSchema } from "@/data/offer";
 import { safeJsonLd } from "@/lib/json-ld";
 
 const jsonLd = {
@@ -13,7 +13,7 @@ const jsonLd = {
       name: "Pierre Laurent",
       jobTitle: "Responsable des Opérations",
       description:
-        "Dix ans dans les opérations et la logistique, créateur d’applications web et mobiles, d’automatisations et d’outils data, et fondateur d’OptiPro, offre de sites vitrines pour les entreprises des Alpes-Maritimes.",
+        "Fondateur d’OptiPro, création de sites internet pour les entreprises des Alpes-Maritimes. Dix ans dans les opérations et la logistique, créateur d’applications web et mobiles et d’automatisations.",
       url: "https://pierre-laurent.fr",
       email: contact.email,
       telephone: contact.phoneIntl,
@@ -45,7 +45,7 @@ const jsonLd = {
       "@type": "ProfessionalService",
       "@id": "https://pierre-laurent.fr/#optipro",
       name: "OptiPro",
-      description: "Création de sites vitrines pour les TPE et PME des Alpes-Maritimes.",
+      description: "Création de sites internet pour les TPE et PME des Alpes-Maritimes : conception, mise en ligne et mises à jour mensuelles.",
       url: "https://pierre-laurent.fr/optipro",
       founder: { "@id": "https://pierre-laurent.fr/#pierre-laurent" },
       email: contact.email,
@@ -57,7 +57,7 @@ const jsonLd = {
         addressLocality: contact.city,
         addressCountry: "FR",
       },
-      areaServed: { "@type": "AdministrativeArea", name: contact.area },
+      areaServed: optiproAreaSchema,
       priceRange: "890 € puis 79 € par mois",
     },
     {

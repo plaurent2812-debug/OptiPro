@@ -168,7 +168,7 @@ export default function OptiProPage() {
           <div className={styles.why}>
             <p>J’ai passé dix ans dans les opérations et la logistique, de l’entrepôt à la renégociation de contrats transporteurs. Je commence donc par comprendre votre activité, pas par parler de technique.</p>
             <p>Je développe aussi des applications et des automatisations. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
-            <Link href="/#savoir-faire" className={styles.textLink}>Voir tout ce que je sais faire</Link>
+            <Link href="/a-propos" className={styles.textLink}>Qui suis-je</Link>
           </div>
         }
       >

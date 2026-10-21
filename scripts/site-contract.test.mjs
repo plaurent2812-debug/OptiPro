@@ -77,7 +77,25 @@ test("l’ancienne offre ne réapparaît pas", () => {
   ].forEach((phrase) => {
     assert.equal(files.toLowerCase().includes(phrase.toLowerCase()), false, `ancien discours commercial résiduel : ${phrase}`);
   });
-  assert.match(files, /mon parcours/i);
+});
+
+test("l’accueil vend l’offre avant de présenter le parcours", () => {
+  const home = readFileSync("src/app/(public)/page.tsx", "utf8");
+  assert.match(home, /Création de site internet dans les Alpes-Maritimes/);
+  assert.match(home, /<OfferCard \/>/);
+  assert.match(home, /contact\.phoneHref/);
+  assert.match(home, /href="\/optipro\/transport"/);
+  assert.doesNotMatch(home, /@\/data\/profile|SystemMap/, "le parcours et le schéma de compétences restent sur /a-propos");
+
+  const header = readFileSync("src/components/layout/Header.tsx", "utf8");
+  const firstLink = header.match(/\{ href: "([^"]+)", label/);
+  assert.equal(firstLink?.[1], "/optipro", "l’offre ouvre la navigation principale");
+  assert.doesNotMatch(header, /href="\/cv"|Savoir-faire/, "le CV sort de la navigation principale");
+
+  const footer = readFileSync("src/components/layout/Footer.tsx", "utf8");
+  assert.match(footer, /href="\/cv"/, "le CV reste accessible depuis le pied de page");
+  const rootLayout = readFileSync("src/app/layout.tsx", "utf8");
+  assert.match(rootLayout, /Création de site internet dans les Alpes-Maritimes/);
 });
 
 test("l’offre OptiPro affiche les conditions validées par Pierre", () => {

@@ -31,6 +31,11 @@ export const optipro = {
   includedTime: "1 h",
   extraHourPrice: "60 €",
   vatNotice: "TVA non applicable, art. 293 B du CGI",
+  // Conditions confirmées par Pierre le 21 octobre 2026.
+  hostingIncluded: "Hébergement et nom de domaine compris",
+  ownership: "Le nom de domaine est enregistré à votre nom, et le site comme ses contenus vous appartiennent : vous pouvez partir avec.",
+  noticePeriod: "un mois",
+  afterCommitment: "Après les 12 mois, l’abonnement continue sans engagement : vous pouvez l’arrêter à tout moment, avec un préavis d’un mois.",
 };
 
 // Mêmes conditions, sous forme de données structurées (schema.org) pour les pages /optipro.

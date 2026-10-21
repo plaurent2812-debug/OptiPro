@@ -157,7 +157,7 @@ export default function PriceGuidePage() {
           <div className={styles.why}>
             <p>Avec un <strong>paiement unique</strong>, vous réglez la création, puis l’hébergement, la maintenance et chaque modification à part. Avec un <strong>abonnement</strong>, une partie de ces coûts est comprise dans un montant fixe.</p>
             <p>Pour comparer, ramenez tout sur la même période. Avec l’offre {optipro.brand}, les 12 premiers mois reviennent à <strong>{optipro.firstYearMonthly}</strong> en payant au mois ({optipro.setupPrice} + 12 × {optipro.monthlyPrice}), ou <strong>{optipro.firstYearYearly}</strong> en payant l’année ({optipro.setupPrice} + {optipro.yearlyPrice}), avec {optipro.includedEdits}. {optipro.vatNotice}.</p>
-            <p>Dans tous les cas, demandez à qui appartiennent le site et le nom de domaine, et ce qui se passe à la fin de l’engagement.</p>
+            <p>Dans tous les cas, demandez à qui appartiennent le site et le nom de domaine, et ce qui se passe à la fin de l’engagement. Avec {optipro.brand}&nbsp;: <strong>{optipro.hostingIncluded.toLowerCase()}</strong>, {optipro.ownership.charAt(0).toLowerCase()}{optipro.ownership.slice(1)} {optipro.afterCommitment}</p>
             <Link href="/optipro#tarif" className={styles.textLink}>Voir le détail de l’offre {optipro.brand}</Link>
           </div>
         }

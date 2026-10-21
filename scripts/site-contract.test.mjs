@@ -164,6 +164,20 @@ test("le guide des prix ne cite que des chiffres sourcés ou tirés de l’offre
   assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /href="\/optipro\/prix-site-internet"/);
 });
 
+test("les conditions de l’abonnement validées par Pierre sont affichées", () => {
+  const offer = readFileSync("src/data/offer.ts", "utf8");
+  ["Hébergement et nom de domaine compris", "enregistré à votre nom", "vous appartiennent", "sans engagement", "préavis d’un mois"].forEach((value) => {
+    assert.equal(offer.includes(value), true, `condition manquante : ${value}`);
+  });
+  const card = readFileSync("src/components/offer/OfferCard.tsx", "utf8");
+  assert.match(card, /optipro\.noticePeriod/);
+  assert.match(card, /Hébergement et domaine/);
+  const faq = readFileSync("src/app/(public)/optipro/page.tsx", "utf8");
+  assert.match(faq, /À qui appartient mon site \?/);
+  assert.match(faq, /optipro\.afterCommitment/);
+  assert.match(readFileSync("src/app/(public)/optipro/prix-site-internet/page.tsx", "utf8"), /optipro\.ownership/);
+});
+
 test("les mentions légales reflètent l’activité et la franchise de TVA", () => {
   const legal = readFileSync("src/app/(public)/mentions-legales/page.tsx", "utf8");
   assert.doesNotMatch(legal, /ne propose pas de prestations/i);

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { showcaseSites, type ProductProject } from "@/data/projects";
+import { portrait } from "@/data/portrait";
 import { contact, optipro } from "@/data/offer";
 import OfferCard from "@/components/offer/OfferCard";
 import ProofStrip from "@/components/offer/ProofStrip";
@@ -159,13 +160,19 @@ export default function HomePage() {
         title="Dix ans sur le terrain avant de faire des sites."
         alt
         intro={
-          <>
-            <div className={styles.bio}>
-              <p>J’ai passé dix ans dans les opérations et la logistique : entrepôts, agences, transport. Je commence donc par comprendre votre activité, pas par parler de technique.</p>
-              <p>Je conçois et je code moi-même : ce site, noté {scoreRange} chez Google, comme des applications web et mobiles. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
+          <div className={styles.me}>
+            <figure className={styles.portrait}>
+              <Image src={portrait.src} alt={portrait.alt} width={portrait.width} height={portrait.height} sizes="(max-width: 759px) 132px, 220px" />
+              <figcaption>Pierre Laurent<span>{optipro.brand}, {contact.city}</span></figcaption>
+            </figure>
+            <div>
+              <div className={styles.bio}>
+                <p>J’ai passé dix ans dans les opérations et la logistique : entrepôts, agences, transport. Je commence donc par comprendre votre activité, pas par parler de technique.</p>
+                <p>Je conçois et je code moi-même : ce site, noté {scoreRange} chez Google, comme des applications web et mobiles. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
+              </div>
+              <p className={styles.more}><Link href="/a-propos">Qui suis-je</Link><Link href="/projets">Mes réalisations</Link></p>
             </div>
-            <p className={styles.more}><Link href="/a-propos">Qui suis-je</Link><Link href="/projets">Mes réalisations</Link></p>
-          </>
+          </div>
         }
       />
 

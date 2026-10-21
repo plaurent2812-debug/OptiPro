@@ -23,20 +23,27 @@
 /* ============================================================
    Pourquoi moi
    ============================================================ */
-.bio { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 40px; max-width: 860px; margin-top: 28px; }
+.me { display: grid; grid-template-columns: 220px minmax(0, 1fr); align-items: start; gap: 32px 40px; max-width: 900px; margin-top: 32px; }
+.portrait { margin: 0; }
+.portrait img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border: 1px solid var(--line-2); border-radius: var(--r); background: var(--panel); }
+.portrait figcaption { margin-top: 12px; font-size: 1rem; font-weight: 600; letter-spacing: -.015em; }
+.portrait figcaption span { display: block; color: var(--tx-3); font-size: .875rem; font-weight: 450; }
+.bio { display: grid; gap: 16px; }
 .bio p { color: var(--tx-2); font-size: 1.0625rem; line-height: 1.6; text-wrap: pretty; }
 
 /* ============================================================
    Responsive
    ============================================================ */
 @media (max-width: 959.98px) {
-  .bio { grid-template-columns: minmax(0, 1fr); }
+  .me { grid-template-columns: 160px minmax(0, 1fr); }
   .heroVisual { grid-template-columns: minmax(0, 1fr); }
   .heroSide { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 759.98px) {
   /* sur téléphone, le site principal suffit ; les autres sont sur /projets */
   .heroSide { display: none; }
+  .me { grid-template-columns: minmax(0, 1fr); }
+  .portrait { width: 132px; }
   .site figcaption { flex-direction: column; gap: 8px; }
   .site figcaption > span { align-self: flex-start; }
 }

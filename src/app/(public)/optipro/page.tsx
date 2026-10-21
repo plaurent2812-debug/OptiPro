@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { contact, optipro } from "@/data/offer";
+import { contact, optipro, optiproAreaSchema, optiproOfferSchema } from "@/data/offer";
+import { mockups } from "@/data/examples";
 import { projects } from "@/data/projects";
 import { safeJsonLd } from "@/lib/json-ld";
 import OfferCard from "@/components/offer/OfferCard";
+import SiteMockup from "@/components/offer/SiteMockup";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
@@ -13,8 +15,9 @@ import { BrowserFrame, StatusPill } from "@/components/ui/Frames";
 import styles from "./optipro.module.css";
 
 export const metadata: Metadata = {
-  title: "OptiPro — Sites vitrines pour TPE et PME des Alpes-Maritimes",
-  description: `Création de sites vitrines pour les TPE et PME des Alpes-Maritimes : ${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, ${optipro.includedEdits}. ${optipro.vatNotice}.`,
+  // Recherches visées : « création de site internet » + Vence, Nice, Alpes-Maritimes.
+  title: { absolute: `Création de site internet à Vence et Nice (06) · ${optipro.brand}` },
+  description: `Création de site internet pour TPE et PME à Vence, Nice et dans les ${contact.area} : ${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, ${optipro.includedEdits}.`,
   alternates: { canonical: "/optipro" },
 };
 
@@ -30,7 +33,7 @@ const faq = [
   { q: "Et si j’ai besoin de plus d’une heure dans le mois ?", a: `Chaque heure supplémentaire est facturée ${optipro.extraHourPrice}.` },
   { q: "Combien de temps suis-je engagé ?", a: `${optipro.commitment}. Vous choisissez de payer chaque mois (${optipro.monthlyPrice}) ou en une fois pour l’année (${optipro.yearlyPrice}).` },
   { q: "Pourquoi n’y a-t-il pas de TVA ?", a: `En tant qu’entrepreneur individuel en franchise en base, je ne facture pas la TVA : ${optipro.vatNotice}. Les prix affichés sont ceux que vous payez.` },
-  { q: "Où intervenez-vous ?", a: `Dans les ${contact.area}. Je suis basé à ${contact.city}.` },
+  { q: "Où intervenez-vous ?", a: `Dans tout le département des ${contact.area} : Vence, Nice, Cagnes-sur-Mer, Saint-Laurent-du-Var, Antibes, Grasse… Je suis basé à ${contact.city}.` },
 ];
 
 const examples = ["ro-nutritionniste", "la-parallaxe", "le-fond-du-sujet"].map((slug) => projects.find((project) => project.slug === slug)!);
@@ -39,21 +42,14 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
   "@id": "https://pierre-laurent.fr/optipro#service",
-  name: "Création de sites vitrines OptiPro",
-  serviceType: "Création de site vitrine",
-  description: "Conception, mise en ligne et suivi de sites vitrines pour les TPE et PME des Alpes-Maritimes.",
+  name: "Création de site internet OptiPro",
+  serviceType: "Création de site internet",
+  description: "Conception, mise en ligne et suivi de sites internet vitrines pour les TPE et PME de Vence, de Nice et des Alpes-Maritimes.",
   provider: { "@id": "https://pierre-laurent.fr/#optipro" },
-  areaServed: { "@type": "AdministrativeArea", name: "Alpes-Maritimes" },
+  areaServed: optiproAreaSchema,
   url: "https://pierre-laurent.fr/optipro",
-  offers: {
-    "@type": "Offer",
-    priceCurrency: "EUR",
-    priceSpecification: [
-      { "@type": "UnitPriceSpecification", name: "Mise en ligne", price: 890, priceCurrency: "EUR" },
-      { "@type": "UnitPriceSpecification", name: "Abonnement mensuel", price: 79, priceCurrency: "EUR", unitCode: "MON" },
-      { "@type": "UnitPriceSpecification", name: "Abonnement annuel", price: 790, priceCurrency: "EUR", unitCode: "ANN" },
-    ],
-  },
+  isRelatedTo: { "@id": "https://pierre-laurent.fr/optipro/transport#service" },
+  offers: optiproOfferSchema,
 };
 
 export default function OptiProPage() {
@@ -63,10 +59,10 @@ export default function OptiProPage() {
 
       <PageHero
         titleId="optipro-title"
-        kicker={`${optipro.brand}, sites vitrines pour les ${optipro.audience}`}
+        kicker={`${optipro.brand}, création de sites internet pour les ${optipro.audience}`}
         tone="green"
         icon="site"
-        title="Un site professionnel pour votre entreprise, sans vous en occuper."
+        title={<>Création de site internet à Vence et Nice, <span>sans vous en occuper.</span></>}
         actions={
           <>
             <a className="btn btn-primary" href={contact.phoneHref}><Icon name="tel" /><span>Appeler le <span className="num">{contact.phoneDisplay}</span></span></a>
@@ -74,7 +70,7 @@ export default function OptiProPage() {
           </>
         }
       >
-        <p>Je conçois le site de votre entreprise, je le mets en ligne, puis je m’occupe de vos modifications chaque mois. <strong>Un seul interlocuteur et un prix clair, dans les {contact.area}.</strong></p>
+        <p>Je crée le site internet de votre entreprise, je le mets en ligne, puis je m’occupe de vos modifications chaque mois. <strong>Un seul interlocuteur et un prix clair, de Vence à Nice et partout dans les {contact.area}.</strong></p>
       </PageHero>
 
       <Section
@@ -90,6 +86,33 @@ export default function OptiProPage() {
       </Section>
 
       <Section
+        id="exemples"
+        titleId="examples-title"
+        tone="green"
+        icon="site"
+        tag="Exemples"
+        title="À quoi peut ressembler votre site"
+        lede="Trois maquettes réalisées pour des entreprises fictives, en attendant de pouvoir vous montrer des sites de clients. Les noms, les textes et les coordonnées sont inventés."
+        alt
+      >
+        <ul className={styles.mockups} aria-label="Maquettes d’exemple pour des entreprises fictives">
+          {mockups.map((mockup) => (
+            <li key={mockup.slug}>
+              <SiteMockup mockup={mockup} />
+              <span className={styles.exampleCaption}>
+                <span><b>{mockup.name}</b><span>{mockup.sector}, {mockup.city}</span></span>
+                <StatusPill tone="idle">Entreprise fictive</StatusPill>
+              </span>
+              <p className={styles.mockupShows}>{mockup.shows}</p>
+            </li>
+          ))}
+        </ul>
+        <p className={styles.sectorLink}>
+          <Link href="/optipro/transport" className={styles.textLink}><Icon name="truck" />Vous êtes transporteur ? Voir la page dédiée aux transporteurs</Link>
+        </p>
+      </Section>
+
+      <Section
         id="deroule"
         titleId="steps-title"
         tone="cyan"
@@ -97,7 +120,6 @@ export default function OptiProPage() {
         tag="Le déroulé"
         title="Comment ça se passe"
         lede="Quatre étapes, du premier appel au suivi mensuel. Vous n’avez rien de technique à gérer."
-        alt
       >
         <ol className={styles.steps}>
           {steps.map((step, index) => (
@@ -119,6 +141,7 @@ export default function OptiProPage() {
         tag="Au mois ou à l’année"
         title="Le même service, deux rythmes de paiement."
         lede={`Le site, le suivi et l’heure de modifications mensuelle, non cumulable, sont les mêmes. Seul le rythme de paiement change, après les ${optipro.setupPrice} de mise en ligne.`}
+        alt
       >
         <div className={styles.plans}>
           <article>
@@ -141,7 +164,6 @@ export default function OptiProPage() {
         icon="terrain"
         tag="Pourquoi moi"
         title="Quelqu’un qui connaît le terrain"
-        alt
         intro={
           <div className={styles.why}>
             <p>J’ai passé dix ans dans les opérations et la logistique, de l’entrepôt à la renégociation de contrats transporteurs. Je commence donc par comprendre votre activité, pas par parler de technique.</p>
@@ -167,7 +189,7 @@ export default function OptiProPage() {
         </ul>
       </Section>
 
-      <Section id="questions" titleId="faq-title" tone="cyan" icon="question" tag="Questions fréquentes" title="Vos questions">
+      <Section id="questions" titleId="faq-title" tone="cyan" icon="question" tag="Questions fréquentes" title="Vos questions" alt>
         <div className={styles.faq}>
           {faq.map((item) => (
             <details key={item.q}>

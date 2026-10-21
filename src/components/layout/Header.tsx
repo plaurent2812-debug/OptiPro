@@ -52,7 +52,8 @@ export default function Header() {
     };
   }, [pathname]);
 
-  const current = (href: string) => (pathname === href ? "page" : undefined);
+  // Une sous-page (ex. /optipro/transport) signale sa rubrique parente sans se faire passer pour elle.
+  const current = (href: string) => (pathname === href ? "page" : pathname.startsWith(`${href}/`) ? "true" : undefined);
 
   return (
     <>

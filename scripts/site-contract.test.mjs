@@ -10,6 +10,7 @@ const requiredFiles = [
   "src/app/(public)/mentions-legales/page.tsx",
   "src/app/(public)/confidentialite/page.tsx",
   "src/app/(public)/optipro/page.tsx",
+  "src/app/(public)/optipro/transport/page.tsx",
   "src/components/visuals/SystemMap.tsx",
   "src/components/visuals/SystemMap.module.css",
   "src/components/offer/OfferCard.tsx",
@@ -90,6 +91,29 @@ test("l’offre OptiPro affiche les conditions validées par Pierre", () => {
   assert.match(page, /contact\.emailHref/);
   const sitemap = readFileSync("src/app/sitemap.ts", "utf8");
   assert.match(sitemap, /\/optipro/);
+  assert.match(sitemap, /\/optipro\/transport/);
+});
+
+test("la page transporteurs vise la recherche locale sans inventer de références", () => {
+  const page = readFileSync("src/app/(public)/optipro/transport/page.tsx", "utf8");
+  assert.match(page, /Sites internet pour transporteurs des Alpes-Maritimes/);
+  assert.match(page, /canonical: "\/optipro\/transport"/);
+  assert.match(page, /"@type": "Service"/);
+  ["témoignage", "clients satisfaits", "aggregaterating", "\"review\"", "★"].forEach((word) => {
+    assert.equal(page.toLowerCase().includes(word), false, `preuve inventée possible : ${word}`);
+  });
+  const optiproPage = readFileSync("src/app/(public)/optipro/page.tsx", "utf8");
+  assert.match(optiproPage, /Création de site internet à Vence et Nice/);
+  assert.match(optiproPage, /href="\/optipro\/transport"/);
+});
+
+test("les maquettes d’exemple sont présentées comme fictives", () => {
+  const examples = readFileSync("src/data/examples.ts", "utf8");
+  const mockup = readFileSync("src/components/offer/SiteMockup.tsx", "utf8");
+  const pages = ["src/app/(public)/optipro/page.tsx", "src/app/(public)/optipro/transport/page.tsx"].map((file) => readFileSync(file, "utf8")).join("\n");
+  assert.match(examples, /inventés/);
+  assert.match(mockup, /entreprise fictive/);
+  assert.match(pages, /Entreprise fictive/);
 });
 
 test("les mentions légales reflètent l’activité et la franchise de TVA", () => {

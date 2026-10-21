@@ -84,13 +84,16 @@ test("l’accueil vend l’offre avant de présenter le parcours", () => {
   assert.match(home, /Création de site internet dans les Alpes-Maritimes/);
   assert.match(home, /<OfferCard \/>/);
   assert.match(home, /contact\.phoneHref/);
-  assert.match(home, /href="\/optipro\/transport"/);
+  // Le site parle de tous les métiers : la page transporteurs sert à la prospection, hors accueil et hors menu.
+  assert.match(home, /<Trades \/>/);
+  assert.doesNotMatch(home, /\/optipro\/transport/);
   assert.doesNotMatch(home, /@\/data\/profile|SystemMap/, "le parcours et le schéma de compétences restent sur /a-propos");
 
   const header = readFileSync("src/components/layout/Header.tsx", "utf8");
   const firstLink = header.match(/\{ href: "([^"]+)", label/);
   assert.equal(firstLink?.[1], "/optipro", "l’offre ouvre la navigation principale");
   assert.doesNotMatch(header, /href="\/cv"|Savoir-faire/, "le CV sort de la navigation principale");
+  assert.doesNotMatch(header, /href: "\/optipro\/transport"/, "la page transporteurs reste hors du menu");
 
   const footer = readFileSync("src/components/layout/Footer.tsx", "utf8");
   assert.match(footer, /href="\/cv"/, "le CV reste accessible depuis le pied de page");
@@ -122,7 +125,9 @@ test("la page transporteurs vise la recherche locale sans inventer de référenc
   });
   const optiproPage = readFileSync("src/app/(public)/optipro/page.tsx", "utf8");
   assert.match(optiproPage, /Création de site internet à Vence et Nice/);
-  assert.match(optiproPage, /href="\/optipro\/transport"/);
+  // Toujours accessible (et explorable par Google) depuis /optipro, via la carte « Transport et services ».
+  assert.match(optiproPage, /<Trades withPageLinks \/>/);
+  assert.match(readFileSync("src/data/offer.ts", "utf8"), /href: "\/optipro\/transport"/);
 });
 
 test("les pages commerciales montrent de vrais sites, sans maquette ni mention « personnelle »", () => {

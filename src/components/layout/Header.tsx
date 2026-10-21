@@ -11,7 +11,6 @@ import styles from "./layout.module.css";
 // Navigation commerciale : l’offre d’abord. Le CV reste accessible depuis le pied de page.
 const links = [
   { href: "/optipro", label: "Offre et tarifs" },
-  { href: "/optipro/transport", label: "Transporteurs" },
   { href: "/projets", label: "Réalisations" },
   { href: "/a-propos", label: "Qui suis-je" },
   { href: "/contact", label: "Contact" },

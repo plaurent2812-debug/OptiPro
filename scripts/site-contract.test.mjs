@@ -219,7 +219,15 @@ test("aucune donnée ni aucun projet Pharmagreen n’est présenté comme réali
   });
 });
 
-test("le site ne publie plus de portrait et conserve LinkedIn", () => {
+test("le seul portrait publié est celui fourni par Pierre", () => {
+  assert.equal(existsSync("public/pierre-laurent-portrait.webp"), true);
+  const portrait = readFileSync("src/data/portrait.ts", "utf8");
+  assert.match(portrait, /src: "\/pierre-laurent-portrait\.webp"/);
+  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /portrait\.src/);
+  assert.match(readFileSync("src/app/(public)/a-propos/page.tsx", "utf8"), /portrait\.src/);
+});
+
+test("les anciens portraits ne reviennent pas et LinkedIn est conservé", () => {
   ["public/pierre-laurent-tech-hero.png", "public/pierre-laurent.png"].forEach((file) => {
     assert.equal(existsSync(file), false, `${file} ne doit plus être publié`);
   });

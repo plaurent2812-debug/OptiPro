@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { careerHighlights, education, experiences, interests, languages, professionalProfile, skillGroups } from "@/data/profile";
+import { portrait } from "@/data/portrait";
 import { optipro } from "@/data/offer";
 import SystemMap from "@/components/visuals/SystemMap";
 import PageHero from "@/components/ui/PageHero";
@@ -32,7 +34,12 @@ export default function AboutPage() {
             <Link href="/cv" className="btn btn-ghost">Consulter mon CV</Link>
           </>
         }
-        after={<dl className={styles.highlights}>{careerHighlights.map((highlight) => <div key={highlight.value}><dt>{highlight.label}</dt><dd>{highlight.value}</dd></div>)}</dl>}
+        after={
+          <div className={styles.heroBottom}>
+            <Image className={styles.portrait} src={portrait.src} alt={portrait.alt} width={portrait.width} height={portrait.height} sizes="(max-width: 759px) 120px, 180px" priority />
+            <dl className={styles.highlights}>{careerHighlights.map((highlight) => <div key={highlight.value}><dt>{highlight.label}</dt><dd>{highlight.value}</dd></div>)}</dl>
+          </div>
+        }
       >
         <p>{professionalProfile.summary} La création numérique prolonge cette approche&nbsp;: comprendre un besoin, puis concevoir une solution qui fonctionne. <strong>Sous la marque {optipro.brand}, je crée les sites internet des {optipro.audience} des Alpes-Maritimes.</strong></p>
       </PageHero>

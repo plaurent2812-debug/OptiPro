@@ -45,7 +45,7 @@ const jsonLd = {
       "@type": "ProfessionalService",
       "@id": "https://pierre-laurent.fr/#optipro",
       name: "OptiPro",
-      description: "Création de sites internet pour les TPE et PME des Alpes-Maritimes : conception, mise en ligne et mises à jour mensuelles.",
+      description: `Création de sites internet pour les TPE et PME des ${contact.area}, et ${contact.remoteArea} : conception, mise en ligne et mises à jour mensuelles.`,
       url: "https://pierre-laurent.fr/optipro",
       founder: { "@id": "https://pierre-laurent.fr/#pierre-laurent" },
       email: contact.email,

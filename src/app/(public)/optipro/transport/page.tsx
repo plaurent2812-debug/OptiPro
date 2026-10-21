@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { contact, optipro, optiproAreaSchema, optiproOfferSchema } from "@/data/offer";
-import { mockupBySlug } from "@/data/examples";
 import { safeJsonLd } from "@/lib/json-ld";
 import OfferCard from "@/components/offer/OfferCard";
-import SiteMockup from "@/components/offer/SiteMockup";
+import SiteShowcase from "@/components/offer/SiteShowcase";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon, { type IconName } from "@/components/ui/Icon";
-import { StatusPill } from "@/components/ui/Frames";
 import styles from "../optipro.module.css";
 
 // Page à joindre aux e-mails de prospection des transporteurs du 06.
@@ -37,8 +35,6 @@ const features: { icon: IconName; title: string; copy: string }[] = [
     copy: "Une heure de modifications est comprise chaque mois : nouvelle offre d’emploi, nouveau service, nouvelles photos de la flotte. Vous m’appelez ou vous m’écrivez, je m’en occupe.",
   },
 ];
-
-const example = mockupBySlug("transport");
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -108,22 +104,16 @@ export default function OptiProTransportPage() {
       </Section>
 
       <Section
-        id="exemple"
+        id="exemples"
         titleId="example-title"
         tone="green"
         icon="site"
-        tag="Exemple"
-        title="Une page d’accueil de transporteur"
-        lede="Maquette réalisée pour une entreprise fictive : le nom, les textes et les trajets sont inventés. Votre site reprend votre activité, vos véhicules et votre zone."
+        tag="Exemples"
+        title="Des sites réalisés"
+        lede="Conçus et développés de bout en bout. Le vôtre reprend votre activité, vos véhicules et votre zone, avec la demande de devis et la page de recrutement."
         alt
       >
-        <figure className={styles.showcase}>
-          <SiteMockup mockup={example} />
-          <figcaption className={styles.exampleCaption}>
-            <span><b>{example.name}</b><span>{example.shows}</span></span>
-            <StatusPill tone="idle">Entreprise fictive</StatusPill>
-          </figcaption>
-        </figure>
+        <SiteShowcase />
       </Section>
 
       <Section

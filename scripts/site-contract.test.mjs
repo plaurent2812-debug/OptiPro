@@ -125,13 +125,26 @@ test("la page transporteurs vise la recherche locale sans inventer de référenc
   assert.match(optiproPage, /href="\/optipro\/transport"/);
 });
 
-test("les maquettes d’exemple sont présentées comme fictives", () => {
-  const examples = readFileSync("src/data/examples.ts", "utf8");
-  const mockup = readFileSync("src/components/offer/SiteMockup.tsx", "utf8");
-  const pages = ["src/app/(public)/optipro/page.tsx", "src/app/(public)/optipro/transport/page.tsx"].map((file) => readFileSync(file, "utf8")).join("\n");
-  assert.match(examples, /inventés/);
-  assert.match(mockup, /entreprise fictive/);
-  assert.match(pages, /Entreprise fictive/);
+test("les pages commerciales montrent de vrais sites, sans maquette ni mention « personnelle »", () => {
+  ["src/components/offer/SiteMockup.tsx", "src/data/examples.ts"].forEach((file) => assert.equal(existsSync(file), false, `${file} ne doit plus exister`));
+  const showcase = readFileSync("src/data/projects.ts", "utf8");
+  assert.match(showcase, /showcaseSites = \(\["ro-nutritionniste", "la-parallaxe", "le-fond-du-sujet"\]/);
+  const pages = ["src/app/(public)/page.tsx", "src/app/(public)/optipro/page.tsx", "src/app/(public)/optipro/transport/page.tsx", "src/components/offer/SiteShowcase.tsx"].map((file) => readFileSync(file, "utf8")).join("\n");
+  assert.match(pages, /showcaseSites|<SiteShowcase \/>/);
+  // Le statut réel de chaque site reste affiché (« Démonstration », « En ligne ») : aucun faux client.
+  assert.match(pages, /site\.badge/);
+  ["maquette", "fictive", "projet personnel", "projets personnels", "mes sites", "par mes soins"].forEach((phrase) => {
+    assert.equal(pages.toLowerCase().includes(phrase), false, `formulation à retirer des pages commerciales : ${phrase}`);
+  });
+});
+
+test("la zone reste locale dans les titres et s’ouvre à toute la France à distance", () => {
+  const offer = readFileSync("src/data/offer.ts", "utf8");
+  assert.match(offer, /remoteArea: "partout en France à distance"/);
+  assert.match(offer, /"@type": "Country", name: "France"/);
+  assert.match(readFileSync("src/components/offer/OfferCard.tsx", "utf8"), /contact\.remoteArea/);
+  assert.match(readFileSync("src/app/(public)/optipro/page.tsx", "utf8"), /Où intervenez-vous \?.*contact\.remoteArea/);
+  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /Création de site internet dans les Alpes-Maritimes/);
 });
 
 test("les mentions légales reflètent l’activité et la franchise de TVA", () => {

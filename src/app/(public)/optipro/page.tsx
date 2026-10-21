@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { contact, optipro, optiproAreaSchema, optiproOfferSchema } from "@/data/offer";
-import { mockups } from "@/data/examples";
-import { projects } from "@/data/projects";
 import { safeJsonLd } from "@/lib/json-ld";
 import OfferCard from "@/components/offer/OfferCard";
-import SiteMockup from "@/components/offer/SiteMockup";
+import SiteShowcase from "@/components/offer/SiteShowcase";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon from "@/components/ui/Icon";
-import { BrowserFrame, StatusPill } from "@/components/ui/Frames";
 import styles from "./optipro.module.css";
 
 export const metadata: Metadata = {
@@ -33,10 +29,8 @@ const faq = [
   { q: "Et si j’ai besoin de plus d’une heure dans le mois ?", a: `Chaque heure supplémentaire est facturée ${optipro.extraHourPrice}.` },
   { q: "Combien de temps suis-je engagé ?", a: `${optipro.commitment}. Vous choisissez de payer chaque mois (${optipro.monthlyPrice}) ou en une fois pour l’année (${optipro.yearlyPrice}).` },
   { q: "Pourquoi n’y a-t-il pas de TVA ?", a: `En tant qu’entrepreneur individuel en franchise en base, je ne facture pas la TVA : ${optipro.vatNotice}. Les prix affichés sont ceux que vous payez.` },
-  { q: "Où intervenez-vous ?", a: `Dans tout le département des ${contact.area} : Vence, Nice, Cagnes-sur-Mer, Saint-Laurent-du-Var, Antibes, Grasse… Je suis basé à ${contact.city}.` },
+  { q: "Où intervenez-vous ?", a: `Je suis basé à ${contact.city} et j’interviens dans tout le département des ${contact.area} : Vence, Nice, Cagnes-sur-Mer, Saint-Laurent-du-Var, Antibes, Grasse… Et ${contact.remoteArea} : tout se fait par téléphone et par e-mail.` },
 ];
-
-const examples = ["ro-nutritionniste", "la-parallaxe", "le-fond-du-sujet"].map((slug) => projects.find((project) => project.slug === slug)!);
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -70,7 +64,7 @@ export default function OptiProPage() {
           </>
         }
       >
-        <p>Je crée le site internet de votre entreprise, je le mets en ligne, puis je m’occupe de vos modifications chaque mois. <strong>Un seul interlocuteur et un prix clair, de Vence à Nice et partout dans les {contact.area}.</strong></p>
+        <p>Je crée le site internet de votre entreprise, je le mets en ligne, puis je m’occupe de vos modifications chaque mois. <strong>Un seul interlocuteur et un prix clair, de Vence à Nice, et {contact.remoteArea}.</strong></p>
       </PageHero>
 
       <Section
@@ -91,22 +85,11 @@ export default function OptiProPage() {
         tone="green"
         icon="site"
         tag="Exemples"
-        title="À quoi peut ressembler votre site"
-        lede="Trois maquettes réalisées pour des entreprises fictives, en attendant de pouvoir vous montrer des sites de clients. Les noms, les textes et les coordonnées sont inventés."
+        title="Des sites réalisés"
+        lede="Un site vitrine et deux sites éditoriaux, conçus et développés de bout en bout. Votre site est construit de la même façon, à partir de votre activité."
         alt
       >
-        <ul className={styles.mockups} aria-label="Maquettes d’exemple pour des entreprises fictives">
-          {mockups.map((mockup) => (
-            <li key={mockup.slug}>
-              <SiteMockup mockup={mockup} />
-              <span className={styles.exampleCaption}>
-                <span><b>{mockup.name}</b><span>{mockup.sector}, {mockup.city}</span></span>
-                <StatusPill tone="idle">Entreprise fictive</StatusPill>
-              </span>
-              <p className={styles.mockupShows}>{mockup.shows}</p>
-            </li>
-          ))}
-        </ul>
+        <SiteShowcase />
         <p className={styles.sectorLink}>
           <Link href="/optipro/transport" className={styles.textLink}><Icon name="truck" />Vous êtes transporteur ? Voir la page dédiée aux transporteurs</Link>
         </p>
@@ -171,23 +154,7 @@ export default function OptiProPage() {
             <Link href="/a-propos" className={styles.textLink}>Qui suis-je</Link>
           </div>
         }
-      >
-        <ul className={styles.examples} aria-label="Exemples de sites réalisés">
-          {examples.map((project) => (
-            <li key={project.slug}>
-              <Link href={`/projets#${project.slug}`}>
-                <BrowserFrame label={project.name}>
-                  <Image src={project.image} alt={project.imageAlt} width={project.imageWidth} height={project.imageHeight} sizes="(max-width: 959px) 94vw, 400px" />
-                </BrowserFrame>
-                <span className={styles.exampleCaption}>
-                  <span><b>{project.name}</b><span>{project.pitch}</span></span>
-                  <StatusPill tone={project.badgeTone}>{project.badge}</StatusPill>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Section>
+      />
 
       <Section id="questions" titleId="faq-title" tone="cyan" icon="question" tag="Questions fréquentes" title="Vos questions" alt>
         <div className={styles.faq}>

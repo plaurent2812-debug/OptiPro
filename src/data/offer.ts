@@ -8,6 +8,8 @@ export const contact = {
   emailHref: "mailto:p.laurent@opti-pro.fr",
   city: "Vence",
   area: "Alpes-Maritimes",
+  // Le local reste l’ancrage (titres, recherche) ; le reste de la France se gère à distance.
+  remoteArea: "partout en France à distance",
   linkedin: "https://www.linkedin.com/in/pierre-laurent-809410123",
   github: "https://github.com/plaurent2812-debug",
 };
@@ -43,4 +45,5 @@ export const optiproAreaSchema = [
   { "@type": "AdministrativeArea", name: contact.area },
   { "@type": "City", name: "Vence" },
   { "@type": "City", name: "Nice" },
+  { "@type": "Country", name: "France" },
 ];

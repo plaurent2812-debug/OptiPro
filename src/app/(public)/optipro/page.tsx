@@ -27,7 +27,9 @@ const steps = [
 const faq = [
   { q: "Que se passe-t-il si je n’utilise pas mon heure de modifications ?", a: "Elle n’est pas reportée sur le mois suivant : l’heure de modifications mensuelle n’est pas cumulable." },
   { q: "Et si j’ai besoin de plus d’une heure dans le mois ?", a: `Chaque heure supplémentaire est facturée ${optipro.extraHourPrice}.` },
-  { q: "Combien de temps suis-je engagé ?", a: `${optipro.commitment}. Vous choisissez de payer chaque mois (${optipro.monthlyPrice}) ou en une fois pour l’année (${optipro.yearlyPrice}).` },
+  { q: "Combien de temps suis-je engagé ?", a: `${optipro.commitment}. Vous choisissez de payer chaque mois (${optipro.monthlyPrice}) ou en une fois pour l’année (${optipro.yearlyPrice}). ${optipro.afterCommitment}` },
+  { q: "L’hébergement et le nom de domaine sont-ils compris ?", a: `Oui. ${optipro.hostingIncluded} dans l’abonnement : vous n’avez ni hébergeur à choisir ni renouvellement à surveiller.` },
+  { q: "À qui appartient mon site ?", a: `À vous. ${optipro.ownership}` },
   { q: "Pourquoi n’y a-t-il pas de TVA ?", a: `En tant qu’entrepreneur individuel en franchise en base, je ne facture pas la TVA : ${optipro.vatNotice}. Les prix affichés sont ceux que vous payez.` },
   { q: "Où intervenez-vous ?", a: `Je suis basé à ${contact.city} et j’interviens dans tout le département des ${contact.area} : Vence, Nice, Cagnes-sur-Mer, Saint-Laurent-du-Var, Antibes, Grasse… Et ${contact.remoteArea} : tout se fait par téléphone et par e-mail.` },
 ];

@@ -42,7 +42,8 @@ export default function OfferCard() {
         <div className={styles.specs}>
           <h3>Ce qui est compris</h3>
           <dl>
-            <div><dt>Engagement</dt><dd>{optipro.commitment}</dd></div>
+            <div><dt>Engagement</dt><dd>{optipro.commitment}<small>puis sans engagement, préavis d’{optipro.noticePeriod}</small></dd></div>
+            <div><dt>Hébergement et domaine</dt><dd>Compris<small>domaine à votre nom</small></dd></div>
             <div><dt>Modifications incluses</dt><dd>{optipro.includedTime} par mois<small>non cumulable</small></dd></div>
             <div><dt>Au-delà</dt><dd>{optipro.extraHourPrice} de l’heure</dd></div>
             <div><dt>Zone</dt><dd>{contact.area}<small>et {contact.remoteArea}</small></dd></div>

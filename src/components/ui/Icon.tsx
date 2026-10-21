@@ -11,6 +11,7 @@ const paths = {
   lock: <><rect x="5" y="10.5" width="14" height="10" rx="2" /><path d="M8.5 10.5V8a3.5 3.5 0 0 1 7 0v2.5" /></>,
   question: <><circle cx="12" cy="12" r="9" /><path d="M9.6 9.4a2.5 2.5 0 0 1 4.8.9c0 1.7-2.4 2.2-2.4 3.7" /><path d="M12 17h.01" /></>,
   doc: <><path d="M6 3h8l4 4v14H6z" /><path d="M14 3v4h4" /><path d="M9 12h6M9 15.5h6" /></>,
+  check: <path d="M5 12.6l4.4 4.4L19 7.4" />,
   truck: <><path d="M2.5 6.5h11v10h-11z" /><path d="M13.5 9.5h4.2l2.8 3.3v3.7h-7" /><circle cx="6.5" cy="17.6" r="1.7" /><circle cx="17" cy="17.6" r="1.7" /></>,
   user: <><circle cx="12" cy="8.5" r="3.8" /><path d="M4.5 20.5c1.2-3.6 4-5.4 7.5-5.4s6.3 1.8 7.5 5.4" /></>,
 } as const;

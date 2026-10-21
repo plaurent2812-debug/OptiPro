@@ -8,6 +8,9 @@ import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import styles from "@/components/profile/profile.module.css";
 
+// Qui suis-je présente le créateur de sites : le poste salarié actuel reste sur le CV (choix de Pierre, 21/10/2026).
+const aboutExperiences = experiences.filter((experience) => experience.id !== "pharmagreen");
+
 export const metadata: Metadata = {
   title: "Qui suis-je",
   description: `Pierre Laurent, créateur des sites ${optipro.brand} à Vence : dix ans dans les opérations et la logistique, puis la création de sites, d’applications et d’automatisations.`,
@@ -45,7 +48,6 @@ export default function AboutPage() {
             <h2 id="journey-title">De l’exécution au pilotage.</h2>
             <p>Entrepôt, agence, logistique, exploitation&nbsp;: une vision des opérations construite à chaque étape.</p>
             <nav aria-label="Étapes du parcours">
-              <a href="#pharmagreen">Pharmagreen, 2026</a>
               <a href="#gl-events">GL Events Live, 2025</a>
               <a href="#factory">Factory, 2019</a>
               <a href="#eddifis">Les premières responsabilités</a>
@@ -54,8 +56,8 @@ export default function AboutPage() {
             <p className={styles.asideMeta}>Vence, Alpes-Maritimes<br />Français, anglais bilingue</p>
           </aside>
           <ol className={styles.timeline} aria-label="Expériences professionnelles">
-            {experiences.map((experience) => (
-              <li className={styles.experience} id={experience.id} key={experience.id}>
+            {aboutExperiences.map((experience) => (
+              <li className={styles.experience} id={experience.id} key={experience.id} data-current={experience.timeline?.current || undefined}>
                 <div className={styles.experienceMeta}><span>{experience.period}</span><span>{experience.marker.charAt(0) + experience.marker.slice(1).toLowerCase()}</span></div>
                 <h3>{experience.company}</h3>
                 <p className={styles.role}>{experience.role}</p>

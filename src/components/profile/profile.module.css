@@ -19,7 +19,8 @@
 .timeline { position: relative; }
 .experience { position: relative; padding: 0 0 48px 32px; border-left: 1px solid color-mix(in srgb, var(--amber) 45%, var(--line-2)); scroll-margin-top: calc(var(--header-height) + 24px); }
 .experience::before { content: ""; position: absolute; top: 6px; left: -5px; width: 9px; height: 9px; border: 1px solid var(--amber); border-radius: 50%; background: var(--bg); }
-.experience:first-child::before { background: var(--amber); box-shadow: 0 0 0 3px rgba(240, 169, 64, .2); }
+/* point plein réservé à un poste en cours */
+.experience[data-current]::before { background: var(--amber); box-shadow: 0 0 0 3px rgba(240, 169, 64, .2); }
 .experience:last-child { padding-bottom: 0; border-left-color: transparent; }
 .experienceMeta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; color: var(--tx-3); font-size: .875rem; font-variant-numeric: tabular-nums; }
 .experienceMeta span:first-child { color: var(--amber); font-weight: 550; }

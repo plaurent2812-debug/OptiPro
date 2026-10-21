@@ -36,7 +36,27 @@ export const optipro = {
   ownership: "Le nom de domaine est enregistré à votre nom, et le site comme ses contenus vous appartiennent : vous pouvez partir avec.",
   noticePeriod: "un mois",
   afterCommitment: "Après les 12 mois, l’abonnement continue sans engagement : vous pouvez l’arrêter à tout moment, avec un préavis d’un mois.",
+  // Délai et contenu de la mise en ligne confirmés par Pierre le 21 octobre 2026.
+  deliveryTime: "3 semaines",
 };
+
+// Ce que comprend la mise en ligne : uniquement des éléments confirmés par Pierre.
+export const deliverables = [
+  { icon: "site", title: "Un site conçu pour votre activité", copy: "Les pages sont construites à partir de ce que vous m’expliquez : vos services, vos clients, votre zone." },
+  { icon: "doc", title: "Vos textes rédigés", copy: "J’écris les textes à partir de notre échange. Vous relisez et vous validez." },
+  { icon: "terrain", title: "Le référencement local", copy: "Search Console, plan du site, balises et données structurées pour votre ville et votre métier." },
+  { icon: "auto", title: "Un rapport de vitesse", copy: "Votre site est livré avec sa mesure Google Lighthouse : vitesse, accessibilité, bonnes pratiques, référencement." },
+  { icon: "app", title: "Lisible sur téléphone", copy: "Pensé d’abord pour le téléphone, et votre numéro s’appelle d’un geste." },
+  { icon: "lock", title: "Hébergement et domaine compris", copy: "Le nom de domaine est à votre nom. Vous n’avez rien à renouveler." },
+] as const;
+
+// Garanties : chacune découle d’une condition publiée ci-dessus.
+export const guarantees = [
+  { title: `En ligne en ${optipro.deliveryTime}`, copy: "À partir de notre premier échange, une fois vos informations reçues." },
+  { title: "Un prix affiché, sans surprise", copy: `${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an. Au-delà de l’heure mensuelle, ${optipro.extraHourPrice} de l’heure.` },
+  { title: "Votre site vous appartient", copy: optipro.ownership },
+  { title: "Sans engagement après 12 mois", copy: `L’abonnement continue tant qu’il vous sert, avec un préavis d’${optipro.noticePeriod} pour l’arrêter.` },
+] as const;
 
 // Mêmes conditions, sous forme de données structurées (schema.org) pour les pages /optipro.
 export const optiproOfferSchema = {

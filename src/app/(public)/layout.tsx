@@ -24,7 +24,7 @@ const jsonLd = {
         addressRegion: contact.area,
         addressCountry: "FR",
       },
-      sameAs: [contact.github, contact.linkedin],
+      sameAs: [contact.github, contact.linkedin, contact.googleMaps],
       knowsAbout: [
         "Pilotage des opérations",
         "Logistique",
@@ -59,6 +59,7 @@ const jsonLd = {
         addressCountry: "FR",
       },
       areaServed: optiproAreaSchema,
+      sameAs: [contact.googleMaps],
       priceRange: "890 € puis 79 € par mois",
     },
     {

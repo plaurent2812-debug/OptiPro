@@ -12,6 +12,8 @@ export const contact = {
   remoteArea: "partout en France à distance",
   linkedin: "https://www.linkedin.com/in/pierre-laurent-809410123",
   github: "https://github.com/plaurent2812-debug",
+  // Fiche Google de l’établissement OptiPro sur Maps (validée, mise à jour le 22 octobre 2026).
+  googleMaps: "https://www.google.com/maps?cid=18086748904423946936",
 };
 
 export const optipro = {

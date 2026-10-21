@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { projects, type ProductProject } from "@/data/projects";
+import { showcaseSites, type ProductProject } from "@/data/projects";
 import { contact, optipro } from "@/data/offer";
-import { mockupBySlug } from "@/data/examples";
 import OfferCard from "@/components/offer/OfferCard";
-import SiteMockup from "@/components/offer/SiteMockup";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
@@ -21,9 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-const project = (slug: ProductProject["slug"]) => projects.find((item) => item.slug === slug)!;
-const [featuredSite, ...otherSites] = [project("ro-nutritionniste"), project("la-parallaxe"), project("le-fond-du-sujet")];
-const [heroMockup, ...sideMockups] = [mockupBySlug("transport"), mockupBySlug("plomberie"), mockupBySlug("traiteur")];
+const [featuredSite, ...otherSites] = showcaseSites;
 
 const benefits: { icon: IconName; title: string; copy: string }[] = [
   { icon: "site", title: "Un site à votre image", copy: "Je construis les pages à partir de ce que vous m’expliquez : votre activité, vos clients, votre zone. Vous n’avez rien de technique à gérer." },
@@ -57,11 +53,27 @@ export default function HomePage() {
           </>
         }
         after={
-          <figure className={styles.heroVisual}>
-            <div className={styles.heroMain}><SiteMockup mockup={heroMockup} /></div>
-            <div className={styles.heroSide}>{sideMockups.map((mockup) => <SiteMockup key={mockup.slug} mockup={mockup} />)}</div>
-            <figcaption>Maquettes réalisées pour des entreprises fictives.</figcaption>
-          </figure>
+          <div className={styles.heroVisual}>
+            <div className={styles.heroMain}>
+              <figure className={styles.site}>
+                <BrowserFrame label={featuredSite.name}>
+                  <Image src={featuredSite.image} alt={featuredSite.imageAlt} width={featuredSite.imageWidth} height={featuredSite.imageHeight} sizes="(max-width: 959px) 94vw, 820px" priority />
+                </BrowserFrame>
+                <SiteCaption site={featuredSite} />
+              </figure>
+              <p className={styles.more}><Link href="/projets">Voir toutes les réalisations</Link></p>
+            </div>
+            <div className={styles.heroSide}>
+              {otherSites.map((site) => (
+                <figure key={site.slug} className={styles.site}>
+                  <BrowserFrame label={site.name}>
+                    <Image src={site.image} alt={site.imageAlt} width={site.imageWidth} height={site.imageHeight} sizes="(max-width: 959px) 47vw, 400px" />
+                  </BrowserFrame>
+                  <SiteCaption site={site} />
+                </figure>
+              ))}
+            </div>
+          </div>
         }
       >
         <p>Je conçois le site de votre entreprise, je le mets en ligne, puis je le tiens à jour chaque mois. <strong>{optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois.</strong></p>
@@ -88,33 +100,6 @@ export default function HomePage() {
         </ul>
       </Section>
 
-      <Section
-        id="realisations"
-        titleId="sites-title"
-        tone="green"
-        icon="site"
-        tag="Sites réalisés"
-        title="Des sites que j’ai conçus et mis en ligne."
-        lede="Une démonstration de site professionnel et deux sites éditoriaux en ligne, réalisés de bout en bout par mes soins."
-      >
-        <div className={styles.sites}>
-          <figure className={`${styles.site} ${styles.siteBig}`}>
-            <BrowserFrame label={featuredSite.name}>
-              <Image src={featuredSite.image} alt={featuredSite.imageAlt} width={featuredSite.imageWidth} height={featuredSite.imageHeight} sizes="(max-width: 1290px) 94vw, 1240px" />
-            </BrowserFrame>
-            <SiteCaption site={featuredSite} />
-          </figure>
-          {otherSites.map((site) => (
-            <figure key={site.slug} className={styles.site}>
-              <BrowserFrame label={site.name}>
-                <Image src={site.image} alt={site.imageAlt} width={site.imageWidth} height={site.imageHeight} sizes="(max-width: 959px) 94vw, 610px" />
-              </BrowserFrame>
-              <SiteCaption site={site} />
-            </figure>
-          ))}
-        </div>
-        <p className={styles.more}><Link href="/projets">Voir toutes mes réalisations</Link></p>
-      </Section>
 
       <Section
         id="tarif"
@@ -124,7 +109,6 @@ export default function HomePage() {
         tag={`L’offre ${optipro.brand}`}
         title="Votre site internet, clé en main, à un prix clair."
         lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Engagement de ${optipro.commitment}.`}
-        alt
       >
         <OfferCard />
         <p className={styles.more}><Link href="/optipro">Voir le détail de l’offre, le déroulé et les questions fréquentes</Link></p>
@@ -138,6 +122,7 @@ export default function HomePage() {
         tag="Transporteurs"
         title="Vous êtes transporteur dans le 06 ?"
         lede="Une page dédiée à votre métier : demande de devis guidée, recrutement de conducteurs, site géré pour vous."
+        alt
         intro={<p className={styles.more}><Link href="/optipro/transport">Voir l’offre pour les transporteurs</Link></p>}
       />
 
@@ -148,7 +133,6 @@ export default function HomePage() {
         icon="terrain"
         tag="Pourquoi moi"
         title="Dix ans sur le terrain avant de faire des sites."
-        alt
         intro={
           <>
             <div className={styles.bio}>

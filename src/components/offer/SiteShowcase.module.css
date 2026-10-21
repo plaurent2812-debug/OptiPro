@@ -1,0 +1,14 @@
+.sites { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.sites a { display: block; }
+.caption { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 14px 2px 0; }
+.caption b { display: block; font-size: 1.0625rem; font-weight: 600; letter-spacing: -.015em; }
+.caption > span:first-child > span { display: block; color: var(--tx-3); font-size: .875rem; }
+.sites a:hover b { text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 5px; }
+
+@media (max-width: 959.98px) {
+  .sites { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 759.98px) {
+  .caption { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .caption > :last-child { align-self: flex-start; }
+}

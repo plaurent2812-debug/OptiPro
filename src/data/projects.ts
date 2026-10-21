@@ -229,3 +229,6 @@ export const projects: ProductProject[] = [
     reach: "iOS",
   },
 ];
+
+// Sites présentés comme exemples sur les pages commerciales (accueil, offre, transporteurs).
+export const showcaseSites = (["ro-nutritionniste", "la-parallaxe", "le-fond-du-sujet"] as const).map((slug) => projects.find((project) => project.slug === slug)!);

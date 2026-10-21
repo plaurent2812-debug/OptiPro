@@ -45,7 +45,7 @@ export default function OfferCard() {
             <div><dt>Engagement</dt><dd>{optipro.commitment}</dd></div>
             <div><dt>Modifications incluses</dt><dd>{optipro.includedTime} par mois<small>non cumulable</small></dd></div>
             <div><dt>Au-delà</dt><dd>{optipro.extraHourPrice} de l’heure</dd></div>
-            <div><dt>Zone</dt><dd>{contact.area}</dd></div>
+            <div><dt>Zone</dt><dd>{contact.area}<small>et {contact.remoteArea}</small></dd></div>
           </dl>
           <div className={styles.cta}>
             <a className="btn btn-primary" href={contact.phoneHref}><Icon name="tel" /><span>Appeler le <span className="num">{contact.phoneDisplay}</span></span></a>

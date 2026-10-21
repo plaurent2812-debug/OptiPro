@@ -147,6 +147,23 @@ test("la zone reste locale dans les titres et s’ouvre à toute la France à di
   assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /Création de site internet dans les Alpes-Maritimes/);
 });
 
+test("le guide des prix ne cite que des chiffres sourcés ou tirés de l’offre", () => {
+  const guide = readFileSync("src/app/(public)/optipro/prix-site-internet/page.tsx", "utf8");
+  const market = readFileSync("src/data/market.ts", "utf8");
+  assert.match(market, /lafabriquedunet\.fr\/agences\/pages\/agences-site-internet\/tarifs/);
+  assert.match(market, /consulted: "21 octobre 2026"/);
+  assert.match(guide, /marketSource\.url/);
+  assert.match(guide, /canonical: "\/optipro\/prix-site-internet"/);
+  // Aucun montant écrit en dur dans la page : tout vient de data/market.ts ou de data/offer.ts.
+  assert.doesNotMatch(guide, /\d[\d\u202f\u00a0 ]*(?:€|euros)/, "montant en dur dans le guide");
+  const offer = readFileSync("src/data/offer.ts", "utf8");
+  assert.match(offer, /firstYearMonthly: "1 838 €"/);
+  assert.match(offer, /firstYearYearly: "1 680 €"/);
+  assert.match(readFileSync("src/app/sitemap.ts", "utf8"), /\/optipro\/prix-site-internet/);
+  assert.match(readFileSync("src/app/(public)/optipro/page.tsx", "utf8"), /href="\/optipro\/prix-site-internet"/);
+  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /href="\/optipro\/prix-site-internet"/);
+});
+
 test("les mentions légales reflètent l’activité et la franchise de TVA", () => {
   const legal = readFileSync("src/app/(public)/mentions-legales/page.tsx", "utf8");
   assert.doesNotMatch(legal, /ne propose pas de prestations/i);

@@ -148,7 +148,7 @@ export default function OptiProTransportPage() {
         </p>
       </Section>
 
-      <CallBlock titleId="cta-title" title="Vous êtes transporteur dans le 06 ? Un appel suffit pour savoir si l’offre vous convient." />
+      <CallBlock titleId="cta-title" title="Vous êtes transporteur dans le 06 ? Un appel suffit pour savoir si l’offre vous convient." />
     </main>
   );
 }

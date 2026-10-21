@@ -27,3 +27,20 @@ export const optipro = {
   extraHourPrice: "60 €",
   vatNotice: "TVA non applicable, art. 293 B du CGI",
 };
+
+// Mêmes conditions, sous forme de données structurées (schema.org) pour les pages /optipro.
+export const optiproOfferSchema = {
+  "@type": "Offer",
+  priceCurrency: "EUR",
+  priceSpecification: [
+    { "@type": "UnitPriceSpecification", name: "Mise en ligne", price: 890, priceCurrency: "EUR" },
+    { "@type": "UnitPriceSpecification", name: "Abonnement mensuel", price: 79, priceCurrency: "EUR", unitCode: "MON" },
+    { "@type": "UnitPriceSpecification", name: "Abonnement annuel", price: 790, priceCurrency: "EUR", unitCode: "ANN" },
+  ],
+};
+
+export const optiproAreaSchema = [
+  { "@type": "AdministrativeArea", name: contact.area },
+  { "@type": "City", name: "Vence" },
+  { "@type": "City", name: "Nice" },
+];

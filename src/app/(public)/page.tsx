@@ -140,7 +140,7 @@ export default function HomePage() {
             <div>
               <div className={styles.bio}>
                 <p>J’ai passé dix ans dans les opérations et la logistique : entrepôts, agences, transport. Je commence donc par comprendre votre activité, pas par parler de technique.</p>
-                <p>Je conçois et je code moi-même : ce site, noté {scoreRange} chez Google, comme des applications web et mobiles. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
+                <p>Je conçois et je réalise ce site, noté {scoreRange} chez Google, comme des applications web et mobiles. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
               </div>
               <p className={styles.more}><Link href="/a-propos">Qui suis-je</Link><Link href="/projets">Mes réalisations</Link></p>
             </div>

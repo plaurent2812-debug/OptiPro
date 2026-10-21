@@ -228,6 +228,15 @@ test("la barre d’appel fixe n’existe que sur téléphone", () => {
   assert.match(readFileSync("src/components/layout/MobileCallBar.tsx", "utf8"), /contact\.phoneHref/);
 });
 
+test("le site ne prétend pas que Pierre code lui-même ses sites", () => {
+  // Les sites et applications sont réalisés avec des outils d’IA (Claude, Codex) : formulation neutre « je conçois et je réalise ».
+  const files = ["src/app/(public)/page.tsx", "src/app/(public)/optipro/page.tsx", "src/app/(public)/optipro/transport/page.tsx", "src/app/(public)/a-propos/page.tsx", "src/app/(public)/projets/page.tsx", "src/data/system.ts", "src/data/projects.ts", "src/data/offer.ts"];
+  const text = files.map((file) => readFileSync(file, "utf8")).join("\n").toLowerCase();
+  ["je code", "code moi-même", "développe moi-même", "je développe", "développés de bout en bout", "conçus et développés"].forEach((phrase) => {
+    assert.equal(text.includes(phrase), false, `affirmation inexacte : ${phrase}`);
+  });
+});
+
 test("les mentions légales reflètent l’activité et la franchise de TVA", () => {
   const legal = readFileSync("src/app/(public)/mentions-legales/page.tsx", "utf8");
   assert.doesNotMatch(legal, /ne propose pas de prestations/i);

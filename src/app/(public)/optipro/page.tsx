@@ -7,6 +7,7 @@ import SiteShowcase from "@/components/offer/SiteShowcase";
 import ProofStrip from "@/components/offer/ProofStrip";
 import Deliverables from "@/components/offer/Deliverables";
 import Guarantees from "@/components/offer/Guarantees";
+import Trades from "@/components/offer/Trades";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
@@ -110,9 +111,8 @@ export default function OptiProPage() {
         lede="Un site vitrine et deux sites éditoriaux, conçus et développés de bout en bout. Votre site est construit de la même façon, à partir de votre activité."
       >
         <SiteShowcase />
-        <p className={styles.sectorLink}>
-          <Link href="/optipro/transport" className={styles.textLink}><Icon name="truck" />Vous êtes transporteur ? Voir la page dédiée aux transporteurs</Link>
-        </p>
+        <h3 className={styles.subhead}>Pour votre métier</h3>
+        <Trades withPageLinks />
       </Section>
 
       <Section

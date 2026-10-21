@@ -32,7 +32,7 @@ export default function ContactPage() {
               <p>{optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois ou {optipro.yearlyPrice} par an, pour les {optipro.audience} des {contact.area}.</p>
               <p className={styles.links}>
                 <Link href="/optipro">Voir l’offre {optipro.brand}</Link>
-                <Link href="/optipro/transport">Transporteurs</Link>
+                <Link href="/optipro/prix-site-internet">Prix d’un site internet</Link>
                 <Link href="/a-propos">Qui suis-je</Link>
               </p>
             </div>

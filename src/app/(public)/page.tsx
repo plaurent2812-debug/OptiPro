@@ -10,6 +10,7 @@ import Deliverables from "@/components/offer/Deliverables";
 import LighthouseProof from "@/components/offer/LighthouseProof";
 import Comparison from "@/components/offer/Comparison";
 import Guarantees from "@/components/offer/Guarantees";
+import Trades from "@/components/offer/Trades";
 import { lighthouse } from "@/data/proof";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
@@ -141,15 +142,16 @@ export default function HomePage() {
       </Section>
 
       <Section
-        id="transporteurs"
-        titleId="transport-title"
-        tone="amber"
-        icon="truck"
-        tag="Transporteurs"
-        title="Vous êtes transporteur dans le 06 ?"
-        lede="Une page dédiée à votre métier : demande de devis guidée, recrutement de conducteurs, site géré pour vous."
-        intro={<p className={styles.more}><Link href="/optipro/transport">Voir l’offre pour les transporteurs</Link></p>}
-      />
+        id="metiers"
+        titleId="trades-title"
+        tone="cyan"
+        icon="user"
+        tag="Pour qui"
+        title="Un site pensé pour votre métier."
+        lede="Artisan, salon de coiffure, commerce, restaurant ou transporteur : chaque site part de votre activité et de ce que vos clients cherchent en premier."
+      >
+        <Trades />
+      </Section>
 
       <Section
         id="pourquoi-moi"

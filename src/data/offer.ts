@@ -50,6 +50,15 @@ export const deliverables = [
   { icon: "lock", title: "Hébergement et domaine compris", copy: "Le nom de domaine est à votre nom. Vous n’avez rien à renouveler." },
 ] as const;
 
+// Métiers pour lesquels Pierre crée des sites (confirmé le 21 octobre 2026) : exemples de besoins, pas de clients.
+// Seule la page transporteurs existe : elle sert à la prospection et n’apparaît ni dans le menu ni sur l’accueil.
+export const trades = [
+  { icon: "terrain", title: "Artisans du bâtiment", who: "Plombiers, électriciens, maçons, menuisiers…", copy: "Demande de devis, zone d’intervention et réalisations en photos." },
+  { icon: "user", title: "Coiffure et beauté", who: "Salons de coiffure, instituts, barbiers…", copy: "Prestations et tarifs, horaires et lien de prise de rendez-vous." },
+  { icon: "doc", title: "Commerces et restaurants", who: "Boutiques, restaurants, traiteurs…", copy: "Horaires, carte ou produits, accès et appel en un geste." },
+  { icon: "truck", title: "Transport et services", who: "Transporteurs, professions libérales, services aux entreprises…", copy: "Demande de devis guidée, présentation des services, recrutement.", href: "/optipro/transport" },
+] as const;
+
 // Garanties : chacune découle d’une condition publiée ci-dessus.
 export const guarantees = [
   { title: `En ligne en ${optipro.deliveryTime}`, copy: "À partir de notre premier échange, une fois vos informations reçues." },

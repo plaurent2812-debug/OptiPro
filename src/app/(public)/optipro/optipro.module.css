@@ -27,10 +27,12 @@
 .textLink { display: inline-flex; align-items: center; min-height: 44px; margin-top: 10px; color: var(--tx); font-size: .9375rem; font-weight: 550; text-decoration: underline; text-decoration-color: var(--line-3); text-underline-offset: 6px; }
 .textLink:hover { text-decoration-color: var(--tx); }
 
-/* Lien vers la page transporteurs */
+/* Métiers, sous les exemples */
+.subhead { margin: clamp(48px, 5vw, 64px) 0 24px; font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; }
+
+/* Liens secondaires (guide des prix) */
 .sectorLink { margin-top: clamp(28px, 3vw, 40px); }
 .sectorLink .textLink { gap: 10px; }
-.sectorLink svg { flex: none; color: var(--amber); }
 
 /* Questions */
 .faq { margin-left: calc((100% + 24px) / 4); border-top: 1px solid var(--line-2); }

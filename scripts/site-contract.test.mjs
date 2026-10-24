@@ -294,7 +294,7 @@ test("les anciens portraits ne reviennent pas et LinkedIn est conservé", () => 
 
   assert.equal(sources.includes("pierre-laurent-tech-hero.png"), false);
   assert.equal(sources.includes("pierre-laurent.png"), false);
-  assert.match(sources, /https:\/\/www\.linkedin\.com\/in\/pierre-laurent-809410123/);
+  assert.match(sources, /https:\/\/www\.linkedin\.com\/in\/pierre-laurent-ops\//);
 });
 
 test("la direction minimaliste ne réintroduit pas le chrome système", () => {

@@ -21,7 +21,7 @@ export default function CvPage() {
       <article className={styles.sheet} aria-label="Curriculum vitæ de Pierre Laurent">
         <header className={styles.identity}>
           <div><p className={styles.kicker}>PARCOURS PROFESSIONNEL & CRÉATION NUMÉRIQUE</p><h1>Pierre <strong>Laurent</strong></h1><h2>{professionalProfile.title}</h2><p className={styles.specialties}>Logistique · Administration · Data</p></div>
-          <div className={styles.contact}><span>Vence · Alpes-Maritimes</span><a href="mailto:p.laurent@opti-pro.fr">p.laurent@opti-pro.fr</a><a href="https://www.linkedin.com/in/pierre-laurent-809410123" target="_blank" rel="noopener noreferrer">LinkedIn · Pierre Laurent ↗</a><Link href="/">Portfolio & projets ↗</Link></div>
+          <div className={styles.contact}><span>Vence · Alpes-Maritimes</span><a href="mailto:p.laurent@opti-pro.fr">p.laurent@opti-pro.fr</a><a href="https://www.linkedin.com/in/pierre-laurent-ops/" target="_blank" rel="noopener noreferrer">LinkedIn · Pierre Laurent ↗</a><Link href="/">Portfolio & projets ↗</Link></div>
         </header>
         <p className={styles.summary}>{professionalProfile.summary} En parallèle, je conçois des applications et des automatisations avec le code et l’IA.</p>
 

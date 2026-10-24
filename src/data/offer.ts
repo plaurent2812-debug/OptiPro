@@ -10,7 +10,7 @@ export const contact = {
   area: "Alpes-Maritimes",
   // Le local reste l’ancrage (titres, recherche) ; le reste de la France se gère à distance.
   remoteArea: "partout en France à distance",
-  linkedin: "https://www.linkedin.com/in/pierre-laurent-809410123",
+  linkedin: "https://www.linkedin.com/in/pierre-laurent-ops/",
   github: "https://github.com/plaurent2812-debug",
   // Fiche Google de l’établissement OptiPro sur Maps (validée, mise à jour le 22 octobre 2026).
   googleMaps: "https://www.google.com/maps?cid=18086748904423946936",

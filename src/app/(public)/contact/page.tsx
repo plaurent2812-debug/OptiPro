@@ -43,7 +43,7 @@ export default function ContactPage() {
               <div><dt>Téléphone</dt><dd><a href={contact.phoneHref} className="num">{contact.phoneDisplay}</a></dd></div>
               <div><dt>E-mail</dt><dd><a href={contact.emailHref}>{contact.email}</a></dd></div>
               <div><dt>Basé à</dt><dd>{contact.city}, {contact.area}</dd></div>
-              <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/pierre-laurent-809410123" target="_blank" rel="noopener noreferrer">Pierre Laurent</a></dd></div>
+              <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/pierre-laurent-ops/" target="_blank" rel="noopener noreferrer">Pierre Laurent</a></dd></div>
               <div><dt>GitHub</dt><dd><a href={contact.github} target="_blank" rel="noopener noreferrer">plaurent2812-debug</a></dd></div>
             </dl>
           </aside>

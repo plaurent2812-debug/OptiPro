@@ -11,6 +11,7 @@ const requiredFiles = [
   "src/app/(public)/confidentialite/page.tsx",
   "src/app/(public)/optipro/page.tsx",
   "src/app/(public)/optipro/transport/page.tsx",
+  "src/app/(public)/optipro/vence/page.tsx",
   "src/components/visuals/SystemMap.tsx",
   "src/components/visuals/SystemMap.module.css",
   "src/components/offer/OfferCard.tsx",
@@ -81,7 +82,7 @@ test("l’ancienne offre ne réapparaît pas", () => {
 
 test("l’accueil vend l’offre avant de présenter le parcours", () => {
   const home = readFileSync("src/app/(public)/page.tsx", "utf8");
-  assert.match(home, /Création de site internet dans les Alpes-Maritimes/);
+  assert.match(home, /Création de site internet à Vence et dans les Alpes-Maritimes/);
   assert.match(home, /<OfferCard \/>/);
   assert.match(home, /contact\.phoneHref/);
   // Le site parle de tous les métiers : la page transporteurs sert à la prospection, hors accueil et hors menu.
@@ -130,6 +131,25 @@ test("la page transporteurs vise la recherche locale sans inventer de référenc
   assert.match(readFileSync("src/data/offer.ts", "utf8"), /href: "\/optipro\/transport"/);
 });
 
+test("la page Vence vise la recherche locale, reliée au site et sans référence inventée", () => {
+  const page = readFileSync("src/app/(public)/optipro/vence/page.tsx", "utf8");
+  assert.match(page, /Création de site internet à Vence \(06140\)/);
+  assert.match(page, /<>Création de site internet à Vence/);
+  assert.match(page, /canonical: "\/optipro\/vence"/);
+  assert.match(page, /"@type": "Service"/);
+  assert.match(page, /optiproOfferSchema/);
+  // Aucun montant en dur : prix, délai et conditions viennent de data/offer.ts.
+  assert.doesNotMatch(page, /\d[\d\u202f\u00a0 ]*(?:€|euros)/, "montant en dur sur la page Vence");
+  ["témoignage", "clients satisfaits", "aggregaterating", "\"review\"", "★"].forEach((word) => {
+    assert.equal(page.toLowerCase().includes(word), false, `preuve inventée possible : ${word}`);
+  });
+  assert.match(readFileSync("src/app/sitemap.ts", "utf8"), /\/optipro\/vence/);
+  assert.match(readFileSync("next.config.ts", "utf8"), /source: "\/creation-site-web-vence", destination: "\/optipro\/vence"/);
+  // Au moins un lien entrant, pour que la page ne soit pas orpheline.
+  assert.match(readFileSync("src/components/layout/Footer.tsx", "utf8"), /href="\/optipro\/vence"/);
+  assert.match(readFileSync("src/app/(public)/optipro/page.tsx", "utf8"), /href: "\/optipro\/vence"/);
+});
+
 test("les pages commerciales montrent de vrais sites, sans maquette ni mention « personnelle »", () => {
   ["src/components/offer/SiteMockup.tsx", "src/data/examples.ts"].forEach((file) => assert.equal(existsSync(file), false, `${file} ne doit plus exister`));
   const showcase = readFileSync("src/data/projects.ts", "utf8");
@@ -149,7 +169,7 @@ test("la zone reste locale dans les titres et s’ouvre à toute la France à di
   assert.match(offer, /"@type": "Country", name: "France"/);
   assert.match(readFileSync("src/components/offer/OfferCard.tsx", "utf8"), /contact\.remoteArea/);
   assert.match(readFileSync("src/app/(public)/optipro/page.tsx", "utf8"), /Où intervenez-vous \?.*contact\.remoteArea/);
-  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /Création de site internet dans les Alpes-Maritimes/);
+  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /Création de site internet à Vence et dans les Alpes-Maritimes/);
 });
 
 test("le guide des prix ne cite que des chiffres sourcés ou tirés de l’offre", () => {
@@ -230,7 +250,7 @@ test("la barre d’appel fixe n’existe que sur téléphone", () => {
 
 test("le site ne prétend pas que Pierre code lui-même ses sites", () => {
   // Les sites et applications sont réalisés avec des outils d’IA (Claude, Codex) : formulation neutre « je conçois et je réalise ».
-  const files = ["src/app/(public)/page.tsx", "src/app/(public)/optipro/page.tsx", "src/app/(public)/optipro/transport/page.tsx", "src/app/(public)/a-propos/page.tsx", "src/app/(public)/projets/page.tsx", "src/data/system.ts", "src/data/projects.ts", "src/data/offer.ts"];
+  const files = ["src/app/(public)/page.tsx", "src/app/(public)/optipro/page.tsx", "src/app/(public)/optipro/transport/page.tsx", "src/app/(public)/optipro/vence/page.tsx", "src/app/(public)/a-propos/page.tsx", "src/app/(public)/projets/page.tsx", "src/data/system.ts", "src/data/projects.ts", "src/data/offer.ts"];
   const text = files.map((file) => readFileSync(file, "utf8")).join("\n").toLowerCase();
   ["je code", "code moi-même", "développe moi-même", "je développe", "développés de bout en bout", "conçus et développés"].forEach((phrase) => {
     assert.equal(text.includes(phrase), false, `affirmation inexacte : ${phrase}`);
@@ -274,7 +294,7 @@ test("les anciens portraits ne reviennent pas et LinkedIn est conservé", () => 
 
   assert.equal(sources.includes("pierre-laurent-tech-hero.png"), false);
   assert.equal(sources.includes("pierre-laurent.png"), false);
-  assert.match(sources, /https:\/\/www\.linkedin\.com\/in\/pierre-laurent-809410123/);
+  assert.match(sources, /https:\/\/www\.linkedin\.com\/in\/pierre-laurent-ops\//);
 });
 
 test("la direction minimaliste ne réintroduit pas le chrome système", () => {

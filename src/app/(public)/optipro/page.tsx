@@ -37,7 +37,7 @@ const faq = [
   { q: "L’hébergement et le nom de domaine sont-ils compris ?", a: `Oui. ${optipro.hostingIncluded} dans l’abonnement : vous n’avez ni hébergeur à choisir ni renouvellement à surveiller.` },
   { q: "À qui appartient mon site ?", a: `À vous. ${optipro.ownership}` },
   { q: "Pourquoi n’y a-t-il pas de TVA ?", a: `En tant qu’entrepreneur individuel en franchise en base, je ne facture pas la TVA : ${optipro.vatNotice}. Les prix affichés sont ceux que vous payez.` },
-  { q: "Où intervenez-vous ?", a: `Je suis basé à ${contact.city} et j’interviens dans tout le département des ${contact.area} : Vence, Nice, Cagnes-sur-Mer, Saint-Laurent-du-Var, Antibes, Grasse… Et ${contact.remoteArea} : tout se fait par téléphone et par e-mail.` },
+  { q: "Où intervenez-vous ?", a: `Je suis basé à ${contact.city} et j’interviens dans tout le département des ${contact.area} : Vence, Nice, Cagnes-sur-Mer, Saint-Laurent-du-Var, Antibes, Grasse… Et ${contact.remoteArea} : tout se fait par téléphone et par e-mail.`, link: { href: "/optipro/vence", label: "Création de site internet à Vence" } },
 ];
 
 const jsonLd = {
@@ -169,6 +169,7 @@ export default function OptiProPage() {
             <details key={item.q}>
               <summary>{item.q}</summary>
               <p>{item.a}</p>
+              {item.link && <p><Link href={item.link.href} className={styles.textLink}>{item.link.label}</Link></p>}
             </details>
           ))}
         </div>

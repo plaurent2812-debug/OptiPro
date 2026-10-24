@@ -8,6 +8,7 @@ export default function Footer() {
       <div className={`shell ${styles.footerInner}`}>
         <span>© {new Date().getFullYear()} Pierre Laurent, entrepreneur individuel, {optipro.brand}</span>
         <nav className={styles.footerNav} aria-label="Liens secondaires">
+          <Link href="/optipro/vence">Création de site à Vence</Link>
           <Link href="/a-propos">Qui suis-je</Link>
           <Link href="/cv">CV</Link>
           <a href={contact.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>

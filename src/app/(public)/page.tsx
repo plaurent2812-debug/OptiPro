@@ -19,10 +19,10 @@ import { BrowserFrame, PhoneFrame, StatusPill } from "@/components/ui/Frames";
 import styles from "./home.module.css";
 
 // Accueil = page de vente OptiPro. Le parcours et le CV restent sur /a-propos et /cv.
-// L’accueil vise le département ; /optipro vise Vence et Nice.
+// L’accueil vise Vence et le département ; /optipro vise Vence et Nice ; /optipro/vence la recherche locale.
 export const metadata: Metadata = {
-  title: { absolute: `Création de site internet dans les Alpes-Maritimes · ${optipro.brand}` },
-  description: `Création de site internet pour les ${optipro.audience} des ${contact.area} : conçu, mis en ligne et mis à jour pour vous. ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois, ${optipro.includedEdits}.`,
+  title: { absolute: `Création de site internet à Vence (06) · ${optipro.brand}` },
+  description: `Création de site internet pour les ${optipro.audience} de ${contact.city} et des ${contact.area} : conçu, mis en ligne et mis à jour pour vous. ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois, ${optipro.includedEdits}.`,
   alternates: { canonical: "/" },
 };
 
@@ -40,7 +40,7 @@ export default function HomePage() {
         titleId="hero-title"
         kicker={`${optipro.brand}, sites internet pour les ${optipro.audience} des ${contact.area}`}
         tone="green"
-        title={<>Création de site internet dans les Alpes-Maritimes. <span>Je m’occupe de tout.</span></>}
+        title={<>Création de site internet à Vence et dans les Alpes-Maritimes. <span>Je m’occupe de tout.</span></>}
         actions={
           <>
             <a className="btn btn-primary" href={contact.phoneHref}><Icon name="tel" /><span>Appeler le <span className="num">{contact.phoneDisplay}</span></span></a>

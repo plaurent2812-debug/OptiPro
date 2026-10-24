@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
       { source: "/blog", destination: "/projets", permanent: true },
       { source: "/blog/:path*", destination: "/projets", permanent: true },
       { source: "/cgv", destination: "/mentions-legales", permanent: true },
-      { source: "/creation-site-web-vence", destination: "/projets", permanent: true },
+      { source: "/creation-site-web-vence", destination: "/optipro/vence", permanent: true },
       { source: "/methode", destination: "/a-propos", permanent: true },
       { source: "/pourquoi-ce-prix", destination: "/a-propos", permanent: true },
       { source: "/dashboard", destination: "/", permanent: true },

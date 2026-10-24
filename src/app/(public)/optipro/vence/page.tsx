@@ -34,14 +34,14 @@ const essentials = [
 ];
 
 const steps = [
-  { title: "On se rencontre", copy: "Je viens vous voir à votre boutique, votre atelier ou votre restaurant, ou on se parle au téléphone. On fait le point sur votre activité et vos clients." },
+  { title: "On en parle", copy: "Vous m’appelez ou vous m’écrivez. On fait le point sur votre activité, vos clients et ce que votre site doit leur dire." },
   { title: "Je construis votre site", copy: "Je rédige les textes et je conçois les pages à partir de ce que vous m’avez expliqué. Vous relisez, vous validez." },
   { title: `En ligne en ${optipro.deliveryTime}`, copy: "Votre site est publié avec son référencement local pour Vence et votre métier, lisible sur ordinateur comme sur téléphone." },
   { title: "Je le tiens à jour", copy: "Horaires d’été, nouvelle carte, fermeture exceptionnelle : une heure de modifications est comprise chaque mois." },
 ];
 
 const faq = [
-  { q: "Pouvez-vous venir me voir ?", a: `Oui. Je suis installé à ${contact.city} et je me déplace pour un premier rendez-vous, à Vence comme dans les communes voisines. Ensuite, la plupart des échanges se font par téléphone et par e-mail.` },
+  { q: "Comment se passent nos échanges ?", a: `Par téléphone et par e-mail. Je suis installé à ${contact.city} : vous avez un interlocuteur du coin, joignable directement au ${contact.phoneDisplay}.` },
   { q: "Je suis à Saint-Paul-de-Vence ou à La Gaude, est-ce la même offre ?", a: `Oui. Mêmes conditions et même prix dans tout le département des ${contact.area}, et ${contact.remoteArea}.` },
   { q: "Combien coûte un site internet à Vence ?", a: `${optipro.setupPrice} de mise en ligne, payés une seule fois, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, avec un engagement de ${optipro.commitment}. ${optipro.hostingIncluded}. ${optipro.vatNotice}.` },
   { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
@@ -96,7 +96,7 @@ export default function OptiProVencePage() {
           </>
         }
       >
-        <p>Je suis installé à Vence. Je conçois et je réalise les sites internet des commerces, artisans et restaurants de la ville et des villages voisins, je les mets en ligne, puis je les tiens à jour. <strong>Pour en parler, je viens vous voir.</strong></p>
+        <p>Je suis installé à Vence. Je conçois et je réalise les sites internet des commerces, artisans et restaurants de la ville et des villages voisins, je les mets en ligne, puis je les tiens à jour. <strong>Pour en parler, un appel suffit.</strong></p>
       </PageHero>
 
       <Section
@@ -104,10 +104,10 @@ export default function OptiProVencePage() {
         titleId="local-title"
         tone="amber"
         tag="À Vence"
-        title="Un interlocuteur à Vence, que vous pouvez rencontrer"
+        title="Un interlocuteur installé à Vence"
         intro={
           <div className={styles.why}>
-            <p>Pour un premier rendez-vous, je me déplace à votre boutique, votre atelier ou votre restaurant. Voir votre activité sur place aide à écrire un site qui lui ressemble.</p>
+            <p>Vous avez un seul interlocuteur, installé dans la ville où vous travaillez et joignable directement par téléphone. C’est lui qui écrit votre site, le met en ligne et le tient à jour.</p>
             <p>À Vence, une partie de vos clients habite la ville ou les environs, une autre est de passage pour la cité historique. Votre site doit répondre aux deux : à celui qui vous connaît déjà et cherche vos horaires, à celui qui vous découvre et cherche comment venir.</p>
             <p>Autour de Vence, je travaille aussi pour les entreprises de {nearbyText}, aux mêmes conditions.</p>
           </div>
@@ -209,7 +209,7 @@ export default function OptiProVencePage() {
         </p>
       </Section>
 
-      <CallBlock titleId="cta-title" title="Vous êtes à Vence ou à côté ? Un appel suffit pour en parler, ou pour fixer un rendez-vous." />
+      <CallBlock titleId="cta-title" title="Vous êtes à Vence ou à côté ? Un appel suffit pour en parler." />
     </main>
   );
 }

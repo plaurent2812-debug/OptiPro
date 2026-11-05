@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
     return [
       { source: "/politique-de-confidentialite", destination: "/confidentialite", permanent: true },
       { source: "/realisations", destination: "/projets", permanent: true },
+      { source: "/services/vence", destination: "https://pierre-laurent.fr/optipro/vence", permanent: true },
       { source: "/services", destination: "/projets", permanent: true },
       { source: "/services/:path*", destination: "/projets", permanent: true },
       { source: "/le-service", destination: "/", permanent: true },

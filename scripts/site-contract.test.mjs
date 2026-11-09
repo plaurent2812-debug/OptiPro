@@ -424,3 +424,9 @@ test("chaque page a son aperçu de partage et l’adresse personnelle reste hors
   const layout = readFileSync("src/app/(public)/layout.tsx", "utf8");
   assert.doesNotMatch(layout, /streetAddress|Meyère/);
 });
+
+test("le CV reste accessible mais hors de Google et du sitemap", () => {
+  assert.match(readFileSync("src/app/(public)/cv/page.tsx", "utf8"), /robots: \{ index: false, follow: true \}/);
+  assert.doesNotMatch(readFileSync("src/app/sitemap.ts", "utf8"), /\/cv/);
+  assert.match(readFileSync("src/components/layout/Footer.tsx", "utf8"), /href="\/cv"/);
+});

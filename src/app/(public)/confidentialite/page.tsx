@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import { shareMeta } from "@/lib/share-meta";
+
+const metaTitle = "Confidentialité";
+const metaDescription = "Politique de confidentialité du site de Pierre Laurent.";
 
 export const metadata: Metadata = {
-  title: "Confidentialité",
-  description: "Politique de confidentialité du site de Pierre Laurent.",
+  title: metaTitle,
+  description: metaDescription,
   alternates: { canonical: "/confidentialite" },
+  ...shareMeta(`${metaTitle} · Pierre Laurent`, metaDescription, "/confidentialite"),
 };
 
 export default function PrivacyPage() {

@@ -11,13 +11,18 @@ import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon, { type IconName } from "@/components/ui/Icon";
 import styles from "../optipro.module.css";
+import { shareMeta } from "@/lib/share-meta";
 
 // Page à joindre aux e-mails de prospection des transporteurs du 06.
 // Aucun client, chiffre ni avis : uniquement l’offre et ce que le site fait.
+const metaTitle = `Sites internet pour transporteurs des Alpes-Maritimes · ${optipro.brand}`;
+const metaDescription = `Site internet pour transporteurs des ${contact.area} : demande de devis guidée, recrutement de conducteurs, ${optipro.includedEdits}. ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois.`;
+
 export const metadata: Metadata = {
-  title: { absolute: `Sites internet pour transporteurs des Alpes-Maritimes · ${optipro.brand}` },
-  description: `Site internet pour transporteurs des ${contact.area} : demande de devis guidée, recrutement de conducteurs, ${optipro.includedEdits}. ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois.`,
+  title: { absolute: metaTitle },
+  description: metaDescription,
   alternates: { canonical: "/optipro/transport" },
+  ...shareMeta(metaTitle, metaDescription, "/optipro/transport"),
 };
 
 const features: { icon: IconName; title: string; copy: string }[] = [

@@ -11,13 +11,18 @@ import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon from "@/components/ui/Icon";
 import styles from "../optipro.module.css";
+import { shareMeta } from "@/lib/share-meta";
 
 // Page de référencement local : recherche « création site internet Vence ».
 // Aucun client, chiffre ni avis : uniquement l’offre (data/offer.ts) et ce qu’un site de commerce ou d’artisan doit montrer.
+const metaTitle = `Création de site internet à Vence (06140) · ${optipro.brand}`;
+const metaDescription = `Création de site internet à Vence pour les commerces, artisans et restaurants : un interlocuteur installé à ${contact.city}, en ligne en ${optipro.deliveryTime}. ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois.`;
+
 export const metadata: Metadata = {
-  title: { absolute: `Création de site internet à Vence (06140) · ${optipro.brand}` },
-  description: `Création de site internet à Vence pour les commerces, artisans et restaurants : un interlocuteur installé à ${contact.city}, en ligne en ${optipro.deliveryTime}. ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois.`,
+  title: { absolute: metaTitle },
+  description: metaDescription,
   alternates: { canonical: "/optipro/vence" },
+  ...shareMeta(metaTitle, metaDescription, "/optipro/vence"),
 };
 
 // Communes voisines citées sur la page et dans les données structurées.

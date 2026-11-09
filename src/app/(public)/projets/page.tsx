@@ -7,11 +7,16 @@ import { StatusPill } from "@/components/ui/Frames";
 import { contact, optipro } from "@/data/offer";
 import { projects } from "@/data/projects";
 import styles from "../content.module.css";
+import { shareMeta } from "@/lib/share-meta";
+
+const metaTitle = "Réalisations";
+const metaDescription = "Sites et applications conçus et réalisés par Pierre Laurent, créateur des sites internet OptiPro dans les Alpes-Maritimes.";
 
 export const metadata: Metadata = {
-  title: "Réalisations",
-  description: "Sites et applications conçus et réalisés par Pierre Laurent, créateur des sites internet OptiPro dans les Alpes-Maritimes.",
+  title: metaTitle,
+  description: metaDescription,
   alternates: { canonical: "/projets" },
+  ...shareMeta(`${metaTitle} · Pierre Laurent`, metaDescription, "/projets"),
 };
 
 export default function ProjectsPage() {

@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import { shareMeta } from "@/lib/share-meta";
+
+const metaTitle = "Mentions légales";
+const metaDescription = "Mentions légales du site de Pierre Laurent et de l’offre OptiPro.";
 
 export const metadata: Metadata = {
-  title: "Mentions légales",
-  description: "Mentions légales du site de Pierre Laurent et de l’offre OptiPro.",
+  title: metaTitle,
+  description: metaDescription,
   alternates: { canonical: "/mentions-legales" },
+  ...shareMeta(`${metaTitle} · Pierre Laurent`, metaDescription, "/mentions-legales"),
 };
 
 export default function LegalPage() {

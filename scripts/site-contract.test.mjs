@@ -205,7 +205,7 @@ test("les conditions de l’abonnement validées par Pierre sont affichées", ()
 
 test("les preuves affichées sont mesurées, datées ou confirmées par Pierre", () => {
   const proof = readFileSync("src/data/proof.ts", "utf8");
-  assert.match(proof, /measuredOn: "21 octobre 2026"/);
+  assert.match(proof, /measuredOn: "9 novembre 2026"/);
   assert.match(proof, /Lighthouse 12\.8/);
   assert.match(proof, /lcp: "1,9 s"/);
   const offer = readFileSync("src/data/offer.ts", "utf8");
@@ -411,4 +411,16 @@ test("l’apparition au défilement ne masque jamais le contenu sans script", ()
   assert.match(hidden[0], /html\.reveal-on/);
   assert.match(globals, /@media \(prefers-reduced-motion: no-preference\) \{\s*html\.reveal-on \[data-reveal\]/);
   assert.doesNotMatch(globals, /\[data-reveal\][^{]*\{[^}]*(top|margin|height):/, "aucune propriété de mise en page ne doit être animée");
+});
+
+test("chaque page a son aperçu de partage et l’adresse personnelle reste hors des données structurées", () => {
+  const pages = ["", "optipro/", "optipro/vence/", "optipro/transport/", "optipro/prix-site-internet/", "projets/", "a-propos/", "cv/", "contact/", "mentions-legales/", "confidentialite/"];
+  pages.forEach((page) => {
+    const source = readFileSync(`src/app/(public)/${page}page.tsx`, "utf8");
+    assert.match(source, /\.\.\.shareMeta\(/, `aperçu de partage manquant : /${page}`);
+  });
+  // Une page qui déclare openGraph perd l’image du dossier app : l’aide doit la redéclarer.
+  assert.match(readFileSync("src/lib/share-meta.ts", "utf8"), /url: "\/opengraph-image"/);
+  const layout = readFileSync("src/app/(public)/layout.tsx", "utf8");
+  assert.doesNotMatch(layout, /streetAddress|Meyère/);
 });

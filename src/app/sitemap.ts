@@ -2,13 +2,14 @@ import type { MetadataRoute } from "next";
 
 const LAST_UPDATE = new Date("2026-10-19");
 const OPTIPRO_UPDATE = new Date("2026-10-21");
+// Accueil retitré, lien vers la page Vence dans la FAQ de l’offre, puis page Vence : 24 octobre 2026.
 const VENCE_UPDATE = new Date("2026-10-24");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://pierre-laurent.fr";
   return [
-    { url: baseUrl, lastModified: LAST_UPDATE, changeFrequency: "monthly", priority: 1 },
-    { url: `${baseUrl}/optipro`, lastModified: OPTIPRO_UPDATE, changeFrequency: "monthly", priority: 0.9 },
+    { url: baseUrl, lastModified: VENCE_UPDATE, changeFrequency: "monthly", priority: 1 },
+    { url: `${baseUrl}/optipro`, lastModified: VENCE_UPDATE, changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/optipro/transport`, lastModified: OPTIPRO_UPDATE, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/optipro/vence`, lastModified: VENCE_UPDATE, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/optipro/prix-site-internet`, lastModified: OPTIPRO_UPDATE, changeFrequency: "monthly", priority: 0.7 },

@@ -4,11 +4,16 @@ import { education, experiences, interests, languages, professionalProfile, skil
 import { projects } from "@/data/projects";
 import PrintButton from "./PrintButton";
 import styles from "./cv.module.css";
+import { shareMeta } from "@/lib/share-meta";
+
+const metaTitle = "CV — Opérations, logistique & data";
+const metaDescription = "Le CV de Pierre Laurent : parcours professionnel, management, logistique, administration, data et projets numériques personnels.";
 
 export const metadata: Metadata = {
-  title: "CV — Opérations, logistique & data",
-  description: "Le CV de Pierre Laurent : parcours professionnel, management, logistique, administration, data et projets numériques personnels.",
+  title: metaTitle,
+  description: metaDescription,
   alternates: { canonical: "/cv" },
+  ...shareMeta(`${metaTitle} · Pierre Laurent`, metaDescription, "/cv"),
 };
 
 export default function CvPage() {

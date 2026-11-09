@@ -17,13 +17,18 @@ import CallBlock from "@/components/ui/CallBlock";
 import Icon from "@/components/ui/Icon";
 import { BrowserFrame, PhoneFrame, StatusPill } from "@/components/ui/Frames";
 import styles from "./home.module.css";
+import { shareMeta } from "@/lib/share-meta";
 
 // Accueil = page de vente OptiPro. Le parcours et le CV restent sur /a-propos et /cv.
 // L’accueil vise Vence et le département ; /optipro vise Vence et Nice ; /optipro/vence la recherche locale.
+const metaTitle = `Création de site internet à Vence (06) · ${optipro.brand}`;
+const metaDescription = `Création de site internet à ${contact.city} et dans les ${contact.area} : ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois, conçu, mis en ligne et mis à jour pour vous.`;
+
 export const metadata: Metadata = {
-  title: { absolute: `Création de site internet à Vence (06) · ${optipro.brand}` },
-  description: `Création de site internet pour les ${optipro.audience} de ${contact.city} et des ${contact.area} : conçu, mis en ligne et mis à jour pour vous. ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois, ${optipro.includedEdits}.`,
+  title: { absolute: metaTitle },
+  description: metaDescription,
   alternates: { canonical: "/" },
+  ...shareMeta(metaTitle, metaDescription, "/"),
 };
 
 // Premier écran : le site de démonstration Ro, sur ordinateur et sur téléphone (captures du même jour).

@@ -8,14 +8,19 @@ import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon from "@/components/ui/Icon";
 import styles from "../optipro.module.css";
+import { shareMeta } from "@/lib/share-meta";
 
 // Guide des prix : uniquement des chiffres sourcés (data/market.ts) ou tirés de l’offre (data/offer.ts).
 const PUBLISHED = "2026-10-21";
 
+const metaTitle = `Prix d’un site internet pour une TPE dans les Alpes-Maritimes · ${optipro.brand}`;
+const metaDescription = "Combien coûte un site internet pour une TPE ? Les repères du marché, les coûts qui reviennent chaque année, paiement unique ou abonnement, et les questions à poser avant de signer.";
+
 export const metadata: Metadata = {
-  title: { absolute: `Prix d’un site internet pour une TPE dans les Alpes-Maritimes · ${optipro.brand}` },
-  description: "Combien coûte un site internet pour une TPE ? Les repères du marché, les coûts qui reviennent chaque année, paiement unique ou abonnement, et les questions à poser avant de signer.",
+  title: { absolute: metaTitle },
+  description: metaDescription,
   alternates: { canonical: "/optipro/prix-site-internet" },
+  ...shareMeta(metaTitle, metaDescription, "/optipro/prix-site-internet"),
 };
 
 const factors = [

@@ -9,14 +9,19 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import styles from "@/components/profile/profile.module.css";
+import { shareMeta } from "@/lib/share-meta";
 
 // Qui suis-je présente le créateur de sites : le poste salarié actuel reste sur le CV (choix de Pierre, 21/10/2026).
 const aboutExperiences = experiences.filter((experience) => experience.id !== "pharmagreen");
 
+const metaTitle = "Qui suis-je";
+const metaDescription = `Pierre Laurent, créateur des sites ${optipro.brand} à Vence : dix ans dans les opérations et la logistique, puis la création de sites, d’applications et d’automatisations.`;
+
 export const metadata: Metadata = {
-  title: "Qui suis-je",
-  description: `Pierre Laurent, créateur des sites ${optipro.brand} à Vence : dix ans dans les opérations et la logistique, puis la création de sites, d’applications et d’automatisations.`,
+  title: metaTitle,
+  description: metaDescription,
   alternates: { canonical: "/a-propos" },
+  ...shareMeta(`${metaTitle} · Pierre Laurent`, metaDescription, "/a-propos"),
 };
 
 export default function AboutPage() {

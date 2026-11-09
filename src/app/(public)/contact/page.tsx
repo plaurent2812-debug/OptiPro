@@ -4,11 +4,16 @@ import { contact, optipro } from "@/data/offer";
 import PageHero from "@/components/ui/PageHero";
 import Icon from "@/components/ui/Icon";
 import styles from "../content.module.css";
+import { shareMeta } from "@/lib/share-meta";
+
+const metaTitle = "Contact";
+const metaDescription = `Joindre Pierre Laurent, ${optipro.brand}, au ${contact.phoneDisplay} ou par e-mail pour la création de votre site internet dans les ${contact.area}.`;
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description: `Joindre Pierre Laurent, ${optipro.brand}, au ${contact.phoneDisplay} ou par e-mail pour la création de votre site internet dans les ${contact.area}.`,
+  title: metaTitle,
+  description: metaDescription,
   alternates: { canonical: "/contact" },
+  ...shareMeta(`${metaTitle} · Pierre Laurent`, metaDescription, "/contact"),
 };
 
 export default function ContactPage() {

@@ -14,12 +14,17 @@ import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon from "@/components/ui/Icon";
 import styles from "./optipro.module.css";
+import { shareMeta } from "@/lib/share-meta";
+
+const metaTitle = `Création de site internet à Vence et Nice (06) · ${optipro.brand}`;
+const metaDescription = `Création de site internet pour TPE et PME à Vence, Nice et dans les ${contact.area} : ${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, ${optipro.includedEdits}.`;
 
 export const metadata: Metadata = {
   // Recherches visées : « création de site internet » + Vence, Nice, Alpes-Maritimes.
-  title: { absolute: `Création de site internet à Vence et Nice (06) · ${optipro.brand}` },
-  description: `Création de site internet pour TPE et PME à Vence, Nice et dans les ${contact.area} : ${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, ${optipro.includedEdits}.`,
+  title: { absolute: metaTitle },
+  description: metaDescription,
   alternates: { canonical: "/optipro" },
+  ...shareMeta(metaTitle, metaDescription, "/optipro"),
 };
 
 const steps = [

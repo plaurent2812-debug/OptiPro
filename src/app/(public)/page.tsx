@@ -45,7 +45,8 @@ export default function HomePage() {
         titleId="hero-title"
         kicker={`${optipro.brand}, sites internet pour les ${optipro.audience} des ${contact.area}`}
         tone="green"
-        title={<>Création de site internet à Vence et dans les Alpes-Maritimes. <span>Je m’occupe de tout.</span></>}
+        // La promesse porte l’accent ; la phrase de recherche reste dans le titre, en retrait.
+        title={<><span>Création de site internet à Vence et dans les Alpes-Maritimes.</span> Je m’occupe de tout.</>}
         actions={
           <>
             <a className="btn btn-primary" href={contact.phoneHref}><Icon name="tel" /><span>Appeler le <span className="num">{contact.phoneDisplay}</span></span></a>
@@ -91,8 +92,8 @@ export default function HomePage() {
         titleId="proof-title"
         tone="green"
         tag="La preuve par ce site"
-        title={`Ce site obtient ${scoreRange} chez Google.`}
-        lede="Mesuré avec Google Lighthouse, l’outil qui évalue la vitesse, l’accessibilité, les bonnes pratiques et le référencement d’une page. Votre site est livré avec sa propre mesure."
+        title={`Ce site s’affiche en ${lighthouse.lcp} sur téléphone.`}
+        lede={`Sur téléphone, personne n’attend une page lente. Ce site est mesuré avec Lighthouse, l’outil de Google : ${scoreRange} en vitesse, accessibilité, bonnes pratiques et référencement. Le vôtre est livré avec sa propre mesure.`}
       >
         <LighthouseProof />
       </Section>
@@ -138,7 +139,7 @@ export default function HomePage() {
             <div>
               <div className={styles.bio}>
                 <p>J’ai passé dix ans dans les opérations et la logistique : entrepôts, agences, transport. Je commence donc par comprendre votre activité, pas par parler de technique.</p>
-                <p>Je conçois et je réalise ce site, noté {scoreRange} chez Google, comme des applications web et mobiles. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
+                <p>Je conçois et je réalise ce site, qui s’affiche en {lighthouse.lcp} sur téléphone, comme des applications web et mobiles. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.</p>
               </div>
               <p className={styles.more}><Link href="/a-propos">Qui suis-je</Link><Link href="/projets">Mes réalisations</Link></p>
             </div>

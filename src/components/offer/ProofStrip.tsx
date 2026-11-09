@@ -4,9 +4,8 @@ import styles from "./ProofStrip.module.css";
 
 // Bandeau de preuves du premier écran : chaque valeur vient de data/offer.ts ou de data/proof.ts.
 export default function ProofStrip() {
-  const lowest = Math.min(...lighthouse.scores.map((score) => score.value));
   const items = [
-    { value: `${lowest}/100`, label: "la plus basse des quatre notes Google Lighthouse de ce site" },
+    { value: lighthouse.lcp, label: "pour afficher ce site sur téléphone, mesuré avec l’outil de Google" },
     { value: optipro.deliveryTime, label: "pour mettre votre site en ligne" },
     { value: "À votre nom", label: "le nom de domaine, le site et ses contenus" },
     { value: contact.city, label: "un seul interlocuteur, joignable par téléphone" },

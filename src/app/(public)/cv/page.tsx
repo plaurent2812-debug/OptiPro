@@ -13,6 +13,8 @@ export const metadata: Metadata = {
   title: metaTitle,
   description: metaDescription,
   alternates: { canonical: "/cv" },
+  // Le CV reste accessible par son lien, mais hors de Google : le site vend d’abord l’offre OptiPro (choix de Pierre, 9/11/2026).
+  robots: { index: false, follow: true },
   ...shareMeta(`${metaTitle} · Pierre Laurent`, metaDescription, "/cv"),
 };
 

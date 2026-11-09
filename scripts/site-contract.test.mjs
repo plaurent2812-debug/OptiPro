@@ -430,3 +430,11 @@ test("le CV reste accessible mais hors de Google et du sitemap", () => {
   assert.doesNotMatch(readFileSync("src/app/sitemap.ts", "utf8"), /\/cv/);
   assert.match(readFileSync("src/components/layout/Footer.tsx", "utf8"), /href="\/cv"/);
 });
+
+test("Réalisations s’adresse à un prospect : sites d’abord, sans vocabulaire technique", () => {
+  const page = readFileSync("src/app/(public)/projets/page.tsx", "utf8");
+  assert.match(page, /siteOrder = \["ro-nutritionniste", "la-parallaxe", "le-fond-du-sujet", "ideoscope-2027"\]/);
+  assert.ok(page.indexOf('id: "sites"') < page.indexOf('id: "applications"'), "les sites passent avant les applications");
+  assert.doesNotMatch(page, /project\.technologies|project\.code|j’y explore/);
+  assert.match(page, /href="\/optipro"/);
+});

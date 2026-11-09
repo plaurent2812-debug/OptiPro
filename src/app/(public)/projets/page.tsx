@@ -19,17 +19,40 @@ export const metadata: Metadata = {
   ...shareMeta(`${metaTitle} · Pierre Laurent`, metaDescription, "/projets"),
 };
 
+// Page lue par un prospect : les sites d’abord (ce que l’offre produit), les applications ensuite.
+// La démonstration de site vitrine ouvre la liste ; chaque réalisation garde son statut réel.
+const siteOrder = ["ro-nutritionniste", "la-parallaxe", "le-fond-du-sujet", "ideoscope-2027"];
+const sites = siteOrder.map((slug) => projects.find((project) => project.slug === slug)!);
+const apps = projects.filter((project) => !siteOrder.includes(project.slug));
+
+const groups = [
+  {
+    id: "sites",
+    title: "Sites internet",
+    lede: "Une démonstration de site vitrine et trois sites publiés, que vous pouvez ouvrir. Le vôtre est conçu, rédigé et mis en ligne de la même façon.",
+    contents: "Ce qu’on y trouve",
+    items: sites,
+  },
+  {
+    id: "applications",
+    title: "Applications",
+    lede: "Je conçois et je réalise aussi des applications web et mobiles. Si votre site doit un jour aller plus loin, c’est le même interlocuteur.",
+    contents: "Ce qu’elle fait",
+    items: apps,
+  },
+];
+
 export default function ProjectsPage() {
   return (
     <main id="contenu" tabIndex={-1}>
       <PageHero
         titleId="projects-title"
-        kicker="Réalisations, conception et développement"
+        kicker="Réalisations"
         tone="green"
-        title={<>Ce que je construis. <span>Et pourquoi.</span></>}
+        title={<>Des sites en ligne. <span>Et des applications.</span></>}
         after={
-          <nav className={styles.projectIndex} aria-label="Choisir un projet">
-            {projects.map((project) => (
+          <nav className={styles.projectIndex} aria-label="Choisir une réalisation">
+            {groups.flatMap((group) => group.items).map((project) => (
               <a href={`#${project.slug}`} key={project.slug}>
                 <Image src={project.icon} alt="" width={28} height={28} />
                 <span>{project.name}</span>
@@ -38,41 +61,48 @@ export default function ProjectsPage() {
           </nav>
         }
       >
-        <p>Chaque projet a son point de départ, ses choix et ses défis. Voici les idées derrière les interfaces, ce que j’y développe et ce qui reste à explorer.</p>
+        <p>Les sites d’abord, parce que c’est ce que je crée pour votre entreprise. Les applications ensuite. <strong>Chaque réalisation affiche son état réel : démonstration, en ligne, en développement ou en pause.</strong></p>
       </PageHero>
 
-      <section className={styles.projects} aria-label="Les projets en détail">
-        <div className="shell">
-          {projects.map((project, index) => (
-            <article id={project.slug} className={styles.project} key={project.slug} aria-labelledby={`${project.slug}-title`}>
-              <div className={styles.projectVisual}><ProjectVisual project={project} eager={index === 0} /></div>
-              <div className={styles.projectCopy}>
-                <p className={styles.projectCode}>{project.code}</p>
-                <div className={styles.projectHeader}>
-                  <Image src={project.icon} alt="" width={64} height={64} />
-                  <h2 id={`${project.slug}-title`}>{project.name}</h2>
-                  <StatusPill tone={project.badgeTone}>{project.status}</StatusPill>
+      {groups.map((group, groupIndex) => (
+        <section id={group.id} className={styles.projects} aria-labelledby={`${group.id}-title`} key={group.id}>
+          <div className="shell">
+            <header className={styles.groupHead}>
+              <h2 id={`${group.id}-title`}>{group.title}</h2>
+              <p>{group.lede}</p>
+            </header>
+            {group.items.map((project, index) => (
+              <article id={project.slug} className={styles.project} key={project.slug} aria-labelledby={`${project.slug}-title`}>
+                <div className={styles.projectVisual}><ProjectVisual project={project} eager={groupIndex === 0 && index === 0} /></div>
+                <div className={styles.projectCopy}>
+                  <div className={styles.projectHeader}>
+                    <Image src={project.icon} alt="" width={64} height={64} />
+                    <h3 id={`${project.slug}-title`}>{project.name}</h3>
+                    <StatusPill tone={project.badgeTone}>{project.badge}</StatusPill>
+                  </div>
+                  <p className={styles.statement}>{project.statement}</p>
+                  <p className={styles.description}>{project.description}</p>
+                  <dl className={styles.matrix}>
+                    <div><dt>Support</dt><dd>{project.reach}</dd></div>
+                    <div><dt>{group.contents}</dt><dd>{project.capabilities.slice(0, 3).join(", ")}</dd></div>
+                  </dl>
+                  <div className={styles.evidence}>
+                    <p>Mon travail</p>
+                    <h4>{project.role}</h4>
+                    <p>{project.demonstrates}</p>
+                  </div>
+                  {project.href
+                    ? <a href={project.href} className={styles.projectLink} target="_blank" rel="noopener noreferrer">{project.linkLabel}<span className="sr-only"> (nouvel onglet)</span></a>
+                    : <span className={styles.projectWait}>{project.waitLabel}</span>}
                 </div>
-                <p className={styles.statement}>{project.statement}</p>
-                <p className={styles.description}>{project.description}</p>
-                <dl className={styles.matrix}>
-                  <div><dt>Plateformes et stade</dt><dd>{project.platforms.join(", ")}</dd></div>
-                  <div><dt>Ce que j’y explore</dt><dd>{project.capabilities.slice(0, 3).join(", ")}</dd></div>
-                </dl>
-                <div className={styles.evidence}>
-                  <p>Ce que j’y construis</p>
-                  <h3>{project.role}</h3>
-                  <p>{project.demonstrates}</p>
-                </div>
-                <ul className={styles.tags} aria-label="Technologies">{project.technologies.map((technology) => <li key={technology}>{technology}</li>)}</ul>
-                {project.href
-                  ? <a href={project.href} className={styles.projectLink} target="_blank" rel="noopener noreferrer">{project.linkLabel}<span className="sr-only"> (nouvel onglet)</span></a>
-                  : <span className={styles.projectWait}>{project.waitLabel}</span>}
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+              </article>
+            ))}
+            {group.id === "sites" && (
+              <p className={styles.groupCta}>Un site pour votre entreprise&nbsp;: {optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois. <Link href="/optipro">Voir l’offre {optipro.brand}</Link></p>
+            )}
+          </div>
+        </section>
+      ))}
 
       <section className={styles.further} aria-label="Pour aller plus loin">
         <div className={`shell ${styles.furtherGrid}`}>

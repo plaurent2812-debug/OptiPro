@@ -36,7 +36,7 @@ const steps = [
 ];
 
 const faq = [
-  { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
+  { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime} ${optipro.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
   { q: "Que se passe-t-il si je n’utilise pas mon heure de modifications ?", a: "Elle n’est pas reportée sur le mois suivant : l’heure de modifications mensuelle est non cumulable." },
   { q: "Et si j’ai besoin de plus d’une heure dans le mois ?", a: `Chaque heure supplémentaire est facturée ${optipro.extraHourPrice}.` },
   { q: "Combien de temps suis-je engagé ?", a: `${optipro.commitment}. Vous choisissez de payer chaque mois (${optipro.monthlyPrice}) ou en une fois pour l’année (${optipro.yearlyPrice}). ${optipro.afterCommitment}` },

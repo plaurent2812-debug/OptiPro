@@ -1,20 +1,20 @@
 import Icon from "@/components/ui/Icon";
-import { contact, optipro } from "@/data/offer";
+import { contact, offer } from "@/data/offer";
 import styles from "./OfferCard.module.css";
 
-// Module tarifaire OptiPro. La bascule mois / année repose sur deux boutons radio et :has().
+// Module tarifaire. La bascule mois / année repose sur deux boutons radio et :has().
 export default function OfferCard() {
   return (
     <div className={styles.offer}>
       <div className={styles.grid}>
         <div className={styles.price}>
           <p className={styles.name}>
-            <span>{optipro.brand}, site vitrine<small>Pour les {optipro.audience} des {contact.area}</small></span>
+            <span>Site vitrine clé en main<small>Pour les {offer.audience} des {contact.area}</small></span>
           </p>
 
           <div className={styles.step}>
             <p className={styles.key}>Mise en ligne, payée une seule fois</p>
-            <p className={styles.bigPrice}><b>{optipro.setupPrice}</b></p>
+            <p className={styles.bigPrice}><b>{offer.setupPrice}</b></p>
           </div>
 
           <div className={styles.step}>
@@ -26,12 +26,12 @@ export default function OfferCard() {
               </div>
               <div aria-live="polite">
                 <div className={styles.plan} data-plan="mois">
-                  <p className={styles.bigPrice}><b>{optipro.monthlyPrice}</b><span>par mois</span></p>
-                  <p className={styles.alt}>ou {optipro.yearlyPrice} par an, <strong>soit {optipro.yearlySaving} d’économie</strong></p>
+                  <p className={styles.bigPrice}><b>{offer.monthlyPrice}</b><span>par mois</span></p>
+                  <p className={styles.alt}>ou {offer.yearlyPrice} par an, <strong>soit {offer.yearlySaving} d’économie</strong></p>
                 </div>
                 <div className={styles.plan} data-plan="an">
-                  <p className={styles.bigPrice}><b>{optipro.yearlyPrice}</b><span>par an</span></p>
-                  <p className={styles.alt}><strong>soit {optipro.yearlySaving} d’économie</strong> par rapport à {optipro.monthlyPrice} par mois</p>
+                  <p className={styles.bigPrice}><b>{offer.yearlyPrice}</b><span>par an</span></p>
+                  <p className={styles.alt}><strong>soit {offer.yearlySaving} d’économie</strong> par rapport à {offer.monthlyPrice} par mois</p>
                 </div>
               </div>
             </fieldset>
@@ -41,10 +41,10 @@ export default function OfferCard() {
         <div className={styles.specs}>
           <h3>Ce qui est compris</h3>
           <dl>
-            <div><dt>Engagement</dt><dd>{optipro.commitment}<small>puis sans engagement, préavis d’{optipro.noticePeriod}</small></dd></div>
+            <div><dt>Engagement</dt><dd>{offer.commitment}<small>puis sans engagement, préavis d’{offer.noticePeriod}</small></dd></div>
             <div><dt>Hébergement et domaine</dt><dd>Compris<small>domaine à votre nom</small></dd></div>
-            <div><dt>Modifications incluses</dt><dd>{optipro.includedTime} par mois<small>non cumulable</small></dd></div>
-            <div><dt>Au-delà</dt><dd>{optipro.extraHourPrice} de l’heure</dd></div>
+            <div><dt>Modifications incluses</dt><dd>{offer.includedTime} par mois<small>non cumulable</small></dd></div>
+            <div><dt>Au-delà</dt><dd>{offer.extraHourPrice} de l’heure</dd></div>
             <div><dt>Zone</dt><dd>{contact.area}<small>et {contact.remoteArea}</small></dd></div>
           </dl>
           <div className={styles.cta}>
@@ -53,7 +53,7 @@ export default function OfferCard() {
           </div>
         </div>
       </div>
-      <div className={styles.foot}><span>{optipro.vatNotice}</span><span>Un seul interlocuteur, à {contact.city}</span></div>
+      <div className={styles.foot}><span>{offer.vatNotice}</span><span>Un seul interlocuteur, à {contact.city}</span></div>
     </div>
   );
 }

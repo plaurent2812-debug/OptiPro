@@ -2,7 +2,7 @@
 // Les preuves reprennent uniquement des faits déjà publiés (profile.ts, projects.ts, offer.ts).
 import type { IconName } from "@/components/ui/Icon";
 import type { Tone } from "@/components/ui/Section";
-import { contact, optipro } from "./offer";
+import { contact, offer } from "./offer";
 
 export type StepId = "terrain" | "donnees" | "auto" | "apps" | "site";
 
@@ -106,17 +106,17 @@ export const systemSteps: SystemStep[] = [
     tools: "Next.js, React Native",
   },
   {
-    id: "site", tone: "green", icon: "site", name: "Site vitrine", hint: `Offre ${optipro.brand}`,
+    id: "site", tone: "green", icon: "site", name: "Site vitrine", hint: "Mon offre",
     x: 680, y: 390, delay: 2.75, inTone: "green", inDelay: 4.7,
-    step: "Étape 5 sur 5, la vitrine", title: `Sites vitrines ${optipro.brand}`,
+    step: "Étape 5 sur 5, la vitrine", title: "Sites vitrines",
     lede: "Le site qui présente votre entreprise à vos clients. Je le conçois, je le mets en ligne et je m’en occupe.",
     proofs: [
       { term: "Ro Nutritionniste", kind: "word", text: "démonstration de site pour un nutritionniste", source: "Démonstration" },
       { term: "La Parallaxe", kind: "word", text: "site éditorial scientifique", source: "En ligne" },
       { term: "Le Fond du sujet", kind: "word", text: "site de décryptage de l’actualité", source: "En ligne" },
-      { term: optipro.setupPrice, kind: "num", text: `de mise en ligne, puis ${optipro.monthlyPrice} par mois`, source: contact.area },
+      { term: offer.setupPrice, kind: "num", text: `de mise en ligne, puis ${offer.monthlyPrice} par mois`, source: contact.area },
     ],
-    link: { href: "/optipro", label: `Découvrir l’offre ${optipro.brand}` },
+    link: { href: "/creation-site-internet", label: `Découvrir l’offre` },
   },
 ];
 

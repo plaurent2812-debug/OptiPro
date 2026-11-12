@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { shareMeta } from "@/lib/share-meta";
 
 const metaTitle = "Mentions légales";
-const metaDescription = "Mentions légales du site de Pierre Laurent et de l’offre OptiPro.";
+const metaDescription = "Mentions légales du site de Pierre Laurent, création de sites internet.";
 
 export const metadata: Metadata = {
   title: metaTitle,
@@ -20,16 +20,16 @@ export default function LegalPage() {
         <p className="legal-intro">Dernière mise à jour : 19 octobre 2026</p>
 
         <h2>1. Éditeur</h2>
-        <p>Le site <strong>pierre-laurent.fr</strong> est édité par Pierre Laurent, entrepreneur individuel, sous la dénomination commerciale OptiPro.</p>
+        <p>Le site <strong>pierre-laurent.fr</strong> est édité par Pierre Laurent, entrepreneur individuel (EI).</p>
         <p>Siège : Bâtiment Le Matisse, 541 Avenue Colonel Meyère, 06140 Vence, France<br />SIREN : 934 301 987<br />SIRET : 934 301 987 00020<br />Code APE : 70.22Z<br />TVA non applicable, art. 293 B du CGI<br />Directeur de la publication : Pierre Laurent<br />Contact : <a href="mailto:p.laurent@opti-pro.fr">p.laurent@opti-pro.fr</a> · <a href="tel:+33670259333">06 70 25 93 33</a></p>
-        <p>Ce site présente le parcours et les réalisations de Pierre Laurent, ainsi que l’offre OptiPro de création de sites vitrines destinée aux entreprises.</p>
+        <p>Ce site présente le parcours et les réalisations de Pierre Laurent, ainsi que son offre de création de sites vitrines destinée aux entreprises.</p>
 
         <h2>2. Hébergement</h2>
         <p>Le site est hébergé par Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis — <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">vercel.com</a>.</p>
         <p>Le nom de domaine est géré par OVH SAS, 2 rue Kellermann, 59100 Roubaix, France.</p>
 
         <h2>3. Propriété intellectuelle</h2>
-        <p>Les textes, visuels, interfaces, logotypes, photographies et éléments techniques de ce site sont protégés. Ils appartiennent à Pierre Laurent / OptiPro ou à leurs titulaires respectifs lorsqu’une mention l’indique.</p>
+        <p>Les textes, visuels, interfaces, logotypes, photographies et éléments techniques de ce site sont protégés. Ils appartiennent à Pierre Laurent ou à leurs titulaires respectifs lorsqu’une mention l’indique.</p>
         <p>Toute reproduction ou adaptation substantielle nécessite une autorisation écrite préalable.</p>
 
         <h2>4. Produits présentés</h2>

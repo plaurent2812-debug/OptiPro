@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { contact, optipro } from "@/data/offer";
+import { contact, offer } from "@/data/offer";
 import "./globals.css";
 
 // Geist pour le texte, Geist Mono réservé aux graduations des graphiques.
@@ -21,24 +21,24 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://pierre-laurent.fr"),
   title: {
-    default: `Création de site internet dans les Alpes-Maritimes · ${optipro.brand}`,
+    default: `Création de site internet dans les Alpes-Maritimes · ${contact.name}`,
     template: "%s · Pierre Laurent",
   },
-  description: `${optipro.brand} : création de sites internet pour les ${optipro.audience} des ${contact.area}, conçus, mis en ligne et mis à jour par Pierre Laurent, à ${contact.city}. ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois.`,
+  description: `Création de sites internet pour les ${offer.audience} des ${contact.area}, conçus, mis en ligne et mis à jour par Pierre Laurent, à ${contact.city}. ${offer.setupPrice} puis ${offer.monthlyPrice} par mois.`,
   authors: [{ name: "Pierre Laurent", url: "https://pierre-laurent.fr" }],
   creator: "Pierre Laurent",
   category: "business",
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: `${optipro.brand}, Pierre Laurent`,
-    title: `Création de site internet dans les ${contact.area} · ${optipro.brand}`,
-    description: `Votre site internet conçu, mis en ligne et mis à jour pour vous : ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois, un seul interlocuteur à ${contact.city}.`,
+    siteName: contact.name,
+    title: `Création de site internet dans les ${contact.area} · ${contact.name}`,
+    description: `Votre site internet conçu, mis en ligne et mis à jour pour vous : ${offer.setupPrice} puis ${offer.monthlyPrice} par mois, un seul interlocuteur à ${contact.city}.`,
   },
   twitter: {
     card: "summary_large_image",
-    title: `Création de site internet dans les ${contact.area} · ${optipro.brand}`,
-    description: `Votre site internet conçu, mis en ligne et mis à jour pour vous : ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois.`,
+    title: `Création de site internet dans les ${contact.area} · ${contact.name}`,
+    description: `Votre site internet conçu, mis en ligne et mis à jour pour vous : ${offer.setupPrice} puis ${offer.monthlyPrice} par mois.`,
   },
   icons: {
     icon: "/icon.svg",

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { contact, optipro, optiproAreaSchema, optiproOfferSchema } from "@/data/offer";
+import { contact, offer, areaSchema, offerSchema } from "@/data/offer";
 import { safeJsonLd } from "@/lib/json-ld";
 import OfferCard from "@/components/offer/OfferCard";
 import SiteShowcase from "@/components/offer/SiteShowcase";
@@ -14,60 +14,60 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon from "@/components/ui/Icon";
-import styles from "./optipro.module.css";
+import styles from "./offre.module.css";
 import { shareMeta } from "@/lib/share-meta";
 
-const metaTitle = `Création de site internet dans les Alpes-Maritimes (06) · ${optipro.brand}`;
-const metaDescription = `Création de site internet pour TPE et PME des ${contact.area}, de Nice à Cannes et de Vence à Grasse : ${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, ${optipro.includedEdits}.`;
+const metaTitle = `Création de site internet dans les Alpes-Maritimes (06) · ${contact.name}`;
+const metaDescription = `Création de site internet pour TPE et PME des ${contact.area}, de Nice à Cannes et de Vence à Grasse : ${offer.setupPrice} de mise en ligne, puis ${offer.monthlyPrice} par mois ou ${offer.yearlyPrice} par an, ${offer.includedEdits}.`;
 
 export const metadata: Metadata = {
   // Recherche visée : « création de site internet Alpes-Maritimes ». Chaque ville a sa propre page (data/zones.ts).
   title: { absolute: metaTitle },
   description: metaDescription,
-  alternates: { canonical: "/optipro" },
-  ...shareMeta(metaTitle, metaDescription, "/optipro"),
+  alternates: { canonical: "/creation-site-internet" },
+  ...shareMeta(metaTitle, metaDescription, "/creation-site-internet"),
 };
 
 const steps = [
   { title: "On en parle", copy: "Vous m’appelez ou vous m’écrivez. On fait le point sur votre activité, vos clients et ce que votre site doit leur dire." },
   { title: "Je construis votre site", copy: "Je rédige les textes et je conçois les pages à partir de ce que vous m’avez expliqué. Vous relisez, vous validez." },
-  { title: `En ligne en ${optipro.deliveryTime}`, copy: "Votre site est publié avec son référencement local et sa mesure de vitesse, lisible sur ordinateur comme sur téléphone." },
+  { title: `En ligne en ${offer.deliveryTime}`, copy: "Votre site est publié avec son référencement local et sa mesure de vitesse, lisible sur ordinateur comme sur téléphone." },
   { title: "Ensuite, je le fais vivre", copy: "Une heure de modifications est comprise chaque mois : horaires, photos, textes, nouvelles prestations." },
 ];
 
 const faq = [
-  { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime} ${optipro.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
+  { q: "En combien de temps mon site est-il en ligne ?", a: `En ${offer.deliveryTime} ${offer.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
   { q: "Que se passe-t-il si je n’utilise pas mon heure de modifications ?", a: "Elle n’est pas reportée sur le mois suivant : l’heure de modifications mensuelle est non cumulable." },
-  { q: "Et si j’ai besoin de plus d’une heure dans le mois ?", a: `Chaque heure supplémentaire est facturée ${optipro.extraHourPrice}.` },
-  { q: "Combien de temps suis-je engagé ?", a: `${optipro.commitment}. Vous choisissez de payer chaque mois (${optipro.monthlyPrice}) ou en une fois pour l’année (${optipro.yearlyPrice}). ${optipro.afterCommitment}` },
-  { q: "L’hébergement et le nom de domaine sont-ils compris ?", a: `Oui. ${optipro.hostingIncluded} dans l’abonnement : vous n’avez ni hébergeur à choisir ni renouvellement à surveiller.` },
-  { q: "À qui appartient mon site ?", a: `À vous. ${optipro.ownership}` },
-  { q: "Pourquoi n’y a-t-il pas de TVA ?", a: `En tant qu’entrepreneur individuel en franchise en base, je ne facture pas la TVA : ${optipro.vatNotice}. Les prix affichés sont ceux que vous payez.` },
-  { q: "Où intervenez-vous ?", a: `Je suis basé à ${contact.city} et j’interviens dans tout le département des ${contact.area} : Vence, Nice, Cagnes-sur-Mer, Saint-Laurent-du-Var, Antibes, Grasse… Et ${contact.remoteArea} : tout se fait par téléphone et par e-mail.`, link: { href: "/optipro/vence", label: "Création de site internet à Vence" } },
+  { q: "Et si j’ai besoin de plus d’une heure dans le mois ?", a: `Chaque heure supplémentaire est facturée ${offer.extraHourPrice}.` },
+  { q: "Combien de temps suis-je engagé ?", a: `${offer.commitment}. Vous choisissez de payer chaque mois (${offer.monthlyPrice}) ou en une fois pour l’année (${offer.yearlyPrice}). ${offer.afterCommitment}` },
+  { q: "L’hébergement et le nom de domaine sont-ils compris ?", a: `Oui. ${offer.hostingIncluded} dans l’abonnement : vous n’avez ni hébergeur à choisir ni renouvellement à surveiller.` },
+  { q: "À qui appartient mon site ?", a: `À vous. ${offer.ownership}` },
+  { q: "Pourquoi n’y a-t-il pas de TVA ?", a: `En tant qu’entrepreneur individuel en franchise en base, je ne facture pas la TVA : ${offer.vatNotice}. Les prix affichés sont ceux que vous payez.` },
+  { q: "Où intervenez-vous ?", a: `Je suis basé à ${contact.city} et j’interviens dans tout le département des ${contact.area} : Vence, Nice, Cagnes-sur-Mer, Saint-Laurent-du-Var, Antibes, Grasse… Et ${contact.remoteArea} : tout se fait par téléphone et par e-mail.`, link: { href: "/creation-site-internet/vence", label: "Création de site internet à Vence" } },
 ];
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "@id": "https://pierre-laurent.fr/optipro#service",
-  name: "Création de site internet OptiPro",
+  "@id": "https://pierre-laurent.fr/creation-site-internet#service",
+  name: "Création de site internet dans les Alpes-Maritimes",
   serviceType: "Création de site internet",
   description: "Conception, mise en ligne et suivi de sites internet vitrines pour les TPE et PME des Alpes-Maritimes : Vence, Nice, Cagnes-sur-Mer, Antibes, Cannes, Grasse.",
-  provider: { "@id": "https://pierre-laurent.fr/#optipro" },
-  areaServed: optiproAreaSchema,
-  url: "https://pierre-laurent.fr/optipro",
-  isRelatedTo: { "@id": "https://pierre-laurent.fr/optipro/transport#service" },
-  offers: optiproOfferSchema,
+  provider: { "@id": "https://pierre-laurent.fr/#entreprise" },
+  areaServed: areaSchema,
+  url: "https://pierre-laurent.fr/creation-site-internet",
+  isRelatedTo: { "@id": "https://pierre-laurent.fr/creation-site-internet/transport#service" },
+  offers: offerSchema,
 };
 
-export default function OptiProPage() {
+export default function OfferPage() {
   return (
     <main id="contenu" tabIndex={-1}>
       <script type="application/ld+json">{safeJsonLd(jsonLd)}</script>
 
       <PageHero
-        titleId="optipro-title"
-        kicker={`${optipro.brand}, création de sites internet pour les ${optipro.audience}`}
+        titleId="offre-title"
+        kicker={`${contact.name}, création de sites internet pour les ${offer.audience}`}
         tone="green"
         title={<>Création de site internet dans les Alpes-Maritimes, <span>sans vous en occuper.</span></>}
         after={<ProofStrip />}
@@ -87,10 +87,10 @@ export default function OptiProPage() {
         tone="green"
         tag="Le tarif"
         title="Votre site vitrine, clé en main, à un prix clair."
-        lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Choisissez le rythme pour voir le montant.`}
+        lede={`${offer.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Choisissez le rythme pour voir le montant.`}
       >
         <OfferCard />
-        <p className={styles.sectorLink}><Link href="/optipro/prix-site-internet" className={styles.textLink}>Comparer avec les prix du marché</Link></p>
+        <p className={styles.sectorLink}><Link href="/creation-site-internet/prix" className={styles.textLink}>Comparer avec les prix du marché</Link></p>
       </Section>
 
       <Section
@@ -98,7 +98,7 @@ export default function OptiProPage() {
         titleId="deliverables-title"
         tone="green"
         tag="Compris dans la mise en ligne"
-        title={`Ce que comprennent les ${optipro.setupPrice}.`}
+        title={`Ce que comprennent les ${offer.setupPrice}.`}
         lede="Un site complet, rédigé, référencé dans votre ville et mesuré, prêt à être trouvé et appelé."
         alt
       >
@@ -135,7 +135,7 @@ export default function OptiProPage() {
         tone="cyan"
         tag="Le déroulé"
         title="Comment ça se passe"
-        lede={`Quatre étapes, du premier appel au suivi mensuel. En ligne en ${optipro.deliveryTime}, sans rien de technique à gérer.`}
+        lede={`Quatre étapes, du premier appel au suivi mensuel. En ligne en ${offer.deliveryTime}, sans rien de technique à gérer.`}
         alt
       >
         <ol className={styles.steps}>
@@ -155,7 +155,7 @@ export default function OptiProPage() {
         titleId="comparison-title"
         tone="cyan"
         tag="Comparez"
-        title="Agence, faire soi‑même ou OptiPro ?"
+        title="Agence, faire soi‑même ou me le confier ?"
         lede="Les mêmes critères pour les trois solutions, avec les repères publics du marché pour les deux premières."
       >
         <Comparison />

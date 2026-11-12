@@ -3,14 +3,14 @@
 import { useEffect, useRef, type MouseEvent } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { contact, optipro } from "@/data/offer";
+import { contact } from "@/data/offer";
 import Icon from "@/components/ui/Icon";
 import BrandMark from "./BrandMark";
 import styles from "./layout.module.css";
 
 // Navigation commerciale : l’offre d’abord. Le CV reste accessible depuis le pied de page.
 const links = [
-  { href: "/optipro", label: "Offre et tarifs" },
+  { href: "/creation-site-internet", label: "Offre et tarifs" },
   { href: "/projets", label: "Réalisations" },
   { href: "/a-propos", label: "Qui suis-je" },
   { href: "/contact", label: "Contact" },
@@ -52,7 +52,7 @@ export default function Header() {
     };
   }, [pathname]);
 
-  // Une sous-page (ex. /optipro/transport) signale sa rubrique parente sans se faire passer pour elle.
+  // Une sous-page (ex. /creation-site-internet/transport) signale sa rubrique parente sans se faire passer pour elle.
   const current = (href: string) => (pathname === href ? "page" : pathname.startsWith(`${href}/`) ? "true" : undefined);
 
   return (
@@ -60,9 +60,9 @@ export default function Header() {
       <a href="#contenu" className={styles.skipLink}>Aller au contenu</a>
       <header className={styles.header}>
         <div className={`shell ${styles.headerInner}`}>
-          <Link href="/" className={styles.brand} aria-label={`Pierre Laurent, ${optipro.brand}, accueil`}>
+          <Link href="/" className={styles.brand} aria-label={`${contact.name}, accueil`}>
             <BrandMark className={styles.mark} />
-            Pierre Laurent <small>{optipro.brand}</small>
+            {contact.name} <small>Sites internet</small>
           </Link>
           <nav className={styles.nav} aria-label="Navigation principale">
             {links.map((link) => <Link key={link.href} href={link.href} aria-current={current(link.href)}>{link.label}</Link>)}

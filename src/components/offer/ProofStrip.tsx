@@ -1,4 +1,4 @@
-import { contact, optipro } from "@/data/offer";
+import { contact, offer } from "@/data/offer";
 import { lighthouse } from "@/data/proof";
 import styles from "./ProofStrip.module.css";
 
@@ -6,7 +6,7 @@ import styles from "./ProofStrip.module.css";
 export default function ProofStrip() {
   const items = [
     { value: lighthouse.lcp, label: "pour afficher ce site sur téléphone, mesuré avec l’outil de Google" },
-    { value: optipro.deliveryTime, label: `pour mettre votre site en ligne, ${optipro.deliveryNote}` },
+    { value: offer.deliveryTime, label: `pour mettre votre site en ligne, ${offer.deliveryNote}` },
     { value: "À votre nom", label: "le nom de domaine, le site et ses contenus" },
     { value: contact.city, label: "un seul interlocuteur, joignable par téléphone" },
   ];

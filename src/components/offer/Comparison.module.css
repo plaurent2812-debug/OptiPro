@@ -5,7 +5,7 @@
 .table tbody th { width: 18%; color: var(--tx-3); font-size: .875rem; font-weight: 500; }
 .table tbody td { color: var(--tx-2); }
 .table thead td { width: 18%; border-bottom-color: var(--line-2); }
-/* Colonne OptiPro : un panneau vert continu */
+/* Colonne de l’offre : un panneau vert continu */
 .table .ours { border-right: 1px solid var(--line-3); border-left: 1px solid var(--line-3); background: var(--panel); color: var(--tx); font-weight: 500; }
 .table thead .ours { border-top: 1px solid var(--line-3); border-radius: var(--r) var(--r) 0 0; color: var(--tx); font-size: 1rem; font-weight: 600; }
 .table tbody tr:last-child .ours { border-radius: 0 0 var(--r) var(--r); }

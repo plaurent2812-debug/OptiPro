@@ -94,7 +94,7 @@ export default function ZoneMap({ active }: { active?: string }) {
       <ul className={styles.list}>
         {mapCities.map((city, index) => (
           <li key={city.slug} className="glow-card" data-tone={index === 0 ? "green" : "cyan"}>
-            <Link href={`/optipro/${city.slug}`} data-city={city.slug} aria-current={active === city.slug ? "page" : undefined}>
+            <Link href={`/creation-site-internet/${city.slug}`} data-city={city.slug} aria-current={active === city.slug ? "page" : undefined}>
               <span className={styles.prefix}>Création de site internet à </span>
               <b>{city.name}</b>
             </Link>

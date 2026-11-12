@@ -1,8 +1,9 @@
 import { zones } from "./zones";
 
-// Offre OptiPro et coordonnées fournies par Pierre le 19 octobre 2026.
+// Offre et coordonnées fournies par Pierre le 19 octobre 2026.
 // Source unique : toute page qui affiche un prix ou un contact lit ce fichier.
 export const contact = {
+  name: "Pierre Laurent",
   phoneDisplay: "06 70 25 93 33",
   phoneHref: "tel:+33670259333",
   phoneIntl: "+33 6 70 25 93 33",
@@ -14,12 +15,12 @@ export const contact = {
   remoteArea: "partout en France à distance",
   linkedin: "https://www.linkedin.com/in/pierre-laurent-ops/",
   github: "https://github.com/plaurent2812-debug",
-  // Fiche Google de l’établissement OptiPro sur Maps (validée, mise à jour le 22 octobre 2026).
+  // Fiche Google de l’établissement sur Maps (renommée « Pierre Laurent » le 12 novembre 2026).
   googleMaps: "https://www.google.com/maps?cid=18086748904423946936",
 };
 
-export const optipro = {
-  brand: "OptiPro",
+export const offer = {
+  // La marque OptiPro n’est plus utilisée : Pierre vend sous son nom (décision du 12 novembre 2026).
   audience: "TPE et PME",
   setupPrice: "690 €",
   monthlyPrice: "59 €",
@@ -61,19 +62,19 @@ export const trades = [
   { icon: "terrain", title: "Artisans du bâtiment", who: "Plombiers, électriciens, maçons, menuisiers…", copy: "Demande de devis, zone d’intervention et réalisations en photos." },
   { icon: "user", title: "Coiffure et beauté", who: "Salons de coiffure, instituts, barbiers…", copy: "Prestations et tarifs, horaires et lien de prise de rendez-vous." },
   { icon: "doc", title: "Commerces et restaurants", who: "Boutiques, restaurants, traiteurs…", copy: "Horaires, carte ou produits, accès et appel en un geste." },
-  { icon: "truck", title: "Transport et services", who: "Transporteurs, professions libérales, services aux entreprises…", copy: "Demande de devis guidée, présentation des services, recrutement.", href: "/optipro/transport" },
+  { icon: "truck", title: "Transport et services", who: "Transporteurs, professions libérales, services aux entreprises…", copy: "Demande de devis guidée, présentation des services, recrutement.", href: "/creation-site-internet/transport" },
 ] as const;
 
 // Garanties : chacune découle d’une condition publiée ci-dessus.
 export const guarantees = [
-  { title: `En ligne en ${optipro.deliveryTime}`, copy: `${optipro.deliveryNote.charAt(0).toUpperCase()}${optipro.deliveryNote.slice(1)}, à partir de notre premier échange, une fois vos informations reçues.` },
-  { title: "Un prix affiché, sans surprise", copy: `${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an. Au-delà de l’heure mensuelle, ${optipro.extraHourPrice} de l’heure.` },
-  { title: "Votre site vous appartient", copy: optipro.ownership },
-  { title: "Sans engagement après 12 mois", copy: `L’abonnement continue tant qu’il vous sert, avec un préavis d’${optipro.noticePeriod} pour l’arrêter.` },
+  { title: `En ligne en ${offer.deliveryTime}`, copy: `${offer.deliveryNote.charAt(0).toUpperCase()}${offer.deliveryNote.slice(1)}, à partir de notre premier échange, une fois vos informations reçues.` },
+  { title: "Un prix affiché, sans surprise", copy: `${offer.setupPrice} de mise en ligne, puis ${offer.monthlyPrice} par mois ou ${offer.yearlyPrice} par an. Au-delà de l’heure mensuelle, ${offer.extraHourPrice} de l’heure.` },
+  { title: "Votre site vous appartient", copy: offer.ownership },
+  { title: "Sans engagement après 12 mois", copy: `L’abonnement continue tant qu’il vous sert, avec un préavis d’${offer.noticePeriod} pour l’arrêter.` },
 ] as const;
 
-// Mêmes conditions, sous forme de données structurées (schema.org) pour les pages /optipro.
-export const optiproOfferSchema = {
+// Mêmes conditions, sous forme de données structurées (schema.org) pour les pages /creation-site-internet.
+export const offerSchema = {
   "@type": "Offer",
   priceCurrency: "EUR",
   priceSpecification: [
@@ -83,7 +84,7 @@ export const optiproOfferSchema = {
   ],
 };
 
-export const optiproAreaSchema = [
+export const areaSchema = [
   { "@type": "AdministrativeArea", name: contact.area },
   { "@type": "City", name: "Vence" },
   // Les villes qui ont leur page locale (data/zones.ts).

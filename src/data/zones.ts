@@ -28,7 +28,7 @@ export type Zone = {
   faq: ZoneFaq[];
 };
 
-// Vence garde sa page dédiée (/optipro/vence) : elle figure ici pour la carte et les liens.
+// Vence garde sa page dédiée (/creation-site-internet/vence) : elle figure ici pour la carte et les liens.
 export const home = {
   slug: "vence",
   name: "Vence",

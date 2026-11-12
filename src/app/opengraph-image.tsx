@@ -1,15 +1,15 @@
 import { ImageResponse } from "next/og";
-import { contact, optipro } from "@/data/offer";
+import { contact, offer } from "@/data/offer";
 
-export const alt = `${optipro.brand} — Création de site internet dans les ${contact.area} : ${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois.`;
+export const alt = `${contact.name} — Création de site internet dans les ${contact.area} : ${offer.setupPrice} de mise en ligne, puis ${offer.monthlyPrice} par mois.`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 // Satori : tout conteneur à plusieurs enfants porte display: flex.
 const facts = [
-  { name: optipro.setupPrice, hint: "de mise en ligne, une fois" },
-  { name: optipro.monthlyPrice, hint: `par mois, ou ${optipro.yearlyPrice} par an` },
-  { name: optipro.includedTime, hint: "de modifications chaque mois" },
+  { name: offer.setupPrice, hint: "de mise en ligne, une fois" },
+  { name: offer.monthlyPrice, hint: `par mois, ou ${offer.yearlyPrice} par an` },
+  { name: offer.includedTime, hint: "de modifications chaque mois" },
   { name: "1", hint: `seul interlocuteur, à ${contact.city}` },
 ];
 
@@ -20,7 +20,7 @@ export default function OpenGraphImage() {
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <div style={{ display: "flex", width: 18, height: 18, borderRadius: 9, background: "#6FD39C" }} />
           <span style={{ fontWeight: 600 }}>Pierre Laurent</span>
-          <span style={{ color: "#8590A2" }}>{optipro.brand}</span>
+          <span style={{ color: "#8590A2" }}>Sites internet</span>
         </div>
         <span style={{ color: "#8590A2" }}>{contact.city}, {contact.area}</span>
       </div>

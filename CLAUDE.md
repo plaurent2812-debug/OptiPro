@@ -1,9 +1,9 @@
 # pierre-laurent.fr — Instructions projet
 
-Site de vente de l’offre OptiPro (création de sites internet pour TPE et PME), édité par Pierre Laurent, entrepreneur individuel à Vence. Dépôt GitHub : `plaurent2812-debug/OptiPro`.
+Site de vente de l’offre de création de sites internet pour TPE et PME de Pierre Laurent, entrepreneur individuel à Vence. Pierre vend sous son nom : la marque OptiPro n’est plus utilisée depuis le 12 novembre 2026 (un test l’interdit ; seules restent l’adresse e-mail @opti-pro.fr et les redirections). Dépôt GitHub : `plaurent2812-debug/OptiPro`.
 
 ## Ce que le site est, et n’est plus
-- Un site statique de 11 pages qui vend **uniquement** l’offre de création de sites OptiPro. Le parcours, le CV et les applications sont des preuves secondaires.
+- Un site statique qui vend **uniquement** l’offre de création de sites. Le parcours, le CV et les applications sont des preuves secondaires.
 - Il n’y a plus de back-office, de base de données, de formulaire ni d’API : Supabase, Pennylane, Resend et React PDF ont été retirés. Ne pas les réintroduire sans demande explicite (un test l’interdit).
 - Domaine : `pierre-laurent.fr` (DNS chez OVH). `opti-pro.fr` (DNS chez IONOS) et `www` redirigent en 308 ; garder ces redirections au moins jusqu’en avril 2027 (migration Search Console).
 
@@ -15,7 +15,8 @@ Site de vente de l’offre OptiPro (création de sites internet pour TPE et PME)
 - Déploiement : Vercel, à chaque fusion sur `main`. CI GitHub : lint, typecheck, tests, build.
 
 ## Pages
-- `/` accueil de vente · `/optipro` offre et tarifs · `/optipro/vence` page locale · `/optipro/transport` page de prospection transporteurs (liée seulement depuis `/optipro`) · `/optipro/prix-site-internet` guide des prix
+- `/` accueil de vente · `/creation-site-internet` offre et tarifs · `/creation-site-internet/vence` et cinq pages locales (`[ville]` : Nice, Cagnes-sur-Mer, Antibes, Cannes, Grasse, contenu dans `src/data/zones.ts`) · `/creation-site-internet/transport` page de prospection transporteurs (liée seulement depuis l’offre) · `/creation-site-internet/prix` guide des prix
+- Les anciennes adresses `/optipro/...` sont redirigées en 308 (indexées par Google : ne pas retirer ces redirections).
 - `/projets` réalisations · `/a-propos` Qui suis-je · `/contact` · `/cv` (noindex, hors sitemap) · `/mentions-legales` · `/confidentialite`
 - Anciennes URL : redirections dans `next.config.ts`. Une règle précise se place avant la règle générale qui la recouvre.
 
@@ -47,7 +48,7 @@ Site de vente de l’offre OptiPro (création de sites internet pour TPE et PME)
 
 ## Suivi
 - `tasks/todo.md`, `tasks/lessons.md`, `tasks/journal.md` : à lire en début de session ; ils restent locaux, hors commit.
-- Comptes : Search Console sur le compte Gmail personnel (propriété de domaine) et sur le compte Workspace opti-pro.fr (migration) ; fiche Google OptiPro sur le compte Workspace.
+- Comptes : Search Console sur le compte Gmail personnel (propriété de domaine) et sur le compte Workspace opti-pro.fr (migration) ; fiche Google « Pierre Laurent » (ex-OptiPro) sur le compte Workspace.
 
 ## Pièges connus
 - Next.js 16 + React 19 : pas d’options expérimentales en production.

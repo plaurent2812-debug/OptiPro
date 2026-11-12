@@ -62,7 +62,7 @@ const jsonLd = {
       },
       areaServed: optiproAreaSchema,
       sameAs: [contact.googleMaps],
-      priceRange: "690 € puis 79 € par mois",
+      priceRange: "690 € puis 59 € par mois",
     },
     {
       "@type": "WebSite",

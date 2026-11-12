@@ -104,7 +104,7 @@ test("l’accueil vend l’offre avant de présenter le parcours", () => {
 
 test("l’offre OptiPro affiche les conditions validées par Pierre", () => {
   const offer = readFileSync("src/data/offer.ts", "utf8");
-  ["690 €", "79 €", "790 €", "12 mois", "1 h de modifications par mois", "60 €", "Alpes-Maritimes", "tel:+33670259333", "p.laurent@opti-pro.fr", "TVA non applicable, art. 293 B du CGI"].forEach((value) => {
+  ["690 €", "59 €", "590 €", "12 mois", "1 h de modifications par mois", "60 €", "Alpes-Maritimes", "tel:+33670259333", "p.laurent@opti-pro.fr", "TVA non applicable, art. 293 B du CGI"].forEach((value) => {
     assert.equal(offer.includes(value), true, `condition manquante : ${value}`);
   });
   const page = readFileSync("src/app/(public)/optipro/page.tsx", "utf8");
@@ -184,8 +184,8 @@ test("le guide des prix ne cite que des chiffres sourcés ou tirés de l’offre
   // Aucun montant écrit en dur dans la page : tout vient de data/market.ts ou de data/offer.ts.
   assert.doesNotMatch(guide, /\d[\d\u202f\u00a0 ]*(?:€|euros)/, "montant en dur dans le guide");
   const offer = readFileSync("src/data/offer.ts", "utf8");
-  assert.match(offer, /firstYearMonthly: "1 638 €"/);
-  assert.match(offer, /firstYearYearly: "1 480 €"/);
+  assert.match(offer, /firstYearMonthly: "1 398 €"/);
+  assert.match(offer, /firstYearYearly: "1 280 €"/);
   assert.match(readFileSync("src/app/sitemap.ts", "utf8"), /\/optipro\/prix-site-internet/);
   assert.match(readFileSync("src/app/(public)/optipro/page.tsx", "utf8"), /href="\/optipro\/prix-site-internet"/);
   assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /href="\/optipro\/prix-site-internet"/);

@@ -22,14 +22,14 @@ export const optipro = {
   brand: "OptiPro",
   audience: "TPE et PME",
   setupPrice: "690 €",
-  monthlyPrice: "79 €",
-  yearlyPrice: "790 €",
-  // 12 × 79 € = 948 € ; 948 € − 790 € = 158 €
-  monthlyTotal: "948 €",
-  yearlySaving: "158 €",
-  // Coût des 12 premiers mois : 690 € + 948 € = 1 638 € ; 690 € + 790 € = 1 480 €
-  firstYearMonthly: "1 638 €",
-  firstYearYearly: "1 480 €",
+  monthlyPrice: "59 €",
+  yearlyPrice: "590 €",
+  // 12 × 59 € = 708 € ; 708 € − 590 € = 118 €
+  monthlyTotal: "708 €",
+  yearlySaving: "118 €",
+  // Coût des 12 premiers mois : 690 € + 708 € = 1 398 € ; 690 € + 590 € = 1 280 €
+  firstYearMonthly: "1 398 €",
+  firstYearYearly: "1 280 €",
   commitment: "12 mois",
   includedEdits: "1 h de modifications par mois",
   includedTime: "1 h",
@@ -40,7 +40,7 @@ export const optipro = {
   ownership: "Le nom de domaine est enregistré à votre nom, et le site comme ses contenus vous appartiennent : vous pouvez partir avec.",
   noticePeriod: "un mois",
   afterCommitment: "Après les 12 mois, l’abonnement continue sans engagement : vous pouvez l’arrêter à tout moment, avec un préavis d’un mois.",
-  // Prix de mise en ligne (690 €) et délai (1 à 3 semaines selon la complexité) fixés par Pierre le 12 novembre 2026.
+  // Prix (690 € de mise en ligne, 59 € par mois ou 590 € par an) et délai (1 à 3 semaines selon la complexité) fixés par Pierre le 12 novembre 2026.
   deliveryTime: "1 à 3 semaines",
   deliveryNote: "selon la complexité du site",
 };
@@ -78,8 +78,8 @@ export const optiproOfferSchema = {
   priceCurrency: "EUR",
   priceSpecification: [
     { "@type": "UnitPriceSpecification", name: "Mise en ligne", price: 690, priceCurrency: "EUR" },
-    { "@type": "UnitPriceSpecification", name: "Abonnement mensuel", price: 79, priceCurrency: "EUR", unitCode: "MON" },
-    { "@type": "UnitPriceSpecification", name: "Abonnement annuel", price: 790, priceCurrency: "EUR", unitCode: "ANN" },
+    { "@type": "UnitPriceSpecification", name: "Abonnement mensuel", price: 59, priceCurrency: "EUR", unitCode: "MON" },
+    { "@type": "UnitPriceSpecification", name: "Abonnement annuel", price: 590, priceCurrency: "EUR", unitCode: "ANN" },
   ],
 };
 

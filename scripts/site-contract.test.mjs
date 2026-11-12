@@ -207,9 +207,9 @@ test("les conditions de l’abonnement validées par Pierre sont affichées", ()
 
 test("les preuves affichées sont mesurées, datées ou confirmées par Pierre", () => {
   const proof = readFileSync("src/data/proof.ts", "utf8");
-  assert.match(proof, /measuredOn: "9 novembre 2026"/);
+  assert.match(proof, /measuredOn: "12 novembre 2026"/);
   assert.match(proof, /Lighthouse 12\.8/);
-  assert.match(proof, /lcp: "1,9 s"/);
+  assert.match(proof, /lcp: "2,0 s"/);
   const offer = readFileSync("src/data/offer.ts", "utf8");
   assert.match(offer, /deliveryTime: "3 semaines"/);
   ["Vos textes rédigés", "Le référencement local", "Un rapport de vitesse", "Hébergement et domaine compris"].forEach((value) => {

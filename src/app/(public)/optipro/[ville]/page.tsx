@@ -52,7 +52,7 @@ export default async function OptiProZonePage({ params }: Props) {
   const faq = [
     ...zone.faq,
     { q: `Combien coûte un site internet ${zone.at} ?`, a: `${optipro.setupPrice} de mise en ligne, payés une seule fois, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, avec un engagement de ${optipro.commitment}. ${optipro.hostingIncluded}. ${optipro.vatNotice}.` },
-    { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
+    { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime} ${optipro.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
     { q: "À qui appartiennent le site et le nom de domaine ?", a: `À vous. ${optipro.ownership} ${optipro.afterCommitment}` },
   ];
 

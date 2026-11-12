@@ -21,15 +21,15 @@ export const contact = {
 export const optipro = {
   brand: "OptiPro",
   audience: "TPE et PME",
-  setupPrice: "890 €",
-  monthlyPrice: "79 €",
-  yearlyPrice: "790 €",
-  // 12 × 79 € = 948 € ; 948 € − 790 € = 158 €
-  monthlyTotal: "948 €",
-  yearlySaving: "158 €",
-  // Coût des 12 premiers mois : 890 € + 948 € = 1 838 € ; 890 € + 790 € = 1 680 €
-  firstYearMonthly: "1 838 €",
-  firstYearYearly: "1 680 €",
+  setupPrice: "690 €",
+  monthlyPrice: "59 €",
+  yearlyPrice: "590 €",
+  // 12 × 59 € = 708 € ; 708 € − 590 € = 118 €
+  monthlyTotal: "708 €",
+  yearlySaving: "118 €",
+  // Coût des 12 premiers mois : 690 € + 708 € = 1 398 € ; 690 € + 590 € = 1 280 €
+  firstYearMonthly: "1 398 €",
+  firstYearYearly: "1 280 €",
   commitment: "12 mois",
   includedEdits: "1 h de modifications par mois",
   includedTime: "1 h",
@@ -40,8 +40,9 @@ export const optipro = {
   ownership: "Le nom de domaine est enregistré à votre nom, et le site comme ses contenus vous appartiennent : vous pouvez partir avec.",
   noticePeriod: "un mois",
   afterCommitment: "Après les 12 mois, l’abonnement continue sans engagement : vous pouvez l’arrêter à tout moment, avec un préavis d’un mois.",
-  // Délai et contenu de la mise en ligne confirmés par Pierre le 21 octobre 2026.
-  deliveryTime: "3 semaines",
+  // Prix (690 € de mise en ligne, 59 € par mois ou 590 € par an) et délai (1 à 3 semaines selon la complexité) fixés par Pierre le 12 novembre 2026.
+  deliveryTime: "1 à 3 semaines",
+  deliveryNote: "selon la complexité du site",
 };
 
 // Ce que comprend la mise en ligne : uniquement des éléments confirmés par Pierre.
@@ -65,7 +66,7 @@ export const trades = [
 
 // Garanties : chacune découle d’une condition publiée ci-dessus.
 export const guarantees = [
-  { title: `En ligne en ${optipro.deliveryTime}`, copy: "À partir de notre premier échange, une fois vos informations reçues." },
+  { title: `En ligne en ${optipro.deliveryTime}`, copy: `${optipro.deliveryNote.charAt(0).toUpperCase()}${optipro.deliveryNote.slice(1)}, à partir de notre premier échange, une fois vos informations reçues.` },
   { title: "Un prix affiché, sans surprise", copy: `${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an. Au-delà de l’heure mensuelle, ${optipro.extraHourPrice} de l’heure.` },
   { title: "Votre site vous appartient", copy: optipro.ownership },
   { title: "Sans engagement après 12 mois", copy: `L’abonnement continue tant qu’il vous sert, avec un préavis d’${optipro.noticePeriod} pour l’arrêter.` },
@@ -76,9 +77,9 @@ export const optiproOfferSchema = {
   "@type": "Offer",
   priceCurrency: "EUR",
   priceSpecification: [
-    { "@type": "UnitPriceSpecification", name: "Mise en ligne", price: 890, priceCurrency: "EUR" },
-    { "@type": "UnitPriceSpecification", name: "Abonnement mensuel", price: 79, priceCurrency: "EUR", unitCode: "MON" },
-    { "@type": "UnitPriceSpecification", name: "Abonnement annuel", price: 790, priceCurrency: "EUR", unitCode: "ANN" },
+    { "@type": "UnitPriceSpecification", name: "Mise en ligne", price: 690, priceCurrency: "EUR" },
+    { "@type": "UnitPriceSpecification", name: "Abonnement mensuel", price: 59, priceCurrency: "EUR", unitCode: "MON" },
+    { "@type": "UnitPriceSpecification", name: "Abonnement annuel", price: 590, priceCurrency: "EUR", unitCode: "ANN" },
   ],
 };
 

@@ -50,7 +50,7 @@ const faq = [
   { q: "Comment se passent nos échanges ?", a: `Par téléphone et par e-mail. Je suis installé à ${contact.city} : vous avez un interlocuteur du coin, joignable directement au ${contact.phoneDisplay}.` },
   { q: "Je suis à Saint-Paul-de-Vence ou à La Gaude, est-ce la même offre ?", a: `Oui. Mêmes conditions et même prix dans tout le département des ${contact.area}, et ${contact.remoteArea}.` },
   { q: "Combien coûte un site internet à Vence ?", a: `${optipro.setupPrice} de mise en ligne, payés une seule fois, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, avec un engagement de ${optipro.commitment}. ${optipro.hostingIncluded}. ${optipro.vatNotice}.` },
-  { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
+  { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime} ${optipro.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
   { q: "Je change mes horaires ou ma carte selon la saison, qui met le site à jour ?", a: `Moi. ${optipro.includedEdits.charAt(0).toUpperCase()}${optipro.includedEdits.slice(1)} est comprise dans l’abonnement : vous m’appelez ou vous m’écrivez, je m’en occupe. Au-delà, chaque heure supplémentaire est facturée ${optipro.extraHourPrice}.` },
   { q: "À qui appartiennent le site et le nom de domaine ?", a: `À vous. ${optipro.ownership} ${optipro.afterCommitment}` },
 ];
@@ -168,7 +168,7 @@ export default function OptiProVencePage() {
         tone="cyan"
         tag="Le déroulé"
         title={`En ligne en ${optipro.deliveryTime}`}
-        lede={`${optipro.deliveryTime} à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.`}
+        lede={`${optipro.deliveryTime} ${optipro.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.`}
       >
         <ol className={styles.steps}>
           {steps.map((step, index) => (

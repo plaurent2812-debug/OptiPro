@@ -1,8 +1,10 @@
 /* ============================================================
    Premier écran : le même site sur ordinateur et sur téléphone
    ============================================================ */
-.stage { position: relative; margin-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(28px, 4vw, 56px); }
-.desk { width: 84%; }
+.stage { position: relative; margin-top: clamp(40px, 5vw, 64px); padding-bottom: clamp(28px, 4vw, 56px); perspective: 1800px; }
+/* lueur sous la vitrine */
+.stage::before { content: ""; position: absolute; z-index: -1; inset: 6% 4% 18% 0; background: radial-gradient(50% 55% at 45% 50%, color-mix(in srgb, var(--green) 34%, transparent), transparent 75%), radial-gradient(40% 50% at 78% 60%, color-mix(in srgb, var(--cyan) 26%, transparent), transparent 75%); pointer-events: none; }
+.desk { width: 84%; transform-origin: 50% 100%; box-shadow: 0 0 0 1px rgba(255, 255, 255, .05), 0 60px 120px -50px color-mix(in srgb, var(--green) 45%, #000); }
 .mobile { position: absolute; right: 0; bottom: clamp(56px, 7vw, 96px); width: clamp(150px, 19%, 240px); }
 .stageCaption { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; max-width: 84%; margin-top: 18px; color: var(--tx-3); font-size: .9375rem; }
 .stageCaption b { color: var(--tx); font-weight: 500; }
@@ -12,9 +14,12 @@
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .mobile { animation: rise linear both; animation-timeline: view(); animation-range: cover 0% cover 70%; }
+    /* l’écran d’ordinateur arrive incliné et se redresse pendant le défilement */
+    .desk { animation: settle linear both; animation-timeline: view(); animation-range: entry 10% cover 42%; }
   }
 }
 @keyframes rise { from { translate: 0 28px; } to { translate: 0 -20px; } }
+@keyframes settle { from { transform: rotateX(16deg) scale(.93); } to { transform: none; } }
 
 /* liens vers le détail, discrets */
 .more { display: flex; flex-wrap: wrap; gap: 16px 24px; margin-top: 24px; font-size: .9375rem; }
@@ -45,6 +50,7 @@
   /* le téléphone reste dans la hauteur de l’ordinateur, la légende passe dessous */
   .desk { width: 86%; }
   .mobile { top: 16px; bottom: auto; width: 26%; animation: none; }
+  .desk { animation: none; }
   .stageCaption { margin-top: 28px; }
   .me { grid-template-columns: minmax(0, 1fr); }
   .portrait { width: 132px; }

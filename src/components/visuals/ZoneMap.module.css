@@ -1,0 +1,59 @@
+/* Carte du département à gauche, liste des pages locales à droite */
+.zone { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); align-items: stretch; gap: 16px; }
+
+.map { position: relative; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--line-2); border-radius: var(--r-l); background: radial-gradient(90% 80% at 40% 30%, color-mix(in srgb, var(--green) 9%, var(--panel)), var(--bg) 78%); }
+.map svg { display: block; width: 100%; height: auto; overflow: visible; }
+.coast { fill: none; stroke: color-mix(in srgb, var(--cyan) 70%, transparent); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.seaLabel { fill: color-mix(in srgb, var(--cyan) 55%, transparent); font-size: 11px; font-style: italic; letter-spacing: .14em; text-transform: uppercase; }
+.link { fill: none; stroke: color-mix(in srgb, var(--green) 55%, transparent); stroke-width: 1; stroke-dasharray: 2 5; stroke-linecap: round; transition: stroke .3s var(--ease), stroke-width .3s var(--ease); }
+.ring { fill: color-mix(in srgb, var(--cyan) 14%, transparent); stroke: color-mix(in srgb, var(--cyan) 45%, transparent); stroke-width: 1; transition: fill .3s var(--ease), stroke .3s var(--ease); }
+.dot { fill: var(--cyan); }
+.label { fill: var(--tx); font-size: 14px; font-weight: 500; letter-spacing: -.01em; paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+.point[data-home] .ring { fill: color-mix(in srgb, var(--green) 20%, transparent); stroke: var(--green); }
+.point[data-home] .dot { fill: var(--green); }
+.point[data-home] .label { font-size: 16px; font-weight: 600; }
+.pulse { fill: none; stroke: var(--green); stroke-width: 1.5; transform-box: fill-box; transform-origin: center; }
+
+/* ville de la page en cours */
+.point[data-active] .ring { fill: color-mix(in srgb, var(--amber) 24%, transparent); stroke: var(--amber); }
+.point[data-active] .dot { fill: var(--amber); }
+.link[data-active] { stroke: var(--amber); stroke-width: 1.5; stroke-dasharray: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .pulse { animation: pulse 2.8s var(--ease) infinite; }
+}
+@keyframes pulse { from { opacity: .9; transform: scale(1); } to { opacity: 0; transform: scale(4.2); } }
+
+/* liste */
+.list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.list li { padding: 18px 20px 20px; }
+.list a { display: block; font-size: 1.25rem; font-weight: 600; line-height: 1.2; letter-spacing: -.025em; }
+.list a::after { content: ""; position: absolute; inset: 0; }
+.list b { font-weight: inherit; }
+.prefix { display: block; margin-bottom: 4px; color: var(--tx-3); font-size: .8125rem; font-weight: 400; letter-spacing: 0; }
+.list p { margin-top: 8px; color: var(--tx-2); font-size: .875rem; line-height: 1.45; text-wrap: pretty; }
+.list a[aria-current] b { color: var(--amber); }
+.list li:first-child b { color: var(--green); }
+
+/* survol d’une ville dans la liste : son point s’allume sur la carte */
+.zone:has([data-city="vence"]:hover) .point[data-point="vence"] .ring,
+.zone:has([data-city="nice"]:hover) .point[data-point="nice"] .ring,
+.zone:has([data-city="cagnes-sur-mer"]:hover) .point[data-point="cagnes-sur-mer"] .ring,
+.zone:has([data-city="antibes"]:hover) .point[data-point="antibes"] .ring,
+.zone:has([data-city="cannes"]:hover) .point[data-point="cannes"] .ring,
+.zone:has([data-city="grasse"]:hover) .point[data-point="grasse"] .ring { fill: color-mix(in srgb, #fff 30%, transparent); stroke: #fff; }
+.zone:has([data-city="nice"]:hover) .link[data-point="nice"],
+.zone:has([data-city="cagnes-sur-mer"]:hover) .link[data-point="cagnes-sur-mer"],
+.zone:has([data-city="antibes"]:hover) .link[data-point="antibes"],
+.zone:has([data-city="cannes"]:hover) .link[data-point="cannes"],
+.zone:has([data-city="grasse"]:hover) .link[data-point="grasse"] { stroke: #fff; stroke-width: 1.5; }
+
+@media (max-width: 1059.98px) {
+  .zone { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 559.98px) {
+  .list { grid-template-columns: minmax(0, 1fr); }
+  .label { font-size: 19px; }
+  .point[data-home] .label { font-size: 21px; }
+  .seaLabel { font-size: 14px; }
+}

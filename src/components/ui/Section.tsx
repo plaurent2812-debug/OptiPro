@@ -20,7 +20,7 @@ type SectionProps = {
 // L’étiquette est un simple mot, sans icône : la teinte ne vit que dans le fil.
 export default function Section({ id, titleId, tone, tag, title, lede, intro, alt = false, children }: SectionProps) {
   return (
-    <section id={id} className={`${styles.sec} ${alt ? styles.alt : ""}`} aria-labelledby={titleId}>
+    <section id={id} className={`${styles.sec} ${alt ? styles.alt : ""}`} data-tone={tone} aria-labelledby={titleId}>
       <div className="shell">
         <header className={styles.head}>
           <p className={styles.tag} data-tone={tone}>{tag}</p>

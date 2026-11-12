@@ -1,8 +1,14 @@
-.end { position: relative; overflow: hidden; padding: clamp(72px, 9vw, 120px) 0 clamp(64px, 7vw, 96px); border-top: 1px solid var(--line); }
+.end { position: relative; isolation: isolate; overflow: hidden; padding: clamp(80px, 10vw, 144px) 0 clamp(72px, 8vw, 112px); border-top: 1px solid var(--line); }
+/* même lumière que le premier écran, remontée depuis le bas */
+.end::before { content: ""; position: absolute; z-index: -1; bottom: -320px; left: 50%; width: max(1100px, 120%); height: 760px; translate: -50% 0; pointer-events: none;
+  background:
+    radial-gradient(40% 50% at 28% 60%, color-mix(in srgb, var(--green) 26%, transparent), transparent 72%),
+    radial-gradient(36% 46% at 74% 70%, color-mix(in srgb, var(--cyan) 22%, transparent), transparent 72%); }
+.end::after { content: ""; position: absolute; top: -1px; right: 0; left: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--green) 30%, var(--cyan) 60%, transparent); opacity: .7; }
 .kicker { max-width: 30ch; color: var(--tx-2); font-size: clamp(1.25rem, 1rem + .9vw, 1.625rem); font-weight: 500; line-height: 1.3; letter-spacing: -.02em; }
 /* Le numéro reste l’élément le plus grand du site : c’est l’action attendue. Il tient sur une ligne jusqu’à 320 px. */
-.tel { display: block; width: max-content; max-width: 100%; margin-top: clamp(16px, 2vw, 28px); padding-bottom: .1em; border-bottom: 1px solid var(--line-3); color: var(--tx); font-size: clamp(2.5rem, 10.5vw, 7rem); font-weight: 600; line-height: 1; letter-spacing: -.05em; white-space: nowrap; transition: border-color .25s, color .25s; }
-.tel:hover { border-color: var(--tx); color: #fff; }
+.tel { display: block; width: max-content; max-width: 100%; margin-top: clamp(16px, 2vw, 28px); padding-bottom: .1em; border-bottom: 1px solid var(--line-3); background: linear-gradient(100deg, #fff 20%, color-mix(in srgb, var(--green) 75%, #fff) 65%, var(--cyan)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: var(--tx); font-size: clamp(2.5rem, 10.5vw, 7.5rem); font-weight: 600; line-height: 1; letter-spacing: -.05em; white-space: nowrap; transition: border-color .25s, color .25s; }
+.tel:hover { border-color: var(--green); }
 .row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; margin-top: 24px; }
 .mail { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; color: var(--tx); font-size: clamp(1.125rem, 1rem + .6vw, 1.5rem); font-weight: 500; letter-spacing: -.015em; overflow-wrap: anywhere; }
 .mail svg { width: 20px; height: 20px; flex: none; color: var(--tx-3); }

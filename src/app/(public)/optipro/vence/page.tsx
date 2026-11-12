@@ -6,6 +6,7 @@ import OfferCard from "@/components/offer/OfferCard";
 import SiteShowcase from "@/components/offer/SiteShowcase";
 import ProofStrip from "@/components/offer/ProofStrip";
 import Guarantees from "@/components/offer/Guarantees";
+import ZoneMap from "@/components/visuals/ZoneMap";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
@@ -149,6 +150,17 @@ export default function OptiProVencePage() {
         }
         alt
       />
+
+      <Section
+        id="zones"
+        titleId="zones-title"
+        tone="green"
+        tag="Autour de Vence"
+        title="Vence, et le reste des Alpes-Maritimes."
+        lede="Mon point d’attache est à Vence. La même offre existe dans les autres villes du département, chacune avec sa page."
+      >
+        <ZoneMap active="vence" />
+      </Section>
 
       <Section
         id="deroule"

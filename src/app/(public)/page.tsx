@@ -10,6 +10,7 @@ import Deliverables from "@/components/offer/Deliverables";
 import LighthouseProof from "@/components/offer/LighthouseProof";
 import Guarantees from "@/components/offer/Guarantees";
 import Trades from "@/components/offer/Trades";
+import ZoneMap from "@/components/visuals/ZoneMap";
 import { lighthouse } from "@/data/proof";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
@@ -20,7 +21,7 @@ import styles from "./home.module.css";
 import { shareMeta } from "@/lib/share-meta";
 
 // Accueil = page de vente OptiPro. Le parcours et le CV restent sur /a-propos et /cv.
-// L’accueil vise Vence et le département ; /optipro vise Vence et Nice ; /optipro/vence la recherche locale.
+// L’accueil vise Vence et le département ; /optipro le département ; chaque ville a sa page (/optipro/vence, /optipro/nice…).
 const metaTitle = `Création de site internet à Vence (06) · ${optipro.brand}`;
 const metaDescription = `Création de site internet à ${contact.city} et dans les ${contact.area} : ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois, conçu, mis en ligne et mis à jour pour vous.`;
 
@@ -121,6 +122,17 @@ export default function HomePage() {
         lede="Artisan, salon de coiffure, commerce, restaurant ou transporteur : chaque site part de votre activité et de ce que vos clients cherchent en premier."
       >
         <Trades />
+      </Section>
+
+      <Section
+        id="zones"
+        titleId="zones-title"
+        tone="green"
+        tag="Où je travaille"
+        title="De Vence à tout le département."
+        lede={`Je suis installé à ${contact.city}. Je crée les sites des entreprises des ${contact.area}, ville par ville, et ${contact.remoteArea}.`}
+      >
+        <ZoneMap />
       </Section>
 
       <Section

@@ -1,14 +1,16 @@
-.sec { --sp: clamp(64px, 8vw, 112px); padding: var(--sp) 0; border-top: 1px solid var(--line); }
-.alt { background: var(--bg-1); }
+.sec { --sp: clamp(64px, 8vw, 112px); position: relative; padding: var(--sp) 0; border-top: 1px solid var(--line); background-image: radial-gradient(55% 340px at 14% 0, color-mix(in srgb, var(--c) 7%, transparent), transparent); }
+/* le filet supérieur s’allume à la teinte de la section, côté étiquette */
+.sec::before { content: ""; position: absolute; top: -1px; right: 0; left: 0; height: 1px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--c) 70%, transparent) 16%, transparent 52%); pointer-events: none; }
+.alt { background-color: var(--bg-1); }
 
 .head { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 16px; margin-bottom: clamp(36px, 4.5vw, 56px); }
 .head:last-child { margin-bottom: 0; }
 /* Étiquette : un point et un mot, comme le kicker du premier écran ; le fil descend du filet supérieur jusqu’au point */
 .tag { grid-column: 1 / span 3; position: relative; align-self: start; padding: .55em 0 0 16px; color: var(--tx-3); font-size: .9063rem; font-weight: 500; line-height: 1.3; }
 .tag::before { content: ""; position: absolute; left: 2px; top: calc(-1 * var(--sp) - 1px); height: calc(var(--sp) + .55em + .5em - 2px); width: 1px; background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--c) 55%, transparent)); pointer-events: none; }
-.tag::after { content: ""; position: absolute; left: 0; top: calc(.55em + .5em); width: 5px; height: 5px; border-radius: 50%; background: var(--c); pointer-events: none; }
+.tag::after { content: ""; position: absolute; left: 0; top: calc(.55em + .5em); width: 5px; height: 5px; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 20%, transparent), 0 0 12px var(--c); pointer-events: none; }
 .text { grid-column: 4 / -1; min-width: 0; }
-.title { max-width: 24ch; font-size: clamp(1.75rem, 1.1rem + 1.8vw, 2.5rem); font-weight: 600; line-height: 1.08; letter-spacing: -.03em; text-wrap: balance; }
+.title { max-width: 24ch; font-size: clamp(1.875rem, 1.1rem + 2.3vw, 3rem); font-weight: 600; line-height: 1.05; letter-spacing: -.035em; text-wrap: balance; }
 .lede { max-width: 58ch; margin-top: 16px; color: var(--tx-2); font-size: 1.125rem; line-height: 1.55; text-wrap: pretty; }
 
 @media (max-width: 959.98px) {

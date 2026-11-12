@@ -15,7 +15,7 @@ export default function Guarantees({ compact = false }: { compact?: boolean }) {
   return (
     <ul className={styles.list}>
       {guarantees.map((item) => (
-        <li key={item.title}>
+        <li key={item.title} className="glow-card" data-tone="green">
           <span className={styles.check} aria-hidden="true"><Icon name="check" /></span>
           <h3>{item.title}</h3>
           <p>{item.copy}</p>

@@ -125,7 +125,9 @@ test("la page transporteurs vise la recherche locale sans inventer de référenc
     assert.equal(page.toLowerCase().includes(word), false, `preuve inventée possible : ${word}`);
   });
   const optiproPage = readFileSync("src/app/(public)/optipro/page.tsx", "utf8");
-  assert.match(optiproPage, /Création de site internet à Vence et Nice/);
+  // /optipro porte le département ; chaque ville a sa page.
+  assert.match(optiproPage, /Création de site internet dans les Alpes-Maritimes \(06\)/);
+  assert.doesNotMatch(optiproPage, /metaTitle = `[^`]*Vence|<>Création de site internet à Vence/, "/optipro ne concurrence plus la page Vence");
   // Toujours accessible (et explorable par Google) depuis /optipro, via la carte « Transport et services ».
   assert.match(optiproPage, /<Trades withPageLinks \/>/);
   assert.match(readFileSync("src/data/offer.ts", "utf8"), /href: "\/optipro\/transport"/);
@@ -414,7 +416,7 @@ test("l’apparition au défilement ne masque jamais le contenu sans script", ()
 });
 
 test("chaque page a son aperçu de partage et l’adresse personnelle reste hors des données structurées", () => {
-  const pages = ["", "optipro/", "optipro/vence/", "optipro/transport/", "optipro/prix-site-internet/", "projets/", "a-propos/", "cv/", "contact/", "mentions-legales/", "confidentialite/"];
+  const pages = ["", "optipro/", "optipro/vence/", "optipro/[ville]/", "optipro/transport/", "optipro/prix-site-internet/", "projets/", "a-propos/", "cv/", "contact/", "mentions-legales/", "confidentialite/"];
   pages.forEach((page) => {
     const source = readFileSync(`src/app/(public)/${page}page.tsx`, "utf8");
     assert.match(source, /\.\.\.shareMeta\(/, `aperçu de partage manquant : /${page}`);
@@ -437,4 +439,46 @@ test("Réalisations s’adresse à un prospect : sites d’abord, sans vocabulai
   assert.ok(page.indexOf('id: "sites"') < page.indexOf('id: "applications"'), "les sites passent avant les applications");
   assert.doesNotMatch(page, /project\.technologies|project\.code|j’y explore/);
   assert.match(page, /href="\/optipro"/);
+});
+
+test("chaque ville des Alpes-Maritimes a sa page, à contenu propre et sans référence inventée", () => {
+  const data = readFileSync("src/data/zones.ts", "utf8");
+  const slugs = [...data.matchAll(/^    slug: "([a-z-]+)"/gm)].map((match) => match[1]);
+  assert.deepEqual(slugs, ["nice", "cagnes-sur-mer", "antibes", "cannes", "grasse"]);
+  // Contenu propre : aucune phrase longue n’est reprise d’une ville à l’autre.
+  const sentences = [...data.matchAll(/"([^"]{60,})"/g)].map((match) => match[1]);
+  assert.equal(new Set(sentences).size, sentences.length, "texte dupliqué entre deux villes");
+  // Ni montant, ni preuve inventée, ni déplacement promis : Pierre est installé à Vence.
+  const page = readFileSync("src/app/(public)/optipro/[ville]/page.tsx", "utf8");
+  const text = `${data}\n${page}`;
+  assert.doesNotMatch(text, /\d[\d\u202f\u00a0 ]*(?:€|euros)/, "montant en dur sur une page locale");
+  ["témoignage", "clients satisfaits", "aggregaterating", "\"review\"", "★", "je me déplace", "rendez-vous sur place", "je code"].forEach((word) => {
+    assert.equal(text.toLowerCase().includes(word), false, `formulation à retirer : ${word}`);
+  });
+  assert.match(page, /dynamicParams = false/);
+  assert.match(page, /canonical: path/);
+  assert.match(page, /"@type": "Service"/);
+  assert.match(page, /optiproOfferSchema/);
+  // Chaque page est au sitemap, dans les données structurées et reliée depuis le pied de page et la carte.
+  assert.match(readFileSync("src/app/sitemap.ts", "utf8"), /zones\.map/);
+  assert.match(readFileSync("src/data/offer.ts", "utf8"), /zones\.map\(\(zone\) => \(\{ "@type": "City"/);
+  assert.match(readFileSync("src/components/layout/Footer.tsx", "utf8"), /\/optipro\/\$\{zone\.slug\}/);
+  assert.match(readFileSync("src/components/visuals/ZoneMap.tsx", "utf8"), /\/optipro\/\$\{city\.slug\}/);
+  ["src/app/(public)/page.tsx", "src/app/(public)/optipro/page.tsx", "src/app/(public)/optipro/vence/page.tsx"].forEach((file) => {
+    assert.match(readFileSync(file, "utf8"), /<ZoneMap/, `carte des zones absente : ${file}`);
+  });
+});
+
+test("les effets visuels restent en amélioration progressive", () => {
+  const globals = readFileSync("src/app/globals.css", "utf8");
+  assert.match(globals, /@media \(hover: hover\) \{\s*\.glow-card:hover/);
+  const spotlight = readFileSync("src/components/layout/Spotlight.tsx", "utf8");
+  assert.match(spotlight, /\(hover: hover\) and \(pointer: fine\)/);
+  // Les animations en boucle ne tournent que hors mouvement réduit, en transformation ou opacité.
+  ["src/components/ui/PageHero.module.css", "src/components/offer/OfferCard.module.css", "src/components/visuals/ZoneMap.module.css"].forEach((file) => {
+    const css = readFileSync(file, "utf8");
+    assert.match(css, /prefers-reduced-motion: no-preference[^}]*\{[^}]*infinite/, `boucle hors garde de mouvement : ${file}`);
+    const keyframes = [...css.matchAll(/@keyframes \w+ \{(.*)\}/g)].map((match) => match[1]).join(" ");
+    assert.doesNotMatch(keyframes, /\b(top|left|width|height|margin|background|filter)\b/, `animation coûteuse : ${file}`);
+  });
 });

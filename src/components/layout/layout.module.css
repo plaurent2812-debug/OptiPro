@@ -1,5 +1,6 @@
 /* ---------- en-tête ---------- */
 .header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid var(--line); background: rgba(10, 13, 18, .78); -webkit-backdrop-filter: saturate(140%) blur(14px); backdrop-filter: saturate(140%) blur(14px); }
+.header::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 1px; background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--green) 60%, transparent) 30%, color-mix(in srgb, var(--cyan) 50%, transparent) 70%, transparent); opacity: .6; pointer-events: none; }
 .headerInner { display: flex; align-items: center; gap: 24px; height: var(--header-height); }
 .brand { display: flex; align-items: center; gap: 10px; min-height: 44px; font-size: .9688rem; font-weight: 600; letter-spacing: -.01em; white-space: nowrap; }
 .brand small { padding-left: 10px; border-left: 1px solid var(--line-2); color: var(--tx-3); font-size: .875rem; font-weight: 400; letter-spacing: 0; }
@@ -11,7 +12,7 @@
 .nav a[aria-current] { color: var(--tx); }
 .telTop { position: relative; display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border: 1px solid var(--line-3); border-radius: var(--r-s); font-size: .9063rem; font-weight: 500; white-space: nowrap; transition: border-color .2s, background-color .2s; }
 .telTop::after { content: ""; position: absolute; inset: -4px; }
-.telTop:hover { border-color: var(--line-hover); background: rgba(255, 255, 255, .04); }
+.telTop:hover { border-color: color-mix(in srgb, var(--green) 55%, var(--line-hover)); background: rgba(255, 255, 255, .04); box-shadow: 0 8px 24px -12px var(--green); }
 .telTop svg { width: 15px; height: 15px; flex: none; color: var(--green); }
 
 /* menu mobile natif */
@@ -36,6 +37,8 @@
 .footer { padding: 28px 0 36px; border-top: 1px solid var(--line); color: var(--tx-3); font-size: .875rem; }
 .footerInner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; }
 .footerNav { display: flex; flex-wrap: wrap; gap: 20px 24px; }
+.footerZones { flex-basis: 100%; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.footerZones a { color: var(--tx-2); }
 /* zone de clic portée à 44 px sans changer la hauteur du pied de page */
 .footerNav a { position: relative; }
 .footerNav a::after { content: ""; position: absolute; inset: -11px -6px; }

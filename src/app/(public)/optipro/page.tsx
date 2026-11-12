@@ -9,6 +9,7 @@ import Deliverables from "@/components/offer/Deliverables";
 import Guarantees from "@/components/offer/Guarantees";
 import Trades from "@/components/offer/Trades";
 import Comparison from "@/components/offer/Comparison";
+import ZoneMap from "@/components/visuals/ZoneMap";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
@@ -16,11 +17,11 @@ import Icon from "@/components/ui/Icon";
 import styles from "./optipro.module.css";
 import { shareMeta } from "@/lib/share-meta";
 
-const metaTitle = `Création de site internet à Vence et Nice (06) · ${optipro.brand}`;
-const metaDescription = `Création de site internet pour TPE et PME à Vence, Nice et dans les ${contact.area} : ${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, ${optipro.includedEdits}.`;
+const metaTitle = `Création de site internet dans les Alpes-Maritimes (06) · ${optipro.brand}`;
+const metaDescription = `Création de site internet pour TPE et PME des ${contact.area}, de Nice à Cannes et de Vence à Grasse : ${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, ${optipro.includedEdits}.`;
 
 export const metadata: Metadata = {
-  // Recherches visées : « création de site internet » + Vence, Nice, Alpes-Maritimes.
+  // Recherche visée : « création de site internet Alpes-Maritimes ». Chaque ville a sa propre page (data/zones.ts).
   title: { absolute: metaTitle },
   description: metaDescription,
   alternates: { canonical: "/optipro" },
@@ -51,7 +52,7 @@ const jsonLd = {
   "@id": "https://pierre-laurent.fr/optipro#service",
   name: "Création de site internet OptiPro",
   serviceType: "Création de site internet",
-  description: "Conception, mise en ligne et suivi de sites internet vitrines pour les TPE et PME de Vence, de Nice et des Alpes-Maritimes.",
+  description: "Conception, mise en ligne et suivi de sites internet vitrines pour les TPE et PME des Alpes-Maritimes : Vence, Nice, Cagnes-sur-Mer, Antibes, Cannes, Grasse.",
   provider: { "@id": "https://pierre-laurent.fr/#optipro" },
   areaServed: optiproAreaSchema,
   url: "https://pierre-laurent.fr/optipro",
@@ -68,7 +69,7 @@ export default function OptiProPage() {
         titleId="optipro-title"
         kicker={`${optipro.brand}, création de sites internet pour les ${optipro.audience}`}
         tone="green"
-        title={<>Création de site internet à Vence et Nice, <span>sans vous en occuper.</span></>}
+        title={<>Création de site internet dans les Alpes-Maritimes, <span>sans vous en occuper.</span></>}
         after={<ProofStrip />}
         actions={
           <>
@@ -77,7 +78,7 @@ export default function OptiProPage() {
           </>
         }
       >
-        <p>Je crée le site internet de votre entreprise, je le mets en ligne, puis je m’occupe de vos modifications chaque mois. <strong>Un seul interlocuteur et un prix clair, de Vence à Nice, et {contact.remoteArea}.</strong></p>
+        <p>Je crée le site internet de votre entreprise, je le mets en ligne, puis je m’occupe de vos modifications chaque mois. <strong>Un seul interlocuteur et un prix clair, dans tout le département, et {contact.remoteArea}.</strong></p>
       </PageHero>
 
       <Section
@@ -101,7 +102,7 @@ export default function OptiProPage() {
         lede="Un site complet, rédigé, référencé dans votre ville et mesuré, prêt à être trouvé et appelé."
         alt
       >
-        <Deliverables columns={3} />
+        <Deliverables />
       </Section>
 
       <Section
@@ -115,6 +116,17 @@ export default function OptiProPage() {
         <SiteShowcase />
         <h3 className={styles.subhead}>Pour votre métier</h3>
         <Trades withPageLinks />
+      </Section>
+
+      <Section
+        id="zones"
+        titleId="zones-title"
+        tone="green"
+        tag="Dans le département"
+        title="Une page par ville des Alpes-Maritimes."
+        lede={`Même offre et même prix partout. Je suis installé à ${contact.city} ; chaque ville a ses habitudes, et sa page.`}
+      >
+        <ZoneMap />
       </Section>
 
       <Section

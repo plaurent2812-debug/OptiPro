@@ -1,3 +1,5 @@
+import { zones } from "./zones";
+
 // Offre OptiPro et coordonnées fournies par Pierre le 19 octobre 2026.
 // Source unique : toute page qui affiche un prix ou un contact lit ce fichier.
 export const contact = {
@@ -83,6 +85,7 @@ export const optiproOfferSchema = {
 export const optiproAreaSchema = [
   { "@type": "AdministrativeArea", name: contact.area },
   { "@type": "City", name: "Vence" },
-  { "@type": "City", name: "Nice" },
+  // Les villes qui ont leur page locale (data/zones.ts).
+  ...zones.map((zone) => ({ "@type": "City", name: zone.name })),
   { "@type": "Country", name: "France" },
 ];

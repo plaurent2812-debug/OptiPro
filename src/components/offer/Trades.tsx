@@ -8,7 +8,7 @@ export default function Trades({ withPageLinks = false }: { withPageLinks?: bool
   return (
     <ul className={styles.list}>
       {trades.map((trade) => (
-        <li key={trade.title}>
+        <li key={trade.title} className="glow-card" data-tone="cyan">
           <h3>{trade.title}</h3>
           <p className={styles.who}>{trade.who}</p>
           <p>{trade.copy}</p>

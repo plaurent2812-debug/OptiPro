@@ -84,10 +84,26 @@ main:focus { outline: none; }
   transition: background-color .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease);
 }
 .btn svg { width: 17px; height: 17px; flex: none; }
-.btn-primary { background: var(--tx); color: var(--bg); }
-.btn-primary:hover { background: #fff; }
-.btn-ghost { border: 1px solid var(--line-3); background: transparent; color: var(--tx); }
-.btn-ghost:hover { border-color: var(--line-hover); background: rgba(255, 255, 255, .03); }
+.btn-primary { position: relative; overflow: hidden; background: linear-gradient(180deg, #fff, #dde5ee); color: var(--bg); box-shadow: 0 0 0 1px rgba(255, 255, 255, .25), 0 12px 32px -12px color-mix(in srgb, var(--green) 70%, transparent); transition: box-shadow .3s var(--ease), translate .3s var(--ease); }
+/* reflet qui traverse le bouton au survol */
+.btn-primary::after { content: ""; position: absolute; inset: 0; background: linear-gradient(105deg, transparent 35%, rgba(111, 211, 156, .45) 50%, transparent 65%); translate: -110% 0; pointer-events: none; }
+.btn-primary > * { position: relative; z-index: 1; }
+.btn-primary:hover { translate: 0 -1px; box-shadow: 0 0 0 1px #fff, 0 18px 44px -12px color-mix(in srgb, var(--green) 90%, transparent); }
+.btn-primary:hover::after { translate: 110% 0; transition: translate .7s var(--ease); }
+.btn-ghost { border: 1px solid var(--line-3); background: rgba(255, 255, 255, .02); color: var(--tx); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.btn-ghost:hover { border-color: color-mix(in srgb, var(--green) 50%, var(--line-hover)); background: rgba(255, 255, 255, .05); }
+
+/* ---------- carte lumineuse ----------
+   Panneau dont la lueur suit le pointeur (--gx / --gy posés par Spotlight).
+   La teinte vient de data-tone ; sans souris ni script, il reste un panneau à bordure. */
+.glow-card { position: relative; overflow: hidden; border: 1px solid var(--line-2); border-radius: var(--r); background: linear-gradient(180deg, color-mix(in srgb, var(--raised) 80%, transparent), var(--panel)); transition: border-color .3s var(--ease), translate .3s var(--ease), box-shadow .3s var(--ease); }
+.glow-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(300px circle at var(--gx, 50%) var(--gy, 0%), color-mix(in srgb, var(--c, var(--green)) 20%, transparent), transparent 70%); opacity: 0; pointer-events: none; transition: opacity .3s var(--ease); }
+@media (hover: hover) {
+  .glow-card:hover { border-color: color-mix(in srgb, var(--c, var(--green)) 50%, var(--line-2)); translate: 0 -2px; box-shadow: 0 24px 48px -32px color-mix(in srgb, var(--c, var(--green)) 60%, transparent); }
+  .glow-card:hover::before { opacity: 1; }
+}
+/* texte en dégradé, pour les chiffres et les titres forts */
+.shine { background: linear-gradient(100deg, #fff 10%, color-mix(in srgb, var(--green) 75%, #fff) 55%, var(--cyan)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
 
 /* ---------- pages juridiques ---------- */
 .legal-page { padding: clamp(48px, 6vw, 88px) 0 clamp(80px, 9vw, 128px); }

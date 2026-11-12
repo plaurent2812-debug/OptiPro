@@ -2,13 +2,13 @@
 
 Site de Pierre Laurent : en quelques secondes, l’étendue de son savoir-faire
 (opérations et logistique, applications web et mobiles, automatisation, IA et
-data) et l’offre OptiPro de sites vitrines pour les TPE et PME des
+data) et l’offre de sites vitrines pour les TPE et PME des
 Alpes-Maritimes.
 
 ## Intention
 
 L’accueil présente un plan de lignes : chaque compétence est une ligne, chaque
-preuve réelle une station. `/optipro` détaille l’offre (tarifs, déroulé, FAQ)
+preuve réelle une station. `/creation-site-internet` détaille l’offre (tarifs, déroulé, FAQ)
 avec un appel direct par téléphone ou e-mail, sans formulaire. `/projets`,
 `/a-propos` et `/cv` gardent le détail des réalisations et du parcours.
 Les prix et coordonnées ne se modifient qu’à un seul endroit :

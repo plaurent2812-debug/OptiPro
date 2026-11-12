@@ -25,7 +25,12 @@ const nextConfig: NextConfig = {
     return [
       { source: "/politique-de-confidentialite", destination: "/confidentialite", permanent: true },
       { source: "/realisations", destination: "/projets", permanent: true },
-      { source: "/services/vence", destination: "https://pierre-laurent.fr/optipro/vence", permanent: true },
+      // Marque OptiPro retirée le 12 novembre 2026 : les adresses /optipro passent sous /creation-site-internet.
+      // La règle précise (guide des prix renommé) reste avant la règle générale.
+      { source: "/optipro/prix-site-internet", destination: "/creation-site-internet/prix", permanent: true },
+      { source: "/optipro", destination: "/creation-site-internet", permanent: true },
+      { source: "/optipro/:path*", destination: "/creation-site-internet/:path*", permanent: true },
+      { source: "/services/vence", destination: "https://pierre-laurent.fr/creation-site-internet/vence", permanent: true },
       { source: "/services", destination: "/projets", permanent: true },
       { source: "/services/:path*", destination: "/projets", permanent: true },
       { source: "/le-service", destination: "/", permanent: true },
@@ -34,7 +39,7 @@ const nextConfig: NextConfig = {
       { source: "/blog", destination: "/projets", permanent: true },
       { source: "/blog/:path*", destination: "/projets", permanent: true },
       { source: "/cgv", destination: "/mentions-legales", permanent: true },
-      { source: "/creation-site-web-vence", destination: "/optipro/vence", permanent: true },
+      { source: "/creation-site-web-vence", destination: "/creation-site-internet/vence", permanent: true },
       { source: "/methode", destination: "/a-propos", permanent: true },
       { source: "/pourquoi-ce-prix", destination: "/a-propos", permanent: true },
       { source: "/dashboard", destination: "/", permanent: true },

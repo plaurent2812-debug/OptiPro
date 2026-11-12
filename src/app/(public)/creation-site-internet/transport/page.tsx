@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { contact, optipro, optiproAreaSchema, optiproOfferSchema } from "@/data/offer";
+import { contact, offer, areaSchema, offerSchema } from "@/data/offer";
 import { safeJsonLd } from "@/lib/json-ld";
 import OfferCard from "@/components/offer/OfferCard";
 import SiteShowcase from "@/components/offer/SiteShowcase";
@@ -10,19 +10,19 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon, { type IconName } from "@/components/ui/Icon";
-import styles from "../optipro.module.css";
+import styles from "../offre.module.css";
 import { shareMeta } from "@/lib/share-meta";
 
 // Page à joindre aux e-mails de prospection des transporteurs du 06.
 // Aucun client, chiffre ni avis : uniquement l’offre et ce que le site fait.
-const metaTitle = `Sites internet pour transporteurs des Alpes-Maritimes · ${optipro.brand}`;
-const metaDescription = `Site internet pour transporteurs des ${contact.area} : demande de devis guidée, recrutement de conducteurs, ${optipro.includedEdits}. ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois.`;
+const metaTitle = `Sites internet pour transporteurs des Alpes-Maritimes · ${contact.name}`;
+const metaDescription = `Site internet pour transporteurs des ${contact.area} : demande de devis guidée, recrutement de conducteurs, ${offer.includedEdits}. ${offer.setupPrice} puis ${offer.monthlyPrice} par mois.`;
 
 export const metadata: Metadata = {
   title: { absolute: metaTitle },
   description: metaDescription,
-  alternates: { canonical: "/optipro/transport" },
-  ...shareMeta(metaTitle, metaDescription, "/optipro/transport"),
+  alternates: { canonical: "/creation-site-internet/transport" },
+  ...shareMeta(metaTitle, metaDescription, "/creation-site-internet/transport"),
 };
 
 const features: { icon: IconName; title: string; copy: string }[] = [
@@ -48,35 +48,35 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://pierre-laurent.fr/optipro/transport#service",
+      "@id": "https://pierre-laurent.fr/creation-site-internet/transport#service",
       name: "Création de site internet pour transporteurs",
       serviceType: "Création de site internet",
       description: "Sites internet pour les entreprises de transport des Alpes-Maritimes : demande de devis guidée, recrutement de conducteurs, mises à jour mensuelles comprises.",
-      provider: { "@id": "https://pierre-laurent.fr/#optipro" },
+      provider: { "@id": "https://pierre-laurent.fr/#entreprise" },
       audience: { "@type": "BusinessAudience", name: "Entreprises de transport routier de marchandises" },
-      areaServed: optiproAreaSchema,
-      url: "https://pierre-laurent.fr/optipro/transport",
-      isRelatedTo: { "@id": "https://pierre-laurent.fr/optipro#service" },
-      offers: optiproOfferSchema,
+      areaServed: areaSchema,
+      url: "https://pierre-laurent.fr/creation-site-internet/transport",
+      isRelatedTo: { "@id": "https://pierre-laurent.fr/creation-site-internet#service" },
+      offers: offerSchema,
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: optipro.brand, item: "https://pierre-laurent.fr/optipro" },
-        { "@type": "ListItem", position: 2, name: "Transporteurs", item: "https://pierre-laurent.fr/optipro/transport" },
+        { "@type": "ListItem", position: 1, name: "Création de site internet", item: "https://pierre-laurent.fr/creation-site-internet" },
+        { "@type": "ListItem", position: 2, name: "Transporteurs", item: "https://pierre-laurent.fr/creation-site-internet/transport" },
       ],
     },
   ],
 };
 
-export default function OptiProTransportPage() {
+export default function TransportPage() {
   return (
     <main id="contenu" tabIndex={-1}>
       <script type="application/ld+json">{safeJsonLd(jsonLd)}</script>
 
       <PageHero
         titleId="transport-title"
-        kicker={`${optipro.brand} pour les transporteurs du 06`}
+        kicker={"Sites internet pour les transporteurs du 06"}
         tone="amber"
         after={<ProofStrip />}
         title={<>Sites internet pour transporteurs <span>des {contact.area}.</span></>}
@@ -142,12 +142,12 @@ export default function OptiProTransportPage() {
         tone="green"
         tag="Le tarif"
         title="Le même prix que pour toute entreprise."
-        lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année, engagement de ${optipro.commitment}.`}
+        lede={`${offer.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année, engagement de ${offer.commitment}.`}
         alt
       >
         <OfferCard />
         <p className={styles.sectorLink}>
-          <Link href="/optipro#questions" className={styles.textLink}>Détails de l’offre et questions fréquentes</Link>
+          <Link href="/creation-site-internet#questions" className={styles.textLink}>Détails de l’offre et questions fréquentes</Link>
         </p>
       </Section>
 

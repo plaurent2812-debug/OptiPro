@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { contact, optipro } from "@/data/offer";
+import { contact, offer } from "@/data/offer";
 import PageHero from "@/components/ui/PageHero";
 import Icon from "@/components/ui/Icon";
 import styles from "../content.module.css";
 import { shareMeta } from "@/lib/share-meta";
 
 const metaTitle = "Contact";
-const metaDescription = `Joindre Pierre Laurent, ${optipro.brand}, au ${contact.phoneDisplay} ou par e-mail pour la création de votre site internet dans les ${contact.area}.`;
+const metaDescription = `Joindre Pierre Laurent au ${contact.phoneDisplay} ou par e-mail pour la création de votre site internet dans les ${contact.area}.`;
 
 export const metadata: Metadata = {
   title: metaTitle,
@@ -20,24 +20,24 @@ export default function ContactPage() {
   return (
     <main id="contenu" tabIndex={-1}>
       <PageHero titleId="contact-title" kicker="Contact" tone="green" title={<>Un site pour votre entreprise&nbsp;? <span>Appelez-moi.</span></>}>
-        <p>Je réponds moi-même, depuis {contact.city}. Un appel suffit pour faire le point sur votre activité et savoir si l’offre {optipro.brand} vous convient.</p>
+        <p>Je réponds moi-même, depuis {contact.city}. Un appel suffit pour faire le point sur votre activité et savoir si l’offre vous convient.</p>
       </PageHero>
 
       <section className={styles.contactSection} aria-label="Coordonnées">
         <div className={`shell ${styles.contactGrid}`}>
           <article className={styles.card}>
             <h2>Pierre Laurent</h2>
-            <p>Fondateur d’{optipro.brand}&nbsp;: je crée, mets en ligne et fais vivre les sites internet des {optipro.audience} des {contact.area}.</p>
+            <p>Je crée, mets en ligne et fais vivre les sites internet des {offer.audience} des {contact.area}.</p>
             <div className={styles.buttonRow}>
               <a href={contact.phoneHref} className="btn btn-primary"><Icon name="tel" /><span className="num">{contact.phoneDisplay}</span></a>
               <a href={contact.emailHref} className="btn btn-ghost"><Icon name="mail" />{contact.email}</a>
             </div>
             <div className={styles.offerBox}>
               <h3>Un site pour votre entreprise</h3>
-              <p>{optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois ou {optipro.yearlyPrice} par an, pour les {optipro.audience} des {contact.area}.</p>
+              <p>{offer.setupPrice} de mise en ligne, puis {offer.monthlyPrice} par mois ou {offer.yearlyPrice} par an, pour les {offer.audience} des {contact.area}.</p>
               <p className={styles.links}>
-                <Link href="/optipro">Voir l’offre {optipro.brand}</Link>
-                <Link href="/optipro/prix-site-internet">Prix d’un site internet</Link>
+                <Link href="/creation-site-internet">Voir l’offre</Link>
+                <Link href="/creation-site-internet/prix">Prix d’un site internet</Link>
                 <Link href="/a-propos">Qui suis-je</Link>
               </p>
             </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { contact, optipro, optiproOfferSchema } from "@/data/offer";
+import { contact, offer, offerSchema } from "@/data/offer";
 import { zoneBySlug, zones } from "@/data/zones";
 import { safeJsonLd } from "@/lib/json-ld";
 import OfferCard from "@/components/offer/OfferCard";
@@ -13,7 +13,7 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon from "@/components/ui/Icon";
-import styles from "../optipro.module.css";
+import styles from "../offre.module.css";
 import { shareMeta } from "@/lib/share-meta";
 
 // Pages locales des Alpes-Maritimes (Nice, Cagnes-sur-Mer, Antibes, Cannes, Grasse).
@@ -30,9 +30,9 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const zone = zoneBySlug((await params).ville);
   if (!zone) return {};
-  const path = `/optipro/${zone.slug}`;
-  const metaTitle = `Création de site internet ${zone.at} (${zone.postalCode}) · ${optipro.brand}`;
-  const metaDescription = `Création de site internet ${zone.at} pour les commerces, artisans et restaurants : ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois, en ligne en ${optipro.deliveryTime}. Un seul interlocuteur, installé à ${contact.city}.`;
+  const path = `/creation-site-internet/${zone.slug}`;
+  const metaTitle = `Création de site internet ${zone.at} (${zone.postalCode}) · ${contact.name}`;
+  const metaDescription = `Création de site internet ${zone.at} pour les commerces, artisans et restaurants : ${offer.setupPrice} puis ${offer.monthlyPrice} par mois, en ligne en ${offer.deliveryTime}. Un seul interlocuteur, installé à ${contact.city}.`;
   return {
     title: { absolute: metaTitle },
     description: metaDescription,
@@ -43,17 +43,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const list = (items: string[]) => `${items.slice(0, -1).join(", ")} et ${items[items.length - 1]}`;
 
-export default async function OptiProZonePage({ params }: Props) {
+export default async function ZonePage({ params }: Props) {
   const zone = zoneBySlug((await params).ville);
   if (!zone) notFound();
-  const url = `https://pierre-laurent.fr/optipro/${zone.slug}`;
+  const url = `https://pierre-laurent.fr/creation-site-internet/${zone.slug}`;
 
   // Questions propres à la ville, puis les conditions de l’offre.
   const faq = [
     ...zone.faq,
-    { q: `Combien coûte un site internet ${zone.at} ?`, a: `${optipro.setupPrice} de mise en ligne, payés une seule fois, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, avec un engagement de ${optipro.commitment}. ${optipro.hostingIncluded}. ${optipro.vatNotice}.` },
-    { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime} ${optipro.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
-    { q: "À qui appartiennent le site et le nom de domaine ?", a: `À vous. ${optipro.ownership} ${optipro.afterCommitment}` },
+    { q: `Combien coûte un site internet ${zone.at} ?`, a: `${offer.setupPrice} de mise en ligne, payés une seule fois, puis ${offer.monthlyPrice} par mois ou ${offer.yearlyPrice} par an, avec un engagement de ${offer.commitment}. ${offer.hostingIncluded}. ${offer.vatNotice}.` },
+    { q: "En combien de temps mon site est-il en ligne ?", a: `En ${offer.deliveryTime} ${offer.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
+    { q: "À qui appartiennent le site et le nom de domaine ?", a: `À vous. ${offer.ownership} ${offer.afterCommitment}` },
   ];
 
   const jsonLd = {
@@ -65,20 +65,20 @@ export default async function OptiProZonePage({ params }: Props) {
         name: `Création de site internet ${zone.at}`,
         serviceType: "Création de site internet",
         description: `Conception, mise en ligne et suivi de sites internet pour les commerces, artisans et restaurants de ${zone.name} et des communes voisines.`,
-        provider: { "@id": "https://pierre-laurent.fr/#optipro" },
+        provider: { "@id": "https://pierre-laurent.fr/#entreprise" },
         areaServed: [
           { "@type": "City", name: zone.name },
           ...zone.nearby.map((name) => ({ "@type": "City", name })),
           { "@type": "AdministrativeArea", name: contact.area },
         ],
         url,
-        isRelatedTo: { "@id": "https://pierre-laurent.fr/optipro#service" },
-        offers: optiproOfferSchema,
+        isRelatedTo: { "@id": "https://pierre-laurent.fr/creation-site-internet#service" },
+        offers: offerSchema,
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: optipro.brand, item: "https://pierre-laurent.fr/optipro" },
+          { "@type": "ListItem", position: 1, name: "Création de site internet", item: "https://pierre-laurent.fr/creation-site-internet" },
           { "@type": "ListItem", position: 2, name: zone.name, item: url },
         ],
       },
@@ -91,7 +91,7 @@ export default async function OptiProZonePage({ params }: Props) {
 
       <PageHero
         titleId="zone-title"
-        kicker={`${optipro.brand}, création de sites internet ${zone.at} (${zone.postalCode})`}
+        kicker={`${contact.name}, création de sites internet ${zone.at} (${zone.postalCode})`}
         tone="green"
         after={<ProofStrip />}
         title={<>Création de site internet {zone.at}, <span>{zone.h1Tail}</span></>}
@@ -139,12 +139,12 @@ export default async function OptiProZonePage({ params }: Props) {
         tone="green"
         tag="Le tarif"
         title="Un prix affiché, le même dans tout le département."
-        lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année, engagement de ${optipro.commitment}.`}
+        lede={`${offer.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année, engagement de ${offer.commitment}.`}
       >
         <OfferCard />
         <Guarantees compact />
         <p className={styles.sectorLink}>
-          <Link href="/optipro" className={styles.textLink}>Voir le détail de l’offre {optipro.brand}</Link>
+          <Link href="/creation-site-internet" className={styles.textLink}>Voir le détail de l’offre</Link>
         </p>
       </Section>
 
@@ -181,7 +181,7 @@ export default async function OptiProZonePage({ params }: Props) {
           ))}
         </div>
         <p className={styles.sectorLink}>
-          <Link href="/optipro/prix-site-internet" className={styles.textLink}>Combien coûte un site internet&nbsp;?</Link>
+          <Link href="/creation-site-internet/prix" className={styles.textLink}>Combien coûte un site internet&nbsp;?</Link>
         </p>
       </Section>
 

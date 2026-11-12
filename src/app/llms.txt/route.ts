@@ -1,4 +1,4 @@
-import { contact, deliverables, optipro } from "@/data/offer";
+import { contact, deliverables, offer } from "@/data/offer";
 import { home, zones } from "@/data/zones";
 
 // Résumé du site pour les assistants et moteurs de réponse (convention llms.txt).
@@ -8,20 +8,20 @@ export const dynamic = "force-static";
 export function GET() {
   const base = "https://pierre-laurent.fr";
   const body = [
-    `# ${optipro.brand} — Pierre Laurent`,
+    `# ${contact.name} — Création de sites internet`,
     "",
-    `> Création de sites internet pour les ${optipro.audience} des ${contact.area}, par Pierre Laurent, entrepreneur individuel installé à ${contact.city} (${home.postalCode}). ${optipro.setupPrice} de mise en ligne, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an. ${optipro.vatNotice}.`,
+    `> Création de sites internet pour les ${offer.audience} des ${contact.area}, par Pierre Laurent, entrepreneur individuel installé à ${contact.city} (${home.postalCode}). ${offer.setupPrice} de mise en ligne, puis ${offer.monthlyPrice} par mois ou ${offer.yearlyPrice} par an. ${offer.vatNotice}.`,
     "",
     "## Offre",
-    `- Mise en ligne en ${optipro.deliveryTime}, engagement de ${optipro.commitment}, ${optipro.includedEdits}, heure supplémentaire à ${optipro.extraHourPrice}.`,
-    `- ${optipro.hostingIncluded}. ${optipro.ownership}`,
+    `- Mise en ligne en ${offer.deliveryTime}, engagement de ${offer.commitment}, ${offer.includedEdits}, heure supplémentaire à ${offer.extraHourPrice}.`,
+    `- ${offer.hostingIncluded}. ${offer.ownership}`,
     ...deliverables.map((item) => `- ${item.title} : ${item.copy}`),
     "",
     "## Pages",
-    `- [Offre et tarifs](${base}/optipro) : création de site internet dans les ${contact.area}`,
-    `- [Création de site internet à ${home.name}](${base}/optipro/${home.slug})`,
-    ...zones.map((zone) => `- [Création de site internet ${zone.at}](${base}/optipro/${zone.slug})`),
-    `- [Combien coûte un site internet ?](${base}/optipro/prix-site-internet)`,
+    `- [Offre et tarifs](${base}/creation-site-internet) : création de site internet dans les ${contact.area}`,
+    `- [Création de site internet à ${home.name}](${base}/creation-site-internet/${home.slug})`,
+    ...zones.map((zone) => `- [Création de site internet ${zone.at}](${base}/creation-site-internet/${zone.slug})`),
+    `- [Combien coûte un site internet ?](${base}/creation-site-internet/prix)`,
     `- [Réalisations](${base}/projets)`,
     `- [Qui suis-je](${base}/a-propos)`,
     "",

@@ -3,5 +3,5 @@ export const portrait = {
   src: "/pierre-laurent-portrait.webp",
   width: 800,
   height: 800,
-  alt: "Portrait de Pierre Laurent, créateur des sites OptiPro",
+  alt: "Portrait de Pierre Laurent, créateur de sites internet",
 };

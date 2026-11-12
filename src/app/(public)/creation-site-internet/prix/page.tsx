@@ -1,26 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { contact, optipro } from "@/data/offer";
+import { contact, offer } from "@/data/offer";
 import { domainRenewal, marketFigures, marketSource } from "@/data/market";
 import { safeJsonLd } from "@/lib/json-ld";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon from "@/components/ui/Icon";
-import styles from "../optipro.module.css";
+import styles from "../offre.module.css";
 import { shareMeta } from "@/lib/share-meta";
 
 // Guide des prix : uniquement des chiffres sourcés (data/market.ts) ou tirés de l’offre (data/offer.ts).
 const PUBLISHED = "2026-10-21";
 
-const metaTitle = `Prix d’un site internet pour une TPE dans les Alpes-Maritimes · ${optipro.brand}`;
+const metaTitle = `Prix d’un site internet pour une TPE dans les Alpes-Maritimes · ${contact.name}`;
 const metaDescription = "Combien coûte un site internet pour une TPE ? Les repères du marché, les coûts qui reviennent chaque année, paiement unique ou abonnement, et les questions à poser avant de signer.";
 
 export const metadata: Metadata = {
   title: { absolute: metaTitle },
   description: metaDescription,
-  alternates: { canonical: "/optipro/prix-site-internet" },
-  ...shareMeta(metaTitle, metaDescription, "/optipro/prix-site-internet"),
+  alternates: { canonical: "/creation-site-internet/prix" },
+  ...shareMeta(metaTitle, metaDescription, "/creation-site-internet/prix"),
 };
 
 const factors = [
@@ -52,22 +52,22 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": "https://pierre-laurent.fr/optipro/prix-site-internet#article",
+      "@id": "https://pierre-laurent.fr/creation-site-internet/prix#article",
       headline: "Combien coûte un site internet pour une TPE dans les Alpes-Maritimes ?",
       description: "Repères du marché, coûts annuels, paiement unique ou abonnement, et questions à poser avant de signer.",
       datePublished: PUBLISHED,
       dateModified: PUBLISHED,
       inLanguage: "fr-FR",
       author: { "@id": "https://pierre-laurent.fr/#pierre-laurent" },
-      publisher: { "@id": "https://pierre-laurent.fr/#optipro" },
-      mainEntityOfPage: "https://pierre-laurent.fr/optipro/prix-site-internet",
+      publisher: { "@id": "https://pierre-laurent.fr/#entreprise" },
+      mainEntityOfPage: "https://pierre-laurent.fr/creation-site-internet/prix",
       citation: marketSource.url,
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: optipro.brand, item: "https://pierre-laurent.fr/optipro" },
-        { "@type": "ListItem", position: 2, name: "Prix d’un site internet", item: "https://pierre-laurent.fr/optipro/prix-site-internet" },
+        { "@type": "ListItem", position: 1, name: "Création de site internet", item: "https://pierre-laurent.fr/creation-site-internet" },
+        { "@type": "ListItem", position: 2, name: "Prix d’un site internet", item: "https://pierre-laurent.fr/creation-site-internet/prix" },
       ],
     },
   ],
@@ -86,7 +86,7 @@ export default function PriceGuidePage() {
         actions={
           <>
             <a className="btn btn-primary" href={contact.phoneHref}><Icon name="tel" /><span>Appeler le <span className="num">{contact.phoneDisplay}</span></span></a>
-            <Link className="btn btn-ghost" href="/optipro">Voir l’offre {optipro.brand}</Link>
+            <Link className="btn btn-ghost" href="/creation-site-internet">Voir l’offre</Link>
           </>
         }
       >
@@ -157,9 +157,9 @@ export default function PriceGuidePage() {
         intro={
           <div className={styles.why}>
             <p>Avec un <strong>paiement unique</strong>, vous réglez la création, puis l’hébergement, la maintenance et chaque modification à part. Avec un <strong>abonnement</strong>, une partie de ces coûts est comprise dans un montant fixe.</p>
-            <p>Pour comparer, ramenez tout sur la même période. Avec l’offre {optipro.brand}, les 12 premiers mois reviennent à <strong>{optipro.firstYearMonthly}</strong> en payant au mois ({optipro.setupPrice} + 12 × {optipro.monthlyPrice}), ou <strong>{optipro.firstYearYearly}</strong> en payant l’année ({optipro.setupPrice} + {optipro.yearlyPrice}), avec {optipro.includedEdits}. {optipro.vatNotice}.</p>
-            <p>Dans tous les cas, demandez à qui appartiennent le site et le nom de domaine, et ce qui se passe à la fin de l’engagement. Avec {optipro.brand}&nbsp;: <strong>{optipro.hostingIncluded.toLowerCase()}</strong>, {optipro.ownership.charAt(0).toLowerCase()}{optipro.ownership.slice(1)} {optipro.afterCommitment}</p>
-            <Link href="/optipro#tarif" className={styles.textLink}>Voir le détail de l’offre {optipro.brand}</Link>
+            <p>Pour comparer, ramenez tout sur la même période. Avec mon offre, les 12 premiers mois reviennent à <strong>{offer.firstYearMonthly}</strong> en payant au mois ({offer.setupPrice} + 12 × {offer.monthlyPrice}), ou <strong>{offer.firstYearYearly}</strong> en payant l’année ({offer.setupPrice} + {offer.yearlyPrice}), avec {offer.includedEdits}. {offer.vatNotice}.</p>
+            <p>Dans tous les cas, demandez à qui appartiennent le site et le nom de domaine, et ce qui se passe à la fin de l’engagement. Avec mon offre&nbsp;: <strong>{offer.hostingIncluded.toLowerCase()}</strong>, {offer.ownership.charAt(0).toLowerCase()}{offer.ownership.slice(1)} {offer.afterCommitment}</p>
+            <Link href="/creation-site-internet#tarif" className={styles.textLink}>Voir le détail de l’offre</Link>
           </div>
         }
       />

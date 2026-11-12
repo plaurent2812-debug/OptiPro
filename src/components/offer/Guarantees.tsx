@@ -2,7 +2,7 @@ import { guarantees } from "@/data/offer";
 import Icon from "@/components/ui/Icon";
 import styles from "./Guarantees.module.css";
 
-// Engagements d’OptiPro, chacun tiré d’une condition publiée (data/offer.ts).
+// Engagements, chacun tiré d’une condition publiée (data/offer.ts).
 // « compact » : une ligne de garanties sous la carte tarifaire (accueil).
 export default function Guarantees({ compact = false }: { compact?: boolean }) {
   if (compact) {

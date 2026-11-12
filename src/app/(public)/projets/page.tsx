@@ -4,13 +4,13 @@ import Link from "next/link";
 import ProjectVisual from "@/components/projects/ProjectVisual";
 import PageHero from "@/components/ui/PageHero";
 import { StatusPill } from "@/components/ui/Frames";
-import { contact, optipro } from "@/data/offer";
+import { contact, offer } from "@/data/offer";
 import { projects } from "@/data/projects";
 import styles from "../content.module.css";
 import { shareMeta } from "@/lib/share-meta";
 
 const metaTitle = "Réalisations";
-const metaDescription = "Sites et applications conçus et réalisés par Pierre Laurent, créateur des sites internet OptiPro dans les Alpes-Maritimes.";
+const metaDescription = "Sites et applications conçus et réalisés par Pierre Laurent, créateur de sites internet dans les Alpes-Maritimes.";
 
 export const metadata: Metadata = {
   title: metaTitle,
@@ -98,7 +98,7 @@ export default function ProjectsPage() {
               </article>
             ))}
             {group.id === "sites" && (
-              <p className={styles.groupCta}>Un site pour votre entreprise&nbsp;: {optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois. <Link href="/optipro">Voir l’offre {optipro.brand}</Link></p>
+              <p className={styles.groupCta}>Un site pour votre entreprise&nbsp;: {offer.setupPrice} de mise en ligne, puis {offer.monthlyPrice} par mois. <Link href="/creation-site-internet">Voir l’offre</Link></p>
             )}
           </div>
         </section>
@@ -108,8 +108,8 @@ export default function ProjectsPage() {
         <div className={`shell ${styles.furtherGrid}`}>
           <div>
             <h2>Un site pour votre entreprise&nbsp;?</h2>
-            <p>La même exigence, au service des {optipro.audience} des {contact.area}&nbsp;: {optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois.</p>
-            <Link href="/optipro" className="btn btn-primary">Voir l’offre {optipro.brand}</Link>
+            <p>La même exigence, au service des {offer.audience} des {contact.area}&nbsp;: {offer.setupPrice} de mise en ligne, puis {offer.monthlyPrice} par mois.</p>
+            <Link href="/creation-site-internet" className="btn btn-primary">Voir l’offre</Link>
           </div>
           <div>
             <h2>Continuer à explorer.</h2>

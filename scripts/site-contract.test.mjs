@@ -9,9 +9,9 @@ const requiredFiles = [
   "src/app/(public)/contact/page.tsx",
   "src/app/(public)/mentions-legales/page.tsx",
   "src/app/(public)/confidentialite/page.tsx",
-  "src/app/(public)/optipro/page.tsx",
-  "src/app/(public)/optipro/transport/page.tsx",
-  "src/app/(public)/optipro/vence/page.tsx",
+  "src/app/(public)/creation-site-internet/page.tsx",
+  "src/app/(public)/creation-site-internet/transport/page.tsx",
+  "src/app/(public)/creation-site-internet/vence/page.tsx",
   "src/components/visuals/SystemMap.tsx",
   "src/components/visuals/SystemMap.module.css",
   "src/components/offer/OfferCard.tsx",
@@ -87,14 +87,14 @@ test("l’accueil vend l’offre avant de présenter le parcours", () => {
   assert.match(home, /contact\.phoneHref/);
   // Le site parle de tous les métiers : la page transporteurs sert à la prospection, hors accueil et hors menu.
   assert.match(home, /<Trades\b/);
-  assert.doesNotMatch(home, /\/optipro\/transport/);
+  assert.doesNotMatch(home, /\/creation-site-internet\/transport/);
   assert.doesNotMatch(home, /@\/data\/profile|SystemMap/, "le parcours et le schéma de compétences restent sur /a-propos");
 
   const header = readFileSync("src/components/layout/Header.tsx", "utf8");
   const firstLink = header.match(/\{ href: "([^"]+)", label/);
-  assert.equal(firstLink?.[1], "/optipro", "l’offre ouvre la navigation principale");
+  assert.equal(firstLink?.[1], "/creation-site-internet", "l’offre ouvre la navigation principale");
   assert.doesNotMatch(header, /href="\/cv"|Savoir-faire/, "le CV sort de la navigation principale");
-  assert.doesNotMatch(header, /href: "\/optipro\/transport"/, "la page transporteurs reste hors du menu");
+  assert.doesNotMatch(header, /href: "\/creation-site-internet\/transport"/, "la page transporteurs reste hors du menu");
 
   const footer = readFileSync("src/components/layout/Footer.tsx", "utf8");
   assert.match(footer, /href="\/cv"/, "le CV reste accessible depuis le pied de page");
@@ -102,61 +102,61 @@ test("l’accueil vend l’offre avant de présenter le parcours", () => {
   assert.match(rootLayout, /Création de site internet dans les Alpes-Maritimes/);
 });
 
-test("l’offre OptiPro affiche les conditions validées par Pierre", () => {
+test("l’offre affiche les conditions validées par Pierre", () => {
   const offer = readFileSync("src/data/offer.ts", "utf8");
   ["690 €", "59 €", "590 €", "12 mois", "1 h de modifications par mois", "60 €", "Alpes-Maritimes", "tel:+33670259333", "p.laurent@opti-pro.fr", "TVA non applicable, art. 293 B du CGI"].forEach((value) => {
     assert.equal(offer.includes(value), true, `condition manquante : ${value}`);
   });
-  const page = readFileSync("src/app/(public)/optipro/page.tsx", "utf8");
+  const page = readFileSync("src/app/(public)/creation-site-internet/page.tsx", "utf8");
   assert.match(page, /non cumulable/);
   assert.match(page, /contact\.phoneHref/);
   assert.match(page, /contact\.emailHref/);
   const sitemap = readFileSync("src/app/sitemap.ts", "utf8");
-  assert.match(sitemap, /\/optipro/);
-  assert.match(sitemap, /\/optipro\/transport/);
+  assert.match(sitemap, /\/creation-site-internet/);
+  assert.match(sitemap, /\/creation-site-internet\/transport/);
 });
 
 test("la page transporteurs vise la recherche locale sans inventer de références", () => {
-  const page = readFileSync("src/app/(public)/optipro/transport/page.tsx", "utf8");
+  const page = readFileSync("src/app/(public)/creation-site-internet/transport/page.tsx", "utf8");
   assert.match(page, /Sites internet pour transporteurs des Alpes-Maritimes/);
-  assert.match(page, /canonical: "\/optipro\/transport"/);
+  assert.match(page, /canonical: "\/creation-site-internet\/transport"/);
   assert.match(page, /"@type": "Service"/);
   ["témoignage", "clients satisfaits", "aggregaterating", "\"review\"", "★"].forEach((word) => {
     assert.equal(page.toLowerCase().includes(word), false, `preuve inventée possible : ${word}`);
   });
-  const optiproPage = readFileSync("src/app/(public)/optipro/page.tsx", "utf8");
-  // /optipro porte le département ; chaque ville a sa page.
-  assert.match(optiproPage, /Création de site internet dans les Alpes-Maritimes \(06\)/);
-  assert.doesNotMatch(optiproPage, /metaTitle = `[^`]*Vence|<>Création de site internet à Vence/, "/optipro ne concurrence plus la page Vence");
-  // Toujours accessible (et explorable par Google) depuis /optipro, via la carte « Transport et services ».
-  assert.match(optiproPage, /<Trades withPageLinks \/>/);
-  assert.match(readFileSync("src/data/offer.ts", "utf8"), /href: "\/optipro\/transport"/);
+  const offerPage = readFileSync("src/app/(public)/creation-site-internet/page.tsx", "utf8");
+  // /creation-site-internet porte le département ; chaque ville a sa page.
+  assert.match(offerPage, /Création de site internet dans les Alpes-Maritimes \(06\)/);
+  assert.doesNotMatch(offerPage, /metaTitle = `[^`]*Vence|<>Création de site internet à Vence/, "/creation-site-internet ne concurrence plus la page Vence");
+  // Toujours accessible (et explorable par Google) depuis /creation-site-internet, via la carte « Transport et services ».
+  assert.match(offerPage, /<Trades withPageLinks \/>/);
+  assert.match(readFileSync("src/data/offer.ts", "utf8"), /href: "\/creation-site-internet\/transport"/);
 });
 
 test("la page Vence vise la recherche locale, reliée au site et sans référence inventée", () => {
-  const page = readFileSync("src/app/(public)/optipro/vence/page.tsx", "utf8");
+  const page = readFileSync("src/app/(public)/creation-site-internet/vence/page.tsx", "utf8");
   assert.match(page, /Création de site internet à Vence \(06140\)/);
   assert.match(page, /<>Création de site internet à Vence/);
-  assert.match(page, /canonical: "\/optipro\/vence"/);
+  assert.match(page, /canonical: "\/creation-site-internet\/vence"/);
   assert.match(page, /"@type": "Service"/);
-  assert.match(page, /optiproOfferSchema/);
+  assert.match(page, /offerSchema/);
   // Aucun montant en dur : prix, délai et conditions viennent de data/offer.ts.
   assert.doesNotMatch(page, /\d[\d\u202f\u00a0 ]*(?:€|euros)/, "montant en dur sur la page Vence");
   ["témoignage", "clients satisfaits", "aggregaterating", "\"review\"", "★"].forEach((word) => {
     assert.equal(page.toLowerCase().includes(word), false, `preuve inventée possible : ${word}`);
   });
-  assert.match(readFileSync("src/app/sitemap.ts", "utf8"), /\/optipro\/vence/);
-  assert.match(readFileSync("next.config.ts", "utf8"), /source: "\/creation-site-web-vence", destination: "\/optipro\/vence"/);
+  assert.match(readFileSync("src/app/sitemap.ts", "utf8"), /\/creation-site-internet\/vence/);
+  assert.match(readFileSync("next.config.ts", "utf8"), /source: "\/creation-site-web-vence", destination: "\/creation-site-internet\/vence"/);
   // Au moins un lien entrant, pour que la page ne soit pas orpheline.
-  assert.match(readFileSync("src/components/layout/Footer.tsx", "utf8"), /href="\/optipro\/vence"/);
-  assert.match(readFileSync("src/app/(public)/optipro/page.tsx", "utf8"), /href: "\/optipro\/vence"/);
+  assert.match(readFileSync("src/components/layout/Footer.tsx", "utf8"), /href="\/creation-site-internet\/vence"/);
+  assert.match(readFileSync("src/app/(public)/creation-site-internet/page.tsx", "utf8"), /href: "\/creation-site-internet\/vence"/);
 });
 
 test("les pages commerciales montrent de vrais sites, sans maquette ni mention « personnelle »", () => {
   ["src/components/offer/SiteMockup.tsx", "src/data/examples.ts"].forEach((file) => assert.equal(existsSync(file), false, `${file} ne doit plus exister`));
   const showcase = readFileSync("src/data/projects.ts", "utf8");
   assert.match(showcase, /showcaseSites = \(\["ro-nutritionniste", "la-parallaxe", "le-fond-du-sujet"\]/);
-  const pages = ["src/app/(public)/page.tsx", "src/app/(public)/optipro/page.tsx", "src/app/(public)/optipro/transport/page.tsx", "src/components/offer/SiteShowcase.tsx"].map((file) => readFileSync(file, "utf8")).join("\n");
+  const pages = ["src/app/(public)/page.tsx", "src/app/(public)/creation-site-internet/page.tsx", "src/app/(public)/creation-site-internet/transport/page.tsx", "src/components/offer/SiteShowcase.tsx"].map((file) => readFileSync(file, "utf8")).join("\n");
   assert.match(pages, /showcaseSites|<SiteShowcase \/>/);
   // Le statut réel de chaque site reste affiché (« Démonstration », « En ligne ») : aucun faux client.
   assert.match(pages, /site\.badge/);
@@ -170,25 +170,25 @@ test("la zone reste locale dans les titres et s’ouvre à toute la France à di
   assert.match(offer, /remoteArea: "partout en France à distance"/);
   assert.match(offer, /"@type": "Country", name: "France"/);
   assert.match(readFileSync("src/components/offer/OfferCard.tsx", "utf8"), /contact\.remoteArea/);
-  assert.match(readFileSync("src/app/(public)/optipro/page.tsx", "utf8"), /Où intervenez-vous \?.*contact\.remoteArea/);
+  assert.match(readFileSync("src/app/(public)/creation-site-internet/page.tsx", "utf8"), /Où intervenez-vous \?.*contact\.remoteArea/);
   assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /Création de site internet à Vence et dans les Alpes-Maritimes/);
 });
 
 test("le guide des prix ne cite que des chiffres sourcés ou tirés de l’offre", () => {
-  const guide = readFileSync("src/app/(public)/optipro/prix-site-internet/page.tsx", "utf8");
+  const guide = readFileSync("src/app/(public)/creation-site-internet/prix/page.tsx", "utf8");
   const market = readFileSync("src/data/market.ts", "utf8");
   assert.match(market, /lafabriquedunet\.fr\/agences\/pages\/agences-site-internet\/tarifs/);
   assert.match(market, /consulted: "21 octobre 2026"/);
   assert.match(guide, /marketSource\.url/);
-  assert.match(guide, /canonical: "\/optipro\/prix-site-internet"/);
+  assert.match(guide, /canonical: "\/creation-site-internet\/prix"/);
   // Aucun montant écrit en dur dans la page : tout vient de data/market.ts ou de data/offer.ts.
   assert.doesNotMatch(guide, /\d[\d\u202f\u00a0 ]*(?:€|euros)/, "montant en dur dans le guide");
   const offer = readFileSync("src/data/offer.ts", "utf8");
   assert.match(offer, /firstYearMonthly: "1 398 €"/);
   assert.match(offer, /firstYearYearly: "1 280 €"/);
-  assert.match(readFileSync("src/app/sitemap.ts", "utf8"), /\/optipro\/prix-site-internet/);
-  assert.match(readFileSync("src/app/(public)/optipro/page.tsx", "utf8"), /href="\/optipro\/prix-site-internet"/);
-  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /href="\/optipro\/prix-site-internet"/);
+  assert.match(readFileSync("src/app/sitemap.ts", "utf8"), /\/creation-site-internet\/prix/);
+  assert.match(readFileSync("src/app/(public)/creation-site-internet/page.tsx", "utf8"), /href="\/creation-site-internet\/prix"/);
+  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /href="\/creation-site-internet\/prix"/);
 });
 
 test("les conditions de l’abonnement validées par Pierre sont affichées", () => {
@@ -197,12 +197,12 @@ test("les conditions de l’abonnement validées par Pierre sont affichées", ()
     assert.equal(offer.includes(value), true, `condition manquante : ${value}`);
   });
   const card = readFileSync("src/components/offer/OfferCard.tsx", "utf8");
-  assert.match(card, /optipro\.noticePeriod/);
+  assert.match(card, /offer\.noticePeriod/);
   assert.match(card, /Hébergement et domaine/);
-  const faq = readFileSync("src/app/(public)/optipro/page.tsx", "utf8");
+  const faq = readFileSync("src/app/(public)/creation-site-internet/page.tsx", "utf8");
   assert.match(faq, /À qui appartient mon site \?/);
-  assert.match(faq, /optipro\.afterCommitment/);
-  assert.match(readFileSync("src/app/(public)/optipro/prix-site-internet/page.tsx", "utf8"), /optipro\.ownership/);
+  assert.match(faq, /offer\.afterCommitment/);
+  assert.match(readFileSync("src/app/(public)/creation-site-internet/prix/page.tsx", "utf8"), /offer\.ownership/);
 });
 
 test("les preuves affichées sont mesurées, datées ou confirmées par Pierre", () => {
@@ -220,9 +220,9 @@ test("les preuves affichées sont mesurées, datées ou confirmées par Pierre",
   const market = readFileSync("src/data/market.ts", "utf8");
   assert.match(market, /80 % des sites livrés en 3 mois ou moins/);
   assert.match(readFileSync("src/components/offer/Comparison.tsx", "utf8"), /marketSource\.url/);
-  // Le comparatif vit sur /optipro ; l’accueil y renvoie.
-  assert.match(readFileSync("src/app/(public)/optipro/page.tsx", "utf8"), /<Comparison \/>/);
-  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /href="\/optipro#comparatif"/);
+  // Le comparatif vit sur /creation-site-internet ; l’accueil y renvoie.
+  assert.match(readFileSync("src/app/(public)/creation-site-internet/page.tsx", "utf8"), /<Comparison \/>/);
+  assert.match(readFileSync("src/app/(public)/page.tsx", "utf8"), /href="\/creation-site-internet#comparatif"/);
   const home = readFileSync("src/app/(public)/page.tsx", "utf8");
   ["<ProofStrip", "<Deliverables", "<LighthouseProof", "<Guarantees"].forEach((component) => {
     assert.equal(home.includes(component), true, `bloc manquant sur l’accueil : ${component}`);
@@ -239,7 +239,7 @@ test("Qui suis-je présente le créateur de sites, sans le poste salarié actuel
   const about = readFileSync("src/app/(public)/a-propos/page.tsx", "utf8");
   assert.match(about, /experience\.id !== "pharmagreen"/);
   assert.doesNotMatch(about, /href="#pharmagreen"/);
-  assert.match(readFileSync("src/app/(public)/layout.tsx", "utf8"), /jobTitle: "Créateur de sites internet, fondateur d’OptiPro"/);
+  assert.match(readFileSync("src/app/(public)/layout.tsx", "utf8"), /jobTitle: "Créateur de sites internet"/);
 });
 
 test("la barre d’appel fixe n’existe que sur téléphone", () => {
@@ -253,7 +253,7 @@ test("la barre d’appel fixe n’existe que sur téléphone", () => {
 
 test("le site ne prétend pas que Pierre code lui-même ses sites", () => {
   // Les sites et applications sont réalisés avec des outils d’IA (Claude, Codex) : formulation neutre « je conçois et je réalise ».
-  const files = ["src/app/(public)/page.tsx", "src/app/(public)/optipro/page.tsx", "src/app/(public)/optipro/transport/page.tsx", "src/app/(public)/optipro/vence/page.tsx", "src/app/(public)/a-propos/page.tsx", "src/app/(public)/projets/page.tsx", "src/data/system.ts", "src/data/projects.ts", "src/data/offer.ts"];
+  const files = ["src/app/(public)/page.tsx", "src/app/(public)/creation-site-internet/page.tsx", "src/app/(public)/creation-site-internet/transport/page.tsx", "src/app/(public)/creation-site-internet/vence/page.tsx", "src/app/(public)/a-propos/page.tsx", "src/app/(public)/projets/page.tsx", "src/data/system.ts", "src/data/projects.ts", "src/data/offer.ts"];
   const text = files.map((file) => readFileSync(file, "utf8")).join("\n").toLowerCase();
   ["je code", "code moi-même", "développe moi-même", "je développe", "développés de bout en bout", "conçus et développés"].forEach((phrase) => {
     assert.equal(text.includes(phrase), false, `affirmation inexacte : ${phrase}`);
@@ -268,7 +268,7 @@ test("les mentions légales reflètent l’activité et la franchise de TVA", ()
 });
 
 test("aucune donnée ni aucun projet Pharmagreen n’est présenté comme réalisation", () => {
-  ["src/data/projects.ts", "src/data/system.ts", "src/app/(public)/page.tsx", "src/app/(public)/optipro/page.tsx", "src/components/offer/OfferCard.tsx"].forEach((file) => {
+  ["src/data/projects.ts", "src/data/system.ts", "src/app/(public)/page.tsx", "src/app/(public)/creation-site-internet/page.tsx", "src/components/offer/OfferCard.tsx"].forEach((file) => {
     assert.equal(readFileSync(file, "utf8").toLowerCase().includes("pharmagreen"), false, `${file} ne doit pas citer Pharmagreen`);
   });
 });
@@ -417,7 +417,7 @@ test("l’apparition au défilement ne masque jamais le contenu sans script", ()
 });
 
 test("chaque page a son aperçu de partage et l’adresse personnelle reste hors des données structurées", () => {
-  const pages = ["", "optipro/", "optipro/vence/", "optipro/[ville]/", "optipro/transport/", "optipro/prix-site-internet/", "projets/", "a-propos/", "cv/", "contact/", "mentions-legales/", "confidentialite/"];
+  const pages = ["", "creation-site-internet/", "creation-site-internet/vence/", "creation-site-internet/[ville]/", "creation-site-internet/transport/", "creation-site-internet/prix/", "projets/", "a-propos/", "cv/", "contact/", "mentions-legales/", "confidentialite/"];
   pages.forEach((page) => {
     const source = readFileSync(`src/app/(public)/${page}page.tsx`, "utf8");
     assert.match(source, /\.\.\.shareMeta\(/, `aperçu de partage manquant : /${page}`);
@@ -439,7 +439,7 @@ test("Réalisations s’adresse à un prospect : sites d’abord, sans vocabulai
   assert.match(page, /siteOrder = \["ro-nutritionniste", "la-parallaxe", "le-fond-du-sujet", "ideoscope-2027"\]/);
   assert.ok(page.indexOf('id: "sites"') < page.indexOf('id: "applications"'), "les sites passent avant les applications");
   assert.doesNotMatch(page, /project\.technologies|project\.code|j’y explore/);
-  assert.match(page, /href="\/optipro"/);
+  assert.match(page, /href="\/creation-site-internet"/);
 });
 
 test("chaque ville des Alpes-Maritimes a sa page, à contenu propre et sans référence inventée", () => {
@@ -450,7 +450,7 @@ test("chaque ville des Alpes-Maritimes a sa page, à contenu propre et sans réf
   const sentences = [...data.matchAll(/"([^"]{60,})"/g)].map((match) => match[1]);
   assert.equal(new Set(sentences).size, sentences.length, "texte dupliqué entre deux villes");
   // Ni montant, ni preuve inventée, ni déplacement promis : Pierre est installé à Vence.
-  const page = readFileSync("src/app/(public)/optipro/[ville]/page.tsx", "utf8");
+  const page = readFileSync("src/app/(public)/creation-site-internet/[ville]/page.tsx", "utf8");
   const text = `${data}\n${page}`;
   assert.doesNotMatch(text, /\d[\d\u202f\u00a0 ]*(?:€|euros)/, "montant en dur sur une page locale");
   ["témoignage", "clients satisfaits", "aggregaterating", "\"review\"", "★", "je me déplace", "rendez-vous sur place", "je code"].forEach((word) => {
@@ -459,13 +459,13 @@ test("chaque ville des Alpes-Maritimes a sa page, à contenu propre et sans réf
   assert.match(page, /dynamicParams = false/);
   assert.match(page, /canonical: path/);
   assert.match(page, /"@type": "Service"/);
-  assert.match(page, /optiproOfferSchema/);
+  assert.match(page, /offerSchema/);
   // Chaque page est au sitemap, dans les données structurées et reliée depuis le pied de page et la carte.
   assert.match(readFileSync("src/app/sitemap.ts", "utf8"), /zones\.map/);
   assert.match(readFileSync("src/data/offer.ts", "utf8"), /zones\.map\(\(zone\) => \(\{ "@type": "City"/);
-  assert.match(readFileSync("src/components/layout/Footer.tsx", "utf8"), /\/optipro\/\$\{zone\.slug\}/);
-  assert.match(readFileSync("src/components/visuals/ZoneMap.tsx", "utf8"), /\/optipro\/\$\{city\.slug\}/);
-  ["src/app/(public)/page.tsx", "src/app/(public)/optipro/page.tsx", "src/app/(public)/optipro/vence/page.tsx"].forEach((file) => {
+  assert.match(readFileSync("src/components/layout/Footer.tsx", "utf8"), /\/creation-site-internet\/\$\{zone\.slug\}/);
+  assert.match(readFileSync("src/components/visuals/ZoneMap.tsx", "utf8"), /\/creation-site-internet\/\$\{city\.slug\}/);
+  ["src/app/(public)/page.tsx", "src/app/(public)/creation-site-internet/page.tsx", "src/app/(public)/creation-site-internet/vence/page.tsx"].forEach((file) => {
     assert.match(readFileSync(file, "utf8"), /<ZoneMap/, `carte des zones absente : ${file}`);
   });
 });
@@ -482,4 +482,27 @@ test("les effets visuels restent en amélioration progressive", () => {
     const keyframes = [...css.matchAll(/@keyframes \w+ \{(.*)\}/g)].map((match) => match[1]).join(" ");
     assert.doesNotMatch(keyframes, /\b(top|left|width|height|margin|background|filter)\b/, `animation coûteuse : ${file}`);
   });
+});
+
+test("la marque OptiPro a disparu : le site se vend sous le nom de Pierre Laurent", () => {
+  // Décision de Pierre du 12 novembre 2026. Seules exceptions : l’adresse e-mail réelle (@opti-pro.fr),
+  // les redirections des anciens domaines et adresses, et le commentaire qui consigne la décision.
+  const walk = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap((entry) =>
+    entry.isDirectory() ? walk(`${dir}/${entry.name}`) : [`${dir}/${entry.name}`]);
+  const sources = [...walk("src"), ...walk("public")].filter((file) => /\.(tsx?|css|svg|txt|json)$/.test(file));
+  sources.forEach((file) => {
+    const text = readFileSync(file, "utf8")
+      .replaceAll("p.laurent@opti-pro.fr", "")
+      .replace(/^.*La marque OptiPro n’est plus utilisée.*$/m, "");
+    assert.doesNotMatch(text, /opti-?pro/i, `marque résiduelle dans ${file}`);
+  });
+  assert.equal(existsSync("src/app/(public)/optipro"), false, "l’ancien dossier de routes ne doit plus exister");
+  const config = readFileSync("next.config.ts", "utf8");
+  // Les anciennes adresses indexées restent redirigées, la règle précise avant la règle générale.
+  const precise = config.indexOf('source: "/optipro/prix-site-internet", destination: "/creation-site-internet/prix"');
+  const general = config.indexOf('source: "/optipro/:path*", destination: "/creation-site-internet/:path*"');
+  assert.ok(precise > -1 && general > precise, "redirections /optipro manquantes ou mal ordonnées");
+  assert.match(config, /source: "\/optipro", destination: "\/creation-site-internet"/);
+  assert.match(readFileSync("src/data/offer.ts", "utf8"), /name: "Pierre Laurent"/);
+  assert.match(readFileSync("src/app/(public)/layout.tsx", "utf8"), /"@type": "ProfessionalService",[\s\S]{0,120}name: "Pierre Laurent"/);
 });

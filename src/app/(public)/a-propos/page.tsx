@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { careerHighlights, education, experiences, interests, languages, professionalProfile, skillGroups } from "@/data/profile";
 import { portrait } from "@/data/portrait";
-import { optipro } from "@/data/offer";
+import { offer } from "@/data/offer";
 import SystemMap from "@/components/visuals/SystemMap";
 import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
@@ -15,7 +15,7 @@ import { shareMeta } from "@/lib/share-meta";
 const aboutExperiences = experiences.filter((experience) => experience.id !== "pharmagreen");
 
 const metaTitle = "Qui suis-je";
-const metaDescription = `Pierre Laurent, créateur des sites ${optipro.brand} à Vence : dix ans dans les opérations et la logistique, puis la création de sites, d’applications et d’automatisations.`;
+const metaDescription = `Pierre Laurent, créateur de sites internet à Vence : dix ans dans les opérations et la logistique, puis la création de sites, d’applications et d’automatisations.`;
 
 export const metadata: Metadata = {
   title: metaTitle,
@@ -29,12 +29,12 @@ export default function AboutPage() {
     <main id="contenu" tabIndex={-1}>
       <PageHero
         titleId="about-title"
-        kicker={`Qui suis-je, Pierre Laurent, ${optipro.brand}`}
+        kicker="Qui suis-je, Pierre Laurent"
         tone="amber"
         title={<>Celui qui crée votre site <span>connaît le terrain.</span></>}
         actions={
           <>
-            <Link href="/optipro" className="btn btn-primary">Voir l’offre {optipro.brand}</Link>
+            <Link href="/creation-site-internet" className="btn btn-primary">Voir l’offre</Link>
             <Link href="/cv" className="btn btn-ghost">Consulter mon CV</Link>
           </>
         }
@@ -45,7 +45,7 @@ export default function AboutPage() {
           </div>
         }
       >
-        <p>{professionalProfile.summary} La création numérique prolonge cette approche&nbsp;: comprendre un besoin, puis concevoir une solution qui fonctionne. <strong>Sous la marque {optipro.brand}, je crée les sites internet des {optipro.audience} des Alpes-Maritimes.</strong></p>
+        <p>{professionalProfile.summary} La création numérique prolonge cette approche&nbsp;: comprendre un besoin, puis concevoir une solution qui fonctionne. <strong>Je crée les sites internet des {offer.audience} des Alpes-Maritimes.</strong></p>
       </PageHero>
 
       <Section id="systeme" titleId="system-title" tone="cyan" tag="Ce que je relie" title="Du terrain à l’écran, la même personne." alt>

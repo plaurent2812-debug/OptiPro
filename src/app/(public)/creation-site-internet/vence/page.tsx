@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { contact, optipro, optiproOfferSchema } from "@/data/offer";
+import { contact, offer, offerSchema } from "@/data/offer";
 import { safeJsonLd } from "@/lib/json-ld";
 import OfferCard from "@/components/offer/OfferCard";
 import SiteShowcase from "@/components/offer/SiteShowcase";
@@ -11,19 +11,19 @@ import PageHero from "@/components/ui/PageHero";
 import Section from "@/components/ui/Section";
 import CallBlock from "@/components/ui/CallBlock";
 import Icon from "@/components/ui/Icon";
-import styles from "../optipro.module.css";
+import styles from "../offre.module.css";
 import { shareMeta } from "@/lib/share-meta";
 
 // Page de référencement local : recherche « création site internet Vence ».
 // Aucun client, chiffre ni avis : uniquement l’offre (data/offer.ts) et ce qu’un site de commerce ou d’artisan doit montrer.
-const metaTitle = `Création de site internet à Vence (06140) · ${optipro.brand}`;
-const metaDescription = `Création de site internet à Vence pour les commerces, artisans et restaurants : un interlocuteur installé à ${contact.city}, en ligne en ${optipro.deliveryTime}. ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois.`;
+const metaTitle = `Création de site internet à Vence (06140) · ${contact.name}`;
+const metaDescription = `Création de site internet à Vence pour les commerces, artisans et restaurants : un interlocuteur installé à ${contact.city}, en ligne en ${offer.deliveryTime}. ${offer.setupPrice} puis ${offer.monthlyPrice} par mois.`;
 
 export const metadata: Metadata = {
   title: { absolute: metaTitle },
   description: metaDescription,
-  alternates: { canonical: "/optipro/vence" },
-  ...shareMeta(metaTitle, metaDescription, "/optipro/vence"),
+  alternates: { canonical: "/creation-site-internet/vence" },
+  ...shareMeta(metaTitle, metaDescription, "/creation-site-internet/vence"),
 };
 
 // Communes voisines citées sur la page et dans les données structurées.
@@ -42,17 +42,17 @@ const essentials = [
 const steps = [
   { title: "On en parle", copy: "Vous m’appelez ou vous m’écrivez. On fait le point sur votre activité, vos clients et ce que votre site doit leur dire." },
   { title: "Je construis votre site", copy: "Je rédige les textes et je conçois les pages à partir de ce que vous m’avez expliqué. Vous relisez, vous validez." },
-  { title: `En ligne en ${optipro.deliveryTime}`, copy: "Votre site est publié avec son référencement local pour Vence et votre métier, lisible sur ordinateur comme sur téléphone." },
+  { title: `En ligne en ${offer.deliveryTime}`, copy: "Votre site est publié avec son référencement local pour Vence et votre métier, lisible sur ordinateur comme sur téléphone." },
   { title: "Je le tiens à jour", copy: "Horaires d’été, nouvelle carte, fermeture exceptionnelle : une heure de modifications est comprise chaque mois." },
 ];
 
 const faq = [
   { q: "Comment se passent nos échanges ?", a: `Par téléphone et par e-mail. Je suis installé à ${contact.city} : vous avez un interlocuteur du coin, joignable directement au ${contact.phoneDisplay}.` },
   { q: "Je suis à Saint-Paul-de-Vence ou à La Gaude, est-ce la même offre ?", a: `Oui. Mêmes conditions et même prix dans tout le département des ${contact.area}, et ${contact.remoteArea}.` },
-  { q: "Combien coûte un site internet à Vence ?", a: `${optipro.setupPrice} de mise en ligne, payés une seule fois, puis ${optipro.monthlyPrice} par mois ou ${optipro.yearlyPrice} par an, avec un engagement de ${optipro.commitment}. ${optipro.hostingIncluded}. ${optipro.vatNotice}.` },
-  { q: "En combien de temps mon site est-il en ligne ?", a: `En ${optipro.deliveryTime} ${optipro.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
-  { q: "Je change mes horaires ou ma carte selon la saison, qui met le site à jour ?", a: `Moi. ${optipro.includedEdits.charAt(0).toUpperCase()}${optipro.includedEdits.slice(1)} est comprise dans l’abonnement : vous m’appelez ou vous m’écrivez, je m’en occupe. Au-delà, chaque heure supplémentaire est facturée ${optipro.extraHourPrice}.` },
-  { q: "À qui appartiennent le site et le nom de domaine ?", a: `À vous. ${optipro.ownership} ${optipro.afterCommitment}` },
+  { q: "Combien coûte un site internet à Vence ?", a: `${offer.setupPrice} de mise en ligne, payés une seule fois, puis ${offer.monthlyPrice} par mois ou ${offer.yearlyPrice} par an, avec un engagement de ${offer.commitment}. ${offer.hostingIncluded}. ${offer.vatNotice}.` },
+  { q: "En combien de temps mon site est-il en ligne ?", a: `En ${offer.deliveryTime} ${offer.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.` },
+  { q: "Je change mes horaires ou ma carte selon la saison, qui met le site à jour ?", a: `Moi. ${offer.includedEdits.charAt(0).toUpperCase()}${offer.includedEdits.slice(1)} est comprise dans l’abonnement : vous m’appelez ou vous m’écrivez, je m’en occupe. Au-delà, chaque heure supplémentaire est facturée ${offer.extraHourPrice}.` },
+  { q: "À qui appartiennent le site et le nom de domaine ?", a: `À vous. ${offer.ownership} ${offer.afterCommitment}` },
 ];
 
 const jsonLd = {
@@ -60,38 +60,38 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://pierre-laurent.fr/optipro/vence#service",
+      "@id": "https://pierre-laurent.fr/creation-site-internet/vence#service",
       name: "Création de site internet à Vence",
       serviceType: "Création de site internet",
       description: "Conception, mise en ligne et suivi de sites internet pour les commerces, artisans et restaurants de Vence et des communes voisines.",
-      provider: { "@id": "https://pierre-laurent.fr/#optipro" },
+      provider: { "@id": "https://pierre-laurent.fr/#entreprise" },
       areaServed: [
         { "@type": "City", name: "Vence" },
         ...nearby.map((name) => ({ "@type": "City", name })),
         { "@type": "AdministrativeArea", name: contact.area },
       ],
-      url: "https://pierre-laurent.fr/optipro/vence",
-      isRelatedTo: { "@id": "https://pierre-laurent.fr/optipro#service" },
-      offers: optiproOfferSchema,
+      url: "https://pierre-laurent.fr/creation-site-internet/vence",
+      isRelatedTo: { "@id": "https://pierre-laurent.fr/creation-site-internet#service" },
+      offers: offerSchema,
     },
     {
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: optipro.brand, item: "https://pierre-laurent.fr/optipro" },
-        { "@type": "ListItem", position: 2, name: "Vence", item: "https://pierre-laurent.fr/optipro/vence" },
+        { "@type": "ListItem", position: 1, name: "Création de site internet", item: "https://pierre-laurent.fr/creation-site-internet" },
+        { "@type": "ListItem", position: 2, name: "Vence", item: "https://pierre-laurent.fr/creation-site-internet/vence" },
       ],
     },
   ],
 };
 
-export default function OptiProVencePage() {
+export default function VencePage() {
   return (
     <main id="contenu" tabIndex={-1}>
       <script type="application/ld+json">{safeJsonLd(jsonLd)}</script>
 
       <PageHero
         titleId="vence-title"
-        kicker={`${optipro.brand}, création de sites internet à ${contact.city} (06140)`}
+        kicker={`${contact.name}, création de sites internet à ${contact.city} (06140)`}
         tone="green"
         after={<ProofStrip />}
         title={<>Création de site internet à Vence, <span>avec quelqu’un d’ici.</span></>}
@@ -167,8 +167,8 @@ export default function OptiProVencePage() {
         titleId="steps-title"
         tone="cyan"
         tag="Le déroulé"
-        title={`En ligne en ${optipro.deliveryTime}`}
-        lede={`${optipro.deliveryTime} ${optipro.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.`}
+        title={`En ligne en ${offer.deliveryTime}`}
+        lede={`${offer.deliveryTime} ${offer.deliveryNote}, à partir de notre premier échange, une fois vos informations reçues : activité, services, photos si vous en avez.`}
       >
         <ol className={styles.steps}>
           {steps.map((step, index) => (
@@ -200,11 +200,11 @@ export default function OptiProVencePage() {
         tone="green"
         tag="Le tarif"
         title="Un prix affiché, le même pour toute entreprise."
-        lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année, engagement de ${optipro.commitment}.`}
+        lede={`${offer.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année, engagement de ${offer.commitment}.`}
       >
         <OfferCard />
         <p className={styles.sectorLink}>
-          <Link href="/optipro/prix-site-internet" className={styles.textLink}>Comparer avec les prix du marché</Link>
+          <Link href="/creation-site-internet/prix" className={styles.textLink}>Comparer avec les prix du marché</Link>
         </p>
       </Section>
 
@@ -222,7 +222,7 @@ export default function OptiProVencePage() {
           ))}
         </div>
         <p className={styles.sectorLink}>
-          <Link href="/optipro" className={styles.textLink}>Voir le détail de l’offre {optipro.brand}</Link>
+          <Link href="/creation-site-internet" className={styles.textLink}>Voir le détail de l’offre</Link>
         </p>
       </Section>
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { showcaseSites } from "@/data/projects";
 import { portrait } from "@/data/portrait";
-import { contact, optipro } from "@/data/offer";
+import { contact, offer } from "@/data/offer";
 import OfferCard from "@/components/offer/OfferCard";
 import ProofStrip from "@/components/offer/ProofStrip";
 import Deliverables from "@/components/offer/Deliverables";
@@ -20,10 +20,10 @@ import { BrowserFrame, PhoneFrame, StatusPill } from "@/components/ui/Frames";
 import styles from "./home.module.css";
 import { shareMeta } from "@/lib/share-meta";
 
-// Accueil = page de vente OptiPro. Le parcours et le CV restent sur /a-propos et /cv.
-// L’accueil vise Vence et le département ; /optipro le département ; chaque ville a sa page (/optipro/vence, /optipro/nice…).
-const metaTitle = `Création de site internet à Vence (06) · ${optipro.brand}`;
-const metaDescription = `Création de site internet à ${contact.city} et dans les ${contact.area} : ${optipro.setupPrice} puis ${optipro.monthlyPrice} par mois, conçu, mis en ligne et mis à jour pour vous.`;
+// Accueil = page de vente. Le parcours et le CV restent sur /a-propos et /cv.
+// L’accueil vise Vence et le département ; /creation-site-internet le département ; chaque ville a sa page (/creation-site-internet/vence, /creation-site-internet/nice…).
+const metaTitle = `Création de site internet à Vence (06) · ${contact.name}`;
+const metaDescription = `Création de site internet à ${contact.city} et dans les ${contact.area} : ${offer.setupPrice} puis ${offer.monthlyPrice} par mois, conçu, mis en ligne et mis à jour pour vous.`;
 
 export const metadata: Metadata = {
   title: { absolute: metaTitle },
@@ -44,14 +44,14 @@ export default function HomePage() {
     <main id="contenu" tabIndex={-1}>
       <PageHero
         titleId="hero-title"
-        kicker={`${optipro.brand}, sites internet pour les ${optipro.audience} des ${contact.area}`}
+        kicker={`${contact.name}, sites internet pour les ${offer.audience} des ${contact.area}`}
         tone="green"
         // La promesse porte l’accent ; la phrase de recherche reste dans le titre, en retrait.
         title={<><span>Création de site internet à Vence et dans les Alpes-Maritimes.</span> Je m’occupe de tout.</>}
         actions={
           <>
             <a className="btn btn-primary" href={contact.phoneHref}><Icon name="tel" /><span>Appeler le <span className="num">{contact.phoneDisplay}</span></span></a>
-            <Link className="btn btn-ghost" href="/optipro">Voir l’offre et les tarifs</Link>
+            <Link className="btn btn-ghost" href="/creation-site-internet">Voir l’offre et les tarifs</Link>
           </>
         }
         after={
@@ -73,7 +73,7 @@ export default function HomePage() {
           </>
         }
       >
-        <p>Un site rapide, référencé dans votre ville, rédigé pour vous et en ligne en {optipro.deliveryTime}. Ensuite, je le fais vivre chaque mois. <strong>{optipro.setupPrice} de mise en ligne, puis {optipro.monthlyPrice} par mois.</strong></p>
+        <p>Un site rapide, référencé dans votre ville, rédigé pour vous et en ligne en {offer.deliveryTime}. Ensuite, je le fais vivre chaque mois. <strong>{offer.setupPrice} de mise en ligne, puis {offer.monthlyPrice} par mois.</strong></p>
       </PageHero>
 
       <Section
@@ -82,7 +82,7 @@ export default function HomePage() {
         tone="green"
         tag="Ce que vous obtenez"
         title="Tout ce qu’il faut pour être trouvé, puis appelé."
-        lede={`Compris dans la mise en ligne à ${optipro.setupPrice}. Vous gérez votre entreprise, je m’occupe du reste.`}
+        lede={`Compris dans la mise en ligne à ${offer.setupPrice}. Vous gérez votre entreprise, je m’occupe du reste.`}
         alt
       >
         <Deliverables />
@@ -103,14 +103,14 @@ export default function HomePage() {
         id="tarif"
         titleId="offer-title"
         tone="green"
-        tag={`L’offre ${optipro.brand}`}
+        tag="L’offre"
         title="Votre site internet, clé en main, à un prix clair."
-        lede={`${optipro.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Engagement de ${optipro.commitment}, puis sans engagement.`}
+        lede={`${offer.setupPrice} de mise en ligne, payés une seule fois, puis l’abonnement au mois ou à l’année. Engagement de ${offer.commitment}, puis sans engagement.`}
         alt
       >
         <OfferCard />
         <Guarantees compact />
-        <p className={styles.more}><Link href="/optipro">Voir le détail de l’offre et les questions fréquentes</Link><Link href="/optipro#comparatif">Comparer avec une agence</Link><Link href="/optipro/prix-site-internet">Combien coûte un site internet&nbsp;?</Link></p>
+        <p className={styles.more}><Link href="/creation-site-internet">Voir le détail de l’offre et les questions fréquentes</Link><Link href="/creation-site-internet#comparatif">Comparer avec une agence</Link><Link href="/creation-site-internet/prix">Combien coûte un site internet&nbsp;?</Link></p>
       </Section>
 
       <Section
@@ -146,7 +146,7 @@ export default function HomePage() {
           <div className={styles.me}>
             <figure className={styles.portrait}>
               <Image src={portrait.src} alt={portrait.alt} width={portrait.width} height={portrait.height} sizes="(max-width: 759px) 132px, 220px" />
-              <figcaption>Pierre Laurent<span>{optipro.brand}, {contact.city}</span></figcaption>
+              <figcaption>{contact.name}<span>Création de sites internet, {contact.city}</span></figcaption>
             </figure>
             <div>
               <div className={styles.bio}>

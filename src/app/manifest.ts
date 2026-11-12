@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "OptiPro — Création de site internet dans les Alpes-Maritimes",
-    short_name: "OptiPro",
+    name: "Pierre Laurent — Création de site internet dans les Alpes-Maritimes",
+    short_name: "Pierre Laurent",
     description: "Création de sites internet pour les TPE et PME des Alpes-Maritimes, conçus, mis en ligne et mis à jour par Pierre Laurent, à Vence.",
     start_url: "/",
     display: "standalone",
